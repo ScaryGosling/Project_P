@@ -4,15 +4,16 @@ public class PlayerMovement : MonoBehaviour
 {
     RaycastHit raycastHit;
     Ray ray;
-    Vector3 lookDirection;
+    Vector3 lookDirection, input;
     Quaternion newRotation;
     [SerializeField] private float rotationSpeed = 8;
 
     public void Update()
     {
         SetRotation();
+        SetMovement();
     }
-    public void SetRotation() {
+    private void SetRotation() {
 
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -27,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
+    private  void SetMovement()
+    {
+        input = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        transform.position += input * Time.deltaTime * 8;
+    }
 
 }
