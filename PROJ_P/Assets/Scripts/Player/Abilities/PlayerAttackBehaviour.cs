@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttackBehaviour : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerAttackBehaviour : MonoBehaviour
     [SerializeField] private PlayerAttack[] activeAttacks = new PlayerAttack[3];
     private PlayerAttack activeAttack;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private GameObject[] UIAttacks;
+    [SerializeField] private Image mana;
 
     public void Start()
     {
@@ -43,13 +46,27 @@ public class PlayerAttackBehaviour : MonoBehaviour
     }
 
     public void ExecuteAttack() {
-        activeAttack.Execute(spawnPoint);
+
+        if (mana.fillAmount >= activeAttack.GetCastCost() / 100) {
+
+            activeAttack.Execute(spawnPoint);
+            mana.fillAmount -= activeAttack.GetCastCost()/100;
+
+        }
     }
 
     public void SelectAttack(int selectedAttack) {
 
-        if(activeAttacks[selectedAttack])
+        UIAttacks[0].SetActive(false);
+        UIAttacks[1].SetActive(false);
+        UIAttacks[2].SetActive(false);
+
+        if (activeAttacks[selectedAttack]) {
+
             activeAttack = activeAttacks[selectedAttack];
+            UIAttacks[selectedAttack].SetActive(true);
+
+        }
 
     }
 

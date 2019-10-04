@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d1612fd84be4dc6b9a7d2b0030bce3, type: 3}
   m_Name: MonsterAttack
   m_EditorClassIdentifier: 
+  castCost: 5
   dodgeball: {fileID: 6750013541312212612, guid: 216019687de2349e4a9c2dc47bcca20b,
     type: 3}
+  force: 1500
