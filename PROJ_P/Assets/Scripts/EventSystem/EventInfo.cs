@@ -9,9 +9,14 @@ public abstract class EventInfo
 
 public class DebugEvent : EventInfo
 {
-    public int VerbosityLvl;
+
 }
 
+
+public class DeleteBulletEvent : EventInfo
+{
+    //public GameObject Bullet { get; private set; }
+}
 
 #region ListenerDraft
 
