@@ -14,9 +14,13 @@ public class Enemy : StateMachine
     //public LayerMask ignoreLayerMask;
     public GameObject player;
     //public CapsuleCollider capsuleCollider;
-    [SerializeField] private float health;
-   
+    [SerializeField]private float health = 20;
+    public float Health { get; private set; }
 
+    private void Start()
+    {
+        Health = health;
+    }
     // Methods
     protected override void Awake()
     {
@@ -28,10 +32,6 @@ public class Enemy : StateMachine
 
     public void TakeDamage(float damage)
     {
-        health -= damage;    
-    }
-    public float GetHealth()
-    {
-        return health;
+        Health -= damage;    
     }
 }

@@ -19,7 +19,7 @@ public class EnemyBaseState : State
     protected float deathTimer;
     protected float actualDamage;
     protected const float damageDistance = 2.5f;
-    protected float enemyHealth { get { return owner.GetHealth(); } }
+    protected float enemyHealth { get { return owner.Health; } }
     protected Enemy owner;
 
 
