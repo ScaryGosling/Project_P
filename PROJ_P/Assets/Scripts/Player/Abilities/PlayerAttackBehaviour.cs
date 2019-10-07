@@ -55,6 +55,11 @@ public class PlayerAttackBehaviour : MonoBehaviour
         }
     }
 
+    public void IncreaseMana(float mana) {
+
+        this.mana.fillAmount += mana;
+    }
+
     public void SelectAttack(int selectedAttack) {
 
         UIAttacks[0].SetActive(false);
