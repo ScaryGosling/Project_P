@@ -81,7 +81,7 @@ public class EnemyBaseState : State
     {
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         owner.transform.localRotation = rotation;
-        owner.agent.enabled = false;
+        owner.agent.isStopped = true;
     }
 
 
