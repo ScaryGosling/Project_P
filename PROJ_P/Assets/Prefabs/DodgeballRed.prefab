@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 896839397694494859}
   m_Layer: 0
   m_Name: DodgeballRed
-  m_TagString: Untagged
+  m_TagString: Dodgeball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

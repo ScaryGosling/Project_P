@@ -13,9 +13,10 @@ public class DebugEvent : EventInfo
 }
 
 
-public class DeleteBulletEvent : EventInfo
+public class MakeDamageEvent  : EventInfo
 {
-    //public GameObject Bullet { get; private set; }
+    public GameObject Enemy;
+    public float Damage;
 }
 
 #region ListenerDraft

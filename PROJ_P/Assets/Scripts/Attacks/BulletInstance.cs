@@ -7,6 +7,7 @@ public class BulletInstance : MonoBehaviour
 {
     private Vector3 viewportPoint;
     private Camera mainCamera;
+    private float damage;
 
     private void Start()
     {
@@ -33,5 +34,17 @@ public class BulletInstance : MonoBehaviour
             return false;
         }
         return true;
+    }
+    public void SetDamage(float damage)
+    {
+        this.damage = damage;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<Enemy>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

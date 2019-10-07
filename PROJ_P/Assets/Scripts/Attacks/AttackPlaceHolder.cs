@@ -14,6 +14,7 @@ public class AttackPlaceHolder : PlayerAttack
 
         GameObject ball = Instantiate(dodgeball, spawnPoint.position, spawnPoint.rotation);
         ball.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(Vector3.forward) * force);
+        ball.GetComponent<BulletInstance>().SetDamage(damage);
 
 
     }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2161199849938165174}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -139,6 +139,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   player: {fileID: 0}
+  health: 20
 --- !u!1 &2161199850153972063
 GameObject:
   m_ObjectHideFlags: 0

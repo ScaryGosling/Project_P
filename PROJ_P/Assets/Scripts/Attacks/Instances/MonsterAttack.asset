@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MonsterAttack
   m_EditorClassIdentifier: 
   castCost: 5
+  damage: 20
   dodgeball: {fileID: 6750013541312212612, guid: 216019687de2349e4a9c2dc47bcca20b,
     type: 3}
   force: 1500

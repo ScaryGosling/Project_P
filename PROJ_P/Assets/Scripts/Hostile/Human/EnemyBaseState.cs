@@ -19,7 +19,7 @@ public class EnemyBaseState : State
     protected float deathTimer;
     protected float actualDamage;
     protected const float damageDistance = 2.5f;
-    protected float enemyHealth = 100f;
+    protected float enemyHealth { get { return owner.GetHealth(); } }
     protected Enemy owner;
 
 
@@ -31,12 +31,21 @@ public class EnemyBaseState : State
         owner.agent.speed = moveSpeed;
         capsuleCollider = owner.GetComponent<CapsuleCollider>();
     }
+    
 
     public override void InitializeState(StateMachine owner)
     {
         this.owner = (Enemy)owner;
     }
+    public override void ToDo()
+    {
+        if (enemyHealth <= 0 || Input.GetKey(KeyCode.J))
+        {
+            deathTimer = 2f;
+            Die();
+        }
 
+    }
     protected bool LineOfSight()
     {
         bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);

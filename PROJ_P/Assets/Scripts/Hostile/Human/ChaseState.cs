@@ -17,6 +17,7 @@ public class ChaseState : EnemyBaseState
     }
     public override void ToDo()
     {
+        base.ToDo();
         if (owner.player != null)
         {
             distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
@@ -27,11 +28,6 @@ public class ChaseState : EnemyBaseState
                 DamagePlayer(enemyBaseDamage);
             }
 
-            if (enemyHealth <= 0 || Input.GetKey(KeyCode.J))
-            {
-                deathTimer = 2f;
-                Die();
-            }
         }
 
     }

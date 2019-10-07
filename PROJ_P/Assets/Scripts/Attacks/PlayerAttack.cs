@@ -6,6 +6,7 @@ public class PlayerAttack : ScriptableObject
 {
 
     [SerializeField] private float castCost;
+    [SerializeField] protected float damage;
 
     public virtual void Execute(Transform spawnPoint) {
     }

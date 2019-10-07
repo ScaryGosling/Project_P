@@ -12,8 +12,9 @@ public class Enemy : StateMachine
     [HideInInspector] public NavMeshAgent agent;
     public LayerMask visionMask;
     //public LayerMask ignoreLayerMask;
-    public GameObject player; 
+    public GameObject player;
     //public CapsuleCollider capsuleCollider;
+    [SerializeField] private float health;
    
 
     // Methods
@@ -23,5 +24,14 @@ public class Enemy : StateMachine
         agent = GetComponent<NavMeshAgent>();
         
         base.Awake();
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;    
+    }
+    public float GetHealth()
+    {
+        return health;
     }
 }
