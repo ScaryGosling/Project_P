@@ -50,8 +50,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 input;
     private void SetMovement()
     {
-        input = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-        input = input.normalized;
+        input = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
         agent.Move(input * Time.deltaTime * agent.speed);
     }
 

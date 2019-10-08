@@ -12,6 +12,7 @@ public class PlayerAttackBehaviour : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject[] UIAttacks;
     [SerializeField] private Image mana;
+    private int selectedAttack;
 
     public void Start()
     {
@@ -41,8 +42,14 @@ public class PlayerAttackBehaviour : MonoBehaviour
         {
             SelectAttack(2);
         }
-
-
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            SelectAttack((selectedAttack + 1) % activeAttacks.Length);
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            SelectAttack(selectedAttack - 1 < 0 ? selectedAttack + activeAttacks.Length -1 : selectedAttack-1);
+        }
     }
 
     public void ExecuteAttack() {
@@ -70,6 +77,7 @@ public class PlayerAttackBehaviour : MonoBehaviour
 
             activeAttack = activeAttacks[selectedAttack];
             UIAttacks[selectedAttack].SetActive(true);
+            this.selectedAttack = selectedAttack;
 
         }
 
