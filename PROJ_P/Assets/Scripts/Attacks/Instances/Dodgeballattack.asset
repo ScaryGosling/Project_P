@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9b28d9c8cdf4f51ae9375948f071d6, type: 3}
   m_Name: Dodgeballattack
   m_EditorClassIdentifier: 
-  castCost: 1
-  damage: 10
+  castCost: 0
+  damage: 5
+  AttackImage: {fileID: 21300000, guid: cdb22bc1ddd92db43a571c8fc6147cde, type: 3}
   dodgeball: {fileID: 6750013541312212612, guid: 496018193e878472eaa24ee9549d5bd7,
     type: 3}
   force: 1500

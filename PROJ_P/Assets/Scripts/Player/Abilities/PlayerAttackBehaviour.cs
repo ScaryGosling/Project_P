@@ -13,6 +13,7 @@ public class PlayerAttackBehaviour : MonoBehaviour
     [SerializeField] private GameObject[] UIAttacks;
     [SerializeField] private Image mana;
     private int selectedAttack;
+    [SerializeField] private Image[] attackUISpot;
 
     public void Start()
     {
@@ -21,6 +22,10 @@ public class PlayerAttackBehaviour : MonoBehaviour
 
     public void CacheComponents() {
         activeAttack = activeAttacks[0];
+        for (int i = 0; i < attackUISpot.Length; i++)
+        {
+            attackUISpot[i].sprite = activeAttacks[i].GetImage();
+        }
     }
 
     public void Update() {
@@ -62,22 +67,24 @@ public class PlayerAttackBehaviour : MonoBehaviour
         }
     }
 
-    public void IncreaseMana(float mana) {
+    public void IncreaseMana(float mana)
+    {
 
         this.mana.fillAmount += mana;
     }
 
-    public void SelectAttack(int selectedAttack) {
+    public void SelectAttack(int selectedAttack)
+    {
 
-        foreach (var item in UIAttacks)
+        foreach (var item in attackUISpot)
         {
-            item.SetActive(false);
+            item.color = new Color32(0, 0, 0, 100);
         }
 
         if (activeAttacks[selectedAttack]) {
 
             activeAttack = activeAttacks[selectedAttack];
-            UIAttacks[selectedAttack].SetActive(true);
+            attackUISpot[selectedAttack].color = new Color32(255,255,255,255);
             this.selectedAttack = selectedAttack;
 
         }
