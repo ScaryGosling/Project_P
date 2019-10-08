@@ -69,9 +69,10 @@ public class PlayerAttackBehaviour : MonoBehaviour
 
     public void SelectAttack(int selectedAttack) {
 
-        UIAttacks[0].SetActive(false);
-        UIAttacks[1].SetActive(false);
-        UIAttacks[2].SetActive(false);
+        foreach (var item in UIAttacks)
+        {
+            item.SetActive(false);
+        }
 
         if (activeAttacks[selectedAttack]) {
 
