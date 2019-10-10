@@ -9,8 +9,11 @@ public class AttackPlaceHolder : PlayerAttack
     [SerializeField] private GameObject dodgeball;
     [SerializeField] private float force;
 
-    public override void Execute(Transform spawnPoint)
+    public override void Execute()
     {
+        base.Execute();
+
+        Transform spawnPoint = Player.instance.GetSpawnPoint();
 
         GameObject ball = Instantiate(dodgeball, spawnPoint.position, spawnPoint.rotation);
         ball.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(Vector3.forward) * force);

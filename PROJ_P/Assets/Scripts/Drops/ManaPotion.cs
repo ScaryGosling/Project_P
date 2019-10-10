@@ -12,7 +12,7 @@ public class ManaPotion : MonoBehaviour
     {
  
         if (other.gameObject.CompareTag("Player")) {
-            other.GetComponent<PlayerAttackBehaviour>().IncreaseMana(mana / 100);
+            //Access resource and increase it
             Destroy(gameObject);
         }
     }

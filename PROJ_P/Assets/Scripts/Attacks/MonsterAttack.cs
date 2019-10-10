@@ -9,9 +9,11 @@ public class MonsterAttack : PlayerAttack
     [SerializeField] private GameObject dodgeball;
     [SerializeField] private float force;
 
-    public override void Execute(Transform spawnPoint)
+    public override void Execute()
     {
+        base.Execute();
 
+        Transform spawnPoint = Player.instance.GetSpawnPoint();
 
         GameObject ball1 = Instantiate(dodgeball, spawnPoint.position, spawnPoint.rotation);
         ball1.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(new Vector3(0, 0, 1)) * force);

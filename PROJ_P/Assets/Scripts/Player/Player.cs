@@ -3,29 +3,66 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerAttackBehaviour : MonoBehaviour
+public class Player : MonoBehaviour
 {
 
-    private List<PlayerAttack> playerAttacks = new List<PlayerAttack>();
+    public static Player instance;
+
+    [Header("Attacks")]
     [SerializeField] private PlayerAttack[] activeAttacks = new PlayerAttack[3];
+    private List<PlayerAttack> playerAttacks = new List<PlayerAttack>();
     private PlayerAttack activeAttack;
-    [SerializeField] private Transform spawnPoint;
-    [SerializeField] private GameObject[] UIAttacks;
-    [SerializeField] private Image mana;
     private int selectedAttack;
+
+    [Header("UI elements")]
     [SerializeField] private Image[] attackUISpot;
+
+    [Header("Attributes")]
+    [SerializeField] private Image resourceImage;
+    [SerializeField] private Transform spawnPoint;
+    public Resource Resource { get; private set; }
+    public PlayerClass playerClass;
+
+
+    public delegate void Attack();
+    public static event Attack AttackEvent;
+
+    public Transform GetSpawnPoint() { return spawnPoint; }
 
     public void Start()
     {
         CacheComponents();
     }
 
+    public void SetResource() {
+
+        switch (playerClass) {
+
+            case PlayerClass.WIZARD:
+                Resource = new Mana();
+                break;
+
+            case PlayerClass.WARRIOR:
+                Resource = new Rage();
+                break;
+
+            default:
+                throw new System.Exception("Error when setting resource");
+                break;
+
+        }
+    }
+
     public void CacheComponents() {
-        activeAttack = activeAttacks[0];
+        
         for (int i = 0; i < attackUISpot.Length; i++)
         {
             attackUISpot[i].sprite = activeAttacks[i].GetImage();
         }
+        SelectAttack(0);
+        instance = this;
+        SetResource();
+        Resource.CacheComponents(resourceImage);
     }
 
     public void Update() {
@@ -59,19 +96,25 @@ public class PlayerAttackBehaviour : MonoBehaviour
 
     public void ExecuteAttack() {
 
-        if (mana.fillAmount >= activeAttack.GetCastCost() / 100) {
+        if (Resource.Value >= activeAttack.GetCastCost() / 100) {
 
-            activeAttack.Execute(spawnPoint);
-            mana.fillAmount -= activeAttack.GetCastCost()/100;
+            AttackEvent();
 
         }
     }
 
-    public void IncreaseMana(float mana)
-    {
 
-        this.mana.fillAmount += mana;
+    public void SubscribeToAttackEvent() {
+
+        foreach (PlayerAttack attack in activeAttacks) {
+
+            AttackEvent -= attack.Execute;
+        }
+
+        AttackEvent += activeAttack.Execute;
+
     }
+    
 
     public void SelectAttack(int selectedAttack)
     {
@@ -89,8 +132,17 @@ public class PlayerAttackBehaviour : MonoBehaviour
 
         }
 
+        SubscribeToAttackEvent();
+
     }
 
 
+
+}
+
+
+public enum PlayerClass {
+
+    WIZARD, WARRIOR
 
 }

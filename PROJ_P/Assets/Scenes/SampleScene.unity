@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 339334382}
   - component: {fileID: 339334381}
   m_Layer: 5
-  m_Name: Mana
+  m_Name: Mana/Rage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -955,16 +955,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec813d1768218493d9de78fdfda09057, type: 2}
   - {fileID: 11400000, guid: 4e8a59819a59a48ceb0cfefe0d89d5c8, type: 2}
   - {fileID: 11400000, guid: 7c195929347df430caf6fc2aa59bc688, type: 2}
-  spawnPoint: {fileID: 1460753894}
-  UIAttacks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mana: {fileID: 1573730895}
   attackUISpot:
   - {fileID: 422695191}
   - {fileID: 1100320487}
   - {fileID: 546755965}
+  resourceImage: {fileID: 1573730895}
+  spawnPoint: {fileID: 1460753894}
+  playerClass: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
