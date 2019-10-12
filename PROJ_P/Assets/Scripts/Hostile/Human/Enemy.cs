@@ -14,7 +14,7 @@ public class Enemy : StateMachine
     //public LayerMask ignoreLayerMask;
     public GameObject player;
     //public CapsuleCollider capsuleCollider;
-    [SerializeField]private float health = 20;
+    [SerializeField] private float health = 20;
     public float Health { get; private set; }
 
     private void Start()
@@ -26,7 +26,9 @@ public class Enemy : StateMachine
     {
         Renderer = GetComponent<MeshRenderer>();
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player");
         
+
         base.Awake();
     }
 

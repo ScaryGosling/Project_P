@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [RequireComponent(typeof(CapsuleCollider))]
 public class EnemyBaseState : State
 {
@@ -21,6 +22,9 @@ public class EnemyBaseState : State
     protected const float damageDistance = 2.5f;
     protected float enemyHealth { get { return owner.Health; } }
     protected Enemy owner;
+    private UnitDeath death;
+    private bool alive = true;
+
 
 
     // Methods
@@ -30,8 +34,9 @@ public class EnemyBaseState : State
         owner.Renderer.material = material;
         owner.agent.speed = moveSpeed;
         capsuleCollider = owner.GetComponent<CapsuleCollider>();
+
     }
-    
+
 
     public override void InitializeState(StateMachine owner)
     {
@@ -39,11 +44,20 @@ public class EnemyBaseState : State
     }
     public override void ToDo()
     {
-        if (enemyHealth <= 0 || Input.GetKey(KeyCode.J))
+
+        if (enemyHealth <= 0)
         {
+            if (alive)
+            {
+                death = new UnitDeath();
+                death.eventDescription = "Unit Died";
+                EventSystem.Current.FireEvent(death);
+                Debug.Log("unitDead");
+            }
             deathTimer = 2f;
             Die();
         }
+
 
     }
     protected bool LineOfSight()
@@ -60,14 +74,20 @@ public class EnemyBaseState : State
 
     protected void DamagePlayer(float val)
     {
-        actualDamage = Mathf.Floor(Random.Range(enemyBaseDamage, enemyBaseDamage * 1.5f));
-        Debug.Log("Damage dealt: " + actualDamage);
+        //actualDamage = Mathf.Floor(Random.Range(enemyBaseDamage, enemyBaseDamage * 1.5f));
+        owner.player.GetComponent<Player>().healthProp -= 0.5f;
+        
+        Debug.Log("Current Health: " + owner.player.GetComponent<Player>().healthProp);
+        //Debug.Log("Damage dealt: " + actualDamage);
     }
 
     protected void Die()
     {
         DeathAnimation();
+        owner.agent.isStopped = true;
+        owner.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         Destroy(owner.gameObject, deathTimer);
+
     }
 
     protected float DotMethod()
@@ -81,11 +101,11 @@ public class EnemyBaseState : State
     {
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         owner.transform.localRotation = rotation;
-        owner.agent.isStopped = true;
+        alive = false;
     }
 
 
-    
+
 }
 #region EnemyBaseLegacy
 // lightTreshold = owner.LightThreshold;

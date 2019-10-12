@@ -12,6 +12,17 @@ public class DebugEvent : EventInfo
 
 }
 
+public class UnitSpawnEvent : EventInfo
+{
+    public GameObject Enemy;
+    //public int ID;
+}
+
+public class UnitDeath : EventInfo
+{
+    public GameObject Enemy;
+}
+
 
 public class MakeDamageEvent  : EventInfo
 {

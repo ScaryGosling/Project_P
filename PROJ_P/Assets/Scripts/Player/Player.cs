@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -22,7 +23,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
-
+    private float tempHP = 100f;
+    public float healthProp { get { return tempHP; } set { tempHP = value;  } }
+    
 
     public delegate void Attack();
     public static event Attack AttackEvent;
@@ -52,6 +55,8 @@ public class Player : MonoBehaviour
 
         }
     }
+
+
 
     public void CacheComponents() {
         
@@ -91,6 +96,11 @@ public class Player : MonoBehaviour
         else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             SelectAttack(selectedAttack - 1 < 0 ? selectedAttack + activeAttacks.Length -1 : selectedAttack-1);
+        }
+
+        if(tempHP <= 0)
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 
