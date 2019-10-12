@@ -15,11 +15,11 @@ public class Enemy : StateMachine
     public GameObject player;
     //public CapsuleCollider capsuleCollider;
     [SerializeField] private float health = 20;
-    public float Health { get; private set; }
+    public float Health { get { return health;  } set { health = value; } }
 
     private void Start()
     {
-        Health = health;
+        //Health = health;
     }
     // Methods
     protected override void Awake()

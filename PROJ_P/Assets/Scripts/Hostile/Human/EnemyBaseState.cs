@@ -11,19 +11,24 @@ public class EnemyBaseState : State
     // Attributes
     [SerializeField] protected Material material;
     [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float enemyHealth { get { return owner.Health; }  }
+    [SerializeField] private float hp = 100f;
+    [SerializeField] private Vector3 scale;
+    [SerializeField] private bool specialDeath;
     private CapsuleCollider capsuleCollider;
     private Vector3 heading;
     private float dotProduct;
     private const float rotationalSpeed = 0.035f;
 
-    protected const float enemyBaseDamage = 5f;
+    [SerializeField] protected float enemyBaseDamage = 0.5f;
     protected float deathTimer;
     protected float actualDamage;
     protected const float damageDistance = 2.5f;
-    protected float enemyHealth { get { return owner.Health; } }
     protected Enemy owner;
     private UnitDeath death;
     private bool alive = true;
+    protected float distanceToPlayer;
+    
 
 
 
@@ -33,6 +38,8 @@ public class EnemyBaseState : State
         base.EnterState();
         owner.Renderer.material = material;
         owner.agent.speed = moveSpeed;
+        owner.Health = hp;
+        owner.transform.localScale = scale;
         capsuleCollider = owner.GetComponent<CapsuleCollider>();
 
     }
@@ -75,20 +82,18 @@ public class EnemyBaseState : State
     protected void DamagePlayer(float val)
     {
         //actualDamage = Mathf.Floor(Random.Range(enemyBaseDamage, enemyBaseDamage * 1.5f));
-        owner.player.GetComponent<Player>().healthProp -= 0.5f;
-        
+        owner.player.GetComponent<Player>().healthProp -= enemyBaseDamage;
+
         Debug.Log("Current Health: " + owner.player.GetComponent<Player>().healthProp);
         //Debug.Log("Damage dealt: " + actualDamage);
     }
 
-    protected void Die()
+    protected void Chase()
     {
-        DeathAnimation();
-        owner.agent.isStopped = true;
-        owner.gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        Destroy(owner.gameObject, deathTimer);
-
+        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
+        owner.agent.SetDestination(owner.player.transform.position);
     }
+
 
     protected float DotMethod()
     {
@@ -97,11 +102,29 @@ public class EnemyBaseState : State
         return dotProduct;
     }
 
+    protected virtual void Die()
+    {
+        DeathAnimation();
+        owner.agent.isStopped = true;
+        owner.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        Destroy(owner.gameObject, deathTimer);
+
+    }
     protected void DeathAnimation()
     {
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         owner.transform.localRotation = rotation;
         alive = false;
+        float startTIme = 2;
+
+        if (specialDeath)
+        {
+            while(startTIme > 0)
+            {
+            owner.transform.localScale = (owner.transform.localScale * 1.00003f);
+            startTIme -= Time.deltaTime;
+            }
+        }
     }
 
 

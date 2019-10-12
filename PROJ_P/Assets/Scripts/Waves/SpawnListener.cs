@@ -14,6 +14,10 @@ public class SpawnListener : MonoBehaviour
     //public int mappedUnits { get; set; }
     #endregion
 
+
+    //enum UnitType { TYPE_00, TYPE_01, TYPE_02 }
+    //UnitType currentType;
+    private int currentType;
     private const float pauseTime = 10f;
     private const float spawnTime = 1f;
     private int expected = 10;
@@ -22,30 +26,31 @@ public class SpawnListener : MonoBehaviour
     private int waveIndex = 1;
     [SerializeField] private bool debugMode;
     [SerializeField] private GameObject[] spawns;
-    [SerializeField] private GameObject unitPrefab;
+    [SerializeField] private GameObject[] UnitPrefabs;
+    private GameObject absoluteUnit;
+
 
     private void Start()
     {
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
-        if(!debugMode)
-        StartCoroutine(Spawner());
-
+        if (!debugMode)
+            StartCoroutine(Spawner());
+        //absoluteUnit = UnitPrefabs[0];
+        //UnitController();
     }
 
     private void UnitDeath(UnitDeath death)
     {
-            unitsKilled += 1;
+        unitsKilled += 1;
     }
 
     private void ResetWave()
     {
         spawned = 0;
         unitsKilled = 0;
-        expected = (int) Mathf.Floor(expected * 1.4f);
+        expected = (int)Mathf.Floor(expected * 1.4f);
         waveIndex++;
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
-     
-
     }
 
 
@@ -57,6 +62,42 @@ public class SpawnListener : MonoBehaviour
             return pauseTime;
         }
         return spawnTime / 2;
+    }
+
+    private void UnitController()
+    {
+        CheckUnitType();
+
+        switch (currentType)
+        {
+            case 0:
+                absoluteUnit = UnitPrefabs[currentType].gameObject;
+                break;
+            case 1:
+                absoluteUnit = UnitPrefabs[currentType].gameObject;
+                break;
+            case 2:
+                absoluteUnit = UnitPrefabs[currentType].gameObject;
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void CheckUnitType()
+    {
+        if (waveIndex % 2 == 0 && spawned % 3 == 0)
+        {
+            currentType = 1;
+        }else if(waveIndex % 3 == 0 && spawned % 5 == 0)
+        {
+            currentType = 2;
+        }  else
+        {
+            currentType = 0;
+        }
+
+       
     }
 
 
@@ -71,7 +112,8 @@ public class SpawnListener : MonoBehaviour
                 time = 1f;
                 foreach (GameObject spawnObject in spawns)
                 {
-                    Instantiate(unitPrefab, spawnObject.transform.position, Quaternion.identity);
+                    UnitController();
+                    Instantiate(absoluteUnit, spawnObject.transform.position, Quaternion.identity);
                     spawned++;
                     yield return new WaitForSeconds(time);
                 }
@@ -82,14 +124,7 @@ public class SpawnListener : MonoBehaviour
                 yield return new WaitForSeconds(time);
             }
         }
-
-
     }
 
 }
 
-
-enum UnitType
-{
-    TYPE_00, TYPE_01, TYPE_02
-}

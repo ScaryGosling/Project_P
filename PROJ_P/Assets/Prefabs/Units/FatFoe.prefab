@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2161199849938165177}
   - component: {fileID: 2161199849938165174}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: FatFoe
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - {fileID: 11400000, guid: e9afde546421d0f41a7acf3bfcda0600, type: 2}
+  - {fileID: 11400000, guid: 994c1599444bf6946a74a7c6b9864a77, type: 2}
   currentState: {fileID: 0}
   Renderer: {fileID: 0}
   agent: {fileID: 0}

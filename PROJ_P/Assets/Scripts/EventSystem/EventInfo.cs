@@ -21,6 +21,7 @@ public class UnitSpawnEvent : EventInfo
 public class UnitDeath : EventInfo
 {
     public GameObject Enemy;
+    public float value; 
 }
 
 

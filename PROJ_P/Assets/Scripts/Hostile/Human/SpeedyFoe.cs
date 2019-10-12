@@ -5,11 +5,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/ChaseState")]
-public class ChaseState : EnemyBaseState
+[CreateAssetMenu(menuName = "Enemy/SpeedyFoe")]
+public class SpeedyFoe : EnemyBaseState
 {
-    private float distanceToPlayer;
-
 
     public override void EnterState()
     {
@@ -20,8 +18,7 @@ public class ChaseState : EnemyBaseState
         base.ToDo();
         if (owner.player != null)
         {
-            distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
-            owner.agent.SetDestination(owner.player.transform.position);
+            Chase();
 
             if (distanceToPlayer < damageDistance && LineOfSight())
             {
