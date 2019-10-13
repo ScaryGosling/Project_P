@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Author: Emil Dahl
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,9 +25,11 @@ public class SpawnListener : MonoBehaviour
     private int spawned = 0;
     private int unitsKilled = 0;
     private int waveIndex = 1;
+    [SerializeField] private float chanceOfDrop = 0.25f;
     [SerializeField] private bool debugMode;
     [SerializeField] private GameObject[] spawns;
     [SerializeField] private GameObject[] UnitPrefabs;
+    [SerializeField]private GameObject[] pickUp;
     private GameObject absoluteUnit;
 
 
@@ -42,13 +45,25 @@ public class SpawnListener : MonoBehaviour
     private void UnitDeath(UnitDeath death)
     {
         unitsKilled += 1;
+        CheckForDrop(death.enemyObject.transform.position);
+    }
+
+    private void CheckForDrop(Vector3 location)
+    {
+       float temp = Random.Range(0f, 1f);
+        if (temp <= chanceOfDrop)
+        {
+            GameObject newPotion = pickUp[0];
+            Instantiate(newPotion, new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
+        }
+
     }
 
     private void ResetWave()
     {
         spawned = 0;
         unitsKilled = 0;
-        expected = (int)Mathf.Floor(expected * 1.4f);
+        expected = (int)Mathf.Floor(expected * 1.20f);
         waveIndex++;
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
     }
@@ -89,15 +104,17 @@ public class SpawnListener : MonoBehaviour
         if (waveIndex % 2 == 0 && spawned % 3 == 0)
         {
             currentType = 1;
-        }else if(waveIndex % 3 == 0 && spawned % 5 == 0)
+        }
+        else if (waveIndex % 3 == 0 && spawned % 5 == 0)
         {
             currentType = 2;
-        }  else
+        }
+        else
         {
             currentType = 0;
         }
 
-       
+
     }
 
 

@@ -58,6 +58,7 @@ public class EnemyBaseState : State
             {
                 death = new UnitDeath();
                 death.eventDescription = "Unit Died";
+                death.enemyObject = owner.gameObject;
                 EventSystem.Current.FireEvent(death);
                 Debug.Log("unitDead");
             }

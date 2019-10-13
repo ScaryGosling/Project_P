@@ -14,14 +14,19 @@ public class DebugEvent : EventInfo
 
 public class UnitSpawnEvent : EventInfo
 {
-    public GameObject Enemy;
+    public GameObject enemyObject;
     //public int ID;
 }
 
 public class UnitDeath : EventInfo
 {
-    public GameObject Enemy;
+    public GameObject enemyObject;
     public float value; 
+}
+
+public class GiveResource : EventInfo
+{
+    public float fillAmount;
 }
 
 

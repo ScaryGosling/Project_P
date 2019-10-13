@@ -1381,6 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2a4a954b402804282bd51684759b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chanceOfDrop: 0.15
   debugMode: 0
   spawns:
   - {fileID: 1557883047}
@@ -1390,6 +1391,8 @@ MonoBehaviour:
   - {fileID: 2161199849938165175, guid: ce397d58d6d392340afeceef3d2f7264, type: 3}
   - {fileID: 2161199849938165175, guid: 3c684952cac416a409b96bcb2d0dbdf9, type: 3}
   - {fileID: 2161199849938165175, guid: adf702a3fd72d134d8530eac42be94ee, type: 3}
+  pickUp:
+  - {fileID: 6863321986751247268, guid: a3e18c89ebff883499631c141faaa5bf, type: 3}
 --- !u!114 &1158316311
 MonoBehaviour:
   m_ObjectHideFlags: 0

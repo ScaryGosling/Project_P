@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     public void Start()
     {
         CacheComponents();
+        EventSystem.Current.RegisterListener<GiveResource>(Refill);
     }
 
     public void SetResource() {
@@ -54,6 +55,11 @@ public class Player : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void Refill(GiveResource res)
+    {
+        Resource.IncreaseResource(res.fillAmount);
     }
 
 
