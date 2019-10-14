@@ -16,7 +16,13 @@ public class MeleeHack : PlayerAttack
         animation.Play("Slash");
     }
 
-   
+    public override void OnEquip()
+    {
+        base.OnEquip();
+        Player.instance.weapon.GetComponent<Sword>().SetDamage(damage);
+    }
+
+
 
 
 }

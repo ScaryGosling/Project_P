@@ -85,8 +85,6 @@ public class EnemyBaseState : State
         //actualDamage = Mathf.Floor(Random.Range(enemyBaseDamage, enemyBaseDamage * 1.5f));
         owner.player.GetComponent<Player>().healthProp -= enemyBaseDamage;
 
-        Debug.Log("Current Health: " + owner.player.GetComponent<Player>().healthProp);
-        //Debug.Log("Damage dealt: " + actualDamage);
     }
 
     protected void Chase()

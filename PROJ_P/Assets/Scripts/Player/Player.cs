@@ -74,13 +74,13 @@ public class Player : MonoBehaviour
 
     public void CacheComponents() {
         
+        instance = this;
         SetupClass();
         for (int i = 0; i < attackUISpot.Length; i++)
         {
             attackUISpot[i].sprite = attackSet.list[i].GetImage();
         }
         SelectAttack(0);
-        instance = this;
         Resource.CacheComponents(resourceImage);
     }
 
@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
             activeAttack = attackSet.list[selectedAttack];
             attackUISpot[selectedAttack].color = new Color32(255,255,255,255);
             this.selectedAttack = selectedAttack;
-
+            activeAttack.OnEquip();
         }
 
         SubscribeToAttackEvent();
