@@ -18,17 +18,24 @@ public class Player : MonoBehaviour
     private PlayerAttack activeAttack;
     private int selectedAttack;
     public GameObject weapon;
+    public GameObject attackBox;
 
     [Header("UI elements")]
     [SerializeField] private Image[] attackUISpot;
 
     [Header("Attributes")]
+    [SerializeField] private Image health;
     [SerializeField] private Image resourceImage;
     [SerializeField] private Transform spawnPoint;
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
     private float tempHP = 100f;
-    public float healthProp { get { return tempHP; } set { tempHP = value;  } }
+    public float healthProp {
+        get { return tempHP; }
+        set { tempHP = value;
+            health.fillAmount = value / 100;
+        }
+    }
     
 
     public delegate void Attack();

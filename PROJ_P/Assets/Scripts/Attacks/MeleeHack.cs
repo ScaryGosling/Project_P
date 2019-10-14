@@ -8,19 +8,22 @@ public class MeleeHack : PlayerAttack
 
     public AnimationClip slash;
     private Animation animation;
+    private Sword attackBox;
+
 
     public override void Execute()
     {
         base.Execute();
         animation.AddClip(slash, "Slash");
         animation.Play("Slash");
+        attackBox.DamageEnemies(damage);
     }
 
     public override void OnEquip()
     {
         base.OnEquip();
         Player player = Player.instance;
-        player.weapon.GetComponent<Sword>().SetDamage(damage);
+        attackBox = player.attackBox.GetComponent<Sword>();
         animation = player.weapon.GetComponent<Animation>();
 
     }
