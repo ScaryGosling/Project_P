@@ -26,7 +26,9 @@ public class UnitDeath : EventInfo
 
 public class GiveResource : EventInfo
 {
+    public enum Res { Mana, Health, Rage }
     public float fillAmount;
+    public Res res;
 }
 
 
@@ -35,6 +37,7 @@ public class MakeDamageEvent  : EventInfo
     public GameObject Enemy;
     public float Damage;
 }
+
 
 #region ListenerDraft
 
