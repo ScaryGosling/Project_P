@@ -26,7 +26,7 @@ public class EnemyBaseState : State
     protected const float damageDistance = 2.5f;
     protected Enemy owner;
     private UnitDeath death;
-    private bool alive = true;
+    protected bool alive = true;
     protected float distanceToPlayer;
     
 
@@ -49,6 +49,7 @@ public class EnemyBaseState : State
     {
         this.owner = (Enemy)owner;
     }
+
     public override void ToDo()
     {
 
@@ -68,7 +69,15 @@ public class EnemyBaseState : State
 
 
     }
-    protected bool LineOfSight()
+    protected void checkForDamage()
+    {
+        if (distanceToPlayer < damageDistance && LineOfSight() && alive)
+        {
+            DamagePlayer(enemyBaseDamage);
+        }
+    }
+
+protected bool LineOfSight()
     {
         bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);
         if (lineCast)
@@ -105,7 +114,7 @@ public class EnemyBaseState : State
     {
         DeathAnimation();
         owner.agent.isStopped = true;
-        owner.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        capsuleCollider.enabled = false;
         Destroy(owner.gameObject, deathTimer);
 
     }

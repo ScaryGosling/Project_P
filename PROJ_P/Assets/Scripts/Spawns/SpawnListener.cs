@@ -118,7 +118,6 @@ public class SpawnListener : MonoBehaviour
 
     }
 
-
     IEnumerator Spawner()
     {
         while (true)
