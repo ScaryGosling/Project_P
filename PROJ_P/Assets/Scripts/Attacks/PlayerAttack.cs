@@ -23,6 +23,11 @@ public class PlayerAttack : ScriptableObject
         return AttackImage;
     }
 
+    public virtual void OnEquip() {
+
+
+    }
+
     
 
 }

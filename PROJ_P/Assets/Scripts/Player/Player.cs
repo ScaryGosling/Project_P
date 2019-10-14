@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,10 +11,13 @@ public class Player : MonoBehaviour
     public static Player instance;
 
     [Header("Attacks")]
-    [SerializeField] private PlayerAttack[] activeAttacks = new PlayerAttack[3];
     private List<PlayerAttack> playerAttacks = new List<PlayerAttack>();
+
+    public ClassAttackList attackSets = new ClassAttackList();
+    private AttackSet attackSet;
     private PlayerAttack activeAttack;
     private int selectedAttack;
+    public GameObject weapon;
 
     [Header("UI elements")]
     [SerializeField] private Image[] attackUISpot;
@@ -32,27 +36,31 @@ public class Player : MonoBehaviour
 
     public Transform GetSpawnPoint() { return spawnPoint; }
 
+   
+
     public void Start()
     {
         CacheComponents();
         EventSystem.Current.RegisterListener<GiveResource>(Refill);
     }
 
-    public void SetResource() {
+    public void SetupClass() {
 
         switch (playerClass) {
 
             case PlayerClass.WIZARD:
                 Resource = new Mana();
+                attackSet = attackSets.Get(PlayerClass.WIZARD);
                 break;
 
             case PlayerClass.WARRIOR:
                 Resource = new Rage();
+                attackSet = attackSets.Get(PlayerClass.WARRIOR);
                 break;
 
             default:
                 throw new System.Exception("Error when setting resource");
-                break;
+                
 
         }
     }
@@ -66,13 +74,13 @@ public class Player : MonoBehaviour
 
     public void CacheComponents() {
         
+        SetupClass();
         for (int i = 0; i < attackUISpot.Length; i++)
         {
-            attackUISpot[i].sprite = activeAttacks[i].GetImage();
+            attackUISpot[i].sprite = attackSet.list[i].GetImage();
         }
         SelectAttack(0);
         instance = this;
-        SetResource();
         Resource.CacheComponents(resourceImage);
     }
 
@@ -97,11 +105,11 @@ public class Player : MonoBehaviour
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            SelectAttack((selectedAttack + 1) % activeAttacks.Length);
+            SelectAttack((selectedAttack + 1) % attackSet.list.Length);
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            SelectAttack(selectedAttack - 1 < 0 ? selectedAttack + activeAttacks.Length -1 : selectedAttack-1);
+            SelectAttack(selectedAttack - 1 < 0 ? selectedAttack + attackSet.list.Length -1 : selectedAttack-1);
         }
 
         if(tempHP <= 0)
@@ -123,7 +131,7 @@ public class Player : MonoBehaviour
 
     public void SubscribeToAttackEvent() {
 
-        foreach (PlayerAttack attack in activeAttacks) {
+        foreach (PlayerAttack attack in attackSet.list) {
 
             AttackEvent -= attack.Execute;
         }
@@ -141,9 +149,9 @@ public class Player : MonoBehaviour
             item.color = new Color32(0, 0, 0, 100);
         }
 
-        if (activeAttacks[selectedAttack]) {
+        if (attackSet.list[selectedAttack]) {
 
-            activeAttack = activeAttacks[selectedAttack];
+            activeAttack = attackSet.list[selectedAttack];
             attackUISpot[selectedAttack].color = new Color32(255,255,255,255);
             this.selectedAttack = selectedAttack;
 
