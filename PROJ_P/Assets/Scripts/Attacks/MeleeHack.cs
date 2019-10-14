@@ -19,7 +19,10 @@ public class MeleeHack : PlayerAttack
     public override void OnEquip()
     {
         base.OnEquip();
-        Player.instance.weapon.GetComponent<Sword>().SetDamage(damage);
+        Player player = Player.instance;
+        player.weapon.GetComponent<Sword>().SetDamage(damage);
+        animation = player.weapon.GetComponent<Animation>();
+
     }
 
 
