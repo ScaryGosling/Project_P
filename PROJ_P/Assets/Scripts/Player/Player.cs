@@ -114,6 +114,7 @@ public class Player : MonoBehaviour
 
         if (Resource.Value >= activeAttack.GetCastCost() / 100) {
 
+            Debug.Log("Mana high enough");
             AttackEvent();
 
         }

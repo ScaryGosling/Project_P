@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class Resource : ScriptableObject
 {
-    public int Value { get; protected set; } = 1;
+    public float Value { get; protected set; } = 1;
     protected Image resourceImage;
 
     public virtual void DrainResource(PlayerAttack activeAttack) {
 
         resourceImage.fillAmount -= activeAttack.GetCastCost() / 100;
+        Value = resourceImage.fillAmount;
 
     }
 

@@ -17,7 +17,7 @@ public class Pickup : MonoBehaviour
     {
         colliderB = gameObject.GetComponent<BoxCollider>();
         colliderB.isTrigger = true;
-        GameObject.Destroy(gameObject, 5f);
+        Destroy(gameObject, 5f);
     }
 
     // Update is called once per frame
@@ -35,6 +35,6 @@ public class Pickup : MonoBehaviour
         giveResource = new GiveResource();
         giveResource.fillAmount = fillAmount;
         EventSystem.Current.FireEvent(giveResource);
-        GameObject.Destroy(gameObject);
+        Destroy(gameObject);
     }
 }
