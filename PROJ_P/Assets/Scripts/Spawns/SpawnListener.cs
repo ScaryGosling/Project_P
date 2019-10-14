@@ -29,7 +29,8 @@ public class SpawnListener : MonoBehaviour
     [SerializeField] private bool debugMode;
     [SerializeField] private GameObject[] spawns;
     [SerializeField] private GameObject[] UnitPrefabs;
-    [SerializeField]private GameObject[] pickUp;
+    [SerializeField] private GameObject[] pickUp;
+    
     //private GameObject newPotion;
     private GameObject absoluteUnit;
 
@@ -51,12 +52,13 @@ public class SpawnListener : MonoBehaviour
 
     private void CheckForDrop(Vector3 location)
     {
-        int temp = (int) Mathf.Floor(Random.Range(0f, 1f));
 
-            Instantiate(pickUp[temp], new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
+        int temp = (int)Mathf.Floor(Random.Range(0f, 9f));
         
-      
-
+        if(temp <= 0)
+        Instantiate(pickUp[temp], new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
+        else if(temp == 1)
+        Instantiate(pickUp[temp], new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
     }
 
     private void ResetWave()

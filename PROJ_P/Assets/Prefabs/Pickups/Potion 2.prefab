@@ -105,5 +105,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ed518c6d2646e48b9cae2b51de1966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resType: 0
-  fillAmount: 0.2
+  resType: 3
+  fillAmount: 25
