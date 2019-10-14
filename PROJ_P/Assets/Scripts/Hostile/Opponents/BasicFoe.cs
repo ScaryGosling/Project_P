@@ -19,11 +19,7 @@ public class BasicFoe : EnemyBaseState
         if (owner.player != null)
         {
             Chase();
-
-            if (distanceToPlayer < damageDistance && LineOfSight())
-            {
-                DamagePlayer(enemyBaseDamage);
-            }
+            checkForDamage();
 
         }
 

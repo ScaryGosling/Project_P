@@ -1,12 +1,11 @@
 ﻿//Main Author: Emil Dahl
 
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/SpeedyFoe")]
-public class SpeedyFoe : EnemyBaseState
+[CreateAssetMenu(menuName = "Enemy/FatFoe")]
+public class FatFoe : EnemyBaseState
 {
 
     public override void EnterState()
@@ -20,10 +19,7 @@ public class SpeedyFoe : EnemyBaseState
         {
             Chase();
 
-            if (distanceToPlayer < damageDistance && LineOfSight())
-            {
-                DamagePlayer(enemyBaseDamage);
-            }
+            checkForDamage();
 
         }
 
