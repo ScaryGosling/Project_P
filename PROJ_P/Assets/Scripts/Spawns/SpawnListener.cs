@@ -15,7 +15,6 @@ public class SpawnListener : MonoBehaviour
     //public int mappedUnits { get; set; }
     #endregion
 
-
     //enum UnitType { TYPE_00, TYPE_01, TYPE_02 }
     //UnitType currentType;
     private int currentType;
