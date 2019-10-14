@@ -8,19 +8,22 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
 
-    [SerializeField] private float fillAmount;
-    private BoxCollider colliderB;
-    private GiveResource giveResource;
-    private float distance;
-    // Start is called before the first frame update
-    void Start()
+    protected enum ResourceType { Mana, Rage, Repair, Health };
+    [SerializeField] protected ResourceType resType;
+    [SerializeField] protected float fillAmount;
+    protected BoxCollider colliderB;
+    protected GiveResource giveResource;
+    protected Player player;
+
+    protected void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         colliderB = gameObject.GetComponent<BoxCollider>();
         colliderB.isTrigger = true;
         Destroy(gameObject, 5f);
     }
 
-    // Update is called once per frame
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -29,12 +32,6 @@ public class Pickup : MonoBehaviour
         }
     }
 
-    protected virtual void DoSomething()
-    {
-        //görs generisk sen
-        giveResource = new GiveResource();
-        giveResource.fillAmount = fillAmount;
-        EventSystem.Current.FireEvent(giveResource);
-        Destroy(gameObject);
-    }
+
+    protected virtual void DoSomething() { }
 }
