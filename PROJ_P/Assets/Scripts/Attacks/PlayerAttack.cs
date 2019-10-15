@@ -27,7 +27,7 @@ public class PlayerAttack : ScriptableObject
 
     public void ResetCooldown() {
 
-        Debug.Log("Cooldown reset");
+
         cooldownActive = false;
         Destroy(timer);
     }
