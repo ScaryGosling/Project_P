@@ -13,6 +13,7 @@ public class BasicFoe : HostileBaseState
     {
         base.EnterState();
     }
+
     public override void ToDo()
     {
         base.ToDo();
