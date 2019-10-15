@@ -116,6 +116,10 @@ public class Player : MonoBehaviour
         {
             SelectAttack(2);
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+
+            SelectAttack(3);
+        }
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             SelectAttack((selectedAttack + 1) % attackSet.list.Length);

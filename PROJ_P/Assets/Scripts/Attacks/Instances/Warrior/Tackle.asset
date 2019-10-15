@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7418c47275a1544679f79246d4242380, type: 3}
   m_Name: Tackle
   m_EditorClassIdentifier: 
-  castCost: 50
+  castCost: 10
   damage: 0
   AttackImage: {fileID: 0}
-  cooldown: 10
-  tackleForce: 1000
+  cooldown: 3
+  tackleForce: 20
+  tackleLength: 15
