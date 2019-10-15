@@ -8,6 +8,7 @@ public class Shop : StateMachine
     [SerializeField] private GameObject text;
     [SerializeField] private GameObject shopWindow;
     [SerializeField] private float shopTime = 40;
+    [SerializeField] private int costOfPotion;
 
     public GameObject GetShopWindow()
     {
@@ -28,8 +29,13 @@ public class Shop : StateMachine
 
     public void RefillPotions()
     {
-        Player.instance.Resource.IncreaseResource(1f);
-        Player.instance.healthProp += 1;
+        if (Player.instance.GoldProp >= costOfPotion)
+        {
+            Player.instance.Resource.IncreaseResource(1f);
+            Player.instance.healthProp += 1;
+            Player.instance.GoldProp -= 10;
+        }
+
     }
 
 }

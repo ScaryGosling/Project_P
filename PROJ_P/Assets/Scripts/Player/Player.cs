@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private Image health;
     [SerializeField] private Image resourceImage;
+    [SerializeField] private int gold;
     [SerializeField] private Transform spawnPoint;
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
@@ -36,7 +37,15 @@ public class Player : MonoBehaviour
             health.fillAmount = value / 100;
         }
     }
-    
+    public int GoldProp
+    {
+        get { return gold; }
+        set
+        {
+            gold = value;
+            Debug.Log(value);
+        }
+    }
 
     public delegate void Attack();
     public static event Attack AttackEvent;
@@ -85,16 +94,23 @@ public class Player : MonoBehaviour
         SetupClass();
         for (int i = 0; i < attackUISpot.Length; i++)
         {
+            if (attackSet.list[i] != null)
+            {
+
             attackUISpot[i].sprite = attackSet.list[i].GetImage();
+            }
         }
         SelectAttack(0);
         Resource.CacheComponents(resourceImage);
 
-        foreach (PlayerAttack attack in attackSet.list) {
-
-            attack.ResetCooldown();
-
+        for (int i = 0; i < attackSet.list.Length; i++)
+        {
+            if (attackSet.list[i] != null)
+            {
+                attackSet.list[i].ResetCooldown();
+            }
         }
+
     }
 
     public void Update() {
@@ -106,27 +122,64 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SelectAttack(0);
+            if (attackSet.list[0] != null)
+            {
+                SelectAttack(0);
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SelectAttack(1);
+            if (attackSet.list[1] != null)
+            {
+                SelectAttack(1);
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SelectAttack(2);
+            if (attackSet.list[2] != null)
+            {
+                SelectAttack(2);
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4)) {
 
-            SelectAttack(3);
+            if (attackSet.list[3] != null)
+            {
+                SelectAttack(3);
+            }
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            SelectAttack((selectedAttack + 1) % attackSet.list.Length);
+            if (attackSet.list[(selectedAttack + 1) % attackSet.list.Length] != null)
+            {
+                SelectAttack((selectedAttack + 1) % attackSet.list.Length);
+            }
+            else
+            {
+                int temp = selectedAttack +1;
+                while (attackSet.list[(temp) % attackSet.list.Length] == null)
+                {
+                    temp++;
+                }
+                SelectAttack(temp % attackSet.list.Length);
+
+            }
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            SelectAttack(selectedAttack - 1 < 0 ? selectedAttack + attackSet.list.Length -1 : selectedAttack-1);
+            if (attackSet.list[(selectedAttack - 1 + attackSet.list.Length) % attackSet.list.Length] != null)
+            {
+                SelectAttack(selectedAttack - 1 < 0 ? selectedAttack + attackSet.list.Length - 1 : selectedAttack - 1);
+            }
+            else
+            {
+                int temp = selectedAttack - 1;
+                while (attackSet.list[temp] == null)
+                {
+                    temp--;
+                }
+                SelectAttack(temp);
+            }
         }
 
         if(tempHP <= 0)
@@ -148,9 +201,12 @@ public class Player : MonoBehaviour
 
     public void SubscribeToAttackEvent() {
 
-        foreach (PlayerAttack attack in attackSet.list) {
-
-            AttackEvent -= attack.Execute;
+        for (int i = 0; i < attackSet.list.Length; i++)
+        {
+            if (attackSet.list[i] != null)
+            {
+                AttackEvent -= attackSet.list[i].Execute;
+            }
         }
 
         AttackEvent += activeAttack.Execute;
@@ -161,10 +217,18 @@ public class Player : MonoBehaviour
     public void SelectAttack(int selectedAttack)
     {
 
-        foreach (var item in attackUISpot)
+        for (int i = 0; i < attackUISpot.Length; i++)
         {
-            item.color = new Color32(0, 0, 0, 100);
+            if (attackSet.list[i] != null)
+            {
+                attackUISpot[i].color = new Color32(0, 0, 0, 100);
+            }
+            else
+            {
+                attackUISpot[i].color = new Color32(0, 0, 0, 0);
+            }
         }
+       
 
         if (attackSet.list[selectedAttack]) {
 
