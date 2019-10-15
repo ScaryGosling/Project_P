@@ -97,7 +97,7 @@ protected bool LineOfSight()
         //genericTimer.setAbsoluteTime = 1f;
         
         
-        owner.player.GetComponent<Player>().healthProp -= enemyBaseDamage;
+        owner.player.GetComponent<Player>().healthProp -= enemyBaseDamage * Time.deltaTime;
 
     }
 
