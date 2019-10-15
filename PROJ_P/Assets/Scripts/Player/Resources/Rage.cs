@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Rage : Resource
 {
-    private float rageGeneration = 0.02f;
+    private float rageGeneration = 0.005f;
     
     public override void DrainResource(PlayerAttack activeAttack)
     {

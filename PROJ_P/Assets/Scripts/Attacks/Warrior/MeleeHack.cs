@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Attacks/Melee Hack")]
+[CreateAssetMenu(menuName = "Attacks/Warrior/Hack")]
 public class MeleeHack : PlayerAttack
 {
 
@@ -14,6 +14,12 @@ public class MeleeHack : PlayerAttack
     public override void Execute()
     {
         base.Execute();
+        
+    }
+
+    public override void RunAttack()
+    {
+        base.RunAttack();
         animation.AddClip(slash, "Slash");
         animation.Play("Slash");
         attackBox.DamageEnemies(damage);

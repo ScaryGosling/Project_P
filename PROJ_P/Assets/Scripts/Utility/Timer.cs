@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,28 +6,38 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
 
-    public static Timer instance;
+    public float Countdown { get; set; }
+    public bool MethodHasRun { get; set; }
+    private Action methodToRun;
 
 
-    public void Awake()
-    {
-        instance = this;
-    }
+    public void CountDown() {
 
-    public void Run(float time, Action methodToRun) {
+        if (Countdown > 0)
+        {
 
-        StartCoroutine(RunTimer(time, methodToRun));
-
-    }
-
-    private IEnumerator RunTimer(float time, Action methodToRun) {
-
-        while (true) {
-
-            yield return new WaitForSeconds(time);
-            methodToRun();
+            Countdown -= Time.deltaTime;
 
         }
+        else if (!MethodHasRun) {
+            methodToRun();
+            MethodHasRun = true;
+        }
+
+    }
+
+    public void RunCountDown(float time, Action action) {
+
+        methodToRun = action;
+        Countdown = time;
+
+    }
+
+    public void Update()
+    {
+        if(methodToRun != null)
+            CountDown();
+
     }
 
 

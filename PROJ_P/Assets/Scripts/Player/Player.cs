@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
                 break;
 
             default:
-                throw new System.Exception("Error when setting resource");
+                throw new Exception("Error when setting resource");
                 
 
         }
@@ -89,6 +89,12 @@ public class Player : MonoBehaviour
         }
         SelectAttack(0);
         Resource.CacheComponents(resourceImage);
+
+        foreach (PlayerAttack attack in attackSet.list) {
+
+            attack.ResetCooldown();
+
+        }
     }
 
     public void Update() {

@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="Attacks/Mega Attack")]
+[CreateAssetMenu(menuName ="Attacks/Wizard/Mega Attack")]
 public class MonsterAttack : PlayerAttack
 {
 
     [SerializeField] private GameObject dodgeball;
     [SerializeField] private float force;
 
-    public override void Execute()
+    public override void RunAttack()
     {
-        base.Execute();
+        base.RunAttack();
 
         Transform spawnPoint = Player.instance.GetSpawnPoint();
 
