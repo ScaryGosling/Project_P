@@ -17,4 +17,4 @@ MonoBehaviour:
   AttackImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   cooldown: 3
   tackleForce: 20
-  tackleLength: 0
+  tackleLength: 15
