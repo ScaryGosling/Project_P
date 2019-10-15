@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : StateMachine
+public class Unit : StateMachine
 {
     // Attributes
     [HideInInspector] public MeshRenderer Renderer;

@@ -43,7 +43,7 @@ public class BulletInstance : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            other.GetComponent<Enemy>().TakeDamage(damage);
+            other.GetComponent<Unit>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

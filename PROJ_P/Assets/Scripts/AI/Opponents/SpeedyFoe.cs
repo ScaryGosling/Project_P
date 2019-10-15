@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Enemy/SpeedyFoe")]
-public class SpeedyFoe : EnemyBaseState
+public class SpeedyFoe : HostileBaseState
 {
 
     public override void EnterState()

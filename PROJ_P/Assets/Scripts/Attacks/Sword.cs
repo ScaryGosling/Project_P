@@ -20,7 +20,7 @@ public class Sword : MonoBehaviour
 
         foreach (GameObject enemy in enemiesInRange) {
             if(enemy)
-                enemy.GetComponent<Enemy>().TakeDamage(damage);
+                enemy.GetComponent<Unit>().TakeDamage(damage);
         }
 
     }

@@ -3,10 +3,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ProjectP.Utility.Generic;
 
 
 [RequireComponent(typeof(CapsuleCollider))]
-public class EnemyBaseState : State
+public class HostileBaseState : State
 {
     // Attributes
     [SerializeField] protected Material material;
@@ -20,14 +21,15 @@ public class EnemyBaseState : State
     private float dotProduct;
     private const float rotationalSpeed = 0.035f;
 
-    [SerializeField] protected float enemyBaseDamage = 0.5f;
+    [SerializeField] protected float enemyBaseDamage = 5f;
     protected float deathTimer;
     protected float actualDamage;
     protected const float damageDistance = 2.5f;
-    protected Enemy owner;
+    protected Unit owner;
     private UnitDeath death;
     protected bool alive = true;
     protected float distanceToPlayer;
+    private GameObject timer;
     
 
 
@@ -42,12 +44,13 @@ public class EnemyBaseState : State
         owner.transform.localScale = scale;
         capsuleCollider = owner.GetComponent<CapsuleCollider>();
 
+
     }
 
 
     public override void InitializeState(StateMachine owner)
     {
-        this.owner = (Enemy)owner;
+        this.owner = (Unit)owner;
     }
 
     public override void ToDo()
@@ -91,7 +94,9 @@ protected bool LineOfSight()
 
     protected void DamagePlayer(float val)
     {
-        //actualDamage = Mathf.Floor(Random.Range(enemyBaseDamage, enemyBaseDamage * 1.5f));
+        //genericTimer.setAbsoluteTime = 1f;
+        
+        
         owner.player.GetComponent<Player>().healthProp -= enemyBaseDamage;
 
     }
