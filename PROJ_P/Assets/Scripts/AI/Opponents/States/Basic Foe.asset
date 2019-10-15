@@ -16,3 +16,7 @@ MonoBehaviour:
   moveSpeed: 8
   hp: 25
   scale: {x: 1, y: 1, z: 1}
+  specialDeath: 0
+  enemyBaseDamage: 3
+  maxCritical: 15
+  attackSpeed: 1

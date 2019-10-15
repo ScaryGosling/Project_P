@@ -3,7 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ProjectP.Utility.Generic;
+
 
 
 [RequireComponent(typeof(CapsuleCollider))]
@@ -12,7 +12,7 @@ public class HostileBaseState : State
     // Attributes
     [SerializeField] protected Material material;
     [SerializeField] protected float moveSpeed;
-    [SerializeField] protected float enemyHealth { get { return owner.Health; }  }
+    [SerializeField] protected float enemyHealth { get { return owner.Health; } }
     [SerializeField] private float hp = 100f;
     [SerializeField] private Vector3 scale;
     [SerializeField] private bool specialDeath;
@@ -22,6 +22,8 @@ public class HostileBaseState : State
     private const float rotationalSpeed = 0.035f;
 
     [SerializeField] protected float enemyBaseDamage = 5f;
+    [SerializeField] private float maxCritical = 10f;
+    [SerializeField] private float attackSpeed = 1f;
     protected float deathTimer;
     protected float actualDamage;
     protected const float damageDistance = 2.5f;
@@ -29,8 +31,9 @@ public class HostileBaseState : State
     private UnitDeath death;
     protected bool alive = true;
     protected float distanceToPlayer;
-    private GameObject timer;
-    
+    protected GameObject timer;
+    private bool timerRunning = false;
+    private float startTime;
 
 
 
@@ -43,7 +46,6 @@ public class HostileBaseState : State
         owner.Health = hp;
         owner.transform.localScale = scale;
         capsuleCollider = owner.GetComponent<CapsuleCollider>();
-
 
     }
 
@@ -68,6 +70,8 @@ public class HostileBaseState : State
             }
             deathTimer = 2f;
             Die();
+
+
         }
 
 
@@ -76,11 +80,19 @@ public class HostileBaseState : State
     {
         if (distanceToPlayer < damageDistance && LineOfSight() && alive)
         {
-            DamagePlayer(enemyBaseDamage);
+            if (startTime >= 0)
+            {
+                startTime -= Time.deltaTime;
+            }
+            else
+            {
+                startTime = attackSpeed;
+                DamagePlayer();
+            }
         }
     }
 
-protected bool LineOfSight()
+    protected bool LineOfSight()
     {
         bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);
         if (lineCast)
@@ -92,14 +104,13 @@ protected bool LineOfSight()
         //return false;
     }
 
-    protected void DamagePlayer(float val)
+    protected void DamagePlayer()
     {
-        //genericTimer.setAbsoluteTime = 1f;
-        
-        
-        owner.player.GetComponent<Player>().healthProp -= enemyBaseDamage * Time.deltaTime;
-
+        actualDamage = Random.Range(enemyBaseDamage, maxCritical);
+        owner.player.GetComponent<Player>().healthProp -= actualDamage * Time.deltaTime;
     }
+
+
 
     protected void Chase()
     {
@@ -132,15 +143,13 @@ protected bool LineOfSight()
 
         if (specialDeath)
         {
-            while(startTIme > 0)
+            while (startTIme > 0)
             {
-            owner.transform.localScale = (owner.transform.localScale * 1.00003f);
-            startTIme -= Time.deltaTime;
+                owner.transform.localScale = (owner.transform.localScale * 1.00003f);
+                startTIme -= Time.deltaTime;
             }
         }
     }
-
-
 
 }
 #region EnemyBaseLegacy

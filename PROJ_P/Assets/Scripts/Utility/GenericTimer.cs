@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectP.Utility.Generic
-{
-    public class GenericTimer : MonoBehaviour
-    {
-        private float absoluteTime = 0f;
-        public float setAbsoluteTime { get { return absoluteTime;  } set { absoluteTime = value;  } }
-        //public bool timerTaskCompleted { get; set { } }
 
-        void Update()
-        {
-            while(absoluteTime > 0)
-            {
-                //if (absoluteTime <= 0)
-                    //timerTaskCompleted = true;
-            }
-        }
+public class GenericTimer : MonoBehaviour
+{
+    public float absoluteTime { get; set; }
+    private float currentTime;
+    public bool timerTaskCompleted { get; set; }
+    //public float setAbsoluteTime { get { return absoluteTime; } set { absoluteTime = value; } }
+
+    public void startTimer()
+    {
+        currentTime = absoluteTime;
+    }
+
+    void Update()
+    {
+        currentTime -= Time.deltaTime;
+        if (currentTime <= 0)
+            timerTaskCompleted = true;
+        
     }
 }
+
+

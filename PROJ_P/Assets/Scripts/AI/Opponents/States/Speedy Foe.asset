@@ -16,4 +16,7 @@ MonoBehaviour:
   moveSpeed: 12
   hp: 10
   scale: {x: 1, y: 0.85, z: 0.85}
+  specialDeath: 0
   enemyBaseDamage: 1.5
+  timerObject: {fileID: 512392972992619070, guid: 9164686237a22374b9e4be2360f425d4,
+    type: 3}

@@ -16,10 +16,9 @@ public class Unit : StateMachine
     //public CapsuleCollider capsuleCollider;
     [SerializeField] private float health = 20;
     public float Health { get { return health;  } set { health = value; } }
-
     private void Start()
     {
-        //Health = health;
+       
     }
     // Methods
     protected override void Awake()
@@ -28,7 +27,6 @@ public class Unit : StateMachine
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         
-
         base.Awake();
     }
 
