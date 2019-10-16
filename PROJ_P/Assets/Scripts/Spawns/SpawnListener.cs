@@ -24,14 +24,15 @@ public class SpawnListener : MonoBehaviour
     private int spawned = 0;
     private int unitsKilled = 0;
     private int waveIndex = 1;
+    private GameObject absoluteUnit;
+  
     [SerializeField] private float chanceOfDrop = 0.4f;
     [SerializeField] private bool debugMode;
+    [SerializeField] private float spawnRate = 1f;
     [SerializeField] private GameObject[] spawns;
     [SerializeField] private GameObject[] UnitPrefabs;
     [SerializeField] private GameObject[] pickUp;
     
-    //private GameObject newPotion;
-    private GameObject absoluteUnit;
 
 
     private void Start()
@@ -39,8 +40,7 @@ public class SpawnListener : MonoBehaviour
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
         if (!debugMode)
             StartCoroutine(Spawner());
-        //absoluteUnit = UnitPrefabs[0];
-        //UnitController();
+   
     }
 
     private void UnitDeath(UnitDeath death)
@@ -102,6 +102,7 @@ public class SpawnListener : MonoBehaviour
 
     private void CheckUnitType()
     {
+
         if (waveIndex % 2 == 0 && spawned % 3 == 0)
         {
             currentType = 1;
@@ -122,15 +123,16 @@ public class SpawnListener : MonoBehaviour
     {
         while (true)
         {
+        //Debug.Log(expected + " " + spawned + " " + " " + unitsKilled);
             float time;
 
             if (spawned < expected)
             {
-                time = 1f;
-                foreach (GameObject spawnObject in spawns)
+                time = spawnRate;
+                foreach (GameObject spawnPosition in spawns)
                 {
                     UnitController();
-                    Instantiate(absoluteUnit, spawnObject.transform.position, Quaternion.identity);
+                    Instantiate(absoluteUnit, spawnPosition.transform.position, Quaternion.identity);
                     spawned++;
                     yield return new WaitForSeconds(time);
                 }
