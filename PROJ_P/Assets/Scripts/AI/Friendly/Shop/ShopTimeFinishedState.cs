@@ -7,8 +7,22 @@ public class ShopTimeFinishedState : ShopBaseState
 {
     public override void EnterState()
     {
-        TimeLeft = false;
         Debug.Log("Shopkeeper will leave now");
+
+        if (Vector3.Distance(Owner.SpawnPoint, Owner.transform.position) > 1.5f)
+        {
+
+        NavMeshAgent.SetDestination(Owner.SpawnPoint);
+        }
+    }
+
+    public override void ToDo()
+    {
+
+        if (Vector3.Distance(Owner.SpawnPoint, Owner.transform.position)<1.5f)
+        {
+            Owner.gameObject.SetActive(false);
+        }
     }
 
 }

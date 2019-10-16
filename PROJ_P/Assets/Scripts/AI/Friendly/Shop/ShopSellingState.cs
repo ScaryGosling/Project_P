@@ -10,11 +10,7 @@ public class ShopSellingState : ShopBaseState
     {
         ShopWindow.SetActive(true);
     }
-    private void CacheComponents()
-    {
-        ShopWindow = Owner.GetShopWindow();
 
-    }
 
     public override void ToDo()
     {
