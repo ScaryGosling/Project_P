@@ -199,7 +199,7 @@ public class Player : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.gameObject.tag != "Friendly")
+            if (hit.transform.gameObject.tag == "Friendly")
             {
                 return true;
             }
