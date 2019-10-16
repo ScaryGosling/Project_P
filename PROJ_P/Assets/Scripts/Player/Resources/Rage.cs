@@ -21,6 +21,7 @@ public class Rage : Resource
         base.CacheComponents(resourceImage);
         resourceMeter = new Color(200, 200, 0, 1);
         resourceImage.fillAmount = 0;
+        Value = 0;
         SetResourceColor();
 
 
