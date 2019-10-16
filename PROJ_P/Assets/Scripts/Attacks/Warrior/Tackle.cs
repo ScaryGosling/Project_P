@@ -24,6 +24,7 @@ public class Tackle : PlayerAttack
         player.GetComponent<PlayerMovement>().enabled = false;
         player.speed = tackleForce;
         player.acceleration = 100;
+        player.stoppingDistance = 0.1f;
         player.SetDestination(player.transform.position + player.transform.TransformDirection(Vector3.forward) * tackleLength);
 
 
@@ -41,6 +42,7 @@ public class Tackle : PlayerAttack
         player.speed = startSpeed;
         player.acceleration = startAcceleration;
         player.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+        player.stoppingDistance = 0;
         player.GetComponent<PlayerMovement>().enabled = true;
 
     }
