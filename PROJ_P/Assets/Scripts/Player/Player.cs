@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Image resourceImage;
     [SerializeField] private int gold;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private bool hover = false;
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
     private float tempHP = 100f;
@@ -43,10 +44,9 @@ public class Player : MonoBehaviour
         set
         {
             gold = value;
-            Debug.Log(value);
         }
     }
-
+    
     public delegate void Attack();
     public static event Attack AttackEvent;
 
@@ -116,8 +116,11 @@ public class Player : MonoBehaviour
     public void Update() {
 
         if (Input.GetMouseButton(0)) {
+            if (!ClickOnFriendly() && !hover)
+            {
 
-            ExecuteAttack();
+                ExecuteAttack();
+            }
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -188,11 +191,30 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    RaycastHit hit;
+    Ray ray;
+    private bool ClickOnFriendly()
+    {
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform.gameObject.tag != "Friendly")
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void SetHover(bool hover)
+    {
+        this.hover = hover;
+    }
+
     public void ExecuteAttack() {
 
         if (Resource.Value >= activeAttack.GetCastCost() / 100) {
-
-            Debug.Log("Mana high enough");
             AttackEvent();
 
         }

@@ -11,7 +11,6 @@ public class GoldText : MonoBehaviour
         text = GetComponent<Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         text.text = Player.instance.GoldProp + "";
