@@ -19,8 +19,10 @@ public class Rage : Resource
     public override void CacheComponents(Image resourceImage) {
 
         base.CacheComponents(resourceImage);
-        
-        
+        resourceMeter = new Color(200, 200, 0, 1);
+        SetResourceColor();
+
+
     }
 
     
