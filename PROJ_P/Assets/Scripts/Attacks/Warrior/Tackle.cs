@@ -40,6 +40,7 @@ public class Tackle : PlayerAttack
         player.ResetPath();
         player.speed = startSpeed;
         player.acceleration = startAcceleration;
+        player.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
         player.GetComponent<PlayerMovement>().enabled = true;
 
     }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Rage : Resource
 {
-    private float rageGeneration = 0.005f;
+    private float rageGeneration = 0.05f;
     
     public override void DrainResource(PlayerAttack activeAttack)
     {
@@ -20,6 +20,7 @@ public class Rage : Resource
 
         base.CacheComponents(resourceImage);
         resourceMeter = new Color(200, 200, 0, 1);
+        resourceImage.fillAmount = 0;
         SetResourceColor();
 
 
