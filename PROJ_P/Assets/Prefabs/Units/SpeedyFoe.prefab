@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2161199849938165176}
   - component: {fileID: 2161199849938165177}
   - component: {fileID: 2161199849938165174}
+  - component: {fileID: -6378901405571472723}
   m_Layer: 0
   m_Name: SpeedyFoe
   m_TagString: Enemy
@@ -140,6 +141,18 @@ MonoBehaviour:
     m_Bits: 512
   player: {fileID: 0}
   health: 20
+--- !u!114 &-6378901405571472723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2161199849938165175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c4488a3333a4840ba1b437dcf6c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2161199850153972063
 GameObject:
   m_ObjectHideFlags: 0

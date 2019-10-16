@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(GenericTimer))]
 public class Unit : StateMachine
 {
     // Attributes
@@ -16,9 +17,12 @@ public class Unit : StateMachine
     //public CapsuleCollider capsuleCollider;
     [SerializeField] private float health = 20;
     public float Health { get { return health;  } set { health = value; } }
+    private GenericTimer genericTimer;
+    public GenericTimer getGenericTimer { get { return genericTimer;  } set { genericTimer = value;  }  }
+
     private void Start()
     {
-       
+        genericTimer = GetComponent<GenericTimer>();
     }
     // Methods
     protected override void Awake()
@@ -26,7 +30,6 @@ public class Unit : StateMachine
         Renderer = GetComponent<MeshRenderer>();
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
-        
         base.Awake();
     }
 

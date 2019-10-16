@@ -135,6 +135,8 @@ protected bool LineOfSight()
         }
     }
 
+    protected virtual void walkSomewhere() { }
+
 
 
 }

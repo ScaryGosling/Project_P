@@ -34,6 +34,7 @@ public class HostileBaseState : State
     protected GameObject timer;
     private bool timerRunning = false;
     private float startTime;
+    protected bool attacking = false;
 
 
 
@@ -78,18 +79,33 @@ public class HostileBaseState : State
     }
     protected void checkForDamage()
     {
-        if (distanceToPlayer < damageDistance && LineOfSight() && alive)
+
+        if (distanceToPlayer < damageDistance && LineOfSight() && alive && !attacking)
         {
-            if (startTime >= 0)
+            if (owner.getGenericTimer.timeTask)
             {
-                startTime -= Time.deltaTime;
-            }
-            else
-            {
-                startTime = attackSpeed;
+                attacking = true;
+                owner.getGenericTimer.SetTimer(attackSpeed);
+                attacking = !attacking;
                 DamagePlayer();
             }
         }
+
+
+
+
+        //if (distanceToPlayer < damageDistance && LineOfSight() && alive)
+        //{
+        //    if (startTime >= 0)
+        //    {
+        //        startTime -= Time.deltaTime;
+        //    }
+        //    else
+        //    {
+        //        startTime = attackSpeed;
+        //        DamagePlayer();
+        //    }
+        //}
     }
 
     protected bool LineOfSight()
@@ -107,7 +123,7 @@ public class HostileBaseState : State
     protected void DamagePlayer()
     {
         actualDamage = Random.Range(enemyBaseDamage, maxCritical);
-        owner.player.GetComponent<Player>().healthProp -= actualDamage * Time.deltaTime;
+        owner.player.GetComponent<Player>().healthProp -= actualDamage;
     }
 
 

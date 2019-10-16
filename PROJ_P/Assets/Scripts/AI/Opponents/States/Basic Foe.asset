@@ -19,4 +19,4 @@ MonoBehaviour:
   specialDeath: 0
   enemyBaseDamage: 3
   maxCritical: 15
-  attackSpeed: 1
+  attackSpeed: 0.5

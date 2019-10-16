@@ -5,22 +5,29 @@ using UnityEngine;
 
 public class GenericTimer : MonoBehaviour
 {
-    public float absoluteTime { get; set; }
+    private float absoluteTime;
     private float currentTime;
-    public bool timerTaskCompleted { get; set; }
-    //public float setAbsoluteTime { get { return absoluteTime; } set { absoluteTime = value; } }
+    public bool timeTask { get; set; }
+    
 
-    public void startTimer()
+
+    public void SetTimer(float t)
     {
+        timeTask = false;
+        absoluteTime = t;
         currentTime = absoluteTime;
     }
 
     void Update()
     {
-        currentTime -= Time.deltaTime;
-        if (currentTime <= 0)
-            timerTaskCompleted = true;
-        
+        if (currentTime >= 0)
+            currentTime -= Time.deltaTime;
+        else
+        {
+            timeTask = true;
+        }
+
+
     }
 }
 
