@@ -27,10 +27,22 @@ public class Tackle : PlayerAttack
         player.stoppingDistance = 0.1f;
         player.SetDestination(player.transform.position + player.transform.TransformDirection(Vector3.forward) * tackleLength);
 
+        player.GetComponent<Player>().Attackable = false;
 
         GameObject timer = new GameObject("Timer");
         timer.AddComponent<Timer>().RunCountDown(1, ResetStats);
         
+
+
+    }
+
+
+    public void DazeEnemies(GameObject[] enemies) {
+
+        foreach (GameObject enemy in enemies) {
+
+            enemy.GetComponent<Rigidbody>().AddForce(enemy.transform.TransformDirection(Vector3.back) * 20);
+        }
 
 
     }
@@ -43,6 +55,7 @@ public class Tackle : PlayerAttack
         player.acceleration = startAcceleration;
         player.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
         player.stoppingDistance = 0;
+        player.GetComponent<Player>().Attackable = true;
         player.GetComponent<PlayerMovement>().enabled = true;
 
     }

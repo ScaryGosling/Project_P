@@ -29,13 +29,21 @@ public class Player : MonoBehaviour
     [SerializeField] private int gold;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private bool hover = false;
+
+    public bool Attackable { get; set; } = true;
+
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
     private float tempHP = 100f;
     public float healthProp {
         get { return tempHP; }
-        set { tempHP = value;
-            health.fillAmount = value / 100;
+        set {
+            if (Attackable) {
+
+                tempHP = value;
+                health.fillAmount = value / 100;
+
+            }
         }
     }
     public int GoldProp

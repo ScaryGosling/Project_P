@@ -58,6 +58,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chanceOfDrop: 0.15
   debugMode: 0
+  spawnRate: 1
   spawns:
   - {fileID: 0}
   - {fileID: 0}
