@@ -34,7 +34,7 @@ public class PlayerAttack : ScriptableObject
 
     public virtual void RunAttack() {
 
-        Debug.Log(name + " executed, " + Player.instance.Resource + " drained by: " + castCost);
+
         Player.instance.Resource.DrainResource(this);
         
 

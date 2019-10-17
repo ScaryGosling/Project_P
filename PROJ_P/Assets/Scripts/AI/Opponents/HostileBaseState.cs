@@ -67,7 +67,7 @@ public class HostileBaseState : State
                 death.eventDescription = "Unit Died";
                 death.enemyObject = owner.gameObject;
                 EventSystem.Current.FireEvent(death);
-                Debug.Log("unitDead");
+
             }
             deathTimer = 2f;
             Die();

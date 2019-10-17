@@ -18,31 +18,31 @@ public class SpawnListener : MonoBehaviour
     //enum UnitType { TYPE_00, TYPE_01, TYPE_02 }
     //UnitType currentType;
     private int currentType;
-    private float pauseTime = 10f;
+    private const float pauseTime = 10f;
     private const float spawnTime = 1f;
-    private int expected = 10;
+    private int expected = 5;
     private int spawned = 0;
     private int unitsKilled = 0;
     private int waveIndex = 1;
-    private GameObject absoluteUnit;
-  
+    private bool shopOpen = false;
     [SerializeField] private float chanceOfDrop = 0.4f;
     [SerializeField] private bool debugMode;
-    [SerializeField] private float spawnRate = 1f;
     [SerializeField] private GameObject[] spawns;
     [SerializeField] private GameObject[] UnitPrefabs;
     [SerializeField] private GameObject[] pickUp;
     [SerializeField] private GameObject shopKeeper;
-    private bool shopKeeperActivated = false;
+
+    //private GameObject newPotion;
+    private GameObject absoluteUnit;
 
 
     private void Start()
     {
-        pauseTime = shopKeeper.GetComponent<Shop>().GetShopTime();
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
         if (!debugMode)
             StartCoroutine(Spawner());
-   
+        //absoluteUnit = UnitPrefabs[0];
+        //UnitController();
     }
 
     private void UnitDeath(UnitDeath death)
@@ -55,11 +55,11 @@ public class SpawnListener : MonoBehaviour
     {
 
         int temp = (int)Mathf.Floor(Random.Range(0f, 9f));
-        
-        if(temp <= 0)
-        Instantiate(pickUp[temp], new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
-        else if(temp == 1)
-        Instantiate(pickUp[temp], new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
+
+        if (temp <= 0)
+            Instantiate(pickUp[temp], new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
+        else if (temp == 1)
+            Instantiate(pickUp[temp], new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
     }
 
     private void ResetWave()
@@ -68,20 +68,19 @@ public class SpawnListener : MonoBehaviour
         unitsKilled = 0;
         expected = (int)Mathf.Floor(expected * 1.20f);
         waveIndex++;
+       
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
     }
-    private bool KilledAllSpawned()
-    {
-        return unitsKilled >= expected;
-    }
+
 
     private float CheckWaveCompletion()
     {
-        if (KilledAllSpawned())
+        if (unitsKilled >= expected)
         {
             ResetWave();
+            SpawnShopKeeper();
             return pauseTime;
-        }
+        }  
         return spawnTime / 2;
     }
 
@@ -107,7 +106,6 @@ public class SpawnListener : MonoBehaviour
 
     private void CheckUnitType()
     {
-
         if (waveIndex % 2 == 0 && spawned % 3 == 0)
         {
             currentType = 1;
@@ -120,8 +118,13 @@ public class SpawnListener : MonoBehaviour
         {
             currentType = 0;
         }
+    }
 
-
+    private void SpawnShopKeeper()
+    {
+        shopKeeper.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
+        shopKeeper.gameObject.SetActive(true);
+        shopOpen = true;
     }
 
     IEnumerator Spawner()
@@ -129,22 +132,22 @@ public class SpawnListener : MonoBehaviour
         while (true)
         {
             float time;
+            Debug.Log(expected + " " + spawned + " " + unitsKilled);
 
             if (spawned < expected)
             {
-                shopKeeperActivated = false;
-                time = spawnRate;
-                UnitController();
-                Instantiate(absoluteUnit, spawns[Random.Range(0, spawns.Length)].transform.position, Quaternion.identity);
-                spawned++;
-                yield return new WaitForSeconds(time);
-
-            }
-            else if (!shopKeeperActivated && KilledAllSpawned())
-            {
-                shopKeeper.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
-                shopKeeper.gameObject.SetActive(true);
-                shopKeeperActivated = true;
+                time = 1f;
+                shopOpen = false;
+                foreach (GameObject spawnObject in spawns)
+                {
+                    UnitController();
+                    if (spawned < expected)
+                    {
+                        Instantiate(absoluteUnit, spawnObject.transform.position, Quaternion.identity);
+                        spawned++;
+                    }
+                    yield return new WaitForSeconds(time);
+                }
             }
             else
             {
