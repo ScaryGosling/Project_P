@@ -19,18 +19,20 @@ public class SpawnListener : MonoBehaviour
     //UnitType currentType;
     private int currentType;
     private const float pauseTime = 10f;
-    private const float spawnTime = 1f;
-    private int expected = 5;
+    [SerializeField] private float spawnTime = 0.5f;
+    private int expected = 10;
     private int spawned = 0;
     private int unitsKilled = 0;
     private int waveIndex = 1;
     private bool shopOpen = false;
+    private Queue locationQueue = new Queue();
     [SerializeField] private float chanceOfDrop = 0.4f;
     [SerializeField] private bool debugMode;
     [SerializeField] private GameObject[] spawns;
     [SerializeField] private GameObject[] UnitPrefabs;
     [SerializeField] private GameObject[] pickUp;
     [SerializeField] private GameObject shopKeeper;
+
 
     //private GameObject newPotion;
     private GameObject absoluteUnit;
@@ -68,7 +70,6 @@ public class SpawnListener : MonoBehaviour
         unitsKilled = 0;
         expected = (int)Mathf.Floor(expected * 1.20f);
         waveIndex++;
-
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
     }
 
@@ -135,16 +136,16 @@ public class SpawnListener : MonoBehaviour
         while (true)
         {
             float time;
-            Debug.Log(expected + " " + spawned + " " + unitsKilled);
+            //Debug.Log(expected + " " + spawned + " " + unitsKilled);
 
             if (spawned < expected)
             {
-                time = 1f;
+                time = spawnTime;
                 shopOpen = false;
                 foreach (GameObject spawnObject in spawns)
                 {
                     UnitController();
-                    if (spawned < expected)
+                    if (spawned < expected && spawnObject.GetComponent<SpawnArea>().isActive)
                     {
                         Instantiate(absoluteUnit, spawnObject.transform.position, Quaternion.identity);
                         spawned++;

@@ -32,6 +32,7 @@ public class GiveResource : EventInfo
 }
 
 
+
 public class MakeDamageEvent  : EventInfo
 {
     public GameObject Enemy;

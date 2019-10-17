@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class PlayerMovement : MonoBehaviour
 {
 
+  
     [SerializeField] private float rotationSpeed = 8;
     private Camera mainCamera;
     private NavMeshAgent agent;
