@@ -140,7 +140,7 @@ public class SpawnListener : MonoBehaviour
 
             if (spawned < expected)
             {
-                time = spawnTime;
+                time = spawnTime / spawns.Length;
                 shopOpen = false;
                 foreach (GameObject spawnObject in spawns)
                 {
@@ -150,6 +150,7 @@ public class SpawnListener : MonoBehaviour
                         Instantiate(absoluteUnit, spawnObject.transform.position, Quaternion.identity);
                         spawned++;
                     }
+                    
                     yield return new WaitForSeconds(time);
                 }
             }
