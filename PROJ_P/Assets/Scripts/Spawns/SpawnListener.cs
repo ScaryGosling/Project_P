@@ -18,6 +18,7 @@ public class SpawnListener : MonoBehaviour
     //enum UnitType { TYPE_00, TYPE_01, TYPE_02 }
     //UnitType currentType;
     private int currentType;
+    private const int maximumCapacity = 200;
     private const float pauseTime = 10f;
     [SerializeField] private float spawnTime = 0.5f;
     private int expected = 10;
@@ -68,6 +69,7 @@ public class SpawnListener : MonoBehaviour
     {
         spawned = 0;
         unitsKilled = 0;
+        if(expected <= maximumCapacity)
         expected = (int)Mathf.Floor(expected * 1.20f);
         waveIndex++;
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);

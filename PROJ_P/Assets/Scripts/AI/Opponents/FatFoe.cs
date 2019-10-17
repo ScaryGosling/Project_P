@@ -19,7 +19,7 @@ public class FatFoe : HostileBaseState
         {
             Chase();
 
-            checkForDamage();
+            CheckForDamage();
 
         }
 

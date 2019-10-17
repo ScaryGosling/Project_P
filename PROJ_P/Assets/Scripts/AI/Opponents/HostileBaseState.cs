@@ -10,6 +10,7 @@ using UnityEngine;
 public class HostileBaseState : State
 {
     // Attributes
+    [SerializeField] protected Behaviors controlBehaviors;
     [SerializeField] protected Material material;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float enemyHealth { get { return owner.Health; } }
@@ -18,25 +19,26 @@ public class HostileBaseState : State
     [SerializeField] private bool specialDeath;
     private CapsuleCollider capsuleCollider;
     private Vector3 heading;
-    private float dotProduct;
     private const float rotationalSpeed = 0.035f;
+    private float dotProduct;
 
     [SerializeField] protected float enemyBaseDamage = 5f;
     [SerializeField] private float maxCritical = 10f;
     [SerializeField] private float attackSpeed = 1f;
+    protected enum Behaviors { STAGGER, KNOCKBACK }
     protected float deathTimer;
     protected float actualDamage;
+    protected float distanceToPlayer;
     protected const float damageDistance = 2.5f;
     protected Unit owner;
     private UnitDeath death;
-    protected bool alive = true;
-    protected float distanceToPlayer;
     protected GameObject timer;
-    private bool timerRunning = false;
     private float startTime;
+    protected bool alive = true;
+    private bool timerRunning = false;
     protected bool attacking = false;
 
-
+    
 
     // Methods
     public override void EnterState()
@@ -47,7 +49,6 @@ public class HostileBaseState : State
         owner.Health = hp;
         owner.transform.localScale = scale;
         capsuleCollider = owner.GetComponent<CapsuleCollider>();
-
     }
 
 
@@ -67,17 +68,17 @@ public class HostileBaseState : State
                 death.eventDescription = "Unit Died";
                 death.enemyObject = owner.gameObject;
                 EventSystem.Current.FireEvent(death);
-
             }
             deathTimer = 2f;
             Die();
-
-
         }
+
+        //if (owner.takingDamage)
+        //    ControlEffects();
 
 
     }
-    protected void checkForDamage()
+    protected void CheckForDamage()
     {
 
         if (distanceToPlayer < damageDistance && LineOfSight() && alive && !attacking)
@@ -90,22 +91,6 @@ public class HostileBaseState : State
                 DamagePlayer();
             }
         }
-
-
-
-
-        //if (distanceToPlayer < damageDistance && LineOfSight() && alive)
-        //{
-        //    if (startTime >= 0)
-        //    {
-        //        startTime -= Time.deltaTime;
-        //    }
-        //    else
-        //    {
-        //        startTime = attackSpeed;
-        //        DamagePlayer();
-        //    }
-        //}
     }
 
     protected bool LineOfSight()
@@ -114,10 +99,6 @@ public class HostileBaseState : State
         if (lineCast)
             return false;
         return true;
-
-        //if (DotMethod() > lightTreshold && Vector3.Distance(owner.agent.transform.position, owner.player.transform.position) < lightField)
-        //    return true;
-        //return false;
     }
 
     protected void DamagePlayer()
@@ -164,6 +145,21 @@ public class HostileBaseState : State
                 owner.transform.localScale = (owner.transform.localScale * 1.00003f);
                 startTIme -= Time.deltaTime;
             }
+        }
+    }
+
+    protected void ControlEffects()
+    {
+        switch (controlBehaviors)
+        {
+            case Behaviors.STAGGER:
+                Debug.Log("Stagger");
+                break;
+            case Behaviors.KNOCKBACK:
+                Debug.Log("Knockback");
+                break;
+            default:
+                break;
         }
     }
 

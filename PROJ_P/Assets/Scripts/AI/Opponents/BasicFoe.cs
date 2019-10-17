@@ -8,7 +8,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy/BasicFoe")]
 public class BasicFoe : HostileBaseState
 {
- 
     public override void EnterState()
     {
         base.EnterState();
@@ -20,10 +19,8 @@ public class BasicFoe : HostileBaseState
         if (owner.player != null)
         {
             Chase();
-            checkForDamage();
-
+            CheckForDamage();
         }
-
     }
 
 

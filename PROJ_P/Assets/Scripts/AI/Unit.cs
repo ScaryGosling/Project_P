@@ -12,13 +12,12 @@ public class Unit : StateMachine
     [HideInInspector] public MeshRenderer Renderer;
     [HideInInspector] public NavMeshAgent agent;
     public LayerMask visionMask;
-    //public LayerMask ignoreLayerMask;
     public GameObject player;
-    //public CapsuleCollider capsuleCollider;
     [SerializeField] private float health = 20;
-    public float Health { get { return health;  } set { health = value; } }
+    public float Health { get { return health; } set { health = value; } }
     private GenericTimer genericTimer;
-    public GenericTimer getGenericTimer { get { return genericTimer;  } set { genericTimer = value;  }  }
+    public GenericTimer getGenericTimer { get { return genericTimer; } set { genericTimer = value; } }
+    public bool takingDamage { get; set; }
 
     private void Start()
     {
@@ -35,6 +34,10 @@ public class Unit : StateMachine
 
     public void TakeDamage(float damage)
     {
-        Health -= damage;    
+        takingDamage = true;
+        Health -= damage;
+
+        //metod if true
+        //taking damage false
     }
 }

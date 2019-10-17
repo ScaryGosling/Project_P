@@ -20,7 +20,7 @@ public class SpeedyFoe : HostileBaseState
         {
             Chase();
 
-            checkForDamage();
+            CheckForDamage();
         }
 
     }
