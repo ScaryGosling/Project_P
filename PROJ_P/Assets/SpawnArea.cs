@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿//Author: Emil Dahl
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnArea : MonoBehaviour
 {
     [SerializeField] private GameObject spawner;
-    public bool isActive { get; set; }
+    public bool IsActive { get; set; }
     // Start is called before the first frame update
 
 
@@ -13,8 +14,7 @@ public class SpawnArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isActive = true;
-
+            IsActive = true;
         }
     }
 
@@ -22,7 +22,7 @@ public class SpawnArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isActive = false;
+            IsActive = false;
         }
     }
 }

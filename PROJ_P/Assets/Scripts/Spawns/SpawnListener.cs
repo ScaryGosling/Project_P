@@ -145,7 +145,7 @@ public class SpawnListener : MonoBehaviour
                 foreach (GameObject spawnObject in spawns)
                 {
                     UnitController();
-                    if (spawned < expected && spawnObject.GetComponent<SpawnArea>().isActive)
+                    if (spawned < expected && spawnObject.GetComponent<SpawnArea>().IsActive)
                     {
                         Instantiate(absoluteUnit, spawnObject.transform.position, Quaternion.identity);
                         spawned++;
