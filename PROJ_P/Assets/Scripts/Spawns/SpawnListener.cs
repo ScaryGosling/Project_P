@@ -68,7 +68,7 @@ public class SpawnListener : MonoBehaviour
         unitsKilled = 0;
         expected = (int)Mathf.Floor(expected * 1.20f);
         waveIndex++;
-       
+
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
     }
 
@@ -80,7 +80,7 @@ public class SpawnListener : MonoBehaviour
             ResetWave();
             SpawnShopKeeper();
             return pauseTime;
-        }  
+        }
         return spawnTime / 2;
     }
 
@@ -122,9 +122,12 @@ public class SpawnListener : MonoBehaviour
 
     private void SpawnShopKeeper()
     {
-        shopKeeper.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
-        shopKeeper.gameObject.SetActive(true);
-        shopOpen = true;
+        if (!shopOpen)
+        {
+            shopKeeper.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
+            shopKeeper.gameObject.SetActive(true);
+            shopOpen = true;
+        }
     }
 
     IEnumerator Spawner()
