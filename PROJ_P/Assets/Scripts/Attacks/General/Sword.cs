@@ -21,7 +21,8 @@ public class Sword : MonoBehaviour
         foreach (GameObject enemy in enemiesInRange) {
             if (enemy) {
 
-                //Deal damage
+                State state = (HostileBaseState)enemy.gameObject.GetComponent<Unit>().currentState;
+                state.TakeDamage(damage);
             }
         }
 

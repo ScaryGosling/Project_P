@@ -14,12 +14,11 @@ public class Unit : StateMachine
     public LayerMask visionMask;
     public GameObject player;
 
-    //public float Health; //?
 
 
     private GenericTimer genericTimer;
     public GenericTimer getGenericTimer { get { return genericTimer; } set { genericTimer = value; } }
-    public bool takingDamage { get; set; }
+    
 
     private void Start()
     {

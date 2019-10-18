@@ -92,10 +92,9 @@ public class HostileBaseState : State
         }
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
-        //takingDamage = true;
-        //Health -= damage;
+        enemyHealth -= damage;
     }
 
     protected bool LineOfSight()

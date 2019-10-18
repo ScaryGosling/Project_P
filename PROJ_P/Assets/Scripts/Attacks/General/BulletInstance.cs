@@ -43,7 +43,9 @@ public class BulletInstance : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            //other.GetComponent<Unit>().TakeDamage(damage);
+            State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
+            state.TakeDamage(damage);
+
             Destroy(gameObject);
         }
     }
