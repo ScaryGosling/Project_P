@@ -178,20 +178,16 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            if (attackSet.list[(selectedAttack - 1 + attackSet.list.Length) % attackSet.list.Length] != null)
-            {
-                SelectAttack(selectedAttack - 1 < 0 ? selectedAttack + attackSet.list.Length - 1 : selectedAttack - 1);
-            }
-            else
-            {
-                int temp = selectedAttack - 1;
+
+
+            int temp = (selectedAttack - 1 < 0 ? selectedAttack + attackSet.list.Length - 1 : selectedAttack - 1);
                 while (attackSet.list[temp] == null)
                 {
                     temp--;
                 }
                 SelectAttack(temp);
-            }
         }
+        
 
         if(tempHP <= 0)
         {
