@@ -10,7 +10,7 @@ using UnityEngine;
 public class HostileBaseState : State
 {
     // Attributes
-    [SerializeField] protected Behaviors controlBehaviors;
+    [SerializeField] protected Behaviors controlBehaviors = Behaviors.STAGGER;
     [SerializeField] protected Material material;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float enemyHealth { get { return health; } set { health = value; } }
@@ -21,6 +21,8 @@ public class HostileBaseState : State
     private Vector3 heading;
     private const float rotationalSpeed = 0.035f;
     private float dotProduct;
+    [SerializeField] private float staggerCD = 0.5f;
+    private bool damaged = false;
 
     [SerializeField] protected float enemyBaseDamage = 5f;
     [SerializeField] private float maxCritical = 10f;
@@ -38,7 +40,7 @@ public class HostileBaseState : State
     private bool timerRunning = false;
     protected bool attacking = false;
 
-    
+
 
     // Methods
     public override void EnterState()
@@ -72,9 +74,6 @@ public class HostileBaseState : State
             Die();
         }
 
-        //if (owner.takingDamage)
-        //    ControlEffects();
-
 
     }
     protected void CheckForDamage()
@@ -95,6 +94,10 @@ public class HostileBaseState : State
     public override void TakeDamage(float damage)
     {
         enemyHealth -= damage;
+        if (controlBehaviors == Behaviors.STAGGER)
+        {
+            ControlEffects();
+        }
     }
 
     protected bool LineOfSight()
@@ -152,21 +155,18 @@ public class HostileBaseState : State
         }
     }
 
-    protected void ControlEffects()
+    protected virtual void ControlEffects()
     {
-        switch (controlBehaviors)
+        if (owner.getGenericTimer.timeTask && !damaged)
         {
-            case Behaviors.STAGGER:
-                Debug.Log("Stagger");
-                break;
-            case Behaviors.KNOCKBACK:
-                Debug.Log("Knockback");
-                break;
-            default:
-                break;
+            Debug.Log("Please work, visual studio!");
+            damaged = true;
+            owner.getGenericTimer.SetTimer(staggerCD);
+            damaged = false;
+            owner.agent.SetDestination(owner.transform.position);
+            
         }
     }
-
 }
 #region EnemyBaseLegacy
 // lightTreshold = owner.LightThreshold;

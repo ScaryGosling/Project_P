@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b7c1a28f52f0f4cb4662898ba068b7, type: 3}
   m_Name: Basic Foe
   m_EditorClassIdentifier: 
-  controlBehaviors: 1
+  controlBehaviors: 0
   material: {fileID: 2100000, guid: d15c62dd4be554bf3969e6b91f8377a1, type: 2}
   moveSpeed: 8
-  hp: 25
+  health: 20
   scale: {x: 1, y: 1, z: 1}
   specialDeath: 0
+  staggerCD: 0.5
   enemyBaseDamage: 3
   maxCritical: 15
   attackSpeed: 0.5
