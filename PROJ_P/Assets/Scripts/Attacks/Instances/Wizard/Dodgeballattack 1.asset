@@ -16,6 +16,7 @@ MonoBehaviour:
   damage: 10
   AttackImage: {fileID: 21300000, guid: 9be157d46e324f14b84f5b884298ba03, type: 3}
   cooldown: 0.5
+  UpgradeCost: 3200000032000000320000003200000032000000
   dodgeball: {fileID: 6750013541312212612, guid: 6072bc8c59af84b758be9f6c01ebf2a8,
     type: 3}
   force: 1500

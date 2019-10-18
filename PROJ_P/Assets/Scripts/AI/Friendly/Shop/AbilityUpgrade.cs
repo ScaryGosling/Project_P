@@ -11,17 +11,21 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler
     [SerializeField] private Text nextUpgradeCost;
     private int currentAbilityLevel;
     [SerializeField] private Text currentAbilityLevelText;
-    [SerializeField]private PlayerAttack ability;
+    [SerializeField] private PlayerAttack ability;
     
 
-    void Start()
-    {
 
+
+    public void SetElements(PlayerAttack ability)
+    {
+        this.ability = ability;
+        InstantiateRow();
     }
     void InstantiateRow()
     {
-        // abilityImage = ability.Image
-        // abilityName = ability.Name
+        abilityName.text = ability.ToString();
+        abilityImage.sprite = ability.GetImage();
+        ability.ResetLevel();
     }
 
     void Update()
@@ -31,14 +35,12 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler
         nextUpgradeCost.text = ability.GetNextLevelCost(currentAbilityLevel) + "$";
 
 
-        abilityName.text = ability.ToString();
-        abilityImage.sprite = ability.GetImage();
+
 
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //ability.ResetLevel();
         
         if (ability.UpgradePossible())
         {

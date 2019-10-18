@@ -19,7 +19,7 @@ public class SpawnListener : MonoBehaviour
     //UnitType currentType;
     private int currentType;
     private const int maximumCapacity = 200;
-    private const float pauseTime = 10f;
+    private float pauseTime = 10f;
     [SerializeField] private float spawnTime = 0.5f;
     private int expected = 10;
     private int spawned = 0;
@@ -41,6 +41,7 @@ public class SpawnListener : MonoBehaviour
 
     private void Start()
     {
+        pauseTime = shopKeeper.GetComponent<Shop>().GetShopTime();
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
         if (!debugMode)
             StartCoroutine(Spawner());
@@ -70,7 +71,9 @@ public class SpawnListener : MonoBehaviour
         spawned = 0;
         unitsKilled = 0;
         if(expected <= maximumCapacity)
-        expected = (int)Mathf.Floor(expected * 1.20f);
+        {
+            expected = (int)Mathf.Floor(expected * 1.20f);
+        }
         waveIndex++;
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
     }

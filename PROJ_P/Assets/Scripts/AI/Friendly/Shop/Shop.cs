@@ -9,6 +9,7 @@ public class Shop : StateMachine
     [SerializeField] private GameObject shopWindow;
     [SerializeField] private float shopTime = 40;
     [SerializeField] private int costOfPotion;
+    private GameObject shopTimer;
     public Vector3 SpawnPoint { get; private set; }
 
     private void Start()
@@ -19,6 +20,12 @@ public class Shop : StateMachine
     {
         SpawnPoint = transform.position;
         ChangeState<ShopBaseState>();
+        shopTimer = new GameObject("Timer");
+        shopTimer.AddComponent<Timer>().RunCountDown(shopTime, RemoveShop);
+    }
+    private void RemoveShop()
+    {
+        ChangeState<ShopTimeFinishedState>();
     }
 
     public GameObject GetShopWindow()
