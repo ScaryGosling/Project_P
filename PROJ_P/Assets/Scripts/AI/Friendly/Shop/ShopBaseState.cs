@@ -9,10 +9,9 @@ public class ShopBaseState : FriendlyBaseState
     protected Shop Owner;
     protected GameObject player;
     [SerializeField] protected float DistanceFromPlayerToActivate = 5f;
-    private GameObject test;
+    protected GameObject pressEtext;
     protected bool TimeLeft = true;
     private bool timerStarted = false;
-    protected GameObject ShopTimer;
     protected GameObject ShopWindow;
     protected Vector3 SpawnPoint;
     protected NavMeshAgent NavMeshAgent;
@@ -26,7 +25,7 @@ public class ShopBaseState : FriendlyBaseState
     private void CacheComponents()
     {
         player = Owner.GetPlayer();
-        test = Owner.GetText();
+        pressEtext = Owner.GetText();
         ShopWindow = Owner.GetShopWindow();
         NavMeshAgent = Owner.GetComponent<NavMeshAgent>();
     }
@@ -34,8 +33,7 @@ public class ShopBaseState : FriendlyBaseState
     public override void EnterState()
     {
         TimeLeft = true;
-        ShopTimer = new GameObject("Timer");
-        ShopTimer.AddComponent<Timer>().RunCountDown(Owner.GetShopTime(), RemoveShop);
+
         Vector3 destination = Random.insideUnitSphere * 3;
         destination.y = 0;
         NavMeshAgent.SetDestination(Owner.transform.position + destination);
@@ -47,16 +45,18 @@ public class ShopBaseState : FriendlyBaseState
     {
         if (DistanceFromPlayer() <= DistanceFromPlayerToActivate && TimeLeft)
         {
-            test.SetActive(true);
+            pressEtext.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 ActivateShop();
             }
             else if (Input.GetMouseButtonDown(0))
             {
+                Debug.Log("truw");
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit))
                 {
+
                     if (hit.transform.gameObject == Owner.gameObject)
                     {
                          ActivateShop();
@@ -66,15 +66,10 @@ public class ShopBaseState : FriendlyBaseState
         }
         else
         {
-            test.SetActive(false);
+            pressEtext.SetActive(false);
         }
     }
-    protected void RemoveShop()
-    {
-        test.SetActive(false);
-        Player.instance.SetHover(false);
-        Owner.ChangeState<ShopTimeFinishedState>();
-    }
+
     private void ActivateShop()
     {
         Owner.ChangeState<ShopSellingState>();

@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private List<PlayerAttack> playerAttacks = new List<PlayerAttack>();
 
     public ClassAttackList attackSets = new ClassAttackList();
-    private AttackSet attackSet;
+    public AttackSet attackSet { get; private set; }
     private PlayerAttack activeAttack;
     private int selectedAttack;
     public GameObject weapon;

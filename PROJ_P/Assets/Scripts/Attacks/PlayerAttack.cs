@@ -12,6 +12,27 @@ public class PlayerAttack : ScriptableObject
     [SerializeField] protected float cooldown;
     private GameObject timer;
     protected bool cooldownActive;
+    [SerializeField] protected List<int> UpgradeCost = new List<int>();
+    public int CurrentLevel { get; protected set; }
+
+    public int GetNextLevelCost(int level)
+    {
+        return UpgradeCost[level];
+    }
+
+    public void UpgradeAttack()
+    {
+        CurrentLevel++;
+    }
+    public void ResetLevel()
+    {
+        CurrentLevel = 0;
+    }
+
+    public bool UpgradePossible()
+    {
+        return CurrentLevel+1 < UpgradeCost.Count;
+    }
 
     public virtual void Execute() {
 
