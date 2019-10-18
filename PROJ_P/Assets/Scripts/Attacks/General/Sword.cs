@@ -19,8 +19,10 @@ public class Sword : MonoBehaviour
     public void DamageEnemies(float damage) {
 
         foreach (GameObject enemy in enemiesInRange) {
-            if(enemy)
-                enemy.GetComponent<Unit>().TakeDamage(damage);
+            if (enemy) {
+
+                //Deal damage
+            }
         }
 
     }

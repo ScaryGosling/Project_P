@@ -11,7 +11,6 @@ public class FriendlyBaseState : State
     // Attributes
     [SerializeField] protected Material material;
     [SerializeField] protected float moveSpeed;
-    [SerializeField] protected float enemyHealth { get { return owner.Health; }  }
     [SerializeField] private float hp = 100f;
     [SerializeField] private Vector3 scale;
     [SerializeField] private bool specialDeath;
@@ -38,7 +37,6 @@ public class FriendlyBaseState : State
         base.EnterState();
         owner.Renderer.material = material;
         owner.agent.speed = moveSpeed;
-        owner.Health = hp;
         owner.transform.localScale = scale;
         capsuleCollider = owner.GetComponent<CapsuleCollider>();
 
@@ -52,21 +50,6 @@ public class FriendlyBaseState : State
 
     public override void ToDo()
     {
-
-        if (enemyHealth <= 0)
-        {
-            if (alive)
-            {
-                death = new UnitDeath();
-                death.eventDescription = "Unit Died";
-                death.enemyObject = owner.gameObject;
-                EventSystem.Current.FireEvent(death);
-                Debug.Log("unitDead");
-            }
-            deathTimer = 2f;
-            Die();
-        }
-
 
     }
     protected void checkForDamage()
