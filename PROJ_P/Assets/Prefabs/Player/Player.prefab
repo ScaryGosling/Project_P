@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 1881681638}
   - component: {fileID: 1881681637}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -475,7 +475,7 @@ MonoBehaviour:
   resourceImage: {fileID: 0}
   gold: 99
   spawnPoint: {fileID: 2333080736870482482}
-  hover: 1
+  hover: 0
   playerClass: 0
 --- !u!208 &1079045316322619800
 NavMeshObstacle:

@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7433464501349730636
 Transform:
   m_ObjectHideFlags: 0
@@ -113,11 +113,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9fd169342eb57c7429a9c031c4c4b035, type: 2}
   - {fileID: 11400000, guid: 18680617da0ef6e46a376f38c51ac33a, type: 2}
   currentState: {fileID: 0}
-  player: {fileID: 1079045316322619795, guid: 74d1415f2c9a8e54eb93ce037bae2d6d, type: 3}
+  player: {fileID: 0}
   text: {fileID: 0}
-  shopWindow: {fileID: 9209830498346167471, guid: ce28472501c44ee4d8870068f8da2b7a,
-    type: 3}
-  shopTime: 5
+  shopWindow: {fileID: 0}
+  shopTime: 10
   costOfPotion: 10
 --- !u!195 &4007322575627392456
 NavMeshAgent:

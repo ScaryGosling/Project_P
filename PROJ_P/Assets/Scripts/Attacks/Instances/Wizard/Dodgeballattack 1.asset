@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Dodgeballattack 1
   m_EditorClassIdentifier: 
   castCost: 2
-  damage: 10
+  damage:
+  - 10
+  - 14
+  - 18
+  - 23
+  - 28
   AttackImage: {fileID: 21300000, guid: 9be157d46e324f14b84f5b884298ba03, type: 3}
   cooldown: 0.5
   UpgradeCost: 3200000032000000320000003200000032000000

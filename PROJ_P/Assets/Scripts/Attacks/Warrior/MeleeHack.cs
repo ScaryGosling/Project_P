@@ -22,7 +22,7 @@ public class MeleeHack : PlayerAttack
         base.RunAttack();
         animation.AddClip(slash, "Slash");
         animation.Play("Slash");
-        attackBox.DamageEnemies(damage);
+        attackBox.DamageEnemies(damage[CurrentLevel]);
     }
 
     public override void OnEquip()

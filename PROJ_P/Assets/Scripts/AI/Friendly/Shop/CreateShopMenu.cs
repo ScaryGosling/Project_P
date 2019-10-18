@@ -22,10 +22,19 @@ public class CreateShopMenu : MonoBehaviour
     private void CreateAbilityRows()
     {
         AbilityUpgrade abilityUpgrade;
-        for (int i = 0; i < player.attackSet.list.Length; i++)
+        for (int i = 0; i < rows.Length; i++)
         {
-            abilityUpgrade = Instantiate(abilityRow, rows[i].transform).GetComponent<AbilityUpgrade>();
-            abilityUpgrade.SetElements(player.attackSet.list[i]);
+                abilityUpgrade = Instantiate(abilityRow, rows[i].transform).GetComponent<AbilityUpgrade>();
+            if (player.attackSet.list[i] != null)
+            {
+                abilityUpgrade.SetElements(player.attackSet.list[i]);
+            }
+            else
+            {
+                abilityUpgrade.EmptyRow();
+
+            }
+
         }
     }
 }

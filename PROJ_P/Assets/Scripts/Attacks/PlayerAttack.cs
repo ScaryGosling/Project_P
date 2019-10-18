@@ -7,7 +7,7 @@ public class PlayerAttack : ScriptableObject
 {
 
     [SerializeField] private float castCost;
-    [SerializeField] protected float damage;
+    [SerializeField] protected List<float> damage;
     [SerializeField] protected Sprite AttackImage;
     [SerializeField] protected float cooldown;
     private GameObject timer;
