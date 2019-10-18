@@ -13,8 +13,8 @@ public class HostileBaseState : State
     [SerializeField] protected Behaviors controlBehaviors;
     [SerializeField] protected Material material;
     [SerializeField] protected float moveSpeed;
-    [SerializeField] protected float enemyHealth { get { return owner.Health; } }
-    [SerializeField] private float hp = 100f;
+    [SerializeField] protected float enemyHealth { get { return health; } set { health = value; } }
+    [SerializeField] private float health = 20;
     [SerializeField] private Vector3 scale;
     [SerializeField] private bool specialDeath;
     private CapsuleCollider capsuleCollider;
@@ -46,7 +46,6 @@ public class HostileBaseState : State
         base.EnterState();
         owner.Renderer.material = material;
         owner.agent.speed = moveSpeed;
-        owner.Health = hp;
         owner.transform.localScale = scale;
         capsuleCollider = owner.GetComponent<CapsuleCollider>();
     }
@@ -60,7 +59,7 @@ public class HostileBaseState : State
     public override void ToDo()
     {
 
-        if (enemyHealth <= 0)
+        if (health <= 0)
         {
             if (alive)
             {
@@ -91,6 +90,12 @@ public class HostileBaseState : State
                 DamagePlayer();
             }
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        takingDamage = true;
+        Health -= damage;
     }
 
     protected bool LineOfSight()

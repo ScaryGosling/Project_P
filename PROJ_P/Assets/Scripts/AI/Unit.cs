@@ -13,8 +13,8 @@ public class Unit : StateMachine
     [HideInInspector] public NavMeshAgent agent;
     public LayerMask visionMask;
     public GameObject player;
-    [SerializeField] private float health = 20;
-    public float Health { get { return health; } set { health = value; } }
+
+
     private GenericTimer genericTimer;
     public GenericTimer getGenericTimer { get { return genericTimer; } set { genericTimer = value; } }
     public bool takingDamage { get; set; }
@@ -32,12 +32,4 @@ public class Unit : StateMachine
         base.Awake();
     }
 
-    public void TakeDamage(float damage)
-    {
-        takingDamage = true;
-        Health -= damage;
-
-        //metod if true
-        //taking damage false
-    }
 }
