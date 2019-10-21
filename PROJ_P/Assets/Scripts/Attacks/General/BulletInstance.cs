@@ -7,7 +7,7 @@ public class BulletInstance : MonoBehaviour
 {
     private Vector3 viewportPoint;
     private Camera mainCamera;
-    private float damage;
+    protected float damage;
 
     private void Start()
     {
@@ -42,13 +42,17 @@ public class BulletInstance : MonoBehaviour
         this.damage = damage;
     }
 
+    public virtual void RunAttack(Collider other) {
+
+        State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
+        state.TakeDamage(damage);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Enemy")
         {
-            State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
-            state.TakeDamage(damage);
+            RunAttack(other);
 
             Destroy(gameObject);
         }

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castCost: 2
   damage:
+  - 4
+  - 6
+  - 8
   - 10
-  - 14
-  - 18
-  - 23
-  - 28
+  - 12
   attackImage: {fileID: 21300000, guid: 9be157d46e324f14b84f5b884298ba03, type: 3}
   cooldown: 0.5
   upgradeCost: 0f00000019000000230000002d00000037000000
