@@ -33,6 +33,7 @@ public class SpawnListener : MonoBehaviour
     [SerializeField] private GameObject[] unitPrefabs;
     [SerializeField] private GameObject[] pickUp;
     [SerializeField] private GameObject shopKeeper;
+    [SerializeField] private float timeAfterShopkeeperLeavesForEnemiesToSpawn = 5;
 
     //private GameObject newPotion;
     private GameObject absoluteUnit;
@@ -165,7 +166,7 @@ public class SpawnListener : MonoBehaviour
             else
             {
                 time = CheckWaveCompletion();
-                yield return new WaitForSeconds(time);
+                yield return new WaitForSeconds(time + timeAfterShopkeeperLeavesForEnemiesToSpawn);
             }
         }
     }
