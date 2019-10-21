@@ -19,7 +19,7 @@ MonoBehaviour:
   - 8
   - 10
   - 12
-  attackImage: {fileID: 21300000, guid: 9be157d46e324f14b84f5b884298ba03, type: 3}
+  attackImage: {fileID: 21300000, guid: f71a6d253615e2541888194bd481124b, type: 3}
   cooldown: 0.5
   upgradeCost: 0f00000019000000230000002d00000037000000
   upgradeCosts: []

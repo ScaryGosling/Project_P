@@ -7,7 +7,6 @@ public class ChainLightning : BulletInstance
 
     private Collider[] hitColliders;
     private Collider bindingCollider;
-    private bool active;
 
     [SerializeField] float chainRadius;
     [SerializeField] float lineWidth;
@@ -16,6 +15,8 @@ public class ChainLightning : BulletInstance
     [SerializeField] Material material;
 
 
+    private List<Collider> enemiesInRange = new List<Collider>();
+    private bool active;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,54 +32,127 @@ public class ChainLightning : BulletInstance
     {
         base.RunAttack(other);
 
+        Player.instance.gameObject.AddComponent<LineRenderer>();
+
         GetComponent<Renderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
+
         bindingCollider = other;
+        bindingCollider.gameObject.AddComponent<LineRenderer>();
 
         //Find enemies within radius
         hitColliders = Physics.OverlapSphere(Player.instance.transform.position, chainRadius);
-        for (int i = 0; i < hitColliders.Length; i++)
+        FindEnemies(hitColliders);
+        hitColliders = null;
+
+
+        foreach (Collider collider in enemiesInRange)
         {
 
-            hitColliders[i].gameObject.AddComponent<LineRenderer>();
+            collider.gameObject.AddComponent<LineRenderer>();
 
-            if(hitColliders[i].GetComponent<Unit>())
-                hitColliders[i].GetComponent<Unit>().currentState.TakeDamage(damage / 5);
+            if (collider.GetComponent<Unit>())
+                collider.GetComponent<Unit>().currentState.TakeDamage(damage / 5);
+
         }
+        active = true;
     }
+
+
+    public void FindEnemies(Collider[] colliders)
+    {
+    
+        foreach(Collider collider in colliders)
+        {
+            if (collider.CompareTag("Enemy"))
+                enemiesInRange.Add(collider);
+
+        }
+
+
+    }
+
+
 
     private void Update()
     {
-        if (active && hitColliders != null) {
-            int i = 0;
-            while (i < hitColliders.Length)
+        if (enemiesInRange == null || !active)
+            return;
+
+            if (Player.instance.gameObject.GetComponent<LineRenderer>())
             {
-                if (hitColliders[i].GetComponent<Rigidbody>() && hitColliders[i].CompareTag("Enemy") && hitColliders[i].GetComponent<LineRenderer>())
-                {
-                    LineRenderer lr = hitColliders[i].GetComponent<LineRenderer>();
-                    lr.material = material;
-                    lr.positionCount = 2;
+                LineRenderer initialLine = Player.instance.gameObject.GetComponent<LineRenderer>();
+                initialLine.material = material;
+                initialLine.positionCount = 2;
 
-                    lr.startWidth = lineWidth;
-                    lr.endWidth = lineWidth;
+                initialLine.startWidth = lineWidth;
+                initialLine.endWidth = lineWidth;
 
-                    lr.startColor = lightningColor;
-                    lr.endColor = lightningColor;
+                initialLine.startColor = lightningColor;
+                initialLine.endColor = lightningColor;
 
-                    lr.SetPosition(0, hitColliders[i].transform.position);
-                    lr.SetPosition(1, bindingCollider.transform.position);
+                initialLine.SetPosition(0, Player.instance.transform.position);
+                initialLine.SetPosition(1, bindingCollider.transform.position);
 
-
-                }
-                i++;
             }
-        }
+
+            if (bindingCollider.GetComponent<LineRenderer>())
+            {
+                LineRenderer bind = bindingCollider.GetComponent<LineRenderer>();
+                bind.material = material;
+                bind.positionCount = 2;
+
+                bind.startWidth = lineWidth;
+                bind.endWidth = lineWidth;
+
+                bind.startColor = lightningColor;
+                bind.endColor = lightningColor;
+
+                bind.SetPosition(0, bindingCollider.transform.position);
+                bind.SetPosition(1, enemiesInRange[0].transform.position);
+            }
+            
+
+            if (enemiesInRange.Count > 1)
+            {
+
+                for (int i = 1; i < enemiesInRange.Count; i++)
+                {
+                    if (enemiesInRange[i] && enemiesInRange[i].GetComponent<LineRenderer>())
+                    {
+
+                        LineRenderer lr = enemiesInRange[i].GetComponent<LineRenderer>();
+                        lr.material = material;
+                        lr.positionCount = 2;
+
+                        lr.startWidth = lineWidth;
+                        lr.endWidth = lineWidth;
+
+                        lr.startColor = lightningColor;
+                        lr.endColor = lightningColor;
+
+                        lr.SetPosition(0, enemiesInRange[i - 1].transform.position);
+                        lr.SetPosition(1, enemiesInRange[i].transform.position);
+
+                    }
+                    
+                }
+
+
+
+            }
+            
+
+
+
 
     }
 
     public void ClearColliders()
     {
         LineRenderer[] linesToRemove = FindObjectsOfType<LineRenderer>();
+
+        Destroy(Player.instance.GetComponent<LineRenderer>());
 
         foreach (LineRenderer line in linesToRemove)
         {
@@ -90,9 +164,8 @@ public class ChainLightning : BulletInstance
 
     public IEnumerator KillTimer()
     {
-        active = true;
+
         yield return new WaitForSeconds(killTime);
-        active = false;
         ClearColliders();
 
         Destroy(gameObject);
