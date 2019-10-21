@@ -31,7 +31,11 @@ public class GiveResource : EventInfo
     public Res res;
 }
 
-
+public class ToggleArrowEvent : EventInfo
+{
+    public bool toggle;
+    public GameObject goal;
+}
 
 public class MakeDamageEvent  : EventInfo
 {

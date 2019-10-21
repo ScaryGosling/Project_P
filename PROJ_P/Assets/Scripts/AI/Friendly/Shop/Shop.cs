@@ -10,6 +10,7 @@ public class Shop : StateMachine
     [SerializeField] private float shopTime = 40;
     [SerializeField] private int costOfPotion;
     private GameObject shopTimer;
+    private ToggleArrowEvent toggleArrow = new ToggleArrowEvent();
     public Vector3 spawnPoint { get; private set; }
 
     private void Start()
@@ -22,6 +23,14 @@ public class Shop : StateMachine
         ChangeState<ShopBaseState>();
         shopTimer = new GameObject("Timer");
         shopTimer.AddComponent<Timer>().RunCountDown(shopTime, RemoveShop);
+        toggleArrow.goal = gameObject;
+        toggleArrow.toggle = true;
+        EventSystem.Current.FireEvent(toggleArrow);
+    }
+    private void OnDisable()
+    {
+        toggleArrow.toggle = false;
+        EventSystem.Current.FireEvent(toggleArrow);
     }
     private void RemoveShop()
     {

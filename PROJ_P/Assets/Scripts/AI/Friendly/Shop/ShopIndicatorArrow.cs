@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShopIndicatorArrow : MonoBehaviour
 {
-    [SerializeField]private GameObject shopKeeper;
+    [SerializeField]private GameObject goal;
     private Camera mainCamera;
     private Vector3 viewportPoint;
     [SerializeField] private GameObject arrow;
@@ -20,31 +20,43 @@ public class ShopIndicatorArrow : MonoBehaviour
     void Update()
     {
 
-        if (shopKeeper.gameObject.activeInHierarchy && !IsVisible())
+        if (goal != null && goal.gameObject.activeInHierarchy)
         {
             arrow.gameObject.SetActive(true);
-            arrowDirection = (shopKeeper.transform.position - transform.position).normalized;
+            arrowDirection = (goal.transform.position - transform.position).normalized;
             temp = Quaternion.LookRotation(arrowDirection);
             temp = Quaternion.Euler(90, temp.eulerAngles.y, temp.eulerAngles.z);
             arrow.transform.rotation = temp;
+            float factor;
+            if (DistanceToGoal() > 10)
+            {
+                factor = 1;
+            }
+            else
+            {
+                factor = DistanceToGoal() / 10;
+            }
+            arrow.transform.localScale = Vector3.one * factor;
         }
-        else
-        {
-            arrow.gameObject.SetActive(false);
-        }
-
-
-
-
         
+    }
+
+    private float DistanceToGoal()
+    {
+        return Vector3.Distance(transform.position, goal.transform.position);
     }
     private bool IsVisible()
     {
-        viewportPoint = mainCamera.WorldToViewportPoint(shopKeeper.transform.position);
+        viewportPoint = mainCamera.WorldToViewportPoint(goal.transform.position);
         if (viewportPoint.x < 0 || viewportPoint.x > 1 || viewportPoint.y < 0 || viewportPoint.y > 1)
         {
             return false;
         }
         return true;
+    }
+
+    public void SetGoal(GameObject goal)
+    {
+        this.goal = goal;
     }
 }

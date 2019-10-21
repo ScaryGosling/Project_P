@@ -34,7 +34,6 @@ public class SpawnListener : MonoBehaviour
     [SerializeField] private GameObject[] pickUp;
     [SerializeField] private GameObject shopKeeper;
 
-
     //private GameObject newPotion;
     private GameObject absoluteUnit;
 
@@ -44,7 +43,10 @@ public class SpawnListener : MonoBehaviour
         pauseTime = shopKeeper.GetComponent<Shop>().GetShopTime();
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
         if (!debugMode)
+        {
             StartCoroutine(Spawner());
+
+        }
         //absoluteUnit = UnitPrefabs[0];
         //UnitController();
     }
@@ -133,6 +135,7 @@ public class SpawnListener : MonoBehaviour
             shopKeeper.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
             shopKeeper.gameObject.SetActive(true);
             shopOpen = true;
+
         }
     }
 
