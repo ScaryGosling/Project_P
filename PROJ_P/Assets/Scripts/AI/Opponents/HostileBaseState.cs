@@ -14,7 +14,7 @@ public class HostileBaseState : State
     [SerializeField] protected Material material;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float EnemyHealth { get { return health; } set { health = value; } }
-    [SerializeField] private float health = 20;
+    private float health;
     [SerializeField] private Vector3 scale;
     [SerializeField] private bool specialDeath;
     private CapsuleCollider capsuleCollider;
@@ -46,10 +46,12 @@ public class HostileBaseState : State
     public override void EnterState()
     {
         base.EnterState();
+        health = 10f;
         owner.renderer.material = material;
         owner.agent.speed = moveSpeed;
         owner.transform.localScale = scale;
         capsuleCollider = owner.GetComponent<CapsuleCollider>();
+        EventSystem.Current.RegisterListener<WaveCompletionEvent>(NewWave);
     }
 
 
@@ -73,8 +75,6 @@ public class HostileBaseState : State
             deathTimer = 2f;
             Die();
         }
-
-
     }
     protected void CheckForDamage()
     {
@@ -99,6 +99,12 @@ public class HostileBaseState : State
         {
             ControlEffects();
         }
+    }
+
+    public void NewWave(WaveCompletionEvent waveCompletion)
+    {
+        health += waveCompletion.EnemyHealth;
+        Debug.Log("wave health: " + health);
     }
 
     protected bool LineOfSight()

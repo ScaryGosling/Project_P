@@ -21,12 +21,13 @@ public class SpawnListener : MonoBehaviour
     private const int maximumCapacity = 200;
     private float pauseTime = 10f;
     [SerializeField] private float spawnTime = 0.5f;
-    private int expected = 10;
+    private int expected = 2;
     private int spawned = 0;
     private int unitsKilled = 0;
     private int waveIndex = 1;
     private bool shopOpen = false;
     private Queue locationQueue = new Queue();
+    private WaveCompletionEvent waveCompletion;
     [SerializeField] private float chanceOfDrop = 0.4f;
     [SerializeField] private bool debugMode;
     [SerializeField] private GameObject[] spawns;
@@ -43,6 +44,7 @@ public class SpawnListener : MonoBehaviour
     {
         pauseTime = shopKeeper.GetComponent<Shop>().GetShopTime();
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
+        //ResetWave();
         if (!debugMode)
         {
             StartCoroutine(Spawner());
@@ -78,6 +80,11 @@ public class SpawnListener : MonoBehaviour
             expected = (int)Mathf.Floor(expected * 1.20f);
         }
         waveIndex++;
+
+        waveCompletion = new WaveCompletionEvent();
+        waveCompletion.EnemyHealth = 10f;
+        EventSystem.Current.FireEvent(waveCompletion);
+
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
     }
 

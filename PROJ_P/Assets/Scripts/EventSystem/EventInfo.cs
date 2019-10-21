@@ -12,6 +12,11 @@ public class DebugEvent : EventInfo
 
 }
 
+public class WaveCompletionEvent : EventInfo
+{
+    public float EnemyHealth;
+}
+
 public class UnitSpawnEvent : EventInfo
 {
     public GameObject enemyObject;
