@@ -11,7 +11,7 @@ public class Sword : MonoBehaviour
         if (other.tag == "Enemy")
         {
             enemiesInRange.Add(other.gameObject);
-            
+            Debug.Log(enemiesInRange.Count);
         }
     }
 
