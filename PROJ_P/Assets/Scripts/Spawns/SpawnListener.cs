@@ -21,7 +21,7 @@ public class SpawnListener : MonoBehaviour
     private const int maximumCapacity = 200;
     private float pauseTime = 10f;
     [SerializeField] private float spawnTime = 0.5f;
-    private int expected = 1;
+    private int expected = 10;
     private int spawned = 0;
     private int unitsKilled = 0;
     private int waveIndex = 1;
