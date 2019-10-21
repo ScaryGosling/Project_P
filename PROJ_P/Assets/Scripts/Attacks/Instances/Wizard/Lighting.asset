@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a9b28d9c8cdf4f51ae9375948f071d6, type: 3}
-  m_Name: Dodgeballattack 1
+  m_Name: Lighting
   m_EditorClassIdentifier: 
   castCost: 2
   damage:
@@ -22,6 +22,7 @@ MonoBehaviour:
   attackImage: {fileID: 21300000, guid: 9be157d46e324f14b84f5b884298ba03, type: 3}
   cooldown: 0.5
   upgradeCost: 0f00000019000000230000002d00000037000000
+  upgradeCosts: []
   dodgeball: {fileID: 6750013541312212612, guid: 6072bc8c59af84b758be9f6c01ebf2a8,
     type: 3}
   force: 1500

@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     private PlayerAttack activeAttack;
     private int selectedAttack;
     public GameObject weapon;
-    public GameObject attackBox;
 
     [Header("UI elements")]
     [SerializeField] private Image[] attackUISpot;
@@ -30,7 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private bool hover = false;
 
-    public bool Attackable { get; set; } = true;
+    public bool Attackable { get; set; } = false;
 
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
@@ -126,7 +125,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0)) {
             if (!ClickOnFriendly() && !hover)
             {
-
+                Debug.Log("Yes");
                 ExecuteAttack();
             }
 

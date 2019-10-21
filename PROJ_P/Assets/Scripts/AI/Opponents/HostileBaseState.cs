@@ -3,6 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 
@@ -160,12 +161,10 @@ public class HostileBaseState : State
     {
         if (owner.getGenericTimer.timeTask && !damaged)
         {
-            Debug.Log("Please work, visual studio!");
             damaged = true;
             owner.getGenericTimer.SetTimer(staggerCD);
             damaged = false;
             owner.agent.SetDestination(owner.transform.position);
-            
         }
     }
 }

@@ -35,10 +35,14 @@ public class BulletInstance : MonoBehaviour
         }
         return true;
     }
+
+
     public void SetDamage(float damage)
     {
         this.damage = damage;
     }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Enemy")
