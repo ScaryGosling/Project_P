@@ -14,6 +14,16 @@ public class PlayerAttack : ScriptableObject
     protected bool cooldownActive;
     [SerializeField] protected List<int> upgradeCost = new List<int>();
     public int CurrentLevel { get; protected set; }
+    [SerializeField]protected List<UpgradeCost> upgradeCosts = new List<UpgradeCost>();
+    
+
+    [System.Serializable] protected struct UpgradeCost
+    {
+        public string levelName;
+        public int upgradeCost;
+        public int newDamage;
+    }
+    
 
     public int GetNextLevelCost(int level)
     {
@@ -67,6 +77,7 @@ public class PlayerAttack : ScriptableObject
     {
         return attackImage;
     }
+
 
     public virtual void OnEquip() {
 

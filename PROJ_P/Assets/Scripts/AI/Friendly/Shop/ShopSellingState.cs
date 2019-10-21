@@ -21,7 +21,7 @@ public class ShopSellingState : ShopBaseState
     }
     private void DeactivateShop()
     {
-        owner.ChangeState<ShopBaseState>();
+        shopKeeper.ChangeState<ShopBaseState>();
     }
 
     public override void ExitState()

@@ -10,19 +10,19 @@ public class ShopTimeFinishedState : ShopBaseState
         Debug.Log("Shopkeeper will leave now");
         pressEtext.SetActive(false);
         Player.instance.SetHover(false);
-        if (Vector3.Distance(owner.spawnPoint, owner.transform.position) > 1.5f)
+        if (Vector3.Distance(shopKeeper.spawnPoint, shopKeeper.transform.position) > 1.5f)
         {
 
-            navMeshAgent.SetDestination(owner.spawnPoint);
+            navMeshAgent.SetDestination(shopKeeper.spawnPoint);
         }
     }
 
     public override void ToDo()
     {
 
-        if (Vector3.Distance(new Vector3(owner.spawnPoint.x, 0, owner.spawnPoint.z), new Vector3(owner.transform.position.x, 0, owner.transform.position.z)) <1.5f)
+        if (Vector3.Distance(new Vector3(shopKeeper.spawnPoint.x, 0, shopKeeper.spawnPoint.z), new Vector3(shopKeeper.transform.position.x, 0, shopKeeper.transform.position.z)) <1.5f)
         {
-            owner.gameObject.SetActive(false);
+            shopKeeper.gameObject.SetActive(false);
         }
     }
 

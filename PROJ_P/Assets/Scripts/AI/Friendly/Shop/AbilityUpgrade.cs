@@ -13,7 +13,7 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler
     [SerializeField] private Text currentAbilityLevelText;
     [SerializeField] private PlayerAttack ability;
     
-
+    
     public void EmptyRow()
     {
         abilityImage.sprite = null;

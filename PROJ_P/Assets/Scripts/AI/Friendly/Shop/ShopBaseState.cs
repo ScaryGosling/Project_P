@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [CreateAssetMenu(menuName = "Friendly/Shop Base State")]
 public class ShopBaseState : FriendlyBaseState
 {
-    protected new Shop owner;
+    protected Shop shopKeeper;
     protected GameObject player;
     [SerializeField] protected float distanceFromPlayerToActivate = 5f;
     protected GameObject pressEtext;
@@ -18,16 +18,16 @@ public class ShopBaseState : FriendlyBaseState
 
     public override void InitializeState(StateMachine owner)
     {
-        this.owner = (Shop)owner;
+        this.shopKeeper = (Shop)owner;
         CacheComponents();
     }
 
     private void CacheComponents()
     {
-        player = owner.GetPlayer();
-        pressEtext = owner.GetText();
-        shopWindow = owner.GetShopWindow();
-        navMeshAgent = owner.GetComponent<NavMeshAgent>();
+        player = shopKeeper.GetPlayer();
+        pressEtext = shopKeeper.GetText();
+        shopWindow = shopKeeper.GetShopWindow();
+        navMeshAgent = shopKeeper.GetComponent<NavMeshAgent>();
     }
 
     public override void EnterState()
@@ -36,7 +36,7 @@ public class ShopBaseState : FriendlyBaseState
 
         Vector3 destination = Random.insideUnitSphere * 3;
         destination.y = 0;
-        navMeshAgent.SetDestination(owner.transform.position + destination);
+        navMeshAgent.SetDestination(shopKeeper.transform.position + destination);
     }
 
     RaycastHit hit;
@@ -57,7 +57,7 @@ public class ShopBaseState : FriendlyBaseState
                 if (Physics.Raycast(ray, out hit))
                 {
 
-                    if (hit.transform.gameObject == owner.gameObject)
+                    if (hit.transform.gameObject == shopKeeper.gameObject)
                     {
                          ActivateShop();
                     }
@@ -72,12 +72,12 @@ public class ShopBaseState : FriendlyBaseState
 
     private void ActivateShop()
     {
-        owner.ChangeState<ShopSellingState>();
+        shopKeeper.ChangeState<ShopSellingState>();
     }
     protected float DistanceFromPlayer()
     {
 
-        return Vector3.Distance(owner.transform.position, player.transform.position);
+        return Vector3.Distance(shopKeeper.transform.position, player.transform.position);
     }
 
 }
