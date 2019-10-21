@@ -6,7 +6,7 @@ public class HealthDrop : Pickup
 {
     protected override void DoSomething()
     {
-        player.healthProp += fillAmount;
+        player.HealthProp += fillAmount;
         GameObject.Destroy(gameObject);
     }
 }

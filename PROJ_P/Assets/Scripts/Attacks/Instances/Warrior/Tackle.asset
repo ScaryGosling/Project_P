@@ -15,8 +15,8 @@ MonoBehaviour:
   castCost: 10
   damage:
   - 0
-  AttackImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  attackImage: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   cooldown: 3
-  UpgradeCost: 43000000
+  upgradeCost: 0a000000
   tackleForce: 20
   tackleLength: 15

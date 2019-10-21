@@ -35,7 +35,7 @@ public class FriendlyBaseState : State
     public override void EnterState()
     {
         base.EnterState();
-        owner.Renderer.material = material;
+        owner.renderer.material = material;
         owner.agent.speed = moveSpeed;
         owner.transform.localScale = scale;
         capsuleCollider = owner.GetComponent<CapsuleCollider>();
@@ -75,7 +75,7 @@ protected bool LineOfSight()
     protected void DamagePlayer(float val)
     {
         //actualDamage = Mathf.Floor(Random.Range(enemyBaseDamage, enemyBaseDamage * 1.5f));
-        owner.player.GetComponent<Player>().healthProp -= enemyBaseDamage;
+        owner.player.GetComponent<Player>().HealthProp -= enemyBaseDamage;
 
     }
 

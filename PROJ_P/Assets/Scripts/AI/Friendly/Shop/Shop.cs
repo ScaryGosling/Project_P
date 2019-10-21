@@ -10,15 +10,15 @@ public class Shop : StateMachine
     [SerializeField] private float shopTime = 40;
     [SerializeField] private int costOfPotion;
     private GameObject shopTimer;
-    public Vector3 SpawnPoint { get; private set; }
+    public Vector3 spawnPoint { get; private set; }
 
     private void Start()
     {
-        SpawnPoint = transform.position;
+        spawnPoint = transform.position;
     }
     private void OnEnable()
     {
-        SpawnPoint = transform.position;
+        spawnPoint = transform.position;
         ChangeState<ShopBaseState>();
         shopTimer = new GameObject("Timer");
         shopTimer.AddComponent<Timer>().RunCountDown(shopTime, RemoveShop);
@@ -50,7 +50,7 @@ public class Shop : StateMachine
         if (Player.instance.GoldProp >= costOfPotion)
         {
             Player.instance.Resource.IncreaseResource(1f);
-            Player.instance.healthProp += 100;
+            Player.instance.HealthProp += 100;
             Player.instance.GoldProp -= 10;
         }
 

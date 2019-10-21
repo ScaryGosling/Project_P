@@ -30,7 +30,7 @@ public class SpawnListener : MonoBehaviour
     [SerializeField] private float chanceOfDrop = 0.4f;
     [SerializeField] private bool debugMode;
     [SerializeField] private GameObject[] spawns;
-    [SerializeField] private GameObject[] UnitPrefabs;
+    [SerializeField] private GameObject[] unitPrefabs;
     [SerializeField] private GameObject[] pickUp;
     [SerializeField] private GameObject shopKeeper;
 
@@ -97,13 +97,13 @@ public class SpawnListener : MonoBehaviour
         switch (currentType)
         {
             case 0:
-                absoluteUnit = UnitPrefabs[currentType].gameObject;
+                absoluteUnit = unitPrefabs[currentType].gameObject;
                 break;
             case 1:
-                absoluteUnit = UnitPrefabs[currentType].gameObject;
+                absoluteUnit = unitPrefabs[currentType].gameObject;
                 break;
             case 2:
-                absoluteUnit = UnitPrefabs[currentType].gameObject;
+                absoluteUnit = unitPrefabs[currentType].gameObject;
                 break;
             default:
                 break;
@@ -150,7 +150,7 @@ public class SpawnListener : MonoBehaviour
                 foreach (GameObject spawnObject in spawns)
                 {
                     UnitController();
-                    if (spawned < expected && spawnObject.GetComponent<SpawnArea>().IsActive)
+                    if (spawned < expected && spawnObject.GetComponent<SpawnArea>().isActive)
                     {
                         Instantiate(absoluteUnit, spawnObject.transform.position, Quaternion.identity);
                         spawned++;

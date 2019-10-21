@@ -13,7 +13,7 @@ public class HostileBaseState : State
     [SerializeField] protected Behaviors controlBehaviors = Behaviors.STAGGER;
     [SerializeField] protected Material material;
     [SerializeField] protected float moveSpeed;
-    [SerializeField] protected float enemyHealth { get { return health; } set { health = value; } }
+    [SerializeField] protected float EnemyHealth { get { return health; } set { health = value; } }
     [SerializeField] private float health = 20;
     [SerializeField] private Vector3 scale;
     [SerializeField] private bool specialDeath;
@@ -46,7 +46,7 @@ public class HostileBaseState : State
     public override void EnterState()
     {
         base.EnterState();
-        owner.Renderer.material = material;
+        owner.renderer.material = material;
         owner.agent.speed = moveSpeed;
         owner.transform.localScale = scale;
         capsuleCollider = owner.GetComponent<CapsuleCollider>();
@@ -93,7 +93,7 @@ public class HostileBaseState : State
 
     public override void TakeDamage(float damage)
     {
-        enemyHealth -= damage;
+        EnemyHealth -= damage;
         if (controlBehaviors == Behaviors.STAGGER)
         {
             ControlEffects();
@@ -111,7 +111,7 @@ public class HostileBaseState : State
     protected void DamagePlayer()
     {
         actualDamage = Random.Range(enemyBaseDamage, maxCritical);
-        owner.player.GetComponent<Player>().healthProp -= actualDamage;
+        owner.player.GetComponent<Player>().HealthProp -= actualDamage;
     }
 
 

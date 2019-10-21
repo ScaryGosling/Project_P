@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpawnArea : MonoBehaviour
 {
     [SerializeField] private GameObject spawner;
-    public bool IsActive { get; set; }
+    public bool isActive { get; set; }
     // Start is called before the first frame update
 
 
@@ -14,7 +14,7 @@ public class SpawnArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            IsActive = true;
+            isActive = true;
         }
     }
 
@@ -22,7 +22,7 @@ public class SpawnArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            IsActive = false;
+            isActive = false;
         }
     }
 }

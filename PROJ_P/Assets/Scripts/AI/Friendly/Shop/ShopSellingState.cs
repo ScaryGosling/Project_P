@@ -8,24 +8,24 @@ public class ShopSellingState : ShopBaseState
 
     public override void EnterState()
     {
-        ShopWindow.SetActive(true);
+        shopWindow.SetActive(true);
     }
 
 
     public override void ToDo()
     {
-        if (DistanceFromPlayer() > DistanceFromPlayerToActivate)
+        if (DistanceFromPlayer() > distanceFromPlayerToActivate)
         {
             DeactivateShop();
         }
     }
     private void DeactivateShop()
     {
-        Owner.ChangeState<ShopBaseState>();
+        owner.ChangeState<ShopBaseState>();
     }
 
     public override void ExitState()
     {
-        ShopWindow.SetActive(false);
+        shopWindow.SetActive(false);
     }
 }

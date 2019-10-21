@@ -8,10 +8,7 @@ public class ShopIndicatorArrow : MonoBehaviour
     [SerializeField]private GameObject shopKeeper;
     private Camera mainCamera;
     private Vector3 viewportPoint;
-    private float angle;
     [SerializeField] private GameObject arrow;
-
-    private Vector3 tempPlayerPosition, tempShopPosition;
     private Quaternion temp;
     private Vector3 arrowDirection;
     void Start()

@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
     private float tempHP = 100f;
-    public float healthProp {
+    public float HealthProp {
         get { return tempHP; }
         set {
             if (Attackable) {

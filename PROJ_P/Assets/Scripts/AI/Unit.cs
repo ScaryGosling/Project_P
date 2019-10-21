@@ -9,7 +9,7 @@ using UnityEngine.AI;
 public class Unit : StateMachine
 {
     // Attributes
-    [HideInInspector] public MeshRenderer Renderer;
+    [HideInInspector] public MeshRenderer renderer;
     [HideInInspector] public NavMeshAgent agent;
     public LayerMask visionMask;
     public GameObject player;
@@ -27,7 +27,7 @@ public class Unit : StateMachine
     // Methods
     protected override void Awake()
     {
-        Renderer = GetComponent<MeshRenderer>();
+        renderer = GetComponent<MeshRenderer>();
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         base.Awake();
