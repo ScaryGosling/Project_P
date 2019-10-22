@@ -20,7 +20,7 @@ public class Pickup : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         colliderB = gameObject.GetComponent<BoxCollider>();
         colliderB.isTrigger = true;
-        Destroy(gameObject, 5f);
+        //Destroy(gameObject);
     }
 
 

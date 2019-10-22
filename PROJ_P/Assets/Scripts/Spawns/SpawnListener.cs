@@ -42,6 +42,8 @@ public class SpawnListener : MonoBehaviour
     [SerializeField] private GameObject[] unitPrefabs;
     [SerializeField] private GameObject[] pickUp;
     [SerializeField] private GameObject shopKeeper;
+    [SerializeField] private GameObject ObjectSpawnerPrefab;
+    private GameObject ObjectSpawner;
 
 
     //private GameObject newPotion;
@@ -96,6 +98,9 @@ public class SpawnListener : MonoBehaviour
         {
             ResetWave();
             SpawnShopKeeper();
+            if (ObjectSpawner != null)
+                ObjectSpawner.GetComponent<ObjectSpawner>().TerminateSpawner();
+
             return pauseTime + timeAfterShopkeeperLeavesForEnemiesToSpawn;
         }
         return spawnTime / 2;
@@ -156,6 +161,8 @@ public class SpawnListener : MonoBehaviour
 
             if (spawned < expected)
             {
+                if(ObjectSpawner == null)
+                    ObjectSpawner =  Instantiate(ObjectSpawnerPrefab);
                 time = spawnTime / spawns.Length;
                 shopOpen = false;
                 foreach (GameObject spawnObject in spawns)
