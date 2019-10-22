@@ -18,5 +18,7 @@ public class Berserk : PlayerAttack
     {
         base.RunAttack();
         player.Resource.IncreaseResource(1);
+        player.activeStats.resistanceMultiplier = 0;
+        player.activeStats.attackSpeed = 1.2f;
     }
 }

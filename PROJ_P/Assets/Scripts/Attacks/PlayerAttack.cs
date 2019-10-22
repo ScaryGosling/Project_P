@@ -74,7 +74,7 @@ public class PlayerAttack : ScriptableObject
             RunAttack();
             cooldownActive = true;
             timer = new GameObject("Timer");
-            timer.AddComponent<Timer>().RunCountDown(cooldown, ResetCooldown);
+            timer.AddComponent<Timer>().RunCountDown(cooldown / Player.instance.activeStats.attackSpeed, ResetCooldown);
         }
 
     }
