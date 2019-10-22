@@ -60,12 +60,8 @@ public class Player : MonoBehaviour
     public float HealthProp {
         get { return tempHP; }
         set {
-
-
             tempHP += value * activeStats.resistanceMultiplier;
             health.fillAmount = tempHP * 0.01f;
-
-
         }
     }
     public int GoldProp

@@ -142,6 +142,7 @@ MonoBehaviour:
   player: {fileID: 0}
   baseHeath: 5
   baseAttack: 1
+  attackSpeed: 0.2
 --- !u!114 &-6378901405571472723
 MonoBehaviour:
   m_ObjectHideFlags: 0

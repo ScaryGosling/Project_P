@@ -83,7 +83,7 @@ public class HostileBaseState : State
             if (owner.getGenericTimer.timeTask)
             {
                 attacking = true;
-                owner.getGenericTimer.SetTimer(attackSpeed);
+                owner.getGenericTimer.SetTimer(owner.AttackSpeed);
                 attacking = !attacking;
                 DamagePlayer();
             }
@@ -115,8 +115,6 @@ public class HostileBaseState : State
         Debug.Log("Expected damage: " + actualDamage);
 
     }
-
-
 
     protected void Chase()
     {
