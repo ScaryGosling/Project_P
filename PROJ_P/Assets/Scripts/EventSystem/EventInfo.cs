@@ -31,6 +31,11 @@ public class GiveResource : EventInfo
     public Res res;
 }
 
+public class NewWave : EventInfo
+{
+    public float newHealth;
+}
+
 
 
 public class MakeDamageEvent  : EventInfo

@@ -14,7 +14,7 @@ public class HostileBaseState : State
     [SerializeField] protected Behaviors controlBehaviors = Behaviors.STAGGER;
     [SerializeField] protected Material material;
     [SerializeField] protected float moveSpeed;
-    [SerializeField] protected float EnemyHealth { get { return health; } set { health = value; } }
+    //[SerializeField] protected float EnemyHealth { get { return owner.baseHeath; } set { owner.baseHeath = value; } }
     [SerializeField] private float health = 20;
     [SerializeField] private Vector3 scale;
     [SerializeField] private bool specialDeath;
@@ -62,7 +62,7 @@ public class HostileBaseState : State
     public override void ToDo()
     {
 
-        if (health <= 0)
+        if (owner.health <= 0)
         {
             if (alive)
             {
@@ -94,7 +94,7 @@ public class HostileBaseState : State
 
     public override void TakeDamage(float damage)
     {
-        EnemyHealth -= damage;
+        owner.health -= damage;
         if (controlBehaviors == Behaviors.STAGGER)
         {
             ControlEffects();

@@ -21,12 +21,14 @@ public class SpawnListener : MonoBehaviour
     private const int maximumCapacity = 200;
     private float pauseTime = 10f;
     [SerializeField] private float spawnTime = 0.5f;
-    private int expected = 1;
+    [SerializeField] private int expected = 1;
     private int spawned = 0;
     private int unitsKilled = 0;
     private int waveIndex = 1;
     private bool shopOpen = false;
     private Queue locationQueue = new Queue();
+    private float bonusHealth = 0f;
+    [SerializeField] private float healthPerLevel = 5f;
     [SerializeField] private float chanceOfDrop = 0.4f;
     [SerializeField] private bool debugMode;
     [SerializeField] private GameObject[] spawns;
@@ -37,6 +39,7 @@ public class SpawnListener : MonoBehaviour
 
     //private GameObject newPotion;
     private GameObject absoluteUnit;
+    public float healthManagement { get { return bonusHealth; } }
 
 
     private void Start()
@@ -75,6 +78,7 @@ public class SpawnListener : MonoBehaviour
             expected = (int)Mathf.Floor(expected * 1.20f);
         }
         waveIndex++;
+        bonusHealth += healthPerLevel;
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
     }
 

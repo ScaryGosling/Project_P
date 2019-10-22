@@ -134,13 +134,13 @@ MonoBehaviour:
   states:
   - {fileID: 11400000, guid: a226a9b5d969a6d47b26b7a478712ff1, type: 2}
   currentState: {fileID: 0}
-  Renderer: {fileID: 0}
+  renderer: {fileID: 0}
   agent: {fileID: 0}
   visionMask:
     serializedVersion: 2
     m_Bits: 512
   player: {fileID: 0}
-  health: 20
+  baseHeath: 5
 --- !u!114 &-6378901405571472723
 MonoBehaviour:
   m_ObjectHideFlags: 0
