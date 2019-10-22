@@ -42,15 +42,15 @@ public class MonsterAttack : PlayerAttack
         GameObject ball9 = Instantiate(dodgeball, spawnPoint.position, spawnPoint.rotation);
         ball9.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(new Vector3(-1, 0, 1)) * force);
 
-        ball2.GetComponent<BulletInstance>().SetDamage(damage[CurrentLevel]);
-        ball1.GetComponent<BulletInstance>().SetDamage(damage[CurrentLevel]);
-        ball3.GetComponent<BulletInstance>().SetDamage(damage[CurrentLevel]);
-        ball4.GetComponent<BulletInstance>().SetDamage(damage[CurrentLevel]);
-        ball5.GetComponent<BulletInstance>().SetDamage(damage[CurrentLevel]);
-        ball6.GetComponent<BulletInstance>().SetDamage(damage[CurrentLevel]);
-        ball7.GetComponent<BulletInstance>().SetDamage(damage[CurrentLevel]);
-        ball8.GetComponent<BulletInstance>().SetDamage(damage[CurrentLevel]);
-        ball9.GetComponent<BulletInstance>().SetDamage(damage[CurrentLevel]);
+        ball2.GetComponent<BulletInstance>().SetDamage(damage);
+        ball1.GetComponent<BulletInstance>().SetDamage(damage);
+        ball3.GetComponent<BulletInstance>().SetDamage(damage);
+        ball4.GetComponent<BulletInstance>().SetDamage(damage);
+        ball5.GetComponent<BulletInstance>().SetDamage(damage);
+        ball6.GetComponent<BulletInstance>().SetDamage(damage);
+        ball7.GetComponent<BulletInstance>().SetDamage(damage);
+        ball8.GetComponent<BulletInstance>().SetDamage(damage);
+        ball9.GetComponent<BulletInstance>().SetDamage(damage);
 
 
 
