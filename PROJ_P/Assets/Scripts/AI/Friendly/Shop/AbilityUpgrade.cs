@@ -41,7 +41,14 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler
         {
             currentAbilityLevel = ability.CurrentLevel;
             currentAbilityLevelText.text = currentAbilityLevel + "";
-            nextUpgradeCost.text = ability.GetNextLevelCost(currentAbilityLevel) + "$";
+            if (ability.GetNextLevelCost(currentAbilityLevel) != -1)
+            {
+                nextUpgradeCost.text = ability.GetNextLevelCost(currentAbilityLevel) + "$";
+            }
+            else
+            {
+                nextUpgradeCost.text = "-";
+            }
         }
 
 

@@ -29,6 +29,10 @@ public class PlayerAttack : ScriptableObject
 
     public int GetNextLevelCost(int level)
     {
+        if (upgradeCosts.Count == 0)
+        {
+            return -1;
+        }
         return upgradeCosts[level].upgradeCost;
     }
 
