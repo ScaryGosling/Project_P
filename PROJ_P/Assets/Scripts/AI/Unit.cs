@@ -21,6 +21,9 @@ public class Unit : StateMachine
 
     [SerializeField] private float baseAttack = 3f;
     public float Attack { get { return baseAttack; } set { baseAttack = value; } }
+
+    [SerializeField] private float attackSpeed = 0.5f;
+    public float AttackSpeed { get { return attackSpeed; } }
     #endregion
 
 
