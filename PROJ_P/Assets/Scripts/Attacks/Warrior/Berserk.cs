@@ -6,7 +6,11 @@ using UnityEngine;
 public class Berserk : PlayerAttack
 {
 
-    Player player;
+    private Player player;
+
+    [SerializeField] private float resistance;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private float movementSpeed;
 
     public override void OnEquip()
     {
@@ -18,7 +22,13 @@ public class Berserk : PlayerAttack
     {
         base.RunAttack();
         player.Resource.IncreaseResource(1);
-        player.activeStats.resistanceMultiplier = 0;
-        player.activeStats.attackSpeed = 1.2f;
+        player.activeStats.resistanceMultiplier = resistance;
+        player.activeStats.attackSpeed = attackSpeed;
+        player.activeStats.movementSpeed = movementSpeed;
+
+
+        Timer timer = new GameObject("Timer").AddComponent<Timer>();
+        timer.RunCountDown(5, player.ResetStats);
     }
+
 }

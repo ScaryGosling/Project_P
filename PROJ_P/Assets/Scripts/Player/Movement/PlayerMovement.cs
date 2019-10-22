@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         input = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
         rigidbody.velocity = new Vector3(0,0,0);
-        agent.Move(input.normalized * Time.deltaTime * agent.speed);
+        agent.Move(input.normalized * Time.deltaTime * agent.speed * Player.instance.activeStats.movementSpeed);
     }
 
 }
