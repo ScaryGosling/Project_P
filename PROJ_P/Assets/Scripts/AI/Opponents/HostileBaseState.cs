@@ -109,10 +109,9 @@ public class HostileBaseState : State
 
     protected void DamagePlayer()
     {
-        
         actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
         owner.player.GetComponent<Player>().HealthProp = -actualDamage;
-        Debug.Log("Expected damage: " + actualDamage);
+        //Debug.Log("Expected damage: " + actualDamage);
 
     }
 

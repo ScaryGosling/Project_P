@@ -16,7 +16,7 @@ public class BasicFoe : HostileBaseState
     public override void ToDo()
     {
         base.ToDo();
-        if (owner.player != null)
+        if (owner.player != null && owner.agent.enabled)
         {
             Chase();
             CheckForDamage();
