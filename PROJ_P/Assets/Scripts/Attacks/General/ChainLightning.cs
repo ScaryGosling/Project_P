@@ -96,7 +96,7 @@ public class ChainLightning : BulletInstance
 
             }
 
-            if (bindingCollider.GetComponent<LineRenderer>())
+            if (bindingCollider.GetComponent<LineRenderer>() && enemiesInRange.Count > 0)
             {
                 LineRenderer bind = bindingCollider.GetComponent<LineRenderer>();
                 bind.material = material;
