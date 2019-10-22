@@ -7,22 +7,30 @@ public class PlayerAttack : ScriptableObject
 {
 
     [SerializeField] private float castCost;
-    [SerializeField] protected float damage;
+    [SerializeField]protected float damage;
     [SerializeField] protected Sprite attackImage;
     [SerializeField] protected float cooldown;
     private GameObject timer;
     protected bool cooldownActive;
-    [SerializeField] protected List<int> upgradeCost = new List<int>();
     public int CurrentLevel { get; protected set; }
+    [Tooltip("Element 0 == Unlock cost & default damage, the rest are upgrades")]
     [SerializeField] protected List<UpgradeCost> upgradeCosts = new List<UpgradeCost>();
+
 
     public float GetCooldown() { return cooldown; }
     public bool GetCooldownActive() { return cooldownActive; }
 
+
+
+    public void OnEnable()
+    {
+        Debug.Log("Awake");
+        damage = upgradeCosts[0].newDamage;
+    }
+
     [System.Serializable]
     protected struct UpgradeCost
     {
-        public string levelName;
         public int upgradeCost;
         public int newDamage;
     }
@@ -30,13 +38,21 @@ public class PlayerAttack : ScriptableObject
 
     public int GetNextLevelCost(int level)
     {
-        return upgradeCosts[level].upgradeCost;
+        if (upgradeCosts.Count == 0) //if upgradeCost List == null
+        {
+            return -1;
+        }
+        else if (upgradeCosts.Count == level + 1) //if maxlevel
+        {
+            return -1;
+        }
+        return upgradeCosts[level + 1].upgradeCost;
     }
 
     public void UpgradeAttack()
     {
-        damage = upgradeCosts[CurrentLevel].newDamage;
         CurrentLevel++;
+        damage = upgradeCosts[CurrentLevel].newDamage;
 
     }
     public void ResetLevel()
@@ -72,7 +88,7 @@ public class PlayerAttack : ScriptableObject
     public virtual void RunAttack()
     {
 
-
+        Debug.Log(damage);
         Player.instance.Resource.DrainResource(this);
 
 

@@ -13,14 +13,13 @@ MonoBehaviour:
   m_Name: MonsterAttack
   m_EditorClassIdentifier: 
   castCost: 5
-  damage: 5
   attackImage: {fileID: 21300000, guid: 64a029d0c791297478ef57ec9d9e28a7, type: 3}
   cooldown: 5
   upgradeCost: 0a000000140000001e00000028000000320000003c00000046000000500000005a00000064000000
   upgradeCosts:
   - levelName: 
     upgradeCost: 0
-    newDamage: 0
+    newDamage: 5
   dodgeball: {fileID: 6750013541312212612, guid: 216019687de2349e4a9c2dc47bcca20b,
     type: 3}
   force: 1500

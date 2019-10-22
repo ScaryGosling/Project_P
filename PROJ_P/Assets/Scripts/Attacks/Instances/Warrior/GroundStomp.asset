@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: GroundStomp
   m_EditorClassIdentifier: 
   castCost: 0
-  damage: 5
   attackImage: {fileID: 21300000, guid: 93b01f189eb954ee9a754f29b51a344f, type: 3}
   cooldown: 2
   upgradeCost: 0a000000
   upgradeCosts:
   - levelName: 
     upgradeCost: 0
-    newDamage: 0
+    newDamage: 5
   attackRadius: 10
   stompForce: 1000
