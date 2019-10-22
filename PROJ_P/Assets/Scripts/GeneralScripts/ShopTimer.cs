@@ -19,6 +19,9 @@ public class ShopTimer : MonoBehaviour
             timer.text = ((int)genericTimer.Countdown).ToString("00") + ":" + ((genericTimer.Countdown % 1) * 100).ToString("00");
 
         }
-
+        if (genericTimer.Countdown <= 0)
+        {
+            timer.text = "-:-";
+        }
     }
 }

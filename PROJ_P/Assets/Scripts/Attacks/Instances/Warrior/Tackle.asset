@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: Tackle
   m_EditorClassIdentifier: 
   castCost: 10
-  damage: 5
   attackImage: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   cooldown: 3
   upgradeCost: 0a000000
   upgradeCosts:
   - levelName: 
     upgradeCost: 0
-    newDamage: 0
+    newDamage: 5
   tackleForce: 20
   tackleLength: 15

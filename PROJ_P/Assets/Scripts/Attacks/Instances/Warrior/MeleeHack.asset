@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: MeleeHack
   m_EditorClassIdentifier: 
   castCost: 0
-  damage: 5
   attackImage: {fileID: 21300000, guid: 1dbc079c01a8549918885a6461d10dfd, type: 3}
   cooldown: 1
   upgradeCost: 0a000000
   upgradeCosts:
   - levelName: 
     upgradeCost: 0
-    newDamage: 0
+    newDamage: 5
   slash: {fileID: 7400000, guid: dde732b3854ff43e8a66dab8b5e55b3b, type: 2}

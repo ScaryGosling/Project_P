@@ -125,7 +125,6 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0)) {
             if (!ClickOnFriendly() && !hover)
             {
-                Debug.Log("Yes");
                 ExecuteAttack();
             }
 
