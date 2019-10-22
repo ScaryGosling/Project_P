@@ -20,3 +20,4 @@ MonoBehaviour:
   resistance: 0.1
   attackSpeed: 1.5
   movementSpeed: 1.5
+  duration: 10

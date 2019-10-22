@@ -11,6 +11,7 @@ public class Berserk : PlayerAttack
     [SerializeField] private float resistance;
     [SerializeField] private float attackSpeed;
     [SerializeField] private float movementSpeed;
+    [SerializeField] private float duration;
 
     public override void OnEquip()
     {
@@ -28,7 +29,7 @@ public class Berserk : PlayerAttack
 
 
         Timer timer = new GameObject("Timer").AddComponent<Timer>();
-        timer.RunCountDown(5, player.ResetStats);
+        timer.RunCountDown(duration, player.ResetStats);
     }
 
 }

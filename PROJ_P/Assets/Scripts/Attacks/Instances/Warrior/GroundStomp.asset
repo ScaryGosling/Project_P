@@ -21,3 +21,4 @@ MonoBehaviour:
     newDamage: 5
   attackRadius: 10
   stompForce: 1000
+  dazeTime: 3
