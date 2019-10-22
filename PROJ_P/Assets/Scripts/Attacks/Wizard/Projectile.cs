@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Attacks/DodgeballAttack")]
+[CreateAssetMenu(menuName = "Attacks/Wizard/Projectile")]
 public class Projectile : PlayerAttack
 {
 

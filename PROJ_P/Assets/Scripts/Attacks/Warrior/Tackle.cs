@@ -27,7 +27,7 @@ public class Tackle : PlayerAttack
         player.stoppingDistance = 0.1f;
         player.SetDestination(player.transform.position + player.transform.TransformDirection(Vector3.forward) * tackleLength);
 
-        player.GetComponent<Player>().Attackable = false;
+        player.GetComponent<Player>().activeStats.resistanceMultiplier = 0;
 
         GameObject timer = new GameObject("Timer");
         timer.AddComponent<Timer>().RunCountDown(1, ResetStats);
@@ -55,7 +55,7 @@ public class Tackle : PlayerAttack
         player.acceleration = startAcceleration;
         player.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
         player.stoppingDistance = 0;
-        player.GetComponent<Player>().Attackable = true;
+        player.GetComponent<Player>().activeStats.resistanceMultiplier = 1;
         player.GetComponent<PlayerMovement>().enabled = true;
 
     }

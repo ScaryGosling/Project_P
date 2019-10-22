@@ -70,7 +70,7 @@ public class Shop : StateMachine
         if (Player.instance.GoldProp >= costOfPotion)
         {
             Player.instance.Resource.IncreaseResource(1f);
-            Player.instance.HealthProp += 100;
+            Player.instance.HealthProp = 100;
             Player.instance.GoldProp -= 10;
         }
 

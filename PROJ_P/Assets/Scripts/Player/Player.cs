@@ -30,20 +30,42 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private bool hover = false;
 
-    public bool Attackable { get; set; } = false;
+    //public bool Attackable { get; set; } = false;
 
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
     private float tempHP = 100f;
+
+    [SerializeField] private PlayerStats originalStats;
+    [HideInInspector] public PlayerStats activeStats;
+
+    [Serializable]
+    public struct PlayerStats
+    {
+        public float movementSpeed;
+        public float resistanceMultiplier;
+        public float attackSpeed;
+        public float attackDamage;
+
+    }
+
+    public void ResetStats()
+    {
+        activeStats.movementSpeed = originalStats.movementSpeed;
+        activeStats.resistanceMultiplier = originalStats.resistanceMultiplier;
+        activeStats.attackSpeed = originalStats.attackSpeed;
+        activeStats.attackDamage = originalStats.attackDamage;
+    }
+
     public float HealthProp {
         get { return tempHP; }
         set {
-            if (Attackable) {
 
-                tempHP = value;
-                health.fillAmount = value / 100;
 
-            }
+            tempHP += value * activeStats.resistanceMultiplier;
+            health.fillAmount = tempHP * 0.01f;
+
+
         }
     }
     public int GoldProp
@@ -123,6 +145,7 @@ public class Player : MonoBehaviour
         }
 
         cooldowns = new Coroutine[attackUISpot.Length];
+        ResetStats();
 
     }
 

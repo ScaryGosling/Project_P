@@ -112,7 +112,7 @@ public class HostileBaseState : State
     protected void DamagePlayer()
     {
         actualDamage = Random.Range(enemyBaseDamage, maxCritical);
-        owner.player.GetComponent<Player>().HealthProp -= actualDamage;
+        owner.player.GetComponent<Player>().HealthProp = -actualDamage;
     }
 
 

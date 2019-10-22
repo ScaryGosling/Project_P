@@ -75,7 +75,7 @@ protected bool LineOfSight()
     protected void DamagePlayer(float val)
     {
         //actualDamage = Mathf.Floor(Random.Range(enemyBaseDamage, enemyBaseDamage * 1.5f));
-        owner.player.GetComponent<Player>().HealthProp -= enemyBaseDamage;
+        owner.player.GetComponent<Player>().HealthProp = -enemyBaseDamage;
 
     }
 

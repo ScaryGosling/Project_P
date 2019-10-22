@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Attacks/Blink")]
+[CreateAssetMenu(menuName = "Attacks/Wizard/Blink")]
 public class Blink : PlayerAttack
 {
     private Transform player;
@@ -10,7 +10,7 @@ public class Blink : PlayerAttack
     public override void RunAttack()
     {
         base.RunAttack();
-        player.position += player.TransformDirection(Vector3.forward) * 10;
+        player.position += player.GetComponent<Rigidbody>().velocity * 100;
         
 
     }
