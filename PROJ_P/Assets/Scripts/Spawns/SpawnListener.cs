@@ -21,7 +21,7 @@ public class SpawnListener : MonoBehaviour
     private const int maximumCapacity = 200;
     private float pauseTime = 10f;
     [SerializeField] private float spawnTime = 0.5f;
-    private int expected = 10;
+    private int expected = 1;
     private int spawned = 0;
     private int unitsKilled = 0;
     private int waveIndex = 1;
@@ -33,7 +33,7 @@ public class SpawnListener : MonoBehaviour
     [SerializeField] private GameObject[] unitPrefabs;
     [SerializeField] private GameObject[] pickUp;
     [SerializeField] private GameObject shopKeeper;
-    [SerializeField] private float timeAfterShopkeeperLeavesForEnemiesToSpawn = 5;
+
 
     //private GameObject newPotion;
     private GameObject absoluteUnit;
@@ -44,10 +44,7 @@ public class SpawnListener : MonoBehaviour
         pauseTime = shopKeeper.GetComponent<Shop>().GetShopTime();
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
         if (!debugMode)
-        {
             StartCoroutine(Spawner());
-
-        }
         //absoluteUnit = UnitPrefabs[0];
         //UnitController();
     }
@@ -136,7 +133,6 @@ public class SpawnListener : MonoBehaviour
             shopKeeper.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
             shopKeeper.gameObject.SetActive(true);
             shopOpen = true;
-
         }
     }
 
@@ -166,7 +162,7 @@ public class SpawnListener : MonoBehaviour
             else
             {
                 time = CheckWaveCompletion();
-                yield return new WaitForSeconds(time + timeAfterShopkeeperLeavesForEnemiesToSpawn);
+                yield return new WaitForSeconds(time);
             }
         }
     }

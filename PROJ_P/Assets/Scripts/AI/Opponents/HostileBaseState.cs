@@ -61,7 +61,7 @@ public class HostileBaseState : State
 
     public override void ToDo()
     {
-        
+
         if (health <= 0)
         {
             if (alive)
@@ -95,7 +95,6 @@ public class HostileBaseState : State
     public override void TakeDamage(float damage)
     {
         EnemyHealth -= damage;
-
         if (controlBehaviors == Behaviors.STAGGER)
         {
             ControlEffects();

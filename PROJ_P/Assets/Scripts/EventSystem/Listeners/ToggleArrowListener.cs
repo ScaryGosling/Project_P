@@ -17,6 +17,6 @@ public class ToggleArrowListener : MonoBehaviour
     private void ToggleArrow(ToggleArrowEvent toggleArrowEvent)
     {
         arrowObject.gameObject.SetActive(toggleArrowEvent.toggle);
-        arrow.SetGoal(toggleArrowEvent.goal);
+        //arrow.SetGoal(toggleArrowEvent.goal);
     }
 }
