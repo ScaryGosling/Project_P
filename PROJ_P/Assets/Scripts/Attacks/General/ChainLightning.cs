@@ -48,8 +48,8 @@ public class ChainLightning : BulletInstance
 
         foreach (Collider collider in enemiesInRange)
         {
-
-            collider.gameObject.AddComponent<LineRenderer>();
+            if(!collider.gameObject.GetComponent<LineRenderer>())
+                collider.gameObject.AddComponent<LineRenderer>();
 
             if (collider.GetComponent<Unit>())
                 collider.GetComponent<Unit>().currentState.TakeDamage(damage / 5);

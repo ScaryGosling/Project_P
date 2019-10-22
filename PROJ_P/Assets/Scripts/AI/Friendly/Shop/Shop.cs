@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,8 +33,15 @@ public class Shop : StateMachine
     }
     private void OnDisable()
     {
-        toggleArrow.toggle = false;
-        EventSystem.Current.FireEvent(toggleArrow);
+
+        try
+        {
+
+            toggleArrow.toggle = false;
+            EventSystem.Current.FireEvent(toggleArrow);
+
+        } catch(Exception e) {}
+    
     }
     private void RemoveShop()
     {

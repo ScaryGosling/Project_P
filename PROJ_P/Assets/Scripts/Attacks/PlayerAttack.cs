@@ -16,7 +16,8 @@ public class PlayerAttack : ScriptableObject
     public int CurrentLevel { get; protected set; }
     [SerializeField] protected List<UpgradeCost> upgradeCosts = new List<UpgradeCost>();
 
-
+    public float GetCooldown() { return cooldown; }
+    public bool GetCooldownActive() { return cooldownActive; }
 
     [System.Serializable]
     protected struct UpgradeCost
@@ -53,9 +54,9 @@ public class PlayerAttack : ScriptableObject
 
         if (!cooldownActive)
         {
+            Player.instance.RunAttackCooldown();
             RunAttack();
             cooldownActive = true;
-
             timer = new GameObject("Timer");
             timer.AddComponent<Timer>().RunCountDown(cooldown, ResetCooldown);
         }
@@ -64,8 +65,6 @@ public class PlayerAttack : ScriptableObject
 
     public void ResetCooldown()
     {
-
-
         cooldownActive = false;
         Destroy(timer);
     }

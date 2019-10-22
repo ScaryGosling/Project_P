@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     [Header("UI elements")]
     [SerializeField] private Image[] attackUISpot;
+    private Coroutine[] cooldowns;
 
     [Header("Attributes")]
     [SerializeField] private Image health;
@@ -59,7 +60,10 @@ public class Player : MonoBehaviour
 
     public Transform GetSpawnPoint() { return spawnPoint; }
 
-   
+   public void RunAttackCooldown()
+    {
+        cooldowns[selectedAttack] = StartCoroutine(ShowCooldown());
+    }
 
     public void Start()
     {
@@ -118,6 +122,8 @@ public class Player : MonoBehaviour
             }
         }
 
+        cooldowns = new Coroutine[attackUISpot.Length];
+
     }
 
     public void Update() {
@@ -125,7 +131,6 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0)) {
             if (!ClickOnFriendly() && !hover)
             {
-                Debug.Log("Yes");
                 ExecuteAttack();
             }
 
@@ -195,6 +200,23 @@ public class Player : MonoBehaviour
     }
 
 
+    public IEnumerator ShowCooldown()
+    {
+        Image attack = attackUISpot[selectedAttack];
+        attack.fillAmount = 0;
+
+        float animationTime = 0;
+        float cooldownTime = activeAttack.GetCooldown();
+
+        while (animationTime < cooldownTime)
+        {
+            animationTime += Time.deltaTime;
+            attack.fillAmount = animationTime / cooldownTime;
+            yield return null;
+
+        }
+    }
+
     RaycastHit hit;
     Ray ray;
     private bool ClickOnFriendly()
@@ -218,7 +240,9 @@ public class Player : MonoBehaviour
     public void ExecuteAttack() {
 
         if (Resource.Value >= activeAttack.GetCastCost() / 100) {
+
             AttackEvent();
+            
 
         }
     }
