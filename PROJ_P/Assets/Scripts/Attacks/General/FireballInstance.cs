@@ -14,15 +14,15 @@ public class FireballInstance : MonoBehaviour
         this.damage = damage;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
-        Explode();
+        Explode(other.collider);
     }
 
-    public void Explode()
+    public void Explode(Collider other)
     {
 
-        Collider[] hitColliders = Physics.OverlapSphere(Player.instance.transform.position, explosionRadius);
+        Collider[] hitColliders = Physics.OverlapSphere(other.transform.position, explosionRadius);
 
         foreach(Collider collider in hitColliders)
         {
@@ -31,6 +31,6 @@ public class FireballInstance : MonoBehaviour
                 collider.GetComponent<Unit>().currentState.TakeDamage(damage);
             }
         }
-
+        Destroy(gameObject);
     }
 }
