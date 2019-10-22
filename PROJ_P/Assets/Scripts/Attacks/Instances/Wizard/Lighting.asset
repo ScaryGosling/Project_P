@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9b28d9c8cdf4f51ae9375948f071d6, type: 3}
   m_Name: Lighting
   m_EditorClassIdentifier: 
-  castCost: 2
+  castCost: 20
+  damage: 20
   attackImage: {fileID: 21300000, guid: f71a6d253615e2541888194bd481124b, type: 3}
-  cooldown: 0.5
-  upgradeCost: 0f00000019000000230000002d00000037000000
+  cooldown: 20
   upgradeCosts:
-  - levelName: 
-    upgradeCost: 0
+  - upgradeCost: 0
     newDamage: 5
   dodgeball: {fileID: 6750013541312212612, guid: 6072bc8c59af84b758be9f6c01ebf2a8,
     type: 3}
