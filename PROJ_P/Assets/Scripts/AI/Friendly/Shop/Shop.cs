@@ -5,11 +5,13 @@ using UnityEngine;
 public class Shop : StateMachine
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject text; 
+    [SerializeField] private GameObject text;
     [SerializeField] private GameObject shopWindow;
     [SerializeField] private float shopTime = 40;
     [SerializeField] private int costOfPotion;
     private GameObject shopTimer;
+    private ToggleArrowEvent toggleArrow = new ToggleArrowEvent();
+    [SerializeField] private GameObject timerText;
     public Vector3 spawnPoint { get; private set; }
 
     private void Start()
@@ -22,6 +24,16 @@ public class Shop : StateMachine
         ChangeState<ShopBaseState>();
         shopTimer = new GameObject("Timer");
         shopTimer.AddComponent<Timer>().RunCountDown(shopTime, RemoveShop);
+        timerText.gameObject.SetActive(true);
+        timerText.GetComponent<ShopTimer>().SetTimer(shopTimer.GetComponent<Timer>());
+        toggleArrow.goal = gameObject;
+        toggleArrow.toggle = true;
+        EventSystem.Current.FireEvent(toggleArrow);
+    }
+    private void OnDisable()
+    {
+        toggleArrow.toggle = false;
+        EventSystem.Current.FireEvent(toggleArrow);
     }
     private void RemoveShop()
     {
@@ -55,5 +67,6 @@ public class Shop : StateMachine
         }
 
     }
+
 
 }
