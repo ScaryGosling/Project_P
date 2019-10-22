@@ -9,6 +9,7 @@ public class GroundStomp : PlayerAttack
 
     [SerializeField] private float attackRadius;
     [SerializeField] private float stompForce;
+    [SerializeField] private float dazeTime;
 
     public override void RunAttack()
     {
@@ -28,7 +29,19 @@ public class GroundStomp : PlayerAttack
             i++;
         }
 
+        Timer timer = new GameObject("Timer").AddComponent<Timer>();
+        timer.RunCountDown(dazeTime, ResetEnemies);
+    }
 
+
+    public void ResetEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in enemies)
+        {
+            if (enemy != null)
+                enemy.GetComponent<NavMeshAgent>().enabled = true;
+        }
     }
 
 
