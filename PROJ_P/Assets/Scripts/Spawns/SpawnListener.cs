@@ -34,6 +34,7 @@ public class SpawnListener : MonoBehaviour
     private float bonusDmg = 0f;
     [SerializeField] private float damagePerLevel = 0f;
     public float DamageManagenent { get { return bonusDmg; } }
+    [SerializeField] private float timeAfterShopkeeperLeavesForEnemiesToSpawn = 5;
 
     [SerializeField] private float chanceOfDrop = 0.4f;
     [SerializeField] private bool debugMode;
@@ -95,7 +96,7 @@ public class SpawnListener : MonoBehaviour
         {
             ResetWave();
             SpawnShopKeeper();
-            return pauseTime;
+            return pauseTime + timeAfterShopkeeperLeavesForEnemiesToSpawn;
         }
         return spawnTime / 2;
     }
@@ -165,7 +166,6 @@ public class SpawnListener : MonoBehaviour
                         Instantiate(absoluteUnit, spawnObject.transform.position, Quaternion.identity);
                         spawned++;
                     }
-                    
                     yield return new WaitForSeconds(time);
                 }
             }
