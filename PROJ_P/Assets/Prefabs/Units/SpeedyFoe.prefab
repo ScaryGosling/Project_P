@@ -141,6 +141,7 @@ MonoBehaviour:
     m_Bits: 512
   player: {fileID: 0}
   baseHeath: 5
+  baseAttack: 1
 --- !u!114 &-6378901405571472723
 MonoBehaviour:
   m_ObjectHideFlags: 0

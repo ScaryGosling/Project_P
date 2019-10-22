@@ -13,25 +13,28 @@ public class Unit : StateMachine
     [HideInInspector] public NavMeshAgent agent;
     public LayerMask visionMask;
     public GameObject player;
-
-    [SerializeField] private float baseHeath = 20;
-    public float health { get { return baseHeath; } set { baseHeath = value; } }
     private SpawnListener spawnListener;
-    //public float healthProperty { get { return health; } set { health = value; } }
+
+    #region EnemyStats
+    [SerializeField] private float baseHeath = 20f;
+    public float Health { get { return baseHeath; } set { baseHeath = value; } }
+
+    [SerializeField] private float baseAttack = 3f;
+    public float Attack { get { return baseAttack; } set { baseAttack = value; } }
+    #endregion
 
 
 
+    #region Timer
     private GenericTimer genericTimer;
     public GenericTimer getGenericTimer { get { return genericTimer; } set { genericTimer = value; } }
-    
+    #endregion
 
     private void Start()
     {
         spawnListener = GameObject.FindGameObjectWithTag("Listeners").GetComponent<SpawnListener>();
         genericTimer = GetComponent<GenericTimer>();
         ImprovePower();
-        //Debug.Log("Units health: " + baseHeath);
-        //EventSystem.Current.RegisterListener<NewWave>(ImprovePower);
     }
     // Methods
     protected override void Awake()
@@ -44,8 +47,14 @@ public class Unit : StateMachine
 
     private void ImprovePower()
     {
-        baseHeath += spawnListener.healthManagement;
+        baseHeath += spawnListener.HealthManagement;
+        baseAttack += spawnListener.DamageManagenent;
     }
-
-
 }
+#region UnitLegacy
+//public float healthProperty { get { return health; } set { health = value; } }
+//Debug.Log("Units health: " + baseHeath);
+//Debug.Log("Units attack: " + baseAttack);
+//EventSystem.Current.RegisterListener<NewWave>(ImprovePower);
+
+#endregion

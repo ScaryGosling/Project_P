@@ -25,8 +25,6 @@ public class HostileBaseState : State
     [SerializeField] private float staggerCD = 0.5f;
     private bool damaged = false;
 
-    [SerializeField] protected float enemyBaseDamage = 5f;
-    [SerializeField] private float maxCritical = 10f;
     [SerializeField] private float attackSpeed = 1f;
     protected enum Behaviors { STAGGER, KNOCKBACK }
     protected float deathTimer;
@@ -62,7 +60,7 @@ public class HostileBaseState : State
     public override void ToDo()
     {
 
-        if (owner.health <= 0)
+        if (owner.Health <= 0)
         {
             if (alive)
             {
@@ -94,7 +92,7 @@ public class HostileBaseState : State
 
     public override void TakeDamage(float damage)
     {
-        owner.health -= damage;
+        owner.Health -= damage;
         if (controlBehaviors == Behaviors.STAGGER)
         {
             ControlEffects();
@@ -111,8 +109,11 @@ public class HostileBaseState : State
 
     protected void DamagePlayer()
     {
-        actualDamage = Random.Range(enemyBaseDamage, maxCritical);
+        
+        actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
         owner.player.GetComponent<Player>().HealthProp = -actualDamage;
+        Debug.Log("Expected damage: " + actualDamage);
+
     }
 
 
