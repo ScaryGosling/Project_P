@@ -1775,6 +1775,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2161199849938165175, guid: adf702a3fd72d134d8530eac42be94ee,
         type: 3}
+    - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: expected
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: damagePerLevel
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5598189669312911739, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: m_TagString
