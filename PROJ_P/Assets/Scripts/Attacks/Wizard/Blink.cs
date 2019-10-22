@@ -6,13 +6,19 @@ using UnityEngine;
 public class Blink : PlayerAttack
 {
     private Transform player;
+    [SerializeField] private float range;
+    [SerializeField] private float speedBoost;
+    [SerializeField] private float speedBoostDuration;
+
 
     public override void RunAttack()
     {
         base.RunAttack();
-        player.position += player.GetComponent<Rigidbody>().velocity * 100;
-        
+        player.position += player.TransformDirection(Vector3.forward) * range;
+        player.GetComponent<Player>().activeStats.movementSpeed = speedBoost;
 
+        Timer timer = new GameObject("Timer").AddComponent<Timer>();
+        timer.RunCountDown(speedBoostDuration, Player.instance.GetComponent<Player>().ResetStats);
     }
 
     public override void OnEquip()

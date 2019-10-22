@@ -15,7 +15,7 @@ public class FireBall : PlayerAttack
     {
         base.RunAttack();
         Rigidbody rb = Instantiate(fireball, spawnPoint.position + spawnPoint.TransformDirection(Vector3.forward) * 2, spawnPoint.rotation).GetComponent<Rigidbody>();
-        rb.AddForce(rb.transform.TransformDirection(new Vector3(0, upForce, forwardForce)));
+        rb.AddForce(rb.transform.TransformDirection(Vector3.forward) * forwardForce);
     }
 
     public override void OnEquip()
