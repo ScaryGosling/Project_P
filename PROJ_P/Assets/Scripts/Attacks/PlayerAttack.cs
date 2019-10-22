@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,8 +25,13 @@ public class PlayerAttack : ScriptableObject
 
     public void OnEnable()
     {
-        Debug.Log("Awake");
-        damage = upgradeCosts[0].newDamage;
+        try
+        {
+
+            Debug.Log("Awake");
+            damage = upgradeCosts[0].newDamage;
+
+        } catch(Exception e) { }
     }
 
     [System.Serializable]
