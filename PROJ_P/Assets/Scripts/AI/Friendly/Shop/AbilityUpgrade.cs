@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler
+public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     [SerializeField] private Image abilityImage;
     [SerializeField] private Text abilityName;
@@ -22,6 +22,7 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler
         currentAbilityLevelText.text = "-";
         ability = null;
     }
+    
 
     public void SetElements(PlayerAttack ability)
     {
@@ -34,14 +35,30 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler
         abilityImage.sprite = ability.GetImage();
         ability.ResetLevel();
     }
+    public AbilityCat GetAbilityCat()
+    {
+        return ability.AbilityCatProp;
+    }
+    public PlayerAttack GetAbility()
+    {
+        return ability;
+    }
 
     void Update()
     {
         if (ability != null)
         {
             currentAbilityLevel = ability.CurrentLevel;
-            currentAbilityLevelText.text = currentAbilityLevel + "";
-            if (ability.GetNextLevelCost(currentAbilityLevel) != -1)
+            if (currentAbilityLevel == -1)
+            {
+                currentAbilityLevelText.text = "U";
+            }
+            else
+            {
+                    
+                currentAbilityLevelText.text = currentAbilityLevel + "";
+            }
+            if (ability.GetNextLevelCost(currentAbilityLevel) != -2)
             {
                 nextUpgradeCost.text = ability.GetNextLevelCost(currentAbilityLevel) + "$";
             }
@@ -49,10 +66,11 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler
             {
                 nextUpgradeCost.text = "-";
             }
+       
         }
 
 
-
+        
 
 
     }
@@ -68,5 +86,22 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler
                 Player.instance.GoldProp -= nextLevelCost;
             }
         }
+    }
+    GameObject clone;
+    public void OnDrag(PointerEventData eventData)
+    {
+
+        clone.transform.position = Input.mousePosition;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        Destroy(clone);
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        clone = Instantiate(gameObject, GameObject.Find("Canvas").transform );
+        
     }
 }

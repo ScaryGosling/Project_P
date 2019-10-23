@@ -13,12 +13,17 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   castCost: 50
-  damage: 50
   attackImage: {fileID: 21300000, guid: 4325c1a126876674f87dfb389eb19581, type: 3}
   cooldown: 30
   upgradeCosts:
   - upgradeCost: 0
     newDamage: 5
+  - upgradeCost: 10
+    newDamage: 10
+  - upgradeCost: 50
+    newDamage: 20
+  lockedAbility: 0
+  abilityCat: 1
   fireball: {fileID: 5490361096305928263, guid: 29667473f9fea7a4fb3d85b14a46241a,
     type: 3}
   forwardForce: 10000

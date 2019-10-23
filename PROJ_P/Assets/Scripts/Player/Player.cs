@@ -124,7 +124,6 @@ public class Player : MonoBehaviour
         for (int i = 0; i < clone.list.Length; i++)
         {
             clone.list[i] = Instantiate(attackSet.list[i]);
-            Debug.Log(clone.list[i].name);
 
         }
 

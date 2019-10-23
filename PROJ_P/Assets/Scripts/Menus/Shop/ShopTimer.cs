@@ -21,7 +21,7 @@ public class ShopTimer : MonoBehaviour
         }
         if (genericTimer.Countdown <= 0)
         {
-            timer.text = "-:-";
+            timer.text = "00:00";
         }
     }
 }

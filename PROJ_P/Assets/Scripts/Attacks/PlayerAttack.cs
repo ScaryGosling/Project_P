@@ -8,7 +8,7 @@ public class PlayerAttack : ScriptableObject
 {
 
     [SerializeField] private float castCost;
-    [SerializeField]protected float damage;
+    protected float damage;
     [SerializeField] protected Sprite attackImage;
     [SerializeField] protected float cooldown;
     private GameObject timer;
@@ -16,15 +16,23 @@ public class PlayerAttack : ScriptableObject
     public int CurrentLevel { get; protected set; }
     [Tooltip("Element 0 == Unlock cost & default damage, the rest are upgrades")]
     [SerializeField] protected List<UpgradeCost> upgradeCosts = new List<UpgradeCost>();
-
+    [SerializeField] private bool lockedAbility = false;
 
     public float GetCooldown() { return cooldown; }
     public bool GetCooldownActive() { return cooldownActive; }
-
-
+    [SerializeField] private AbilityCat abilityCat;
+    public AbilityCat AbilityCatProp { get; private set; }
+    private int startLevel = 0;
 
     public void OnEnable()
     {
+        AbilityCatProp = abilityCat;
+        damage = upgradeCosts[0].newDamage;
+        if (lockedAbility == true)
+        {
+            CurrentLevel = -1;
+            startLevel = CurrentLevel;
+        }
         try
         {
 
@@ -46,11 +54,11 @@ public class PlayerAttack : ScriptableObject
     {
         if (upgradeCosts.Count == 0) //if upgradeCost List == null
         {
-            return -1;
+            return -2;
         }
         else if (upgradeCosts.Count == level + 1) //if maxlevel
         {
-            return -1;
+            return -2;
         }
         return upgradeCosts[level + 1].upgradeCost;
     }
@@ -115,4 +123,8 @@ public class PlayerAttack : ScriptableObject
 
 
 
+}
+public enum AbilityCat
+{
+    POTION, OFFENSIVE, DEFENSIVE, UTILITY
 }

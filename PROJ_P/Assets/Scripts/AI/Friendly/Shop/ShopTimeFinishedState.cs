@@ -7,7 +7,6 @@ public class ShopTimeFinishedState : ShopBaseState
 {
     public override void EnterState()
     {
-        Debug.Log("Shopkeeper will leave now");
         pressEtext.SetActive(false);
         Player.instance.SetHover(false);
         if (Vector3.Distance(shopKeeper.spawnPoint, shopKeeper.transform.position) > 1.5f)
