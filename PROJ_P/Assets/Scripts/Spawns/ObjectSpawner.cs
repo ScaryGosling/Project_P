@@ -27,7 +27,7 @@ public class ObjectSpawner : MonoBehaviour
             {
                 
                 position = location.transform.position;
-                if(objectToSpawn != null && position != null)
+                if(objectToSpawn != null && position != null && listOfObjects.Count < Amount)
                 listOfObjects.AddFirst(Instantiate(objectToSpawn, position, Quaternion.identity));
             }
         }
