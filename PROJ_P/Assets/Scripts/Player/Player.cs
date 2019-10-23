@@ -117,16 +117,32 @@ public class Player : MonoBehaviour
 
 
 
+    public AttackSet CloneAttackSet()
+    {
+        AttackSet clone = Instantiate(attackSet);
+
+        for (int i = 0; i < clone.list.Length; i++)
+        {
+            clone.list[i] = Instantiate(attackSet.list[i]);
+            Debug.Log(clone.list[i].name);
+
+        }
+
+        return clone;
+    }
+
+
     public void CacheComponents() {
         
         instance = this;
         SetupClass();
+        attackSet = CloneAttackSet();
         for (int i = 0; i < attackUISpot.Length; i++)
         {
             if (attackSet.list[i] != null)
             {
 
-            attackUISpot[i].sprite = attackSet.list[i].GetImage();
+                attackUISpot[i].sprite = attackSet.list[i].GetImage();
             }
         }
         SelectAttack(0);
