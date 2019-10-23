@@ -8,11 +8,12 @@ public class ChainLightning : BulletInstance
     private Collider[] hitColliders;
     private Collider bindingCollider;
 
-    [SerializeField] float chainRadius;
-    [SerializeField] float lineWidth;
-    [SerializeField] Color lightningColor;
-    [SerializeField] float killTime;
-    [SerializeField] Material material;
+    public float ChainRadius { get; set; }
+    public float LineWidth { get; set; }
+    public float Intensity { get; set; }
+    public Color EmissionColor { get; set; }
+    public float KillTime { get; set; }
+    public Material Material { get; set; }
 
 
     private List<Collider> enemiesInRange = new List<Collider>();
@@ -32,6 +33,8 @@ public class ChainLightning : BulletInstance
     {
         base.RunAttack(other);
 
+        Material.SetColor("_EmissionColor", EmissionColor * Intensity);
+
         Player.instance.gameObject.AddComponent<LineRenderer>();
 
         GetComponent<Renderer>().enabled = false;
@@ -41,7 +44,7 @@ public class ChainLightning : BulletInstance
         bindingCollider.gameObject.AddComponent<LineRenderer>();
 
         //Find enemies within radius
-        hitColliders = Physics.OverlapSphere(Player.instance.transform.position, chainRadius);
+        hitColliders = Physics.OverlapSphere(transform.position, ChainRadius);
         FindEnemies(hitColliders);
         hitColliders = null;
 
@@ -82,14 +85,11 @@ public class ChainLightning : BulletInstance
             if (Player.instance.gameObject.GetComponent<LineRenderer>())
             {
                 LineRenderer initialLine = Player.instance.gameObject.GetComponent<LineRenderer>();
-                initialLine.material = material;
+                initialLine.material = Material;
                 initialLine.positionCount = 2;
 
-                initialLine.startWidth = lineWidth;
-                initialLine.endWidth = lineWidth;
-
-                initialLine.startColor = lightningColor;
-                initialLine.endColor = lightningColor;
+                initialLine.startWidth = LineWidth;
+                initialLine.endWidth = LineWidth;
 
                 initialLine.SetPosition(0, Player.instance.transform.position);
                 initialLine.SetPosition(1, bindingCollider.transform.position);
@@ -99,14 +99,11 @@ public class ChainLightning : BulletInstance
             if (bindingCollider.GetComponent<LineRenderer>() && enemiesInRange.Count > 0)
             {
                 LineRenderer bind = bindingCollider.GetComponent<LineRenderer>();
-                bind.material = material;
+                bind.material = Material;
                 bind.positionCount = 2;
 
-                bind.startWidth = lineWidth;
-                bind.endWidth = lineWidth;
-
-                bind.startColor = lightningColor;
-                bind.endColor = lightningColor;
+                bind.startWidth = LineWidth;
+                bind.endWidth = LineWidth;
 
                 bind.SetPosition(0, bindingCollider.transform.position);
                 bind.SetPosition(1, enemiesInRange[0].transform.position);
@@ -122,14 +119,11 @@ public class ChainLightning : BulletInstance
                     {
 
                         LineRenderer lr = enemiesInRange[i].GetComponent<LineRenderer>();
-                        lr.material = material;
+                        lr.material = Material;
                         lr.positionCount = 2;
 
-                        lr.startWidth = lineWidth;
-                        lr.endWidth = lineWidth;
-
-                        lr.startColor = lightningColor;
-                        lr.endColor = lightningColor;
+                        lr.startWidth = LineWidth;
+                        lr.endWidth = LineWidth;
 
                         lr.SetPosition(0, enemiesInRange[i - 1].transform.position);
                         lr.SetPosition(1, enemiesInRange[i].transform.position);
@@ -165,7 +159,7 @@ public class ChainLightning : BulletInstance
     public IEnumerator KillTimer()
     {
 
-        yield return new WaitForSeconds(killTime);
+        yield return new WaitForSeconds(KillTime);
         ClearColliders();
 
         Destroy(gameObject);
