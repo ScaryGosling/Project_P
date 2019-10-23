@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cfab1438a63dde47915c4474db03a1b, type: 3}
+  m_Name: Rusher Chase
+  m_EditorClassIdentifier: 
+  controlBehaviors: 0
+  material: {fileID: 2100000, guid: 66f76dc86701845f1b41313bddd266f2, type: 2}
+  moveSpeed: 12
+  health: 20
+  scale: {x: 1.2, y: 0.6, z: 2}
+  specialDeath: 0
+  staggerCD: 0.5
+  attackSpeed: 1

@@ -11,30 +11,26 @@ using UnityEngine.AI;
 public class HostileBaseState : State
 {
     // Attributes
+    protected enum Behaviors { STAGGER, KNOCKBACK }
     [SerializeField] protected Behaviors controlBehaviors = Behaviors.STAGGER;
     [SerializeField] protected Material material;
     [SerializeField] protected float moveSpeed;
-    //[SerializeField] protected float EnemyHealth { get { return owner.baseHeath; } set { owner.baseHeath = value; } }
-    [SerializeField] private float health = 20;
     [SerializeField] private Vector3 scale;
     [SerializeField] private bool specialDeath;
-    private CapsuleCollider capsuleCollider;
-    private Vector3 heading;
-    private const float rotationalSpeed = 0.035f;
-    private float dotProduct;
     [SerializeField] private float staggerCD = 0.5f;
-    private bool damaged = false;
-
-    [SerializeField] private float attackSpeed = 1f;
-    protected enum Behaviors { STAGGER, KNOCKBACK }
-    protected float deathTimer;
-    protected float actualDamage;
-    protected float distanceToPlayer;
-    protected const float damageDistance = 2.5f;
+    #region components
+    private CapsuleCollider capsuleCollider;
     protected Unit owner;
     private UnitDeath death;
     protected GameObject timer;
-    private float startTime;
+    #endregion
+    private Vector3 heading;
+    private const float rotationalSpeed = 0.035f;
+    protected const float damageDistance = 2.5f;
+    protected float deathTimer;
+    protected float actualDamage;
+    protected float distanceToPlayer;
+    private bool damaged = false;
     protected bool alive = true;
     private bool timerRunning = false;
     protected bool attacking = false;
@@ -77,7 +73,6 @@ public class HostileBaseState : State
     }
     protected void CheckForDamage()
     {
-
         if (distanceToPlayer < damageDistance && LineOfSight() && alive && !attacking)
         {
             if (owner.getGenericTimer.timeTask)
@@ -111,23 +106,9 @@ public class HostileBaseState : State
     {
         actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
         owner.player.GetComponent<Player>().HealthProp = -actualDamage;
-        //Debug.Log("Expected damage: " + actualDamage);
-
-    }
-
-    protected void Chase()
-    {
-        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
-        owner.agent.SetDestination(owner.player.transform.position);
     }
 
 
-    protected float DotMethod()
-    {
-        heading = (owner.player.transform.position - owner.transform.position).normalized;
-        dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
-        return dotProduct;
-    }
 
     protected virtual void Die()
     {
@@ -170,4 +151,11 @@ public class HostileBaseState : State
 //     spreadAngle = Quaternion.AngleAxis(lightField.spotAngle, owner.agent.velocity);
 //// protected float lightAngle;
 // //private Quaternion spreadAngle;
+    //protected float DotMethod()
+    //{
+    //    heading = (owner.player.transform.position - owner.transform.position).normalized;
+    //    dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
+    //    return dotProduct;
+    //}
+    //private float dotProduct;
 #endregion
