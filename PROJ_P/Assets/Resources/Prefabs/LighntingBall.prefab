@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chainRadius: 10
-  lineWidth: 0.1
+  lineWidth: 0.002
   lightningColor: {r: 0, g: 0.5674076, b: 1, a: 0}
   killTime: 1
   material: {fileID: 2100000, guid: 120b0518cfff4404fbc534469deef34b, type: 2}
