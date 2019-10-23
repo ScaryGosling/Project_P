@@ -24,6 +24,7 @@ public class GroundStomp : PlayerAttack
 
                 hitColliders[i].GetComponent<NavMeshAgent>().enabled = false;
                 hitColliders[i].GetComponent<Rigidbody>().AddForce(hitColliders[i].transform.TransformDirection(Vector3.back) * stompForce);
+                hitColliders[i].GetComponent<Unit>().currentState.TakeDamage(damage);
 
             }
             i++;

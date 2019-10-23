@@ -23,9 +23,9 @@ MonoBehaviour:
   projectile: {fileID: 6750013541312212612, guid: 6072bc8c59af84b758be9f6c01ebf2a8,
     type: 3}
   force: 1500
-  chainRadius: 10
+  chainRadius: 5
   lineWidth: 0.2
-  emissionColor: {r: 1, g: 0.91923565, b: 0.48627448, a: 0}
+  emissionColor: {r: 0.48627448, g: 0.766786, b: 1, a: 0}
   intensity: 10
   killTime: 1
   material: {fileID: 2100000, guid: 120b0518cfff4404fbc534469deef34b, type: 2}

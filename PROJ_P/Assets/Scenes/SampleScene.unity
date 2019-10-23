@@ -107,7 +107,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 29.82
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -4971,7 +4971,7 @@ PrefabInstance:
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
@@ -30896,7 +30896,7 @@ PrefabInstance:
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
@@ -43449,7 +43449,7 @@ PrefabInstance:
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
@@ -44190,7 +44190,7 @@ PrefabInstance:
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
@@ -78775,12 +78775,12 @@ PrefabInstance:
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.2
+      value: -20.2
       objectReference: {fileID: 0}
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
@@ -84971,7 +84971,7 @@ PrefabInstance:
     - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
       propertyPath: playerClass
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
