@@ -10,41 +10,41 @@ public class ObjectSpawner : MonoBehaviour
     [HideInInspector] public enum ObjectToSpawn { ManaPotion, HealthPotion, Reward }
     LinkedList<GameObject> listOfObjects = new LinkedList<GameObject>();
     private GameObject[] locations;
+    public GameObject type;
     [SerializeField] private GameObject[] objectTypes;
-    [SerializeField] private ObjectToSpawn item = ObjectToSpawn.ManaPotion;
-    [SerializeField] private int amount = 2;
+    public ObjectToSpawn item { get; set; } = ObjectToSpawn.ManaPotion;
+    public int amount { get; set; } = 2;
 
-    void Start()
-    {
-
-        locations = GameObject.FindGameObjectsWithTag("ItemSpawners");
-
-        switch (item)
-        {
-            case ObjectToSpawn.ManaPotion:
-                PopulateList(objectTypes[0]);
-                break;
-            case ObjectToSpawn.HealthPotion:
-                PopulateList(objectTypes[1]);
-                break;
-            case ObjectToSpawn.Reward:
-                break;
-            default:
-                break;
-        }
-    }
-
-    public void PopulateList(GameObject type)
+    public void PopulateList()
     {
         Vector3 position;
+        locations = GameObject.FindGameObjectsWithTag("ItemSpawners");
 
         while (listOfObjects.Count < amount && listOfObjects.Count < locations.Length)
         {
             foreach (GameObject location in locations)
             {
                 position = location.transform.position;
+                if(type != null && position != null)
                 listOfObjects.AddFirst(Instantiate(type, position, Quaternion.identity));
             }
+        }
+    }
+
+    private void SelectType()
+    {
+        switch (item)
+        {
+            case ObjectToSpawn.ManaPotion:
+                type = objectTypes[0];
+                break;
+            case ObjectToSpawn.HealthPotion:
+                type = objectTypes[1];
+                break;
+            case ObjectToSpawn.Reward:
+                break;
+            default:
+                break;
         }
     }
 

@@ -102,7 +102,7 @@ public class HostileBaseState : State
         return true;
     }
 
-    protected void DamagePlayer()
+    protected virtual void DamagePlayer()
     {
         actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
         owner.player.GetComponent<Player>().HealthProp = -actualDamage;
