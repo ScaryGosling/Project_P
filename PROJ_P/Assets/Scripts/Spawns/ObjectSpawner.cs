@@ -10,23 +10,25 @@ public class ObjectSpawner : MonoBehaviour
     [HideInInspector] public enum ObjectToSpawn { ManaPotion, HealthPotion, Reward }
     LinkedList<GameObject> listOfObjects = new LinkedList<GameObject>();
     private GameObject[] locations;
-    public GameObject type;
+    private GameObject objectToSpawn;
     [SerializeField] private GameObject[] objectTypes;
     public ObjectToSpawn item { get; set; } = ObjectToSpawn.ManaPotion;
-    public int amount { get; set; } = 2;
+    public int Amount { get; set; } = 2;
 
     public void PopulateList()
     {
         Vector3 position;
         locations = GameObject.FindGameObjectsWithTag("ItemSpawners");
+        SelectType();
 
-        while (listOfObjects.Count < amount && listOfObjects.Count < locations.Length)
+        while (listOfObjects.Count < Amount && listOfObjects.Count < locations.Length)
         {
             foreach (GameObject location in locations)
             {
+                
                 position = location.transform.position;
-                if(type != null && position != null)
-                listOfObjects.AddFirst(Instantiate(type, position, Quaternion.identity));
+                if(objectToSpawn != null && position != null)
+                listOfObjects.AddFirst(Instantiate(objectToSpawn, position, Quaternion.identity));
             }
         }
     }
@@ -36,10 +38,10 @@ public class ObjectSpawner : MonoBehaviour
         switch (item)
         {
             case ObjectToSpawn.ManaPotion:
-                type = objectTypes[0];
+                objectToSpawn = objectTypes[0];
                 break;
             case ObjectToSpawn.HealthPotion:
-                type = objectTypes[1];
+                objectToSpawn = objectTypes[1];
                 break;
             case ObjectToSpawn.Reward:
                 break;

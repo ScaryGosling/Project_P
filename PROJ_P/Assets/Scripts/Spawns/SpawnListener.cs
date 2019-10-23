@@ -164,10 +164,9 @@ public class SpawnListener : MonoBehaviour
                 if(ObjectSpawner == null)
                 {
                     ObjectSpawner =  Instantiate(ObjectSpawnerPrefab);
-                    //ObjectSpawner.GetComponent<ObjectSpawner>().amount = 3;
-                    //ObjectSpawner.GetComponent<ObjectSpawner>().item = global::ObjectSpawner.ObjectToSpawn.ManaPotion;
-                    //ObjectSpawner.GetComponent<ObjectSpawner>().PopulateList();
-
+                    ObjectSpawner.GetComponent<ObjectSpawner>().Amount = 1;
+                    ObjectSpawner.GetComponent<ObjectSpawner>().item = global::ObjectSpawner.ObjectToSpawn.ManaPotion;
+                    ObjectSpawner.GetComponent<ObjectSpawner>().PopulateList();
                 }
                 time = spawnTime / spawns.Length;
                 shopOpen = false;
