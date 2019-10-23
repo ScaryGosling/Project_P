@@ -10,6 +10,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler
     private Image image;
     private PlayerAttack ability;
     [SerializeField] private Image canvasIcon;
+    [SerializeField] private int attackOnButton;
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -22,6 +23,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler
             ability = eventData.pointerDrag.GetComponent<AbilityUpgrade>().GetAbility();
             eventData.pointerDrag.GetComponent<AbilityUpgrade>().GetAbilityCat();
             image.sprite = ability.GetImage();
+            Player.instance.SetAbility(attackOnButton-1 , ability);
             canvasIcon.sprite = image.sprite;
         }
         

@@ -120,12 +120,8 @@ public class Player : MonoBehaviour
     public AttackSet CloneAttackSet()
     {
         AttackSet clone = Instantiate(attackSet);
+        clone.list[0] = Instantiate(attackSet.list[0]);
 
-        for (int i = 0; i < clone.list.Length; i++)
-        {
-            clone.list[i] = Instantiate(attackSet.list[i]);
-
-        }
 
         return clone;
     }
@@ -270,6 +266,11 @@ public class Player : MonoBehaviour
     public void SetHover(bool hover)
     {
         this.hover = hover;
+    }
+    public void SetAbility(int position, PlayerAttack ability)
+    {
+        attackSet.list[position] = ability;
+        SelectAttack(0);
     }
 
     public void ExecuteAttack() {
