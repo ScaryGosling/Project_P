@@ -5,14 +5,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/SpeedyFoe")]
-public class SpeedyFoe : HostileBaseState
+[CreateAssetMenu(menuName = "Enemy/RusherChase")]
+public class RusherChase : ChaseBase
 {
-
     public override void EnterState()
     {
         base.EnterState();
     }
+
     public override void ToDo()
     {
         base.ToDo();
@@ -21,10 +21,7 @@ public class SpeedyFoe : HostileBaseState
             Chase();
             CheckForDamage();
         }
-
     }
-
-
 }
 
 #region ChaseLegacy

@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - {fileID: 11400000, guid: 60d1fd3a221e027429992c439a87fda7, type: 2}
+  - {fileID: 11400000, guid: 151ed408901099847a7e4071aabb016d, type: 2}
   currentState: {fileID: 0}
   renderer: {fileID: 0}
   agent: {fileID: 0}
@@ -143,6 +143,7 @@ MonoBehaviour:
   player: {fileID: 0}
   baseHeath: 20
   baseAttack: 3
+  attackSpeed: 0.5
 --- !u!114 &-5111371089146639306
 MonoBehaviour:
   m_ObjectHideFlags: 0

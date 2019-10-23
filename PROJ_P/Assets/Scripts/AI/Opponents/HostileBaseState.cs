@@ -111,23 +111,9 @@ public class HostileBaseState : State
     {
         actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
         owner.player.GetComponent<Player>().HealthProp = -actualDamage;
-        //Debug.Log("Expected damage: " + actualDamage);
-
-    }
-
-    protected void Chase()
-    {
-        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
-        owner.agent.SetDestination(owner.player.transform.position);
     }
 
 
-    protected float DotMethod()
-    {
-        heading = (owner.player.transform.position - owner.transform.position).normalized;
-        dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
-        return dotProduct;
-    }
 
     protected virtual void Die()
     {
@@ -170,4 +156,10 @@ public class HostileBaseState : State
 //     spreadAngle = Quaternion.AngleAxis(lightField.spotAngle, owner.agent.velocity);
 //// protected float lightAngle;
 // //private Quaternion spreadAngle;
+    //protected float DotMethod()
+    //{
+    //    heading = (owner.player.transform.position - owner.transform.position).normalized;
+    //    dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
+    //    return dotProduct;
+    //}
 #endregion
