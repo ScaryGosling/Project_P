@@ -44,7 +44,7 @@ public class ChainLightning : BulletInstance
         bindingCollider.gameObject.AddComponent<LineRenderer>();
 
         //Find enemies within radius
-        hitColliders = Physics.OverlapSphere(Player.instance.transform.position, ChainRadius);
+        hitColliders = Physics.OverlapSphere(transform.position, ChainRadius);
         FindEnemies(hitColliders);
         hitColliders = null;
 
