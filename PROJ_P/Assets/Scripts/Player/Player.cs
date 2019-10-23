@@ -169,7 +169,8 @@ public class Player : MonoBehaviour
             }
 
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha1))
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (attackSet.list[0] != null)
             {
