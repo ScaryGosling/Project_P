@@ -29,7 +29,7 @@ public class BulletInstance : MonoBehaviour
     private bool IsVisible()
     {
         viewportPoint = mainCamera.WorldToViewportPoint(transform.position);
-        if (viewportPoint.x < 0 || viewportPoint.x > 1 || viewportPoint.y < 0 || viewportPoint.y > 1)
+        if (viewportPoint.x < 0 || viewportPoint.x > 1 || viewportPoint.y < 0 || viewportPoint.y > 1 || transform.position.y < 0)
         {
             return false;
         }
@@ -50,11 +50,13 @@ public class BulletInstance : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (other.CompareTag("Enemy"))
         {
             RunAttack(other);
-
             Destroy(gameObject);
+
         }
+
+  
     }
 }

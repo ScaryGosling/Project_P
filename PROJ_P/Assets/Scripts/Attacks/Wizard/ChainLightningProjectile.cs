@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Attacks/Wizard/ChainLightning")]
+[CreateAssetMenu(menuName = "Attacks/Mystic/ChainLightning")]
 public class ChainLightningProjectile : PlayerAttack
 {
 

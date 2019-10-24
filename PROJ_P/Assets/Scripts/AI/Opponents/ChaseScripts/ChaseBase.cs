@@ -79,7 +79,9 @@ public class ChaseBase : HostileBaseState
             damaged = true;
             owner.getGenericTimer.SetTimer(staggerCD);
             damaged = false;
-            owner.agent.SetDestination(owner.transform.position);
+
+            if (owner.agent.enabled)
+                owner.agent.SetDestination(owner.transform.position);
         }
     }
 

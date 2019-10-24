@@ -102,7 +102,6 @@ public class PlayerAttack : ScriptableObject
     public void ResetCooldown()
     {
         cooldownActive = false;
-        Destroy(timer);
     }
 
     public virtual void RunAttack()

@@ -21,7 +21,8 @@ public class Timer : MonoBehaviour
         }
         else if (!MethodHasRun) {
             methodToRun();
-            MethodHasRun = true;
+            //MethodHasRun = true;
+            Destroy(gameObject);
         }
 
     }

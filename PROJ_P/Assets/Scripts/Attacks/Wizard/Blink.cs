@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Attacks/Wizard/Blink")]
+[CreateAssetMenu(menuName = "Attacks/Mystic/Blink")]
 public class Blink : PlayerAttack
 {
     private Transform player;
