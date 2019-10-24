@@ -13,7 +13,6 @@ public class RusherDeath : DeathBase
 
     public override void ToDo()
     {
-        if (owner.player != null)
             base.ToDo();
     }
 }

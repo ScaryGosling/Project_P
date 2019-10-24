@@ -8,6 +8,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy/BoomerDeath")]
 public class BoomerDeath : DeathBase
 {
+    [SerializeField] private float scaleFactor = 1.00001f;
+    [SerializeField] private GameObject explosionPrefab;
+    private GameObject explosion;
+
+    private const float animationTime = 3f;
+    private const float explosionDelay = 0.5f;
+    private float currentTime;
+
     public override void EnterState()
     {
         base.EnterState();
@@ -15,7 +23,6 @@ public class BoomerDeath : DeathBase
 
     public override void ToDo()
     {
-        if (owner.player != null)
         base.ToDo();
     }
 
@@ -24,13 +31,21 @@ public class BoomerDeath : DeathBase
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         owner.transform.localRotation = rotation;
         alive = false;
-        float startTIme = 2;
 
-        while (startTIme > 0)
+        currentTime = animationTime;
+        while (currentTime >= 0f)
         {
-            owner.transform.localScale = (owner.transform.localScale * 1.00003f);
-            startTIme -= Time.deltaTime;
+            owner.transform.localScale *= scaleFactor;
+            currentTime -= Time.deltaTime;
         }
+
+        if (currentTime <= animationTime / 0 && explosion == null)
+            Explode();
+    }
+
+    private void Explode()
+    {
+        explosion = Instantiate(explosionPrefab, owner.transform.position, Quaternion.identity);
     }
 
 

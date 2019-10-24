@@ -14,7 +14,6 @@ public class FanaticDeath : DeathBase
 
     public override void ToDo()
     {
-        if (owner.player != null)
             base.ToDo();
     }
 

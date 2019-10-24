@@ -60,7 +60,6 @@ public class HostileBaseState : State
             return false;
         return true;
     }
-
 }
 #region EnemyBaseLegacy
 // lightTreshold = owner.LightThreshold;

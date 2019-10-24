@@ -9,8 +9,6 @@ public class GenericTimer : MonoBehaviour
     private float currentTime;
     public bool timeTask { get; set; }
     
-
-
     public void SetTimer(float t)
     {
         timeTask = false;
