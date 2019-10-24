@@ -272,20 +272,38 @@ public class Player : MonoBehaviour
     {
         this.hover = hover;
     }
+
+
     public void SetAbility(int position, PlayerAttack ability)
     {
         activeAttacks.list[position] = ability;
-        SelectAttack(0);
+        if (ability == null)
+        {
+
+            attackUISpot[position].color = new Color32(0, 0, 0, 0);
+        }
+        else
+        {
+
+            attackUISpot[position].color = new Color32(0, 0, 0, 100);
+
+            SelectAttack(position);
+        }
+        if (position == selectedAttack)
+        {
+
+            SelectAttack(0);
+        }
     }
 
     public void ExecuteAttack() {
 
         if (Resource.Value >= activeAttack.GetCastCost() / 100) {
-
             AttackEvent();
             
 
         }
+        Debug.Log(Resource.Value);
     }
 
 
