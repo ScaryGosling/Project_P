@@ -80,7 +80,14 @@ public class Player : MonoBehaviour
 
    public void RunAttackCooldown()
     {
-        cooldowns[selectedAttack] = StartCoroutine(ShowCooldown());
+        for (int i = 0; i < activeAttacks.list.Length; i++)
+        {
+            if (activeAttacks.list[i] == activeAttack)
+            {
+
+                cooldowns[selectedAttack] = StartCoroutine(ShowCooldown(i));
+            }
+        }
     }
 
     public void Start()
@@ -235,19 +242,21 @@ public class Player : MonoBehaviour
         }
     }
 
-
-    public IEnumerator ShowCooldown()
+    float animationTime;
+    float cooldownTime;
+    Image[] attack = new Image[4];
+    public IEnumerator ShowCooldown(int position)
     {
-        Image attack = attackUISpot[selectedAttack];
-        attack.fillAmount = 0;
+        attack[position] = attackUISpot[position];
+        attack[position].fillAmount = 0;
 
-        float animationTime = 0;
-        float cooldownTime = activeAttack.GetCooldown();
+        animationTime = 0;
+        cooldownTime = activeAttack.GetCooldown();
 
         while (animationTime < cooldownTime)
         {
             animationTime += Time.deltaTime;
-            attack.fillAmount = animationTime / cooldownTime;
+            attack[position].fillAmount = animationTime / cooldownTime;
             yield return null;
 
         }
@@ -298,12 +307,11 @@ public class Player : MonoBehaviour
 
     public void ExecuteAttack() {
 
-        if (Resource.Value >= activeAttack.GetCastCost() / 100) {
+        if (Resource.Value >= activeAttack.GetCastCost() / 100) 
+        {
             AttackEvent();
-            
 
         }
-        Debug.Log(Resource.Value);
     }
 
 
