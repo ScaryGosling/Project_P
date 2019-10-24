@@ -11,12 +11,14 @@ using UnityEngine.AI;
 public class DeathBase : HostileBaseState
 {
     // Attributes
-  
+
 
     // Methods
     public override void EnterState()
     {
         base.EnterState();
+        DisableUnit();
+        Debug.Log("EnteringDeathState");
     }
 
 
@@ -28,27 +30,32 @@ public class DeathBase : HostileBaseState
     public override void ToDo()
     {
         base.ToDo();
+        DeathAnimation();
     }
 
-    protected virtual void Chase()
+    protected void DisableUnit()
     {
-        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
-        owner.agent.SetDestination(owner.player.transform.position);
+        owner.agent.isStopped = true;
+        capsuleCollider.enabled = false;
+        Destroy(owner.gameObject, 3f);
     }
 
-
-
- 
+    protected virtual void DeathAnimation()
+    {
+        Quaternion rotation = Quaternion.Euler(-90, 0, 0);
+        owner.transform.localRotation = rotation;
+        alive = false;
+    }
 }
 #region EnemyBaseLegacy
 // lightTreshold = owner.LightThreshold;
 //     spreadAngle = Quaternion.AngleAxis(lightField.spotAngle, owner.agent.velocity);
 //// protected float lightAngle;
 // //private Quaternion spreadAngle;
-    //protected float DotMethod()
-    //{
-    //    heading = (owner.player.transform.position - owner.transform.position).normalized;
-    //    dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
-    //    return dotProduct;
-    //}
+//protected float DotMethod()
+//{
+//    heading = (owner.player.transform.position - owner.transform.position).normalized;
+//    dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
+//    return dotProduct;
+//}
 #endregion

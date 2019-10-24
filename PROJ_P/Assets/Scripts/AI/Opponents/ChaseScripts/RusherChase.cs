@@ -22,6 +22,12 @@ public class RusherChase : ChaseBase
             CheckForDamage();
         }
     }
+
+    protected override void Die()
+    {
+        base.Die();
+        owner.ChangeState<RusherDeath>();
+    }
 }
 
 #region ChaseLegacy

@@ -22,6 +22,12 @@ public class FanaticChase : ChaseBase
             CheckForDamage();
         }
     }
+
+    protected override void Die()
+    {
+        base.Die();
+        owner.ChangeState<FanaticDeath>();
+    }
 }
 
 #region ChaseLegacy
