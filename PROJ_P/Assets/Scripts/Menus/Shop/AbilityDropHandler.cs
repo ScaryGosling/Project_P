@@ -18,7 +18,6 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         rectTransform = GetComponent<RectTransform>();
         image = GetComponent<Image>();
         defaultSprite = image.sprite;
-        Debug.Log(defaultSprite);
     }
     public void OnDrop(PointerEventData eventData)
     {
