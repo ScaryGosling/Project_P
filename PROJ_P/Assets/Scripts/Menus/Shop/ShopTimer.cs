@@ -22,6 +22,7 @@ public class ShopTimer : MonoBehaviour
         if (genericTimer.Countdown <= 0)
         {
             timer.text = "00:00";
+            gameObject.SetActive(false);
         }
     }
 }

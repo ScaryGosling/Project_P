@@ -38,6 +38,7 @@ public class Shop : StateMachine
         {
 
             toggleArrow.toggle = false;
+
             EventSystem.Current.FireEvent(toggleArrow);
 
         } catch(Exception e) {}
@@ -45,6 +46,10 @@ public class Shop : StateMachine
     }
     private void RemoveShop()
     {
+        if (shopWindow.activeSelf)
+        {
+            shopWindow.SetActive(false);
+        }
         ChangeState<ShopTimeFinishedState>();
     }
 
