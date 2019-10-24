@@ -7,19 +7,31 @@ public class FireBall : PlayerAttack
 {
 
     [SerializeField] private GameObject fireball;
-    [SerializeField] private float forwardForce, upForce;
+    [SerializeField] private float spawnHeight;
+    [SerializeField] private float explosionRadius;
     private Transform spawnPoint;
 
 
     public override void RunAttack()
     {
         base.RunAttack();
-        Rigidbody rb = Instantiate(fireball, spawnPoint.position + spawnPoint.TransformDirection(Vector3.forward) * 2, spawnPoint.rotation).GetComponent<Rigidbody>();
-        rb.AddForce(rb.transform.TransformDirection(Vector3.forward) * forwardForce);
+
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Terrain.activeTerrain.GetComponent<TerrainCollider>().Raycast(ray, out hit, 50))
+        {
+            FireballInstance instance = Instantiate(fireball, hit.point + new Vector3(0, spawnHeight, 0), Quaternion.identity).GetComponent<FireballInstance>();
+            instance.ExplosionRadius = explosionRadius;
+            instance.Damage = damage;
+            instance.GetComponent<Rigidbody>().AddForce(Vector3.down * 1000);
+            
+        }
+    
+        
     }
 
     public override void OnEquip()
     {
-        spawnPoint = Player.instance.GetSpawnPoint();
     }
 }

@@ -35,6 +35,7 @@ public class PlayerAttack : ScriptableObject
         }
         try
         {
+
             damage = upgradeCosts[0].newDamage;
 
         } catch(Exception e) { }
@@ -107,7 +108,7 @@ public class PlayerAttack : ScriptableObject
     public virtual void RunAttack()
     {
 
-        Debug.Log(damage);
+        
         Player.instance.Resource.DrainResource(this);
 
 

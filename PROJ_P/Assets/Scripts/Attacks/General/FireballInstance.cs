@@ -6,31 +6,42 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class FireballInstance : MonoBehaviour
 {
-    [SerializeField] private float explosionRadius;
-    private float damage;
+    public float ExplosionRadius { get; set; }
+    public float Damage { get; set; }
 
-    public void SetDamage(float damage)
-    {
-        this.damage = damage;
-    }
 
-    public void OnCollisionEnter(Collision other)
+    public void OnTriggerEnter(Collider other)
     {
-        Explode(other.collider);
+        Explode(other);
     }
 
     public void Explode(Collider other)
     {
+        GetComponent<Collider>().enabled = false;
+        GetComponent<Rigidbody>().isKinematic = true;
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
 
-        Collider[] hitColliders = Physics.OverlapSphere(other.transform.position, explosionRadius);
-
-        foreach(Collider collider in hitColliders)
+        foreach(Collider col in hitColliders)
         {
-            if (collider.CompareTag("Enemy"))
+            if (col.CompareTag("Enemy"))
             {
-                collider.GetComponent<Unit>().currentState.TakeDamage(damage);
+                Debug.Log(col.gameObject.name);
+                col.GetComponent<Unit>().currentState.TakeDamage(Damage);
             }
         }
-        Destroy(gameObject);
+        StartCoroutine(ExplosionAnimation());
     }
+
+    //Remove this and add real animation instead
+    public IEnumerator ExplosionAnimation() {
+
+        while (transform.lossyScale.x < ExplosionRadius) {
+
+            transform.localScale += new Vector3(1, 1, 1);
+            yield return null;
+        }
+        Destroy(gameObject);
+
+    }
+
 }

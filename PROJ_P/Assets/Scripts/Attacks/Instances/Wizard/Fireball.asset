@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ade089edb56c264a9c9e1d5d95a0483, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  castCost: 50
+  castCost: 5
   attackImage: {fileID: 21300000, guid: 4325c1a126876674f87dfb389eb19581, type: 3}
-  cooldown: 30
+  cooldown: 3
   upgradeCosts:
   - upgradeCost: 0
-    newDamage: 5
+    newDamage: 100
   - upgradeCost: 10
     newDamage: 10
   - upgradeCost: 50
@@ -26,5 +26,5 @@ MonoBehaviour:
   abilityCat: 1
   fireball: {fileID: 5490361096305928263, guid: 29667473f9fea7a4fb3d85b14a46241a,
     type: 3}
-  forwardForce: 10000
-  upForce: 0
+  spawnHeight: 10
+  explosionRadius: 10
