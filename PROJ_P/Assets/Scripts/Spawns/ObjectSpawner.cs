@@ -14,27 +14,41 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] private GameObject[] objectTypes;
     public ObjectToSpawn item { get; set; } = ObjectToSpawn.ManaPotion;
     public int Amount { get; set; } = 2;
+    public bool hasAbsolutePosition { get; set; } = false;
 
     public void PopulateList()
     {
         Vector3 position;
-        locations = GameObject.FindGameObjectsWithTag("ItemSpawners");
+
         SelectType();
 
-        while (listOfObjects.Count < Amount && listOfObjects.Count < locations.Length)
+        if (!hasAbsolutePosition)
         {
-            foreach (GameObject location in locations)
+            while (listOfObjects.Count < Amount && listOfObjects.Count < locations.Length)
             {
-                
-                position = location.transform.position;
-                if(objectToSpawn != null && position != null && listOfObjects.Count < Amount)
-                listOfObjects.AddFirst(Instantiate(objectToSpawn, position, Quaternion.identity));
+                foreach (GameObject location in locations)
+                {
+                    position = location.transform.position;
+                    if (objectToSpawn != null && position != null && listOfObjects.Count < Amount)
+                        listOfObjects.AddFirst(Instantiate(objectToSpawn, position, Quaternion.identity));
+                }
             }
+        }
+        else
+        {
+            position = locations[0].gameObject.transform.position;
+            Instantiate(objectToSpawn, position, Quaternion.identity);
         }
     }
 
     private void SelectType()
     {
+
+        if (item == ObjectToSpawn.ManaPotion)
+            locations = GameObject.FindGameObjectsWithTag("ItemSpawners");
+        else
+            locations = GameObject.FindGameObjectsWithTag("SpecialPositions");
+
         switch (item)
         {
             case ObjectToSpawn.ManaPotion:

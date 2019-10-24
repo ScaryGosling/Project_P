@@ -15,8 +15,6 @@ public class SpawnListener : MonoBehaviour
     //public int mappedUnits { get; set; }
     #endregion
 
-    //enum UnitType { TYPE_00, TYPE_01, TYPE_02 }
-    //UnitType currentType;
     private int currentType;
     private const int maximumCapacity = 200;
     private float pauseTime = 10f;
@@ -56,8 +54,6 @@ public class SpawnListener : MonoBehaviour
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
         if (!debugMode)
             StartCoroutine(Spawner());
-        //absoluteUnit = UnitPrefabs[0];
-        //UnitController();
     }
 
     private void UnitDeath(UnitDeath death)
@@ -157,7 +153,6 @@ public class SpawnListener : MonoBehaviour
         while (true)
         {
             float time;
-            //Debug.Log(expected + " " + spawned + " " + unitsKilled);
 
             if (spawned < expected)
             {
