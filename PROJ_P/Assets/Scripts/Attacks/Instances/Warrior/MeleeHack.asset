@@ -17,7 +17,7 @@ MonoBehaviour:
   cooldown: 1
   upgradeCosts:
   - upgradeCost: 0
-    newDamage: 20
+    newDamage: 5
   lockedAbility: 0
   abilityCat: 1
   slash: {fileID: 7400000, guid: dde732b3854ff43e8a66dab8b5e55b3b, type: 2}
