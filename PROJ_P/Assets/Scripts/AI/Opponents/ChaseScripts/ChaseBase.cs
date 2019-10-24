@@ -58,6 +58,12 @@ public class ChaseBase : HostileBaseState
         }
     }
 
+    protected virtual void DamagePlayer()
+    {
+        actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
+        owner.player.GetComponent<Player>().HealthProp = -actualDamage;
+    }
+
     public override void TakeDamage(float damage)
     {
         owner.Health -= damage;
@@ -81,12 +87,6 @@ public class ChaseBase : HostileBaseState
             damaged = false;
             owner.agent.SetDestination(owner.transform.position);
         }
-    }
-
-    protected virtual void DamagePlayer()
-    {
-        actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
-        owner.player.GetComponent<Player>().HealthProp = -actualDamage;
     }
 
     protected virtual void Chase()
