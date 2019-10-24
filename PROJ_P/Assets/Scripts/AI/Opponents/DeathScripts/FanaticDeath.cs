@@ -1,11 +1,10 @@
 ﻿//Main Author: Emil Dahl
 
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/FanaticChase")]
+[CreateAssetMenu(menuName = "Enemy/FanaticDeath")]
 public class FanaticDeath : DeathBase
 {
     public override void EnterState()
@@ -15,13 +14,11 @@ public class FanaticDeath : DeathBase
 
     public override void ToDo()
     {
-        base.ToDo();
-        if (owner.player != null && owner.agent.enabled)
-        {
-            Chase();
-            CheckForDamage();
-        }
+        if (owner.player != null)
+            base.ToDo();
     }
+
+
 }
 
 #region ChaseLegacy

@@ -10,10 +10,6 @@ using UnityEngine.AI;
 [RequireComponent(typeof(CapsuleCollider))]
 public class ChaseBase : HostileBaseState
 {
-    // Attributes
-  
-
-    // Methods
     public override void EnterState()
     {
         base.EnterState();
@@ -28,6 +24,69 @@ public class ChaseBase : HostileBaseState
     public override void ToDo()
     {
         base.ToDo();
+        CheckLife();
+        CheckForDamage();
+    }
+
+    protected void CheckLife()
+    {
+        if (owner.Health <= 0)
+        {
+            if (alive)
+            {
+                death = new UnitDeath();
+                death.eventDescription = "Unit Died";
+                death.enemyObject = owner.gameObject;
+                EventSystem.Current.FireEvent(death);
+            }
+
+            Die();
+        }
+    }
+
+    protected void CheckForDamage()
+    {
+        if (distanceToPlayer < damageDistance && LineOfSight() && alive && !attacking)
+        {
+            if (owner.getGenericTimer.timeTask)
+            {
+                attacking = true;
+                owner.getGenericTimer.SetTimer(owner.AttackSpeed);
+                attacking = !attacking;
+                DamagePlayer();
+            }
+        }
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        owner.Health -= damage;
+        if (controlBehaviors == Behaviors.STAGGER)
+        {
+            ControlEffects();
+        }
+    }
+
+    /// <summary>
+    /// Used to call different death-states from different enemies 
+    /// </summary>
+    protected virtual void Die() { }
+
+    protected virtual void ControlEffects()
+    {
+        if (owner.getGenericTimer.timeTask && !damaged)
+        {
+            damaged = true;
+            owner.getGenericTimer.SetTimer(staggerCD);
+            damaged = false;
+            owner.agent.SetDestination(owner.transform.position);
+        }
+    }
+
+    protected virtual void DamagePlayer()
+    {
+        actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
+        owner.player.GetComponent<Player>().HealthProp = -actualDamage;
     }
 
     protected virtual void Chase()
@@ -35,10 +94,6 @@ public class ChaseBase : HostileBaseState
         distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
         owner.agent.SetDestination(owner.player.transform.position);
     }
-
-
-
- 
 }
 #region EnemyBaseLegacy
 // lightTreshold = owner.LightThreshold;

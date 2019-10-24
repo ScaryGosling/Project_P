@@ -133,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
   - {fileID: 11400000, guid: e9deaa1ed8a12dd49b13e6a7bda6fc2e, type: 2}
+  - {fileID: 11400000, guid: faa790db5feaddd44b4e89a67f2c3dbd, type: 2}
   currentState: {fileID: 0}
   renderer: {fileID: 0}
   agent: {fileID: 0}

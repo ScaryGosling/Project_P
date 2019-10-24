@@ -22,6 +22,12 @@ public class BoomerChase : ChaseBase
             CheckForDamage();
         }
     }
+
+    protected override void Die()
+    {
+        base.Die();
+        owner.ChangeState<BoomerDeath>();
+    }
 }
 
 #region ChaseLegacy

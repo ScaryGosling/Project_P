@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/BoomerChase")]
+[CreateAssetMenu(menuName = "Enemy/BoomerDeath")]
 public class BoomerDeath : DeathBase
 {
     public override void EnterState()
@@ -15,13 +15,25 @@ public class BoomerDeath : DeathBase
 
     public override void ToDo()
     {
+        if (owner.player != null)
         base.ToDo();
-        if (owner.player != null && owner.agent.enabled)
+    }
+
+    protected override void DeathAnimation()
+    {
+        Quaternion rotation = Quaternion.Euler(-90, 0, 0);
+        owner.transform.localRotation = rotation;
+        alive = false;
+        float startTIme = 2;
+
+        while (startTIme > 0)
         {
-            Chase();
-            CheckForDamage();
+            owner.transform.localScale = (owner.transform.localScale * 1.00003f);
+            startTIme -= Time.deltaTime;
         }
     }
+
+
 }
 
 #region ChaseLegacy
