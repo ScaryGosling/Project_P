@@ -33,7 +33,7 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler
     {
         abilityName.text = ability.ToString();
         abilityImage.sprite = ability.GetImage();
-        ability.ResetLevel();
+        //ability.ResetLevel();
     }
     public AbilityCat GetAbilityCat()
     {
@@ -49,6 +49,7 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler
         if (ability != null)
         {
             currentAbilityLevel = ability.CurrentLevel;
+            Debug.Log(ability + " " + currentAbilityLevel);
             if (currentAbilityLevel == -1)
             {
                 currentAbilityLevelText.text = "U";
@@ -90,18 +91,29 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler
     GameObject clone;
     public void OnDrag(PointerEventData eventData)
     {
+        if (clone != null)
+        {
 
         clone.transform.position = Input.mousePosition;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (clone != null)
+        {
         Destroy(clone);
+
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        clone = Instantiate(gameObject, GameObject.Find("Canvas").transform );
+        if (!ability.IsLocked())
+        {
+            clone = Instantiate(gameObject, GameObject.Find("Canvas").transform );
+
+        }
         
     }
 }

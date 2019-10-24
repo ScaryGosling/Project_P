@@ -35,8 +35,6 @@ public class PlayerAttack : ScriptableObject
         }
         try
         {
-
-            Debug.Log("Awake");
             damage = upgradeCosts[0].newDamage;
 
         } catch(Exception e) { }
@@ -49,7 +47,10 @@ public class PlayerAttack : ScriptableObject
         public int newDamage;
     }
 
-
+    public bool IsLocked()
+    {
+        return lockedAbility;
+    }
     public int GetNextLevelCost(int level)
     {
         if (upgradeCosts.Count == 0) //if upgradeCost List == null
@@ -67,6 +68,10 @@ public class PlayerAttack : ScriptableObject
     {
         CurrentLevel++;
         damage = upgradeCosts[CurrentLevel].newDamage;
+        if (lockedAbility)
+        {
+            lockedAbility = false;
+        }
 
     }
     public void ResetLevel()
