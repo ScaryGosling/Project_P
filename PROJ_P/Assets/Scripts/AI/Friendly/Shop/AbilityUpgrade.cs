@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
+public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     [SerializeField] private Image abilityImage;
     [SerializeField] private Text abilityName;
@@ -12,8 +12,13 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler
     private int currentAbilityLevel;
     [SerializeField] private Text currentAbilityLevelText;
     [SerializeField] private PlayerAttack ability;
-    
-    
+    private Image image;
+
+    private void Start()
+    {
+        image = GetComponent<Image>();
+    }
+
     public void EmptyRow()
     {
         abilityImage.sprite = null;
@@ -22,7 +27,7 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler
         currentAbilityLevelText.text = "-";
         ability = null;
     }
-    
+
 
     public void SetElements(PlayerAttack ability)
     {
@@ -44,20 +49,23 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler
         return ability;
     }
 
+    Color32 tempColor;
     void Update()
     {
         if (ability != null)
         {
+            tempColor = image.color;
             currentAbilityLevel = ability.CurrentLevel;
-            Debug.Log(ability + " " + currentAbilityLevel);
             if (currentAbilityLevel == -1)
             {
                 currentAbilityLevelText.text = "U";
+                image.color = new Color32(tempColor.r, tempColor.g, tempColor.b, 68);
             }
             else
             {
-                    
+
                 currentAbilityLevelText.text = currentAbilityLevel + "";
+                image.color = new Color32(tempColor.r, tempColor.g, tempColor.b, 168);
             }
             if (ability.GetNextLevelCost(currentAbilityLevel) != -2)
             {
@@ -67,12 +75,8 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler
             {
                 nextUpgradeCost.text = "-";
             }
-       
+
         }
-
-
-        
-
 
     }
     int nextLevelCost;
@@ -94,7 +98,7 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler
         if (clone != null)
         {
 
-        clone.transform.position = Input.mousePosition;
+            clone.transform.position = Input.mousePosition;
         }
     }
 
@@ -102,7 +106,7 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler
     {
         if (clone != null)
         {
-        Destroy(clone);
+            Destroy(clone);
 
         }
     }
@@ -111,9 +115,9 @@ public class AbilityUpgrade : MonoBehaviour , IPointerClickHandler, IDragHandler
     {
         if (!ability.IsLocked())
         {
-            clone = Instantiate(gameObject, GameObject.Find("Canvas").transform );
+            clone = Instantiate(gameObject, GameObject.Find("Canvas").transform);
 
         }
-        
+
     }
 }
