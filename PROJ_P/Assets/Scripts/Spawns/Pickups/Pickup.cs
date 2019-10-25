@@ -11,16 +11,16 @@ public class Pickup : MonoBehaviour
     protected enum ResourceType { Mana, Rage, Repair, Health };
     [SerializeField] protected ResourceType resType;
     [SerializeField] protected float fillAmount;
+    [SerializeField] protected float despawnTime = 10f;
     protected BoxCollider colliderB;
     protected GiveResource giveResource;
     protected Player player;
 
-    protected void Start()
+    protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         colliderB = gameObject.GetComponent<BoxCollider>();
         colliderB.isTrigger = true;
-        //Destroy(gameObject);
     }
 
 
@@ -30,6 +30,11 @@ public class Pickup : MonoBehaviour
         {
             DoSomething();
         }
+    }
+    
+    protected void DestroyThis()
+    {
+        Destroy(gameObject, despawnTime);
     }
 
 

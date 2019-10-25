@@ -17,6 +17,7 @@ public class SpawnListener : MonoBehaviour
 
     private int currentType;
     private const int maximumCapacity = 200;
+     
     private float pauseTime = 10f;
     [SerializeField] private float spawnTime = 0.5f;
     [SerializeField] private int expected = 1;
@@ -60,17 +61,20 @@ public class SpawnListener : MonoBehaviour
     {
         unitsKilled += 1;
         CheckForDrop(death.enemyObject.transform.position);
+        Debug.Log("UnitsKilled++");
     }
 
     private void CheckForDrop(Vector3 location)
     {
 
-        int temp = (int)Mathf.Floor(Random.Range(0f, 9f));
+        int temp = (int)Mathf.Floor(Random.Range(0, 1));
 
-        if (temp <= 0)
-            Instantiate(pickUp[temp], new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
-        else if (temp == 1)
-            Instantiate(pickUp[temp], new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
+        if(temp <= chanceOfDrop)
+            Instantiate(pickUp[1], new Vector3(location.x, location.y, location.z), Quaternion.identity);
+        //if (temp <= chanceOfDrop)
+        //    Instantiate(pickUp[temp], new Vector3(location.x, location.y, location.z), Quaternion.identity);
+        //else if (temp > chanceOfDrop)
+        //    Instantiate(pickUp[temp], new Vector3(location.x, location.y, location.z), Quaternion.identity);
 
         Debug.Log("SpawnedPotion");
     }
