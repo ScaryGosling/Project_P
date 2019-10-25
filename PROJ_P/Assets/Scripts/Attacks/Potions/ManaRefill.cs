@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Attacks/Potions/Mana")]
-public class ManaRefill : AbilityUpgrade
+public class ManaRefill : Potion
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float hundredPercentCost = 100;
+    public override void BuyPotion(int cost)
     {
+        Player.instance.Resource.IncreaseResource(1);
+        Player.instance.GoldProp -= cost;
         
     }
-    
-    // Update is called once per frame
-    void Update()
+
+    public override int GetPotionCost()
     {
-        
+        return (int)((1-Player.instance.Resource.Value) * hundredPercentCost);
     }
+
 }
