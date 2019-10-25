@@ -19,8 +19,7 @@ public class MeleeHack : PlayerAttack
 
     public override void RunAttack()
     {
-        base.RunAttack();
-        sword.SetDamage(damage);
+        sword.CacheComponents(damage, this);
         animation.AddClip(slash, "Slash");
         animation.Play("Slash");
     }

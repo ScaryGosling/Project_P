@@ -11,7 +11,8 @@ public class Rage : Resource
     {
         base.DrainResource(activeAttack);
 
-        if (activeAttack.GetCastCost() <= 0) {
+        if (activeAttack is MeleeHack)
+        {
             IncreaseResource(rageGeneration);
         }
     }

@@ -6,10 +6,12 @@ public class Sword : MonoBehaviour
 {
 
     private float damage;
+    private PlayerAttack hack;
 
-    public void SetDamage(float damage)
+    public void CacheComponents(float damage, PlayerAttack hack)
     {
         this.damage = damage;
+        this.hack = hack;
     }
 
 
@@ -17,6 +19,7 @@ public class Sword : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
+            Player.instance.Resource.DrainResource(hack);
             State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
             state.TakeDamage(damage);
 
