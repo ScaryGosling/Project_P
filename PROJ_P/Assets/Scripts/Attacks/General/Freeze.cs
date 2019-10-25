@@ -13,9 +13,9 @@ public class Freeze : MonoBehaviour
         if (other.CompareTag("Enemy")) {
 
             if (active)
-                other.GetComponent<NavMeshAgent>().enabled = false;
+                other.GetComponent<NavMeshAgent>().isStopped = true;
             else
-                other.GetComponent<NavMeshAgent>().enabled = true;
+                other.GetComponent<NavMeshAgent>().isStopped = false;
         }
     }
 
@@ -31,7 +31,7 @@ public class Freeze : MonoBehaviour
         }
 
         active = false;
-        yield return null;
+        yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
 
 
