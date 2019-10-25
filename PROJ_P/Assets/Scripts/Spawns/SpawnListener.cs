@@ -71,6 +71,8 @@ public class SpawnListener : MonoBehaviour
             Instantiate(pickUp[temp], new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
         else if (temp == 1)
             Instantiate(pickUp[temp], new Vector3(location.x, location.y / 2, location.z), Quaternion.identity);
+
+        Debug.Log("SpawnedPotion");
     }
 
     private void ResetWave()

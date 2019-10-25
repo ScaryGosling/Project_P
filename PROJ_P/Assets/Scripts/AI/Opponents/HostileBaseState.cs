@@ -23,6 +23,7 @@ public class HostileBaseState : State
     protected UnitDeath death;
     protected GameObject timer;
     #endregion
+    protected Rigidbody rigidbody;
     protected Vector3 heading;
     protected const float rotationalSpeed = 0.035f;
     protected const float damageDistance = 2.5f;
@@ -42,7 +43,6 @@ public class HostileBaseState : State
         owner.renderer.material = material;
         owner.agent.speed = moveSpeed;
         owner.transform.localScale = scale;
-        capsuleCollider = owner.GetComponent<CapsuleCollider>();
     }
 
 

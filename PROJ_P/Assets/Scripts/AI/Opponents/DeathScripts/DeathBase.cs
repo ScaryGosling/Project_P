@@ -11,7 +11,7 @@ using UnityEngine.AI;
 public class DeathBase : HostileBaseState
 {
     // Attributes
-    [SerializeField] protected float corpseTimer = 4f; 
+    [SerializeField] protected float corpseTimer = 2f; 
 
     // Methods
     public override void EnterState()
@@ -36,8 +36,10 @@ public class DeathBase : HostileBaseState
     protected void DisableUnit()
     {
         owner.agent.isStopped = true;
-        capsuleCollider.enabled = false;
+        owner.agent.enabled = !owner.agent.enabled;
+        owner.capsuleCollider.enabled = false;
         Destroy(owner.gameObject, corpseTimer);
+        Debug.Log("DeathBaseEnter");
     }
 
     protected virtual void DeathAnimation()

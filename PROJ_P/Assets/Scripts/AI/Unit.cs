@@ -11,6 +11,8 @@ public class Unit : StateMachine
     // Attributes
     [HideInInspector] public MeshRenderer renderer;
     [HideInInspector] public NavMeshAgent agent;
+    public CapsuleCollider capsuleCollider { get; set; }
+    public Rigidbody rigidbody { get; set; }
     public LayerMask visionMask;
     public GameObject player;
     private SpawnListener spawnListener;
@@ -37,6 +39,8 @@ public class Unit : StateMachine
     {
         spawnListener = GameObject.FindGameObjectWithTag("Listeners").GetComponent<SpawnListener>();
         genericTimer = GetComponent<GenericTimer>();
+        rigidbody = gameObject.GetComponent<Rigidbody>();
+        capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
         ImprovePower();
     }
     // Methods

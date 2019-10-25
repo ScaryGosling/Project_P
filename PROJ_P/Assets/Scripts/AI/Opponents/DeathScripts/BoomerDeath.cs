@@ -12,7 +12,7 @@ public class BoomerDeath : DeathBase
     [SerializeField] private GameObject explosionPrefab;
     private GameObject explosion;
 
-    private const float animationTime = 3f;
+    private const float animationTime = 1.5f;
     private const float explosionDelay = 0.5f;
     private float currentTime;
 
