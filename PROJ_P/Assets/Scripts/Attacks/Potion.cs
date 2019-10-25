@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Potion : ScriptableObject
+public abstract class Potion : Ability
 {
     
     [SerializeField] protected Sprite potionImage;
+    [SerializeField] protected int resourceHandler;
     public AbilityCat AbilityCatProp { get; private set; }
     private void OnEnable()
     {
@@ -17,4 +18,5 @@ public abstract class Potion : ScriptableObject
     }
     public abstract void BuyPotion(int cost);
     public abstract int GetPotionCost();
+    public abstract int GetResourceHandler();
 }

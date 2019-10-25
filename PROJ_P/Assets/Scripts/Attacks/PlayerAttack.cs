@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerAttack : ScriptableObject
+public class PlayerAttack : Ability
 {
 
     [SerializeField] private float castCost;

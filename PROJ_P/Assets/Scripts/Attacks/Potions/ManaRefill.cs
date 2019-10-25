@@ -18,4 +18,8 @@ public class ManaRefill : Potion
         return (int)((1-Player.instance.Resource.Value) * hundredPercentCost);
     }
 
+    public override int GetResourceHandler()
+    {
+        return (int)((1 - Player.instance.Resource.Value) * 100);
+    }
 }

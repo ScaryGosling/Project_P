@@ -42,13 +42,13 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     }
     void InstantiatePotionRow()
     {
-        abilityName.text = potion.ToString();
+        abilityName.text = potion.GetAbilityName();
         abilityImage.sprite = potion.GetImage();
         //ability.ResetLevel();
     }
     void InstantiateRow()
     {
-        abilityName.text = ability.ToString();
+        abilityName.text = ability.GetAbilityName();
         abilityImage.sprite = ability.GetImage();
         //ability.ResetLevel();
     }
@@ -97,7 +97,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             tempColor.a = 168;
             image.color = tempColor;
             nextUpgradeCost.text = potion.GetPotionCost().ToString();
-            currentAbilityLevelText.transform.parent.gameObject.SetActive(false);
+            currentAbilityLevelText.text = potion.GetResourceHandler().ToString();
+            //currentAbilityLevelText.transform.parent.gameObject.SetActive(false);
         }
 
     }
@@ -119,7 +120,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         }
         else if (potion != null)
         {
-                nextLevelCost = potion.GetPotionCost();
+            nextLevelCost = potion.GetPotionCost();
             if (Player.instance.GoldProp >= nextLevelCost)
             {
                 potion.BuyPotion(nextLevelCost);

@@ -51,7 +51,6 @@ public class ShopBaseState : FriendlyBaseState
             }
             else if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("truw");
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit))
                 {

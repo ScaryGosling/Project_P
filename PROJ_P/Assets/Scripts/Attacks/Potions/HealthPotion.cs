@@ -22,4 +22,9 @@ public class HealthPotion : Potion
     {
         return potionCost;
     }
+
+    public override int GetResourceHandler()
+    {
+        return Player.instance.HealthPotions;
+    }
 }
