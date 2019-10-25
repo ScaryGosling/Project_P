@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
     }
     
     public delegate void Attack();
-    public static event Attack AttackEvent;
+    public  event Attack AttackEvent;
 
     public Transform GetSpawnPoint() { return spawnPoint; }
 
@@ -373,7 +373,7 @@ public class Player : MonoBehaviour
         {
             if (activeAttacks.list[i] != null)
             {
-                attackUISpot[i].color = new Color32(0, 0, 0, 100);
+                attackUISpot[i].color = new Color32(0, 0, 0, 138);
             }
             else
             {

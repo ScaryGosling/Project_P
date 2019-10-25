@@ -13,6 +13,7 @@ public class Resource : ScriptableObject
     public virtual void DrainResource(PlayerAttack activeAttack) {
 
         resourceImage.fillAmount -= activeAttack.GetCastCost() / 100;
+        resourceImage.fillAmount = Mathf.Round(resourceImage.fillAmount * 100) / 100;
         Value = resourceImage.fillAmount;
 
     }
@@ -39,5 +40,6 @@ public class Resource : ScriptableObject
     {
 
         resourceImage.fillAmount += resource;
+        resourceImage.fillAmount = Mathf.Round(resourceImage.fillAmount * 100) / 100;
     }
 }
