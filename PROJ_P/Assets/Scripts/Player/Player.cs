@@ -148,7 +148,10 @@ public class Player : MonoBehaviour
         activeAttacks.list[0] = attackSet.list[0];
         if (debugMode)
         {
-            activeAttacks = attackSet;
+            for (int i = 0; i < 4; i++)
+            {
+                activeAttacks.list[i] = attackSet.list[i];
+            }
 
         }
         for (int i = 0; i < attackUISpot.Length; i++)
