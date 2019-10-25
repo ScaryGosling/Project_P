@@ -110,6 +110,7 @@ public class Player : MonoBehaviour
             case PlayerClass.WARRIOR:
                 Resource = new Rage();
                 attackSet = attackSets.Get(PlayerClass.WARRIOR);
+                StartCoroutine(TapRage());
                 break;
 
             default:
@@ -118,12 +119,21 @@ public class Player : MonoBehaviour
 
         }
     }
-
+  
     public void Refill(GiveResource res)
     {
         Resource.IncreaseResource(res.fillAmount);
     }
 
+    public IEnumerator TapRage()
+    {
+        yield return null;
+        while (true)
+        {
+            Resource.DrainResource(2 * Time.deltaTime);
+            yield return null;
+        }
+    }
 
 
     public AttackSet CloneAttackSet()
@@ -140,8 +150,9 @@ public class Player : MonoBehaviour
 
 
     public void CacheComponents() {
-        
+
         instance = this;
+
         SetupClass();
         attackSet = CloneAttackSet();
         activeAttacks = new AttackSet();
@@ -266,7 +277,7 @@ public class Player : MonoBehaviour
 
     private void PlayerDied()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     float animationTime;
     float cooldownTime;
@@ -332,7 +343,6 @@ public class Player : MonoBehaviour
     }
 
     public void ExecuteAttack() {
-
         if (Resource.Value >= activeAttack.GetCastCost() / 100) 
         {
             AttackEvent();

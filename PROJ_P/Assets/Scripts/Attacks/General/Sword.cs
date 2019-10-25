@@ -21,7 +21,8 @@ public class Sword : MonoBehaviour
         {
             Player.instance.Resource.DrainResource(hack);
             State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
-            state.TakeDamage(damage);
+            if(state)
+                state.TakeDamage(damage);
 
         }
     }
