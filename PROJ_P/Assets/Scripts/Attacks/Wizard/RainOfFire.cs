@@ -48,7 +48,7 @@ public class RainOfFire : PlayerAttack
         Vector3 randomPos = new Vector3(randomX, spawnHeight, randomZ);
 
         sphere.transform.position = point + randomPos;
-        sphere.AddComponent<BulletInstance>();
+        sphere.AddComponent<ProjectileInstance>();
         sphere.GetComponent<Collider>().isTrigger = true;
         
         Rigidbody rb = sphere.AddComponent<Rigidbody>();

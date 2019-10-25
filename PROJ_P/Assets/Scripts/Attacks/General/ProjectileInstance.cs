@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletInstance : MonoBehaviour
+public class ProjectileInstance : MonoBehaviour
 {
     private Vector3 viewportPoint;
     private Camera mainCamera;
