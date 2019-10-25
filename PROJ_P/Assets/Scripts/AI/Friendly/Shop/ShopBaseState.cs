@@ -8,7 +8,6 @@ public class ShopBaseState : FriendlyBaseState
 {
     protected Shop shopKeeper;
     protected GameObject player;
-    [SerializeField] protected float distanceFromPlayerToActivate = 5f;
     protected GameObject pressEtext;
     protected bool timeLeft = true;
     private bool timerStarted = false;
@@ -43,7 +42,7 @@ public class ShopBaseState : FriendlyBaseState
     Ray ray;
     public override void ToDo()
     {
-        if (DistanceFromPlayer() <= distanceFromPlayerToActivate && timeLeft)
+        if (DistanceFromPlayer() <= shopKeeper.DistanceFromPlayerToActivate && timeLeft)
         {
             pressEtext.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
@@ -72,7 +71,11 @@ public class ShopBaseState : FriendlyBaseState
 
     private void ActivateShop()
     {
+        if (!shopWindow.activeSelf)
+        {
+            pressEtext.SetActive(false);
         shopKeeper.ChangeState<ShopSellingState>();
+        }
     }
     protected float DistanceFromPlayer()
     {

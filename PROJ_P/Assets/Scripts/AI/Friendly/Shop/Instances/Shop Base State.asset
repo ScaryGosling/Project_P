@@ -18,4 +18,3 @@ MonoBehaviour:
   scale: {x: 0, y: 0, z: 0}
   specialDeath: 0
   enemyBaseDamage: 0.5
-  DistanceFromPlayerToActivate: 5

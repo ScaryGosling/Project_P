@@ -14,6 +14,8 @@ public class Shop : StateMachine
     private ToggleArrowEvent toggleArrow = new ToggleArrowEvent();
     [SerializeField] private GameObject timerText;
     public Vector3 spawnPoint { get; private set; }
+    [SerializeField] private float distanceFromPlayerToActivate = 10f;
+    public float DistanceFromPlayerToActivate { get { return distanceFromPlayerToActivate; } private set { distanceFromPlayerToActivate = value; }  }
 
     private void Start()
     {
