@@ -12,6 +12,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     private int currentAbilityLevel;
     [SerializeField] private Text currentAbilityLevelText;
     [SerializeField] private PlayerAttack ability;
+    private Potion potion;
     private Image image;
 
     private void Start()
@@ -33,6 +34,17 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     {
         this.ability = ability;
         InstantiateRow();
+    }
+    public void SetPotion(Potion potion)
+    {
+        this.potion = potion;
+        InstantiatePotionRow();
+    }
+    void InstantiatePotionRow()
+    {
+        abilityName.text = potion.ToString();
+        abilityImage.sprite = potion.GetImage();
+        //ability.ResetLevel();
     }
     void InstantiateRow()
     {
@@ -59,13 +71,15 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             if (currentAbilityLevel == -1)
             {
                 currentAbilityLevelText.text = "U";
-                image.color = new Color32(tempColor.r, tempColor.g, tempColor.b, 68);
+                tempColor.a = 68;
+                image.color = tempColor;
             }
             else
             {
 
                 currentAbilityLevelText.text = currentAbilityLevel + "";
-                image.color = new Color32(tempColor.r, tempColor.g, tempColor.b, 168);
+                tempColor.a = 168;
+                image.color = tempColor;
             }
             if (ability.GetNextLevelCost(currentAbilityLevel) != -2)
             {
@@ -77,18 +91,38 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             }
 
         }
+        else if(potion != null)
+        {
+            tempColor = image.color;
+            tempColor.a = 168;
+            image.color = tempColor;
+            nextUpgradeCost.text = potion.GetPotionCost().ToString();
+            currentAbilityLevelText.transform.parent.gameObject.SetActive(false);
+        }
 
     }
     int nextLevelCost;
     public void OnPointerClick(PointerEventData eventData)
     {
-        nextLevelCost = ability.GetNextLevelCost(currentAbilityLevel);
-        if (ability != null && ability.UpgradePossible())
+        if (ability != null)
         {
+
+            nextLevelCost = ability.GetNextLevelCost(currentAbilityLevel);
+            if (ability.UpgradePossible())
+            {
+                if (Player.instance.GoldProp >= nextLevelCost)
+                {
+                    ability.UpgradeAttack();
+                    Player.instance.GoldProp -= nextLevelCost;
+                }
+            }
+        }
+        else if (potion != null)
+        {
+                nextLevelCost = potion.GetPotionCost();
             if (Player.instance.GoldProp >= nextLevelCost)
             {
-                ability.UpgradeAttack();
-                Player.instance.GoldProp -= nextLevelCost;
+                potion.BuyPotion(nextLevelCost);
             }
         }
     }

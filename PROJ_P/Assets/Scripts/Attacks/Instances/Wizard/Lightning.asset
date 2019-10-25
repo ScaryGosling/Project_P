@@ -19,7 +19,7 @@ MonoBehaviour:
   - upgradeCost: 0
     newDamage: 5
   lockedAbility: 0
-  abilityCat: 0
+  abilityCat: 1
   projectile: {fileID: 6750013541312212612, guid: 6072bc8c59af84b758be9f6c01ebf2a8,
     type: 3}
   force: 1500

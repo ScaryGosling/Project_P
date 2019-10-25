@@ -40,15 +40,22 @@ public class CreateShopMenu : MonoBehaviour
                 case AbilityCat.DEFENSIVE:
                     abilityUpgrade.transform.parent = defensivesContent.transform;
                     break;
-                case AbilityCat.POTION:
-                    abilityUpgrade.transform.parent = potionsContent.transform;
-                    break;
                 case AbilityCat.UTILITY:
                     abilityUpgrade.transform.parent = utilitiesContent.transform;
                     break;
             }
             abilityUpgrade.transform.localScale = Vector3.one;
         }
+        if (player.attackSet.potionList.Length != 0)
+        {
+            for (int i = 0; i < player.attackSet.potionList.Length; i++)
+            {
+                abilityUpgrade = Instantiate(abilityRow).GetComponent<AbilityUpgrade>();
+                abilityUpgrade.SetPotion(player.attackSet.potionList[i]);
+                abilityUpgrade.transform.parent = potionsContent.transform;
+            }
+        }
+
 
     }
     private AbilityUpgrade abilityUpgrade;

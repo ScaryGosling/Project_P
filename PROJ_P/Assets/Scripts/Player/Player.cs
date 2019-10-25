@@ -31,11 +31,12 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private bool hover = false;
     private AttackSet activeAttacks;
-    //public bool Attackable { get; set; } = false;
+    [SerializeField] private float healthPotionIncrease = 30;
 
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
     private float tempHP = 100f;
+    public int HealthPotions { get;  set; }
 
     [SerializeField] private PlayerStats originalStats;
     [HideInInspector] public PlayerStats activeStats;
@@ -240,14 +241,30 @@ public class Player : MonoBehaviour
                 }
                 SelectAttack(temp);
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            UseHealthPotion();
+        }
 
         if(tempHP <= 0)
         {
-            SceneManager.LoadScene("SampleScene");
+            PlayerDied();   
         }
     }
 
+    private void UseHealthPotion()
+    {
+        if (HealthPotions>0)
+        {
+            HealthProp = healthPotionIncrease;
+        }
+    }
+
+    private void PlayerDied()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
     float animationTime;
     float cooldownTime;
     Image[] attack = new Image[4];

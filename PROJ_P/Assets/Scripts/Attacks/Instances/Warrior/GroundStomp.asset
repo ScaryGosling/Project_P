@@ -19,7 +19,7 @@ MonoBehaviour:
   - upgradeCost: 0
     newDamage: 100
   lockedAbility: 0
-  abilityCat: 0
+  abilityCat: 2
   attackRadius: 10
   stompForce: 1000
   dazeTime: 3

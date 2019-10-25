@@ -6,4 +6,5 @@ using UnityEngine;
 public class AttackSet : ScriptableObject
 {
     public PlayerAttack[] list = new PlayerAttack[4];
+    public Potion[] potionList = new Potion[0];
 }

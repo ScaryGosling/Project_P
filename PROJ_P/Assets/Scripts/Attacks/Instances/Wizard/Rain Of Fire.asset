@@ -19,7 +19,7 @@ MonoBehaviour:
   - upgradeCost: 0
     newDamage: 5
   lockedAbility: 0
-  abilityCat: 0
+  abilityCat: 1
   spawnAmount: 100
   spawnRadius: 10
   spawnHeight: 10
