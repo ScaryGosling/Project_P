@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 {
 
     public static Player instance;
+    [SerializeField] private bool debugMode;
 
     [Header("Attacks")]
     private List<PlayerAttack> playerAttacks = new List<PlayerAttack>();
@@ -144,6 +145,11 @@ public class Player : MonoBehaviour
         attackSet = CloneAttackSet();
         activeAttacks = new AttackSet();
         activeAttacks.list[0] = attackSet.list[0];
+        if (debugMode)
+        {
+            activeAttacks = attackSet;
+
+        }
         for (int i = 0; i < attackUISpot.Length; i++)
         {
             if (activeAttacks.list[i] != null)
