@@ -11,6 +11,7 @@ public class Unit : StateMachine
     // Attributes
     [HideInInspector] public MeshRenderer renderer;
     [HideInInspector] public NavMeshAgent agent;
+    public HostileUI ui { get; set; }
     public CapsuleCollider capsuleCollider { get; set; }
     public Rigidbody rigidbody { get; set; }
     public LayerMask visionMask;
@@ -20,6 +21,8 @@ public class Unit : StateMachine
     #region EnemyStats
     [SerializeField] private float baseHeath = 20f;
     public float Health { get { return baseHeath; } set { baseHeath = value; } }
+
+    public float InitialHealth { get; private set; }
 
     [SerializeField] private float baseAttack = 3f;
     public float Attack { get { return baseAttack; } set { baseAttack = value; } }
@@ -41,7 +44,9 @@ public class Unit : StateMachine
         genericTimer = GetComponent<GenericTimer>();
         rigidbody = gameObject.GetComponent<Rigidbody>();
         capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
+        ui = GetComponentInChildren<HostileUI>();
         ImprovePower();
+        InitialHealth = Health;
     }
     // Methods
     protected override void Awake()

@@ -66,7 +66,10 @@ public class ChaseBase : HostileBaseState
 
     public override void TakeDamage(float damage)
     {
+        float oldHealth = owner.Health;
         owner.Health -= damage;
+        owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
+
         if (controlBehaviors == Behaviors.STAGGER)
         {
             ControlEffects();
