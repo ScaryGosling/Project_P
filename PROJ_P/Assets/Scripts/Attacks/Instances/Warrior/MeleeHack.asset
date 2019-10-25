@@ -21,6 +21,6 @@ MonoBehaviour:
     newDamage: 5
   lockedAbility: 0
   abilityCat: 1
-  slowTime: 1
-  speedMultiplier: 0.1
+  slowTime: 0.2
+  speedMultiplier: 0.8
   slash: {fileID: 7400000, guid: dde732b3854ff43e8a66dab8b5e55b3b, type: 2}

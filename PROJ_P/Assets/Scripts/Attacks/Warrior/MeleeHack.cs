@@ -19,9 +19,10 @@ public class MeleeHack : PlayerAttack
 
     public override void RunAttack()
     {
-        sword.CacheComponents(damage, this);
-        animation.AddClip(slash, "Slash");
+        sword.GetComponent<Collider>().enabled = true;
         animation.Play("Slash");
+        Timer timer = new GameObject("Timer").AddComponent<Timer>();
+        timer.RunCountDown(slash.length, ResetSword);
     }
 
     public override void OnEquip()
@@ -30,7 +31,14 @@ public class MeleeHack : PlayerAttack
         Player player = Player.instance;
         sword = player.weapon.GetComponent<Sword>();
         animation = player.weapon.GetComponent<Animation>();
+        animation.AddClip(slash, "Slash");
+        sword.CacheComponents(damage, this);
 
+    }
+
+    public void ResetSword()
+    {
+        sword.GetComponent<Collider>().enabled = false;
     }
 
 
