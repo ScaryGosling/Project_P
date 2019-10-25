@@ -6,6 +6,7 @@ using UnityEngine.AI;
 [CreateAssetMenu(menuName = "Attacks/Warrior/Tackle")]
 public class Tackle : PlayerAttack
 {
+    [Header("Ability Specific")]
     [SerializeField] float tackleForce;
     [SerializeField] float tackleLength;
     private float startSpeed;

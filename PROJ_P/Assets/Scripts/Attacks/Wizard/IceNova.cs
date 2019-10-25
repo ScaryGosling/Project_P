@@ -6,7 +6,7 @@ using UnityEngine;
 public class IceNova : PlayerAttack
 {
 
-
+    [Header("Ability Specific")]
     [SerializeField] private float radius;
     [SerializeField] private float height;
     [SerializeField] private float duration;

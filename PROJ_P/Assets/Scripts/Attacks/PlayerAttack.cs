@@ -6,23 +6,32 @@ using UnityEngine.UI;
 
 public class PlayerAttack : Ability
 {
-
+    [Header("Info")]
     [SerializeField] private float castCost;
     protected float damage;
     [SerializeField] protected Sprite attackImage;
     [SerializeField] protected float cooldown;
-    private GameObject timer;
     protected bool cooldownActive;
     public int CurrentLevel { get; protected set; }
     [Tooltip("Element 0 == Unlock cost & default damage, the rest are upgrades")]
     [SerializeField] protected List<UpgradeCost> upgradeCosts = new List<UpgradeCost>();
     [SerializeField] private bool lockedAbility = false;
 
+
+
     public float GetCooldown() { return cooldown; }
     public bool GetCooldownActive() { return cooldownActive; }
     [SerializeField] private AbilityCat abilityCat;
     public AbilityCat AbilityCatProp { get; private set; }
     private int startLevel = 0;
+
+
+
+    [Header("Movement Slow")]
+    [Tooltip("The amount of seconds to slow player")]
+    [SerializeField] private float slowTime;
+    [Tooltip("Multiplies the player speed, 0-1 for slow effects")]
+    [SerializeField] private float speedMultiplier;
 
     public void OnEnable()
     {
@@ -93,10 +102,20 @@ public class PlayerAttack : Ability
             Player.instance.RunAttackCooldown();
             RunAttack();
             cooldownActive = true;
-            timer = new GameObject("Timer");
-            timer.AddComponent<Timer>().RunCountDown(cooldown / Player.instance.activeStats.attackSpeed, ResetCooldown);
+            Timer cooldownTimer = new GameObject("Timer").AddComponent<Timer>();
+            cooldownTimer.RunCountDown(cooldown / Player.instance.activeStats.attackSpeed, ResetCooldown);
+
+            Player.instance.activeStats.movementSpeed = speedMultiplier;
+            Timer slowMultiplier = new GameObject("Timer").AddComponent<Timer>();
+            slowMultiplier.RunCountDown(slowTime, ResetSlow);
+
         }
 
+    }
+
+    public void ResetSlow()
+    {
+        Player.instance.activeStats.movementSpeed = 1;
     }
 
     public void ResetCooldown()

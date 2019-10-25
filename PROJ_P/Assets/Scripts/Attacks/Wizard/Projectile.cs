@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Attacks/Mystic/Projectile")]
 public class Projectile : PlayerAttack
 {
-
+    [Header("Ability Specific")]
     [SerializeField] private GameObject projectile;
     [SerializeField] private float force;
 

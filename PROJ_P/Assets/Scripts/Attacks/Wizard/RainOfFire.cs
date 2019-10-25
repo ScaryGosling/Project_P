@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Attacks/Mystic/Rain of Fire")]
 public class RainOfFire : PlayerAttack
 {
+    [Header("Ability Specific")]
     [SerializeField] private int spawnAmount;
     [SerializeField] private float spawnRadius;
     [SerializeField] private float spawnHeight;

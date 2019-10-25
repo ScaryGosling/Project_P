@@ -6,6 +6,7 @@ using UnityEngine;
 public class FireBall : PlayerAttack
 {
 
+    [Header("Ability Specific")]
     [SerializeField] private GameObject fireball;
     [SerializeField] private float spawnHeight;
     [SerializeField] private float explosionRadius;

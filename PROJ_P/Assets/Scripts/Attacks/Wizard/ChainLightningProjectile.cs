@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Attacks/Mystic/ChainLightning")]
 public class ChainLightningProjectile : PlayerAttack
 {
-
+    [Header("Ability Specific")]
     [SerializeField] private GameObject projectile;
     [SerializeField] private float force;
 

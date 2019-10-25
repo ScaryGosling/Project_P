@@ -6,6 +6,8 @@ using UnityEngine;
 public class Blink : PlayerAttack
 {
     private Transform player;
+
+    [Header("Ability Specific")]
     [SerializeField] private float range;
     [SerializeField] private float speedBoost;
     [SerializeField] private float speedBoostDuration;

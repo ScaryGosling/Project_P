@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Attacks/Warrior/Hack")]
 public class MeleeHack : PlayerAttack
 {
-
-    public AnimationClip slash;
+    [Header("Ability Specific")]
+    [SerializeField] private AnimationClip slash;
     private Animation animation;
     private Sword sword;
 

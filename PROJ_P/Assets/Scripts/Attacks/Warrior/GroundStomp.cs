@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [CreateAssetMenu(menuName = "Attacks/Warrior/Ground Stomp")]
 public class GroundStomp : PlayerAttack
 {
-
+    [Header("Ability Specific")]
     [SerializeField] private float attackRadius;
     [SerializeField] private float stompForce;
     [SerializeField] private float dazeTime;

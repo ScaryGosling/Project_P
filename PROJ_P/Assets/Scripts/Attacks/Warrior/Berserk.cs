@@ -8,6 +8,7 @@ public class Berserk : PlayerAttack
 
     private Player player;
 
+    [Header("Ability Specific")]
     [SerializeField] private float resistance;
     [SerializeField] private float attackSpeed;
     [SerializeField] private float movementSpeed;
