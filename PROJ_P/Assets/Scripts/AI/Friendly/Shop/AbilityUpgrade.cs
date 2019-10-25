@@ -147,7 +147,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!ability.IsLocked())
+        if (ability != null && !ability.IsLocked())
         {
             clone = Instantiate(gameObject, GameObject.Find("Canvas").transform);
 
