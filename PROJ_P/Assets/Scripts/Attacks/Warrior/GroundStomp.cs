@@ -11,9 +11,15 @@ public class GroundStomp : PlayerAttack
     [SerializeField] private float stompForce;
     [SerializeField] private float dazeTime;
 
+    private GameObject addedParticle;
+
     public override void RunAttack()
     {
         base.RunAttack();
+
+        //Particle system
+        addedParticle = Instantiate(particles, Player.instance.transform.position - new Vector3(0, Player.instance.transform.lossyScale.y /2, 0), Quaternion.identity);
+        addedParticle.transform.GetChild(0).localScale = new Vector3(attackRadius, 1, attackRadius);
 
         //Find enemies in circle around player
         Collider[] hitColliders = Physics.OverlapSphere(Player.instance.transform.position, attackRadius);
@@ -37,6 +43,7 @@ public class GroundStomp : PlayerAttack
 
     public void ResetEnemies()
     {
+        Destroy(addedParticle);
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject enemy in enemies)
         {

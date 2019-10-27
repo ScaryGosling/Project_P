@@ -17,6 +17,9 @@ public class PlayerAttack : Ability
     [SerializeField] protected List<UpgradeCost> upgradeCosts = new List<UpgradeCost>();
     [SerializeField] private bool lockedAbility = false;
 
+    [Header("Effects")]
+    [SerializeField] protected GameObject particles;
+
 
 
     public float GetCooldown() { return cooldown; }
