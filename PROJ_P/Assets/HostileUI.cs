@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Author: Emil Dahl
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,21 +7,27 @@ using UnityEngine.UI;
 public class HostileUI : MonoBehaviour
 {
     private GameObject hostile;
-    private Slider slider;
+    private Slider healthSlider;
+    private GenericTimer genericTimer;
+    private const float uiDuration = 0.8f;
+    private float targetHealthFactor;
+    private float oldHealthFactor;
+
     [SerializeField] private GameObject healthBar;
 
     void Start()
     {
         hostile = gameObject.transform.parent.gameObject;
-        slider = healthBar.GetComponent<Slider>();
-        //genericTimer = hostile.GetComponent<Unit>().getGenericTimer;
+        healthSlider = healthBar.GetComponent<Slider>();
+        genericTimer = gameObject.GetComponent<GenericTimer>();
     }
 
     public void ChangeHealth(float totalHealth, float newHealth)
     {
         gameObject.SetActive(true);
-        slider.gameObject.SetActive(true);
-        slider.value = newHealth / totalHealth;
+        targetHealthFactor = newHealth / totalHealth;
+        oldHealthFactor = totalHealth;
+        healthSlider.value = targetHealthFactor;
     }
 
     // Update is called once per frame
@@ -32,5 +39,15 @@ public class HostileUI : MonoBehaviour
     void UIControl()
     {
         gameObject.transform.LookAt(Camera.main.transform.position);
+        if (healthSlider.value == 0)
+            gameObject.SetActive(false);
+
+        if (genericTimer.timeTask)
+        {
+            genericTimer.SetTimer(uiDuration);
+            gameObject.SetActive(false);
+        }
     }
+
+
 }
