@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d38b74789ea49baa8b9f98471c4e10, type: 3}
   m_Name: Rain Of Fire
   m_EditorClassIdentifier: 
+  abilityName: Rain Of Fire
   castCost: 0
   attackImage: {fileID: 0}
   cooldown: 0
@@ -19,7 +20,10 @@ MonoBehaviour:
   - upgradeCost: 0
     newDamage: 5
   lockedAbility: 0
+  particles: {fileID: 0}
   abilityCat: 1
+  slowTime: 0
+  speedMultiplier: 0
   spawnAmount: 100
   spawnRadius: 10
   spawnHeight: 10

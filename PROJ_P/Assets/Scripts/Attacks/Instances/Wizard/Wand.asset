@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9b28d9c8cdf4f51ae9375948f071d6, type: 3}
   m_Name: Wand
   m_EditorClassIdentifier: 
-  abilityName: 
+  abilityName: Basic Attack
   castCost: 0
   attackImage: {fileID: 21300000, guid: 9185347437acf80418f9522c6ba90129, type: 3}
   cooldown: 1
@@ -22,6 +22,7 @@ MonoBehaviour:
   - upgradeCost: 10
     newDamage: 10
   lockedAbility: 0
+  particles: {fileID: 0}
   abilityCat: 1
   slowTime: 0.5
   speedMultiplier: 0.6

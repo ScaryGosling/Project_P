@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadd7ab2d30a8ce46864bf2fa99999dd, type: 3}
   m_Name: Mana Refill
   m_EditorClassIdentifier: 
+  abilityName: Refill Mana
   potionImage: {fileID: 0}
+  resourceHandler: 0
+  hundredPercentCost: 200

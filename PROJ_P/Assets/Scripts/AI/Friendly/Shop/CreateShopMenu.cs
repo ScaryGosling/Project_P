@@ -23,6 +23,13 @@ public class CreateShopMenu : MonoBehaviour
             CreateColumns();
             rowsCreated = true;
         }
+        Player.instance.SetHover(true);
+    }
+
+    private void OnDisable()
+    {
+        
+        Player.instance.SetHover(false);
     }
 
     private void CreateColumns()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c0b5b7ee40b495d82e09a2d4193892, type: 3}
   m_Name: MeleeHack
   m_EditorClassIdentifier: 
-  abilityName: 
+  abilityName: Basic Attack
   castCost: 0
   attackImage: {fileID: 21300000, guid: 1dbc079c01a8549918885a6461d10dfd, type: 3}
   cooldown: 1
@@ -20,6 +20,7 @@ MonoBehaviour:
   - upgradeCost: 0
     newDamage: 5
   lockedAbility: 0
+  particles: {fileID: 0}
   abilityCat: 1
   slowTime: 0.2
   speedMultiplier: 0.8

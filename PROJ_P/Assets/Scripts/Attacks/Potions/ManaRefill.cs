@@ -6,20 +6,24 @@ using UnityEngine;
 public class ManaRefill : Potion
 {
     [SerializeField] private float hundredPercentCost = 100;
+    float    manaIncrease;
+    float costToFillAll;
     public override void BuyPotion(int cost)
     {
-        Player.instance.Resource.IncreaseResource(1);
+        manaIncrease = (costToFillAll == cost ? 1 : (cost / hundredPercentCost));
+        Player.instance.Resource.IncreaseResource(manaIncrease);
         Player.instance.GoldProp -= cost;
         
     }
-
     public override int GetPotionCost()
     {
-        return (int)((1-Player.instance.Resource.Value) * hundredPercentCost);
+        costToFillAll = (manaNeeded * hundredPercentCost);
+        return (costToFillAll > Player.instance.GoldProp ? Player.instance.GoldProp : Mathf.RoundToInt(costToFillAll));
     }
-
+    float manaNeeded;
     public override int GetResourceHandler()
     {
-        return (int)((1 - Player.instance.Resource.Value) * 100);
+        manaNeeded = ((1 - Player.instance.Resource.Value));
+        return (costToFillAll <= Player.instance.GoldProp ? (int)(manaNeeded *100) : (int)(Player.instance.GoldProp/(hundredPercentCost/100)));
     }
 }

@@ -37,6 +37,14 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         }
         
     }
+
+    private void OnDisable()
+    {
+        if (clone != null)
+        {
+            Destroy(clone);
+        }
+    }
     GameObject clone;
     public void OnBeginDrag(PointerEventData eventData)
     {

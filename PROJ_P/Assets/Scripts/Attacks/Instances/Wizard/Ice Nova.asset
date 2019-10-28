@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bac5b7798b1c421e82acf195f6f22db, type: 3}
   m_Name: Ice Nova
   m_EditorClassIdentifier: 
+  abilityName: Ice Nova
   castCost: 0
   attackImage: {fileID: 21300000, guid: 81f7bd4bee3f54ec3b6f883eed7ba232, type: 3}
   cooldown: 10
@@ -20,6 +21,8 @@ MonoBehaviour:
     newDamage: 5
   lockedAbility: 0
   abilityCat: 2
+  slowTime: 0
+  speedMultiplier: 0
   radius: 5
   height: 2
   duration: 6

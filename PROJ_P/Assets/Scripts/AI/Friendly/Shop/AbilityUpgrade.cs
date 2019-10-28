@@ -15,6 +15,13 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     private Potion potion;
     private Image image;
 
+    private void OnDisable()
+    {
+        if (clone != null)
+        {
+            Destroy(clone);
+        }
+    }
     private void Start()
     {
         image = GetComponent<Image>();

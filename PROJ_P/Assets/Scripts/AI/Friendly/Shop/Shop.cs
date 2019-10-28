@@ -46,7 +46,7 @@ public class Shop : StateMachine
         } catch(Exception e) {}
     
     }
-    private void RemoveShop()
+    public void RemoveShop()
     {
         if (shopWindow.activeSelf)
         {

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6369ae236ad1b5347b06512368b07c3c, type: 3}
   m_Name: Health Potion
   m_EditorClassIdentifier: 
+  abilityName: Buy Health Potion
   potionImage: {fileID: 0}
+  resourceHandler: 0
   maxHealthPotions: 3
   potionCost: 20

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc770fc2f7137294d9ccfff5e202daca, type: 3}
   m_Name: Lightning
   m_EditorClassIdentifier: 
-  abilityName: 
+  abilityName: Lightning
   castCost: 0
   attackImage: {fileID: 21300000, guid: f71a6d253615e2541888194bd481124b, type: 3}
   cooldown: 2
