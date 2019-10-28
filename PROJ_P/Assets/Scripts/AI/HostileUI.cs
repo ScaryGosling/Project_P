@@ -20,7 +20,6 @@ public class HostileUI : MonoBehaviour
         hostile = gameObject.transform.parent.gameObject;
         healthSlider = healthBar.GetComponent<Slider>();
         genericTimer = gameObject.GetComponent<GenericTimer>();
-        gameObject.transform.LookAt(Camera.main.transform.position);
     }
 
     public void ChangeHealth(float totalHealth, float newHealth)
@@ -39,6 +38,7 @@ public class HostileUI : MonoBehaviour
 
     void UIControl()
     {
+        gameObject.transform.rotation = Quaternion.Inverse(Camera.main.transform.rotation);
         if (healthSlider.value == 0)
             gameObject.SetActive(false);
 
