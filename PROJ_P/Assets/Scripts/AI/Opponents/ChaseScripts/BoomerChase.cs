@@ -28,6 +28,13 @@ public class BoomerChase : ChaseBase
         base.Die();
         owner.ChangeState<BoomerDeath>();
     }
+
+    public override void TakeDamage(float damage)
+    {
+        float oldHealth = owner.Health;
+        owner.Health -= damage;
+        owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
+    }
 }
 
 #region ChaseLegacy

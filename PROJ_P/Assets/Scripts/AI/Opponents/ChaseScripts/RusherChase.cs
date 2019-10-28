@@ -28,6 +28,18 @@ public class RusherChase : ChaseBase
         base.Die();
         owner.ChangeState<RusherDeath>();
     }
+
+    public override void TakeDamage(float damage)
+    {
+        float oldHealth = owner.Health;
+        owner.Health -= damage;
+        owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
+
+        if (controlBehaviors == Behaviors.STAGGER)
+        {
+            Stagger();
+        }
+    }
 }
 
 #region ChaseLegacy

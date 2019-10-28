@@ -64,18 +64,6 @@ public class ChaseBase : HostileBaseState
         owner.player.GetComponent<Player>().HealthProp = -actualDamage;
     }
 
-    public override void TakeDamage(float damage)
-    {
-        float oldHealth = owner.Health;
-        owner.Health -= damage;
-        owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-
-        if (controlBehaviors == Behaviors.STAGGER && owner.GetImpactClass[0])
-        {
-            Stagger();
-        }
-    }
-
     /// <summary>
     /// Used to call different death-states from different enemies 
     /// </summary>

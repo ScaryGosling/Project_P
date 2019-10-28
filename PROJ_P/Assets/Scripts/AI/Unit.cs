@@ -16,9 +16,7 @@ public class Unit : StateMachine
     public Rigidbody rigidbody { get; set; }
     public LayerMask visionMask;
     public GameObject player;
-    private SpawnListener spawnListener;
-    [SerializeField] private bool[] ImpactClassCase;
-    public bool[] GetImpactClass { get { return ImpactClassCase;  } }
+    private SpawnListener spawnListener; 
 
     #region EnemyStats
     [SerializeField] private float baseHeath = 20f;
