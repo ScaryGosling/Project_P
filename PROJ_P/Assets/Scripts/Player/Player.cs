@@ -87,7 +87,6 @@ public class Player : MonoBehaviour
             if (activeAttacks.list[i] == activeAttack)
             {
                 cooldowns[i] = StartCoroutine(ShowCooldown(i));
-                Debug.Log(i);
             }
         }
     }
@@ -279,14 +278,14 @@ public class Player : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    float animationTime;
-    float cooldownTime;
+
     Image[] attack = new Image[4];
     private IEnumerator ShowCooldown(int position)
     {
+        float animationTime;
+        float cooldownTime;
         attack[position] = attackUISpot[position];
         attack[position].fillAmount = 0;
-
         animationTime = 0;
         cooldownTime = activeAttack.GetCooldown();
         while (animationTime < cooldownTime)
