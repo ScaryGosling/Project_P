@@ -98,12 +98,16 @@ public class SpawnListener : MonoBehaviour
     {
         if (unitsKilled >= expected)
         {
-            ResetWave();
             SpawnShopKeeper();
+
             if (ObjectSpawner != null)
                 ObjectSpawner.GetComponent<ObjectSpawner>().TerminateSpawner();
-
-            return pauseTime + timeAfterShopkeeperLeavesForEnemiesToSpawn;
+            if (shopKeeper.activeInHierarchy)
+            {
+                return 0;
+            }
+            ResetWave();
+            return timeAfterShopkeeperLeavesForEnemiesToSpawn;
         }
         return spawnTime / 2;
     }

@@ -38,7 +38,6 @@ public class Shop : StateMachine
 
         try
         {
-
             toggleArrow.toggle = false;
 
             EventSystem.Current.FireEvent(toggleArrow);
@@ -52,6 +51,7 @@ public class Shop : StateMachine
         {
             shopWindow.SetActive(false);
         }
+        timerText.SetActive(false);
         ChangeState<ShopTimeFinishedState>();
     }
 
