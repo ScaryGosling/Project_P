@@ -5,41 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class SceneHandler : MonoBehaviour
 {
-    public string optionsScene;
-    private string lastScene;
+    public string mainMenu;
     public static SceneHandler sceneHandler;
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(SceneManager.GetActiveScene().name == optionsScene)
-            {
-                GoToScene(lastScene);
-            }
-            else
-            {
-                GoToScene(optionsScene);
-            }
+            GoToScene(mainMenu);
         }
     }
 
     public void GoToScene(string scene)
     {
-        lastScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(scene);
     }
 
-    public void Awake()
+    public void QuitGame()
     {
-        if(sceneHandler == null)
-            sceneHandler = this;
-
-        if (sceneHandler != this)
-            Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
-        
+        Application.Quit();
     }
+
 
 }
