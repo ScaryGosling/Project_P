@@ -42,6 +42,12 @@ public class HostileUI : MonoBehaviour
         if (healthSlider.value == 0)
             gameObject.SetActive(false);
 
+        TimeTask();
+
+    }
+
+    void TimeTask()
+    {
         if (genericTimer.timeTask)
         {
             genericTimer.SetTimer(uiDuration);

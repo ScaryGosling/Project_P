@@ -70,9 +70,9 @@ public class ChaseBase : HostileBaseState
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
-        if (controlBehaviors == Behaviors.STAGGER)
+        if (controlBehaviors == Behaviors.STAGGER && owner.GetImpactClass[0])
         {
-            ControlEffects();
+            Stagger();
         }
     }
 
@@ -81,7 +81,7 @@ public class ChaseBase : HostileBaseState
     /// </summary>
     protected virtual void Die() { }
 
-    protected virtual void ControlEffects()
+    protected virtual void Stagger()
     {
         if (owner.getGenericTimer.timeTask && !damaged)
         {
@@ -105,10 +105,10 @@ public class ChaseBase : HostileBaseState
 //     spreadAngle = Quaternion.AngleAxis(lightField.spotAngle, owner.agent.velocity);
 //// protected float lightAngle;
 // //private Quaternion spreadAngle;
-    //protected float DotMethod()
-    //{
-    //    heading = (owner.player.transform.position - owner.transform.position).normalized;
-    //    dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
-    //    return dotProduct;
-    //}
+//protected float DotMethod()
+//{
+//    heading = (owner.player.transform.position - owner.transform.position).normalized;
+//    dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
+//    return dotProduct;
+//}
 #endregion

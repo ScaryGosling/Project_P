@@ -11,6 +11,7 @@ using UnityEngine.AI;
 public class HostileBaseState : State
 {
     // Attributes
+
     protected enum Behaviors { STAGGER, KNOCKBACK }
     [SerializeField] protected Behaviors controlBehaviors = Behaviors.STAGGER;
     [SerializeField] protected Material material;

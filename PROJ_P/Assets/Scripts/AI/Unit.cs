@@ -17,6 +17,8 @@ public class Unit : StateMachine
     public LayerMask visionMask;
     public GameObject player;
     private SpawnListener spawnListener;
+    [SerializeField] private bool[] ImpactClassCase;
+    public bool[] GetImpactClass { get { return ImpactClassCase;  } }
 
     #region EnemyStats
     [SerializeField] private float baseHeath = 20f;
