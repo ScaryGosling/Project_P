@@ -13,12 +13,12 @@ public class Player : MonoBehaviour
 
     [Header("Attacks")]
     private List<PlayerAttack> playerAttacks = new List<PlayerAttack>();
-
     public ClassAttackList attackSets = new ClassAttackList();
     public AttackSet attackSet { get; private set; }
     private PlayerAttack activeAttack;
     private int selectedAttack;
     public GameObject weapon;
+    [SerializeField] private KeybindSet keybindSet;
 
     [Header("UI elements")]
     [SerializeField] private Image[] attackUISpot;
@@ -190,7 +190,7 @@ public class Player : MonoBehaviour
 
     public void Update() {
 
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetKey(keybindSet.GetBind(KeyFeature.EXECUTE))) {
             if (!ClickOnFriendly() && !hover)
             {
                 ExecuteAttack();
@@ -198,28 +198,28 @@ public class Player : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.BASE_ATTACK)))
         {
             if (activeAttacks.list[0] != null)
             {
                 SelectAttack(0);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_1)))
         {
             if (activeAttacks.list[1] != null)
             {
                 SelectAttack(1);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_2)))
         {
             if (activeAttacks.list[2] != null)
             {
                 SelectAttack(2);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+        else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_3))) {
 
             if (activeAttacks.list[3] != null)
             {
@@ -255,7 +255,7 @@ public class Player : MonoBehaviour
                 SelectAttack(temp);
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.REFILL)))
         {
             UseHealthPotion();
         }
