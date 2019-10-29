@@ -17,8 +17,12 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     private Text tooltipText;
     private GameObject tooltip;
     private float rowHeight;
-    private float hoverOffset = 5;
+    [SerializeField] private float hoverOffset = 5;
     private string abilityDescription;
+    private float rowToCameraRatio;
+    private float tooltipHeight;
+    private static readonly float referenceHeight = 600;
+
 
     private void OnDisable()
     {
@@ -53,6 +57,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         this.tooltipText = tooltipText;
         tooltip = tooltipText.transform.parent.gameObject;
         rowHeight = GetComponent<RectTransform>().rect.height;
+        tooltipHeight = tooltip.GetComponent<RectTransform>().rect.height;
     }
     public void SetPotion(Potion potion)
     {
@@ -183,7 +188,10 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     public void OnPointerEnter(PointerEventData eventData)
     {
         tooltip.SetActive(true);
-        tooltip.transform.position = new Vector2(transform.position.x, transform.position.y - rowHeight - hoverOffset) ;
+        rowToCameraRatio = Screen.height / referenceHeight;
+        //tooltip.transform.position = new Vector2(transform.position.x, Input.mousePosition.y  - hoverOffset) ;
+        Debug.Log(rowToCameraRatio);
+        tooltip.transform.position = new Vector2(transform.position.x, transform.position.y - rowToCameraRatio * (tooltipHeight /2 + hoverOffset)) ;
         tooltipText.text = abilityDescription;
     }
 
