@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
+public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler, IEndDragHandler, IBeginDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image abilityImage;
     [SerializeField] private Text abilityName;
@@ -14,6 +14,11 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     [SerializeField] private PlayerAttack ability;
     private Potion potion;
     private Image image;
+    private Text tooltipText;
+    private GameObject tooltip;
+    private float rowHeight;
+    private float hoverOffset = 5;
+    private string abilityDescription;
 
     private void OnDisable()
     {
@@ -25,6 +30,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     private void Start()
     {
         image = GetComponent<Image>();
+
     }
 
     public void EmptyRow()
@@ -42,6 +48,12 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         this.ability = ability;
         InstantiateRow();
     }
+    public void SetTooltip(Text tooltipText)
+    {
+        this.tooltipText = tooltipText;
+        tooltip = tooltipText.transform.parent.gameObject;
+        rowHeight = GetComponent<RectTransform>().rect.height;
+    }
     public void SetPotion(Potion potion)
     {
         this.potion = potion;
@@ -51,12 +63,15 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     {
         abilityName.text = potion.GetAbilityName();
         abilityImage.sprite = potion.GetImage();
+        abilityDescription = potion.GetAbilityDescription();
+        
         //ability.ResetLevel();
     }
     void InstantiateRow()
     {
         abilityName.text = ability.GetAbilityName();
         abilityImage.sprite = ability.GetImage();
+        abilityDescription = ability.GetAbilityDescription();
         //ability.ResetLevel();
     }
     public AbilityCat GetAbilityCat()
@@ -134,6 +149,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             }
         }
     }
+
+
     GameObject clone;
     public void OnDrag(PointerEventData eventData)
     {
@@ -161,5 +178,17 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
 
         }
 
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        tooltip.SetActive(true);
+        tooltip.transform.position = new Vector2(transform.position.x, transform.position.y - rowHeight - hoverOffset) ;
+        tooltipText.text = abilityDescription;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        tooltip.SetActive(false);
     }
 }

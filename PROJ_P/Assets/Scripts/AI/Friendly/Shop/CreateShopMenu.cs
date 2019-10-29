@@ -10,10 +10,11 @@ public class CreateShopMenu : MonoBehaviour
     [SerializeField] private GameObject abilityRow;
     [SerializeField] private GameObject[] rows;
     private bool rowsCreated = false;
-    [SerializeField]private GameObject offensivesContent; 
-    [SerializeField]private GameObject defensivesContent; 
-    [SerializeField]private GameObject utilitiesContent; 
-    [SerializeField]private GameObject potionsContent; 
+    [SerializeField] private GameObject offensivesContent; 
+    [SerializeField] private GameObject defensivesContent; 
+    [SerializeField] private GameObject utilitiesContent; 
+    [SerializeField] private GameObject potionsContent;
+    [SerializeField] private Text tooltipText;
 
     private void OnEnable()
     {
@@ -38,7 +39,8 @@ public class CreateShopMenu : MonoBehaviour
         {
             abilityUpgrade = Instantiate(abilityRow).GetComponent<AbilityUpgrade>();
             abilityUpgrade.SetElements(player.attackSet.list[i]);
-            
+            abilityUpgrade.SetTooltip(tooltipText);
+
             switch (abilityUpgrade.GetAbilityCat()) 
             {
                 case AbilityCat.OFFENSIVE:
@@ -58,7 +60,8 @@ public class CreateShopMenu : MonoBehaviour
             for (int i = 0; i < player.attackSet.potionList.Length; i++)
             {
                 abilityUpgrade = Instantiate(abilityRow).GetComponent<AbilityUpgrade>();
-                abilityUpgrade.SetPotion(player.attackSet.potionList[i]);
+                abilityUpgrade.SetPotion(player.attackSet.potionList[i]);       
+                abilityUpgrade.SetTooltip(tooltipText);
                 abilityUpgrade.transform.parent = potionsContent.transform;
             }
         }
