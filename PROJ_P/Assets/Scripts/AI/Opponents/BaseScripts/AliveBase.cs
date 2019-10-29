@@ -8,7 +8,7 @@ using UnityEngine.AI;
 
 
 [RequireComponent(typeof(CapsuleCollider))]
-public class ChaseBase : HostileBaseState
+public class AliveBase : HostileBaseState
 {
     public override void EnterState()
     {
@@ -82,10 +82,12 @@ public class ChaseBase : HostileBaseState
         }
     }
 
-    protected virtual void Chase()
+    protected bool LineOfSight()
     {
-        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
-        owner.agent.SetDestination(owner.player.transform.position);
+        bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);
+        if (lineCast)
+            return false;
+        return true;
     }
 }
 #region EnemyBaseLegacy

@@ -8,17 +8,11 @@ using UnityEngine.AI;
 
 
 [RequireComponent(typeof(CapsuleCollider))]
-public class DeathBase : HostileBaseState
+public class ChaseBase : AliveBase
 {
-    // Attributes
-    [SerializeField] protected float corpseTimer = 2f; 
-
-    // Methods
     public override void EnterState()
     {
         base.EnterState();
-        DisableUnit();
-        Debug.Log("EnteringDeathState");
     }
 
 
@@ -30,23 +24,12 @@ public class DeathBase : HostileBaseState
     public override void ToDo()
     {
         base.ToDo();
-        DeathAnimation();
     }
 
-    protected void DisableUnit()
+    protected virtual void Chase()
     {
-        owner.agent.isStopped = true;
-        owner.agent.enabled = !owner.agent.enabled;
-        owner.capsuleCollider.enabled = false;
-        Destroy(owner.gameObject, corpseTimer);
-        Debug.Log("DeathBaseEnter");
-    }
-
-    protected virtual void DeathAnimation()
-    {
-        Quaternion rotation = Quaternion.Euler(-90, 0, 0);
-        owner.transform.localRotation = rotation;
-        alive = false;
+        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
+        owner.agent.SetDestination(owner.player.transform.position);
     }
 }
 #region EnemyBaseLegacy
