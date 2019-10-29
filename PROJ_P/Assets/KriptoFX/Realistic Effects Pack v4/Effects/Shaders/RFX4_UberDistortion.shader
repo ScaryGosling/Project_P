@@ -54,11 +54,9 @@ Shader "KriptoFX/RFX4/Distortion"
 	}
 		SubShader
 		{
-			GrabPass {
-			"_GrabTexture"
-			}
+			
 
-			Tags { "Queue" = "Transparent+1" "IgnoreProjector" = "True" "RenderType" = "Transparent"}
+			Tags { "Queue" = "Transparent-10" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
 			ZWrite[_ZWriteMode]
 			Cull[_CullMode]
 
@@ -87,7 +85,7 @@ Shader "KriptoFX/RFX4/Distortion"
 				#include "UnityCG.cginc"
 				
 
-				sampler2D _GrabTexture;
+				sampler2D _CameraOpaqueTexture;
 				sampler2D _MainTex;
 				sampler2D _NormalTex;
 				float4 _NormalTex_ST;
@@ -100,7 +98,7 @@ Shader "KriptoFX/RFX4/Distortion"
 				half4 _HeightUVScrollDistort;
 				half _Height;
 
-				float4 _GrabTexture_TexelSize;
+				float4 _CameraOpaqueTexture_TexelSize;
 				half4 _FresnelColor;
 				half _FresnelInvert;
 				half _FresnelPow;
@@ -302,7 +300,7 @@ Shader "KriptoFX/RFX4/Distortion"
 	#endif
 #endif
 
-				half2 offset = dist.rg * UNITY_ACCESS_INSTANCED_PROP(_Distortion_arr, _Distortion) * _GrabTexture_TexelSize.xy * i.color.a * fade;
+				half2 offset = dist.rg * UNITY_ACCESS_INSTANCED_PROP(_Distortion_arr, _Distortion) * _CameraOpaqueTexture_TexelSize.xy * i.color.a * fade;
 
 				half3 fresnelCol = 0;
 	#ifdef USE_FRESNEL
@@ -316,10 +314,10 @@ Shader "KriptoFX/RFX4/Distortion"
 				half fresnel = (_FresnelInvert - dot(n, i.viewDir));
 				fresnel = pow(fresnel, _FresnelPow);
 				fresnel = saturate(_FresnelR0 + (1.0 - _FresnelR0) * fresnel);
-				offset += fresnel * _GrabTexture_TexelSize.xy * _FresnelDistort * dist.rg;
+				offset += fresnel * _CameraOpaqueTexture_TexelSize.xy * _FresnelDistort * dist.rg;
 				fresnelCol = _FresnelColor * fresnel * abs(dist.r + dist.g) * 2 * i.color.rgb * i.color.a;
 	#else
-				offset += i.fresnel * _GrabTexture_TexelSize.xy * _FresnelDistort * dist.rg;
+				offset += i.fresnel * _CameraOpaqueTexture_TexelSize.xy * _FresnelDistort * dist.rg;
 				fresnelCol = _FresnelColor * i.fresnel * abs(dist.r + dist.g) * 2 * i.color.rgb * i.color.a;
 	#endif
 
@@ -347,7 +345,7 @@ Shader "KriptoFX/RFX4/Distortion"
 	#endif
 				
 				i.uvgrab.xy = offset * i.color.a + i.uvgrab.xy;
-				half4 grabColor = tex2Dproj(_GrabTexture, UNITY_PROJ_COORD(i.uvgrab));;
+				half4 grabColor = tex2Dproj(_CameraOpaqueTexture, UNITY_PROJ_COORD(i.uvgrab));;
 			
 				half4 result;
 				half4 mainCol = UNITY_ACCESS_INSTANCED_PROP(_MainColor_arr, _MainColor);

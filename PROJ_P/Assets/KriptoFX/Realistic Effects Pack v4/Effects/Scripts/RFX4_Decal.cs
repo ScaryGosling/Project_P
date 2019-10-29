@@ -1,6 +1,7 @@
 using UnityEngine;
+
 #if KRIPTO_FX_LWRP_RENDERING
-using UnityEngine.Experimental.Rendering.LightweightPipeline;
+using UnityEngine.Rendering.LWRP;
 #endif
 
 [ExecuteInEditMode]

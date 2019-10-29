@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GroundStomp
   m_EditorClassIdentifier: 
   abilityName: Ground Stomp
+  abilityDescription: No description available
   castCost: 0
   attackImage: {fileID: 21300000, guid: 5dee3d5cf43d2da4b9e039cad4e871aa, type: 3}
   cooldown: 5
@@ -20,8 +21,7 @@ MonoBehaviour:
   - upgradeCost: 0
     newDamage: 100
   lockedAbility: 0
-  particles: {fileID: 8181830338999404175, guid: cdd748749254b493aab8a811bfa41d0b,
-    type: 3}
+  particles: {fileID: 1601494591900918, guid: 61ee9554f7c3b03408fc8258477fddf5, type: 3}
   abilityCat: 2
   slowTime: 0
   speedMultiplier: 0

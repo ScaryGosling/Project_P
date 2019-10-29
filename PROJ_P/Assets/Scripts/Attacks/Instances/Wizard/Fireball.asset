@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   abilityName: Fireball
+  abilityDescription: No description available
   castCost: 50
   attackImage: {fileID: 21300000, guid: 4325c1a126876674f87dfb389eb19581, type: 3}
   cooldown: 3
@@ -24,6 +25,7 @@ MonoBehaviour:
   - upgradeCost: 50
     newDamage: 20
   lockedAbility: 0
+  particles: {fileID: 0}
   abilityCat: 1
   slowTime: 0
   speedMultiplier: 0

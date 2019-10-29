@@ -44,7 +44,7 @@ Shader "KriptoFX/RFX4/Decal"
 	}
 
 		Category{
-		Tags{ "Queue" = "Geometry+1"  "IgnoreProjector" = "True" "RenderType" = "Transparent" }
+		Tags{ "Queue" = "Transparent-1"  "IgnoreProjector" = "True" "RenderType" = "Transparent" }
 		Blend[_SrcMode][_DstMode]
 		Cull Front
 		ZTest [_ZTest1]
@@ -179,6 +179,7 @@ Shader "KriptoFX/RFX4/Decal"
 		i.ray *= (_ProjectionParams.z / i.ray.z); // Far clip dist/viewspace distance
 
 		float depth = Linear01Depth(tex2Dproj(_CameraDepthTexture, i.screenUV));
+		
 		float3 wpos = mul(unity_CameraToWorld, float4(i.ray * depth, 1)).xyz;
 		//float3 opos = mul(unity_WorldToObject, float4(wpos, 1)).xyz;
 		float3 opos = mul(UNITY_ACCESS_INSTANCED_PROP(_InverseTransformMatrix_arr, _InverseTransformMatrix), float4(wpos, 1)).xyz;

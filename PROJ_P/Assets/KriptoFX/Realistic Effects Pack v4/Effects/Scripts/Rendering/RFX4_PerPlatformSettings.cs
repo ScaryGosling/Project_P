@@ -55,10 +55,10 @@ public class RFX4_PerPlatformSettings : MonoBehaviour
     void LWRP_Rendering()
     {
 #if KRIPTO_FX_LWRP_RENDERING
-        var cam = Camera.main;
-        var mobileLwrpDistortion = cam.GetComponent<RFX4_RenderTransparentDistortion>();
-        if (mobileLwrpDistortion == null) mobileLwrpDistortion = cam.gameObject.AddComponent<RFX4_RenderTransparentDistortion>();
-        mobileLwrpDistortion.IsActive = true;
+        //var cam = Camera.main;
+        //var mobileLwrpDistortion = cam.GetComponent<RFX4_RenderTransparentDistortion>();
+        //if (mobileLwrpDistortion == null) mobileLwrpDistortion = cam.gameObject.AddComponent<RFX4_RenderTransparentDistortion>();
+        //mobileLwrpDistortion.IsActive = true;
 #endif
     }
 
@@ -76,8 +76,8 @@ public class RFX4_PerPlatformSettings : MonoBehaviour
         }
 
 #if KRIPTO_FX_LWRP_RENDERING
-        var mobileLwrpDistortion = cam.GetComponent<RFX4_RenderTransparentDistortion>();
-        if (mobileLwrpDistortion != null) mobileLwrpDistortion.IsActive = false;
+        //var mobileLwrpDistortion = cam.GetComponent<RFX4_RenderTransparentDistortion>();
+        //if (mobileLwrpDistortion != null) mobileLwrpDistortion.IsActive = false;
 #endif
     }
 
