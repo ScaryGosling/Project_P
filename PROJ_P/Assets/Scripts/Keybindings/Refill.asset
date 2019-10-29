@@ -15,3 +15,4 @@ MonoBehaviour:
   featureName: Refill
   feature: 9
   inputKey: 102
+  defaultKey: 102

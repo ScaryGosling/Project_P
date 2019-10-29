@@ -15,3 +15,4 @@ MonoBehaviour:
   featureName: Execute
   feature: 8
   inputKey: 323
+  defaultKey: 323

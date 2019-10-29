@@ -51,6 +51,8 @@ public class Player : MonoBehaviour
 
     }
 
+    public KeybindSet GetKeybindSet() { return keybindSet; }
+
     public void ResetStats()
     {
         activeStats.movementSpeed = originalStats.movementSpeed;

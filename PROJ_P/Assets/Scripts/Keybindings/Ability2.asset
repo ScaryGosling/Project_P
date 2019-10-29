@@ -15,3 +15,4 @@ MonoBehaviour:
   featureName: Ability 2
   feature: 6
   inputKey: 51
+  defaultKey: 51

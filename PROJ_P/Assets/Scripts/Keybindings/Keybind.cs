@@ -8,6 +8,7 @@ public class Keybind : ScriptableObject
     [SerializeField] private string featureName;
     [SerializeField] private KeyFeature feature;
     [SerializeField] private KeyCode inputKey;
+    [SerializeField] private KeyCode defaultKey;
 
 
 
@@ -15,6 +16,7 @@ public class Keybind : ScriptableObject
     public KeyFeature GetFeature() { return feature; }
     public string GetFeatureName() { return featureName; }
     public void SetBind(KeyCode inputKey) { this.inputKey = inputKey; }
+    public void ResetKey() { inputKey = defaultKey; }
 }
 
 public enum KeyFeature

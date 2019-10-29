@@ -17,6 +17,12 @@ public class KeyBindingButton : MonoBehaviour
         buttonText.text = keyBind.GetBind().ToString();
     }
 
+    public void ResetBind()
+    {
+        keyBind.ResetKey();
+        buttonText.text = keyBind.GetBind().ToString();
+    }
+
 
     public void ToggleKeyListener()
     {
