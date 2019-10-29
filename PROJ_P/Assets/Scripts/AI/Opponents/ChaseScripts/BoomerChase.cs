@@ -34,6 +34,11 @@ public class BoomerChase : ChaseBase
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
+
+        if (controlBehaviors == Behaviors.STAGGER && owner.player.GetComponent<Player>().playerClass == PlayerClass.WARRIOR)
+        {
+            Stagger();
+        }
     }
 }
 
