@@ -27,7 +27,6 @@ public class HostileBaseState : State
     protected Rigidbody rigidbody;
     protected Vector3 heading;
     protected const float rotationalSpeed = 0.035f;
-    protected const float damageDistance = 2.5f;
     protected float actualDamage;
     protected float distanceToPlayer;
     protected bool damaged = false;

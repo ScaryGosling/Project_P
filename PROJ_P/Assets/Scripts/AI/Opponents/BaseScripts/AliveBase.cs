@@ -46,7 +46,7 @@ public class AliveBase : HostileBaseState
 
     protected void CheckForDamage()
     {
-        if (distanceToPlayer < damageDistance && LineOfSight() && alive && !attacking)
+        if (distanceToPlayer < owner.getAttackRange && LineOfSight() && alive && !attacking)
         {
             if (owner.getGenericTimer.timeTask)
             {
