@@ -36,6 +36,7 @@ public class CameraBehaviour : MonoBehaviour
         {
             Debug.Log("Hit:" + hit.collider);
             Renderer renderer = hit.collider.GetComponent<Renderer>();
+            Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red, Time.deltaTime);
 
             if (!hit.collider.CompareTag("Player") && hit.collider.GetComponent<Renderer>() && hit.collider.GetComponent<Renderer>().material.GetFloat(shaderAlpha) >= 1)
             {
@@ -43,13 +44,14 @@ public class CameraBehaviour : MonoBehaviour
                     StartCoroutine(FadeInObject(fadedObject.GetComponent<Renderer>()));
 
                 fadedObject = hit.collider.gameObject;
-                if(fade != null)
+                if (fade != null)
                     StopCoroutine(fade);
                 fade = StartCoroutine(FadeOutObject(renderer));
 
-            } else if (hit.collider.CompareTag("Player"))
+            }
+            else if (hit.collider.CompareTag("Player"))
             {
-
+                Debug.Log("Hit player");
                 if (fadedObject != null && fade != null)
                 {
                     StopCoroutine(fade);
@@ -58,6 +60,8 @@ public class CameraBehaviour : MonoBehaviour
 
                 }
             }
+            else
+                Debug.Log("Hit nothing");
             
         }
     }

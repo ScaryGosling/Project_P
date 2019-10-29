@@ -14,7 +14,7 @@ public class ShopSellingState : ShopBaseState
 
     public override void ToDo()
     {
-        if (DistanceFromPlayer() > shopKeeper.DistanceFromPlayerToActivate || Input.GetKeyDown(KeyCode.E))
+        if (DistanceFromPlayer() > shopKeeper.DistanceFromPlayerToActivate || Input.GetKeyDown(Player.instance.GetKeybindSet().GetBind(KeyFeature.TOGGLE_SHOP)))
         {
             DeactivateShop();
         }

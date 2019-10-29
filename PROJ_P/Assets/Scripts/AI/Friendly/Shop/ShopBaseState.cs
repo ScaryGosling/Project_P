@@ -45,7 +45,7 @@ public class ShopBaseState : FriendlyBaseState
         if (DistanceFromPlayer() <= shopKeeper.DistanceFromPlayerToActivate && timeLeft)
         {
             pressEtext.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(Player.instance.GetKeybindSet().GetBind(KeyFeature.TOGGLE_SHOP)))
             {
                 ActivateShop();
             }

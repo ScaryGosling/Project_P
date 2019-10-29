@@ -24,8 +24,7 @@ public class GenericTimer : MonoBehaviour
         {
             TimeTask = true;
         }
-        Debug.Log("Time: " + currentTime);
-        Debug.Log("On: " + TimeTask);
+
     }
 }
 
