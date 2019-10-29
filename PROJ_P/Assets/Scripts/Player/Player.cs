@@ -95,6 +95,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
+        playerClass = keybindSet.playerClass;
         CacheComponents();
         EventSystem.Current.RegisterListener<GiveResource>(Refill);
     }
@@ -153,7 +154,6 @@ public class Player : MonoBehaviour
     public void CacheComponents() {
 
         instance = this;
-
         SetupClass();
         attackSet = CloneAttackSet();
         activeAttacks = new AttackSet();
