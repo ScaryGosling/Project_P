@@ -10,7 +10,10 @@ public class KeyBindingButton : MonoBehaviour
     [SerializeField] Keybind keyBind;
     [SerializeField] Text text;
     [SerializeField] Text buttonText;
+    [SerializeField] KeybindSet keybindSet;
 
+
+    public Keybind GetKeybind() { return keyBind; }
     public void Start()
     {
         text.text = keyBind.GetFeatureName() + ":";
@@ -22,7 +25,6 @@ public class KeyBindingButton : MonoBehaviour
         keyBind.ResetKey();
         buttonText.text = keyBind.GetBind().ToString();
     }
-
 
     public void ToggleKeyListener()
     {
@@ -37,6 +39,7 @@ public class KeyBindingButton : MonoBehaviour
             {
                 if (Input.GetKey(keyCode))
                 {
+                    keybindSet.OverrideBind(keyCode);
                     keyBind.SetBind(keyCode);
                     buttonText.text = keyBind.GetBind().ToString();
                     ToggleKeyListener();
