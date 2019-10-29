@@ -18,7 +18,6 @@ public class DeathBase : HostileBaseState
     {
         base.EnterState();
         DisableUnit();
-        Debug.Log("EnteringDeathState");
     }
 
 
@@ -30,13 +29,13 @@ public class DeathBase : HostileBaseState
     public override void ToDo()
     {
         base.ToDo();
-        DeathAnimation();
+        DeathRotation();
     }
 
     protected void DisableUnit()
     {
         owner.gameObject.transform.position = new Vector3(owner.gameObject.transform.position.x,
-            owner.gameObject.transform.position.y - owner.capsuleCollider.height / 2, owner.transform.position.z);
+            owner.gameObject.transform.position.y - owner.capsuleCollider.radius / 2, owner.transform.position.z);
 
         owner.rigidbody.isKinematic = true;
         owner.agent.isStopped = true;
@@ -45,7 +44,7 @@ public class DeathBase : HostileBaseState
         Destroy(owner.gameObject, corpseTimer);
     }
 
-    protected virtual void DeathAnimation()
+    protected virtual void DeathRotation()
     {
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         owner.transform.localRotation = rotation;

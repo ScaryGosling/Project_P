@@ -15,5 +15,6 @@ MonoBehaviour:
   controlBehaviors: 0
   material: {fileID: 2100000, guid: 66f76dc86701845f1b41313bddd266f2, type: 2}
   moveSpeed: 0
-  scale: {x: 1.2, y: 1.2, z: 1.2}
+  scale: {x: 1.2, y: 1, z: 2}
   staggerCD: 0.5
+  corpseTimer: 2

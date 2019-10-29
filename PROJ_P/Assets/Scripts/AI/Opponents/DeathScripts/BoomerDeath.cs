@@ -26,7 +26,7 @@ public class BoomerDeath : DeathBase
         base.ToDo();
     }
 
-    protected override void DeathAnimation()
+    protected override void DeathRotation()
     {
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         owner.transform.localRotation = rotation;
