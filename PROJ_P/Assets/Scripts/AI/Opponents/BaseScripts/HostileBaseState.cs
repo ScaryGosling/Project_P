@@ -54,13 +54,7 @@ public class HostileBaseState : State
 
     public override void ToDo(){ }
 
-    protected bool LineOfSight()
-    {
-        bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);
-        if (lineCast)
-            return false;
-        return true;
-    }
+  
 }
 #region EnemyBaseLegacy
 // lightTreshold = owner.LightThreshold;
