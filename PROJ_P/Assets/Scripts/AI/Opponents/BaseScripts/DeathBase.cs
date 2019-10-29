@@ -11,7 +11,7 @@ using UnityEngine.AI;
 public class DeathBase : HostileBaseState
 {
     // Attributes
-    [SerializeField] protected float corpseTimer = 2f; 
+    [SerializeField] protected float corpseTimer = 2f;
 
     // Methods
     public override void EnterState()
@@ -35,13 +35,14 @@ public class DeathBase : HostileBaseState
 
     protected void DisableUnit()
     {
-        owner.agent.isStopped = true;
-        owner.agent.enabled = !owner.agent.enabled;
-        owner.capsuleCollider.enabled = false;
+        owner.gameObject.transform.position = new Vector3(owner.gameObject.transform.position.x,
+            owner.gameObject.transform.position.y - owner.capsuleCollider.height / 2, owner.transform.position.z);
+
         owner.rigidbody.isKinematic = true;
-        owner.gameObject.transform.position = new Vector3(owner.gameObject.transform.position.x, owner.gameObject.transform.position.y - owner.capsuleCollider.height / 2, owner.transform.position.z);
+        owner.agent.isStopped = true;
+        owner.agent.enabled = false;
+        owner.capsuleCollider.enabled = false;
         Destroy(owner.gameObject, corpseTimer);
-        Debug.Log("DeathBaseEnter");
     }
 
     protected virtual void DeathAnimation()
