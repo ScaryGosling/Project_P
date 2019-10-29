@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wand
   m_EditorClassIdentifier: 
   abilityName: Basic Attack
+  abilityDescription: No description available
   castCost: 0
   attackImage: {fileID: 21300000, guid: 9185347437acf80418f9522c6ba90129, type: 3}
   cooldown: 1
