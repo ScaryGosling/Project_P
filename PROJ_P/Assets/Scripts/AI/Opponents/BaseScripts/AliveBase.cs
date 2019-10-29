@@ -48,7 +48,7 @@ public class AliveBase : HostileBaseState
     {
         if (distanceToPlayer < owner.getAttackRange && LineOfSight() && alive && !attacking)
         {
-            if (owner.getGenericTimer.timeTask)
+            if (owner.getGenericTimer.TimeTask)
             {
                 attacking = true;
                 owner.getGenericTimer.SetTimer(owner.AttackSpeed);
@@ -71,7 +71,7 @@ public class AliveBase : HostileBaseState
 
     protected virtual void Stagger()
     {
-        if (owner.getGenericTimer.timeTask && !damaged)
+        if (owner.getGenericTimer.TimeTask && !damaged)
         {
             damaged = true;
             owner.getGenericTimer.SetTimer(staggerCD);

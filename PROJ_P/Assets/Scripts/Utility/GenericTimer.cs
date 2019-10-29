@@ -7,11 +7,11 @@ public class GenericTimer : MonoBehaviour
 {
     private float absoluteTime;
     private float currentTime;
-    public bool timeTask { get; set; }
+    public bool TimeTask { get; set; } = false;
     
     public void SetTimer(float t)
     {
-        timeTask = false;
+        TimeTask = false;
         absoluteTime = t;
         currentTime = absoluteTime;
     }
@@ -22,10 +22,10 @@ public class GenericTimer : MonoBehaviour
             currentTime -= Time.deltaTime;
         else
         {
-            timeTask = true;
+            TimeTask = true;
         }
-
-
+        Debug.Log("Time: " + currentTime);
+        Debug.Log("On: " + TimeTask);
     }
 }
 

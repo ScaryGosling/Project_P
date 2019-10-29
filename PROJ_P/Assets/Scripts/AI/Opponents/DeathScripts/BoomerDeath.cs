@@ -12,43 +12,48 @@ public class BoomerDeath : DeathBase
     [SerializeField] private GameObject explosionPrefab;
     private GameObject explosion;
 
-    private const float animationTime = 1.5f;
-    private const float explosionDelay = 0.5f;
-    private float currentTime;
-
+    private const float animationTime = 1f;
+    [SerializeField] private float explosionDelay = 2f;
+    private float currentTimeAnimTime;
+    private float current;
+    private bool completed;
     public override void EnterState()
     {
         base.EnterState();
+        current = explosionDelay;
     }
 
     public override void ToDo()
     {
         base.ToDo();
+        Explode();
     }
 
-    protected override void DeathRotation()
+    protected override void DeathAnimation()
     {
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         owner.transform.localRotation = rotation;
         alive = false;
 
-        currentTime = animationTime;
-        while (currentTime >= 0f)
+        currentTimeAnimTime = animationTime;
+        while (currentTimeAnimTime >= 0f)
         {
             owner.transform.localScale *= scaleFactor;
-            currentTime -= Time.deltaTime;
+            currentTimeAnimTime -= Time.deltaTime;
         }
-
-        if (currentTime <= animationTime / 0 && explosion == null)
-            Explode();
     }
 
-    private void Explode()
+    protected void Explode()
     {
-        explosion = Instantiate(explosionPrefab, owner.transform.position, Quaternion.identity);
+        if (current >= 0f)
+        {
+            current -= Time.deltaTime;
+        }
+        else if (current <= 0f && explosion == null)
+        {
+            explosion = Instantiate(explosionPrefab, owner.transform.position, Quaternion.identity);
+        }
     }
-
-
 }
 
 #region ChaseLegacy

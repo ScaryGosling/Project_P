@@ -48,7 +48,7 @@ public class HostileUI : MonoBehaviour
 
     void TimeTask()
     {
-        if (genericTimer.timeTask)
+        if (genericTimer.TimeTask)
         {
             genericTimer.SetTimer(uiDuration);
             gameObject.SetActive(false);

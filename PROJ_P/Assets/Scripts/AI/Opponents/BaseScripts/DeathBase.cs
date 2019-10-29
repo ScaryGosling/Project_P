@@ -29,7 +29,7 @@ public class DeathBase : HostileBaseState
     public override void ToDo()
     {
         base.ToDo();
-        DeathRotation();
+        DeathAnimation();
     }
 
     protected void DisableUnit()
@@ -44,7 +44,7 @@ public class DeathBase : HostileBaseState
         Destroy(owner.gameObject, corpseTimer);
     }
 
-    protected virtual void DeathRotation()
+    protected virtual void DeathAnimation()
     {
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         owner.transform.localRotation = rotation;
