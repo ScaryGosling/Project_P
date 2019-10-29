@@ -13,18 +13,25 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   abilityName: Fireball
-  abilityDescription: No description available
-  castCost: 50
+  abilityDescription: Shoot a devastating fireball that explodes! Deals damage and
+    burn enemies for a short time.
+  castCost: 20
   attackImage: {fileID: 21300000, guid: 4325c1a126876674f87dfb389eb19581, type: 3}
   cooldown: 3
   upgradeCosts:
-  - upgradeCost: 0
-    newDamage: 100
-  - upgradeCost: 10
-    newDamage: 10
-  - upgradeCost: 50
+  - upgradeCost: 30
     newDamage: 20
-  lockedAbility: 0
+  - upgradeCost: 10
+    newDamage: 25
+  - upgradeCost: 20
+    newDamage: 30
+  - upgradeCost: 30
+    newDamage: 35
+  - upgradeCost: 40
+    newDamage: 40
+  - upgradeCost: 50
+    newDamage: 100
+  lockedAbility: 1
   particles: {fileID: 0}
   abilityCat: 1
   slowTime: 0

@@ -21,4 +21,5 @@ MonoBehaviour:
   scaleFactor: 1.0000005
   explosionPrefab: {fileID: 2892760836617438288, guid: 4b112ae6c5847ec40a574f33813da51d,
     type: 3}
-  explosionDelay: 0.5
+  WarningObject: {fileID: 0}
+  explosionDelay: 1

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Blink
   m_EditorClassIdentifier: 
   abilityName: Blink
+  abilityDescription: A walk through time and space! Teleport a short distance and
+    gain a burst of speed!
   castCost: 10
   attackImage: {fileID: 21300000, guid: fdab0b38ecbc7a8449876ca3db5f059b, type: 3}
   cooldown: 5
@@ -20,8 +22,17 @@ MonoBehaviour:
   - upgradeCost: 50
     newDamage: 5
   - upgradeCost: 10
-    newDamage: 7
+    newDamage: 9
+  - upgradeCost: 20
+    newDamage: 11
+  - upgradeCost: 30
+    newDamage: 13
+  - upgradeCost: 40
+    newDamage: 15
+  - upgradeCost: 50
+    newDamage: 17
   lockedAbility: 1
+  particles: {fileID: 0}
   abilityCat: 3
   slowTime: 0
   speedMultiplier: 0
