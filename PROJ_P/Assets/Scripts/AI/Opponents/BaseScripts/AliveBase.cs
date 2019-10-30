@@ -94,7 +94,7 @@ public class AliveBase : HostileBaseState
 
     private void StandStill()
     {
-        Debug.Log("Standing");
+        if(owner.agent.enabled)
         owner.agent.SetDestination(owner.gameObject.transform.position);
     }
 

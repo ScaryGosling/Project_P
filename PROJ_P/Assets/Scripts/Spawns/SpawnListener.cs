@@ -17,7 +17,7 @@ public class SpawnListener : MonoBehaviour
 
     private int currentType;
     private const int maximumCapacity = 200;
-     
+    private Player player;
     private float pauseTime = 10f;
     [SerializeField] private float spawnTime = 0.5f;
     [SerializeField] private int expected = 1;
@@ -43,6 +43,9 @@ public class SpawnListener : MonoBehaviour
     [SerializeField] private GameObject shopKeeper;
     [SerializeField] private GameObject ObjectSpawnerPrefab;
     [SerializeField] private float expectedGrowth = 1.20f;
+    [SerializeField] private int goldPerKill = 10;
+    [SerializeField] private int goldPerWave = 100;
+    private bool waveCompleted;
     private GameObject ObjectSpawner;
 
 
@@ -52,6 +55,7 @@ public class SpawnListener : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         pauseTime = shopKeeper.GetComponent<Shop>().GetShopTime();
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
         Mathf.Clamp(expectedGrowth, 1, 3);
@@ -62,6 +66,7 @@ public class SpawnListener : MonoBehaviour
     private void UnitDeath(UnitDeath death)
     {
         unitsKilled += 1;
+        player.GoldProp += goldPerKill;
         CheckForDrop(death.enemyObject.transform.position);
         Debug.Log("UnitsKilled++");
     }
@@ -83,6 +88,7 @@ public class SpawnListener : MonoBehaviour
 
     private void ResetWave()
     {
+        waveCompleted = false;
         spawned = 0;
         unitsKilled = 0;
         if(expected <= maximumCapacity)
@@ -100,6 +106,11 @@ public class SpawnListener : MonoBehaviour
     {
         if (unitsKilled >= expected)
         {
+            if (!waveCompleted)
+            {
+            player.GoldProp += goldPerWave;
+            waveCompleted = true;
+            }
             SpawnShopKeeper();
 
             if (ObjectSpawner != null)

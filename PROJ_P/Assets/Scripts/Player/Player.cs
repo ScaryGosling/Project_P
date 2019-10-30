@@ -51,7 +51,6 @@ public class Player : MonoBehaviour
         public float resistanceMultiplier;
         public float attackSpeed;
         public float attackDamage;
-
     }
 
     public KeybindSet GetKeybindSet() { return keybindSet; }
