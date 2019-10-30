@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Mana Refill
   m_EditorClassIdentifier: 
   abilityName: Refill Mana
+  abilityDescription: Gain mana
   potionImage: {fileID: 0}
-  resourceHandler: 0
   hundredPercentCost: 200

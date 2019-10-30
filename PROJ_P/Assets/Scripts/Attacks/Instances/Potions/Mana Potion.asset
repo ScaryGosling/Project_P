@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mana Potion
   m_EditorClassIdentifier: 
   abilityName: Buy Mana
-  abilityDescription: Buys 10 MP
+  abilityDescription: Gain 10 Mana Points
   potionImage: {fileID: 0}
   manaPointsToRestore: 10
   potionCost: 15

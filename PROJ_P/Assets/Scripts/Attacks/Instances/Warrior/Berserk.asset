@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Berserk
   m_EditorClassIdentifier: 
   abilityName: Berserk
-  abilityDescription: You got anger issues! gain rage,Increased speed, damage and
-    armor!
+  abilityDescription: Drag and Drop! Gain full rage and bonuses!
   castCost: 0
   attackImage: {fileID: 21300000, guid: 04bd0c4c34d79df4987ae3c44481a6da, type: 3}
   cooldown: 60

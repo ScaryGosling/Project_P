@@ -33,6 +33,6 @@ MonoBehaviour:
   lockedAbility: 0
   particles: {fileID: 0}
   abilityCat: 1
-  slowTime: 0.2
-  speedMultiplier: 0.8
+  slowTime: 1
+  speedMultiplier: 0.77
   slash: {fileID: 7400000, guid: dde732b3854ff43e8a66dab8b5e55b3b, type: 2}

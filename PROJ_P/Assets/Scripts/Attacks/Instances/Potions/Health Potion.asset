@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Health Potion
   m_EditorClassIdentifier: 
   abilityName: Buy Health Potion
+  abilityDescription: Click Once! Buy one health potion! Use with F!
   potionImage: {fileID: 0}
-  resourceHandler: 0
   maxHealthPotions: 3
   potionCost: 20
