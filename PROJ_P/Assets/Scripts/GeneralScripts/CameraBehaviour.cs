@@ -34,7 +34,6 @@ public class CameraBehaviour : MonoBehaviour
        
         if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, Mathf.Infinity))
         {
-            Debug.Log("Hit:" + hit.collider);
             Renderer renderer = hit.collider.GetComponent<Renderer>();
             Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red, Time.deltaTime);
 
@@ -51,7 +50,7 @@ public class CameraBehaviour : MonoBehaviour
             }
             else if (hit.collider.CompareTag("Player"))
             {
-                Debug.Log("Hit player");
+
                 if (fadedObject != null && fade != null)
                 {
                     StopCoroutine(fade);
@@ -60,8 +59,7 @@ public class CameraBehaviour : MonoBehaviour
 
                 }
             }
-            else
-                Debug.Log("Hit nothing");
+
             
         }
     }

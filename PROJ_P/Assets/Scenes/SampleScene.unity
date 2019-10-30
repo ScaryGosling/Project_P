@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1.0707322, g: 0.71879196, b: 1.1061655, a: 1}
+  m_IndirectSpecularColor: {r: 1.0720555, g: 0.71888936, b: 1.106339, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -829,6 +829,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Delegates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Delegates.Array.data[0].eventID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1270915080482560978, guid: 1577f6eb0555cba448bdf567f3918d96,
         type: 3}
       propertyPath: m_Name
@@ -1095,22 +1111,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 556121653}
-    - target: {fileID: 0}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Delegates.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Delegates.Array.data[0].eventID
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1577f6eb0555cba448bdf567f3918d96, type: 3}
 --- !u!1 &55330074
@@ -36980,41 +36980,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 849217765}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: shopWindow
-      value: 
-      objectReference: {fileID: 1258135962}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: text
-      value: 
-      objectReference: {fileID: 916134244}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: costOfPotion
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: shopTime
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: timerText
-      value: 
-      objectReference: {fileID: 231635295}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: distanceFromPlayerToActivate
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7433464501349730636, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37069,6 +37034,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 849217765}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: shopWindow
+      value: 
+      objectReference: {fileID: 1258135962}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 916134244}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: costOfPotion
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: shopTime
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 231635295}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: distanceFromPlayerToActivate
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae4839c4ba4dddc4dade1febca9ac7f4, type: 3}
@@ -44478,8 +44478,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.7267091
-  m_Height: 2.651843
+  m_Radius: 2.15
+  m_Height: 5.58
   m_Direction: 1
   m_Center: {x: -0.04103172, y: -0.04789573, z: 0.08643514}
 --- !u!1 &1919868842
@@ -49464,8 +49464,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8d7ad1f07ff08534eae3e3bcf876a565, type: 2}
-    m_RemovedComponents:
-    - {fileID: 205000011883594630, guid: 75fa8bf3a73ee6b4da0c7a2c6d3db6a1, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75fa8bf3a73ee6b4da0c7a2c6d3db6a1, type: 3}
 --- !u!4 &2069165464 stripped
 Transform:
