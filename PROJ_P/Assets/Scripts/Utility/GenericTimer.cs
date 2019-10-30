@@ -18,7 +18,7 @@ public class GenericTimer : MonoBehaviour
 
     void Update()
     {
-        if (currentTime >= 0)
+        if (currentTime > 0)
             currentTime -= Time.deltaTime;
         else
         {

@@ -31,7 +31,7 @@ public class Tackle : PlayerAttack
         player.GetComponent<Player>().activeStats.resistanceMultiplier = 0;
 
         GameObject timer = new GameObject("Timer");
-        timer.AddComponent<Timer>().RunCountDown(1, ResetStats);
+        timer.AddComponent<Timer>().RunCountDown(1, ResetStats, Timer.TimerType.DELAY);
         
 
 

@@ -29,7 +29,7 @@ public class RainOfFire : PlayerAttack
             for (int i = 0; i < spawnAmount; i++) {
 
                 Timer timer = new GameObject("Timer").AddComponent<Timer>();
-                timer.RunCountDown(i * 0.1f, GenerateBall);
+                timer.RunCountDown(i * 0.1f, GenerateBall, Timer.TimerType.DELAY);
                 
 
             }

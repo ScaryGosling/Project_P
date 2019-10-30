@@ -37,7 +37,7 @@ public class GroundStomp : PlayerAttack
         }
 
         Timer timer = new GameObject("Timer").AddComponent<Timer>();
-        timer.RunCountDown(dazeTime, ResetEnemies);
+        timer.RunCountDown(dazeTime, ResetEnemies, Timer.TimerType.DELAY);
     }
 
 
