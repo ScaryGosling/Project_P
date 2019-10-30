@@ -295,7 +295,7 @@ public class Player : MonoBehaviour
         attack[position] = attackUISpot[position];
         attack[position].fillAmount = 0;
         animationTime = 0;
-        cooldownTime = activeAttack.GetCooldown();
+        cooldownTime = activeAttack.GetCooldown() / activeStats.attackSpeed;
         while (animationTime < cooldownTime)
         {
             animationTime += Time.deltaTime;
