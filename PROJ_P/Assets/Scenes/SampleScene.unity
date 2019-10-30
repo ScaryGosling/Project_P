@@ -25882,8 +25882,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 35.19, y: 39.33, z: 216.96}
+  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -25902,6 +25902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 849217765}
+  offset: {x: 0, y: 12, z: -7.5}
   smoothTime: 0.1
   fadeAmount: 0.1
   fadeTime: 3
@@ -36980,6 +36981,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 849217765}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: shopWindow
+      value: 
+      objectReference: {fileID: 1258135962}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 916134244}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: costOfPotion
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: shopTime
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 231635295}
+    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
+        type: 3}
+      propertyPath: distanceFromPlayerToActivate
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7433464501349730636, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37034,41 +37070,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 849217765}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: shopWindow
-      value: 
-      objectReference: {fileID: 1258135962}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: text
-      value: 
-      objectReference: {fileID: 916134244}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: costOfPotion
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: shopTime
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: timerText
-      value: 
-      objectReference: {fileID: 231635295}
-    - target: {fileID: 7433464501349730632, guid: ae4839c4ba4dddc4dade1febca9ac7f4,
-        type: 3}
-      propertyPath: distanceFromPlayerToActivate
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae4839c4ba4dddc4dade1febca9ac7f4, type: 3}
@@ -51195,7 +51196,7 @@ PrefabInstance:
     - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: expected
-      value: 2
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}

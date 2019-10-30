@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Rain Of Fire
   m_EditorClassIdentifier: 
   abilityName: Rain Of Fire
-  castCost: 0
+  abilityDescription: No description available
+  castCost: 10
   attackImage: {fileID: 0}
   cooldown: 0
   upgradeCosts:
