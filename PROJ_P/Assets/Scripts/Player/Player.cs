@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Image[] attackUISpot;
     [SerializeField] private Color fullHealth;
     [SerializeField] private Color emptyHealth;
+    [SerializeField] [Range(0, 1)] float colorTransitionPoint = 0.5f;
     private Coroutine[] cooldowns;
 
     [Header("Attributes")]
@@ -68,7 +69,8 @@ public class Player : MonoBehaviour
         set {
             tempHP += value * activeStats.resistanceMultiplier;
             health.fillAmount = tempHP * 0.01f;
-            health.color = Color.Lerp(emptyHealth, fullHealth, health.fillAmount);
+            if(health.fillAmount < colorTransitionPoint)
+                health.color = Color.Lerp(emptyHealth, fullHealth, health.fillAmount /colorTransitionPoint);
         }
     }
     public int GoldProp
