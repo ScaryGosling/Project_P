@@ -19775,7 +19775,7 @@ PrefabInstance:
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 149.8
+      value: 181.7
       objectReference: {fileID: 0}
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
@@ -19785,7 +19785,7 @@ PrefabInstance:
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 166.8
+      value: 163.4
       objectReference: {fileID: 0}
     - target: {fileID: 5710131259498519589, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
@@ -19835,12 +19835,12 @@ PrefabInstance:
     - target: {fileID: 1242585099029860671, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
       propertyPath: m_Size.x
-      value: 252.2
+      value: 328.2
       objectReference: {fileID: 0}
     - target: {fileID: 1242585099029860671, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
       propertyPath: m_Size.z
-      value: 130.2
+      value: 214.9
       objectReference: {fileID: 0}
     - target: {fileID: 6258408630176125625, guid: 7dc03c6ed98a3d6478dd35df4c8d8d3c,
         type: 3}
@@ -50631,6 +50631,11 @@ PrefabInstance:
       propertyPath: colorTransitionPoint
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
+        type: 3}
+      propertyPath: gold
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1881681635, guid: 74d1415f2c9a8e54eb93ce037bae2d6d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -51196,7 +51201,7 @@ PrefabInstance:
     - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: expected
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
@@ -51218,6 +51223,21 @@ PrefabInstance:
         type: 3}
       propertyPath: chanceOfDrop
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: goldPerKill
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: goldPerWave
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: expectedGrowth
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5598189669312911739, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
