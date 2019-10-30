@@ -20,3 +20,4 @@ MonoBehaviour:
   potionList:
   - {fileID: 11400000, guid: 77d9a5796e3b899469a10ae53d5a7084, type: 2}
   - {fileID: 11400000, guid: 86e7faca026757a4c8a9c3f4cf0de720, type: 2}
+  - {fileID: 11400000, guid: ea8851816215f884f887d9ba78fba8a6, type: 2}

@@ -6,7 +6,7 @@ using UnityEngine;
 public class ManaRefill : Potion
 {
     [SerializeField] private float hundredPercentCost = 100;
-    float    manaIncrease;
+    float manaIncrease;
     float costToFillAll;
     public override void BuyPotion(int cost)
     {
