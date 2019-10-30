@@ -203,6 +203,10 @@ public class Player : MonoBehaviour
         {
             ((MeleeHack)activeAttacks.list[0]).SetDurabilityTextObject(durabilityTextObject);
         }
+        else
+        {
+            durabilityTextObject.gameObject.SetActive(false);
+        }
 
     }
 
