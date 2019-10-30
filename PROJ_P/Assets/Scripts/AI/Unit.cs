@@ -32,6 +32,9 @@ public class Unit : StateMachine
     [SerializeField] private float attackSpeed = 0.5f;
     public float AttackSpeed { get { return attackSpeed; } }
 
+    [SerializeField] private int goldPerHit = 1;
+    public int GetGold { get { return goldPerHit; } }
+
     #endregion
 
 

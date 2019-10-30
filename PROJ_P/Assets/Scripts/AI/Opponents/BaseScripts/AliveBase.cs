@@ -90,6 +90,7 @@ public class AliveBase : HostileBaseState
         base.TakeDamage(damage);
         GameObject splatter = Instantiate(bloodParticle, owner.transform.position, Quaternion.identity);
         splatter.AddComponent<Timer>().RunCountDown(4, PlaceboMethod, Timer.TimerType.DELAY);
+        owner.player.GetComponent<Player>().GoldProp += owner.GetGold;
     }
 
     private void StandStill()
