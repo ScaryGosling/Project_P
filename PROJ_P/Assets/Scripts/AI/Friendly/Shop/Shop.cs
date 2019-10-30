@@ -52,6 +52,7 @@ public class Shop : StateMachine
             shopWindow.SetActive(false);
         }
         timerText.SetActive(false);
+        Destroy(shopTimer);
         ChangeState<ShopTimeFinishedState>();
     }
 
