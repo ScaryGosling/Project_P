@@ -30,7 +30,7 @@ public class Berserk : PlayerAttack
 
 
         Timer timer = new GameObject("Timer").AddComponent<Timer>();
-        timer.RunCountDown(duration, player.ResetStats);
+        timer.RunCountDown(duration, player.ResetStats, Timer.TimerType.DELAY);
     }
 
 }

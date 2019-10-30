@@ -54,14 +54,6 @@ public class HostileBaseState : State
 
     public override void ToDo(){ }
 
-    public override void TakeDamage(float damage)
-    {
-        base.TakeDamage(damage);
-        GameObject splatter = Instantiate(bloodParticle, owner.transform.position, Quaternion.identity);
-        splatter.AddComponent<Timer>().RunCountDown(4, PlaceboMethod);
-    }
-
-    private void PlaceboMethod() { }
 
 }
 #region EnemyBaseLegacy

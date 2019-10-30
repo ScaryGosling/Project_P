@@ -10,6 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(CapsuleCollider))]
 public class AliveBase : HostileBaseState
 {
+    [SerializeField] private float staggerDuration = 1f;
     public override void EnterState()
     {
         base.EnterState();
@@ -71,15 +72,9 @@ public class AliveBase : HostileBaseState
 
     protected virtual void Stagger()
     {
-        if (owner.getGenericTimer.TimeTask && !damaged)
-        {
-            damaged = true;
-            owner.getGenericTimer.SetTimer(staggerCD);
-            damaged = false;
+        GameObject timer = new GameObject();
+        timer.AddComponent<Timer>().RunCountDown(staggerDuration, StandStill, Timer.TimerType.WHILE);
 
-            if (owner.agent.enabled)
-                owner.agent.SetDestination(owner.transform.position);
-        }
     }
 
     protected bool LineOfSight()
@@ -89,6 +84,21 @@ public class AliveBase : HostileBaseState
             return false;
         return true;
     }
+
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        GameObject splatter = Instantiate(bloodParticle, owner.transform.position, Quaternion.identity);
+        splatter.AddComponent<Timer>().RunCountDown(4, PlaceboMethod, Timer.TimerType.DELAY);
+    }
+
+    private void StandStill()
+    {
+        Debug.Log("Standing");
+        owner.agent.SetDestination(owner.gameObject.transform.position);
+    }
+
+    private void PlaceboMethod() { }
 }
 #region EnemyBaseLegacy
 // lightTreshold = owner.LightThreshold;

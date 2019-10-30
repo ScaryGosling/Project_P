@@ -106,11 +106,11 @@ public class PlayerAttack : Ability
             RunAttack();
             cooldownActive = true;
             Timer cooldownTimer = new GameObject("Timer").AddComponent<Timer>();
-            cooldownTimer.RunCountDown(cooldown / Player.instance.activeStats.attackSpeed, ResetCooldown);
+            cooldownTimer.RunCountDown(cooldown / Player.instance.activeStats.attackSpeed, ResetCooldown, Timer.TimerType.DELAY);
 
             Player.instance.activeStats.movementSpeed = speedMultiplier;
             Timer slowMultiplier = new GameObject("Timer").AddComponent<Timer>();
-            slowMultiplier.RunCountDown(slowTime, ResetSlow);
+            slowMultiplier.RunCountDown(slowTime, ResetSlow, Timer.TimerType.DELAY);
 
         }
 

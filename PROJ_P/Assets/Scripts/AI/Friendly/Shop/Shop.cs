@@ -15,7 +15,7 @@ public class Shop : StateMachine
     [SerializeField] private GameObject timerText;
     public Vector3 spawnPoint { get; private set; }
     [SerializeField] private float distanceFromPlayerToActivate = 10f;
-    public float DistanceFromPlayerToActivate { get { return distanceFromPlayerToActivate; } private set { distanceFromPlayerToActivate = value; }  }
+    public float DistanceFromPlayerToActivate { get { return distanceFromPlayerToActivate; } private set { distanceFromPlayerToActivate = value; } }
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class Shop : StateMachine
         spawnPoint = transform.position;
         ChangeState<ShopBaseState>();
         shopTimer = new GameObject("Timer");
-        shopTimer.AddComponent<Timer>().RunCountDown(shopTime, RemoveShop);
+        shopTimer.AddComponent<Timer>().RunCountDown(shopTime, RemoveShop, Timer.TimerType.DELAY);
         timerText.gameObject.SetActive(true);
         timerText.GetComponent<ShopTimer>().SetTimer(shopTimer.GetComponent<Timer>());
         toggleArrow.goal = gameObject;
@@ -42,8 +42,9 @@ public class Shop : StateMachine
 
             EventSystem.Current.FireEvent(toggleArrow);
 
-        } catch(Exception e) {}
-    
+        }
+        catch (Exception e) { }
+
     }
     public void RemoveShop()
     {

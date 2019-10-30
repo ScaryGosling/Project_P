@@ -42,7 +42,7 @@ public class Blink : PlayerAttack
         player.GetComponent<Player>().activeStats.movementSpeed = speedBoost;
 
         Timer timer = new GameObject("Timer").AddComponent<Timer>();
-        timer.RunCountDown(speedBoostDuration, Player.instance.GetComponent<Player>().ResetStats);
+        timer.RunCountDown(speedBoostDuration, Player.instance.GetComponent<Player>().ResetStats, Timer.TimerType.DELAY);
     }
 
     public override void OnEquip()

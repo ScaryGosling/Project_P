@@ -22,7 +22,7 @@ public class MeleeHack : PlayerAttack
         sword.GetComponent<Collider>().enabled = true;
         animation.Play("Slash");
         Timer timer = new GameObject("Timer").AddComponent<Timer>();
-        timer.RunCountDown(slash.length, ResetSword);
+        timer.RunCountDown(slash.length, ResetSword, Timer.TimerType.DELAY);
     }
 
     Player player;
