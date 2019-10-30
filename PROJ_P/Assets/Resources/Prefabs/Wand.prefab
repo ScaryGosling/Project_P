@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2377488010752536485}
   - component: {fileID: 8197414040361335746}
   m_Layer: 0
-  m_Name: Dodgeball
+  m_Name: Wand
   m_TagString: Dodgeball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: da515a9d7e20b464385d0f40794392b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
