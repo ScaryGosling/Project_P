@@ -7,7 +7,10 @@ public class ManaRefill : Potion
 {
     [SerializeField] private float hundredPercentCost = 100;
     float manaIncrease;
-    float costToFillAll;
+    int costToFillAll;
+    float crystalsThatCanBeUsed;
+    float manaNeeded;
+
     public override void BuyPotion(int cost)
     {
         manaIncrease = (costToFillAll == cost ? 1 : (cost / hundredPercentCost));
@@ -17,10 +20,10 @@ public class ManaRefill : Potion
     }
     public override int GetPotionCost()
     {
-        costToFillAll = (manaNeeded * hundredPercentCost);
-        return (costToFillAll > Player.instance.GoldProp ? Player.instance.GoldProp : Mathf.RoundToInt(costToFillAll));
+        costToFillAll = (int)(manaNeeded * hundredPercentCost);
+        crystalsThatCanBeUsed = (int)(Player.instance.GoldProp / hundredPercentCost * 100) / 100.0f * hundredPercentCost;
+        return (costToFillAll > Player.instance.GoldProp ? (int)crystalsThatCanBeUsed : Mathf.RoundToInt(costToFillAll));
     }
-    float manaNeeded;
     public override int GetResourceHandler()
     {
         manaNeeded = ((1 - Player.instance.Resource.Value));
