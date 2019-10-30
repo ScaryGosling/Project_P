@@ -10,7 +10,7 @@ Material:
   m_Name: tree_branches
   m_Shader: {fileID: -6465566751694194690, guid: afc50e5730ed8034fa1136c5dc7d6db7,
     type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -22,6 +22,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_572733F0:
+        m_Texture: {fileID: 2800000, guid: 1d49d1e2d8a2b97478e3e0355dbf3a07, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_73DD44C1:
         m_Texture: {fileID: 2800000, guid: 1d49d1e2d8a2b97478e3e0355dbf3a07, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -62,7 +66,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1d49d1e2d8a2b97478e3e0355dbf3a07, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -98,7 +102,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_6DFC7D: 0
+    - Vector1_817719AB: 1
     - Vector1_98CB3BD3: 0.8
+    - Vector1_B6396263: 0
     - Vector1_D86021CF: 0
     - _AO: 0
     - _AlphaClip: 0
@@ -119,7 +126,7 @@ Material:
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
     - _DistortionStrengthScaled: 0.1
-    - _DstBlend: 0
+    - _DstBlend: 10
     - _EnvironmentReflections: 1
     - _FlipbookBlending: 0
     - _FlipbookMode: 0
@@ -146,7 +153,7 @@ Material:
     - _SpecSource: 0
     - _SpecularHighlights: 1
     - _SquashAmount: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _SubsurfaceIndirect: 0.25
     - _SubsurfaceKwToggle: 0
     - _Surface: 1
@@ -155,9 +162,10 @@ Material:
     - _UVSec: 0
     - _WindQuality: 0
     - _WorkflowMode: 1
-    - _ZWrite: 1
+    - _ZWrite: 0
     - __dirty: 0
     m_Colors:
+    - Color_7A83862A: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
