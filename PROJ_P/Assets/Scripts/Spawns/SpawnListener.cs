@@ -42,6 +42,7 @@ public class SpawnListener : MonoBehaviour
     [SerializeField] private GameObject[] pickUp;
     [SerializeField] private GameObject shopKeeper;
     [SerializeField] private GameObject ObjectSpawnerPrefab;
+    [SerializeField] private float expectedGrowth = 1.20f;
     private GameObject ObjectSpawner;
 
 
@@ -53,6 +54,7 @@ public class SpawnListener : MonoBehaviour
     {
         pauseTime = shopKeeper.GetComponent<Shop>().GetShopTime();
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
+        Mathf.Clamp(expectedGrowth, 1, 3);
         if (!debugMode)
             StartCoroutine(Spawner());
     }
@@ -85,7 +87,7 @@ public class SpawnListener : MonoBehaviour
         unitsKilled = 0;
         if(expected <= maximumCapacity)
         {
-            expected = (int)Mathf.Floor(expected * 1.20f);
+            expected = (int)Mathf.Floor(expected * expectedGrowth);
         }
         waveIndex++;
         bonusHealth += healthPerLevel;
