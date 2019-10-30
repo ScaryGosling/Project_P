@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityName: Blink
   abilityDescription: A walk through time and space! Teleport a short distance and
     gain a burst of speed!
-  castCost: 10
+  castCost: 5
   attackImage: {fileID: 21300000, guid: fdab0b38ecbc7a8449876ca3db5f059b, type: 3}
   cooldown: 5
   upgradeCosts:

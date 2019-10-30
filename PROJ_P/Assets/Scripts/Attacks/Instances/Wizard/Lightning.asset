@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityName: Lightning
   abilityDescription: Electric Booglaoo! Shot a lightning bolt that stuns and chain
     to nearby enemies!
-  castCost: 15
+  castCost: 7
   attackImage: {fileID: 21300000, guid: f71a6d253615e2541888194bd481124b, type: 3}
   cooldown: 2
   upgradeCosts:
