@@ -10,9 +10,12 @@ using UnityEngine.AI;
 [RequireComponent(typeof(CapsuleCollider))]
 public class HesitationBase : AliveBase
 {
+    [SerializeField] protected float timeToHesitate = 1;
+    protected float currentTime;
     public override void EnterState()
     {
         base.EnterState();
+        currentTime = timeToHesitate;
     }
 
 
@@ -24,13 +27,10 @@ public class HesitationBase : AliveBase
     public override void ToDo()
     {
         base.ToDo();
+        Stop();
     }
 
-    protected virtual void Stop()
-    {
-        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
-        owner.agent.SetDestination(owner.player.transform.position);
-    }
+    protected virtual void Stop() { }
 }
 #region EnemyBaseLegacy
 // lightTreshold = owner.LightThreshold;

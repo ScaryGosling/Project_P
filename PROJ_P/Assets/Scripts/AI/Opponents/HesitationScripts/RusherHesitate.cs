@@ -5,8 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/RusherChase")]
-public class RusherHesitate : AliveBase
+[CreateAssetMenu(menuName = "Enemy/RusherHesitate")]
+public class RusherHesitate : HesitationBase
 {
     public override void EnterState()
     {
@@ -38,6 +38,18 @@ public class RusherHesitate : AliveBase
         {
             Stagger();
         }
+    }
+
+    protected override void Stop()
+    {
+        base.Stop();
+        if (currentTime >= 0)
+        {
+            currentTime -= Time.deltaTime;
+            owner.agent.SetDestination(owner.gameObject.transform.position);
+        }
+        else
+            owner.ChangeState<RusherChase>();
     }
 }
 
