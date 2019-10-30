@@ -16,7 +16,7 @@ MonoBehaviour:
   abilityDescription: No description available
   castCost: 10
   attackImage: {fileID: 0}
-  cooldown: 1
+  cooldown: 10
   upgradeCosts:
   - upgradeCost: 0
     newDamage: 10

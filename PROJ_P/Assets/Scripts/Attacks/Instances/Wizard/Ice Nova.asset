@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: Ice Nova
   m_EditorClassIdentifier: 
   abilityName: Ice Nova
-  abilityDescription: Unleash a freezing nova around you! Freeze and damage enemies
+  abilityDescription: Drag and Drop! Unleash a freezing nova!
   castCost: 5
   attackImage: {fileID: 21300000, guid: 81f7bd4bee3f54ec3b6f883eed7ba232, type: 3}
   cooldown: 10
   upgradeCosts:
   - upgradeCost: 50
     newDamage: 5
-  - upgradeCost: 10
+  - upgradeCost: 75
     newDamage: 6
-  - upgradeCost: 20
+  - upgradeCost: 100
     newDamage: 7
-  - upgradeCost: 30
+  - upgradeCost: 150
     newDamage: 8
-  - upgradeCost: 40
+  - upgradeCost: 175
     newDamage: 9
-  - upgradeCost: 50
+  - upgradeCost: 200
     newDamage: 10
   lockedAbility: 1
   particles: {fileID: 0}

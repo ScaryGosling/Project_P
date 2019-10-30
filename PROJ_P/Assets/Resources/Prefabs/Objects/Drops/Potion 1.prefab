@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resType: 0
-  fillAmount: 0.1
+  fillAmount: 0.3
   despawnTime: 10
   materials:
   - {fileID: 2100000, guid: d7bc9e2d44d604d32afd94be043ef9be, type: 2}
