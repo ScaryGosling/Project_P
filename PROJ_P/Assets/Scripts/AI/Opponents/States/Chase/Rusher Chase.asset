@@ -17,3 +17,7 @@ MonoBehaviour:
   moveSpeed: 12
   scale: {x: 1.2, y: 1, z: 2}
   staggerCD: 0.2
+  bloodParticle: {fileID: 1482536979965753301, guid: b1100bf3ebcf8614bbd67c23699e7d77,
+    type: 3}
+  hesitationChance: 1
+  hesitationDistance: 0

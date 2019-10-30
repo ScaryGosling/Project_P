@@ -18,6 +18,7 @@ public class HostileBaseState : State
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected Vector3 scale;
     [SerializeField] protected float staggerCD = 0.5f;
+    [SerializeField] protected GameObject bloodParticle;
     #region components
     protected CapsuleCollider capsuleCollider;
     protected Unit owner;
@@ -53,7 +54,15 @@ public class HostileBaseState : State
 
     public override void ToDo(){ }
 
-  
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        GameObject splatter = Instantiate(bloodParticle, owner.transform.position, Quaternion.identity);
+        splatter.AddComponent<Timer>().RunCountDown(4, PlaceboMethod);
+    }
+
+    private void PlaceboMethod() { }
+
 }
 #region EnemyBaseLegacy
 // lightTreshold = owner.LightThreshold;

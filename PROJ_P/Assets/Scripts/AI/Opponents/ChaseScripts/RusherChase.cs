@@ -31,6 +31,7 @@ public class RusherChase : ChaseBase
 
     public override void TakeDamage(float damage)
     {
+        base.TakeDamage(damage);
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
