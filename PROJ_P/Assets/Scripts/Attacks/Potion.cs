@@ -6,7 +6,6 @@ public abstract class Potion : Ability
 {
     
     [SerializeField] protected Sprite potionImage;
-    [SerializeField] protected int resourceHandler;
     public AbilityCat AbilityCatProp { get; private set; }
     private void OnEnable()
     {

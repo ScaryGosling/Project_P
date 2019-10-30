@@ -10,9 +10,12 @@ using UnityEngine.AI;
 [RequireComponent(typeof(CapsuleCollider))]
 public class ChaseBase : AliveBase
 {
+    [SerializeField] protected float hesitationChance = 1f;
+    [SerializeField] protected float hesitationDistance;
     public override void EnterState()
     {
         base.EnterState();
+        Mathf.Clamp(hesitationChance, 0, 1);
     }
 
 
@@ -24,12 +27,24 @@ public class ChaseBase : AliveBase
     public override void ToDo()
     {
         base.ToDo();
+        OperateHesitation();
     }
 
     protected virtual void Chase()
     {
         distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
         owner.agent.SetDestination(owner.player.transform.position);
+    }
+
+    protected virtual void OperateHesitation(){}
+
+    protected bool DiceRoll()
+    {
+        float diceRoll = Random.Range(0, 1);
+        if (diceRoll <= hesitationChance)
+            return true;
+        else
+            return false;
     }
 }
 #region EnemyBaseLegacy

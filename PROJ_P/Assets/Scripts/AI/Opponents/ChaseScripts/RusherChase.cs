@@ -40,6 +40,15 @@ public class RusherChase : ChaseBase
             Stagger();
         }
     }
+
+    protected override void OperateHesitation()
+    {
+        base.OperateHesitation();
+        if (Vector3.Distance(owner.gameObject.transform.position, owner.player.gameObject.transform.position) <= hesitationDistance)
+        {
+            owner.ChangeState<FanaticHesitate>();
+        }
+    }
 }
 
 #region ChaseLegacy

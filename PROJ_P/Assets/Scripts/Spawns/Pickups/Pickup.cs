@@ -4,7 +4,6 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(BoxCollider))]
-[CreateAssetMenu(menuName = "Enemy/FatFoe")]
 public class Pickup : MonoBehaviour
 {
 
