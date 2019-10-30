@@ -36,7 +36,7 @@ public class PlayerAttack : Ability
     [Tooltip("Multiplies the player speed, 0-1 for slow effects")]
     [SerializeField] private float speedMultiplier;
 
-    public void OnEnable()
+    public virtual void OnEnable()
     {
         AbilityCatProp = abilityCat;
         damage = upgradeCosts[0].newDamage;

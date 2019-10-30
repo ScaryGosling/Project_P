@@ -63,6 +63,10 @@ public class CreateShopMenu : MonoBehaviour
                 abilityUpgrade.SetPotion(player.attackSet.potionList[i]);       
                 abilityUpgrade.SetTooltip(tooltipText);
                 abilityUpgrade.transform.parent = potionsContent.transform;
+                if (abilityUpgrade.GetPotion() is RepairKit)
+                {
+                    abilityUpgrade.SetMeleeHack((MeleeHack)Player.instance.attackSet.list[0]);
+                }
             }
         }
 

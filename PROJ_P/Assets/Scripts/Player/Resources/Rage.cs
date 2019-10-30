@@ -14,6 +14,7 @@ public class Rage : Resource
         if (activeAttack is MeleeHack)
         {
             IncreaseResource(rageGeneration);
+            ((MeleeHack)activeAttack).DecreaseDurability();
         }
     }
 

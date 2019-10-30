@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     [SerializeField] private bool debugMode;
 
     [Header("Attacks")]
-    private List<PlayerAttack> playerAttacks = new List<PlayerAttack>();
     public ClassAttackList attackSets = new ClassAttackList();
     public AttackSet attackSet { get; private set; }
     private PlayerAttack activeAttack;
@@ -43,6 +42,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private PlayerStats originalStats;
     [HideInInspector] public PlayerStats activeStats;
+    [SerializeField] private Text durabilityTextObject;
+
 
     [Serializable]
     public struct PlayerStats
@@ -86,6 +87,11 @@ public class Player : MonoBehaviour
 
     public Transform GetSpawnPoint() { return spawnPoint; }
 
+
+    public Text GetDurabilityText()
+    {
+        return durabilityTextObject;
+    }
    public void RunAttackCooldown()
     {
         for (int i = 0; i < activeAttacks.list.Length; i++)
@@ -192,6 +198,11 @@ public class Player : MonoBehaviour
         cooldowns = new Coroutine[attackUISpot.Length];
         ResetStats();
         health.color = fullHealth;
+
+        if (playerClass == PlayerClass.WARRIOR)
+        {
+            ((MeleeHack)activeAttacks.list[0]).SetDurabilityTextObject(durabilityTextObject);
+        }
 
     }
 

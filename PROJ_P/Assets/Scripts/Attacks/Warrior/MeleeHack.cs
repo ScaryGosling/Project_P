@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Attacks/Warrior/Hack")]
 public class MeleeHack : PlayerAttack
@@ -9,8 +10,15 @@ public class MeleeHack : PlayerAttack
     [SerializeField] private AnimationClip slash;
     private Animation animation;
     private Sword sword;
+ private Resource durability;
+    [SerializeField] private int durabilityDecrease = 1;
+    [SerializeField] private Text durabilityText;
 
-
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        durability = CreateInstance<Resource>();
+    }
     public override void Execute()
     {
         base.Execute();
@@ -35,13 +43,27 @@ public class MeleeHack : PlayerAttack
         animation.AddClip(slash, "Slash");
         sword.CacheComponents(damage, this);
     }
-
+    public void DecreaseDurability()
+    {
+        durability.DrainResource(durabilityDecrease);
+        durabilityText.text = (durability.Value * 100).ToString();
+    }
+    public void IncreaseDurability(float increase)
+    {
+        Debug.Log(increase);
+        durability.IncreaseResource(increase);
+        durabilityText.text = (durability.Value * 100).ToString();
+        Debug.Log(durability.Value);
+    }
     public void ResetSword()
     {
         sword.GetComponent<Collider>().enabled = false; 
     }
 
-
-
+    public void SetDurabilityTextObject(Text text)
+    {
+        durabilityText = text;
+        durabilityText.text = (durability.Value * 100).ToString();
+    }
 
 }

@@ -12,16 +12,17 @@ public class Resource : ScriptableObject
 
     public virtual void DrainResource(PlayerAttack activeAttack) {
 
-        resourceImage.fillAmount -= activeAttack.GetCastCost() / 100;
-        resourceImage.fillAmount = Mathf.Round(resourceImage.fillAmount * 100) / 100;
-        Value = resourceImage.fillAmount;
+        Value -= activeAttack.GetCastCost() / 100;
+        CorrectValue();
+        UpdateFillAmount();
 
     }
 
     public virtual void DrainResource(float amount)
     {
-        resourceImage.fillAmount -= amount / 100;
-        Value = resourceImage.fillAmount;
+        Value -= amount / 100;
+        CorrectValue();
+        UpdateFillAmount();
     }
 
     public virtual void CacheComponents(Image resourceImage)
@@ -38,8 +39,22 @@ public class Resource : ScriptableObject
 
     public virtual void IncreaseResource(float resource)
     {
+        Value += resource;
+        CorrectValue();
+        UpdateFillAmount();
+    }
 
-        resourceImage.fillAmount += resource;
-        resourceImage.fillAmount = Mathf.Round(resourceImage.fillAmount * 100) / 100;
+    private void UpdateFillAmount()
+    {
+        if (resourceImage != null)
+        {
+
+            resourceImage.fillAmount = Value;
+        }
+    }
+    private void CorrectValue()
+    {
+        Value = Mathf.Clamp(Value, 0, 1);
+        Value = Mathf.Round(Value * 100) / 100;
     }
 }
