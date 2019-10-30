@@ -7,7 +7,8 @@ public class Sword : MonoBehaviour
 
     private float damage;
     private PlayerAttack hack;
-
+    [SerializeField] private GameObject bloodSplatter;
+    private GameObject addedSplatter;
     public void CacheComponents(float damage, PlayerAttack hack)
     {
         this.damage = damage;
@@ -21,11 +22,18 @@ public class Sword : MonoBehaviour
         {
             Player.instance.Resource.DrainResource(hack);
             State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
-            if(state)
+            if (state)
+            {
                 state.TakeDamage(damage);
+                addedSplatter = Instantiate(bloodSplatter, other.transform.position, Quaternion.identity);
+                Timer timer = addedSplatter.AddComponent<Timer>();
+                timer.RunCountDown(4, PlaceboMethod);
+            }
 
         }
     }
+
+    public void PlaceboMethod() { }
 
 
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,7 +38,8 @@ public class CameraBehaviour : MonoBehaviour
             Renderer renderer = hit.collider.GetComponent<Renderer>();
             Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red, Time.deltaTime);
 
-            if (!hit.collider.CompareTag("Player") && hit.collider.GetComponent<Renderer>() && hit.collider.GetComponent<Renderer>().material.GetFloat(shaderAlpha) >= 1)
+
+            if (!hit.collider.CompareTag("Player") && hit.collider.GetComponent<Renderer>() && hit.collider.GetComponent<Renderer>().material.HasProperty(shaderAlpha) && hit.collider.GetComponent<Renderer>().material.GetFloat(shaderAlpha) >= 1)
             {
                 if (fadedObject != null)
                     StartCoroutine(FadeInObject(fadedObject.GetComponent<Renderer>()));
@@ -60,7 +62,8 @@ public class CameraBehaviour : MonoBehaviour
                 }
             }
 
-            
+
+
         }
     }
 
@@ -79,7 +82,6 @@ public class CameraBehaviour : MonoBehaviour
 
     public IEnumerator FadeInObject(Renderer renderer)
     {
-        
         float fadeTime = this.fadeTime;
         
         while (renderer.material.GetFloat(shaderAlpha) < 1)
