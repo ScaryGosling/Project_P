@@ -191,6 +191,10 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             clone = Instantiate(gameObject, GameObject.Find("Canvas").transform);
 
         }
+        else
+        {
+            clone = null;
+        }
 
     }
 
@@ -201,7 +205,10 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         tooltip.transform.position = new Vector2(transform.position.x, transform.position.y - rowToCameraRatio * (tooltipHeight /2 + hoverOffset)) ;
         tooltipText.text = abilityDescription;
     }
-
+    public GameObject GetClone()
+    {
+        return clone;
+    }
     public void OnPointerExit(PointerEventData eventData)
     {
         tooltip.SetActive(false);

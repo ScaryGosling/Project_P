@@ -25,7 +25,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, Input.mousePosition))
         {
             abilityUpgrade = eventData.pointerDrag.GetComponent<AbilityUpgrade>();
-            if (abilityUpgrade != null)
+            if (abilityUpgrade != null && abilityUpgrade.GetClone() != null)
             {
                 ability = abilityUpgrade.GetAbility();
                 eventData.pointerDrag.GetComponent<AbilityUpgrade>().GetAbilityCat();
