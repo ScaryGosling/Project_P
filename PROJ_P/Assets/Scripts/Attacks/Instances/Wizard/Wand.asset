@@ -33,8 +33,8 @@ MonoBehaviour:
   lockedAbility: 0
   particles: {fileID: 0}
   abilityCat: 1
-  slowTime: 0.5
-  speedMultiplier: 0.6
+  slowTime: 0.6
+  speedMultiplier: 0.5
   projectile: {fileID: 6750013541312212612, guid: 496018193e878472eaa24ee9549d5bd7,
     type: 3}
   force: 1500

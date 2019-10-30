@@ -143,7 +143,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   player: {fileID: 0}
-  attackRange: 2
+  attackRange: 2.3
   baseHeath: 5
   baseAttack: 1
   attackSpeed: 0.2

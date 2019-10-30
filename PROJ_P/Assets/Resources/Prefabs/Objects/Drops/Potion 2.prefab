@@ -106,5 +106,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resType: 3
-  fillAmount: 25
+  fillAmount: 10
   despawnTime: 10
