@@ -13,24 +13,23 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   abilityName: Lightning
-  abilityDescription: Electric Booglaoo! Shot a lightning bolt that stuns and chain
-    to nearby enemies!
+  abilityDescription: 'Drag and Drop! Shoot a lightning bolt that chains to enemies! '
   castCost: 7
   attackImage: {fileID: 21300000, guid: f71a6d253615e2541888194bd481124b, type: 3}
   cooldown: 2
   upgradeCosts:
-  - upgradeCost: 50
-    newDamage: 5
-  - upgradeCost: 10
-    newDamage: 7
-  - upgradeCost: 20
-    newDamage: 9
   - upgradeCost: 30
-    newDamage: 11
-  - upgradeCost: 40
-    newDamage: 13
+    newDamage: 5
   - upgradeCost: 50
+    newDamage: 10
+  - upgradeCost: 75
     newDamage: 15
+  - upgradeCost: 100
+    newDamage: 20
+  - upgradeCost: 150
+    newDamage: 25
+  - upgradeCost: 200
+    newDamage: 30
   lockedAbility: 1
   particles: {fileID: 0}
   abilityCat: 1

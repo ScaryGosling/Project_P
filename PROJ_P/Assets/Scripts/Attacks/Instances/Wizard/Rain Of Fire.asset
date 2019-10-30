@@ -16,11 +16,11 @@ MonoBehaviour:
   abilityDescription: No description available
   castCost: 10
   attackImage: {fileID: 0}
-  cooldown: 0
+  cooldown: 1
   upgradeCosts:
   - upgradeCost: 0
-    newDamage: 5
-  lockedAbility: 0
+    newDamage: 10
+  lockedAbility: 1
   particles: {fileID: 0}
   abilityCat: 1
   slowTime: 0
