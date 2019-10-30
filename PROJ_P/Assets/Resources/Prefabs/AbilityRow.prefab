@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.061721236, g: 0.6886792, b: 0.42534515, a: 1}
+  m_Color: {r: 1, g: 0.9854579, b: 0.19339621, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -473,3 +473,4 @@ MonoBehaviour:
   nextUpgradeCost: {fileID: 6332380967545629503}
   currentAbilityLevelText: {fileID: 593473580846696196}
   ability: {fileID: 0}
+  hoverOffset: 5
