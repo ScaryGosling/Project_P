@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MeleeHack
   m_EditorClassIdentifier: 
   abilityName: Basic Attack
-  abilityDescription: Swing your weapon!
+  abilityDescription: Swing your weapon! Click once to buy upgrade!
   castCost: 0
   attackImage: {fileID: 21300000, guid: 1dbc079c01a8549918885a6461d10dfd, type: 3}
   cooldown: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Blink
   m_EditorClassIdentifier: 
   abilityName: Blink
-  abilityDescription: Drag and Drop! Teleport a small distance!
+  abilityDescription: (Drag and Drop, click once to buy) Teleport a small distance!
   castCost: 5
   attackImage: {fileID: 21300000, guid: fdab0b38ecbc7a8449876ca3db5f059b, type: 3}
   cooldown: 5

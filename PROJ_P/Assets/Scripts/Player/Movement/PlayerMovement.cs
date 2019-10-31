@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rigidbody;
     private KeybindSet keybindSet;
     private float xMovement, zMovement;
+    [SerializeField]private Animator animator;
 
     public void Update()
     {
@@ -49,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * rotationSpeed);
         }
 
-
     }
 
 
@@ -75,6 +75,12 @@ public class PlayerMovement : MonoBehaviour
         input = new Vector3(xMovement, 0.0f, zMovement);
         rigidbody.velocity = new Vector3(0,0,0);
         agent.Move(input.normalized * Time.deltaTime * agent.speed * Player.instance.activeStats.movementSpeed);
+
+
+        animator.SetFloat("speed", Vector3.Dot(transform.forward, input.normalized));
+        animator.SetFloat("direction", Vector3.Dot(transform.right, input.normalized));
+
+
     }
 
 }

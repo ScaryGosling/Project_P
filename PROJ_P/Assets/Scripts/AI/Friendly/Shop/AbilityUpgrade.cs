@@ -200,10 +200,14 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        tooltip.SetActive(true);
-        rowToCameraRatio = Screen.height / referenceHeight;
-        tooltip.transform.position = new Vector2(transform.position.x, transform.position.y - rowToCameraRatio * (tooltipHeight /2 + hoverOffset)) ;
-        tooltipText.text = abilityDescription;
+        if(tooltip != null)
+        {
+            tooltip.SetActive(true);
+            rowToCameraRatio = Screen.height / referenceHeight;
+            tooltip.transform.position = new Vector2(transform.position.x, transform.position.y - rowToCameraRatio * (tooltipHeight / 2 + hoverOffset));
+            tooltipText.text = abilityDescription;
+        }
+        
     }
     public GameObject GetClone()
     {
@@ -211,6 +215,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        tooltip.SetActive(false);
+        if(tooltip != null)
+            tooltip.SetActive(false);
     }
 }

@@ -15,5 +15,5 @@ MonoBehaviour:
   abilityName: Repair Kit
   abilityDescription: Buy 10 durability points
   potionImage: {fileID: 0}
-  durabilityPointsToRestore: 10
+  durabilityPointsToRestore: 20
   potionCost: 20

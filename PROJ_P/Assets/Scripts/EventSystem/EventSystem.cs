@@ -10,18 +10,15 @@ public class EventSystem : MonoBehaviour
     public delegate void EventListener(EventInfo e);
     Dictionary<Type, List<EventHandler>> eventListeners;
 
-    static private EventSystem __Currrent;
-    static public EventSystem Current
+
+    public static EventSystem Current;
+
+    public void Awake()
     {
-        get
-        {
-            if (__Currrent == null)
-            {
-                __Currrent = GameObject.FindObjectOfType<EventSystem>();
-            }
-            return __Currrent;
-        }
+        Current = this;
     }
+
+
     public void RegisterListener<T>(Action<T> listener) where T : EventInfo
     {
         Type eventType = typeof(T);
