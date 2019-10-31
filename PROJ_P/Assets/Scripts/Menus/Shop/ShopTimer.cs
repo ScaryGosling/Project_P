@@ -16,7 +16,7 @@ public class ShopTimer : MonoBehaviour
     {
         if (genericTimer != null)
         {
-            timer.text = ((int)genericTimer.Countdown).ToString("00") + ":" + ((genericTimer.Countdown % 1) * 100).ToString("00");
+            timer.text = ((int)genericTimer.Countdown).ToString("00")/* + ":" + ((genericTimer.Countdown % 1) * 100).ToString("00")*/;
 
         }
         if (genericTimer.Countdown <= 0)

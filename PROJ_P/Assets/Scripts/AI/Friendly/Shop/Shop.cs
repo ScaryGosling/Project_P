@@ -9,6 +9,7 @@ public class Shop : StateMachine
     [SerializeField] private GameObject text;
     [SerializeField] private GameObject shopWindow;
     [SerializeField] private float shopTime = 40;
+    private float activeShopTime;
     [SerializeField] private int costOfPotion;
     private GameObject shopTimer;
     private ToggleArrowEvent toggleArrow = new ToggleArrowEvent();
@@ -16,7 +17,8 @@ public class Shop : StateMachine
     public Vector3 spawnPoint { get; private set; }
     [SerializeField] private float distanceFromPlayerToActivate = 10f;
     public float DistanceFromPlayerToActivate { get { return distanceFromPlayerToActivate; } private set { distanceFromPlayerToActivate = value; } }
-
+    private bool infiniteTimeUsed;
+    private float tutorialTime = 600;
     private void Start()
     {
         spawnPoint = transform.position;
@@ -25,8 +27,17 @@ public class Shop : StateMachine
     {
         spawnPoint = transform.position;
         ChangeState<ShopBaseState>();
+        if (infiniteTimeUsed == false)
+        {
+            activeShopTime = tutorialTime;
+            infiniteTimeUsed = true;
+        }
+        else
+        {
+            activeShopTime = shopTime; 
+        }
         shopTimer = new GameObject("Timer");
-        shopTimer.AddComponent<Timer>().RunCountDown(shopTime, RemoveShop, Timer.TimerType.DELAY);
+        shopTimer.AddComponent<Timer>().RunCountDown(activeShopTime, RemoveShop, Timer.TimerType.DELAY);
         timerText.gameObject.SetActive(true);
         timerText.GetComponent<ShopTimer>().SetTimer(shopTimer.GetComponent<Timer>());
         toggleArrow.goal = gameObject;
@@ -71,7 +82,7 @@ public class Shop : StateMachine
     }
     public float GetShopTime()
     {
-        return shopTime;
+        return activeShopTime;
     }
 
     public void RefillPotions()
