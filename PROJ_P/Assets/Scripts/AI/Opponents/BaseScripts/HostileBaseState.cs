@@ -52,7 +52,7 @@ public class HostileBaseState : State
         this.owner = (Unit)owner;
     }
 
-    public override void ToDo(){ }
+    public override void ToDo() { }
 
 
 }
@@ -61,11 +61,5 @@ public class HostileBaseState : State
 //     spreadAngle = Quaternion.AngleAxis(lightField.spotAngle, owner.agent.velocity);
 //// protected float lightAngle;
 // //private Quaternion spreadAngle;
-    //protected float DotMethod()
-    //{
-    //    heading = (owner.player.transform.position - owner.transform.position).normalized;
-    //    dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
-    //    return dotProduct;
-    //}
-    //private float dotProduct;
+//private float dotProduct;
 #endregion

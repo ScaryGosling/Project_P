@@ -46,7 +46,7 @@ public class AliveBase : HostileBaseState
 
     protected void CheckForDamage()
     {
-        if (distanceToPlayer < owner.getAttackRange && LineOfSight() && alive && !attacking)
+        if (distanceToPlayer < owner.getAttackRange && CapsuleCast() && alive && !attacking)
         {
             if (owner.getGenericTimer.TimeTask)
             {
@@ -76,12 +76,14 @@ public class AliveBase : HostileBaseState
 
     }
 
-    protected bool LineOfSight()
+    protected bool CapsuleCast()
     {
-        bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);
-        if (lineCast)
-            return false;
-        return true;
+        //bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);
+        bool capsuleCast = Physics.CapsuleCast(owner.agent.transform.position, owner.player.transform.position,
+            owner.capsuleCollider.radius, owner.gameObject.transform.forward);
+        if (capsuleCast)
+            return true;
+        return false;
     }
 
     public override void TakeDamage(float damage)
