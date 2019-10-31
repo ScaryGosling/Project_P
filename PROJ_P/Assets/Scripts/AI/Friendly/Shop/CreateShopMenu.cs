@@ -67,6 +67,7 @@ public class CreateShopMenu : MonoBehaviour
                 {
                     abilityUpgrade.SetMeleeHack((MeleeHack)Player.instance.attackSet.list[0]);
                 }
+                abilityUpgrade.transform.localScale = Vector3.one;
             }
         }
 
