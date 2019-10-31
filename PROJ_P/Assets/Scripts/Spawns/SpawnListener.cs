@@ -75,14 +75,11 @@ public class SpawnListener : MonoBehaviour
     private void CheckForDrop(Vector3 location)
     {
 
-        int temp = (int)Mathf.Floor(Random.Range(0, 1));
+        float temp = Random.Range(0f, 1f);
 
-        if(temp <= chanceOfDrop)
+        if(chanceOfDrop >= temp)
             Instantiate(pickUp[1], new Vector3(location.x, location.y, location.z), Quaternion.identity);
-        //if (temp <= chanceOfDrop)
-        //    Instantiate(pickUp[temp], new Vector3(location.x, location.y, location.z), Quaternion.identity);
-        //else if (temp > chanceOfDrop)
-        //    Instantiate(pickUp[temp], new Vector3(location.x, location.y, location.z), Quaternion.identity);
+
 
         Debug.Log("SpawnedPotion");
     }
