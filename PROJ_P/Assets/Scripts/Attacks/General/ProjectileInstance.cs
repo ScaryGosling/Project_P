@@ -64,6 +64,7 @@ public class ProjectileInstance : MonoBehaviour
            
             RunAttack(other);
             GetComponent<Renderer>().enabled = false;
+            GetComponent<Collider>().enabled = false;
             StartCoroutine(KillTimer(impactSound.length));
 
         }
