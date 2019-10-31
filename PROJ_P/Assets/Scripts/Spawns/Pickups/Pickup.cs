@@ -18,7 +18,7 @@ public class Pickup : MonoBehaviour
 
     protected virtual void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = Player.instance;
         colliderB = gameObject.GetComponent<BoxCollider>();
         colliderB.isTrigger = true;
     }

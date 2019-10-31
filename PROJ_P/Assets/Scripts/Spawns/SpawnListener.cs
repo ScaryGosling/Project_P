@@ -29,7 +29,7 @@ public class SpawnListener : MonoBehaviour
     private float bonusHealth = 0f;
     [SerializeField] private float healthPerLevel = 5f;
     public float HealthManagement { get { return bonusHealth; } }
-
+    public static SpawnListener instance;
     private float bonusDmg = 0f;
     [SerializeField] private float damagePerLevel = 0f;
     public float DamageManagenent { get { return bonusDmg; } }
@@ -56,7 +56,8 @@ public class SpawnListener : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = Player.instance;
+        instance = this;
         pauseTime = shopKeeper.GetComponent<Shop>().GetShopTime();
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
         Mathf.Clamp(expectedGrowth, 1, 3);
@@ -69,7 +70,7 @@ public class SpawnListener : MonoBehaviour
         unitsKilled += 1;
         player.GoldProp += goldPerKill;
         CheckForDrop(death.enemyObject.transform.position);
-        Debug.Log("UnitsKilled++");
+        //Debug.Log("UnitsKilled++");
     }
 
     private void CheckForDrop(Vector3 location)
@@ -81,7 +82,7 @@ public class SpawnListener : MonoBehaviour
             Instantiate(pickUp[1], new Vector3(location.x, location.y, location.z), Quaternion.identity);
 
 
-        Debug.Log("SpawnedPotion");
+        //Debug.Log("SpawnedPotion");
     }
 
     private void ResetWave()

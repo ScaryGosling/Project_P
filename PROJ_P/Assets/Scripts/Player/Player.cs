@@ -123,12 +123,12 @@ public class Player : MonoBehaviour
         switch (playerClass) {
 
             case PlayerClass.WIZARD:
-                Resource = new Mana();
+                Resource = ScriptableObject.CreateInstance<Mana>();
                 attackSet = attackSets.Get(PlayerClass.WIZARD);
                 break;
 
             case PlayerClass.WARRIOR:
-                Resource = new Rage();
+                Resource = ScriptableObject.CreateInstance<Rage>();
                 attackSet = attackSets.Get(PlayerClass.WARRIOR);
                 StartCoroutine(TapRage());
                 break;
@@ -174,7 +174,7 @@ public class Player : MonoBehaviour
         instance = this;
         SetupClass();
         attackSet = CloneAttackSet();
-        activeAttacks = new AttackSet();
+        activeAttacks = ScriptableObject.CreateInstance<AttackSet>();
         activeAttacks.list[0] = attackSet.list[0];
         if (debugMode)
         {

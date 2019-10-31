@@ -46,7 +46,7 @@ public class Unit : StateMachine
 
     private void Start()
     {
-        spawnListener = GameObject.FindGameObjectWithTag("Listeners").GetComponent<SpawnListener>();
+        spawnListener = SpawnListener.instance.GetComponent<SpawnListener>();
         genericTimer = GetComponent<GenericTimer>();
         rigidbody = gameObject.GetComponent<Rigidbody>();
         capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
@@ -59,7 +59,7 @@ public class Unit : StateMachine
     {
         renderer = GetComponent<MeshRenderer>();
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = Player.instance.gameObject;
         base.Awake();
     }
 

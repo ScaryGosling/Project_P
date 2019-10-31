@@ -13,7 +13,7 @@ public class Explosion : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = Player.instance.gameObject;
         Destroy(gameObject, explosionDuration);
     }
 
