@@ -15,5 +15,5 @@ MonoBehaviour:
   abilityName: Buy Mana
   abilityDescription: Gain 10 Mana Points
   potionImage: {fileID: 0}
-  manaPointsToRestore: 10
-  potionCost: 15
+  manaPointsToRestore: 20
+  potionCost: 20
