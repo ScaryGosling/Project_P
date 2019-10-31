@@ -40,7 +40,6 @@ public class AliveBase : HostileBaseState
                 death.enemyObject = owner.gameObject;
                 EventSystem.Current.FireEvent(death);
             }
-
             Die();
         }
     }
