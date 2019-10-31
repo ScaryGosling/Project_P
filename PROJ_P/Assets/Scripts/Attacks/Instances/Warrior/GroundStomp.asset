@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: GroundStomp
   m_EditorClassIdentifier: 
   abilityName: Ground Stomp
-  abilityDescription: Drag and Drop! Damage an push back enemies around you!
+  abilityDescription: (Drag and Drop, click once to buy) Damage an push back enemies
+    around you!
   castCost: 10
   attackImage: {fileID: 21300000, guid: 5dee3d5cf43d2da4b9e039cad4e871aa, type: 3}
   cooldown: 5
@@ -32,6 +33,7 @@ MonoBehaviour:
     newDamage: 50
   lockedAbility: 1
   particles: {fileID: 1601494591900918, guid: 61ee9554f7c3b03408fc8258477fddf5, type: 3}
+  sound: {fileID: 0}
   abilityCat: 2
   slowTime: 0
   speedMultiplier: 0
