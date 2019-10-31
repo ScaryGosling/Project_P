@@ -16,7 +16,7 @@ public class SpawnListener : MonoBehaviour
     #endregion
 
     private int currentType;
-    private const int maximumCapacity = 200;
+    [SerializeField] private int maximumCapacity = 200;
     private Player player;
     private float pauseTime = 10f;
     [SerializeField] private float spawnTime = 0.5f;
@@ -92,7 +92,7 @@ public class SpawnListener : MonoBehaviour
         waveCompleted = false;
         spawned = 0;
         unitsKilled = 0;
-        if(expected <= maximumCapacity)
+        if(expected < maximumCapacity)
         {
             expected = (int)Mathf.Floor(expected * expectedGrowth);
         }
