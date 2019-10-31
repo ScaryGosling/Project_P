@@ -34,18 +34,19 @@ public class Player : MonoBehaviour
     [SerializeField] private bool hover = false;
     private AttackSet activeAttacks;
     [SerializeField] private float healthPotionIncrease = 30;
-
+    [SerializeField] private Text healthPotionsText;
     public AudioSource Audio { get; private set; }
+    private int healthPotions;
     
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
     private float tempHP = 100f;
-    public int HealthPotions { get;  set; }
+
 
     [SerializeField] private PlayerStats originalStats;
     [HideInInspector] public PlayerStats activeStats;
     [SerializeField] private Text durabilityTextObject;
-
+    [SerializeField] [Range(0, 3)] private int healthPotionsStart = 3;
 
     [Serializable]
     public struct PlayerStats
@@ -72,6 +73,15 @@ public class Player : MonoBehaviour
         activeStats.attackDamage = originalStats.attackDamage;
     }
 
+    public int HealthPotions { 
+        get { return healthPotions; }
+        set
+        {
+            healthPotions = value;
+            healthPotionsText.text = healthPotions.ToString();
+        }
+    }
+
     public float HealthProp {
         get { return tempHP; }
         set {
@@ -89,6 +99,8 @@ public class Player : MonoBehaviour
             gold = value;
         }
     }
+
+
     
     public delegate void Attack();
     public  event Attack AttackEvent;
@@ -216,7 +228,7 @@ public class Player : MonoBehaviour
             durabilityTextObject.gameObject.SetActive(false);
         }
         Audio = GetComponent<AudioSource>();
-
+        HealthPotions = healthPotionsStart;
     }
 
     public void Update() {
@@ -295,13 +307,16 @@ public class Player : MonoBehaviour
         {
             PlayerDied();   
         }
+
     }
 
     private void UseHealthPotion()
     {
+        Debug.Log(HealthPotions);
         if (HealthPotions>0)
         {
             HealthProp = healthPotionIncrease;
+            HealthPotions--;
         }
     }
 
