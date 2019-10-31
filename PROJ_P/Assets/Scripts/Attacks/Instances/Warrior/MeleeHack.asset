@@ -32,7 +32,10 @@ MonoBehaviour:
     newDamage: 25
   lockedAbility: 0
   particles: {fileID: 0}
+  sound: {fileID: 8300000, guid: b24232bb56d4d3d4c8dd15da446cad68, type: 3}
   abilityCat: 1
   slowTime: 1
   speedMultiplier: 0.77
   slash: {fileID: 7400000, guid: dde732b3854ff43e8a66dab8b5e55b3b, type: 2}
+  durabilityDecrease: 1
+  durabilityText: {fileID: 0}

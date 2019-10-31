@@ -31,7 +31,8 @@ MonoBehaviour:
   - upgradeCost: 300
     newDamage: 5
   lockedAbility: 1
-  particles: {fileID: 0}
+  particles: {fileID: 1246638314895344, guid: fe91343b9a35bb14794086f1770004a3, type: 3}
+  sound: {fileID: 8300000, guid: cdb094d4cfd35cb4fb263130e1a5383a, type: 3}
   abilityCat: 3
   slowTime: 0
   speedMultiplier: 0

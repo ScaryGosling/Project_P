@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     private AttackSet activeAttacks;
     [SerializeField] private float healthPotionIncrease = 30;
 
+    public AudioSource Audio { get; private set; }
+    
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
     private float tempHP = 100f;
@@ -55,6 +57,12 @@ public class Player : MonoBehaviour
     }
 
     public KeybindSet GetKeybindSet() { return keybindSet; }
+
+    public void PlayAudio(AudioClip clip)
+    {
+        Audio.clip = clip;
+        Audio.Play();
+    }
 
     public void ResetStats()
     {
@@ -207,6 +215,7 @@ public class Player : MonoBehaviour
         {
             durabilityTextObject.gameObject.SetActive(false);
         }
+        Audio = GetComponent<AudioSource>();
 
     }
 

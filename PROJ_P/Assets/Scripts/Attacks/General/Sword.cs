@@ -7,10 +7,16 @@ public class Sword : MonoBehaviour
 
     private float damage;
     private PlayerAttack hack;
+    private AudioSource source;
+    [SerializeField] private AudioClip impactSound;
+
     public void CacheComponents(float damage, PlayerAttack hack)
     {
         this.damage = damage;
         this.hack = hack;
+        source = GetComponent<AudioSource>();
+        if (impactSound != null)
+            source.clip = impactSound;
     }
 
 
@@ -23,6 +29,10 @@ public class Sword : MonoBehaviour
             if (state)
             {
                 state.TakeDamage(damage);
+            }
+            if(impactSound != null)
+            {
+                source.Play();
             }
 
         }

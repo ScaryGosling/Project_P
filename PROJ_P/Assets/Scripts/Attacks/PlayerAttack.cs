@@ -19,6 +19,7 @@ public class PlayerAttack : Ability
 
     [Header("Effects")]
     [SerializeField] protected GameObject particles;
+    [SerializeField] protected AudioClip sound;
 
 
 
@@ -102,6 +103,13 @@ public class PlayerAttack : Ability
 
         if (!cooldownActive)
         {
+            if(Player.instance.Audio != null && sound != null)
+            {
+                Player.instance.PlayAudio(sound);
+
+            }
+            
+
             Player.instance.RunAttackCooldown();
             RunAttack();
             cooldownActive = true;
