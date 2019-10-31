@@ -108,3 +108,4 @@ MonoBehaviour:
   resType: 3
   fillAmount: 10
   despawnTime: 10
+  pickupSound: {fileID: 8300000, guid: 0936c2358eb648d4986465a467441b6d, type: 3}

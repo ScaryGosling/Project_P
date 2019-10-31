@@ -108,6 +108,7 @@ MonoBehaviour:
   resType: 0
   fillAmount: 0.3
   despawnTime: 10
+  pickupSound: {fileID: 8300000, guid: db110e427bc2b3d4398f464d577e162c, type: 3}
   materials:
   - {fileID: 2100000, guid: d7bc9e2d44d604d32afd94be043ef9be, type: 2}
   - {fileID: 2100000, guid: 281f95af74f57c940a75f9c5d75ffbf2, type: 2}
