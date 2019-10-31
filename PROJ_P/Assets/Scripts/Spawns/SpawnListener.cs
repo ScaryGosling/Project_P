@@ -48,7 +48,7 @@ public class SpawnListener : MonoBehaviour
     private bool waveCompleted;
     private GameObject ObjectSpawner;
 
-
+    private NewWaveEvent newWaveEvent = new NewWaveEvent();
     //private GameObject newPotion;
     private GameObject absoluteUnit;
 
@@ -120,11 +120,16 @@ public class SpawnListener : MonoBehaviour
                 return 0;
             }
             ResetWave();
+            UpdateWaveCounter();
             return timeAfterShopkeeperLeavesForEnemiesToSpawn;
         }
         return spawnTime / 2;
     }
-
+    private void UpdateWaveCounter()
+    {
+        newWaveEvent.waveIndex = waveIndex;
+        EventSystem.Current.FireEvent(newWaveEvent);
+    }
     private void UnitController()
     {
         CheckUnitType();
