@@ -22,6 +22,7 @@ MonoBehaviour:
     newDamage: 10
   lockedAbility: 1
   particles: {fileID: 0}
+  sound: {fileID: 8300000, guid: 16fc9336ed9f6be42887cec9584a9ca7, type: 3}
   abilityCat: 1
   slowTime: 0
   speedMultiplier: 0

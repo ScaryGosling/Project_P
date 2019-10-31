@@ -16,7 +16,7 @@ public class SpawnListener : MonoBehaviour
     #endregion
 
     private int currentType;
-    private const int maximumCapacity = 200;
+    [SerializeField] private int maximumCapacity = 200;
     private Player player;
     private float pauseTime = 10f;
     [SerializeField] private float spawnTime = 0.5f;
@@ -45,10 +45,11 @@ public class SpawnListener : MonoBehaviour
     [SerializeField] private float expectedGrowth = 1.20f;
     [SerializeField] private int goldPerKill = 10;
     [SerializeField] private int goldPerWave = 100;
+    [SerializeField] private int ItemAmount = 7;
     private bool waveCompleted;
     private GameObject ObjectSpawner;
 
-
+    private NewWaveEvent newWaveEvent = new NewWaveEvent();
     //private GameObject newPotion;
     private GameObject absoluteUnit;
 
@@ -91,7 +92,7 @@ public class SpawnListener : MonoBehaviour
         waveCompleted = false;
         spawned = 0;
         unitsKilled = 0;
-        if(expected <= maximumCapacity)
+        if(expected < maximumCapacity)
         {
             expected = (int)Mathf.Floor(expected * expectedGrowth);
         }
@@ -120,11 +121,16 @@ public class SpawnListener : MonoBehaviour
                 return 0;
             }
             ResetWave();
+            UpdateWaveCounter();
             return timeAfterShopkeeperLeavesForEnemiesToSpawn;
         }
         return spawnTime / 2;
     }
-
+    private void UpdateWaveCounter()
+    {
+        newWaveEvent.waveIndex = waveIndex;
+        EventSystem.Current.FireEvent(newWaveEvent);
+    }
     private void UnitController()
     {
         CheckUnitType();
@@ -182,7 +188,7 @@ public class SpawnListener : MonoBehaviour
                 if(ObjectSpawner == null)
                 {
                     ObjectSpawner =  Instantiate(ObjectSpawnerPrefab);
-                    ObjectSpawner.GetComponent<ObjectSpawner>().Amount = 4;
+                    ObjectSpawner.GetComponent<ObjectSpawner>().Amount = ItemAmount;
                     ObjectSpawner.GetComponent<ObjectSpawner>().item = global::ObjectSpawner.ObjectToSpawn.ManaPotion;
                     ObjectSpawner.GetComponent<ObjectSpawner>().PopulateList();
                 }

@@ -27,12 +27,24 @@ public class SceneHandler : MonoBehaviour
 
     public void GoToScene(string scene)
     {
+        StartCoroutine(DelaySceneChange(scene));
+    }
+
+    public IEnumerator DelaySceneChange(string scene)
+    {
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(scene);
+    }
+
+    public IEnumerator DelayQuit()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Application.Quit();
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        StartCoroutine(DelayQuit());
     }
 
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class ManaDrop : Pickup
 {
     [SerializeField] private Material[] materials;
+    [SerializeField]
     protected override void Start()
     {
         base.Start();
@@ -13,15 +14,28 @@ public class ManaDrop : Pickup
     }
     protected override void DoSomething()
     {
-        player.Resource.IncreaseResource(fillAmount);
+        if (player.GetComponent<Player>().playerClass == PlayerClass.WIZARD)
+        {
+            player.Resource.IncreaseResource(fillAmount);
+
+        }
+        else
+        {
+            ((MeleeHack)(player.attackSet.list[0])).IncreaseDurability(fillAmount);
+        }
         GameObject.Destroy(gameObject);
     }
 
     private void SetMaterials()
     {
         if (player.GetComponent<Player>().playerClass == PlayerClass.WIZARD)
+        {
             gameObject.GetComponent<MeshRenderer>().material = materials[0];
+        }
         else
+        {
             gameObject.GetComponent<MeshRenderer>().material = materials[1];
+        }
+
     }
 }

@@ -4,11 +4,21 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(AudioSource))]
 public class FireballInstance : MonoBehaviour
 {
     public float ExplosionRadius { get; set; }
     public float Damage { get; set; }
 
+    private AudioSource source;
+    [SerializeField] private AudioClip impactSound;
+
+    public void Start()
+    {
+        source = GetComponent<AudioSource>();
+        if (impactSound != null)
+            source.clip = impactSound;
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -19,6 +29,10 @@ public class FireballInstance : MonoBehaviour
     {
         GetComponent<Collider>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
+
+        if(impactSound != null)
+            source.Play();
+
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
 
         foreach(Collider col in hitColliders)
@@ -40,6 +54,13 @@ public class FireballInstance : MonoBehaviour
             transform.localScale += new Vector3(1, 1, 1);
             yield return null;
         }
+        StartCoroutine(KillTimer(impactSound.length));
+
+    }
+
+    public IEnumerator KillTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
         Destroy(gameObject);
 
     }

@@ -20,6 +20,11 @@ public class Berserk : PlayerAttack
         player = Player.instance;
     }
 
+    public override void Execute()
+    {
+        base.Execute();
+    }
+
     public override void RunAttack()
     {
         base.RunAttack();

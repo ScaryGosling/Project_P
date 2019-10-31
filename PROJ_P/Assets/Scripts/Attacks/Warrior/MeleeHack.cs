@@ -10,9 +10,11 @@ public class MeleeHack : PlayerAttack
     [SerializeField] private AnimationClip slash;
     private Animation animation;
     private Sword sword;
- private Resource durability;
+    private Resource durability;
     [SerializeField] private int durabilityDecrease = 1;
     [SerializeField] private Text durabilityText;
+    [SerializeField] [Range(0, 1)] [Tooltip ("Percentage of damage to be applied when durability is 0")] 
+    private float zeroDurabilityDamagePercentage = 0.2f;
 
     public override void OnEnable()
     {
@@ -21,8 +23,15 @@ public class MeleeHack : PlayerAttack
     }
     public override void Execute()
     {
+        if (durability.Value == 0)
+        {
+            sword.CacheComponents(damage * zeroDurabilityDamagePercentage, this);
+        }
+        else
+        {
+            sword.CacheComponents(damage, this);
+        }
         base.Execute();
-        
     }
 
     public override void RunAttack()
