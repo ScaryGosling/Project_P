@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Repair Kit
   abilityDescription: Buy 10 durability points
-  potionImage: {fileID: 0}
+  potionImage: {fileID: 21300000, guid: 9e1b7429a29992141ae5b1c41e489006, type: 3}
   durabilityPointsToRestore: 20
   potionCost: 20
