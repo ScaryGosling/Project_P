@@ -20,15 +20,15 @@ MonoBehaviour:
   upgradeCosts:
   - upgradeCost: 0
     newDamage: 7
-  - upgradeCost: 100
+  - upgradeCost: 50
     newDamage: 12
-  - upgradeCost: 200
+  - upgradeCost: 100
     newDamage: 15
-  - upgradeCost: 300
+  - upgradeCost: 150
     newDamage: 17
-  - upgradeCost: 400
+  - upgradeCost: 200
     newDamage: 20
-  - upgradeCost: 500
+  - upgradeCost: 250
     newDamage: 25
   lockedAbility: 0
   particles: {fileID: 0}
@@ -39,3 +39,4 @@ MonoBehaviour:
   slash: {fileID: 7400000, guid: dde732b3854ff43e8a66dab8b5e55b3b, type: 2}
   durabilityDecrease: 1
   durabilityText: {fileID: 0}
+  zeroDurabilityDamagePercentage: 0.2

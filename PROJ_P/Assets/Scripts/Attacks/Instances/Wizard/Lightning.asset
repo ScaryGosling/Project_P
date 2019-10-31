@@ -34,8 +34,8 @@ MonoBehaviour:
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: 9a53c2bd5c299304bba3db4affe497b7, type: 3}
   abilityCat: 1
-  slowTime: 0.5
-  speedMultiplier: 0.7
+  slowTime: 0.6
+  speedMultiplier: 0.6
   projectile: {fileID: 6750013541312212612, guid: 6072bc8c59af84b758be9f6c01ebf2a8,
     type: 3}
   force: 1500

@@ -34,8 +34,8 @@ MonoBehaviour:
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: 97781fe5a15bf0b499de6dfcd1746df4, type: 3}
   abilityCat: 1
-  slowTime: 0
-  speedMultiplier: 0
+  slowTime: 0.6
+  speedMultiplier: 0.6
   fireball: {fileID: 5490361096305928263, guid: 29667473f9fea7a4fb3d85b14a46241a,
     type: 3}
   spawnHeight: 10

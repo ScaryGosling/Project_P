@@ -34,8 +34,8 @@ MonoBehaviour:
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: bec29d40e937ab545af590f7e9755e67, type: 3}
   abilityCat: 2
-  slowTime: 0
-  speedMultiplier: 0
+  slowTime: 0.6
+  speedMultiplier: 0.6
   radius: 5
   height: 2
   duration: 6

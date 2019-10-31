@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Rain Of Fire
   abilityDescription: No description available
-  castCost: 10
+  castCost: 20
   attackImage: {fileID: 0}
   cooldown: 10
   upgradeCosts:
-  - upgradeCost: 0
+  - upgradeCost: 100
     newDamage: 10
   lockedAbility: 1
   particles: {fileID: 0}
