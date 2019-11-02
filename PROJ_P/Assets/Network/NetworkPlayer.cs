@@ -19,6 +19,7 @@ public class NetworkPlayer : MonoBehaviour
 
     public void SetNewTarget(Vector3 targetPosition)
     {
+        time = 0;
         startPosition = transform.position;
         TargetPosition = targetPosition;
     }
