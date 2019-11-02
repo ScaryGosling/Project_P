@@ -11,18 +11,19 @@ public class NetworkPlayer : MonoBehaviour
     private float timeToReachTarget = 0.5f, time;
     private Vector3 startPosition;
     private Quaternion startRotation;
+    private Vector3 lastFramePosition;
 
 
     public void Update()
     {
         time += Time.deltaTime / timeToReachTarget;
         transform.position = Vector3.Lerp(startPosition, TargetPosition, time);
-        try
-        {
-            transform.rotation = Quaternion.Lerp(startRotation, TargetRotation, time);
-        }
-        catch (Exception e) { }
-        animator.SetFloat("speed", time);
+
+        transform.rotation = Quaternion.Lerp(startRotation, TargetRotation, time);
+
+        float velocity = (transform.position - lastFramePosition).magnitude / Time.deltaTime;
+        animator.SetFloat("speed", velocity);
+        lastFramePosition = transform.position;
     }
 
     public void SetNewTarget(Vector3 targetPosition, Quaternion targetRotation, float timeToNextUpdate)

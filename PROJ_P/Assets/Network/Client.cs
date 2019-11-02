@@ -110,7 +110,6 @@ public class Client : MonoBehaviour, INetEventListener
     public void SetConnecteePosition(NetDataReader reader)
     {
         int player = reader.GetInt();
-        Debug.Log("Transform recieved from connectee: " + player);
 
         if (connectedPlayers[player] == null)
         {
@@ -126,7 +125,6 @@ public class Client : MonoBehaviour, INetEventListener
         float yRot = reader.GetFloat();
         float zRot = reader.GetFloat();
         float wRot = reader.GetFloat();
-        Debug.Log(xRot + ", " + yRot + ", " + zRot + ", " + wRot);
 
         connectedPlayers[player].GetComponent<NetworkPlayer>().SetNewTarget(new Vector3(xPos, yPos, zPos), new Quaternion(xRot, yRot, zRot, wRot), updateSpeed);
     }
