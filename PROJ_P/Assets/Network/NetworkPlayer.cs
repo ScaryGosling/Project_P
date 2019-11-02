@@ -21,8 +21,9 @@ public class NetworkPlayer : MonoBehaviour
 
         transform.rotation = Quaternion.Lerp(startRotation, TargetRotation, time);
 
-        float velocity = (transform.position - lastFramePosition).magnitude / Time.deltaTime;
-        animator.SetFloat("speed", velocity);
+        Vector3 input = (transform.position - lastFramePosition) / Time.deltaTime;
+        animator.SetFloat("speed", Vector3.Dot(transform.forward, input.normalized));
+        animator.SetFloat("direction", Vector3.Dot(transform.right, input.normalized));
         lastFramePosition = transform.position;
     }
 
