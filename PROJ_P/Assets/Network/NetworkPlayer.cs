@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NetworkPlayer : MonoBehaviour
 {
-
+    [SerializeField] private Animator animator;
     public Vector3 TargetPosition { get; set; }
     public Quaternion TargetRotation { get; set; }
     private float timeToReachTarget = 0.5f, time;
@@ -22,6 +22,7 @@ public class NetworkPlayer : MonoBehaviour
             transform.rotation = Quaternion.Lerp(startRotation, TargetRotation, time);
         }
         catch (Exception e) { }
+        animator.SetFloat("speed", time);
     }
 
     public void SetNewTarget(Vector3 targetPosition, Quaternion targetRotation, float timeToNextUpdate)

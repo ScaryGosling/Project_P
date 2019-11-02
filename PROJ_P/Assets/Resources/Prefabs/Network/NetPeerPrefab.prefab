@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa377770bc8d2d4381420e5ca5fb0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 4550936855297489900}
 --- !u!1001 &1502121974052191628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56,6 +57,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OwO@Idle
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 93e8ea4f87adbe9468aa876ddcf58757,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d77527d66acfffc41bbfcf6f41f4bb19, type: 2}
     - target: {fileID: -4216859302048453862, guid: 93e8ea4f87adbe9468aa876ddcf58757,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -131,6 +137,12 @@ PrefabInstance:
 --- !u!4 &5882315966119532182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 93e8ea4f87adbe9468aa876ddcf58757,
+    type: 3}
+  m_PrefabInstance: {fileID: 1502121974052191628}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4550936855297489900 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 93e8ea4f87adbe9468aa876ddcf58757,
     type: 3}
   m_PrefabInstance: {fileID: 1502121974052191628}
   m_PrefabAsset: {fileID: 0}
