@@ -126,7 +126,7 @@ public class Client : MonoBehaviour, INetEventListener
         float yRot = reader.GetFloat();
         float zRot = reader.GetFloat();
         float wRot = reader.GetFloat();
-        Debug.Log(xPos + ", " + yPos + ", " + zPos);
+        Debug.Log(xRot + ", " + yRot + ", " + zRot + ", " + wRot);
 
         connectedPlayers[player].GetComponent<NetworkPlayer>().SetNewTarget(new Vector3(xPos, yPos, zPos), new Quaternion(xRot, yRot, zRot, wRot), updateSpeed);
     }

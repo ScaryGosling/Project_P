@@ -16,6 +16,7 @@ public class NetworkPlayer : MonoBehaviour
     {
         time += Time.deltaTime / timeToReachTarget;
         transform.position = Vector3.Lerp(startPosition, TargetPosition, time);
+        transform.rotation = Quaternion.Lerp(startRotation, TargetRotation, time);
     }
 
     public void SetNewTarget(Vector3 targetPosition, Quaternion targetRotation, float timeToNextUpdate)
