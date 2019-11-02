@@ -128,8 +128,7 @@ public class Client : MonoBehaviour, INetEventListener
         float wRot = reader.GetFloat();
         Debug.Log(xPos + ", " + yPos + ", " + zPos);
 
-        connectedPlayers[player].GetComponent<NetworkPlayer>().SetNewTarget(new Vector3(xPos, yPos, zPos), updateSpeed);
-        connectedPlayers[player].transform.rotation = new Quaternion(xRot, yRot, zRot, wRot);
+        connectedPlayers[player].GetComponent<NetworkPlayer>().SetNewTarget(new Vector3(xPos, yPos, zPos), new Quaternion(xRot, yRot, zRot, wRot), updateSpeed);
     }
 
     public void OnPeerConnected(NetPeer peer)

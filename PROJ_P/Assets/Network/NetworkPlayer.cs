@@ -9,6 +9,7 @@ public class NetworkPlayer : MonoBehaviour
     public Quaternion TargetRotation { get; set; }
     private float timeToReachTarget = 0.5f, time;
     private Vector3 startPosition;
+    private Quaternion startRotation;
 
 
     public void Update()
@@ -17,11 +18,15 @@ public class NetworkPlayer : MonoBehaviour
         transform.position = Vector3.Lerp(startPosition, TargetPosition, time);
     }
 
-    public void SetNewTarget(Vector3 targetPosition, float timeToNextUpdate)
+    public void SetNewTarget(Vector3 targetPosition, Quaternion targetRotation, float timeToNextUpdate)
     {
         timeToReachTarget = timeToNextUpdate;
         time = 0;
+
         startPosition = transform.position;
         TargetPosition = targetPosition;
+
+        startRotation = transform.rotation;
+        TargetRotation = targetRotation;
     }
 }
