@@ -19,7 +19,7 @@ public class NetworkPlayer : MonoBehaviour
         time += Time.deltaTime / timeToReachTarget;
         transform.position = Vector3.Lerp(startPosition, TargetPosition, time);
 
-        transform.rotation = Quaternion.Lerp(startRotation, TargetRotation, time);
+        transform.eulerAngles = Vector3.Lerp(startRotation.eulerAngles, TargetRotation.eulerAngles, time);
 
         Vector3 input = (transform.position - lastFramePosition) / Time.deltaTime;
         animator.SetFloat("speed", Vector3.Dot(transform.forward, input.normalized));
