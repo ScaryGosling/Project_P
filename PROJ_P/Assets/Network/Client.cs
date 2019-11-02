@@ -16,6 +16,7 @@ public class Client : MonoBehaviour, INetEventListener
     private string connectionStatus = "Disconnected";
     private bool isHost;
     private int peerIndex;
+    private float updateSpeed = 0.1f;
 
     private NetManager netManager;
     private NetDataWriter writer;
@@ -61,7 +62,7 @@ public class Client : MonoBehaviour, INetEventListener
         while (true)
         {
             SendPosition();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(updateSpeed);
         }
     }
 
@@ -127,7 +128,7 @@ public class Client : MonoBehaviour, INetEventListener
         float wRot = reader.GetFloat();
         Debug.Log(xPos + ", " + yPos + ", " + zPos);
 
-        connectedPlayers[player].GetComponent<NetworkPlayer>().SetNewTarget(new Vector3(xPos, yPos, zPos));
+        connectedPlayers[player].GetComponent<NetworkPlayer>().SetNewTarget(new Vector3(xPos, yPos, zPos), updateSpeed);
         connectedPlayers[player].transform.rotation = new Quaternion(xRot, yRot, zRot, wRot);
     }
 

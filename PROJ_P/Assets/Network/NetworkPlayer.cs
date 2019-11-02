@@ -17,8 +17,9 @@ public class NetworkPlayer : MonoBehaviour
         transform.position = Vector3.Lerp(startPosition, TargetPosition, time);
     }
 
-    public void SetNewTarget(Vector3 targetPosition)
+    public void SetNewTarget(Vector3 targetPosition, float timeToNextUpdate)
     {
+        timeToReachTarget = timeToNextUpdate;
         time = 0;
         startPosition = transform.position;
         TargetPosition = targetPosition;
