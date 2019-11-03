@@ -16,7 +16,7 @@ public class Unit : StateMachine
     public Rigidbody rigidbody { get; set; }
     public LayerMask visionMask;
     public GameObject player;
-    private SpawnListener spawnListener;
+    private GameLoop spawnListener;
     [SerializeField] private float attackRange = 2.5f;
     public float getAttackRange { get { return attackRange; } }
 
@@ -46,7 +46,7 @@ public class Unit : StateMachine
 
     private void Start()
     {
-        spawnListener = SpawnListener.instance.GetComponent<SpawnListener>();
+        spawnListener = GameLoop.instance.GetComponent<GameLoop>();
         genericTimer = GetComponent<GenericTimer>();
         rigidbody = gameObject.GetComponent<Rigidbody>();
         capsuleCollider = gameObject.GetComponent<CapsuleCollider>();

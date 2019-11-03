@@ -10,7 +10,6 @@ public class BoomerDeath : DeathBase
 {
     [SerializeField] private float scaleFactor = 1.00001f;
     [SerializeField] private GameObject explosionPrefab;
-    [SerializeField] private GameObject WarningObject;
     private GameObject explosion;
 
     private const float animationTime = 1f;
@@ -22,13 +21,13 @@ public class BoomerDeath : DeathBase
     {
         base.EnterState();
         current = explosionDelay;
+        Explode();
         //WarningObject.SetActive(true);
     }
 
     public override void ToDo()
     {
         base.ToDo();
-        Explode();
     }
 
     protected override void DeathAnimation()
@@ -47,15 +46,7 @@ public class BoomerDeath : DeathBase
 
     protected void Explode()
     {
-        if (current >= 0f)
-        {
-            current -= Time.deltaTime;
-        }
-        else if (current <= 0f && explosion == null)
-        {
-            explosion = Instantiate(explosionPrefab, owner.transform.position, Quaternion.identity);
-            //WarningObject.SetActive(false);
-        }
+        explosion = Instantiate(explosionPrefab, owner.transform.position, Quaternion.Euler(-90f, 0f, 0f));
     }
 }
 

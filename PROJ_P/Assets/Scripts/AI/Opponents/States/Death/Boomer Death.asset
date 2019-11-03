@@ -17,9 +17,9 @@ MonoBehaviour:
   moveSpeed: 0
   scale: {x: 1.2, y: 1.2, z: 1.2}
   staggerCD: 0.5
+  bloodParticle: {fileID: 0}
   corpseTimer: 3
   scaleFactor: 1.0000005
-  explosionPrefab: {fileID: 2892760836617438288, guid: 4b112ae6c5847ec40a574f33813da51d,
+  explosionPrefab: {fileID: 867149244047798424, guid: c2af682c631d3984f908896b9f786d70,
     type: 3}
-  WarningObject: {fileID: 0}
   explosionDelay: 1

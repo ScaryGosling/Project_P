@@ -34,8 +34,8 @@ public class DeathBase : HostileBaseState
 
     protected void DisableUnit()
     {
-        owner.gameObject.transform.position = new Vector3(owner.gameObject.transform.position.x,
-            owner.gameObject.transform.position.y - owner.capsuleCollider.radius / 2, owner.transform.position.z);
+        //owner.gameObject.transform.position = new Vector3(owner.gameObject.transform.position.x,
+        //    owner.gameObject.transform.position.y - owner.capsuleCollider.radius / 2, owner.transform.position.z);
 
         owner.rigidbody.isKinematic = true;
 
