@@ -12,6 +12,7 @@ public class ShopIndicatorArrow : MonoBehaviour
     private Quaternion temp;
     private Vector3 arrowDirection;
     private float scaleFactor;
+    [SerializeField] private float arrowScaleDistance = 35;
     void Start()
     {
         mainCamera = Camera.main;
@@ -29,13 +30,13 @@ public class ShopIndicatorArrow : MonoBehaviour
             temp = Quaternion.Euler(90, temp.eulerAngles.y, temp.eulerAngles.z);
             arrow.transform.rotation = temp;
 
-            if (DistanceToGoal() > 10)
+            if (DistanceToGoal() > arrowScaleDistance)
             {
                 scaleFactor = 1;
             }
             else
             {
-                scaleFactor = DistanceToGoal() / 10;
+                scaleFactor = DistanceToGoal() / arrowScaleDistance;
             }
             arrow.transform.localScale = Vector3.one * scaleFactor;
         }
