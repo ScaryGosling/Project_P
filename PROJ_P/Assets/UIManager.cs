@@ -12,10 +12,10 @@ public class UIManager : MonoBehaviour
     public void Start()
     {
 
-        hotkeyTexts[0].text = keybindSet.GetBind(KeyFeature.BASE_ATTACK).ToString();
-        hotkeyTexts[1].text = keybindSet.GetBind(KeyFeature.ABILITY_1).ToString();
-        hotkeyTexts[2].text = keybindSet.GetBind(KeyFeature.ABILITY_2).ToString();
-        hotkeyTexts[3].text = keybindSet.GetBind(KeyFeature.ABILITY_3).ToString();
+        hotkeyTexts[0].text = keybindSet.GetBindString(KeyFeature.BASE_ATTACK);
+        hotkeyTexts[1].text = keybindSet.GetBindString(KeyFeature.ABILITY_1);
+        hotkeyTexts[2].text = keybindSet.GetBindString(KeyFeature.ABILITY_2);
+        hotkeyTexts[3].text = keybindSet.GetBindString(KeyFeature.ABILITY_3);
 
     }
 }

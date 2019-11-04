@@ -17,6 +17,25 @@ public class KeybindSet : ScriptableObject
             if (keybinds[i].GetFeature() == feature){
 
                 return keybinds[i].GetBind();
+            }
+        }
+
+        throw new System.Exception("Bind not found");
+    }
+
+    public string GetBindString(KeyFeature feature)
+    {
+        for (int i = 0; i < keybinds.Length; i++)
+        {
+            if (keybinds[i].GetFeature() == feature)
+            {
+
+                if (keybinds[i].GetBind().ToString().Contains("Alpha"))
+                {
+                    int startIndex = keybinds[i].GetBind().ToString().IndexOf("a") + 1;
+                    return keybinds[i].GetBind().ToString().Substring(startIndex);
+                }else
+                    return keybinds[i].GetBind().ToString();
 
             }
         }
