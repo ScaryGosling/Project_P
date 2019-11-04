@@ -96,7 +96,11 @@ public class Player : MonoBehaviour
         set
         {
             resourcePotions = value;
+            if (resourcePotionsText != null)
+            {
+
             resourcePotionsText.text = resourcePotions.ToString();
+            }
         }
     }
 
