@@ -11,6 +11,8 @@ using UnityEngine.AI;
 public class AliveBase : HostileBaseState
 {
     [SerializeField] private float staggerDuration = 1f;
+    [SerializeField] private float pushForce = 1.3f;
+    protected GameObject otherTimer;
     public override void EnterState()
     {
         base.EnterState();
@@ -71,8 +73,14 @@ public class AliveBase : HostileBaseState
 
     protected virtual void Stagger()
     {
-        GameObject timer = new GameObject();
-        timer.AddComponent<Timer>().RunCountDown(staggerDuration, StandStill, Timer.TimerType.WHILE);
+        otherTimer = new GameObject();
+        if (controlBehaviors == Behaviors.STAGGER)
+            otherTimer.AddComponent<Timer>().RunCountDown(staggerDuration, StandStill, Timer.TimerType.WHILE);
+        else if (controlBehaviors == Behaviors.KNOCKBACK)
+        {
+            owner.agent.ResetPath();
+            otherTimer.AddComponent<Timer>().RunCountDown(0.5f, MoveBack, Timer.TimerType.WHILE);
+        }
 
     }
 
@@ -96,8 +104,19 @@ public class AliveBase : HostileBaseState
 
     private void StandStill()
     {
-        if(owner.agent.enabled)
-        owner.agent.SetDestination(owner.gameObject.transform.position);
+        if (owner.agent.enabled)
+            owner.agent.SetDestination(owner.gameObject.transform.position);
+    }
+
+    private void MoveBack()
+    {
+        if (owner.agent.enabled)
+        {
+            owner.agent.isStopped = true;
+            owner.rigidbody.AddRelativeForce(new Vector3(0, 0, -1) * pushForce, ForceMode.Impulse);
+            owner.agent.isStopped = false;
+            Debug.Log("MovesBack");
+        }
     }
 
     private void PlaceboMethod() { }
@@ -113,4 +132,14 @@ public class AliveBase : HostileBaseState
 //    dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
 //    return dotProduct;
 //}
+//owner.agent.enabled = false;
+//owner.rigidbody.isKinematic = true;
+//owner.agent.transform.LookAt(owner.player.transform.position);
+//Vector3 direction = owner.player.transform.position - owner.agent.transform.position;
+//Vector3 newPosition = direction.normalized * force;
+//owner.agent.SetDestination((owner.agent.transform.forward.normalized * -1));
+//owner.agent.velocity = direction * force * Time.deltaTime;
+//timer.AddComponent<Timer>().RunCountDown(1f, StandStill, Timer.TimerType.DELAY);
+
+// MoveBack
 #endregion
