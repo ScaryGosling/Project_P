@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34519648071f58e48aeb78527d7ae9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyAfter: 1
+  destroyAfter: 0.1
   damage: 25
-  animSpeed: 2
+  animSpeed: 4
   explosionRadius: 2
