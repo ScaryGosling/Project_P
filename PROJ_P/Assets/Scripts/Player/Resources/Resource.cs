@@ -21,7 +21,7 @@ public class Resource : ScriptableObject
     public virtual void DrainResource(float amount)
     {
         Value -= amount / 100;
-        Value = Mathf.Clamp(Value, 0, 1);
+        CorrectValue();
         UpdateFillAmount();
     }
 

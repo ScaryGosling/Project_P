@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52049404d9b47f4aa4e3ca0258aa797, type: 3}
   m_Name: Mana Potion To Carry
   m_EditorClassIdentifier: 
-  abilityName: 
-  abilityDescription: Mana Potion
-  potionImage: {fileID: 0}
+  abilityName: Mana Potion
+  abilityDescription: 
+  potionImage: {fileID: 21300000, guid: 38b45ea9f4642004bbe0e46040ff8048, type: 3}
   maxResourcePotion: 3
-  potionCost: 0
+  potionCost: 40

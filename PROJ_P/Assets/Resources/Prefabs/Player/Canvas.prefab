@@ -651,6 +651,7 @@ GameObject:
   - component: {fileID: 472008378193083369}
   - component: {fileID: 3792086786929166439}
   - component: {fileID: 430192630856745230}
+  - component: {fileID: 4482927791298686884}
   m_Layer: 5
   m_Name: ResourcePotions
   m_TagString: Untagged
@@ -714,6 +715,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4482927791298686884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209128075645204789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5037c8f973fa0044c84afdc035b16f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaPotion: {fileID: 21300000, guid: 38b45ea9f4642004bbe0e46040ff8048, type: 3}
+  repairKit: {fileID: 21300000, guid: 9e1b7429a29992141ae5b1c41e489006, type: 3}
 --- !u!1 &1389199798682570375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,6 +1963,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4738550533923403046}
     m_Modifications:
+    - target: {fileID: 6394702070322826391, guid: e57f83233fc38c741bb76c82853a13b6,
+        type: 3}
+      propertyPath: m_Name
+      value: WaveCounter
+      objectReference: {fileID: 0}
     - target: {fileID: 4372162258229856881, guid: e57f83233fc38c741bb76c82853a13b6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2052,11 +2072,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6394702070322826391, guid: e57f83233fc38c741bb76c82853a13b6,
-        type: 3}
-      propertyPath: m_Name
-      value: WaveCounter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e57f83233fc38c741bb76c82853a13b6, type: 3}

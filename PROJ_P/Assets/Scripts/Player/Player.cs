@@ -32,26 +32,33 @@ public class Player : MonoBehaviour
     [SerializeField] private Image resourceImage;
     [SerializeField] private int gold;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private bool hover = false;
     private AttackSet activeAttacks;
-    [SerializeField] private float healthPotionIncrease = 30;
-    [SerializeField] private Text healthPotionsText;
-    [SerializeField] private Text resourcePotionsText;
     public AudioSource Audio { get; private set; }
     [SerializeField] private AudioClip[] hurtClip;
     [SerializeField] private AudioClip lackResourceClip;
+
+    [Header("Resources")]
     private int healthPotions;
     private int resourcePotions;
+    [SerializeField] private float healthPotionIncrease = 30;
+    [SerializeField] [Range(0, 3)] private int healthPotionsStart = 3;
+    [SerializeField] private Text healthPotionsText;
+    [SerializeField] private Text resourcePotionsText;
+    [SerializeField] [Range(0, 3)] private int resourcePotionsStart = 3;
     
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
     private float tempHP = 100f;
+    [SerializeField] private bool hover = false;
 
 
     [SerializeField] private PlayerStats originalStats;
     [HideInInspector] public PlayerStats activeStats;
     [SerializeField] private Text durabilityTextObject;
-    [SerializeField] [Range(0, 3)] private int healthPotionsStart = 3;
+
+
+
+
 
     [Serializable]
     public struct PlayerStats
@@ -98,8 +105,7 @@ public class Player : MonoBehaviour
             resourcePotions = value;
             if (resourcePotionsText != null)
             {
-
-            resourcePotionsText.text = resourcePotions.ToString();
+                resourcePotionsText.text = resourcePotions.ToString();
             }
         }
     }
@@ -258,6 +264,7 @@ public class Player : MonoBehaviour
         }
         Audio = GetComponent<AudioSource>();
         HealthPotions = healthPotionsStart;
+        ResourcePotionsProp = resourcePotionsStart;
     }
 
     public void Update() {
@@ -331,6 +338,10 @@ public class Player : MonoBehaviour
         {
             UseHealthPotion();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            UseResourcePotion();
+        }
 
         if(tempHP <= 0)
         {
@@ -341,12 +352,27 @@ public class Player : MonoBehaviour
 
     private void UseHealthPotion()
     {
-        Debug.Log(HealthPotions);
         if (HealthPotions>0)
         {
             HealthProp = healthPotionIncrease;
             HealthPotions--;
         }
+    }
+    private void UseResourcePotion()
+    {
+        if (ResourcePotionsProp > 0)
+        {
+            ResourcePotionsProp--;
+            if (playerClass == PlayerClass.WIZARD)
+            {
+                Resource.IncreaseResource(healthPotionIncrease / 100);
+            }
+            else
+            {
+                ((MeleeHack)activeAttacks.list[0]).IncreaseDurability(5 /100.0f);
+            }
+        }
+
     }
 
     private void PlayerDied()
@@ -395,11 +421,7 @@ public class Player : MonoBehaviour
 
     public void SetAbility(int position, PlayerAttack ability)
     {
-        if (position == selectedAttack)
-        {
-            SelectAttack(0);
-        }
-        activeAttacks.list[position] = ability;
+
         if (ability == null)
         {
 
@@ -409,10 +431,13 @@ public class Player : MonoBehaviour
         {
 
             attackUISpot[position].color = new Color32(0, 0, 0, 100);
-
-            SelectAttack(position);
+            SelectAttack(selectedAttack);
         }
-
+        if (position == selectedAttack)
+        {
+            SelectAttack(0);
+        }
+        activeAttacks.list[position] = ability;
     }
 
     public void ExecuteAttack() {
@@ -442,9 +467,8 @@ public class Player : MonoBehaviour
         AttackEvent += activeAttack.Execute;
 
     }
-    
 
-    public void SelectAttack(int selectedAttack)
+    private void UpdateIcons()
     {
 
         for (int i = 0; i < attackUISpot.Length; i++)
@@ -458,7 +482,13 @@ public class Player : MonoBehaviour
                 attackUISpot[i].color = new Color32(0, 0, 0, 0);
             }
         }
-       
+    }
+    
+
+    public void SelectAttack(int selectedAttack)
+    {
+
+        UpdateIcons();
 
         if (activeAttacks.list[selectedAttack]) {
 

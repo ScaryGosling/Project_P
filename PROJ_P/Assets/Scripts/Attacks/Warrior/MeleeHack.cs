@@ -55,14 +55,12 @@ public class MeleeHack : PlayerAttack
     public void DecreaseDurability()
     {
         durability.DrainResource(durabilityDecrease);
-        durabilityText.text = ((int)(durability.Value * 100)).ToString();
+        durabilityText.text = ((durability.Value * 100)).ToString();
     }
     public void IncreaseDurability(float increase)
     {
-        Debug.Log(increase);
         durability.IncreaseResource(increase);
-        durabilityText.text = ((int)(durability.Value * 100)).ToString();
-        Debug.Log(durability.Value);
+        durabilityText.text = ((durability.Value * 100)).ToString();
     }
     public void ResetSword()
     {
