@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float healthPotionIncrease = 30;
     [SerializeField] private Text healthPotionsText;
     public AudioSource Audio { get; private set; }
+    [SerializeField] private AudioClip[] hurtClip;
     private int healthPotions;
     
     public Resource Resource { get; private set; }
@@ -87,8 +89,15 @@ public class Player : MonoBehaviour
         set {
             tempHP += value * activeStats.resistanceMultiplier;
             health.fillAmount = tempHP * 0.01f;
-            if(health.fillAmount < colorTransitionPoint)
+
+            if (health.fillAmount < colorTransitionPoint)
                 health.color = Color.Lerp(emptyHealth, fullHealth, health.fillAmount /colorTransitionPoint);
+
+            if (value < 0 && hurtClip != null)
+            {
+                Audio.clip = hurtClip[Random.Range(0, hurtClip.Length)];
+                Audio.Play();
+            }
         }
     }
     public int GoldProp
