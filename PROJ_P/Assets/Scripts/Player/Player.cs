@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Text healthPotionsText;
     public AudioSource Audio { get; private set; }
     [SerializeField] private AudioClip[] hurtClip;
+    [SerializeField] private AudioClip lackResourceClip;
     private int healthPotions;
     
     public Resource Resource { get; private set; }
@@ -331,7 +332,7 @@ public class Player : MonoBehaviour
 
     private void PlayerDied()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneHandler.instance.GoToScene(SceneManager.GetActiveScene().name);
     }
 
     Image[] attack = new Image[4];
@@ -375,6 +376,10 @@ public class Player : MonoBehaviour
 
     public void SetAbility(int position, PlayerAttack ability)
     {
+        if (position == selectedAttack)
+        {
+            SelectAttack(0);
+        }
         activeAttacks.list[position] = ability;
         if (ability == null)
         {
@@ -388,11 +393,7 @@ public class Player : MonoBehaviour
 
             SelectAttack(position);
         }
-        if (position == selectedAttack)
-        {
 
-            SelectAttack(0);
-        }
     }
 
     public void ExecuteAttack() {
@@ -400,6 +401,11 @@ public class Player : MonoBehaviour
         {
             AttackEvent();
 
+        }
+        else
+        {
+            Audio.clip = lackResourceClip;
+            Audio.Play();
         }
     }
 

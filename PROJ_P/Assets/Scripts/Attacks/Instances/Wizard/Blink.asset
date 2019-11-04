@@ -33,6 +33,7 @@ MonoBehaviour:
   lockedAbility: 1
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: c1e011e07aaa01b45b61e60b97486462, type: 3}
+  cooldownClip: {fileID: 8300000, guid: eec99f64c3cf49640b9ccb32e2e46471, type: 3}
   abilityCat: 3
   slowTime: 0
   speedMultiplier: 0

@@ -8,6 +8,9 @@ public class SceneHandler : MonoBehaviour
     public string mainMenu;
     public static SceneHandler sceneHandler;
     public KeybindSet keybindSet;
+
+    public static SceneHandler instance;
+
     public void ActivateWarrior()
     {
         keybindSet.playerClass = PlayerClass.WARRIOR;
@@ -15,6 +18,11 @@ public class SceneHandler : MonoBehaviour
     public void ActivateWizard()
     {
         keybindSet.playerClass = PlayerClass.WIZARD;
+    }
+
+    public void Awake()
+    {
+        instance = this;
     }
 
     public void Update()

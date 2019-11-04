@@ -20,6 +20,7 @@ public class PlayerAttack : Ability
     [Header("Effects")]
     [SerializeField] protected GameObject particles;
     [SerializeField] protected AudioClip sound;
+    [SerializeField] protected AudioClip cooldownClip;
 
 
 
