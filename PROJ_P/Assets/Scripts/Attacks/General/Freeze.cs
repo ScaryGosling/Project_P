@@ -8,16 +8,7 @@ public class Freeze : MonoBehaviour
     public float Timer { get; set; }
     private List<NavMeshAgent> stoppedAgents = new List<NavMeshAgent>();
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Enemy")) {
 
-    //        if (active)
-    //            other.GetComponent<NavMeshAgent>().isStopped = true;
-    //        else
-    //            other.GetComponent<NavMeshAgent>().isStopped = false;
-    //    }
-    //}
 
     public void OnTriggerEnter(Collider other)
     {
