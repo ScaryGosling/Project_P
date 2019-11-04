@@ -158,11 +158,11 @@ public class GameLoop : MonoBehaviour
         }
         else if (waveIndex % 3 == 0 && spawned % 5 == 0)
         {
-            currentType = 2;
+            currentType = 0;
         }
         else
         {
-            currentType = 0;
+            currentType = 2;
         }
     }
 

@@ -53,13 +53,13 @@ public class Unit : StateMachine
         ui = GetComponentInChildren<HostileUI>();
         ImprovePower();
         InitialHealth = Health;
+        player = Player.instance.gameObject;
     }
     // Methods
     protected override void Awake()
     {
         renderer = GetComponent<MeshRenderer>();
         agent = GetComponent<NavMeshAgent>();
-        player = Player.instance.gameObject;
         base.Awake();
     }
 
