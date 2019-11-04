@@ -36,10 +36,12 @@ public class Player : MonoBehaviour
     private AttackSet activeAttacks;
     [SerializeField] private float healthPotionIncrease = 30;
     [SerializeField] private Text healthPotionsText;
+    [SerializeField] private Text resourcePotionsText;
     public AudioSource Audio { get; private set; }
     [SerializeField] private AudioClip[] hurtClip;
     [SerializeField] private AudioClip lackResourceClip;
     private int healthPotions;
+    private int resourcePotions;
     
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
@@ -82,6 +84,19 @@ public class Player : MonoBehaviour
         {
             healthPotions = value;
             healthPotionsText.text = healthPotions.ToString();
+        }
+    }
+
+    public int ResourcePotionsProp
+    {
+        get
+        {
+            return resourcePotions;
+        }
+        set
+        {
+            resourcePotions = value;
+            resourcePotionsText.text = resourcePotions.ToString();
         }
     }
 
