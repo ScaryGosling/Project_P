@@ -15,16 +15,7 @@ public class IceNova : PlayerAttack
     public override void RunAttack()
     {
         base.RunAttack();
-
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Terrain.activeTerrain.GetComponent<TerrainCollider>().Raycast(ray, out hit, 50))
-        {
-
-            GenerateIceNova(hit.point);
-            
-        }
+        GenerateIceNova(Player.instance.transform.position);
     }
 
 

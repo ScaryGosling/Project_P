@@ -6,16 +6,26 @@ using UnityEngine.AI;
 public class Freeze : MonoBehaviour
 {
     public float Timer { get; set; }
-    private bool active = true;
+    private List<NavMeshAgent> stoppedAgents = new List<NavMeshAgent>();
 
-    private void OnTriggerStay(Collider other)
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Enemy")) {
+
+    //        if (active)
+    //            other.GetComponent<NavMeshAgent>().isStopped = true;
+    //        else
+    //            other.GetComponent<NavMeshAgent>().isStopped = false;
+    //    }
+    //}
+
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy")) {
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<NavMeshAgent>().isStopped = true;
+            stoppedAgents.Add(other.GetComponent<NavMeshAgent>());
 
-            if (active)
-                other.GetComponent<NavMeshAgent>().isStopped = true;
-            else
-                other.GetComponent<NavMeshAgent>().isStopped = false;
         }
     }
 
@@ -30,7 +40,7 @@ public class Freeze : MonoBehaviour
 
         }
 
-        active = false;
+        stoppedAgents.ForEach(agent => agent.isStopped = false);
         yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
 
