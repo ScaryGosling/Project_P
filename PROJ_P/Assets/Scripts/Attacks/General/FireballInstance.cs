@@ -39,7 +39,6 @@ public class FireballInstance : MonoBehaviour
         {
             if (col.CompareTag("Enemy"))
             {
-                Debug.Log(col.gameObject.name);
                 col.GetComponent<Unit>().currentState.TakeDamage(Damage);
             }
         }

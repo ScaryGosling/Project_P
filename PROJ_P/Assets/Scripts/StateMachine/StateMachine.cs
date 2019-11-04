@@ -31,7 +31,7 @@ public class StateMachine : MonoBehaviour
         currentState = stateDictionary[typeof(T)];
         currentState.EnterState();
     }
-    private void Update()
+    protected virtual void Update()
     {
         currentState.ToDo();
     }

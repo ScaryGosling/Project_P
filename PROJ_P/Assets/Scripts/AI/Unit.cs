@@ -19,6 +19,7 @@ public class Unit : StateMachine
     private GameLoop spawnListener;
     [SerializeField] private float attackRange = 2.5f;
     public float getAttackRange { get { return attackRange; } }
+    [SerializeField] private Animator animator;
 
     #region EnemyStats
     [SerializeField] private float baseHeath = 20f;
@@ -67,6 +68,16 @@ public class Unit : StateMachine
     {
         baseHeath += spawnListener.HealthManagement;
         baseAttack += spawnListener.DamageManagenent;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (animator != null)
+        {
+            animator.SetFloat("speed", Vector3.Dot(transform.forward, agent.velocity.normalized));
+            animator.SetFloat("direction", Vector3.Dot(transform.right, agent.velocity.normalized));
+        }
     }
 }
 #region UnitLegacy
