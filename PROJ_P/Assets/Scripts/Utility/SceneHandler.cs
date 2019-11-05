@@ -8,6 +8,7 @@ public class SceneHandler : MonoBehaviour
     public string mainMenu;
     public static SceneHandler sceneHandler;
     public KeybindSet keybindSet;
+    [SerializeField] private GameObject shopWindow;
 
     public static SceneHandler instance;
 
@@ -29,7 +30,10 @@ public class SceneHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GoToScene(mainMenu);
+            if (shopWindow && shopWindow.activeSelf)
+                shopWindow.SetActive(false);
+            else
+                GoToScene(mainMenu);
         }
     }
 
