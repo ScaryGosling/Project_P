@@ -11,21 +11,19 @@ using UnityEngine.AI;
 public class AliveBase : HostileBaseState
 {
     [SerializeField] private float staggerDuration = 1f;
-    private float force = 1.5f;
+    [SerializeField] private float force = 4f;
     //[SerializeField] private float pushMultiplier1 = 1.1f;
     //[SerializeField] private float pushMultiplier2 = 1.3f;
     //[SerializeField] private float pushMultiplier3 = 3f;
-    [SerializeField] private float knockBackDuration = 0.5f;
-    private float knockBackBase;
-    private float baseMultiplier;
+    [SerializeField] private float BaseKnockBackDuration = 2f;
+    private float knockStartValue;
     float weightDiff;
-    [SerializeField] float extraForce = 0.5f;
     protected GameObject otherTimer;
     public override void EnterState()
     {
         base.EnterState();
         Mathf.Clamp(force, 1, 5);
-        knockBackBase = knockBackDuration;
+        knockStartValue = BaseKnockBackDuration;
     }
 
 
@@ -91,8 +89,8 @@ public class AliveBase : HostileBaseState
         }
         else
         {
-            //ManageKnockBack(magnitude);
-            otherTimer.AddComponent<Timer>().RunCountDown(knockBackDuration, MoveBack, Timer.TimerType.WHILE);
+            ManageKnockBack(magnitude);
+            otherTimer.AddComponent<Timer>().RunCountDown(BaseKnockBackDuration, MoveBack, Timer.TimerType.WHILE);
         }
 
     }
@@ -103,17 +101,17 @@ public class AliveBase : HostileBaseState
         
         if (weightDiff < 10)
         {
-            knockBackDuration = knockBackDuration * 1.2f;
+            BaseKnockBackDuration = BaseKnockBackDuration * 1.2f;
             Debug.Log("P1");
         }
         else if (weightDiff > 10 && weightDiff < 15)
         {
-            knockBackDuration = knockBackDuration * 1.5f;
+            BaseKnockBackDuration = BaseKnockBackDuration * 1.5f;
             Debug.Log("P2");
         }
         else
         {
-            knockBackDuration = knockBackDuration * 2; 
+            BaseKnockBackDuration = BaseKnockBackDuration * 2; 
             Debug.Log("P3");
         }
     }
@@ -147,7 +145,7 @@ public class AliveBase : HostileBaseState
         {
             owner.agent.isStopped = true;
             owner.rigidbody.AddRelativeForce(new Vector3(0, 0, -1) * force, ForceMode.Impulse);
-            knockBackDuration = knockBackBase;
+            BaseKnockBackDuration = knockStartValue;
             owner.agent.isStopped = false;
             Debug.Log("MovesBack");
         }

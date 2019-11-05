@@ -150,7 +150,7 @@ MonoBehaviour:
   baseAttack: 10
   attackSpeed: 0.5
   goldPerHit: 3
-  weight: 50
+  weight: 90
 --- !u!114 &-4164408291272996986
 MonoBehaviour:
   m_ObjectHideFlags: 0
