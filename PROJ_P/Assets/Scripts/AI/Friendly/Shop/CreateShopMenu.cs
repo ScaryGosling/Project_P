@@ -15,6 +15,7 @@ public class CreateShopMenu : MonoBehaviour
     [SerializeField] private GameObject utilitiesContent; 
     [SerializeField] private GameObject potionsContent;
     [SerializeField] private Text tooltipText;
+    [SerializeField] private AudioSource audioSource;
 
     private void OnEnable()
     {

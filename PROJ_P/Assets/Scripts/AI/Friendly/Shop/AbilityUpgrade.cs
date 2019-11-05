@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler, IEndDragHandler, IBeginDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image abilityImage;
@@ -22,6 +23,13 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     private float rowToCameraRatio;
     private float tooltipHeight;
     private static readonly float referenceHeight = 600;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip grabSound;
+    [SerializeField] private AudioClip releaseSound;
+    [SerializeField] private AudioClip upgradeSound;
+    [SerializeField] private AudioClip unlockSound;
 
 
     private void OnDisable()
@@ -149,6 +157,14 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             {
                 if (Player.instance.GoldProp >= nextLevelCost)
                 {
+                    if (ability.IsLocked()) {
+                        audioSource.clip = unlockSound;
+                    }
+                    else
+                    {
+                        audioSource.clip = upgradeSound;
+                    }
+                    audioSource.Play();
                     ability.UpgradeAttack();
                     Player.instance.GoldProp -= nextLevelCost;
                 }
@@ -159,6 +175,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             nextLevelCost = potion.GetPotionCost();
             if (Player.instance.GoldProp >= nextLevelCost)
             {
+                audioSource.clip = unlockSound;
+                audioSource.Play();
                 potion.BuyPotion(nextLevelCost);
             }
         }
@@ -179,6 +197,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     {
         if (clone != null)
         {
+            audioSource.clip = releaseSound;
+            audioSource.Play();
             Destroy(clone);
 
         }
@@ -188,6 +208,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     {
         if (ability != null && !ability.IsLocked())
         {
+            audioSource.clip = grabSound;
+            audioSource.Play();
             clone = Instantiate(gameObject, GameObject.Find("Canvas").transform);
 
         }

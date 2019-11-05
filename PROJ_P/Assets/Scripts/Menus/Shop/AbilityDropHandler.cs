@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(AudioSource))]
 public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     private RectTransform rectTransform;
@@ -13,6 +14,12 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     [SerializeField] private int attackOnButton;
     private Sprite defaultSprite;
     private AbilityUpgrade abilityUpgrade;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip grabSound;
+    [SerializeField] private AudioClip releaseSound;
+
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -48,10 +55,12 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     GameObject clone;
     public void OnBeginDrag(PointerEventData eventData)
     {
+
         if (image.sprite != defaultSprite)
         {
-            
-        clone = Instantiate(gameObject, GameObject.Find("Canvas").transform);
+            audioSource.clip = grabSound;
+            audioSource.Play();
+            clone = Instantiate(gameObject, GameObject.Find("Canvas").transform);
         }
     }
 
@@ -59,6 +68,8 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     {
         if (clone != null)
         {
+            audioSource.clip = releaseSound;
+            audioSource.Play();
 
         Destroy(clone);
         }
