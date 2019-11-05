@@ -144,7 +144,9 @@ public class AliveBase : HostileBaseState
         if (owner.agent.enabled)
         {
             owner.agent.isStopped = true;
-            owner.rigidbody.AddRelativeForce(new Vector3(0, 0, -1) * force, ForceMode.Impulse);
+            owner.transform.LookAt(owner.player.transform.position);
+
+            owner.rigidbody.AddRelativeForce(new Vector3(0,0,-1) * force, ForceMode.Impulse);
             BaseKnockBackDuration = knockStartValue;
             owner.agent.isStopped = false;
             Debug.Log("MovesBack");
