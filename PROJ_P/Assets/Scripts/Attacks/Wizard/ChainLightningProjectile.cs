@@ -35,7 +35,7 @@ public class ChainLightningProjectile : PlayerAttack
         ch.EmissionColor = emissionColor;
 
         ball.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(Vector3.forward) * force);
-        ball.GetComponent<ProjectileInstance>().SetDamage(damage);
+        ball.GetComponent<ProjectileInstance>().SetPower(damage, magnitude);
 
     }
 }

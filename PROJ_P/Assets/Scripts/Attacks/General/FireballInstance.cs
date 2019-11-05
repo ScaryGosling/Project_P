@@ -9,6 +9,7 @@ public class FireballInstance : MonoBehaviour
 {
     public float ExplosionRadius { get; set; }
     public float Damage { get; set; }
+    public float Magnitude { get; set; }
 
     private AudioSource source;
     [SerializeField] private AudioClip impactSound;
@@ -39,7 +40,7 @@ public class FireballInstance : MonoBehaviour
         {
             if (col.CompareTag("Enemy"))
             {
-                col.GetComponent<Unit>().currentState.TakeDamage(Damage);
+                col.GetComponent<Unit>().currentState.TakeDamage(Damage, Magnitude);
             }
         }
         StartCoroutine(ExplosionAnimation());

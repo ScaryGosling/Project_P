@@ -55,7 +55,7 @@ public class ChainLightning : ProjectileInstance
                 collider.gameObject.AddComponent<LineRenderer>();
 
             if (collider.GetComponent<Unit>())
-                collider.GetComponent<Unit>().currentState.TakeDamage(damage / 5);
+                collider.GetComponent<Unit>().currentState.TakeDamage(damage / 5, maginitude);
 
         }
         active = true;

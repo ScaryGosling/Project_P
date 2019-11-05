@@ -28,16 +28,14 @@ public class RusherHesitate : HesitationBase
         owner.ChangeState<RusherDeath>();
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, float magnitude)
     {
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
-        if (controlBehaviors == Behaviors.STAGGER)
-        {
-            Stagger();
-        }
+            Stagger(magnitude);
+        
     }
 
     protected override void Stop()

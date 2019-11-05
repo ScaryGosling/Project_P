@@ -9,6 +9,7 @@ public class ProjectileInstance : MonoBehaviour
     private Vector3 viewportPoint;
     private Camera mainCamera;
     protected float damage;
+    protected float maginitude;
     [SerializeField] protected AudioClip impactSound;
     protected AudioSource source;
 
@@ -41,15 +42,16 @@ public class ProjectileInstance : MonoBehaviour
     }
 
 
-    public void SetDamage(float damage)
+    public void SetPower(float damage, float mag)
     {
         this.damage = damage;
+        this.maginitude = mag;
     }
 
     public virtual void RunAttack(Collider other) {
 
         State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
-        state.TakeDamage(damage);
+        state.TakeDamage(damage, maginitude);
         if (impactSound != null)
         {
             source.clip = impactSound;

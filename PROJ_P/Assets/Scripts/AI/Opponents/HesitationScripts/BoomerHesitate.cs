@@ -29,16 +29,15 @@ public class BoomerHesitate : HesitationBase
         owner.ChangeState<BoomerDeath>();
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, float magnitude)
     {
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
-        if (controlBehaviors == Behaviors.STAGGER && owner.player.GetComponent<Player>().playerClass == PlayerClass.WARRIOR)
-        {
-            Stagger();
-        }
+        if(owner.player.GetComponent<Player>().playerClass == PlayerClass.WARRIOR)
+            Stagger(magnitude);
+
     }
 
     protected override void Stop()

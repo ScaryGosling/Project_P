@@ -25,11 +25,11 @@ public class MeleeHack : PlayerAttack
     {
         if (durability.Value == 0)
         {
-            sword.CacheComponents(damage * zeroDurabilityDamagePercentage, this);
+            sword.CacheComponents(damage * zeroDurabilityDamagePercentage, magnitude, this);
         }
         else
         {
-            sword.CacheComponents(damage, this);
+            sword.CacheComponents(damage, magnitude, this);
         }
         base.Execute();
     }
@@ -50,7 +50,7 @@ public class MeleeHack : PlayerAttack
         sword = player.weapon.GetComponent<Sword>();
         animation = player.weapon.GetComponent<Animation>();
         animation.AddClip(slash, "Slash");
-        sword.CacheComponents(damage, this);
+        sword.CacheComponents(damage, magnitude, this);
     }
     public void DecreaseDurability()
     {

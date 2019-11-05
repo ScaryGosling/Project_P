@@ -10,6 +10,6 @@ public abstract class State : ScriptableObject
     public virtual void ExitState() { }
     public virtual void ToDo() { }
     public virtual void InitializeState(StateMachine owner) { }
-    public virtual void TakeDamage(float damage) { }
+    public virtual void TakeDamage(float damage, float weight) { }
 
 }

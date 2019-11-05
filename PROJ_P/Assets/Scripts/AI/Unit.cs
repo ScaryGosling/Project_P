@@ -36,6 +36,9 @@ public class Unit : StateMachine
     [SerializeField] private int goldPerHit = 1;
     public int GetGold { get { return goldPerHit; } }
 
+    [SerializeField] private float weight = 40;
+    public float GetWeight { get { return weight; } }
+
     #endregion
 
 

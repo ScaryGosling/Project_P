@@ -145,10 +145,12 @@ MonoBehaviour:
     m_Bits: 512
   player: {fileID: 0}
   attackRange: 2.3
+  animator: {fileID: 0}
   baseHeath: 30
   baseAttack: 10
   attackSpeed: 0.5
   goldPerHit: 3
+  weight: 50
 --- !u!114 &-4164408291272996986
 MonoBehaviour:
   m_ObjectHideFlags: 0

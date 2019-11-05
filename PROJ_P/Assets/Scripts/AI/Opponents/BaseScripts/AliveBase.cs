@@ -11,11 +11,21 @@ using UnityEngine.AI;
 public class AliveBase : HostileBaseState
 {
     [SerializeField] private float staggerDuration = 1f;
-    [SerializeField] private float pushForce = 1.3f;
+    private float force = 1.5f;
+    //[SerializeField] private float pushMultiplier1 = 1.1f;
+    //[SerializeField] private float pushMultiplier2 = 1.3f;
+    //[SerializeField] private float pushMultiplier3 = 3f;
+    [SerializeField] private float knockBackDuration = 0.5f;
+    private float knockBackBase;
+    private float baseMultiplier;
+    float weightDiff;
+    [SerializeField] float extraForce = 0.5f;
     protected GameObject otherTimer;
     public override void EnterState()
     {
         base.EnterState();
+        Mathf.Clamp(force, 1, 5);
+        knockBackBase = knockBackDuration;
     }
 
 
@@ -71,19 +81,42 @@ public class AliveBase : HostileBaseState
     /// </summary>
     protected virtual void Die() { }
 
-    protected virtual void Stagger()
+    protected virtual void Stagger(float magnitude)
     {
         otherTimer = new GameObject();
-        if (controlBehaviors == Behaviors.STAGGER)
-            otherTimer.AddComponent<Timer>().RunCountDown(staggerDuration, StandStill, Timer.TimerType.WHILE);
-        else if (controlBehaviors == Behaviors.KNOCKBACK)
+
+        if (magnitude <= owner.GetWeight && magnitude != 0)
         {
-            owner.agent.ResetPath();
-            otherTimer.AddComponent<Timer>().RunCountDown(0.5f, MoveBack, Timer.TimerType.WHILE);
+            otherTimer.AddComponent<Timer>().RunCountDown(staggerDuration, StandStill, Timer.TimerType.WHILE);
+        }
+        else
+        {
+            //ManageKnockBack(magnitude);
+            otherTimer.AddComponent<Timer>().RunCountDown(knockBackDuration, MoveBack, Timer.TimerType.WHILE);
         }
 
     }
 
+    protected void ManageKnockBack(float magnitude)
+    {
+        weightDiff = magnitude - owner.GetWeight;
+        
+        if (weightDiff < 10)
+        {
+            knockBackDuration = knockBackDuration * 1.2f;
+            Debug.Log("P1");
+        }
+        else if (weightDiff > 10 && weightDiff < 15)
+        {
+            knockBackDuration = knockBackDuration * 1.5f;
+            Debug.Log("P2");
+        }
+        else
+        {
+            knockBackDuration = knockBackDuration * 2; 
+            Debug.Log("P3");
+        }
+    }
     protected bool CapsuleCast()
     {
         //bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);
@@ -94,9 +127,9 @@ public class AliveBase : HostileBaseState
         return false;
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, float magnitude)
     {
-        base.TakeDamage(damage);
+        base.TakeDamage(damage, magnitude);
         GameObject splatter = Instantiate(bloodParticle, owner.transform.position, Quaternion.identity);
         splatter.AddComponent<Timer>().RunCountDown(4, PlaceboMethod, Timer.TimerType.DELAY);
         owner.player.GetComponent<Player>().GoldProp += owner.GetGold;
@@ -113,7 +146,8 @@ public class AliveBase : HostileBaseState
         if (owner.agent.enabled)
         {
             owner.agent.isStopped = true;
-            owner.rigidbody.AddRelativeForce(new Vector3(0, 0, -1) * pushForce, ForceMode.Impulse);
+            owner.rigidbody.AddRelativeForce(new Vector3(0, 0, -1) * force, ForceMode.Impulse);
+            knockBackDuration = knockBackBase;
             owner.agent.isStopped = false;
             Debug.Log("MovesBack");
         }

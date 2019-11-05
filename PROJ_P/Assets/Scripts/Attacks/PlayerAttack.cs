@@ -9,6 +9,7 @@ public class PlayerAttack : Ability
     [Header("Info")]
     [SerializeField] private float castCost;
     protected float damage;
+    [SerializeField] protected float magnitude;
     [SerializeField] protected Sprite attackImage;
     [SerializeField] protected float cooldown;
     protected bool cooldownActive;

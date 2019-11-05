@@ -29,19 +29,14 @@ public class BoomerChase : ChaseBase
         owner.ChangeState<BoomerDeath>();
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, float magnitude)
     {
-        base.TakeDamage(damage);
+        base.TakeDamage(damage, magnitude);
 
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-
-        if (owner.player.GetComponent<Player>().playerClass == PlayerClass.WARRIOR)
-        {
-            Stagger();
-        }
-
+        Stagger(magnitude);
     }
 
     protected override void OperateHesitation()

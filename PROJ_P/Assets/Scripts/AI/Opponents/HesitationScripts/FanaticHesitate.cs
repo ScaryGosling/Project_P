@@ -28,16 +28,13 @@ public class FanaticHesitate : HesitationBase
         owner.ChangeState<FanaticDeath>();
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, float magnitude)
     {
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
+        Stagger(magnitude);
 
-        if (controlBehaviors == Behaviors.STAGGER)
-        {
-            Stagger();
-        }
     }
     protected override void Stop()
     {

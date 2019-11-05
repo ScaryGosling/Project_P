@@ -25,6 +25,7 @@ public class FireBall : PlayerAttack
             FireballInstance instance = Instantiate(fireball, hit.point + new Vector3(0, spawnHeight, 0), Quaternion.identity).GetComponent<FireballInstance>();
             instance.ExplosionRadius = explosionRadius;
             instance.Damage = damage;
+            instance.Magnitude = magnitude;
             instance.GetComponent<Rigidbody>().AddForce(Vector3.down * 1000);
             
         }
