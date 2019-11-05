@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private KeybindSet keybindSet;
     private float xMovement, zMovement;
     [SerializeField]private Animator animator;
+    [SerializeField] private LayerMask ignoreMask;
+    private float raycastDistance = 100;
 
     public void Update()
     {
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         keybindSet = GetComponent<Player>().GetKeybindSet();
     }
 
-    RaycastHit raycastHit;
+    RaycastHit hit;
     Ray ray;
     Quaternion newRotation;
     Vector3 lookDirection;
@@ -42,9 +44,9 @@ public class PlayerMovement : MonoBehaviour
     {
         
         ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out raycastHit))
+        if (Physics.Raycast(ray, out hit, raycastDistance, ~ignoreMask))
         {
-            lookDirection = raycastHit.point - transform.position;
+            lookDirection = hit.point - transform.position;
             lookDirection.y = 0;
             newRotation = Quaternion.LookRotation(lookDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * rotationSpeed);
