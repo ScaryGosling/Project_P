@@ -21,7 +21,8 @@ public class Resource : ScriptableObject
     public virtual void DrainResource(float amount)
     {
         Value -= amount / 100;
-        CorrectValue();
+        //If round is used, rage will not decrease
+        Value = Mathf.Clamp(Value, 0, 1);
         UpdateFillAmount();
     }
 
@@ -48,7 +49,6 @@ public class Resource : ScriptableObject
     {
         if (resourceImage != null)
         {
-
             resourceImage.fillAmount = Value;
         }
     }

@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerStats activeStats;
     [SerializeField] private Text durabilityTextObject;
 
-
+    public Coroutine RageTap { get; set; }
 
 
 
@@ -177,7 +177,6 @@ public class Player : MonoBehaviour
             case PlayerClass.WARRIOR:
                 Resource = ScriptableObject.CreateInstance<Rage>();
                 attackSet = attackSets.Get(PlayerClass.WARRIOR);
-                StartCoroutine(TapRage());
                 break;
 
             default:
@@ -190,16 +189,6 @@ public class Player : MonoBehaviour
     public void Refill(GiveResource res)
     {
         Resource.IncreaseResource(res.fillAmount);
-    }
-
-    public IEnumerator TapRage()
-    {
-        yield return null;
-        while (true)
-        {
-            Resource.DrainResource(2 * Time.deltaTime);
-            yield return null;
-        }
     }
 
 

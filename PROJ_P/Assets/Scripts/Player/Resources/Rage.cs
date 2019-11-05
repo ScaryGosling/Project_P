@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class Rage : Resource
 {
     private float rageGeneration = 0.05f;
+    private float drainDelay = 3;
+    private float drainSpeed = 1;
+    private Player player;
     
     public override void DrainResource(PlayerAttack activeAttack)
     {
@@ -15,6 +18,20 @@ public class Rage : Resource
         {
             IncreaseResource(rageGeneration);
             ((MeleeHack)activeAttack).DecreaseDurability();
+            if(player.RageTap != null)
+                player.StopCoroutine(player.RageTap);
+            player.RageTap = player.StartCoroutine(TapRage());
+        }
+    }
+
+    public IEnumerator TapRage()
+    {
+        yield return new WaitForSeconds(drainDelay);
+
+        while (Value > 0)
+        {
+            DrainResource(drainSpeed * Time.deltaTime);
+            yield return null;
         }
     }
 
@@ -25,6 +42,7 @@ public class Rage : Resource
         resourceImage.fillAmount = 0;
         Value = 0;
         SetResourceColor();
+        player = Player.instance;
 
 
     }
