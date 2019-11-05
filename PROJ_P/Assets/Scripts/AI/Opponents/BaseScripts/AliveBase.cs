@@ -106,12 +106,12 @@ public class AliveBase : HostileBaseState
         }
         else if (weightDiff > 10 && weightDiff < 15)
         {
-            BaseKnockBackDuration = BaseKnockBackDuration * 1.5f;
+            BaseKnockBackDuration = BaseKnockBackDuration * 1.3f;
             Debug.Log("P2");
         }
         else
         {
-            BaseKnockBackDuration = BaseKnockBackDuration * 2; 
+            BaseKnockBackDuration = BaseKnockBackDuration * 1.4f; 
             Debug.Log("P3");
         }
     }
