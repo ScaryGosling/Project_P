@@ -334,11 +334,11 @@ public class Player : MonoBehaviour
                 SelectAttack(temp);
         }
 
-        if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.REFILL)))
+        if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.REFILL_HEALTH)))
         {
             UseHealthPotion();
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.REFILL_RESOURCE)))
         {
             UseResourcePotion();
         }

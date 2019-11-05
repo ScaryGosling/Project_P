@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d4a4191eea7cff49b8e61fb15072817, type: 3}
-  m_Name: Refill
+  m_Name: RefillHealth
   m_EditorClassIdentifier: 
-  featureName: Refill
+  featureName: Refill Health
   feature: 9
   inputKey: 102
   defaultKey: 102

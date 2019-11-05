@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   featureName: Move Right
   feature: 2
-  inputKey: 107
+  inputKey: 100
   defaultKey: 100

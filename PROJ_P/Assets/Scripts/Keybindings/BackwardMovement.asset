@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   featureName: Move backwards
   feature: 1
-  inputKey: 106
+  inputKey: 115
   defaultKey: 115
