@@ -17,13 +17,13 @@ public class KeyBindingButton : MonoBehaviour
     public void Start()
     {
         text.text = keyBind.GetFeatureName() + ":";
-        buttonText.text = keyBind.GetBind().ToString();
+        buttonText.text = keybindSet.GetBindString(keyBind.GetFeature());
     }
 
     public void ResetBind()
     {
         keyBind.ResetKey();
-        buttonText.text = keyBind.GetBind().ToString();
+        buttonText.text = keybindSet.GetBindString(keyBind.GetFeature());
     }
 
     public void ToggleKeyListener()
@@ -41,7 +41,7 @@ public class KeyBindingButton : MonoBehaviour
                 {
                     keybindSet.OverrideBind(keyCode);
                     keyBind.SetBind(keyCode);
-                    buttonText.text = keyBind.GetBind().ToString();
+                    buttonText.text = keybindSet.GetBindString(keyBind.GetFeature());
                     ToggleKeyListener();
 
                 }
