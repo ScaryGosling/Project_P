@@ -147,11 +147,11 @@ public class Player : MonoBehaviour
     {
         return durabilityTextObject;
     }
-   public void RunAttackCooldown()
+   public void RunAttackCooldown(PlayerAttack executedAttack)
     {
         for (int i = 0; i < activeAttacks.list.Length; i++)
         {
-            if (activeAttacks.list[i] == activeAttack)
+            if (activeAttacks.list[i] == executedAttack)
             {
                 cooldowns[i] = StartCoroutine(ShowCooldown(i));
             }
@@ -228,7 +228,6 @@ public class Player : MonoBehaviour
                 attackUISpot[i].sprite = activeAttacks.list[i].GetImage();
             }
         }
-        SelectAttack(0);
         Resource.CacheComponents(resourceImage);
 
         for (int i = 0; i < activeAttacks.list.Length; i++)
@@ -254,74 +253,47 @@ public class Player : MonoBehaviour
         Audio = GetComponent<AudioSource>();
         HealthPotions = healthPotionsStart;
         ResourcePotionsProp = resourcePotionsStart;
+        UpdateIcons();
     }
 
     public void Update() {
 
-        if (Input.GetKey(keybindSet.GetBind(KeyFeature.EXECUTE))) {
-            if (!ClickOnFriendly() && !hover)
-            {
-                ExecuteAttack();
-            }
+        if (!hover)
+        {
 
-        }
-
-        if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.BASE_ATTACK)))
-        {
-            if (activeAttacks.list[0] != null)
+            if (Input.GetKey(keybindSet.GetBind(KeyFeature.BASE_ATTACK)))
             {
-                SelectAttack(0);
-            }
-        }
-        else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_1)))
-        {
-            if (activeAttacks.list[1] != null)
-            {
-                SelectAttack(1);
-            }
-        }
-        else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_2)))
-        {
-            if (activeAttacks.list[2] != null)
-            {
-                SelectAttack(2);
-            }
-        }
-        else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_3))) {
-
-            if (activeAttacks.list[3] != null)
-            {
-                SelectAttack(3);
-            }
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
-        {
-            if (activeAttacks.list[(selectedAttack + 1) % activeAttacks.list.Length] != null)
-            {
-                SelectAttack((selectedAttack + 1) % activeAttacks.list.Length);
-            }
-            else
-            {
-                int temp = selectedAttack +1;
-                while (activeAttacks.list[(temp) % activeAttacks.list.Length] == null)
+                if (activeAttacks.list[0] != null)
                 {
-                    temp++;
+                    ExecuteAttack(activeAttacks.list[0]);
                 }
-                SelectAttack(temp % activeAttacks.list.Length);
-
             }
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
 
-
-            int temp = (selectedAttack - 1 < 0 ? selectedAttack + activeAttacks.list.Length - 1 : selectedAttack - 1);
-                while (activeAttacks.list[temp] == null)
+            if (Input.GetKey(keybindSet.GetBind(KeyFeature.ABILITY_1)))
+            {
+                if (activeAttacks.list[1] != null)
                 {
-                    temp--;
+                    ExecuteAttack(activeAttacks.list[1]);
                 }
-                SelectAttack(temp);
+            }
+            else if (Input.GetKey(keybindSet.GetBind(KeyFeature.ABILITY_2)))
+            {
+                if (activeAttacks.list[2] != null)
+                {
+                    ExecuteAttack(activeAttacks.list[2]);
+                }
+            }
+            else if (Input.GetKey(keybindSet.GetBind(KeyFeature.ABILITY_3)))
+            {
+
+                if (activeAttacks.list[3] != null)
+                {
+                    ExecuteAttack(activeAttacks.list[3]);
+                }
+            }
+
         }
+       
 
         if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.REFILL_HEALTH)))
         {
@@ -377,7 +349,7 @@ public class Player : MonoBehaviour
         attack[position] = attackUISpot[position];
         attack[position].fillAmount = 0;
         animationTime = 0;
-        cooldownTime = activeAttack.GetCooldown() / activeStats.attackSpeed;
+        cooldownTime = activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed;
         while (animationTime < cooldownTime)
         {
             animationTime += Time.deltaTime;
@@ -410,29 +382,25 @@ public class Player : MonoBehaviour
 
     public void SetAbility(int position, PlayerAttack ability)
     {
+        activeAttacks.list[position] = ability;
 
         if (ability == null)
         {
-
             attackUISpot[position].color = new Color32(0, 0, 0, 0);
         }
         else
         {
-
             attackUISpot[position].color = new Color32(0, 0, 0, 100);
-            SelectAttack(selectedAttack);
+            UpdateIcons();
         }
-        if (position == selectedAttack)
-        {
-            SelectAttack(0);
-        }
-        activeAttacks.list[position] = ability;
     }
 
-    public void ExecuteAttack() {
-        if (Resource.Value >= activeAttack.GetCastCost() / 100) 
+    public void ExecuteAttack(PlayerAttack attack) {
+
+        if (Resource.Value >= attack.GetCastCost() / 100) 
         {
-            AttackEvent();
+            attack.OnEquip();
+            attack.Execute();
 
         }
         else
@@ -443,20 +411,6 @@ public class Player : MonoBehaviour
     }
 
 
-    public void SubscribeToAttackEvent() {
-
-        for (int i = 0; i < activeAttacks.list.Length; i++)
-        {
-            if (activeAttacks.list[i] != null)
-            {
-                AttackEvent -= activeAttacks.list[i].Execute;
-            }
-        }
-
-        AttackEvent += activeAttack.Execute;
-
-    }
-
     private void UpdateIcons()
     {
 
@@ -464,7 +418,7 @@ public class Player : MonoBehaviour
         {
             if (activeAttacks.list[i] != null)
             {
-                attackUISpot[i].color = new Color32(0, 0, 0, 138);
+                attackUISpot[i].color = new Color32(0, 0, 0, 255);
             }
             else
             {
@@ -472,24 +426,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-    
 
-    public void SelectAttack(int selectedAttack)
-    {
-
-        UpdateIcons();
-
-        if (activeAttacks.list[selectedAttack]) {
-
-            activeAttack = activeAttacks.list[selectedAttack];
-            attackUISpot[selectedAttack].color = new Color32(255,255,255,255);
-            this.selectedAttack = selectedAttack;
-            activeAttack.OnEquip();
-        }
-
-        SubscribeToAttackEvent();
-
-    }
 
 
 

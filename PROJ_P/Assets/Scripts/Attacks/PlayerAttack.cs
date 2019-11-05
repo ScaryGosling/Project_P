@@ -112,7 +112,7 @@ public class PlayerAttack : Ability
             }
             
 
-            Player.instance.RunAttackCooldown();
+            Player.instance.RunAttackCooldown(this);
             RunAttack();
             cooldownActive = true;
             Timer cooldownTimer = new GameObject("Timer").AddComponent<Timer>();

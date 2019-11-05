@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   featureName: Base attack
   feature: 4
-  inputKey: 49
-  defaultKey: 49
+  inputKey: 323
+  defaultKey: 323
