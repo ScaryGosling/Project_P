@@ -20,5 +20,7 @@ MonoBehaviour:
   bloodParticle: {fileID: 1482536979965753301, guid: b1100bf3ebcf8614bbd67c23699e7d77,
     type: 3}
   staggerDuration: 0.1
+  force: 3
+  BaseKnockBackDuration: 0.2
   hesitationChance: 1
   hesitationDistance: 0
