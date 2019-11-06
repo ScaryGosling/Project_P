@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class MeleeHack : PlayerAttack
 {
     [Header("Ability Specific")]
-    [SerializeField] private AnimationClip slash;
+    [SerializeField] private AnimationClip forwardSlash;
+    [SerializeField] private AnimationClip backSlash;
     private Animation animation;
     private Sword sword;
     private Resource durability;
@@ -38,10 +39,20 @@ public class MeleeHack : PlayerAttack
     {
         sword.GetComponent<Collider>().enabled = true;
         animation = sword.GetComponent<Animation>();
-        animation.AddClip(slash, slash.name);
-        animation.Play(slash.name);
+
+        if (animation.IsPlaying(forwardSlash.name))
+        {
+            animation.AddClip(backSlash, backSlash.name);
+            animation.Play(backSlash.name);
+        }
+        else
+        {
+            animation.AddClip(forwardSlash, forwardSlash.name);
+            animation.Play(forwardSlash.name);
+        }
+
         Timer timer = new GameObject("Timer").AddComponent<Timer>();
-        timer.RunCountDown(slash.length, ResetSword, Timer.TimerType.DELAY);
+        timer.RunCountDown(forwardSlash.length, ResetSword, Timer.TimerType.DELAY);
     }
 
     Player player;

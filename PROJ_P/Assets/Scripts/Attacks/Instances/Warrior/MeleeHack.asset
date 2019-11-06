@@ -38,7 +38,8 @@ MonoBehaviour:
   abilityCat: 1
   slowTime: 1
   speedMultiplier: 0.77
-  slash: {fileID: 7400000, guid: dde732b3854ff43e8a66dab8b5e55b3b, type: 2}
+  forwardSlash: {fileID: 7400000, guid: dde732b3854ff43e8a66dab8b5e55b3b, type: 2}
+  backSlash: {fileID: 7400000, guid: 59e49ee34617b1b4dafb8b1b953e563a, type: 2}
   durabilityDecrease: 1
   durabilityText: {fileID: 0}
   zeroDurabilityDamagePercentage: 0.2
