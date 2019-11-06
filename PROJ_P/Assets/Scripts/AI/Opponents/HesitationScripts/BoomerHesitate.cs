@@ -16,7 +16,7 @@ public class BoomerHesitate : HesitationBase
     public override void ToDo()
     {
         base.ToDo();
-        if (owner.player != null && owner.agent.enabled)
+        if (owner.target != null && owner.agent.enabled)
         {
 
             CheckForDamage();
@@ -35,7 +35,7 @@ public class BoomerHesitate : HesitationBase
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
-        if(owner.player.GetComponent<Player>().playerClass == PlayerClass.WARRIOR)
+        if(owner.target.GetComponent<Player>().playerClass == PlayerClass.WARRIOR)
             Stagger(magnitude);
 
     }

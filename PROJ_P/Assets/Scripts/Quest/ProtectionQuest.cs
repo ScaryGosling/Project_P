@@ -9,7 +9,7 @@ public class ProtectionQuest : Quest
     private GameObject buildingToDefend;
     private float buildingHealth = 100;
     [SerializeField] private Image healthImage;
-
+    private ProtectionQuestEvent protectionQuestEvent;
     public override void StartQuest()
     {
         buildingToDefend = buildings[Random.Range(0, buildings.Length)];

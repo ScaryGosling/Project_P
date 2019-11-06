@@ -16,7 +16,7 @@ public class FanaticChase : ChaseBase
     public override void ToDo()
     {
         base.ToDo();
-        if (owner.player != null && owner.agent.enabled)
+        if (owner.target != null && owner.agent.enabled)
         {
             Chase();
             CheckForDamage();
@@ -44,7 +44,7 @@ public class FanaticChase : ChaseBase
     protected override void OperateHesitation()
     {
         base.OperateHesitation();
-        if (Vector3.Distance(owner.gameObject.transform.position, owner.player.gameObject.transform.position) <= hesitationDistance)
+        if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
         {
             owner.ChangeState<FanaticHesitate>();
         }

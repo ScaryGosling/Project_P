@@ -32,12 +32,12 @@ public class ChaseBase : AliveBase
 
     protected virtual void Chase()
     {
-        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
-        owner.agent.SetDestination(owner.player.transform.position);
-        owner.transform.LookAt(owner.player.transform.position);
+        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.target.transform.position);
+        owner.agent.SetDestination(owner.target.transform.position);
+        owner.transform.LookAt(owner.target.transform.position);
     }
 
-    protected virtual void OperateHesitation(){}
+    protected virtual void OperateHesitation() { }
 
     protected bool DiceRoll()
     {

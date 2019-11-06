@@ -21,11 +21,9 @@ public class Timer : MonoBehaviour
         {
 
             Countdown -= Time.deltaTime;
-            Debug.Log(Countdown);
         }
         else if (!MethodHasRun)
         {
-            Debug.Log(Countdown);
             methodToRun();
             //MethodHasRun = true;
             Destroy(gameObject);

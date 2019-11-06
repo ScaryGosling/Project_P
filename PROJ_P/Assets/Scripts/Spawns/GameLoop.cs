@@ -107,13 +107,19 @@ public class GameLoop : MonoBehaviour
     }
 
     private bool questGenerated = false;
+    Quest quest;
     private void GenerateQuest()
     {
         if (!questGenerated)
         {
+        if (quest != null)
+        {
+            quest.EndQuest();
+            quest = null;
+        }
             if (Random.Range(0, 99) < questChance)
             {
-                Quest quest = questHandler.GetRandomQuest();
+                quest = questHandler.GetRandomQuest();
                 quest.StartQuest();
             }
         }
@@ -140,6 +146,7 @@ public class GameLoop : MonoBehaviour
             }
             ResetWave();
             UpdateWaveCounter();
+
             return timeAfterShopkeeperLeavesForEnemiesToSpawn;
         }
         return spawnTime / 2;
