@@ -73,8 +73,14 @@ public class Player : MonoBehaviour
 
     public void PlayAudio(AudioClip clip)
     {
+        if(clip != null && Audio != null)
+        {
+
+
         Audio.clip = clip;
         Audio.Play();
+
+        }
     }
 
     public void ResetStats()
