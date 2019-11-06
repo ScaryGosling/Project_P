@@ -10,6 +10,11 @@ public class Sword : MonoBehaviour
     private PlayerAttack hack;
     private AudioSource source;
     [SerializeField] private AudioClip impactSound;
+    [SerializeField] private float comboMultiplier;
+    [SerializeField] private float comboTime;
+
+    private int combo = -1;
+    private Coroutine comboCoroutine;
 
     public void CacheComponents(float damage,float magnitude, PlayerAttack hack)
     {
@@ -21,6 +26,14 @@ public class Sword : MonoBehaviour
             source.clip = impactSound;
     }
 
+    public IEnumerator Combo()
+    {
+        combo++;
+        if (combo > 0)
+            Prompt.instance.RunMessage("Combo attack: " + combo, MessageType.BONUS);
+        yield return new WaitForSeconds(comboTime);
+        combo = -1;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,7 +43,22 @@ public class Sword : MonoBehaviour
             State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
             if (state)
             {
-                state.TakeDamage(damage, magnitude);
+                if (combo > 2)
+                {
+                    state.TakeDamage(damage * comboMultiplier, magnitude);
+                    combo = -1;
+                }
+                else
+                {
+                    state.TakeDamage(damage, magnitude);
+                    if (comboCoroutine != null)
+                    {
+                        StopCoroutine(comboCoroutine);
+                    }
+                    comboCoroutine = StartCoroutine(Combo());
+                }
+
+                
             }
             if(impactSound != null)
             {

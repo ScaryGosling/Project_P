@@ -17,6 +17,7 @@ public class MeleeHack : PlayerAttack
     [SerializeField] [Range(0, 1)] [Tooltip ("Percentage of damage to be applied when durability is 0")] 
     private float zeroDurabilityDamagePercentage = 0.2f;
 
+
     public override void OnEnable()
     {
         base.OnEnable();
