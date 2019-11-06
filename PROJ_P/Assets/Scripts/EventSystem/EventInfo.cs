@@ -55,6 +55,11 @@ public class ToggleArrowEvent : EventInfo
 
 }
 
+public class ProtectionQuestEvent : EventInfo
+{
+    public GameObject building;
+}
+
 
 #region ListenerDraft
 
