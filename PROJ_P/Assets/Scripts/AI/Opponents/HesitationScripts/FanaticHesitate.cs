@@ -16,7 +16,7 @@ public class FanaticHesitate : HesitationBase
     public override void ToDo()
     {
         base.ToDo();
-        if (owner.player != null && owner.agent.enabled)
+        if (owner.target != null && owner.agent.enabled)
         {
             CheckForDamage();
         }

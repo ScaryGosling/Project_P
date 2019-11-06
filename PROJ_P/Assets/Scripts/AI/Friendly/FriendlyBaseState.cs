@@ -62,7 +62,7 @@ public class FriendlyBaseState : State
 
 protected bool LineOfSight()
     {
-        bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);
+        bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.target.transform.position, owner.visionMask);
         if (lineCast)
             return false;
         return true;
@@ -75,20 +75,20 @@ protected bool LineOfSight()
     protected void DamagePlayer(float val)
     {
         //actualDamage = Mathf.Floor(Random.Range(enemyBaseDamage, enemyBaseDamage * 1.5f));
-        owner.player.GetComponent<Player>().HealthProp = -enemyBaseDamage;
+        owner.target.GetComponent<Player>().HealthProp = -enemyBaseDamage;
 
     }
 
     protected void Chase()
     {
-        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
-        owner.agent.SetDestination(owner.player.transform.position);
+        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.target.transform.position);
+        owner.agent.SetDestination(owner.target.transform.position);
     }
 
 
     protected float DotMethod()
     {
-        heading = (owner.player.transform.position - owner.transform.position).normalized;
+        heading = (owner.target.transform.position - owner.transform.position).normalized;
         dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
         return dotProduct;
     }

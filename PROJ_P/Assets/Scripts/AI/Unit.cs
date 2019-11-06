@@ -15,7 +15,7 @@ public class Unit : StateMachine
     public CapsuleCollider capsuleCollider { get; set; }
     public Rigidbody rigidbody { get; set; }
     public LayerMask visionMask;
-    public GameObject player;
+    public GameObject target;
     private GameLoop spawnListener;
     [SerializeField] private float attackRange = 2.5f;
     public float getAttackRange { get { return attackRange; } }
@@ -70,7 +70,7 @@ public class Unit : StateMachine
         ui = GetComponentInChildren<HostileUI>();
         ImprovePower();
         InitialHealth = Health;
-        player = Player.instance.gameObject;
+        target = Player.instance.gameObject;
     }
     // Methods
     protected override void Awake()
@@ -84,6 +84,11 @@ public class Unit : StateMachine
     {
         baseHeath += spawnListener.HealthManagement;
         baseAttack += spawnListener.DamageManagenent;
+    }
+
+    private void ChangeTarget()
+    {
+        //target = event.target
     }
 
     protected override void Update()

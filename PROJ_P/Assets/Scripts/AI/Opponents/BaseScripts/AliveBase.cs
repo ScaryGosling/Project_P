@@ -130,7 +130,7 @@ public class AliveBase : HostileBaseState
     protected bool CapsuleCast()
     {
         //bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);
-        bool capsuleCast = Physics.CapsuleCast(owner.agent.transform.position, owner.player.transform.position,
+        bool capsuleCast = Physics.CapsuleCast(owner.agent.transform.position, owner.target.transform.position,
             owner.capsuleCollider.radius, owner.gameObject.transform.forward);
         if (capsuleCast)
             return true;
@@ -143,7 +143,7 @@ public class AliveBase : HostileBaseState
         owner.PlayAudio(owner.takeDamageClip);
         GameObject splatter = Instantiate(bloodParticle, owner.transform.position, Quaternion.identity);
         splatter.AddComponent<Timer>().RunCountDown(4, PlaceboMethod, Timer.TimerType.DELAY);
-        owner.player.GetComponent<Player>().GoldProp += owner.GetGold;
+        owner.target.GetComponent<Player>().GoldProp += owner.GetGold;
     }
 
     private void StandStill()
@@ -157,7 +157,7 @@ public class AliveBase : HostileBaseState
         if (owner.agent.enabled)
         {
             owner.agent.isStopped = true;
-            owner.transform.LookAt(owner.player.transform.position);
+            owner.transform.LookAt(owner.target.transform.position);
 
             owner.rigidbody.AddRelativeForce(new Vector3(0,0,-1) * force, ForceMode.Impulse);
             BaseKnockBackDuration = knockStartValue;
