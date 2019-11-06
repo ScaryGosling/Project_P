@@ -6,17 +6,27 @@ using TMPro;
 public class IncreaseWaveCounterListener : MonoBehaviour
 {
     [SerializeField]private WaveCounter waveCounter;
+    [SerializeField] private GameObject unitUpdater;
 
     void Start()
     {
-        EventSystem.Current.RegisterListener<NewWaveEvent>(IncreaseCounter);
+        EventSystem.Current.RegisterListener<NewWaveEvent>(IncreaseWave);
+        EventSystem.Current.RegisterListener<UnitsRemaining>(UpdateRemaining);
     }
 
-    void IncreaseCounter(NewWaveEvent newWave)
+    void IncreaseWave(NewWaveEvent newWave)
     {
         waveCounter.StartNewWave();
         waveCounter.UpdateCounter(newWave.waveIndex);
         
     }
+
+    void UpdateRemaining(UnitsRemaining unitsRemaining)
+    {
+        unitUpdater.SetActive(true);
+        unitUpdater.GetComponent<UnitUpdater>().ActivateUI(unitsRemaining.remaining);
+    }
+
+
 
 }

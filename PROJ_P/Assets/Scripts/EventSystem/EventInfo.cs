@@ -12,6 +12,11 @@ public class DebugEvent : EventInfo
 
 }
 
+public class UnitsRemaining : EventInfo
+{
+    public int remaining; 
+}
+
 public class UnitSpawnEvent : EventInfo
 {
     public GameObject enemyObject;

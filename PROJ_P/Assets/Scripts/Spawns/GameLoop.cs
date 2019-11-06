@@ -45,16 +45,17 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private GameObject[] pickUp;
     [SerializeField] private GameObject shopKeeper;
     [SerializeField] private GameObject ObjectSpawnerPrefab;
-    [Header ("Resources")]
+    [Header("Resources")]
     [SerializeField] private int goldPerKill = 10;
     [SerializeField] private int goldPerWave = 100;
-    [Header ("Items")]
+    [Header("Items")]
     [SerializeField] private int ItemAmount = 7;
     [SerializeField] private float chanceOfDrop = 0.4f;
     private bool waveCompleted;
     private GameObject ObjectSpawner;
 
     private NewWaveEvent newWaveEvent = new NewWaveEvent();
+    private UnitsRemaining unitsRemaining = new UnitsRemaining();
     //private GameObject newPotion;
     private GameObject absoluteUnit;
 
@@ -82,7 +83,7 @@ public class GameLoop : MonoBehaviour
 
         float temp = Random.Range(0f, 1f);
 
-        if(chanceOfDrop >= temp)
+        if (chanceOfDrop >= temp)
             Instantiate(pickUp[1], new Vector3(location.x, location.y, location.z), Quaternion.identity);
     }
 
@@ -91,7 +92,7 @@ public class GameLoop : MonoBehaviour
         waveCompleted = false;
         spawned = 0;
         unitsKilled = 0;
-        if(expected < maximumCapacity)
+        if (expected < maximumCapacity)
         {
             expected = (int)Mathf.Floor(expected * expectedGrowth);
         }
@@ -108,8 +109,8 @@ public class GameLoop : MonoBehaviour
         {
             if (!waveCompleted)
             {
-            player.GoldProp += goldPerWave;
-            waveCompleted = true;
+                player.GoldProp += goldPerWave;
+                waveCompleted = true;
             }
             SpawnShopKeeper();
 
@@ -130,6 +131,17 @@ public class GameLoop : MonoBehaviour
         newWaveEvent.waveIndex = waveIndex;
         EventSystem.Current.FireEvent(newWaveEvent);
     }
+
+    private void HandleRemaining()
+    {
+        if (unitsKilled % 3 == 0 && unitsKilled != 0)
+        {
+            unitsRemaining.remaining = expected - unitsKilled;
+            EventSystem.Current.FireEvent(unitsRemaining);
+        }
+        
+    }
+
     private void UnitController()
     {
         CheckUnitType();
@@ -180,13 +192,14 @@ public class GameLoop : MonoBehaviour
     {
         while (true)
         {
+            HandleRemaining();
             float time;
 
             if (spawned < expected)
             {
-                if(ObjectSpawner == null)
+                if (ObjectSpawner == null)
                 {
-                    ObjectSpawner =  Instantiate(ObjectSpawnerPrefab);
+                    ObjectSpawner = Instantiate(ObjectSpawnerPrefab);
                     ObjectSpawner.GetComponent<ObjectSpawner>().Amount = ItemAmount;
                     ObjectSpawner.GetComponent<ObjectSpawner>().item = global::ObjectSpawner.ObjectToSpawn.ManaPotion;
                     ObjectSpawner.GetComponent<ObjectSpawner>().PopulateList();
