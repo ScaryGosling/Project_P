@@ -27,9 +27,18 @@ public class ProtectionQuest : Quest
         }
     }
 
-    private void QuestFailed()
+    protected override void QuestFailed()
     {
         healthImage.transform.parent.gameObject.SetActive(false);
         Debug.Log("Quest Failed");
     }
+
+    public override void EndQuest()
+    {
+        if (buildingHealth > 0)
+        {
+            QuestSucceeded();
+        }
+    }
+
 }

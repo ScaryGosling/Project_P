@@ -8,4 +8,19 @@ public class Quest : MonoBehaviour
     {
 
     }
+
+    protected virtual void QuestFailed()
+    {
+
+    }
+
+    public virtual void QuestSucceeded()
+    {
+        Debug.Log("You won");
+    }
+
+    public virtual void EndQuest()
+    {
+
+    }
 }

@@ -35,7 +35,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.45, z: 35.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2252158632264366171}
+  - {fileID: 1871119914471974175}
   - {fileID: 3527834204660664894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   takeDamageClip: {fileID: 8300000, guid: 139470045c673af43b7a95595affdac0, type: 3}
   deathClip: {fileID: 8300000, guid: 66da05baf93d6f143ae98d0a6a1046eb, type: 3}
   attackSound: {fileID: 8300000, guid: 72f1f1c7310b04546a52047f8337640a, type: 3}
-  baseHeath: 100
+  baseHeath: 10
   baseAttack: 3
   attackSpeed: 0.5
   goldPerHit: 1
@@ -658,7 +658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05a8b0d3bb2bb643a81a8c15ecca80f, type: 3}
---- !u!224 &2252158632264366171 stripped
+--- !u!224 &1871119914471974175 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
     type: 3}
