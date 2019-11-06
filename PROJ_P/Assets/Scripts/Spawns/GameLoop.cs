@@ -58,7 +58,8 @@ public class GameLoop : MonoBehaviour
     private UnitsRemaining unitsRemaining = new UnitsRemaining();
     //private GameObject newPotion;
     private GameObject absoluteUnit;
-
+    private QuestHandler questHandler;
+    [SerializeField][Range(0,100)] private int questChance = 50;
 
     private void Start()
     {
@@ -68,7 +69,10 @@ public class GameLoop : MonoBehaviour
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
         Mathf.Clamp(expectedGrowth, 1, 3);
         if (!debugMode)
+        {
             StartCoroutine(Spawner());
+        }
+        questHandler = GetComponent<QuestHandler>();
     }
 
     private void UnitDeath(UnitDeath death)
@@ -102,6 +106,19 @@ public class GameLoop : MonoBehaviour
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
     }
 
+    private bool questGenerated = false;
+    private void GenerateQuest()
+    {
+        if (!questGenerated)
+        {
+            if (Random.Range(0, 99) < questChance)
+            {
+                Quest quest = questHandler.GetRandomQuest();
+                quest.StartQuest();
+            }
+        }
+        questGenerated = true;
+    }
 
     private float CheckWaveCompletion()
     {
@@ -112,6 +129,7 @@ public class GameLoop : MonoBehaviour
                 player.GoldProp += goldPerWave;
                 waveCompleted = true;
             }
+            GenerateQuest();
             SpawnShopKeeper();
 
             if (ObjectSpawner != null)
@@ -206,6 +224,7 @@ public class GameLoop : MonoBehaviour
                 }
                 time = spawnTime / spawns.Length;
                 shopOpen = false;
+                questGenerated = false;
                 foreach (GameObject spawnObject in spawns)
                 {
                     UnitController();

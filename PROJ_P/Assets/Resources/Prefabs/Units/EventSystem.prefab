@@ -12,9 +12,13 @@ GameObject:
   - component: {fileID: 5598189669312911736}
   - component: {fileID: 5598189669312911737}
   - component: {fileID: 3596345851274281749}
+  - component: {fileID: 5598189670470178932}
+  - component: {fileID: 5598189670470178934}
+  - component: {fileID: 5598189670470178935}
+  - component: {fileID: 5598189670470178936}
   m_Layer: 0
   m_Name: Listeners
-  m_TagString: Untagged
+  m_TagString: Listeners
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,26 +61,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2a4a954b402804282bd51684759b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 0.5
-  expected: 1
+  debugMode: 0
   healthPerLevel: 5
   damagePerLevel: 0
+  maximumCapacity: 200
+  expectedGrowth: 1.5
+  expected: 1
   timeAfterShopkeeperLeavesForEnemiesToSpawn: 5
-  chanceOfDrop: 0.15
-  debugMode: 0
+  spawnTime: 1
   spawns:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  unitPrefabs: []
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  unitPrefabs:
+  - {fileID: 2161199849938165175, guid: ce397d58d6d392340afeceef3d2f7264, type: 3}
+  - {fileID: 2161199849938165175, guid: 3c684952cac416a409b96bcb2d0dbdf9, type: 3}
+  - {fileID: 2161199849938165175, guid: adf702a3fd72d134d8530eac42be94ee, type: 3}
   pickUp:
   - {fileID: 6863321986751247268, guid: a3e18c89ebff883499631c141faaa5bf, type: 3}
   - {fileID: 6863321986751247268, guid: ae6af44c3fd068c40a71e7c54cc508c4, type: 3}
   shopKeeper: {fileID: 0}
-  ObjectSpawnerPrefab: {fileID: 0}
-  expectedGrowth: 1.2
-  goldPerKill: 10
-  goldPerWave: 100
+  ObjectSpawnerPrefab: {fileID: 3478120250332875128, guid: 6a2041f5adb60b046b2f9479bb52565b,
+    type: 3}
+  goldPerKill: 5
+  goldPerWave: 50
+  ItemAmount: 7
+  chanceOfDrop: 0.15
+  questChance: 100
 --- !u!114 &3596345851274281749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,8 +103,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0827306f6828e1749a16ba7af119f137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textObject: {fileID: 6394702070322826391, guid: e57f83233fc38c741bb76c82853a13b6,
-    type: 3}
+  waveCounter: {fileID: 0}
+  unitUpdater: {fileID: 0}
+--- !u!114 &5598189670470178932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598189669312911739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2749ff8c5b44ced4e9d1fee63c2f27d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowObject: {fileID: 0}
+--- !u!114 &5598189670470178934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598189669312911739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1435bcde8e203404daba7a2e652815b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+  - {fileID: 5598189670470178936}
+--- !u!114 &5598189670470178935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598189669312911739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c06fbe792a5c954f9dd29e430f84587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5598189670470178936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598189669312911739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d0388c08eff044684d30aa8850e89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildings:
+  - {fileID: 0}
+  healthImage: {fileID: 0}
 --- !u!1 &5598189670313424376
 GameObject:
   m_ObjectHideFlags: 0
