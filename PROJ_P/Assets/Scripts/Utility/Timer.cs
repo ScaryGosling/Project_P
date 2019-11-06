@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
 {
 
     public float Countdown { get; set; }
+    public float InitialTime;
     public bool MethodHasRun { get; set; }
     private Action methodToRun;
     public enum TimerType { WHILE, DELAY }
@@ -20,10 +21,11 @@ public class Timer : MonoBehaviour
         {
 
             Countdown -= Time.deltaTime;
-
+            Debug.Log(Countdown);
         }
         else if (!MethodHasRun)
         {
+            Debug.Log(Countdown);
             methodToRun();
             //MethodHasRun = true;
             Destroy(gameObject);
@@ -37,7 +39,7 @@ public class Timer : MonoBehaviour
         this.type = type;
         methodToRun = action;
         Countdown = time;
-
+        InitialTime = Countdown;
     }
 
     public void ExecuteWhile()
@@ -51,7 +53,10 @@ public class Timer : MonoBehaviour
             Destroy(gameObject);
     }
 
-
+    public void ResetTimer()
+    {
+        Countdown = InitialTime;
+    }
 
     public void Update()
     {
