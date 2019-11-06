@@ -71,8 +71,19 @@ public class AliveBase : HostileBaseState
 
     protected virtual void DamagePlayer()
     {
-        actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
-        owner.player.GetComponent<Player>().HealthProp = -actualDamage;
+        if (owner.weapon)
+        {
+            actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
+            owner.weapon.damage = actualDamage;
+            owner.weapon.Attack();
+        }
+        else
+        {
+            actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
+            Player.instance.HealthProp = -actualDamage;
+        }
+        
+
     }
 
     /// <summary>

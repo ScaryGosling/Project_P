@@ -35,8 +35,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.45, z: 35.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2161199851372935572}
-  - {fileID: 1871119914471974175}
+  - {fileID: 2252158632264366171}
+  - {fileID: 3527834204660664894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -146,11 +146,12 @@ MonoBehaviour:
   player: {fileID: 0}
   attackRange: 2.2
   animator: {fileID: 0}
+  weapon: {fileID: 5600999944017349924}
   audioSource: {fileID: 4901963468119906052}
   takeDamageClip: {fileID: 8300000, guid: 139470045c673af43b7a95595affdac0, type: 3}
   deathClip: {fileID: 8300000, guid: 66da05baf93d6f143ae98d0a6a1046eb, type: 3}
   attackSound: {fileID: 8300000, guid: 72f1f1c7310b04546a52047f8337640a, type: 3}
-  baseHeath: 10
+  baseHeath: 100
   baseAttack: 3
   attackSpeed: 0.5
   goldPerHit: 1
@@ -382,6 +383,8 @@ GameObject:
   - component: {fileID: 2161199851372935572}
   - component: {fileID: 2161199851372935574}
   - component: {fileID: 2161199851372935575}
+  - component: {fileID: 4929112199896376231}
+  - component: {fileID: 5600999944017349924}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -397,11 +400,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2161199851372935573}
   m_LocalRotation: {x: 0.12278779, y: 0.6963643, z: 0.12278779, w: 0.6963643}
-  m_LocalPosition: {x: 0.21999998, y: 0.38399982, z: 0.7859993}
-  m_LocalScale: {x: 0.14833632, y: 1.6449733, z: 0.10602747}
+  m_LocalPosition: {x: 0.0019999743, y: 0.75199986, z: 0.2629993}
+  m_LocalScale: {x: 0.14833635, y: 1.644973, z: 0.10602753}
   m_Children:
   - {fileID: 2161199850153972062}
-  m_Father: {fileID: 2161199849938165181}
+  m_Father: {fileID: 3527834204660664894}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 20}
 --- !u!33 &2161199851372935574
@@ -450,6 +453,82 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4929112199896376231
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2161199851372935573}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5600999944017349924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2161199851372935573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be80ad2e93d0ed34989312032ea4fe32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slash: {fileID: 7400000, guid: aa2e94b94f6c87647996db3dc0e4888b, type: 2}
+  anim: {fileID: 1931209523304588579}
+  damage: 0
+--- !u!1 &6609925306022672593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3527834204660664894}
+  - component: {fileID: 1931209523304588579}
+  m_Layer: 10
+  m_Name: SwordPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3527834204660664894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6609925306022672593}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.545, y: -0.368, z: 0.523}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_Children:
+  - {fileID: 2161199851372935572}
+  m_Father: {fileID: 2161199849938165181}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0.31366706, y: -48.441307, z: -27.44297}
+--- !u!111 &1931209523304588579
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6609925306022672593}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: aa2e94b94f6c87647996db3dc0e4888b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &2252158632264367163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -495,7 +574,7 @@ PrefabInstance:
     - target: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
@@ -579,7 +658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05a8b0d3bb2bb643a81a8c15ecca80f, type: 3}
---- !u!224 &1871119914471974175 stripped
+--- !u!224 &2252158632264366171 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
     type: 3}

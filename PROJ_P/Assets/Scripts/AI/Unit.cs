@@ -19,7 +19,9 @@ public class Unit : StateMachine
     private GameLoop spawnListener;
     [SerializeField] private float attackRange = 2.5f;
     public float getAttackRange { get { return attackRange; } }
+    [Header("Sound and animation")]
     [SerializeField] private Animator animator;
+    public EnemyWeapon weapon;
     [SerializeField] private AudioSource audioSource;
     public AudioClip takeDamageClip;
     public AudioClip deathClip;
