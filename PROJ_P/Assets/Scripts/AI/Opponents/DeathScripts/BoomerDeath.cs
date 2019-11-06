@@ -10,7 +10,9 @@ public class BoomerDeath : DeathBase
 {
     [SerializeField] private float scaleFactor = 1.00001f;
     [SerializeField] private GameObject explosionPrefab;
-    private GameObject explosion;
+    [SerializeField] private AudioClip explosionClip;
+    [SerializeField] private AudioClip fuseClip;
+    private Explosion explosion;
 
     private const float animationTime = 1f;
     [SerializeField] private float explosionDelay = 2f;
@@ -35,7 +37,6 @@ public class BoomerDeath : DeathBase
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         owner.transform.localRotation = rotation;
         alive = false;
-
         currentTimeAnimTime = animationTime;
         while (currentTimeAnimTime >= 0f)
         {
@@ -46,7 +47,8 @@ public class BoomerDeath : DeathBase
 
     protected void Explode()
     {
-        explosion = Instantiate(explosionPrefab, owner.transform.position, Quaternion.Euler(-90f, 0f, 0f));
+        explosion = Instantiate(explosionPrefab, owner.transform.position, Quaternion.Euler(-90f, 0f, 0f)).GetComponent<Explosion>();
+        explosion.SetupSounds(fuseClip, explosionClip);
     }
 }
 

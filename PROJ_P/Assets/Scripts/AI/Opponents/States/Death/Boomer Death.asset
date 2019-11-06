@@ -22,4 +22,6 @@ MonoBehaviour:
   scaleFactor: 1.0000005
   explosionPrefab: {fileID: 867149244047798424, guid: c2af682c631d3984f908896b9f786d70,
     type: 3}
+  explosionClip: {fileID: 8300000, guid: d709ef3d941151347855de9f1da566ee, type: 3}
+  fuseClip: {fileID: 8300000, guid: 11f0bd8e3b573fc43adb755543565b5b, type: 3}
   explosionDelay: 1

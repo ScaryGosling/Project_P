@@ -20,6 +20,10 @@ public class Unit : StateMachine
     [SerializeField] private float attackRange = 2.5f;
     public float getAttackRange { get { return attackRange; } }
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource audioSource;
+    public AudioClip takeDamageClip;
+    public AudioClip deathClip;
+    public AudioClip attackSound;
 
     #region EnemyStats
     [SerializeField] private float baseHeath = 20f;
@@ -41,7 +45,14 @@ public class Unit : StateMachine
 
     #endregion
 
-
+    public void PlayAudio(AudioClip clip = null)
+    {
+        if(clip != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+    }
 
     #region Timer
     private GenericTimer genericTimer;

@@ -61,6 +61,7 @@ public class AliveBase : HostileBaseState
             if (owner.getGenericTimer.TimeTask)
             {
                 attacking = true;
+                owner.PlayAudio(owner.attackSound);
                 owner.getGenericTimer.SetTimer(owner.AttackSpeed);
                 attacking = !attacking;
                 DamagePlayer();
@@ -128,6 +129,7 @@ public class AliveBase : HostileBaseState
     public override void TakeDamage(float damage, float magnitude)
     {
         base.TakeDamage(damage, magnitude);
+        owner.PlayAudio(owner.takeDamageClip);
         GameObject splatter = Instantiate(bloodParticle, owner.transform.position, Quaternion.identity);
         splatter.AddComponent<Timer>().RunCountDown(4, PlaceboMethod, Timer.TimerType.DELAY);
         owner.player.GetComponent<Player>().GoldProp += owner.GetGold;

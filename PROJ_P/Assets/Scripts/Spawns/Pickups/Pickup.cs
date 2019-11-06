@@ -12,6 +12,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] protected float fillAmount;
     [SerializeField] protected float despawnTime = 10f;
     [SerializeField] private AudioClip pickupSound;
+    [SerializeField] private GameObject particles;
     protected BoxCollider colliderB;
     protected GiveResource giveResource;
     protected Player player;
@@ -28,8 +29,12 @@ public class Pickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(other.GetComponent<Player>())
+            if (other.GetComponent<Player>())
+            {
                 other.GetComponent<Player>().PlayAudio(pickupSound);
+                Instantiate(particles, player.transform.position, Quaternion.identity);
+
+            }
             DoSomething();
 
         }

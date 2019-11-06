@@ -11,6 +11,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float damage = 25f;
     [SerializeField] private float animSpeed = 1.5f;
     [SerializeField] private int explosionRadius = 2;
+    [SerializeField] private AudioSource source;
 
     #endregion
     #region geometry
@@ -22,6 +23,7 @@ public class Explosion : MonoBehaviour
     #region components
     private GameObject player;
     private CapsuleCollider capsuleCollider;
+    private AudioClip fuse, explosion;
     #endregion
 
     private void Start()
@@ -31,8 +33,16 @@ public class Explosion : MonoBehaviour
         baseScale = transform.localScale;
         targetScale = baseScale * explosionRadius;
         targetQuaternion = Quaternion.Euler(-90, 180, 0);
-
         explosionRadius = Mathf.Clamp(explosionRadius, 2, 4);
+    }
+
+    public void SetupSounds(AudioClip fuse, AudioClip explosion) {
+
+        this.explosion = explosion;
+        this.fuse = fuse;
+        source.clip = fuse;
+        source.Play();
+
     }
 
     private void Update()
@@ -67,6 +77,8 @@ public class Explosion : MonoBehaviour
         {
             //Set Animation Here
             capsuleCollider.enabled = true;
+            source.clip = explosion;
+            source.Play();
             Destroy(gameObject, destroyAfter);
         }
     }
