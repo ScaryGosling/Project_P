@@ -34,6 +34,7 @@ public class ChaseBase : AliveBase
     {
         distanceToPlayer = Vector3.Distance(owner.transform.position, owner.player.transform.position);
         owner.agent.SetDestination(owner.player.transform.position);
+        owner.transform.LookAt(owner.player.transform.position);
     }
 
     protected virtual void OperateHesitation(){}
