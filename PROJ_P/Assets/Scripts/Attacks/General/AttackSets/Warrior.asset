@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Warrior
   m_EditorClassIdentifier: 
   list:
-  - {fileID: 11400000, guid: df0fef06b66a446f8b8819c026cfab16, type: 2}
+  - {fileID: 11400000, guid: ec813d1768218493d9de78fdfda09057, type: 2}
   - {fileID: 11400000, guid: 208b6a79016ec40c2965dcaef1434418, type: 2}
   - {fileID: 11400000, guid: ea1f221427ccb4c75a4e5d5afee0fe41, type: 2}
   - {fileID: 11400000, guid: 1a4c1f6e3ccc630489555a1de566986c, type: 2}
+  - {fileID: 11400000, guid: ab040bc845d9bd442b924840614ff1e3, type: 2}
   potionList:
   - {fileID: 11400000, guid: 77d9a5796e3b899469a10ae53d5a7084, type: 2}
   - {fileID: 11400000, guid: 4caf42881229e1341ae6322a7ad7144e, type: 2}

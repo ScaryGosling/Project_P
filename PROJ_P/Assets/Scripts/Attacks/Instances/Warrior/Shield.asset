@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3cca83f9393494a943cdfecd11ebaa, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: 
+  abilityName: Shield
+  abilityDescription: No description available
+  castCost: 0
+  magnitude: 0
+  attackImage: {fileID: 21300000, guid: 4e9b5b4a1990fb44cae8e08459fbc560, type: 3}
+  cooldown: 1
+  upgradeCosts:
+  - upgradeCost: 10
+    newDamage: 0
+  lockedAbility: 0
+  particles: {fileID: 0}
+  sound: {fileID: 0}
+  cooldownClip: {fileID: 0}
+  abilityCat: 0
+  slowTime: 0
+  speedMultiplier: 0
+  shieldPrefab: {fileID: 4629539250607325184, guid: eec9fa5a1f1b6d740ba7b1cccf72e337,
+    type: 3}
+  duration: 5
