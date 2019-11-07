@@ -26,7 +26,8 @@ public class Dialogue : MonoBehaviour
     [SerializeField] Dictionary<int, string[]> expositions;
     [SerializeField] Dictionary<int, string[]> tutorials;
 
-    [SerializeField] private float lifeTime = 30;
+    private float lifeTime = 0;
+    [SerializeField] float timePerQuestion = 10f;
 
     [SerializeField] private string[] expositionArray;
     [SerializeField] private string[] tutorialArray;
@@ -70,6 +71,8 @@ public class Dialogue : MonoBehaviour
         IndexProp = 1;
         dialogueActive = true;
 
+
+
         if (DialogueProp == DialogueType.QUEST)
         messages = questList[IndexProp].messages;
         else if (DialogueProp == DialogueType.EXPOSITION)
@@ -77,6 +80,10 @@ public class Dialogue : MonoBehaviour
         else
             messages = tutorialSnippets[IndexProp].messages;
 
+        foreach (string msg in messages)
+            lifeTime += timePerQuestion;
+
+        Debug.Log(lifeTime);
         dialogueField = messages[n];
         TickUI();
     }
