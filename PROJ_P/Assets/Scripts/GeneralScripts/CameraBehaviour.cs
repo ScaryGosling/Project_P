@@ -14,7 +14,6 @@ public class CameraBehaviour : MonoBehaviour
     private GameObject fadedObject;
     [SerializeField] private Shader transparentShader;
     private Renderer hitRenderer;
-
     private FadedHouse fadedHouse;
 
 
@@ -22,6 +21,7 @@ public class CameraBehaviour : MonoBehaviour
     public struct FadedHouse
     {
 
+        public bool isFaded;
         public Renderer renderer;
         public Material[] oldMaterials;
         public Shader[] oldShader;
@@ -35,6 +35,8 @@ public class CameraBehaviour : MonoBehaviour
 
         public IEnumerator FadeOut()
         {
+            Debug.Log("Fade out");
+            isFaded = true;
             float fadeTime = this.fadeTime;
 
             for (int i = 0; i < renderer.materials.Length; i++)
@@ -50,26 +52,26 @@ public class CameraBehaviour : MonoBehaviour
                 }
                 yield return null;
             }
+            
         }
 
         public IEnumerator FadeIn()
         {
+            isFaded = false;
+            Debug.Log("Fade in");
             float fadeTime = this.fadeTime;
 
             while (renderer.material.GetFloat(shaderAlpha) < 1)
             {
-
                 for (int i = 0; i < renderer.materials.Length; i++)
                 {
-
                     renderer.materials[i].SetFloat(shaderAlpha, renderer.material.GetFloat(shaderAlpha) + fadeTime * Time.deltaTime);
-
                 }
                 yield return null;
             }
-
+            
+            
             ResetShaders();
-            fadeCoroutine = null;
 
         }
 
@@ -79,6 +81,7 @@ public class CameraBehaviour : MonoBehaviour
             {
                 renderer.materials[i] = oldMaterials[i];
                 renderer.materials[i].shader = oldShader[i];
+                Debug.Log(renderer.materials[i].shader);
             }
 
         }
@@ -106,19 +109,57 @@ public class CameraBehaviour : MonoBehaviour
         if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, Mathf.Infinity))
         {
 
-            if (hit.collider.CompareTag("Building") && (hit.collider.gameObject != fadedHouse.go || fadedHouse.fadeCoroutine == null))
+            if (hit.collider.CompareTag("Building"))
             {
-                if(fadedHouse.renderer != null)
-                    fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeIn());
-
                 hitRenderer = hit.collider.GetComponent<Renderer>();
-                fadedHouse = SetupFadedHouse(hitRenderer);
-                fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeOut());
 
-            } else if (hit.collider.CompareTag("Player") && fadedHouse.renderer != null)
-            {
-                fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeIn());
+
+                //If no faded house has been added
+                if(fadedHouse.go == null)
+                {
+                    fadedHouse = SetupFadedHouse(hitRenderer);
+                    fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeOut());
+                    Debug.Log("House added to faded house");
+                    return;
+                }
+
+                //If entered house is same as faded hose, but it is not faded
+                if(hit.collider.gameObject == fadedHouse.go && !fadedHouse.renderer.material.HasProperty("Vector1_817719AB"))
+                {
+                    if(fadedHouse.fadeCoroutine != null)
+                        StopCoroutine(fadedHouse.fadeCoroutine);
+                    fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeOut());
+                }
+
+                //If entering another faded house
+                if(hit.collider.gameObject != fadedHouse.go)
+                {
+                    if(fadedHouse.fadeCoroutine != null && fadedHouse.renderer.material.HasProperty("Vector1_817719AB"))
+                    {
+                        StopCoroutine(fadedHouse.fadeCoroutine);
+                        fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeIn());
+                    }
+                    fadedHouse = SetupFadedHouse(hitRenderer);
+                    fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeOut());
+                    Debug.Log("Another house added to faded house");
+                    return;
+                }
+
+
             }
+
+            if (hit.collider.CompareTag("Player"))
+            {
+                Debug.Log("Hit player");
+                if (fadedHouse.fadeCoroutine != null && fadedHouse.renderer.material.HasProperty("Vector1_817719AB"))
+                {
+                    StopCoroutine(fadedHouse.fadeCoroutine);
+                    fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeIn());
+                }
+
+            }
+            
+
         }
 
 
