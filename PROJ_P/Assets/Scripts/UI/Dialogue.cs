@@ -38,7 +38,7 @@ public class Dialogue : MonoBehaviour
         public string[] messages;
         public Image[] imges;
         public string name;
-        public string noticeText; 
+        public string noticeText;
     }
 
     private string[] messages;
@@ -53,6 +53,7 @@ public class Dialogue : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
             DeveloperKey();
 
+        
     }
 
     private void TickUI()
@@ -125,10 +126,7 @@ public class Dialogue : MonoBehaviour
 
     private void DeveloperKey()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            InitText();
-        }
+        InitText();
     }
 
 }

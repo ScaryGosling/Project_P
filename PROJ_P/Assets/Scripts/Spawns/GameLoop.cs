@@ -31,6 +31,7 @@ public class GameLoop : MonoBehaviour
     private bool questGenerated = false;
     public Quest QuestProp { get; set; }
 
+    [SerializeField] private int showRemaining = 3;
     [SerializeField] private bool debugMode;
     [Header("Wave Scaling")]
     [SerializeField] private float healthPerLevel = 5f;
@@ -175,7 +176,7 @@ public class GameLoop : MonoBehaviour
 
     private void HandleRemaining()
     {
-        if (unitsKilled % 3 == 0 && unitsKilled != 0)
+        if (unitsKilled % showRemaining == 0 && unitsKilled != 0)
         {
             unitsRemaining.remaining = expected - unitsKilled;
             EventSystem.Current.FireEvent(unitsRemaining);

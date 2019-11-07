@@ -18,10 +18,6 @@ public class Unit : StateMachine
     public GameObject QuestTargetProp { get; set; }
     public GameObject target { get; set; }
     private GameLoop spawnListener;
-    [SerializeField] private float attackRange = 2.5f;
-    public float GetAttackRange { get { return attackRange; } set { attackRange = value; } }
-    [SerializeField] private float attackRangeBuildings = 2.5f;
-    public float AttackRangeBuildings { get { return attackRangeBuildings; } set { attackRangeBuildings = value; } }
     private float baseAttackRange;
     [Header("Sound and animation")]
     [SerializeField] private Animator animator;
@@ -50,6 +46,10 @@ public class Unit : StateMachine
     [SerializeField] private float weight = 40;
     public float GetWeight { get { return weight; } }
 
+    [SerializeField] private float attackRange = 2.5f;
+    public float GetAttackRange { get { return attackRange; } set { attackRange = value; } }
+    [SerializeField] private float attackRangeBuildings = 2.5f;
+    public float AttackRangeBuildings { get { return attackRangeBuildings; } set { attackRangeBuildings = value; } }
     #endregion
 
     public void PlayAudio(AudioClip clip = null)
@@ -80,7 +80,7 @@ public class Unit : StateMachine
         if (spawnListener.QuestProp != null && spawnListener.QuestProp is ProtectionQuest)
         {
             ProtectionQuestProp = ((ProtectionQuest)(spawnListener.QuestProp));
-            QuestTargetProp = ProtectionQuestProp.GetBuilding().GetComponent<ProtectionQuestBuildingHittingPoints>().GetRandomPoint();
+            QuestTargetProp = ProtectionQuestProp.GetBuilding();
         }
         else
         {
