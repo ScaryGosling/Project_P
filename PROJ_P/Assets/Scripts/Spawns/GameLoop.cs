@@ -61,6 +61,9 @@ public class GameLoop : MonoBehaviour
     private QuestHandler questHandler;
     [SerializeField][Range(0,100)] private int questChance = 50;
 
+    private Coroutine waveTimer;
+    private float waveTime;
+
     private void Start()
     {
         player = Player.instance;
@@ -104,6 +107,7 @@ public class GameLoop : MonoBehaviour
         bonusHealth += healthPerLevel;
         bonusDmg += damagePerLevel;
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
+        waveTimer = StartCoroutine(WaveTimer());
     }
 
     private bool questGenerated = false;
@@ -126,13 +130,25 @@ public class GameLoop : MonoBehaviour
         questGenerated = true;
     }
 
+    private IEnumerator WaveTimer()
+    {
+        waveTime = 0;
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            waveTime++;
+        }
+    }
     private float CheckWaveCompletion()
     {
         if (unitsKilled >= expected)
         {
             if (!waveCompleted)
             {
-                player.GoldProp += goldPerWave;
+                if(waveTimer != null)
+                    StopCoroutine(waveTimer);
+
+                player.GoldProp += (int)(goldPerWave / Mathf.Log(waveTime));
                 waveCompleted = true;
             }
             GenerateQuest();
