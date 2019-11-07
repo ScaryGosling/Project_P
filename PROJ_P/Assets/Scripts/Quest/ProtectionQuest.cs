@@ -10,11 +10,20 @@ public class ProtectionQuest : Quest
     private float buildingHealth = 100;
     [SerializeField] private Image healthImage;
     private ProtectionQuestEvent protectionQuestEvent;
+    private ToggleArrowEvent toggleArrow = new ToggleArrowEvent();
     public override void StartQuest()
     {
         buildingToDefend = buildings[Random.Range(0, buildings.Length)];
         buildingHealth = 100;
         healthImage.transform.parent.gameObject.SetActive(true);
+        toggleArrow.goal = buildingToDefend;
+        toggleArrow.toggle = true;
+        EventSystem.Current.FireEvent(toggleArrow);
+    }
+
+    public GameObject GetBuilding()
+    {
+        return buildingToDefend;
     }
 
     public void TakeDamage(float damage)
@@ -27,14 +36,23 @@ public class ProtectionQuest : Quest
         }
     }
 
+    public float GetHealth()
+    {
+        return buildingHealth;
+    }
+
     protected override void QuestFailed()
     {
         healthImage.transform.parent.gameObject.SetActive(false);
         Debug.Log("Quest Failed");
+        toggleArrow.toggle = false;
+        EventSystem.Current.FireEvent(toggleArrow);
     }
 
     public override void EndQuest()
     {
+        toggleArrow.toggle = false;
+        EventSystem.Current.FireEvent(toggleArrow);
         if (buildingHealth > 0)
         {
             QuestSucceeded();

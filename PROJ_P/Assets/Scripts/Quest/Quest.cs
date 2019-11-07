@@ -11,7 +11,7 @@ public class Quest : MonoBehaviour
 
     protected virtual void QuestFailed()
     {
-
+        Debug.Log("You failed");
     }
 
     public virtual void QuestSucceeded()

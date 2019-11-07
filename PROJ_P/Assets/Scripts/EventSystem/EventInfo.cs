@@ -55,10 +55,16 @@ public class ToggleArrowEvent : EventInfo
 
 }
 
-public class ProtectionQuestEvent : EventInfo
+public class QuestEvent : EventInfo
+{
+    public string[] sentences;
+}
+
+public class ProtectionQuestEvent : QuestEvent
 {
     public GameObject building;
 }
+
 
 
 #region ListenerDraft

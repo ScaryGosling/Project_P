@@ -76,19 +76,28 @@ public class AliveBase : HostileBaseState
 
     protected virtual void DamageTarget()
     {
-        if (owner.weapon)
+        actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
+        owner.agent.avoidancePriority = 0;
+        if (owner.weapon) //if basic foe animate
         {
-            owner.agent.avoidancePriority = 0;
-            actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
-            owner.weapon.damage = actualDamage;
             owner.weapon.Attack();
         }
-        else
+        if (owner.target != Player.instance.gameObject)  //if quest
         {
-            actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
-            Player.instance.HealthProp = -actualDamage;
+            owner.ProtectionQuestProp.TakeDamage(actualDamage);
+
         }
-        
+        else    //if target == player
+        {
+            if (owner.weapon) //if basic foe
+            {
+                owner.weapon.damage = actualDamage;
+            }
+            else       //if other foes
+            {
+                Player.instance.HealthProp = -actualDamage;
+            }
+        }
 
     }
 
