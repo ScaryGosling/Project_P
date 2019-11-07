@@ -24,7 +24,6 @@ public class ShopIndicatorArrow : MonoBehaviour
 
         if (goal != null && goal.gameObject.activeInHierarchy)
         {
-            arrow.gameObject.SetActive(true);
             arrowDirection = (goal.transform.position - transform.position).normalized;
             temp = Quaternion.LookRotation(arrowDirection);
             temp = Quaternion.Euler(90, temp.eulerAngles.y, temp.eulerAngles.z);

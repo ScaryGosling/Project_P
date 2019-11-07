@@ -18,16 +18,15 @@ public class ToggleArrowListener : MonoBehaviour
     {
         if (toggleArrowEvent.toggle == false)
         {
+            queue.Remove(toggleArrowEvent.goal);
             if (queue.Count > 0)
             {
-                queue.Remove(toggleArrowEvent.goal);
                 arrow.SetGoal(queue[0]);
             }
             else
             {
                 arrowObject.SetActive(false);
             }
-
         }
         else
         {
@@ -35,6 +34,7 @@ public class ToggleArrowListener : MonoBehaviour
             arrowObject.SetActive(true);
             arrow.SetGoal(queue[0]);
         }
+
     }
 
 
