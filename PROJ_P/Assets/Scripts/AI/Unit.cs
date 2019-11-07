@@ -91,9 +91,11 @@ public class Unit : StateMachine
         baseAttack += spawnListener.DamageManagenent;
     }
 
+    //Gotta add code to add and destroy gameObject... alternatively disable it.
     public void CheckTarget()
     {
-        //this is
+        //this var is
+        //just for development
         QuestTargetProp = GameObject.FindGameObjectWithTag("TestHouse");
         if (QuestTargetProp != null && Vector3.Distance(gameObject.transform.position, Player.instance.transform.position) > Vector3.Distance(gameObject.transform.position, QuestTargetProp.transform.position))
         {
@@ -106,7 +108,6 @@ public class Unit : StateMachine
             target = Player.instance.gameObject;
         }
 
-        //just for development
     
     }
 

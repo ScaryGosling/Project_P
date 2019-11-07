@@ -74,7 +74,7 @@ public class Dialogue : MonoBehaviour
 
 
         if (DialogueProp == DialogueType.QUEST)
-        messages = questList[IndexProp].messages;
+            messages = questList[IndexProp].messages;
         else if (DialogueProp == DialogueType.EXPOSITION)
             messages = expositionMessages[IndexProp].messages;
         else
@@ -105,10 +105,10 @@ public class Dialogue : MonoBehaviour
     private void DisableWithDelay()
     {
         time = lifeTime;
-        if(timer == null)
+        if (timer == null)
         {
-        timer = new GameObject("DialogueTimer");
-        timer.AddComponent<Timer>().RunCountDown(time, TerminateDialogue, Timer.TimerType.DELAY);
+            timer = new GameObject("DialogueTimer");
+            timer.AddComponent<Timer>().RunCountDown(time, TerminateDialogue, Timer.TimerType.DELAY);
         }
     }
 
