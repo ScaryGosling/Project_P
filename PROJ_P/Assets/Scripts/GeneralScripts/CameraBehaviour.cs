@@ -35,7 +35,6 @@ public class CameraBehaviour : MonoBehaviour
 
         public IEnumerator FadeOut()
         {
-            Debug.Log("Fade out");
             isFaded = true;
             float fadeTime = this.fadeTime;
 
@@ -58,7 +57,6 @@ public class CameraBehaviour : MonoBehaviour
         public IEnumerator FadeIn()
         {
             isFaded = false;
-            Debug.Log("Fade in");
             float fadeTime = this.fadeTime;
 
             while (renderer.material.GetFloat(shaderAlpha) < 1)
@@ -81,7 +79,6 @@ public class CameraBehaviour : MonoBehaviour
             {
                 renderer.materials[i] = oldMaterials[i];
                 renderer.materials[i].shader = oldShader[i];
-                Debug.Log(renderer.materials[i].shader);
             }
 
         }
@@ -119,7 +116,6 @@ public class CameraBehaviour : MonoBehaviour
                 {
                     fadedHouse = SetupFadedHouse(hitRenderer);
                     fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeOut());
-                    Debug.Log("House added to faded house");
                     return;
                 }
 
@@ -141,7 +137,6 @@ public class CameraBehaviour : MonoBehaviour
                     }
                     fadedHouse = SetupFadedHouse(hitRenderer);
                     fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeOut());
-                    Debug.Log("Another house added to faded house");
                     return;
                 }
 
@@ -150,7 +145,6 @@ public class CameraBehaviour : MonoBehaviour
 
             if (hit.collider.CompareTag("Player"))
             {
-                Debug.Log("Hit player");
                 if (fadedHouse.fadeCoroutine != null && fadedHouse.renderer.material.HasProperty("Vector1_817719AB"))
                 {
                     StopCoroutine(fadedHouse.fadeCoroutine);

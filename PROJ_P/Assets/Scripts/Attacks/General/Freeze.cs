@@ -31,7 +31,14 @@ public class Freeze : MonoBehaviour
 
         }
 
-        stoppedAgents.ForEach(agent => agent.isStopped = false);
+
+        foreach(NavMeshAgent agent in stoppedAgents)
+        {
+            if(agent != null)
+            {
+                agent.isStopped = false;
+            }
+        }
         yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
 
