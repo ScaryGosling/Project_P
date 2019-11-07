@@ -10,17 +10,18 @@ public class BountyQuest : Quest
     private Unit bossStats;
     private Timer timer;
     private DialogueEvent dialogueEvent = new DialogueEvent();
+    [SerializeField] private int index =1;
 
     public override void StartQuest()
     {
         bossStats =  Instantiate(boss, bossSpawner.transform.position, Quaternion.identity).GetComponent<Unit>();
         timer = new GameObject("Timer").AddComponent<Timer>();
         timer.RunCountDown(lifetime, EndQuest, Timer.TimerType.DELAY);
-        FireArrow(false, bossStats.gameObject);
+        FireArrow(true, bossStats.gameObject);
     }
     public override void QuestDialogue()
     {
-        dialogueEvent.buildingIndex = 0;
+        dialogueEvent.buildingIndex = index;
         EventSystem.Current.FireEvent(dialogueEvent);
     }
     private void Update()
