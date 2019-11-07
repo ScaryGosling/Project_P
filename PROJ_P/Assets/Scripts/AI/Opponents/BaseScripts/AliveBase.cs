@@ -10,12 +10,9 @@ using UnityEngine.AI;
 [RequireComponent(typeof(CapsuleCollider))]
 public class AliveBase : HostileBaseState
 {
-    [SerializeField] private float staggerDuration = 1f;
-    [SerializeField] private float force = 4f;
-    //[SerializeField] private float pushMultiplier1 = 1.1f;
-    //[SerializeField] private float pushMultiplier2 = 1.3f;
-    //[SerializeField] private float pushMultiplier3 = 3f;
-    [SerializeField] private float BaseKnockBackDuration = 2f;
+    [SerializeField] protected float staggerDuration = 1f;
+    [SerializeField] protected float force = 4f;
+    [SerializeField] protected float BaseKnockBackDuration = 2f;
     private float knockStartValue;
     float weightDiff;
     protected GameObject otherTimer;
