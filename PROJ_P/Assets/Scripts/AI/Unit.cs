@@ -80,7 +80,7 @@ public class Unit : StateMachine
         if (spawnListener.QuestProp != null && spawnListener.QuestProp is ProtectionQuest)
         {
             ProtectionQuestProp = ((ProtectionQuest)(spawnListener.QuestProp));
-            QuestTargetProp = ProtectionQuestProp.GetBuilding();
+            QuestTargetProp = ProtectionQuestProp.GetBuilding().GetComponent<ProtectionQuestBuildingHittingPoints>().GetRandomPoint();
         }
         else
         {
