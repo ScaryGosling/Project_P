@@ -135,6 +135,10 @@ public class GameLoop : MonoBehaviour
 
                 }
             }
+            else
+            {
+                QuestProp = null;
+            }
         }
         questGenerated = true;
     }
@@ -258,7 +262,7 @@ public class GameLoop : MonoBehaviour
                 shopOpen = false;
                 if (questGenerated)
                 {
-                    if (!(QuestProp is ProtectionQuest))
+                    if (QuestProp != null && !(QuestProp is ProtectionQuest))
                     {
                         QuestProp.StartQuest();
 
