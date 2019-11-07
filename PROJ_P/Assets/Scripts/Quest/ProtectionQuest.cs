@@ -22,8 +22,11 @@ public class ProtectionQuest : Quest
         buildingHealth = 100;
         healthImage.transform.parent.gameObject.SetActive(true);
         healthImage.fillAmount = 1;
-        FireArrow(true);
-        Debug.Log(buildingIndex);
+        FireArrow(true, buildingToDefend);
+
+    }
+    public override void QuestDialogue()
+    {
         dialogueEvent.buildingIndex = buildingIndex;
         EventSystem.Current.FireEvent(dialogueEvent);
     }
@@ -53,23 +56,16 @@ public class ProtectionQuest : Quest
     {
         healthImage.transform.parent.gameObject.SetActive(false);
         Debug.Log("Quest Failed");
-        FireArrow(false);
+        FireArrow(false, buildingToDefend);
     }
 
     public override void EndQuest()
     {
-        FireArrow(false);
+        FireArrow(false, buildingToDefend);
         if (buildingHealth > 0)
         {
             QuestSucceeded();
         }
-    }
-
-    private void FireArrow(bool toggle)
-    {
-        toggleArrow.goal = buildingToDefend;
-        toggleArrow.toggle = toggle;
-        EventSystem.Current.FireEvent(toggleArrow);
     }
 
 }

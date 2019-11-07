@@ -125,7 +125,12 @@ public class GameLoop : MonoBehaviour
             if (Random.Range(0, 99) < questChance)
             {
                 QuestProp = questHandler.GetRandomQuest();
-                QuestProp.StartQuest();
+                QuestProp.QuestDialogue();
+                if (QuestProp is ProtectionQuest)
+                {
+                    QuestProp.StartQuest();
+
+                }
             }
         }
         questGenerated = true;
@@ -248,7 +253,15 @@ public class GameLoop : MonoBehaviour
                 }
                 time = spawnTime / spawns.Length;
                 shopOpen = false;
-                questGenerated = false;
+                if (questGenerated)
+                {
+                    if (!(QuestProp is ProtectionQuest))
+                    {
+                        QuestProp.StartQuest();
+
+                    }
+                    questGenerated = false;
+                }
                 foreach (GameObject spawnObject in spawns)
                 {
                     UnitController();
