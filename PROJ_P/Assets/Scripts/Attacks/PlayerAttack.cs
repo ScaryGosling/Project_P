@@ -128,7 +128,7 @@ public class PlayerAttack : Ability
 
     public void ResetSlow()
     {
-        Player.instance.ResetStats();
+        Player.instance.ResetSpeed();
     }
 
     public void ResetCooldown()

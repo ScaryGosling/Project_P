@@ -84,6 +84,11 @@ public class Player : MonoBehaviour
         activeStats.attackDamage = originalStats.attackDamage;
     }
 
+    public void ResetSpeed()
+    {
+        activeStats.movementSpeed = originalStats.movementSpeed;
+    }
+
     public int HealthPotions { 
         get { return healthPotions; }
         set
