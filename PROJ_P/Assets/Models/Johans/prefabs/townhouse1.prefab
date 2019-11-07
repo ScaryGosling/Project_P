@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8115706188269327388}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube21
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,9 +39,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5776619031116316491}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube7
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,9 +69,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6272506985369590202}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube13
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,9 +99,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4563152051760528107}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube14
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,9 +129,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 299923466012514154}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube6
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2292767595354777469}
   m_Layer: 0
-  m_Name: townhouse1_combined 1
+  m_Name: townhouse1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,9 +200,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629465914580068320}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube15
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,9 +230,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 612217236262795811}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube12
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,9 +260,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5299434434934382097}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube22
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,9 +290,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3275734645092720072}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube24
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,9 +320,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6973840934028966288}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube23
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -352,9 +352,10 @@ GameObject:
   - component: {fileID: 7261956071556470631}
   - component: {fileID: 868484470305562404}
   - component: {fileID: 2373233438573929675}
-  m_Layer: 0
+  - component: {fileID: 2619076535367027420}
+  m_Layer: 11
   m_Name: pCube30
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -423,3 +424,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2619076535367027420
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297295414077488649}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0, y: 0.75696754, z: 0.3005491}
+  m_Center: {x: 0.18215698, y: 0.22848377, z: 0.00027456283}
