@@ -62,7 +62,7 @@ public class GameLoop : MonoBehaviour
     //private GameObject newPotion;
     private GameObject absoluteUnit;
     private QuestHandler questHandler;
-    [SerializeField][Range(0,100)] private int questChance = 50;
+    [SerializeField] [Range(0, 100)] private int questChance = 50;
 
     private Coroutine waveTimer;
     private float waveTime;
@@ -83,9 +83,12 @@ public class GameLoop : MonoBehaviour
 
     private void UnitDeath(UnitDeath death)
     {
-        unitsKilled += 1;
-        player.GoldProp += goldPerKill;
-        CheckForDrop(death.enemyObject.transform.position);
+        if (!death.isBoss)
+        {
+            unitsKilled += 1;
+            player.GoldProp += goldPerKill;
+            CheckForDrop(death.enemyObject.transform.position);
+        }
     }
 
     private void CheckForDrop(Vector3 location)
@@ -117,11 +120,11 @@ public class GameLoop : MonoBehaviour
     {
         if (!questGenerated)
         {
-        if (QuestProp != null)
-        {
-            QuestProp.EndQuest();
-            QuestProp = null;
-        }
+            if (QuestProp != null)
+            {
+                QuestProp.EndQuest();
+                QuestProp = null;
+            }
             if (Random.Range(0, 99) < questChance)
             {
                 QuestProp = questHandler.GetRandomQuest();
@@ -151,7 +154,7 @@ public class GameLoop : MonoBehaviour
         {
             if (!waveCompleted)
             {
-                if(waveTimer != null)
+                if (waveTimer != null)
                     StopCoroutine(waveTimer);
 
                 player.GoldProp += (int)(goldPerWave / Mathf.Log(waveTime));
@@ -186,7 +189,7 @@ public class GameLoop : MonoBehaviour
             unitsRemaining.remaining = expected - unitsKilled;
             EventSystem.Current.FireEvent(unitsRemaining);
         }
-        
+
     }
 
     private void UnitController()

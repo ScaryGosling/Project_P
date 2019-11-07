@@ -68,6 +68,22 @@ public class BossChase : ChaseBase
         owner.transform.LookAt(owner.target.transform.position + new Vector3(0, owner.capsuleCollider.radius, 0));
     }
 
+    protected override void CheckLife()
+    {
+        if (owner.Health <= 0)
+        {
+            if (alive)
+            {
+                death = new UnitDeath();
+                death.eventDescription = "Unit Died";
+                death.enemyObject = owner.gameObject;
+                death.isBoss = true;
+                EventSystem.Current.FireEvent(death);
+            }
+            Die();
+        }
+    }
+
     protected override void Stagger(float magnitude){}
 }
 
