@@ -43,7 +43,7 @@ public class ProtectionQuest : Quest
         healthImage.fillAmount = buildingHealth / 100;
         if (buildingHealth <= 0)
         {
-            QuestFailed();
+            EndQuest();
         }
     }
 
@@ -52,19 +52,18 @@ public class ProtectionQuest : Quest
         return buildingHealth;
     }
 
-    protected override void QuestFailed()
-    {
-        healthImage.transform.parent.gameObject.SetActive(false);
-        Debug.Log("Quest Failed");
-        FireArrow(false, buildingToDefend);
-    }
 
     public override void EndQuest()
     {
+        healthImage.transform.parent.gameObject.SetActive(false);
         FireArrow(false, buildingToDefend);
         if (buildingHealth > 0)
         {
             QuestSucceeded();
+        }
+        else
+        {
+            QuestFailed();
         }
     }
 
