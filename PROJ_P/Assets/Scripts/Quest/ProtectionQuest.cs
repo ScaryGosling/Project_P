@@ -21,6 +21,7 @@ public class ProtectionQuest : Quest
         buildingToDefend = buildings[buildingIndex];
         buildingHealth = 100;
         healthImage.transform.parent.gameObject.SetActive(true);
+        healthImage.fillAmount = 1;
         FireArrow(true);
         Debug.Log(buildingIndex);
         dialogueEvent.buildingIndex = buildingIndex;
