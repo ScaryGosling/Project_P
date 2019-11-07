@@ -7,11 +7,13 @@ public class IncreaseWaveCounterListener : MonoBehaviour
 {
     [SerializeField]private WaveCounter waveCounter;
     [SerializeField] private GameObject unitUpdater;
+    [SerializeField] private Dialogue dialogue;
 
     void Start()
     {
         EventSystem.Current.RegisterListener<NewWaveEvent>(IncreaseWave);
         EventSystem.Current.RegisterListener<UnitsRemaining>(UpdateRemaining);
+        EventSystem.Current.RegisterListener<DialogueEvent>(StartDialogue);
     }
 
     void IncreaseWave(NewWaveEvent newWave)
@@ -27,6 +29,11 @@ public class IncreaseWaveCounterListener : MonoBehaviour
         unitUpdater.GetComponent<UnitUpdater>().ActivateUI(unitsRemaining.remaining);
     }
 
+    void StartDialogue(DialogueEvent dialogueEvent)
+    {
+        dialogue.gameObject.SetActive(true);
+        dialogue.InitText();
+    }
 
 
 }

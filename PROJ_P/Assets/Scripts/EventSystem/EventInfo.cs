@@ -55,6 +55,11 @@ public class ToggleArrowEvent : EventInfo
 
 }
 
+public class DialogueEvent : EventInfo
+{
+    public int buildingIndex;
+}
+
 public class QuestEvent : EventInfo
 {
     public string[] sentences;

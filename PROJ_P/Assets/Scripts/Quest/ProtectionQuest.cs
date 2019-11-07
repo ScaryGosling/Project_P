@@ -12,12 +12,18 @@ public class ProtectionQuest : Quest
     private ProtectionQuestEvent protectionQuestEvent;
     private ToggleArrowEvent toggleArrow = new ToggleArrowEvent();
     [SerializeField] [Range(0.01f, 1.2f)]private float enemyDamagePercentage = 0.1f;
+    private int buildingIndex;
+    private DialogueEvent dialogueEvent = new DialogueEvent();
+
     public override void StartQuest()
     {
-        buildingToDefend = buildings[Random.Range(0, buildings.Length)];
+        buildingIndex = Random.Range(0, buildings.Length);
+        buildingToDefend = buildings[buildingIndex];
         buildingHealth = 100;
         healthImage.transform.parent.gameObject.SetActive(true);
         FireArrow(true);
+        dialogueEvent.buildingIndex = buildingIndex;
+        EventSystem.Current.FireEvent(dialogueEvent);
     }
 
     public GameObject GetBuilding()
