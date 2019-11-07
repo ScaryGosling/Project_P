@@ -94,9 +94,9 @@ public class Unit : StateMachine
     //Gotta add code to add and destroy gameObject... alternatively disable it.
     public void CheckTarget()
     {
+        QuestTargetProp = spawnListener.QuestProp.gameObject;
         //this var is
         //just for development
-        QuestTargetProp = spawnListener.QuestProp.gameObject;
         if (QuestTargetProp != null && Vector3.Distance(gameObject.transform.position, Player.instance.transform.position) > Vector3.Distance(gameObject.transform.position, QuestTargetProp.transform.position))
         {
             GetAttackRange = AttackRangeBuildings;

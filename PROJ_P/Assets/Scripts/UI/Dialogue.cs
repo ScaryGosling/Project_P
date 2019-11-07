@@ -22,16 +22,12 @@ public class Dialogue : MonoBehaviour
     public int IndexProp { get; set; }
     private Timer timerScript;
 
-    [SerializeField] Dictionary<int, string[]> quests;
-    [SerializeField] Dictionary<int, string[]> expositions;
-    [SerializeField] Dictionary<int, string[]> tutorials;
+
 
     private float lifeTime = 0;
     [SerializeField] float timePerQuestion = 10f;
 
-    [SerializeField] private string[] expositionArray;
-    [SerializeField] private string[] tutorialArray;
-    [SerializeField] private string[] questArray;
+
     [SerializeField] private List<DialogueSystems> questList;
     [SerializeField] private List<DialogueSystems> tutorialSnippets;
     [SerializeField] private List<DialogueSystems> expositionMessages;

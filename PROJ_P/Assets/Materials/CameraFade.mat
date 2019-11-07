@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CameraFade
-  m_Shader: {fileID: -6465566751694194690, guid: c27bec502a736134eaea1349d2dec7eb,
+  m_Shader: {fileID: -6465566751694194690, guid: 89e0718913c6a634db9f53b076e88ce5,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -91,8 +91,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_7A83862A: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
-    - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - Color_7A83862A: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

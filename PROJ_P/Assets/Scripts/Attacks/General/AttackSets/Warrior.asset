@@ -22,3 +22,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 77d9a5796e3b899469a10ae53d5a7084, type: 2}
   - {fileID: 11400000, guid: 4caf42881229e1341ae6322a7ad7144e, type: 2}
   - {fileID: 11400000, guid: 829e8270bddf9b54cbcc4939d2348fef, type: 2}
+  originalStats:
+    movementSpeed: 1.1
+    resistanceMultiplier: 0.8
+    attackSpeed: 1
+    attackDamage: 1
