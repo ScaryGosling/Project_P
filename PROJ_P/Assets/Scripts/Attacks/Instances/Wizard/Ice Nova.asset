@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Ice Nova
   m_EditorClassIdentifier: 
   abilityName: Ice Nova
-  abilityDescription: (Drag and Drop, click once to buy) Unleash a freezing nova!
+  abilityDescription: (Drag and Drop, click once to buy) Unleash a freezing nova around
+    you!
   castCost: 5
+  magnitude: 0
   attackImage: {fileID: 21300000, guid: 81f7bd4bee3f54ec3b6f883eed7ba232, type: 3}
   cooldown: 10
   upgradeCosts:
@@ -30,13 +32,401 @@ MonoBehaviour:
     newDamage: 9
   - upgradeCost: 200
     newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
+  - upgradeCost: 200
+    newDamage: 10
   lockedAbility: 1
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: bec29d40e937ab545af590f7e9755e67, type: 3}
   cooldownClip: {fileID: 8300000, guid: eec99f64c3cf49640b9ccb32e2e46471, type: 3}
   abilityCat: 2
-  slowTime: 0.6
-  speedMultiplier: 0.6
+  slowTime: 0
+  speedMultiplier: 0
   radius: 5
   height: 2
   duration: 6

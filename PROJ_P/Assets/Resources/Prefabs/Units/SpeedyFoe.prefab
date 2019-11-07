@@ -144,14 +144,15 @@ MonoBehaviour:
   visionMask:
     serializedVersion: 2
     m_Bits: 512
-  player: {fileID: 0}
   attackRange: 2.3
+  attackRangeBuildings: 2.5
   animator: {fileID: 3647199650347311689}
+  weapon: {fileID: 0}
   audioSource: {fileID: 4177991118388570210}
   takeDamageClip: {fileID: 8300000, guid: 139470045c673af43b7a95595affdac0, type: 3}
   deathClip: {fileID: 8300000, guid: 66da05baf93d6f143ae98d0a6a1046eb, type: 3}
   attackSound: {fileID: 8300000, guid: 140035b9781eb03458fcc58d71c97c18, type: 3}
-  baseHeath: 5
+  baseHeath: 3
   baseAttack: 1
   attackSpeed: 0.2
   goldPerHit: 2
@@ -458,6 +459,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
+    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -563,11 +569,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 18320881556040783, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -598,6 +599,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ram_UwU_RIG@Idle
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: c8678109d8eb7f34482f6348d6ec2e54,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d77527d66acfffc41bbfcf6f41f4bb19, type: 2}
     - target: {fileID: -4216859302048453862, guid: c8678109d8eb7f34482f6348d6ec2e54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -668,11 +674,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.56
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: c8678109d8eb7f34482f6348d6ec2e54,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d77527d66acfffc41bbfcf6f41f4bb19, type: 2}
     - target: {fileID: -9221833652794149842, guid: c8678109d8eb7f34482f6348d6ec2e54,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
