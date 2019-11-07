@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2a4a954b402804282bd51684759b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showRemaining: 3
   debugMode: 0
   healthPerLevel: 5
   damagePerLevel: 0
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveCounter: {fileID: 0}
   unitUpdater: {fileID: 0}
+  dialogue: {fileID: 0}
 --- !u!114 &5598189670470178932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c06fbe792a5c954f9dd29e430f84587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reward: 50
+  boss: {fileID: 2161199849938165175, guid: 7bf8d8369fb4c7c4fbb95553c75492ea, type: 3}
+  bossSpawner: {fileID: 0}
+  lifetime: 60
 --- !u!114 &5598189670470178936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,9 +162,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d0388c08eff044684d30aa8850e89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reward: 50
   buildings:
   - {fileID: 0}
   healthImage: {fileID: 0}
+  enemyDamagePercentage: 0.1
 --- !u!1 &5598189670313424376
 GameObject:
   m_ObjectHideFlags: 0

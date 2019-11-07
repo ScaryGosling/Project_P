@@ -16,7 +16,7 @@ MonoBehaviour:
   abilityDescription: '(Drag and Drop, click once to buy) Shoot a lightning bolt that
     chains to enemies! '
   castCost: 7
-  magnitude: 70
+  magnitude: 60
   attackImage: {fileID: 21300000, guid: f71a6d253615e2541888194bd481124b, type: 3}
   cooldown: 2
   upgradeCosts:

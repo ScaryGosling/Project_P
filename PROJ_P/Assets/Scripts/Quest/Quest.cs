@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour
 {
+    [SerializeField] private int reward = 50;
+    private ToggleArrowEvent toggleArrow = new ToggleArrowEvent();
     public virtual void StartQuest()
+    {
+
+    }
+
+    public virtual void QuestDialogue()
     {
 
     }
@@ -16,11 +23,18 @@ public class Quest : MonoBehaviour
 
     public virtual void QuestSucceeded()
     {
-        Debug.Log("You won");
+        Player.instance.GoldProp += reward;
     }
 
     public virtual void EndQuest()
     {
 
+    }
+
+    protected void FireArrow(bool toggle, GameObject target)
+    {
+        toggleArrow.goal = target;
+        toggleArrow.toggle = toggle;
+        EventSystem.Current.FireEvent(toggleArrow);
     }
 }

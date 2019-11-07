@@ -26,7 +26,8 @@ public class UnitSpawnEvent : EventInfo
 public class UnitDeath : EventInfo
 {
     public GameObject enemyObject;
-    public float value; 
+    public float value;
+    public bool isBoss;
 }
 
 public class GiveResource : EventInfo
@@ -53,6 +54,11 @@ public class ToggleArrowEvent : EventInfo
     public GameObject goal;
     public bool toggle;
 
+}
+
+public class DialogueEvent : EventInfo
+{
+    public int buildingIndex;
 }
 
 public class QuestEvent : EventInfo

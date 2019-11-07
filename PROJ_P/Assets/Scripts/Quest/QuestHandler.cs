@@ -9,7 +9,6 @@ public class QuestHandler : MonoBehaviour
 
     public Quest GetRandomQuest()
     {
-        Debug.Log("Random quest generated;");
         return quests[Random.Range(0, quests.Length)];
     }
 

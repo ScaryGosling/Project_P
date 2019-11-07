@@ -37,7 +37,7 @@ public class AliveBase : HostileBaseState
         CheckForDamage();
     }
 
-    protected void CheckLife()
+    protected virtual void CheckLife()
     {
         if (owner.Health <= 0)
         {
@@ -46,6 +46,7 @@ public class AliveBase : HostileBaseState
                 death = new UnitDeath();
                 death.eventDescription = "Unit Died";
                 death.enemyObject = owner.gameObject;
+                death.isBoss = false;
                 EventSystem.Current.FireEvent(death);
             }
             Die();
