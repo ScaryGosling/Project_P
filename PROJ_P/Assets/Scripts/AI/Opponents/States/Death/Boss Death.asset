@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Boss Death
   m_EditorClassIdentifier: 
   controlBehaviors: 0
-  material: {fileID: 0}
+  material: {fileID: 2100000, guid: 3b87186bbac34204982ddd6f51fc4a31, type: 2}
   moveSpeed: 0
-  scale: {x: 0, y: 0, z: 0}
-  staggerCD: 0.5
+  scale: {x: 2, y: 2, z: 2}
+  staggerCD: 0
   bloodParticle: {fileID: 0}
   corpseTimer: 2
