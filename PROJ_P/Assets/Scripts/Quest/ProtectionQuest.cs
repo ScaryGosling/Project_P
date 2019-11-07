@@ -22,6 +22,7 @@ public class ProtectionQuest : Quest
         buildingHealth = 100;
         healthImage.transform.parent.gameObject.SetActive(true);
         FireArrow(true);
+        Debug.Log(buildingIndex);
         dialogueEvent.buildingIndex = buildingIndex;
         EventSystem.Current.FireEvent(dialogueEvent);
     }
