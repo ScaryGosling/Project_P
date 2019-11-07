@@ -14,12 +14,14 @@ public class Shield : PlayerAttack
         base.RunAttack();
         shield = Instantiate(shieldPrefab, Player.instance.transform);
         shield.transform.position += new Vector3(0,0.5f,0);
+        Player.instance.activeStats.resistanceMultiplier = 0;
         shield.AddComponent<Timer>().RunCountDown(duration, RemoveShield, Timer.TimerType.DELAY);
     }
 
 
     public void RemoveShield()
     {
+        Player.instance.ResetStats();
     }
 
 }
