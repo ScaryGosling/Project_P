@@ -16,29 +16,29 @@ MonoBehaviour:
   abilityDescription: '(Drag and Drop, click once to buy) Shoot a lightning bolt that
     chains to enemies! '
   castCost: 7
-  magnitude: 90
+  magnitude: 70
   attackImage: {fileID: 21300000, guid: f71a6d253615e2541888194bd481124b, type: 3}
   cooldown: 2
   upgradeCosts:
-  - upgradeCost: 30
-    newDamage: 5
   - upgradeCost: 50
-    newDamage: 10
-  - upgradeCost: 75
-    newDamage: 15
+    newDamage: 5
   - upgradeCost: 100
-    newDamage: 20
-  - upgradeCost: 150
-    newDamage: 25
+    newDamage: 10
   - upgradeCost: 200
+    newDamage: 15
+  - upgradeCost: 300
+    newDamage: 20
+  - upgradeCost: 400
+    newDamage: 25
+  - upgradeCost: 500
     newDamage: 30
   lockedAbility: 1
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: 9a53c2bd5c299304bba3db4affe497b7, type: 3}
   cooldownClip: {fileID: 8300000, guid: eec99f64c3cf49640b9ccb32e2e46471, type: 3}
   abilityCat: 1
-  slowTime: 0.6
-  speedMultiplier: 0.6
+  slowTime: 0
+  speedMultiplier: 0
   projectile: {fileID: 6750013541312212612, guid: 6072bc8c59af84b758be9f6c01ebf2a8,
     type: 3}
   force: 1500

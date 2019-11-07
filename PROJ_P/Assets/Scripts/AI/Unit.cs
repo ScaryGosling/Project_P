@@ -30,6 +30,7 @@ public class Unit : StateMachine
     public AudioClip takeDamageClip;
     public AudioClip deathClip;
     public AudioClip attackSound;
+    public ProtectionQuest ProtectionQuestProp { get; private set; }
 
     #region EnemyStats
     [SerializeField] private float baseHeath = 20f;
@@ -76,6 +77,15 @@ public class Unit : StateMachine
         InitialHealth = Health;
         target = Player.instance.gameObject;
         baseAttackRange = GetAttackRange;
+        if (spawnListener.QuestProp != null && spawnListener.QuestProp is ProtectionQuest)
+        {
+            ProtectionQuestProp = ((ProtectionQuest)(spawnListener.QuestProp));
+            QuestTargetProp = ProtectionQuestProp.GetBuilding();
+        }
+        else
+        {
+            QuestTargetProp = null;
+        }
     }
     // Methods
     protected override void Awake()
@@ -94,10 +104,9 @@ public class Unit : StateMachine
     //Gotta add code to add and destroy gameObject... alternatively disable it.
     public void CheckTarget()
     {
-        QuestTargetProp = spawnListener.QuestProp.gameObject;
         //this var is
         //just for development
-        if (QuestTargetProp != null && Vector3.Distance(gameObject.transform.position, Player.instance.transform.position) > Vector3.Distance(gameObject.transform.position, QuestTargetProp.transform.position))
+        if (QuestTargetProp != null && ProtectionQuestProp.GetHealth() > 0 && Vector3.Distance(gameObject.transform.position, Player.instance.transform.position) > Vector3.Distance(gameObject.transform.position, QuestTargetProp.transform.position))
         {
             GetAttackRange = AttackRangeBuildings;
             target = QuestTargetProp.gameObject;

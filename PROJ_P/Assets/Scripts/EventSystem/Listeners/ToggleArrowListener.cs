@@ -6,7 +6,7 @@ public class ToggleArrowListener : MonoBehaviour
 {
     [SerializeField] private GameObject arrowObject;
     private ShopIndicatorArrow arrow;
-
+    private List<GameObject> queue = new List<GameObject>();
 
     void Start()
     {
@@ -16,7 +16,26 @@ public class ToggleArrowListener : MonoBehaviour
 
     private void ToggleArrow(ToggleArrowEvent toggleArrowEvent)
     {
-        arrowObject.SetActive(toggleArrowEvent.toggle);
-        arrow.SetGoal(toggleArrowEvent.goal);
+        if (toggleArrowEvent.toggle == false)
+        {
+            if (queue.Count > 0)
+            {
+                queue.Remove(toggleArrowEvent.goal);
+                arrow.SetGoal(queue[0]);
+            }
+            else
+            {
+                arrowObject.SetActive(false);
+            }
+
+        }
+        else
+        {
+            queue.Add(toggleArrowEvent.goal);
+            arrowObject.SetActive(true);
+            arrow.SetGoal(queue[0]);
+        }
     }
+
+
 }

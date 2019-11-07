@@ -151,8 +151,8 @@ public class GameLoop : MonoBehaviour
                 player.GoldProp += (int)(goldPerWave / Mathf.Log(waveTime));
                 waveCompleted = true;
             }
-            GenerateQuest();
             SpawnShopKeeper();
+            GenerateQuest();
 
             if (ObjectSpawner != null)
                 ObjectSpawner.GetComponent<ObjectSpawner>().TerminateSpawner();

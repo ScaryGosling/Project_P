@@ -20,24 +20,24 @@ MonoBehaviour:
   cooldown: 1
   upgradeCosts:
   - upgradeCost: 0
-    newDamage: 5
-  - upgradeCost: 50
-    newDamage: 8
+    newDamage: 10
   - upgradeCost: 100
-    newDamage: 11
+    newDamage: 15
   - upgradeCost: 150
-    newDamage: 14
-  - upgradeCost: 200
-    newDamage: 17
-  - upgradeCost: 250
     newDamage: 20
+  - upgradeCost: 150
+    newDamage: 30
+  - upgradeCost: 200
+    newDamage: 35
+  - upgradeCost: 250
+    newDamage: 50
   lockedAbility: 0
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: 94d36fc08a9f585429087b378e0d8ab6, type: 3}
   cooldownClip: {fileID: 8300000, guid: eec99f64c3cf49640b9ccb32e2e46471, type: 3}
   abilityCat: 1
-  slowTime: 0.6
-  speedMultiplier: 0.6
+  slowTime: 0.5
+  speedMultiplier: 0.3
   projectile: {fileID: 6750013541312212612, guid: 496018193e878472eaa24ee9549d5bd7,
     type: 3}
   force: 1500
