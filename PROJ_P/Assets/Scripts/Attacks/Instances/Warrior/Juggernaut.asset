@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e3cca83f9393494a943cdfecd11ebaa, type: 3}
-  m_Name: Shield
+  m_Name: Juggernaut
   m_EditorClassIdentifier: 
-  abilityName: Shield
+  abilityName: Juggernaut
   abilityDescription: No description available
   castCost: 0
   magnitude: 0
   attackImage: {fileID: 21300000, guid: 4e9b5b4a1990fb44cae8e08459fbc560, type: 3}
-  cooldown: 1
+  cooldown: 10
   upgradeCosts:
-  - upgradeCost: 10
+  - upgradeCost: 75
     newDamage: 0
-  lockedAbility: 0
+  lockedAbility: 1
   particles: {fileID: 0}
-  sound: {fileID: 0}
+  sound: {fileID: 8300000, guid: c1e011e07aaa01b45b61e60b97486462, type: 3}
   cooldownClip: {fileID: 0}
-  abilityCat: 0
+  abilityCat: 2
   slowTime: 0
   speedMultiplier: 0
   shieldPrefab: {fileID: 4629539250607325184, guid: eec9fa5a1f1b6d740ba7b1cccf72e337,

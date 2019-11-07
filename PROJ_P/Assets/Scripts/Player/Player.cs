@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool hover = false;
 
 
-    [SerializeField] private PlayerStats originalStats;
+    private PlayerStats originalStats;
     [HideInInspector] public PlayerStats activeStats;
     [SerializeField] private Text durabilityTextObject;
 
@@ -60,14 +60,7 @@ public class Player : MonoBehaviour
 
 
 
-    [Serializable]
-    public struct PlayerStats
-    {
-        public float movementSpeed;
-        public float resistanceMultiplier;
-        public float attackSpeed;
-        public float attackDamage;
-    }
+ 
 
     public KeybindSet GetKeybindSet() { return keybindSet; }
 
@@ -169,6 +162,7 @@ public class Player : MonoBehaviour
         playerClass = keybindSet.playerClass;
         CacheComponents();
         EventSystem.Current.RegisterListener<GiveResource>(Refill);
+
     }
 
     public void SetupClass() {
@@ -190,6 +184,8 @@ public class Player : MonoBehaviour
                 
 
         }
+
+        originalStats = attackSet.originalStats;
     }
   
     public void Refill(GiveResource res)
@@ -443,4 +439,14 @@ public enum PlayerClass {
 
     WIZARD, WARRIOR
 
+}
+
+
+[Serializable]
+public struct PlayerStats
+{
+    public float movementSpeed;
+    public float resistanceMultiplier;
+    public float attackSpeed;
+    public float attackDamage;
 }

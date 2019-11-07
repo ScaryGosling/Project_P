@@ -96,7 +96,7 @@ public class Unit : StateMachine
     {
         //this var is
         //just for development
-        QuestTargetProp = GameObject.FindGameObjectWithTag("TestHouse");
+        QuestTargetProp = spawnListener.QuestProp.gameObject;
         if (QuestTargetProp != null && Vector3.Distance(gameObject.transform.position, Player.instance.transform.position) > Vector3.Distance(gameObject.transform.position, QuestTargetProp.transform.position))
         {
             GetAttackRange = AttackRangeBuildings;

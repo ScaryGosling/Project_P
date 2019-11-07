@@ -28,6 +28,8 @@ public class GameLoop : MonoBehaviour
     public static GameLoop instance;
     private float bonusDmg = 0f;
     public float DamageManagenent { get { return bonusDmg; } }
+    private bool questGenerated = false;
+    public Quest QuestProp { get; set; }
 
     [SerializeField] private bool debugMode;
     [Header("Wave Scaling")]
@@ -110,21 +112,19 @@ public class GameLoop : MonoBehaviour
         waveTimer = StartCoroutine(WaveTimer());
     }
 
-    private bool questGenerated = false;
-    Quest quest;
     private void GenerateQuest()
     {
         if (!questGenerated)
         {
-        if (quest != null)
+        if (QuestProp != null)
         {
-            quest.EndQuest();
-            quest = null;
+            QuestProp.EndQuest();
+            QuestProp = null;
         }
             if (Random.Range(0, 99) < questChance)
             {
-                quest = questHandler.GetRandomQuest();
-                quest.StartQuest();
+                QuestProp = questHandler.GetRandomQuest();
+                QuestProp.StartQuest();
             }
         }
         questGenerated = true;

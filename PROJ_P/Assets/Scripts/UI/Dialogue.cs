@@ -41,7 +41,8 @@ public class Dialogue : MonoBehaviour
     {
         public string[] messages;
         public Image[] imges;
-        public int index;
+        public string name;
+        public string noticeText; 
     }
 
     private string[] messages;
