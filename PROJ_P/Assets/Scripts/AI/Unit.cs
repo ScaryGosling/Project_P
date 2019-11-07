@@ -15,10 +15,14 @@ public class Unit : StateMachine
     public CapsuleCollider capsuleCollider { get; set; }
     public Rigidbody rigidbody { get; set; }
     public LayerMask visionMask;
-    public GameObject target;
+    public GameObject QuestTargetProp { get; set; }
+    public GameObject target { get; set; }
     private GameLoop spawnListener;
     [SerializeField] private float attackRange = 2.5f;
-    public float getAttackRange { get { return attackRange; } }
+    public float GetAttackRange { get { return attackRange; } set { attackRange = value; } }
+    [SerializeField] private float attackRangeBuildings = 2.5f;
+    public float AttackRangeBuildings { get { return attackRangeBuildings; } set { attackRangeBuildings = value; } }
+    private float baseAttackRange;
     [Header("Sound and animation")]
     [SerializeField] private Animator animator;
     public EnemyWeapon weapon;
@@ -49,7 +53,7 @@ public class Unit : StateMachine
 
     public void PlayAudio(AudioClip clip = null)
     {
-        if(clip != null)
+        if (clip != null)
         {
             audioSource.clip = clip;
             audioSource.Play();
@@ -71,6 +75,7 @@ public class Unit : StateMachine
         ImprovePower();
         InitialHealth = Health;
         target = Player.instance.gameObject;
+        baseAttackRange = GetAttackRange;
     }
     // Methods
     protected override void Awake()
@@ -86,9 +91,23 @@ public class Unit : StateMachine
         baseAttack += spawnListener.DamageManagenent;
     }
 
-    private void ChangeTarget()
+    public void CheckTarget()
     {
-        //target = event.target
+        //this is
+        QuestTargetProp = GameObject.FindGameObjectWithTag("TestHouse");
+        if (QuestTargetProp != null && Vector3.Distance(gameObject.transform.position, Player.instance.transform.position) > Vector3.Distance(gameObject.transform.position, QuestTargetProp.transform.position))
+        {
+            GetAttackRange = AttackRangeBuildings;
+            target = QuestTargetProp.gameObject;
+        }
+        else
+        {
+            GetAttackRange = baseAttackRange;
+            target = Player.instance.gameObject;
+        }
+
+        //just for development
+    
     }
 
     protected override void Update()
@@ -99,7 +118,11 @@ public class Unit : StateMachine
             animator.SetFloat("speed", Vector3.Dot(transform.forward, agent.velocity.normalized));
             animator.SetFloat("direction", Vector3.Dot(transform.right, agent.velocity.normalized));
         }
+        CheckTarget();
+
     }
+
+  
 }
 #region UnitLegacy
 //public float healthProperty { get { return health; } set { health = value; } }

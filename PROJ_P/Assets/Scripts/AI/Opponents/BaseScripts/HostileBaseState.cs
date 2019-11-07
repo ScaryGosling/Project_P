@@ -29,13 +29,11 @@ public class HostileBaseState : State
     protected Vector3 heading;
     protected const float rotationalSpeed = 0.035f;
     protected float actualDamage;
-    protected float distanceToPlayer;
+    protected float distanceToTarget;
     protected bool damaged = false;
     protected bool alive = true;
     protected bool timerRunning = false;
     protected bool attacking = false;
-
-
 
     // Methods
     public override void EnterState()

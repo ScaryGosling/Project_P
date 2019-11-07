@@ -35,7 +35,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.45, z: 35.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2252158632264366171}
+  - {fileID: 1871119914471974175}
   - {fileID: 3527834204660664894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -114,7 +114,7 @@ NavMeshAgent:
   m_Acceleration: 16
   avoidancePriority: 50
   m_AngularSpeed: 200
-  m_StoppingDistance: 1.5
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -143,8 +143,9 @@ MonoBehaviour:
   visionMask:
     serializedVersion: 2
     m_Bits: 512
-  player: {fileID: 0}
-  attackRange: 2.2
+  target: {fileID: 0}
+  attackRange: 2
+  attackRangeBuildings: 3
   animator: {fileID: 0}
   weapon: {fileID: 5600999944017349924}
   audioSource: {fileID: 4901963468119906052}
@@ -536,6 +537,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
+    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -641,11 +647,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 18320881556040783, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -658,7 +659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05a8b0d3bb2bb643a81a8c15ecca80f, type: 3}
---- !u!224 &2252158632264366171 stripped
+--- !u!224 &1871119914471974175 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
     type: 3}

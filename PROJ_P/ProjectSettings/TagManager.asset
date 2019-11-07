@@ -12,6 +12,7 @@ TagManager:
   - Listeners
   - ItemSpawners
   - SpecialPositions
+  - TestHouse
   layers:
   - Default
   - TransparentFX

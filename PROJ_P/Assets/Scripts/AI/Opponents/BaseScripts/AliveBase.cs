@@ -24,6 +24,7 @@ public class AliveBase : HostileBaseState
         base.EnterState();
         Mathf.Clamp(force, 1, 5);
         knockStartValue = BaseKnockBackDuration;
+        owner.agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
     }
 
 
@@ -54,25 +55,30 @@ public class AliveBase : HostileBaseState
         }
     }
 
-    protected void CheckForDamage()
+    protected virtual void CheckForDamage()
     {
-        if (distanceToPlayer < owner.getAttackRange && CapsuleCast() && alive && !attacking)
+        owner.agent.avoidancePriority = 99;
+        if(owner.agent.isActiveAndEnabled)
+        owner.agent.isStopped = false;
+        if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && alive && !attacking)
         {
+            //owner.agent.SetDestination(owner.agent.transform.position);
             if (owner.getGenericTimer.TimeTask)
             {
                 attacking = true;
                 owner.PlayAudio(owner.attackSound);
                 owner.getGenericTimer.SetTimer(owner.AttackSpeed);
                 attacking = !attacking;
-                DamagePlayer();
+                DamageTarget();
             }
         }
     }
 
-    protected virtual void DamagePlayer()
+    protected virtual void DamageTarget()
     {
         if (owner.weapon)
         {
+            owner.agent.avoidancePriority = 0;
             actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
             owner.weapon.damage = actualDamage;
             owner.weapon.Attack();
@@ -114,17 +120,14 @@ public class AliveBase : HostileBaseState
         if (weightDiff < 10)
         {
             BaseKnockBackDuration = BaseKnockBackDuration * 1.2f;
-            Debug.Log("P1");
         }
         else if (weightDiff > 10 && weightDiff < 15)
         {
             BaseKnockBackDuration = BaseKnockBackDuration * 1.3f;
-            Debug.Log("P2");
         }
         else
         {
             BaseKnockBackDuration = BaseKnockBackDuration * 1.4f; 
-            Debug.Log("P3");
         }
     }
     protected bool CapsuleCast()
@@ -143,6 +146,7 @@ public class AliveBase : HostileBaseState
         owner.PlayAudio(owner.takeDamageClip);
         GameObject splatter = Instantiate(bloodParticle, owner.transform.position, Quaternion.identity);
         splatter.AddComponent<Timer>().RunCountDown(4, PlaceboMethod, Timer.TimerType.DELAY);
+        if(owner.target.CompareTag("Player"))
         owner.target.GetComponent<Player>().GoldProp += owner.GetGold;
     }
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// To use this class, please set panels gameObject to active and call the "InitText" function.
-/// Enter desired type to control which of text you wish to display. 
+/// Enter desired type to control which of text you wish to display. Change the current dialogue/conversation by using the "IndexProp". 
 /// </summary>
 public class Dialogue : MonoBehaviour
 {
@@ -19,13 +19,33 @@ public class Dialogue : MonoBehaviour
     private string dialogueField;
     private int n;
     private float time;
+    public int IndexProp { get; set; }
     private Timer timerScript;
-    [SerializeField] private float lifeTime = 15;
-    [SerializeField] private string[] exposition;
-    [SerializeField] private string[] tutorial;
-    [SerializeField] private string[] quests;
 
-    private string[] arr;
+    [SerializeField] Dictionary<int, string[]> quests;
+    [SerializeField] Dictionary<int, string[]> expositions;
+    [SerializeField] Dictionary<int, string[]> tutorials;
+
+    [SerializeField] private float lifeTime = 30;
+
+    [SerializeField] private string[] expositionArray;
+    [SerializeField] private string[] tutorialArray;
+    [SerializeField] private string[] questArray;
+    [SerializeField] private List<DialogueSystems> questList;
+    [SerializeField] private List<DialogueSystems> tutorialSnippets;
+    [SerializeField] private List<DialogueSystems> expositionMessages;
+
+    [System.Serializable]
+    public struct DialogueSystems
+    {
+        public string[] messages;
+        public Image[] imges;
+        public int index;
+    }
+
+    private string[] messages;
+
+
 
     private void Update()
     {
@@ -34,38 +54,40 @@ public class Dialogue : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
             DeveloperKey();
+
     }
 
     private void TickUI()
     {
-        dialogueField = arr[n];
+        dialogueField = messages[n];
         gameObject.GetComponentInChildren<Text>().text = dialogueField;
         DisableWithDelay();
-        
     }
 
     public void InitText()
     {
         n = 0;
+        IndexProp = 1;
         dialogueActive = true;
-        if (DialogueProp == DialogueType.QUEST)
-            arr = quests;
-        else if (DialogueProp == DialogueType.EXPOSITION)
-            arr = exposition;
-        else
-            arr = tutorial;
 
-        dialogueField = arr[n];
+        if (DialogueProp == DialogueType.QUEST)
+        messages = questList[IndexProp].messages;
+        else if (DialogueProp == DialogueType.EXPOSITION)
+            messages = expositionMessages[IndexProp].messages;
+        else
+            messages = tutorialSnippets[IndexProp].messages;
+
+        dialogueField = messages[n];
         TickUI();
     }
 
 
     public void Next()
     {
-        if (n < arr.Length - 1)
+        if (n < messages.Length - 1)
         {
             n++;
-            dialogueField = arr[n];
+            dialogueField = messages[n];
             TickUI();
         }
         else

@@ -16,6 +16,7 @@ public class ChaseBase : AliveBase
     {
         base.EnterState();
         Mathf.Clamp(hesitationChance, 0, 1);
+        //owner.agent.autoRepath = false;
     }
 
 
@@ -32,7 +33,15 @@ public class ChaseBase : AliveBase
 
     protected virtual void Chase()
     {
-        distanceToPlayer = Vector3.Distance(owner.transform.position, owner.target.transform.position);
+        owner.agent.avoidancePriority = 99;
+        if (owner.target.CompareTag("Player"))
+            owner.agent.stoppingDistance = 2.5f;
+        else
+        {
+            owner.agent.stoppingDistance = 2.8f;
+        }
+
+        distanceToTarget = Vector3.Distance(owner.transform.position, owner.target.transform.position);
         owner.agent.SetDestination(owner.target.transform.position);
         owner.transform.LookAt(owner.target.transform.position);
     }
