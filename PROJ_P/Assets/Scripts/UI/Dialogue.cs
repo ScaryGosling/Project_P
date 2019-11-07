@@ -66,7 +66,6 @@ public class Dialogue : MonoBehaviour
     public void InitText()
     {
         n = 0;
-        IndexProp = 1;
         dialogueActive = true;
 
 
@@ -81,7 +80,6 @@ public class Dialogue : MonoBehaviour
         foreach (string msg in messages)
             lifeTime += timePerQuestion;
 
-        Debug.Log(lifeTime);
         dialogueField = messages[n];
         TickUI();
     }

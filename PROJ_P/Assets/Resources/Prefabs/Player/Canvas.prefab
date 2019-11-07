@@ -2481,7 +2481,7 @@ PrefabInstance:
     - target: {fileID: 3086651210904522627, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
       propertyPath: m_fontSize
-      value: 70.25
+      value: 40.25
       objectReference: {fileID: 0}
     - target: {fileID: 6068471755039141717, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
@@ -2506,7 +2506,7 @@ PrefabInstance:
     - target: {fileID: 6068471755039141717, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 666a13891d20bf14b84ddd32ee46f3ef, type: 3}
@@ -2527,6 +2527,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: QuestTextPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348120610766505554, guid: ecc5381dadd0ec645ae108b92c477cc8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2992236275247505149, guid: ecc5381dadd0ec645ae108b92c477cc8,
         type: 3}
