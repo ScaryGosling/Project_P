@@ -17,7 +17,7 @@ MonoBehaviour:
   castCost: 5
   magnitude: 0
   attackImage: {fileID: 21300000, guid: fdab0b38ecbc7a8449876ca3db5f059b, type: 3}
-  cooldown: 45
+  cooldown: 20
   upgradeCosts:
   - upgradeCost: 200
     newDamage: 5

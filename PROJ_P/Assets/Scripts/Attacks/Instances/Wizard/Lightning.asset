@@ -21,7 +21,7 @@ MonoBehaviour:
   cooldown: 2
   upgradeCosts:
   - upgradeCost: 50
-    newDamage: 8
+    newDamage: 20
   - upgradeCost: 200
     newDamage: 11
   - upgradeCost: 400

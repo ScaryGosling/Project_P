@@ -15,9 +15,9 @@ MonoBehaviour:
   abilityName: Basic Attack
   abilityDescription: Shot an arcane bolt! Click once to buy upgrade!
   castCost: 0
-  magnitude: 40
+  magnitude: 10
   attackImage: {fileID: 21300000, guid: 9185347437acf80418f9522c6ba90129, type: 3}
-  cooldown: 1
+  cooldown: 0.75
   upgradeCosts:
   - upgradeCost: 0
     newDamage: 8
@@ -36,8 +36,8 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: 94d36fc08a9f585429087b378e0d8ab6, type: 3}
   cooldownClip: {fileID: 8300000, guid: eec99f64c3cf49640b9ccb32e2e46471, type: 3}
   abilityCat: 1
-  slowTime: 0.5
-  speedMultiplier: 0.3
+  slowTime: 1
+  speedMultiplier: 0.5
   projectile: {fileID: 6750013541312212612, guid: 496018193e878472eaa24ee9549d5bd7,
     type: 3}
   force: 1500
