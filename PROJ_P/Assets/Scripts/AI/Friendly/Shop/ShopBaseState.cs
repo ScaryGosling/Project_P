@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Friendly/Shop Base State")]
 public class ShopBaseState : FriendlyBaseState
 {
     protected Shop shopKeeper;
     protected GameObject player;
-    protected GameObject pressEtext;
+    protected GameObject pressEGameObject;
     protected bool timeLeft = true;
     private bool timerStarted = false;
     protected GameObject shopWindow;
     protected Vector3 spawnPoint;
     protected NavMeshAgent navMeshAgent;
+    private Text pressETextObject;
 
     public override void InitializeState(StateMachine owner)
     {
@@ -24,9 +26,10 @@ public class ShopBaseState : FriendlyBaseState
     private void CacheComponents()
     {
         player = shopKeeper.GetPlayer();
-        pressEtext = shopKeeper.GetText();
+        pressEGameObject = shopKeeper.GetText();
         shopWindow = shopKeeper.GetShopWindow();
         navMeshAgent = shopKeeper.GetComponent<NavMeshAgent>();
+        pressETextObject = pressEGameObject.GetComponent<Text>();
     }
 
     public override void EnterState()
@@ -44,7 +47,8 @@ public class ShopBaseState : FriendlyBaseState
     {
         if (DistanceFromPlayer() <= shopKeeper.DistanceFromPlayerToActivate && timeLeft)
         {
-            pressEtext.SetActive(true);
+            pressEGameObject.SetActive(true);
+            pressETextObject.text = "Press " + Player.instance.GetKeybindSet().GetBindString(KeyFeature.TOGGLE_SHOP);
             if (Input.GetKeyDown(Player.instance.GetKeybindSet().GetBind(KeyFeature.TOGGLE_SHOP)))
             {
                 ActivateShop();
@@ -64,7 +68,7 @@ public class ShopBaseState : FriendlyBaseState
         }
         else
         {
-            pressEtext.SetActive(false);
+            pressEGameObject.SetActive(false);
         }
     }
 
@@ -72,7 +76,7 @@ public class ShopBaseState : FriendlyBaseState
     {
         if (!shopWindow.activeSelf)
         {
-            pressEtext.SetActive(false);
+            pressEGameObject.SetActive(false);
         shopKeeper.ChangeState<ShopSellingState>();
         }
     }
