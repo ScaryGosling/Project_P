@@ -22,15 +22,15 @@ MonoBehaviour:
   - upgradeCost: 0
     newDamage: 8
   - upgradeCost: 200
-    newDamage: 14
+    newDamage: 11
   - upgradeCost: 500
-    newDamage: 20
+    newDamage: 17
   - upgradeCost: 700
-    newDamage: 26
+    newDamage: 23
   - upgradeCost: 800
-    newDamage: 32
+    newDamage: 30
   - upgradeCost: 1000
-    newDamage: 38
+    newDamage: 36
   lockedAbility: 0
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: b24232bb56d4d3d4c8dd15da446cad68, type: 3}

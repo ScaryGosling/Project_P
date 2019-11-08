@@ -155,7 +155,7 @@ MonoBehaviour:
   attackSpeed: 0.5
   goldPerHit: 1
   weight: 60
-  attackRange: 2.2
+  attackRange: 2.3
   attackRangeBuildings: 3
 --- !u!114 &-5111371089146639306
 MonoBehaviour:
