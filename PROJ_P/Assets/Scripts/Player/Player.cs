@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     private int healthPotions;
     private int resourcePotions;
     [SerializeField] private float healthPotionIncrease = 30;
+    [SerializeField] private int repairKitIncrease = 20;
     [SerializeField] [Range(0, 3)] private int healthPotionsStart = 3;
     [SerializeField] private Text healthPotionsText;
     [SerializeField] private Text resourcePotionsText;
@@ -337,7 +338,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                ((MeleeHack)activeAttacks.list[0]).IncreaseDurability(5 /100.0f);
+                ((MeleeHack)activeAttacks.list[0]).IncreaseDurability(repairKitIncrease /100.0f);
             }
         }
 

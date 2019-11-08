@@ -15,20 +15,21 @@ MonoBehaviour:
   abilityName: Berserk
   abilityDescription: (Drag and Drop, click once to buy) Gain full rage and more damage!
   castCost: 0
+  magnitude: 0
   attackImage: {fileID: 21300000, guid: 04bd0c4c34d79df4987ae3c44481a6da, type: 3}
   cooldown: 60
   upgradeCosts:
   - upgradeCost: 500
     newDamage: 5
-  - upgradeCost: 100
+  - upgradeCost: 600
     newDamage: 5
-  - upgradeCost: 150
+  - upgradeCost: 800
     newDamage: 5
-  - upgradeCost: 200
+  - upgradeCost: 1000
     newDamage: 5
-  - upgradeCost: 250
+  - upgradeCost: 1200
     newDamage: 5
-  - upgradeCost: 300
+  - upgradeCost: 1400
     newDamage: 5
   lockedAbility: 1
   particles: {fileID: 1246638314895344, guid: fe91343b9a35bb14794086f1770004a3, type: 3}
