@@ -57,6 +57,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerStats activeStats;
     [SerializeField] private Text durabilityTextObject;
 
+    [SerializeField] private Animator animator;
+
     public Coroutine RageTap { get; set; }
 
 
@@ -273,6 +275,7 @@ public class Player : MonoBehaviour
             {
                 if (activeAttacks.list[0] != null)
                 {
+                    animator.SetTrigger("Melee");
                     ExecuteAttack(activeAttacks.list[0]);
                 }
             }
