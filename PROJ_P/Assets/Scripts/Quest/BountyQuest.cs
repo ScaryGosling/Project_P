@@ -29,6 +29,7 @@ public class BountyQuest : Quest
         if (bossStats != null && bossStats.Health <= 0)
         {
             FireArrow(false, bossStats.gameObject);
+            bossStats = null;
             QuestSucceeded();
         }
     }
