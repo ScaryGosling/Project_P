@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 2712775490650649766}
   - component: {fileID: 2957525167449335573}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Units Remaining
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2481,7 +2481,7 @@ PrefabInstance:
     - target: {fileID: 3086651210904522627, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
       propertyPath: m_fontSize
-      value: 40.25
+      value: 40.3
       objectReference: {fileID: 0}
     - target: {fileID: 6068471755039141717, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
