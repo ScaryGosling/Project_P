@@ -16,20 +16,21 @@ MonoBehaviour:
   abilityDescription: (Drag and Drop, click once to buy) Tackle in a straight line
     through enemies!
   castCost: 10
+  magnitude: 0
   attackImage: {fileID: 21300000, guid: 3bd31b9140df30446ab8b0e684c32bdc, type: 3}
   cooldown: 3
   upgradeCosts:
-  - upgradeCost: 50
-    newDamage: 5
-  - upgradeCost: 50
-    newDamage: 7
   - upgradeCost: 100
-    newDamage: 10
+    newDamage: 5
   - upgradeCost: 150
-    newDamage: 13
+    newDamage: 7
   - upgradeCost: 200
-    newDamage: 15
+    newDamage: 10
+  - upgradeCost: 250
+    newDamage: 13
   - upgradeCost: 300
+    newDamage: 15
+  - upgradeCost: 400
     newDamage: 25
   lockedAbility: 1
   particles: {fileID: 0}
