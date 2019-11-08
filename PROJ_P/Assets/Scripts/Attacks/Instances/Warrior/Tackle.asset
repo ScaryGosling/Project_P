@@ -24,13 +24,13 @@ MonoBehaviour:
     newDamage: 5
   - upgradeCost: 200
     newDamage: 7
-  - upgradeCost: 300
-    newDamage: 10
   - upgradeCost: 400
-    newDamage: 13
-  - upgradeCost: 500
-    newDamage: 15
+    newDamage: 10
   - upgradeCost: 600
+    newDamage: 13
+  - upgradeCost: 800
+    newDamage: 15
+  - upgradeCost: 1000
     newDamage: 25
   lockedAbility: 1
   particles: {fileID: 0}

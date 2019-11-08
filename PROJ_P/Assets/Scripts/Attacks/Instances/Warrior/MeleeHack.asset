@@ -23,9 +23,9 @@ MonoBehaviour:
     newDamage: 8
   - upgradeCost: 200
     newDamage: 14
-  - upgradeCost: 400
+  - upgradeCost: 500
     newDamage: 20
-  - upgradeCost: 600
+  - upgradeCost: 700
     newDamage: 26
   - upgradeCost: 800
     newDamage: 32

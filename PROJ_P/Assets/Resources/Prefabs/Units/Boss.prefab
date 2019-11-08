@@ -143,19 +143,19 @@ MonoBehaviour:
   visionMask:
     serializedVersion: 2
     m_Bits: 512
-  attackRange: 4
-  attackRangeBuildings: 3
   animator: {fileID: 0}
   weapon: {fileID: 5600999944017349924}
   audioSource: {fileID: 4901963468119906052}
   takeDamageClip: {fileID: 8300000, guid: 139470045c673af43b7a95595affdac0, type: 3}
   deathClip: {fileID: 8300000, guid: 66da05baf93d6f143ae98d0a6a1046eb, type: 3}
   attackSound: {fileID: 8300000, guid: 72f1f1c7310b04546a52047f8337640a, type: 3}
-  baseHeath: 40
+  baseHeath: 50
   baseAttack: 10
   attackSpeed: 0.5
   goldPerHit: 1
   weight: 100
+  attackRange: 4
+  attackRangeBuildings: 3
 --- !u!114 &-5111371089146639306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,6 +536,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
+    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -640,11 +645,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 18320881556040783, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
