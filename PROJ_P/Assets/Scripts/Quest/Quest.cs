@@ -5,6 +5,7 @@ using UnityEngine;
 public class Quest : MonoBehaviour
 {
     [SerializeField] private int reward = 50;
+    [SerializeField] private Color32 arrowColor = new Color32(89,0,0,255);
     private ToggleArrowEvent toggleArrow = new ToggleArrowEvent();
     public virtual void StartQuest()
     {
@@ -34,6 +35,7 @@ public class Quest : MonoBehaviour
     {
         toggleArrow.goal = target;
         toggleArrow.toggle = toggle;
+        toggleArrow.arrowColor = arrowColor;
         EventSystem.Current.FireEvent(toggleArrow);
     }
 }

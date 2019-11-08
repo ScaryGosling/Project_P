@@ -13,9 +13,11 @@ public class ShopIndicatorArrow : MonoBehaviour
     private Vector3 arrowDirection;
     private float scaleFactor;
     [SerializeField] private float arrowScaleDistance = 35;
+    private SpriteRenderer arrowSprite;
     void Start()
     {
         mainCamera = Camera.main;
+        arrowSprite = arrow.GetComponent<SpriteRenderer>();
     }
 
 
@@ -40,6 +42,11 @@ public class ShopIndicatorArrow : MonoBehaviour
             arrow.transform.localScale = Vector3.one * scaleFactor;
         }
 
+    }
+
+    public void SetColor(Color32 newColor)
+    {
+        arrowSprite.color = newColor;
     }
     private float DistanceToGoal()
     {

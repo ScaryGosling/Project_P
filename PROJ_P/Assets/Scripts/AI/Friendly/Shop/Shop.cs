@@ -14,6 +14,7 @@ public class Shop : StateMachine
     private GameObject shopTimer;
     private ToggleArrowEvent toggleArrow = new ToggleArrowEvent();
     [SerializeField] private GameObject timerText;
+    [SerializeField] private Color32 arrowColor = Color.white;
     public Vector3 spawnPoint { get; private set; }
     [SerializeField] private float distanceFromPlayerToActivate = 10f;
     public float DistanceFromPlayerToActivate { get { return distanceFromPlayerToActivate; } private set { distanceFromPlayerToActivate = value; } }
@@ -42,6 +43,7 @@ public class Shop : StateMachine
         timerText.GetComponent<ShopTimer>().SetTimer(shopTimer.GetComponent<Timer>());
         toggleArrow.goal = gameObject;
         toggleArrow.toggle = true;
+        toggleArrow.arrowColor = arrowColor;
         EventSystem.Current.FireEvent(toggleArrow);
     }
     private void OnDisable()

@@ -53,6 +53,7 @@ public class ToggleArrowEvent : EventInfo
 {
     public GameObject goal;
     public bool toggle;
+    public Color32 arrowColor;
 
 }
 
