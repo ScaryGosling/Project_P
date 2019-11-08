@@ -9,27 +9,30 @@ public class ObjectSpawner : MonoBehaviour
 {
     [HideInInspector] public enum ObjectToSpawn { ManaPotion, HealthPotion, Reward }
     LinkedList<GameObject> listOfObjects = new LinkedList<GameObject>();
-    private GameObject[] locations;
+    public GameObject[] locations { get; private set; }
+
     private GameObject objectToSpawn;
     [SerializeField] private GameObject[] objectTypes;
-    public ObjectToSpawn item { get; set; } = ObjectToSpawn.ManaPotion;
-    public int Amount { get; set; } = 2;
+    private ObjectToSpawn item = ObjectToSpawn.ManaPotion;
     public bool hasAbsolutePosition { get; set; } = false;
+    private int amount = 2;
+    private Vector3 position;
 
-    public void PopulateList()
+    public void PopulateList(int amount, ObjectToSpawn item)
     {
-        Vector3 position;
+        this.amount = amount;
+        this.item = item;
 
         SelectType();
 
         if (!hasAbsolutePosition)
         {
-            while (listOfObjects.Count < Amount && listOfObjects.Count < locations.Length)
+            while (listOfObjects.Count < amount && listOfObjects.Count < locations.Length)
             {
                 foreach (GameObject location in locations)
                 {
                     position = location.transform.position;
-                    if (objectToSpawn != null && position != null && listOfObjects.Count < Amount)
+                    if (objectToSpawn != null && position != null && listOfObjects.Count < amount)
                         listOfObjects.AddFirst(Instantiate(objectToSpawn, position, Quaternion.identity));
                 }
             }
@@ -58,6 +61,7 @@ public class ObjectSpawner : MonoBehaviour
                 objectToSpawn = objectTypes[1];
                 break;
             case ObjectToSpawn.Reward:
+                objectToSpawn = objectTypes[2];
                 break;
             default:
                 break;
@@ -66,8 +70,8 @@ public class ObjectSpawner : MonoBehaviour
 
     public void TerminateSpawner()
     {
-        foreach (GameObject item in listOfObjects)
-            Destroy(item.gameObject);
+        foreach (GameObject i in listOfObjects)
+            Destroy(i.gameObject);
         Destroy(gameObject, 2f);
     }
 }

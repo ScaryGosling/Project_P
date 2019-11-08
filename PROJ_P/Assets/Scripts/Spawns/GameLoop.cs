@@ -256,9 +256,7 @@ public class GameLoop : MonoBehaviour
                 if (ObjectSpawner == null)
                 {
                     ObjectSpawner = Instantiate(ObjectSpawnerPrefab);
-                    ObjectSpawner.GetComponent<ObjectSpawner>().Amount = ItemAmount;
-                    ObjectSpawner.GetComponent<ObjectSpawner>().item = global::ObjectSpawner.ObjectToSpawn.ManaPotion;
-                    ObjectSpawner.GetComponent<ObjectSpawner>().PopulateList();
+                    ObjectSpawner.GetComponent<ObjectSpawner>().PopulateList(ItemAmount, global::ObjectSpawner.ObjectToSpawn.ManaPotion);
                 }
                 time = spawnTime / spawns.Length;
                 shopOpen = false;

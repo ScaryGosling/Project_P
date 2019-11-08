@@ -14,7 +14,7 @@ public class DebugEvent : EventInfo
 
 public class UnitsRemaining : EventInfo
 {
-    public int remaining; 
+    public int remaining;
 }
 
 public class UnitSpawnEvent : EventInfo
@@ -30,6 +30,11 @@ public class UnitDeath : EventInfo
     public bool isBoss;
 }
 
+public class Collected : EventInfo
+{
+    public int cvalueOfCollected;
+}
+
 public class GiveResource : EventInfo
 {
     public enum Res { Mana, Health, Rage }
@@ -43,7 +48,7 @@ public class NewWaveEvent : EventInfo
 }
 
 
-public class MakeDamageEvent  : EventInfo
+public class MakeDamageEvent : EventInfo
 {
     public GameObject Enemy;
     public float Damage;
