@@ -16,22 +16,22 @@ MonoBehaviour:
   abilityDescription: (Drag and Drop, click once to buy) Shoot a fireball that burns
     enemies!
   castCost: 10
-  magnitude: 100
+  magnitude: 70
   attackImage: {fileID: 21300000, guid: 4325c1a126876674f87dfb389eb19581, type: 3}
   cooldown: 20
   upgradeCosts:
   - upgradeCost: 100
-    newDamage: 20
+    newDamage: 16
   - upgradeCost: 150
-    newDamage: 25
+    newDamage: 22
   - upgradeCost: 200
-    newDamage: 30
+    newDamage: 28
   - upgradeCost: 300
-    newDamage: 35
+    newDamage: 37
   - upgradeCost: 400
-    newDamage: 40
+    newDamage: 46
   - upgradeCost: 600
-    newDamage: 100
+    newDamage: 55
   lockedAbility: 1
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: 97781fe5a15bf0b499de6dfcd1746df4, type: 3}

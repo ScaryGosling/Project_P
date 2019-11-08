@@ -5,7 +5,7 @@ using TMPro;
 
 public class IncreaseWaveCounterListener : MonoBehaviour
 {
-    [SerializeField]private WaveCounter waveCounter;
+    [SerializeField] private WaveCounter waveCounter;
     [SerializeField] private GameObject unitUpdater;
     [SerializeField] private Dialogue dialogue;
 
@@ -16,17 +16,21 @@ public class IncreaseWaveCounterListener : MonoBehaviour
         EventSystem.Current.RegisterListener<DialogueEvent>(StartDialogue);
     }
 
+
     void IncreaseWave(NewWaveEvent newWave)
     {
         waveCounter.StartNewWave();
         waveCounter.UpdateCounter(newWave.waveIndex);
-        
+
     }
 
     void UpdateRemaining(UnitsRemaining unitsRemaining)
     {
-        unitUpdater.SetActive(true);
-        unitUpdater.GetComponent<UnitUpdater>().ActivateUI(unitsRemaining.remaining);
+        if (!unitUpdater.activeSelf)
+        {
+            unitUpdater.SetActive(true);
+            unitUpdater.GetComponent<UnitUpdater>().ActivateUI(unitsRemaining.remaining);
+        }
     }
 
     void StartDialogue(DialogueEvent dialogueEvent)

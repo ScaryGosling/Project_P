@@ -86,6 +86,7 @@ public class GameLoop : MonoBehaviour
         if (!death.isBoss)
         {
             unitsKilled += 1;
+            HandleRemaining();
             player.GoldProp += goldPerKill;
             CheckForDrop(death.enemyObject.transform.position);
         }
@@ -188,9 +189,11 @@ public class GameLoop : MonoBehaviour
 
     private void HandleRemaining()
     {
-        if (unitsKilled % showRemaining == 0 && unitsKilled != 0)
+        int remaining = expected - unitsKilled;
+        unitsRemaining.remaining = remaining;
+        if (unitsKilled % showRemaining == 0 && remaining != 0 && unitsKilled != 0)
         {
-            unitsRemaining.remaining = expected - unitsKilled;
+  
             EventSystem.Current.FireEvent(unitsRemaining);
         }
 
@@ -246,7 +249,6 @@ public class GameLoop : MonoBehaviour
     {
         while (true)
         {
-            HandleRemaining();
             float time;
 
             if (spawned < expected)
