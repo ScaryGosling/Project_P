@@ -10,7 +10,8 @@ public class BountyQuest : Quest
     private Unit bossStats;
     private Timer timer;
     private DialogueEvent dialogueEvent = new DialogueEvent();
-    [SerializeField] private int index =1;
+    [SerializeField] private int index = 1;
+    [SerializeField] List<DialogueData> questData;
 
     public override void StartQuest()
     {
@@ -21,7 +22,7 @@ public class BountyQuest : Quest
     }
     public override void QuestDialogue()
     {
-        dialogueEvent.buildingIndex = index;
+        dialogueEvent.data = questData[Random.Range(0, questData.Count)];
         EventSystem.Current.FireEvent(dialogueEvent);
     }
     private void Update()

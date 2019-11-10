@@ -7,10 +7,7 @@ public abstract class EventInfo
     public string eventDescription;
 }
 
-public class DebugEvent : EventInfo
-{
-
-}
+public class DebugEvent : EventInfo{}
 
 public class UnitsRemaining : EventInfo
 {
@@ -64,7 +61,7 @@ public class ToggleArrowEvent : EventInfo
 
 public class DialogueEvent : EventInfo
 {
-    public int buildingIndex;
+    public DialogueData data;
 }
 
 public class QuestEvent : EventInfo

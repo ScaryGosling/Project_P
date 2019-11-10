@@ -38,6 +38,7 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private float damagePerLevel = 0f;
     [SerializeField] private int maximumCapacity = 200;
     [SerializeField] private float expectedGrowth = 1.20f;
+    [SerializeField] private float growthDeclinePer = 5f;
     [SerializeField] private int expected = 1;
     [Header("Time")]
     [SerializeField] private float timeAfterShopkeeperLeavesForEnemiesToSpawn = 5;
@@ -74,11 +75,14 @@ public class GameLoop : MonoBehaviour
         pauseTime = shopKeeper.GetComponent<Shop>().GetShopTime();
         EventSystem.Current.RegisterListener<UnitDeath>(UnitDeath);
         Mathf.Clamp(expectedGrowth, 1, 3);
+        Mathf.Clamp(growthDeclinePer, 1, 100);
+        growthDeclinePer = growthDeclinePer / 100;
         if (!debugMode)
         {
             StartCoroutine(Spawner());
         }
         questHandler = GetComponent<QuestHandler>();
+
     }
 
     private void UnitDeath(UnitDeath death)
@@ -106,15 +110,18 @@ public class GameLoop : MonoBehaviour
         waveCompleted = false;
         spawned = 0;
         unitsKilled = 0;
-        if (expected < maximumCapacity)
+        if (expected < maximumCapacity && expectedGrowth >= 1f)
         {
-            expected = (int)Mathf.Floor(expected * expectedGrowth);
+            expected = (int)Mathf.Floor(Mathf.Pow(expected, expectedGrowth));
+            expectedGrowth -= growthDeclinePer;
         }
         waveIndex++;
         bonusHealth += healthPerLevel;
         bonusDmg += damagePerLevel;
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
         waveTimer = StartCoroutine(WaveTimer());
+        Debug.Log("Units to Spawn: " + expected + " " + "Next wave growth" + expectedGrowth);
+
     }
 
     private void GenerateQuest()

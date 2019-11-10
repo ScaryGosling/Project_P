@@ -17,31 +17,29 @@ public class Dialogue : MonoBehaviour
     private GameObject textField;
     private bool dialogueActive;
     private string dialogueField;
+    public List<DialogueData> currentDialogue { get; private set; }
     private int n;
     private float time;
     public int IndexProp { get; set; }
     private Timer timerScript;
+    string[] testMessages = { "HI", "BYE", "YOU STILL HERE?", "OK BOOMER" };
+    //[SerializeField] private DialogueData data;
+
 
 
 
     private float lifeTime = 0;
     [SerializeField] float timePerQuestion = 10f;
 
+     
 
-    [SerializeField] private List<DialogueSystems> questList;
-    [SerializeField] private List<DialogueSystems> tutorialSnippets;
-    [SerializeField] private List<DialogueSystems> expositionMessages;
 
-    [System.Serializable]
-    public struct DialogueSystems
-    {
-        public string[] messages;
-        public Image[] imges;
-        public string name;
-        public string noticeText;
-    }
-
+    private Image[] images;
     private string[] messages;
+    private AudioClip[] voiceLines;
+    private AudioClip music;
+
+
 
 
 
@@ -53,7 +51,7 @@ public class Dialogue : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
             DeveloperKey();
 
-        
+
     }
 
     private void TickUI()
@@ -63,25 +61,21 @@ public class Dialogue : MonoBehaviour
         DisableWithDelay();
     }
 
-    public void InitText()
+    public void InitializeTextProtocol(DialogueData dialogue)
     {
-        n = 0;
-        dialogueActive = true;
+        if (dialogue.messages != null)
+        {
+            this.messages = dialogue.messages;
 
+            n = 0;
+            dialogueActive = true;
 
+            foreach (string msg in messages)
+                lifeTime += timePerQuestion;
 
-        if (DialogueProp == DialogueType.QUEST)
-            messages = questList[IndexProp].messages;
-        else if (DialogueProp == DialogueType.EXPOSITION)
-            messages = expositionMessages[IndexProp].messages;
-        else
-            messages = tutorialSnippets[IndexProp].messages;
-
-        foreach (string msg in messages)
-            lifeTime += timePerQuestion;
-
-        dialogueField = messages[n];
-        TickUI();
+            dialogueField = messages[n];
+            TickUI();
+        }
     }
 
 
@@ -124,7 +118,32 @@ public class Dialogue : MonoBehaviour
 
     private void DeveloperKey()
     {
-        InitText();
+        DialogueData textSystem = new DialogueData();
+        textSystem.messages = testMessages;
+        InitializeTextProtocol(new DialogueData());
     }
 
 }
+
+#region dialogueLegacy
+//[SerializeField] private List<DialogueSystems> questList;
+//[SerializeField] private List<DialogueSystems> tutorialSnippets;
+//[SerializeField] private List<DialogueSystems> expositionMessages;
+//if (DialogueProp == DialogueType.QUEST)
+//    messages = questList[IndexProp].messages;
+//else if (DialogueProp == DialogueType.EXPOSITION)
+//    messages = expositionMessages[IndexProp].messages;
+//else
+//    messages = tutorialSnippets[IndexProp].messages;
+
+#endregion
+    [System.Serializable]
+    public struct DialogueData
+    {
+        public Image[] imges;
+        public AudioClip[] voiceLines;
+        public AudioClip music;
+        public string[] messages;
+        public string characterName;
+        public string textPrompt;
+    }

@@ -14,6 +14,7 @@ public class ProtectionQuest : Quest
     [SerializeField] [Range(0.01f, 1.2f)]private float enemyDamagePercentage = 0.1f;
     private int buildingIndex;
     private DialogueEvent dialogueEvent = new DialogueEvent();
+    [SerializeField] List<DialogueData> questData;
 
     public override void StartQuest()
     {
@@ -27,7 +28,7 @@ public class ProtectionQuest : Quest
     }
     public override void QuestDialogue()
     {
-        dialogueEvent.buildingIndex = buildingIndex;
+        dialogueEvent.data = questData[buildingIndex];
         EventSystem.Current.FireEvent(dialogueEvent);
     }
 
