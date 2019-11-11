@@ -108,5 +108,6 @@ MonoBehaviour:
   resType: 0
   fillAmount: 1
   despawnTime: 10
-  pickupSound: {fileID: 0}
-  particles: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 84e1cf0e5dff35745b6881671cec1a7e, type: 3}
+  particles: {fileID: 1482536979965753301, guid: b1100bf3ebcf8614bbd67c23699e7d77,
+    type: 3}
