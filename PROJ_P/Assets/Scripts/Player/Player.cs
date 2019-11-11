@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
 
     public static Player instance;
     [SerializeField] private bool debugMode;
+    [SerializeField] private Texture2D fighterCursor;
+    [SerializeField] private Texture2D mysticCursor;
+    public Texture2D PlayerCursor { get; private set; }
 
     [Header("Attacks")]
     public ClassAttackList attackSets = new ClassAttackList();
@@ -180,11 +183,13 @@ public class Player : MonoBehaviour
             case PlayerClass.WIZARD:
                 Resource = ScriptableObject.CreateInstance<Mana>();
                 attackSet = attackSets.Get(PlayerClass.WIZARD);
+                PlayerCursor = mysticCursor;
                 break;
 
             case PlayerClass.WARRIOR:
                 Resource = ScriptableObject.CreateInstance<Rage>();
                 attackSet = attackSets.Get(PlayerClass.WARRIOR);
+                PlayerCursor = fighterCursor;
                 break;
 
             default:
@@ -263,6 +268,7 @@ public class Player : MonoBehaviour
         Audio = GetComponent<AudioSource>();
         HealthPotions = healthPotionsStart;
         ResourcePotionsProp = resourcePotionsStart;
+        Cursor.SetCursor(PlayerCursor, Vector2.zero, CursorMode.Auto);
         UpdateIcons();
     }
 

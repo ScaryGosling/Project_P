@@ -20,6 +20,7 @@ public class Shop : StateMachine
     public float DistanceFromPlayerToActivate { get { return distanceFromPlayerToActivate; } private set { distanceFromPlayerToActivate = value; } }
     private bool infiniteTimeUsed;
     private float tutorialTime = 600;
+    [SerializeField] private Texture2D shopHand;
     private void Start()
     {
         spawnPoint = transform.position;
@@ -86,7 +87,10 @@ public class Shop : StateMachine
     {
         return activeShopTime;
     }
-
+    public Texture2D GetCursor()
+    {
+        return shopHand;
+    }
     public void RefillPotions()
     {
         if (Player.instance.GoldProp >= costOfPotion)

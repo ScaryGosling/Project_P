@@ -77,7 +77,8 @@ public class ShopBaseState : FriendlyBaseState
         if (!shopWindow.activeSelf)
         {
             pressEGameObject.SetActive(false);
-        shopKeeper.ChangeState<ShopSellingState>();
+            Cursor.SetCursor(shopKeeper.GetCursor(), Vector2.zero, CursorMode.Auto);
+            shopKeeper.ChangeState<ShopSellingState>();
         }
     }
     protected float DistanceFromPlayer()

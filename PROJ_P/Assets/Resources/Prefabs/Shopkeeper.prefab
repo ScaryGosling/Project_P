@@ -118,6 +118,12 @@ MonoBehaviour:
   shopWindow: {fileID: 0}
   shopTime: 10
   costOfPotion: 10
+  timerText: {fileID: 0}
+  arrowColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  distanceFromPlayerToActivate: 10
+  shopHand: {fileID: 2800000, guid: 0f45821c9378469498c0044ff9068ea2, type: 3}
 --- !u!195 &4007322575627392456
 NavMeshAgent:
   m_ObjectHideFlags: 0

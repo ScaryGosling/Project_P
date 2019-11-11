@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(AudioSource))]
-public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
+public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEndDragHandler, IBeginDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
     private RectTransform rectTransform;
     private Image image;
@@ -19,6 +19,9 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip grabSound;
     [SerializeField] private AudioClip releaseSound;
+    [SerializeField] private Texture2D openHand;
+    [SerializeField] private Texture2D closedHand;
+    [SerializeField] private Texture2D shopHand;
 
     private void Start()
     {
@@ -39,6 +42,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
                 image.sprite = ability.GetImage();
                 Player.instance.SetAbility(attackOnButton - 1, ability);
                 canvasIcon.sprite = image.sprite;
+                OnPointerUp(eventData);
             }
 
         }
@@ -85,8 +89,64 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     {
         if (clone != null)
         {
-        clone.transform.position = Input.mousePosition;
+            clone.transform.position = Input.mousePosition;
 
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!eventData.dragging)
+        {
+            if (image.sprite != defaultSprite)
+            {
+                Cursor.SetCursor(openHand, Vector2.zero, CursorMode.Auto);
+            }
+            else
+            {
+                Cursor.SetCursor(shopHand, Vector2.zero, CursorMode.Auto);
+
+            }
+
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!eventData.dragging)
+        {
+            Cursor.SetCursor(shopHand, Vector2.zero, CursorMode.Auto);
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        PointerEventData pointer = new PointerEventData(EventSystem.InternalCurrent);
+        ExecuteEvents.Execute(eventData.pointerPress, pointer, ExecuteEvents.pointerExitHandler);
+        GameObject test = eventData.pointerCurrentRaycast.gameObject;
+        for (int i = 0; i < 3; i++)
+        {
+            if (test != clone && (test.GetComponent<AbilityUpgrade>() != null || test.GetComponent<AbilityDropHandler>() != null))
+            {
+                ExecuteEvents.Execute(test, pointer, ExecuteEvents.pointerEnterHandler);
+                break;
+            }
+            else
+            {
+                if (test.transform.parent != null)
+                {
+                    test = test.transform.parent.gameObject;
+
+                }
+            }
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (image.sprite != defaultSprite)
+        {
+            Cursor.SetCursor(closedHand, Vector2.zero, CursorMode.Auto);
         }
     }
 }

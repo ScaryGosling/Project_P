@@ -31,7 +31,9 @@ public class SceneHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (shopWindow && shopWindow.activeSelf)
+            { 
                 shopWindow.SetActive(false);
+            }
             else
                 GoToScene(mainMenu);
         }

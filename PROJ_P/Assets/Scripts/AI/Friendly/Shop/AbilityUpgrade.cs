@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
-public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler, IEndDragHandler, IBeginDragHandler, IPointerEnterHandler, IPointerExitHandler
+public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler, IEndDragHandler, IBeginDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private Image abilityImage;
     [SerializeField] private Text abilityName;
@@ -23,6 +23,9 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     private float rowToCameraRatio;
     private float tooltipHeight;
     private static readonly float referenceHeight = 600;
+    [SerializeField] private Texture2D openHand;
+    [SerializeField] private Texture2D closedHand;
+    [SerializeField] private Texture2D shopHand;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
@@ -86,7 +89,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         abilityName.text = potion.GetAbilityName();
         abilityImage.sprite = potion.GetImage();
         abilityDescription = potion.GetAbilityDescription();
-        
+
         //ability.ResetLevel();
     }
     void InstantiateRow()
@@ -135,7 +138,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             }
 
         }
-        else if(potion != null)
+        else if (potion != null)
         {
             tempColor = image.color;
             tempColor.a = 168;
@@ -146,6 +149,9 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         }
 
     }
+
+
+
     int nextLevelCost;
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -157,7 +163,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             {
                 if (Player.instance.GoldProp >= nextLevelCost)
                 {
-                    if (ability.IsLocked()) {
+                    if (ability.IsLocked())
+                    {
                         audioSource.clip = unlockSound;
                     }
                     else
@@ -166,6 +173,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
                     }
                     audioSource.Play();
                     ability.UpgradeAttack();
+                    OnPointerUp(eventData);
                     Player.instance.GoldProp -= nextLevelCost;
                 }
             }
@@ -200,7 +208,6 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             audioSource.clip = releaseSound;
             audioSource.Play();
             Destroy(clone);
-
         }
     }
 
@@ -222,14 +229,28 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(tooltip != null)
+        if (tooltip != null)
         {
             tooltip.SetActive(true);
             rowToCameraRatio = Screen.height / referenceHeight;
             tooltip.transform.position = new Vector2(transform.position.x, transform.position.y - rowToCameraRatio * (tooltipHeight / 2 + hoverOffset));
             tooltipText.text = abilityDescription;
         }
-        
+        if (!eventData.dragging)
+        {
+            if (ability && !ability.IsLocked())
+            {
+                Cursor.SetCursor(openHand, Vector2.zero, CursorMode.Auto);
+            }
+            else
+            {
+            Cursor.SetCursor(shopHand, Vector2.zero, CursorMode.Auto);
+
+            }
+
+        }
+
+
     }
     public GameObject GetClone()
     {
@@ -237,7 +258,43 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(tooltip != null)
+        if (tooltip != null)
             tooltip.SetActive(false);
+        if (!eventData.dragging)
+        {
+            Cursor.SetCursor(shopHand, Vector2.zero, CursorMode.Auto);
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (ability && !ability.IsLocked())
+        {
+            Cursor.SetCursor(closedHand, Vector2.zero, CursorMode.Auto);
+        }
+    }  
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+
+        PointerEventData pointer = new PointerEventData(EventSystem.InternalCurrent);
+        ExecuteEvents.Execute(eventData.pointerPress, pointer, ExecuteEvents.pointerExitHandler);
+        GameObject test = eventData.pointerCurrentRaycast.gameObject;
+        for (int i = 0; i < 3; i++)
+        {
+            if (test != clone && (test.GetComponent<AbilityUpgrade>() != null || test.GetComponent<AbilityDropHandler>() != null))
+            {
+                ExecuteEvents.Execute(test, pointer, ExecuteEvents.pointerEnterHandler);
+                break;
+            }
+            else
+            {
+                if (test.transform.parent != null)
+                {
+                    test = test.transform.parent.gameObject;
+
+                }
+            }
+        }
     }
 }

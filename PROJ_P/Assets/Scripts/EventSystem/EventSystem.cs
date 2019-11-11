@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-
-
+using UnityEngine.EventSystems;
 
 public class EventSystem : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class EventSystem : MonoBehaviour
 
 
     public static EventSystem Current;
+    internal static UnityEngine.EventSystems.EventSystem InternalCurrent;
 
     public void Awake()
     {

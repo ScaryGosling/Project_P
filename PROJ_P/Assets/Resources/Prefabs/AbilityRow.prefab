@@ -475,6 +475,9 @@ MonoBehaviour:
   currentAbilityLevelText: {fileID: 593473580846696196}
   ability: {fileID: 0}
   hoverOffset: 5
+  openHand: {fileID: 2800000, guid: e87417f5480199147994dc2e7d46dffc, type: 3}
+  closedHand: {fileID: 2800000, guid: 90b064048e071ae42a66d4f874b54ee7, type: 3}
+  shopHand: {fileID: 2800000, guid: 0f45821c9378469498c0044ff9068ea2, type: 3}
   audioSource: {fileID: 8768163033938045850}
   grabSound: {fileID: 8300000, guid: b86de4bf5ba8bc243b5bad68342447f8, type: 3}
   releaseSound: {fileID: 8300000, guid: 17ad974b8fe6ec54ea85992c89df419a, type: 3}

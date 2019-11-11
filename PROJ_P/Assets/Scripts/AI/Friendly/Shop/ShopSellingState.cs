@@ -18,6 +18,10 @@ public class ShopSellingState : ShopBaseState
         {
             DeactivateShop();
         }
+        if (!shopWindow.activeInHierarchy)
+        {
+            DeactivateShop();
+        }
     }
     private void DeactivateShop()
     {
@@ -27,5 +31,6 @@ public class ShopSellingState : ShopBaseState
     public override void ExitState()
     {
         shopWindow.SetActive(false);
+        Cursor.SetCursor(Player.instance.PlayerCursor, Vector2.zero, CursorMode.Auto);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7089112606353149578}
   - component: {fileID: 7089112606353149580}
   m_Layer: 5
-  m_Name: 2
+  m_Name: ShopNumKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,3 +86,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdad278ef1103c4682c16de5fdc6a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasIcon: {fileID: 0}
+  attackOnButton: 0
+  audioSource: {fileID: 0}
+  grabSound: {fileID: 0}
+  releaseSound: {fileID: 0}
+  openHand: {fileID: 2800000, guid: e87417f5480199147994dc2e7d46dffc, type: 3}
+  closedHand: {fileID: 2800000, guid: 90b064048e071ae42a66d4f874b54ee7, type: 3}
+  shopHand: {fileID: 2800000, guid: 0f45821c9378469498c0044ff9068ea2, type: 3}
