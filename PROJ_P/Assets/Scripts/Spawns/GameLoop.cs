@@ -272,7 +272,7 @@ public class GameLoop : MonoBehaviour
                     if (QuestProp != null && !(QuestProp is ProtectionQuest))
                     {
                         QuestProp.StartQuest();
-
+                        
                     }
                     questGenerated = false;
                 }

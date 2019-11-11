@@ -59,5 +59,4 @@ MonoBehaviour:
   objectTypes:
   - {fileID: 6863321986751247268, guid: a3e18c89ebff883499631c141faaa5bf, type: 3}
   - {fileID: 6863321986751247268, guid: ae6af44c3fd068c40a71e7c54cc508c4, type: 3}
-  item: 0
-  amount: 2
+  - {fileID: 3012000908578061488, guid: 8f9dcdb21e256ae489278a062f6dd4be, type: 3}

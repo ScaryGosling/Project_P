@@ -27,9 +27,9 @@ public class UnitDeath : EventInfo
     public bool isBoss;
 }
 
-public class Collected : EventInfo
+public class CollectionEvent : QuestEvent
 {
-    public int cvalueOfCollected;
+    public int pickUpValue;
 }
 
 public class GiveResource : EventInfo
