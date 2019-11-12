@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Color emptyHealth;
     [SerializeField] [Range(0, 1)] float colorTransitionPoint = 0.5f;
     private Coroutine[] cooldowns;
+    private Image[] attackUISpotBG = new Image[4];
 
     [Header("Attributes")]
     [SerializeField] private Image health;
@@ -50,7 +51,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Text healthPotionsText;
     [SerializeField] private Text resourcePotionsText;
     [SerializeField] [Range(0, 3)] private int resourcePotionsStart = 3;
-    
+
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
     private float tempHP = 100f;
@@ -65,20 +66,20 @@ public class Player : MonoBehaviour
 
     public Coroutine RageTap { get; set; }
     public Coroutine attackCast;
-    private Coroutine abilityDelay;
+    public Coroutine abilityDelay;
 
- 
+
 
     public KeybindSet GetKeybindSet() { return keybindSet; }
 
     public void PlayAudio(AudioClip clip)
     {
-        if(clip != null && Audio != null)
+        if (clip != null && Audio != null)
         {
 
 
-        Audio.clip = clip;
-        Audio.Play();
+            Audio.clip = clip;
+            Audio.Play();
 
         }
     }
@@ -96,7 +97,8 @@ public class Player : MonoBehaviour
         activeStats.movementSpeed = originalStats.movementSpeed;
     }
 
-    public int HealthPotions { 
+    public int HealthPotions
+    {
         get { return healthPotions; }
         set
         {
@@ -121,14 +123,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    public float HealthProp {
+    public float HealthProp
+    {
         get { return tempHP; }
-        set {
+        set
+        {
             tempHP += value * activeStats.resistanceMultiplier;
             health.fillAmount = tempHP * 0.01f;
 
             if (health.fillAmount < colorTransitionPoint)
-                health.color = Color.Lerp(emptyHealth, fullHealth, health.fillAmount /colorTransitionPoint);
+                health.color = Color.Lerp(emptyHealth, fullHealth, health.fillAmount / colorTransitionPoint);
 
             if (value < 0 && hurtClip != null)
             {
@@ -147,9 +151,9 @@ public class Player : MonoBehaviour
     }
 
 
-    
+
     public delegate void Attack();
-    public  event Attack AttackEvent;
+    public event Attack AttackEvent;
 
     public Transform GetSpawnPoint() { return spawnPoint; }
 
@@ -158,7 +162,7 @@ public class Player : MonoBehaviour
     {
         return durabilityTextObject;
     }
-   public void RunAttackCooldown(PlayerAttack executedAttack)
+    public void RunAttackCooldown(PlayerAttack executedAttack)
     {
         for (int i = 0; i < activeAttacks.list.Length; i++)
         {
@@ -177,9 +181,11 @@ public class Player : MonoBehaviour
 
     }
 
-    public void SetupClass() {
+    public void SetupClass()
+    {
 
-        switch (playerClass) {
+        switch (playerClass)
+        {
 
             case PlayerClass.WIZARD:
                 Resource = ScriptableObject.CreateInstance<Mana>();
@@ -195,13 +201,13 @@ public class Player : MonoBehaviour
 
             default:
                 throw new Exception("Error when setting resource");
-                
+
 
         }
 
         originalStats = attackSet.originalStats;
     }
-  
+
     public void Refill(GiveResource res)
     {
         Resource.IncreaseResource(res.fillAmount);
@@ -221,7 +227,8 @@ public class Player : MonoBehaviour
     }
 
 
-    public void CacheComponents() {
+    public void CacheComponents()
+    {
 
         instance = this;
         SetupClass();
@@ -271,14 +278,19 @@ public class Player : MonoBehaviour
         ResourcePotionsProp = resourcePotionsStart;
         Cursor.SetCursor(PlayerCursor, Vector2.zero, CursorMode.Auto);
         UpdateIcons();
+        for(int i = 0; i < attackUISpot.Length; i++)
+        {
+            attackUISpotBG[i] = attackUISpot[i].transform.parent.GetComponent<Image>();
+        }
     }
 
-    public void Update() {
+    public void Update()
+    {
 
         if (!hover)
         {
 
-            if (Input.GetKey(keybindSet.GetBind(KeyFeature.BASE_ATTACK)))
+            if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.BASE_ATTACK)))
             {
                 if (activeAttacks.list[0] != null)
                 {
@@ -286,21 +298,21 @@ public class Player : MonoBehaviour
                 }
             }
 
-            if (Input.GetKey(keybindSet.GetBind(KeyFeature.ABILITY_1)))
+            if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_1)))
             {
                 if (activeAttacks.list[1] != null)
                 {
                     attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[1]));
                 }
             }
-            else if (Input.GetKey(keybindSet.GetBind(KeyFeature.ABILITY_2)))
+            else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_2)))
             {
                 if (activeAttacks.list[2] != null)
                 {
                     attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[2]));
                 }
             }
-            else if (Input.GetKey(keybindSet.GetBind(KeyFeature.ABILITY_3)))
+            else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_3)))
             {
 
                 if (activeAttacks.list[3] != null)
@@ -310,7 +322,7 @@ public class Player : MonoBehaviour
             }
 
         }
-       
+
 
         if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.REFILL_HEALTH)))
         {
@@ -321,16 +333,36 @@ public class Player : MonoBehaviour
             UseResourcePotion();
         }
 
-        if(tempHP <= 0)
+        if (tempHP <= 0)
         {
-            PlayerDied();   
+            PlayerDied();
         }
 
+        UseAbilityCheck();
+
+
+    }
+
+
+    public void UseAbilityCheck()
+    {
+        for (int i = 0; i < activeAttacks.list.Length; i++)
+        {
+
+            if (activeAttacks.list[i] != null && activeAttacks.list[i].GetCastCost() / 100 <= Resource.Value)
+            {
+                attackUISpotBG[i].color = Color.white;
+            }
+            else
+            {
+                attackUISpotBG[i].color = new Color32(255, 255, 255, 68);
+            }
+        }
     }
 
     private void UseHealthPotion()
     {
-        if (HealthPotions>0)
+        if (HealthPotions > 0)
         {
             HealthProp = healthPotionIncrease;
             HealthPotions--;
@@ -347,7 +379,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                ((MeleeHack)activeAttacks.list[0]).IncreaseDurability(repairKitIncrease /100.0f);
+                ((MeleeHack)activeAttacks.list[0]).IncreaseDurability(repairKitIncrease / 100.0f);
             }
         }
 
@@ -412,54 +444,50 @@ public class Player : MonoBehaviour
         }
     }
 
-    public IEnumerator ExecuteAttack(PlayerAttack attack) {
-
-        if (!onDelay)
-        {
-
-            if (attack.castTime > 0)
-            {
-                float animationTime = 0;
-                float cooldownTime = attack.castTime;
-                castBar.transform.parent.gameObject.SetActive(true);
-                while (animationTime < cooldownTime)
-                {
-                    animationTime += Time.deltaTime;
-                    castBar.fillAmount = animationTime / cooldownTime;
-                    yield return null;
-
-                }
-
-
-                castBar.transform.parent.gameObject.SetActive(false);
-
-            }
-
-            animator.SetTrigger("Melee");
-            if (Resource.Value >= attack.GetCastCost() / 100)
-            {
-                attack.OnEquip();
-                attack.Execute();
-
-            }
-            else
-            {
-                Prompt.instance.RunMessage("Not enough " + Resource, MessageType.WARNING);
-                Audio.clip = lackResourceClip;
-                Audio.Play();
-            }
-            abilityDelay = StartCoroutine(AbilityDelay());
-        }
-    }
-
-    public IEnumerator AbilityDelay()
+    public IEnumerator ExecuteAttack(PlayerAttack attack)
     {
-        onDelay = true;
-        yield return new WaitForSeconds(0.3f);
-        onDelay = false;
+       
+
+        if (attack.cooldownActive)
+        {
+            Prompt.instance.RunMessage(attack + " is on cooldown", MessageType.WARNING);
+            yield break;
+        }
+
+        if (Resource.Value < attack.GetCastCost() / 100)
+        {
+            Prompt.instance.RunMessage("Not enough " + Resource, MessageType.WARNING);
+            yield break;
+        }
+
+
+        if (attack.castTime > 0)
+        {
+            float animationTime = 0;
+            float cooldownTime = attack.castTime;
+
+            castBar.transform.parent.gameObject.SetActive(true);
+
+            while (animationTime < cooldownTime)
+            {
+                animationTime += Time.deltaTime;
+                castBar.fillAmount = animationTime / cooldownTime;
+                yield return null;
+
+            }
+
+            castBar.transform.parent.gameObject.SetActive(false);
+
+        }
+
+        animator.SetTrigger("Melee");
+        attack.OnEquip();
+        attack.Execute();
+        attack.cooldownActive = true;
+        yield return new WaitForSeconds(attack.GetCooldown());
+        attack.cooldownActive = false;
     }
 
-    private bool onDelay = false;
 
     private void UpdateIcons()
     {
@@ -483,7 +511,8 @@ public class Player : MonoBehaviour
 }
 
 
-public enum PlayerClass {
+public enum PlayerClass
+{
 
     WIZARD, WARRIOR
 

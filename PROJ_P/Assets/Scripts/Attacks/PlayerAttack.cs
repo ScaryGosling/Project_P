@@ -13,7 +13,7 @@ public class PlayerAttack : Ability
     [SerializeField] protected float magnitude;
     [SerializeField] protected Sprite attackImage;
     [SerializeField] protected float cooldown;
-    protected bool cooldownActive;
+    public bool cooldownActive;
     public int CurrentLevel { get; protected set; }
     [Tooltip("Element 0 == Unlock cost & default damage, the rest are upgrades")]
     [SerializeField] protected List<UpgradeCost> upgradeCosts = new List<UpgradeCost>();
@@ -54,7 +54,8 @@ public class PlayerAttack : Ability
 
             damage = upgradeCosts[0].newDamage;
 
-        } catch(Exception e) { }
+        }
+        catch (Exception e) { }
     }
 
     [System.Serializable]
@@ -104,30 +105,19 @@ public class PlayerAttack : Ability
     public virtual void Execute()
     {
 
-        if (!cooldownActive)
+        if (Player.instance.Audio != null && sound != null)
         {
-            if(Player.instance.Audio != null && sound != null)
-            {
-                Player.instance.PlayAudio(sound);
-
-            }
-            
-
-            Player.instance.RunAttackCooldown(this);
-            RunAttack();
-            cooldownActive = true;
-            Timer cooldownTimer = new GameObject("Timer").AddComponent<Timer>();
-            cooldownTimer.RunCountDown(cooldown / Player.instance.activeStats.attackSpeed, ResetCooldown, Timer.TimerType.DELAY);
-
-            Player.instance.activeStats.movementSpeed = speedMultiplier;
-            Timer slowMultiplier = new GameObject("Timer").AddComponent<Timer>();
-            slowMultiplier.RunCountDown(slowTime, ResetSlow, Timer.TimerType.DELAY);
+            Player.instance.PlayAudio(sound);
 
         }
-        else
-        {
-            Prompt.instance.RunMessage(name + " is on cooldown", MessageType.WARNING);
-        }
+
+        Player.instance.RunAttackCooldown(this);
+        RunAttack();
+
+        Player.instance.activeStats.movementSpeed = speedMultiplier;
+        Timer slowMultiplier = new GameObject("Timer").AddComponent<Timer>();
+        slowMultiplier.RunCountDown(slowTime, ResetSlow, Timer.TimerType.DELAY);
+
 
     }
 
@@ -138,13 +128,14 @@ public class PlayerAttack : Ability
 
     public void ResetCooldown()
     {
+        Debug.Log("Cooldown reset");
         cooldownActive = false;
     }
 
     public virtual void RunAttack()
     {
 
-        
+
         Player.instance.Resource.DrainResource(this);
 
 
