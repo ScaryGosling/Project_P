@@ -91,6 +91,7 @@ public class Unit : StateMachine
 
         agent.radius = capsuleCollider.radius * distanceMultiplier;
         agent.autoRepath = true;
+        agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
     }
     // Methods
     protected override void Awake()
@@ -122,7 +123,6 @@ public class Unit : StateMachine
             target = Player.instance.gameObject;
         }
 
-    
     }
 
     protected override void Update()

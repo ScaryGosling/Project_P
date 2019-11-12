@@ -24,4 +24,6 @@ MonoBehaviour:
   BaseKnockBackDuration: 2
   hesitationChance: 1
   hesitationDistance: 0
+  playerStoppingDistance: 2.5
+  buildingStoppingDistance: 2.8
   resistance: 0.75

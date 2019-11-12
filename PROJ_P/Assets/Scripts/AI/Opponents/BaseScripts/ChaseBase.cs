@@ -12,11 +12,12 @@ public class ChaseBase : AliveBase
 {
     [SerializeField] protected float hesitationChance = 1f;
     [SerializeField] protected float hesitationDistance;
+    [SerializeField] protected float playerStoppingDistance = 1.5f;
+    [SerializeField] protected float buildingStoppingDistance = 2.8f;
     public override void EnterState()
     {
         base.EnterState();
         Mathf.Clamp(hesitationChance, 0, 1);
-        //owner.agent.autoRepath = false;
     }
 
 
@@ -35,10 +36,13 @@ public class ChaseBase : AliveBase
     {
         owner.agent.avoidancePriority = 99;
         if (owner.target.CompareTag("Player"))
-            owner.agent.stoppingDistance = 2.5f;
+        {
+            owner.agent.stoppingDistance = playerStoppingDistance;
+            Player.instance.GetComponent<NavMeshAgent>().avoidancePriority = 99;
+        }
         else
         {
-            owner.agent.stoppingDistance = 2.8f;
+            owner.agent.stoppingDistance = buildingStoppingDistance;
         }
 
         distanceToTarget = Vector3.Distance(owner.transform.position, owner.target.transform.position);
