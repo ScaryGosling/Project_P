@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rotationSpeed = 8;
     private Camera mainCamera;
     private NavMeshAgent agent;
-    private Rigidbody rigidbody;
+    private Rigidbody rigid;
     private KeybindSet keybindSet;
     private float xMovement, zMovement;
     [SerializeField]private Animator animator;
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     public void CacheComponents() {
         mainCamera = Camera.main;
         agent = GetComponent<NavMeshAgent>();
-        rigidbody = GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>();
         keybindSet = GetComponent<Player>().GetKeybindSet();
         player = GetComponent<Player>();
     }
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         input = new Vector3(xMovement, 0.0f, zMovement);
-        rigidbody.velocity = new Vector3(0,0,0);
+        rigid.velocity = new Vector3(0,0,0);
         agent.Move(input.normalized * Time.deltaTime * agent.speed * Player.instance.activeStats.movementSpeed);
 
         animator.SetFloat("speed", Vector3.Dot(transform.forward, input.normalized));

@@ -45,13 +45,13 @@ public class CreateShopMenu : MonoBehaviour
             switch (abilityUpgrade.GetAbilityCat()) 
             {
                 case AbilityCat.OFFENSIVE:
-                    abilityUpgrade.transform.parent = offensivesContent.transform;
+                    abilityUpgrade.transform.SetParent(offensivesContent.transform);
                     break;
                 case AbilityCat.DEFENSIVE:
-                    abilityUpgrade.transform.parent = defensivesContent.transform;
+                    abilityUpgrade.transform.SetParent(defensivesContent.transform);
                     break;
                 case AbilityCat.UTILITY:
-                    abilityUpgrade.transform.parent = utilitiesContent.transform;
+                    abilityUpgrade.transform.SetParent(utilitiesContent.transform);
                     break;
             }
             abilityUpgrade.transform.localScale = Vector3.one;
@@ -59,11 +59,11 @@ public class CreateShopMenu : MonoBehaviour
         if (player.attackSet.potionList.Length != 0)
         {
             for (int i = 0; i < player.attackSet.potionList.Length; i++)
-            {
+            { 
                 abilityUpgrade = Instantiate(abilityRow).GetComponent<AbilityUpgrade>();
                 abilityUpgrade.SetPotion(player.attackSet.potionList[i]);       
                 abilityUpgrade.SetTooltip(tooltipText);
-                abilityUpgrade.transform.parent = potionsContent.transform;
+                abilityUpgrade.transform.SetParent(potionsContent.transform);
                 if (abilityUpgrade.GetPotion() is RepairKit)
                 {
                     abilityUpgrade.SetMeleeHack((MeleeHack)Player.instance.attackSet.list[0]);
