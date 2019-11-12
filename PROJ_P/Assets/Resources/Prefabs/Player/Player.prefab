@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 1881681637}
   m_Layer: 8
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1881681636
 RectTransform:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4899285374344568440}
   m_Layer: 0
   m_Name: left eye
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,8 +203,8 @@ GameObject:
   - component: {fileID: 1079045316322619805}
   - component: {fileID: 1079045316322619802}
   - component: {fileID: 1079045316322619803}
-  - component: {fileID: 1079045316322619800}
   - component: {fileID: 849217775}
+  - component: {fileID: 849217776}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -307,7 +307,7 @@ MonoBehaviour:
   animator: {fileID: 3873994355327447010}
   ignoreMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
 --- !u!54 &1079045316322619805
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
 --- !u!114 &1079045316322619803
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8aa679055c4344b39d3fff1d263d164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 0
+  debugMode: 1
   fighterCursor: {fileID: 2800000, guid: 24d21e256b498a944a00e2527ed7618c, type: 3}
   mysticCursor: {fileID: 2800000, guid: 87d28997275f30943a4bf1cdc156bb73, type: 3}
   attackSets:
@@ -368,21 +368,24 @@ MonoBehaviour:
     - key: 1
       value: {fileID: 11400000, guid: 865453a2608304999bee314a8796a7e4, type: 2}
   weapon: {fileID: 1079045318057206053}
-  keybindSet: {fileID: 0}
+  keybindSet: {fileID: 11400000, guid: 9c37919dfa498b34290c55af5af987d5, type: 2}
   attackUISpot:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  fullHealth: {r: 0, g: 0, b: 0, a: 0}
-  emptyHealth: {r: 0, g: 0, b: 0, a: 0}
+  castBar: {fileID: 0}
+  fullHealth: {r: 0.4209365, g: 0.8018868, b: 0.2912513, a: 1}
+  emptyHealth: {r: 1, g: 0.41844082, b: 0, a: 1}
   colorTransitionPoint: 0.5
   health: {fileID: 0}
   resourceImage: {fileID: 0}
-  gold: 99
+  gold: 0
   spawnPoint: {fileID: 2333080736870482482}
-  hurtClip: []
-  lackResourceClip: {fileID: 0}
+  hurtClip:
+  - {fileID: 8300000, guid: d9eaadc4652084c479241481781e28bd, type: 3}
+  - {fileID: 8300000, guid: e3a3c47efec5aac41be1624669454109, type: 3}
+  lackResourceClip: {fileID: 8300000, guid: eec99f64c3cf49640b9ccb32e2e46471, type: 3}
   healthPotionIncrease: 30
   repairKitIncrease: 20
   healthPotionsStart: 3
@@ -391,29 +394,18 @@ MonoBehaviour:
   resourcePotionsStart: 3
   playerClass: 1
   hover: 0
+  originalStats:
+    movementSpeed: 1
+    resistanceMultiplier: 1
+    attackSpeed: 1
+    attackDamage: 1
   activeStats:
     movementSpeed: 0
     resistanceMultiplier: 0
     attackSpeed: 0
     attackDamage: 0
   durabilityTextObject: {fileID: 0}
-  animator: {fileID: 0}
---- !u!208 &1079045316322619800
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079045316322619795}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 1, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  animator: {fileID: 3873994355327447010}
 --- !u!114 &849217775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +421,102 @@ MonoBehaviour:
   goal: {fileID: 0}
   arrow: {fileID: 1881681635}
   arrowScaleDistance: 35
+--- !u!82 &849217776
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079045316322619795}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1079045316573741339
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +530,7 @@ GameObject:
   - component: {fileID: 1079045316573741318}
   m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -486,7 +574,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cc68c33c56a20b14aaafd6373d73f884, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -518,7 +606,7 @@ GameObject:
   - component: {fileID: 2333080736870482482}
   m_Layer: 8
   m_Name: SpawnPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,9 +637,10 @@ GameObject:
   - component: {fileID: 1079045318057206051}
   - component: {fileID: 505616735}
   - component: {fileID: 505616734}
+  - component: {fileID: 1832506589}
   m_Layer: 8
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -597,7 +686,7 @@ BoxCollider:
   m_GameObject: {fileID: 1079045318057206053}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 3, z: 1}
   m_Center: {x: 0, y: 1.5, z: 0}
@@ -613,9 +702,105 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea47bd6311896479c86f4d9f388372f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactSound: {fileID: 0}
+  impactSound: {fileID: 8300000, guid: 430029e961fe3594e8786ced50be2c19, type: 3}
   comboMultiplier: 0
   comboTime: 0
+--- !u!82 &1832506589
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079045318057206053}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1639737600702831070
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +815,7 @@ GameObject:
   - component: {fileID: 9114215554271468186}
   m_Layer: 8
   m_Name: Nose
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -723,7 +908,7 @@ GameObject:
   - component: {fileID: 455707172640628373}
   m_Layer: 0
   m_Name: Right eye
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -813,7 +998,7 @@ GameObject:
   - component: {fileID: 7053926296183501321}
   m_Layer: 8
   m_Name: Face
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -943,11 +1128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6532147142460106909}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: f519a78a8d29c5648b25a59d0059f0cf,
-        type: 3}
-      propertyPath: m_Name
-      value: Sword1
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f519a78a8d29c5648b25a59d0059f0cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1017,6 +1197,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 5.7951145
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f519a78a8d29c5648b25a59d0059f0cf,
+        type: 3}
+      propertyPath: m_Name
+      value: Sword1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f519a78a8d29c5648b25a59d0059f0cf, type: 3}
