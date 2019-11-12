@@ -15,7 +15,7 @@ MonoBehaviour:
   controlBehaviors: 0
   material: {fileID: 2100000, guid: 66f76dc86701845f1b41313bddd266f2, type: 2}
   moveSpeed: 9
-  scale: {x: 1.2, y: 1, z: 2}
+  scale: {x: 1, y: 1, z: 1}
   staggerCD: 0.2
   bloodParticle: {fileID: 1482536979965753301, guid: b1100bf3ebcf8614bbd67c23699e7d77,
     type: 3}
