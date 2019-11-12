@@ -450,13 +450,13 @@ public class Player : MonoBehaviour
 
         if (attack.cooldownActive)
         {
-            Prompt.instance.RunMessage(attack + " is on cooldown", MessageType.WARNING);
+            Prompt.instance.RunMessage(attack.GetAbilityName() + " is on cooldown", MessageType.WARNING);
             yield break;
         }
 
         if (Resource.Value < attack.GetCastCost() / 100)
         {
-            Prompt.instance.RunMessage("Not enough " + Resource, MessageType.WARNING);
+            Prompt.instance.RunMessage("Not enough " + Resource.name, MessageType.WARNING);
             yield break;
         }
 

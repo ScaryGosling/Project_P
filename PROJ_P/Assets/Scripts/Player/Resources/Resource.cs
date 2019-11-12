@@ -8,6 +8,7 @@ public class Resource : ScriptableObject
     public float Value { get; protected set; } = 1;
     protected Color resourceMeter;
     protected Image resourceImage;
+    public string name;
 
 
     public virtual void DrainResource(PlayerAttack activeAttack) {

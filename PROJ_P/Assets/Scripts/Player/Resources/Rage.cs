@@ -38,6 +38,7 @@ public class Rage : Resource
 
     public override void CacheComponents(Image resourceImage) {
 
+        name = "Rage";
         base.CacheComponents(resourceImage);
         resourceMeter = new Color(200, 0, 0, 1);
         resourceImage.fillAmount = 0;

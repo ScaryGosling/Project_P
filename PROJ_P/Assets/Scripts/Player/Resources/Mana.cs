@@ -12,6 +12,7 @@ public class Mana : Resource
 
     public override void CacheComponents(Image resourceImage)
     {
+        name = "Mana";
         base.CacheComponents(resourceImage);
         resourceMeter = new Color(0,0,255,1);
         SetResourceColor();
