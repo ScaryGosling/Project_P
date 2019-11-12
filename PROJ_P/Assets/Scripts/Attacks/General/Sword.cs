@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Sword : MonoBehaviour
 {
@@ -12,19 +13,24 @@ public class Sword : MonoBehaviour
     [SerializeField] private AudioClip impactSound;
     [SerializeField] private float comboMultiplier;
     [SerializeField] private float comboTime;
+    private Action methodToRun;
+    private IEnumerator coroutineToRun;
 
     private int combo = -1;
     private Coroutine comboCoroutine;
 
-    public void CacheComponents(float damage,float magnitude, PlayerAttack hack)
+    public void CacheComponents(float damage,float magnitude, PlayerAttack hack, Action methodToRun = null, IEnumerator coroutineToRun = null)
     {
         this.damage = damage;
         this.hack = hack;
         this.magnitude = magnitude;
+        this.methodToRun = methodToRun;
+        this.coroutineToRun = coroutineToRun;
         source = GetComponent<AudioSource>();
         if (impactSound != null)
             source.clip = impactSound;
     }
+
 
     public IEnumerator Combo()
     {
@@ -63,6 +69,18 @@ public class Sword : MonoBehaviour
             if(impactSound != null)
             {
                 source.Play();
+            }
+
+            if(methodToRun != null)
+            {
+                methodToRun();
+                methodToRun = null;
+            }
+
+            if(coroutineToRun != null)
+            {
+                StartCoroutine(coroutineToRun);
+                coroutineToRun = null;
             }
 
         }

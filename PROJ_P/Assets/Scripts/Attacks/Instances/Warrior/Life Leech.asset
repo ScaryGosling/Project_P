@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23627d844a787004ba7318d2d4165bed, type: 3}
+  m_Name: Life Leech
+  m_EditorClassIdentifier: 
+  abilityName: Life leech
+  abilityDescription: No description available
+  castCost: 5
+  castTime: 0
+  magnitude: 0
+  attackImage: {fileID: 21300000, guid: 00bb674f5d632f8488bf42c497de78ca, type: 3}
+  cooldown: 3
+  cooldownActive: 0
+  upgradeCosts:
+  - upgradeCost: 50
+    newDamage: 0
+  lockedAbility: 1
+  particles: {fileID: 0}
+  sound: {fileID: 0}
+  cooldownClip: {fileID: 0}
+  abilityCat: 0
+  slowTime: 0
+  speedMultiplier: 0
+  forwardSlash: {fileID: 7400000, guid: dde732b3854ff43e8a66dab8b5e55b3b, type: 2}
+  backSlash: {fileID: 7400000, guid: 59e49ee34617b1b4dafb8b1b953e563a, type: 2}
+  iterations: 20
+  iterationTime: 0.3
+  regenerationValue: 1
