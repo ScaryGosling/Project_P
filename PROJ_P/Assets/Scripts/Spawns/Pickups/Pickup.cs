@@ -32,7 +32,9 @@ public class Pickup : MonoBehaviour
             if (other.GetComponent<Player>())
             {
                 other.GetComponent<Player>().PlayAudio(pickupSound);
-                Instantiate(particles, player.transform.position, Quaternion.identity, player.transform);
+
+                if (particles != null)
+                    Instantiate(particles, player.transform.position, Quaternion.identity, player.transform);
 
             }
             DoSomething();
