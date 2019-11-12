@@ -50,6 +50,8 @@ public class Unit : StateMachine
     public float GetAttackRange { get { return attackRange; } set { attackRange = value; } }
     [SerializeField] private float attackRangeBuildings = 2.5f;
     public float AttackRangeBuildings { get { return attackRangeBuildings; } set { attackRangeBuildings = value; } }
+
+    public float distanceMultiplier { get; set; } = 2;
     #endregion
 
     public void PlayAudio(AudioClip clip = null)
@@ -86,6 +88,9 @@ public class Unit : StateMachine
         {
             QuestTargetProp = null;
         }
+
+        agent.radius = capsuleCollider.radius * distanceMultiplier;
+        agent.autoRepath = true;
     }
     // Methods
     protected override void Awake()
