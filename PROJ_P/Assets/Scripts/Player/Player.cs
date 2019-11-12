@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool hover = false;
 
 
-    private PlayerStats originalStats;
+    public PlayerStats originalStats;
     [HideInInspector] public PlayerStats activeStats;
     [SerializeField] private Text durabilityTextObject;
 

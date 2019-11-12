@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameLoop : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class GameLoop : MonoBehaviour
 
     [SerializeField] private int showRemaining = 3;
     [SerializeField] private bool debugMode;
+    [SerializeField] private float playerSpeedScale;
     [Header("Wave Scaling")]
     [SerializeField] private float healthPerLevel = 5f;
     [SerializeField] private float damagePerLevel = 0f;
@@ -120,6 +122,9 @@ public class GameLoop : MonoBehaviour
         bonusDmg += damagePerLevel;
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
         waveTimer = StartCoroutine(WaveTimer());
+        player.originalStats.movementSpeed /= playerSpeedScale;
+        player.ResetSpeed();
+        Prompt.instance.RunMessage("Speed has been reset", MessageType.INFO);
         Debug.Log("Units to Spawn: " + expected + " " + "Next wave growth" + expectedGrowth);
 
     }
@@ -171,6 +176,9 @@ public class GameLoop : MonoBehaviour
 
                 player.GoldProp += (int)(goldPerWave / Mathf.Log(waveTime));
                 waveCompleted = true;
+                player.originalStats.movementSpeed *= playerSpeedScale;
+                player.ResetSpeed();
+                Prompt.instance.RunMessage("Gained: " + playerSpeedScale + "x speed!", MessageType.BONUS);
             }
             SpawnShopKeeper();
             GenerateQuest();

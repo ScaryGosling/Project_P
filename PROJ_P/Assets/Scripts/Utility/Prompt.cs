@@ -31,11 +31,15 @@ public class Prompt : MonoBehaviour
         switch (messageType)
         {
             case MessageType.WARNING:
-                text.color = new Color(1,0,0);
+                text.color = Color.red;
                 break;
 
             case MessageType.BONUS:
-                text.color = new Color(0,1,0);
+                text.color = Color.green;
+                break;
+
+            case MessageType.INFO:
+                text.color = Color.yellow;
                 break;
 
         }
@@ -58,5 +62,5 @@ public class Prompt : MonoBehaviour
 
 public enum MessageType
 {
-    WARNING, BONUS
+    WARNING, BONUS, INFO
 }
