@@ -22,7 +22,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     [SerializeField] private Texture2D openHand;
     [SerializeField] private Texture2D closedHand;
     [SerializeField] private Texture2D shopHand;
-
+    [SerializeField] private Image iconImage;
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -39,9 +39,11 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
             {
                 ability = abilityUpgrade.GetAbility();
                 eventData.pointerDrag.GetComponent<AbilityUpgrade>().GetAbilityCat();
-                image.sprite = ability.GetImage();
+                //image.sprite = ability.GetImage();
                 Player.instance.SetAbility(attackOnButton - 1, ability);
-                canvasIcon.sprite = image.sprite;
+                iconImage.gameObject.SetActive(true);
+                iconImage.sprite = ability.GetImage();
+                canvasIcon.sprite = iconImage.sprite;
                 OnPointerUp(eventData);
             }
 
@@ -81,6 +83,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         {
                 image.sprite = defaultSprite;
                 canvasIcon.sprite = null;
+            iconImage.gameObject.SetActive(false);
             Player.instance.SetAbility(attackOnButton - 1, null);
         }
     }

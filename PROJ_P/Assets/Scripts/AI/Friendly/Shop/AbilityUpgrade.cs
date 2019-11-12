@@ -26,6 +26,10 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     [SerializeField] private Texture2D openHand;
     [SerializeField] private Texture2D closedHand;
     [SerializeField] private Texture2D shopHand;
+    [SerializeField] private Sprite normalBackground;
+    [SerializeField] private Sprite hoverBackground;
+    [SerializeField] private GameObject lockObject;
+    [SerializeField] private GameObject dragAbility;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
@@ -45,6 +49,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     private void Start()
     {
         image = GetComponent<Image>();
+        image.sprite = normalBackground;
 
     }
 
@@ -117,20 +122,22 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             currentAbilityLevel = ability.CurrentLevel;
             if (currentAbilityLevel == -1)
             {
-                currentAbilityLevelText.text = "U";
+                currentAbilityLevelText.text = "-";
                 tempColor.a = 68;
                 image.color = tempColor;
+                lockObject.SetActive(true);
             }
             else
             {
 
                 currentAbilityLevelText.text = currentAbilityLevel + "";
-                tempColor.a = 168;
+                tempColor.a = 255;
                 image.color = tempColor;
+                lockObject.SetActive(false);
             }
             if (ability.GetNextLevelCost(currentAbilityLevel) != -2)
             {
-                nextUpgradeCost.text = ability.GetNextLevelCost(currentAbilityLevel) + "$";
+                nextUpgradeCost.text = ability.GetNextLevelCost(currentAbilityLevel) + "";
             }
             else
             {
@@ -141,10 +148,10 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         else if (potion != null)
         {
             tempColor = image.color;
-            tempColor.a = 168;
+            tempColor.a = 255;
             image.color = tempColor;
             nextUpgradeCost.text = potion.GetPotionCost().ToString();
-            currentAbilityLevelText.text = potion.GetResourceHandler().ToString();
+            currentAbilityLevelText.transform.parent.gameObject.SetActive(false);
             //currentAbilityLevelText.transform.parent.gameObject.SetActive(false);
         }
 
@@ -217,8 +224,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         {
             audioSource.clip = grabSound;
             audioSource.Play();
-            clone = Instantiate(gameObject, GameObject.Find("Canvas").transform);
-
+            clone = Instantiate(dragAbility, GameObject.Find("Canvas").transform);
+            clone.transform.GetChild(0).GetComponent<Image>().sprite = ability.GetImage();
         }
         else
         {
@@ -229,6 +236,9 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (!eventData.dragging)
+        {
+        image.sprite = hoverBackground;
         if (tooltip != null)
         {
             tooltip.SetActive(true);
@@ -236,8 +246,6 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             tooltip.transform.position = new Vector2(transform.position.x, transform.position.y - rowToCameraRatio * (tooltipHeight / 2 + hoverOffset));
             tooltipText.text = abilityDescription;
         }
-        if (!eventData.dragging)
-        {
             if (ability && !ability.IsLocked())
             {
                 Cursor.SetCursor(openHand, Vector2.zero, CursorMode.Auto);
@@ -258,6 +266,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     }
     public void OnPointerExit(PointerEventData eventData)
     {
+        image.sprite = normalBackground;
         if (tooltip != null)
             tooltip.SetActive(false);
         if (!eventData.dragging)
