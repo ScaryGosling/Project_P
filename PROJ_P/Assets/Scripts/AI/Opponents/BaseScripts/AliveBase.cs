@@ -56,17 +56,18 @@ public class AliveBase : HostileBaseState
     protected virtual void CheckForDamage()
     {
         owner.agent.avoidancePriority = 99;
-        if(owner.agent.isActiveAndEnabled)
-        owner.agent.isStopped = false;
+        if (owner.agent.isActiveAndEnabled)
+            owner.agent.isStopped = false;
         if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && alive && !attacking)
         {
-            //owner.agent.SetDestination(owner.agent.transform.position);
+            owner.agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
             if (owner.getGenericTimer.TimeTask)
             {
                 attacking = true;
                 owner.PlayAudio(owner.attackSound);
                 owner.getGenericTimer.SetTimer(owner.AttackSpeed);
                 attacking = !attacking;
+                owner.agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
                 DamageTarget();
             }
         }
@@ -115,7 +116,7 @@ public class AliveBase : HostileBaseState
         else
         {
             ManageKnockBack(magnitude);
-            otherTimer.AddComponent<Timer>().RunCountDown(BaseKnockBackDuration, MoveBack, Timer.TimerType.WHILE);
+            otherTimer.AddComponent<Timer>().RunCountDown(BaseKnockBackDuration, ForceBack, Timer.TimerType.WHILE);
         }
 
     }
@@ -123,7 +124,7 @@ public class AliveBase : HostileBaseState
     protected void ManageKnockBack(float magnitude)
     {
         weightDiff = magnitude - owner.GetWeight;
-        
+
         if (weightDiff < 10)
         {
             BaseKnockBackDuration = BaseKnockBackDuration * 1.2f;
@@ -134,14 +135,14 @@ public class AliveBase : HostileBaseState
         }
         else
         {
-            BaseKnockBackDuration = BaseKnockBackDuration * 1.4f; 
+            BaseKnockBackDuration = BaseKnockBackDuration * 1.4f;
         }
     }
     protected bool CapsuleCast()
     {
+        RaycastHit hit;
         //bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);
-        bool capsuleCast = Physics.CapsuleCast(owner.agent.transform.position, owner.target.transform.position,
-            owner.capsuleCollider.radius, owner.gameObject.transform.forward);
+        bool capsuleCast = Physics.CapsuleCast(owner.agent.transform.position, owner.target.transform.position, owner.capsuleCollider.radius, owner.gameObject.transform.forward, owner.visionMask);
         if (capsuleCast)
             return true;
         return false;
@@ -153,8 +154,8 @@ public class AliveBase : HostileBaseState
         owner.PlayAudio(owner.takeDamageClip);
         GameObject splatter = Instantiate(bloodParticle, owner.transform.position, Quaternion.identity);
         splatter.AddComponent<Timer>().RunCountDown(4, PlaceboMethod, Timer.TimerType.DELAY);
-        if(owner.target.CompareTag("Player"))
-        owner.target.GetComponent<Player>().GoldProp += owner.GetGold;
+        if (owner.target.CompareTag("Player"))
+            owner.target.GetComponent<Player>().GoldProp += owner.GetGold;
     }
 
     private void StandStill()
@@ -163,19 +164,19 @@ public class AliveBase : HostileBaseState
             owner.agent.SetDestination(owner.gameObject.transform.position);
     }
 
-    private void MoveBack()
+    private void ForceBack()
     {
         if (owner.agent.enabled)
         {
             owner.agent.isStopped = true;
             owner.transform.LookAt(owner.target.transform.position);
-
-            owner.rigidbody.AddRelativeForce(new Vector3(0,0,-1) * force, ForceMode.Impulse);
+            owner.rigidbody.AddRelativeForce(new Vector3(0, 0, -1) * force, ForceMode.Impulse);
             BaseKnockBackDuration = knockStartValue;
             owner.agent.isStopped = false;
             Debug.Log("MovesBack");
         }
     }
+
 
     private void PlaceboMethod() { }
 }

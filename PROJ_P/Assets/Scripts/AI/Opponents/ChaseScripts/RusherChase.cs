@@ -37,7 +37,7 @@ public class RusherChase : ChaseBase
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
         Stagger(magnitude);
-        
+
     }
 
     protected override void OperateHesitation()
@@ -46,6 +46,28 @@ public class RusherChase : ChaseBase
         if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
         {
             owner.ChangeState<FanaticHesitate>();
+        }
+    }
+
+    protected override void CheckForDamage()
+    {
+        owner.agent.avoidancePriority = 99;
+
+        if (owner.agent.isActiveAndEnabled)
+            owner.agent.isStopped = false;
+
+        if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && alive && !attacking)
+        {
+            owner.agent.obstacleAvoidanceType = UnityEngine.AI.ObstacleAvoidanceType.NoObstacleAvoidance;
+            if (owner.getGenericTimer.TimeTask)
+            {
+                attacking = true;
+                owner.PlayAudio(owner.attackSound);
+                owner.getGenericTimer.SetTimer(owner.AttackSpeed);
+                attacking = !attacking;
+                owner.agent.obstacleAvoidanceType = UnityEngine.AI.ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+                DamageTarget();
+            }
         }
     }
 }

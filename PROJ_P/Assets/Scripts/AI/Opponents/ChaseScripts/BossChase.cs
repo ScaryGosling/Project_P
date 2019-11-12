@@ -57,10 +57,10 @@ public class BossChase : ChaseBase
     {
         owner.agent.avoidancePriority = 99;
         if (owner.target.CompareTag("Player"))
-            owner.agent.stoppingDistance = 2.5f;
+            owner.agent.stoppingDistance = playerStoppingDistance;
         else
         {
-            owner.agent.stoppingDistance = 2.8f;
+            owner.agent.stoppingDistance = buildingStoppingDistance;
         }
 
         distanceToTarget = Vector3.Distance(owner.transform.position, owner.target.transform.position);

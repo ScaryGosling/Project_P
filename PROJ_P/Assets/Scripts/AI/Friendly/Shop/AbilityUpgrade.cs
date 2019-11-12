@@ -22,7 +22,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     private string abilityDescription;
     private float rowToCameraRatio;
     private float tooltipHeight;
-    private static readonly float referenceHeight = 600;
+    private static readonly float referenceWidth = 800;
     [SerializeField] private Texture2D openHand;
     [SerializeField] private Texture2D closedHand;
     [SerializeField] private Texture2D shopHand;
@@ -238,22 +238,21 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     {
         if (!eventData.dragging)
         {
-        image.sprite = hoverBackground;
-        if (tooltip != null)
-        {
-            tooltip.SetActive(true);
-            rowToCameraRatio = Screen.height / referenceHeight;
-            tooltip.transform.position = new Vector2(transform.position.x, transform.position.y - rowToCameraRatio * (tooltipHeight / 2 + hoverOffset));
-            tooltipText.text = abilityDescription;
-        }
+            image.sprite = hoverBackground;
+            if (tooltip != null)
+            {
+                tooltip.SetActive(true);
+                rowToCameraRatio = Screen.width / referenceWidth;
+                tooltip.transform.position = new Vector2(transform.position.x, transform.position.y - rowToCameraRatio * (tooltipHeight / 2 + hoverOffset));
+                tooltipText.text = abilityDescription;
+            }
             if (ability && !ability.IsLocked())
             {
                 Cursor.SetCursor(openHand, Vector2.zero, CursorMode.Auto);
             }
             else
             {
-            Cursor.SetCursor(shopHand, Vector2.zero, CursorMode.Auto);
-
+                Cursor.SetCursor(shopHand, Vector2.zero, CursorMode.Auto);
             }
 
         }
@@ -281,7 +280,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         {
             Cursor.SetCursor(closedHand, Vector2.zero, CursorMode.Auto);
         }
-    }  
+    }
 
     public void OnPointerUp(PointerEventData eventData)
     {
