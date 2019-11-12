@@ -138,6 +138,7 @@ MonoBehaviour:
   states:
   - {fileID: 11400000, guid: 151ed408901099847a7e4071aabb016d, type: 2}
   - {fileID: 11400000, guid: f7c141c2f8cfcd04298c1669df11821b, type: 2}
+  - {fileID: 11400000, guid: 092c7c1e74dd5534bbb1e5401241454c, type: 2}
   currentState: {fileID: 0}
   renderer: {fileID: 0}
   agent: {fileID: 0}

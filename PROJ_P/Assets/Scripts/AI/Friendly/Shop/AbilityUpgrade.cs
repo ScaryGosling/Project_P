@@ -152,7 +152,6 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             image.color = tempColor;
             nextUpgradeCost.text = potion.GetPotionCost().ToString();
             currentAbilityLevelText.transform.parent.gameObject.SetActive(false);
-            //currentAbilityLevelText.transform.parent.gameObject.SetActive(false);
         }
 
     }
@@ -203,7 +202,6 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     {
         if (clone != null)
         {
-
             clone.transform.position = Input.mousePosition;
         }
     }
@@ -284,7 +282,6 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
 
     public void OnPointerUp(PointerEventData eventData)
     {
-
         PointerEventData pointer = new PointerEventData(EventSystem.InternalCurrent);
         ExecuteEvents.Execute(eventData.pointerPress, pointer, ExecuteEvents.pointerExitHandler);
         GameObject test = eventData.pointerCurrentRaycast.gameObject;

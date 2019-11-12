@@ -20,6 +20,8 @@ public class FanaticChase : ChaseBase
         {
             Chase();
             CheckForDamage();
+            if (Input.GetKeyDown(KeyCode.Alpha8))
+                owner.ChangeState<FanaticDodge>();
         }
     }
 
@@ -38,8 +40,28 @@ public class FanaticChase : ChaseBase
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
         Stagger(magnitude);
-        
+
     }
+
+    protected override void CheckForDamage()
+    {
+        owner.agent.avoidancePriority = 99;
+        if (owner.agent.isActiveAndEnabled)
+            owner.agent.isStopped = false;
+        if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && alive && !attacking)
+        {
+            if (owner.getGenericTimer.TimeTask)
+            {
+                attacking = true;
+                owner.PlayAudio(owner.attackSound);
+                owner.getGenericTimer.SetTimer(owner.AttackSpeed);
+                attacking = !attacking;
+                DamageTarget();
+            }
+        }
+    }
+
+  
 
     protected override void OperateHesitation()
     {

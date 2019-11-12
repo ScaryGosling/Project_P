@@ -60,18 +60,17 @@ public class AliveBase : HostileBaseState
             owner.agent.isStopped = false;
         if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && alive && !attacking)
         {
-            owner.agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
             if (owner.getGenericTimer.TimeTask)
             {
                 attacking = true;
                 owner.PlayAudio(owner.attackSound);
                 owner.getGenericTimer.SetTimer(owner.AttackSpeed);
                 attacking = !attacking;
-                owner.agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
                 DamageTarget();
             }
         }
     }
+
 
     protected virtual void DamageTarget()
     {
