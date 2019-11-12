@@ -8,6 +8,7 @@ public class PlayerAttack : Ability
 {
     [Header("Info")]
     [SerializeField] private float castCost;
+    public float castTime;
     protected float damage;
     [SerializeField] protected float magnitude;
     [SerializeField] protected Sprite attackImage;

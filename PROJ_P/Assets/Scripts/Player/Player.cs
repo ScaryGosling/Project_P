@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
 
     [Header("UI elements")]
     [SerializeField] private Image[] attackUISpot;
+    [SerializeField] private Image castBar;
     [SerializeField] private Color fullHealth;
     [SerializeField] private Color emptyHealth;
     [SerializeField] [Range(0, 1)] float colorTransitionPoint = 0.5f;
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator animator;
 
     public Coroutine RageTap { get; set; }
-
+    public Coroutine attackCast;
 
 
  
@@ -281,8 +282,7 @@ public class Player : MonoBehaviour
             {
                 if (activeAttacks.list[0] != null)
                 {
-                    animator.SetTrigger("Melee");
-                    ExecuteAttack(activeAttacks.list[0]);
+                    attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[0]));
                 }
             }
 
@@ -290,14 +290,14 @@ public class Player : MonoBehaviour
             {
                 if (activeAttacks.list[1] != null)
                 {
-                    ExecuteAttack(activeAttacks.list[1]);
+                    attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[1]));
                 }
             }
             else if (Input.GetKey(keybindSet.GetBind(KeyFeature.ABILITY_2)))
             {
                 if (activeAttacks.list[2] != null)
                 {
-                    ExecuteAttack(activeAttacks.list[2]);
+                    attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[2]));
                 }
             }
             else if (Input.GetKey(keybindSet.GetBind(KeyFeature.ABILITY_3)))
@@ -305,7 +305,7 @@ public class Player : MonoBehaviour
 
                 if (activeAttacks.list[3] != null)
                 {
-                    ExecuteAttack(activeAttacks.list[3]);
+                    attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[3]));
                 }
             }
 
@@ -412,8 +412,27 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void ExecuteAttack(PlayerAttack attack) {
+    public IEnumerator ExecuteAttack(PlayerAttack attack) {
 
+        if (attack.castTime > 0)
+        {
+            float animationTime = 0;
+            float cooldownTime = attack.castTime;
+            castBar.transform.parent.gameObject.SetActive(true);
+            while (animationTime < cooldownTime)
+            {
+                animationTime += Time.deltaTime;
+                castBar.fillAmount = animationTime / cooldownTime;
+                yield return null;
+
+            }
+
+
+            castBar.transform.parent.gameObject.SetActive(false);
+
+        }
+
+        animator.SetTrigger("Melee");
         if (Resource.Value >= attack.GetCastCost() / 100) 
         {
             attack.OnEquip();
@@ -426,6 +445,8 @@ public class Player : MonoBehaviour
             Audio.Play();
         }
     }
+
+
 
 
     private void UpdateIcons()

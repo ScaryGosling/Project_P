@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]private Animator animator;
     [SerializeField] private LayerMask ignoreMask;
     private float raycastDistance = 100;
+    private Player player;
 
     public void Update()
     {
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         rigidbody = GetComponent<Rigidbody>();
         keybindSet = GetComponent<Player>().GetKeybindSet();
+        player = GetComponent<Player>();
     }
 
     RaycastHit hit;
@@ -77,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
         input = new Vector3(xMovement, 0.0f, zMovement);
         rigidbody.velocity = new Vector3(0,0,0);
         agent.Move(input.normalized * Time.deltaTime * agent.speed * Player.instance.activeStats.movementSpeed);
-
 
         animator.SetFloat("speed", Vector3.Dot(transform.forward, input.normalized));
         animator.SetFloat("direction", Vector3.Dot(transform.right, input.normalized));
