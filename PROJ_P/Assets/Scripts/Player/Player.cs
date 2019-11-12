@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Text healthPotionsText;
     [SerializeField] private Text resourcePotionsText;
     [SerializeField] [Range(0, 3)] private int resourcePotionsStart = 3;
+    [SerializeField] private GameObject healthParticles;
 
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
@@ -364,6 +365,8 @@ public class Player : MonoBehaviour
     {
         if (HealthPotions > 0)
         {
+            if(healthParticles != null)
+                Instantiate(healthParticles, transform.position, Quaternion.identity, transform);
             HealthProp = healthPotionIncrease;
             HealthPotions--;
         }

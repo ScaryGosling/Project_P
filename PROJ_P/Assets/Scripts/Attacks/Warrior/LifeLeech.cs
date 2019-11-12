@@ -56,6 +56,9 @@ public class LifeLeech : PlayerAttack
 
     public IEnumerator StealLife()
     {
+        Particle instantiatedParticle = Instantiate(particles, player.transform.position, Quaternion.identity, player.transform).GetComponent<Particle>();
+        instantiatedParticle.time = iterationTime * iterations;
+        
         for (int i = 0; i < iterations; i++)
         {
             yield return new WaitForSeconds(iterationTime);

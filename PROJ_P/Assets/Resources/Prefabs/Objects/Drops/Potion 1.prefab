@@ -4882,8 +4882,7 @@ MonoBehaviour:
   fillAmount: 0.3
   despawnTime: 10
   pickupSound: {fileID: 8300000, guid: db110e427bc2b3d4398f464d577e162c, type: 3}
-  particles: {fileID: 360565347942094220, guid: 096983a47b555534e871c2bb30f5ade7,
-    type: 3}
+  particles: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: d7bc9e2d44d604d32afd94be043ef9be, type: 2}
   - {fileID: 2100000, guid: 281f95af74f57c940a75f9c5d75ffbf2, type: 2}
@@ -4894,11 +4893,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6863321986751247272}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
-        type: 3}
-      propertyPath: m_Name
-      value: Pickup_Mesh
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4968,6 +4962,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 9.770743
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
+        type: 3}
+      propertyPath: m_Name
+      value: Pickup_Mesh
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
         type: 3}
