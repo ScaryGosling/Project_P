@@ -1235,7 +1235,7 @@ RectTransform:
   m_AnchorMax: {x: 0.88000005, y: 0.07444529}
   m_AnchoredPosition: {x: -62.59999, y: -33.850037}
   m_SizeDelta: {x: 322, y: 418}
-  m_Pivot: {x: 0.3, y: 0.45}
+  m_Pivot: {x: 0.17, y: 0.39}
 --- !u!222 &8649651073023406073
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2428,11 +2428,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4738550533923403046}
     m_Modifications:
-    - target: {fileID: 8629009361956579893, guid: 666a13891d20bf14b84ddd32ee46f3ef,
-        type: 3}
-      propertyPath: m_Name
-      value: WaveText
-      objectReference: {fileID: 0}
     - target: {fileID: 1242544440411945647, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2538,6 +2533,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8629009361956579893, guid: 666a13891d20bf14b84ddd32ee46f3ef,
+        type: 3}
+      propertyPath: m_Name
+      value: WaveText
+      objectReference: {fileID: 0}
     - target: {fileID: 3086651210904522627, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2561,7 +2561,7 @@ PrefabInstance:
     - target: {fileID: 3086651210904522627, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
       propertyPath: m_fontSize
-      value: 35.85
+      value: 40.2
       objectReference: {fileID: 0}
     - target: {fileID: 6068471755039141717, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
@@ -2603,16 +2603,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4738550533923403046}
     m_Modifications:
-    - target: {fileID: 4348120610766505554, guid: ecc5381dadd0ec645ae108b92c477cc8,
-        type: 3}
-      propertyPath: m_Name
-      value: QuestTextPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348120610766505554, guid: ecc5381dadd0ec645ae108b92c477cc8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2992236275247505149, guid: ecc5381dadd0ec645ae108b92c477cc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2717,6 +2707,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348120610766505554, guid: ecc5381dadd0ec645ae108b92c477cc8,
+        type: 3}
+      propertyPath: m_Name
+      value: QuestTextPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348120610766505554, guid: ecc5381dadd0ec645ae108b92c477cc8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecc5381dadd0ec645ae108b92c477cc8, type: 3}
