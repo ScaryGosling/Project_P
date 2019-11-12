@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
 
     public Coroutine RageTap { get; set; }
     public Coroutine attackCast;
-
+    private Coroutine abilityDelay;
 
  
 
@@ -414,40 +414,52 @@ public class Player : MonoBehaviour
 
     public IEnumerator ExecuteAttack(PlayerAttack attack) {
 
-        if (attack.castTime > 0)
+        if (!onDelay)
         {
-            float animationTime = 0;
-            float cooldownTime = attack.castTime;
-            castBar.transform.parent.gameObject.SetActive(true);
-            while (animationTime < cooldownTime)
+
+            if (attack.castTime > 0)
             {
-                animationTime += Time.deltaTime;
-                castBar.fillAmount = animationTime / cooldownTime;
-                yield return null;
+                float animationTime = 0;
+                float cooldownTime = attack.castTime;
+                castBar.transform.parent.gameObject.SetActive(true);
+                while (animationTime < cooldownTime)
+                {
+                    animationTime += Time.deltaTime;
+                    castBar.fillAmount = animationTime / cooldownTime;
+                    yield return null;
+
+                }
+
+
+                castBar.transform.parent.gameObject.SetActive(false);
 
             }
 
+            animator.SetTrigger("Melee");
+            if (Resource.Value >= attack.GetCastCost() / 100)
+            {
+                attack.OnEquip();
+                attack.Execute();
 
-            castBar.transform.parent.gameObject.SetActive(false);
-
-        }
-
-        animator.SetTrigger("Melee");
-        if (Resource.Value >= attack.GetCastCost() / 100) 
-        {
-            attack.OnEquip();
-            attack.Execute();
-
-        }
-        else
-        {
-            Audio.clip = lackResourceClip;
-            Audio.Play();
+            }
+            else
+            {
+                Prompt.instance.RunMessage("Not enough " + Resource, MessageType.WARNING);
+                Audio.clip = lackResourceClip;
+                Audio.Play();
+            }
+            abilityDelay = StartCoroutine(AbilityDelay());
         }
     }
 
+    public IEnumerator AbilityDelay()
+    {
+        onDelay = true;
+        yield return new WaitForSeconds(0.3f);
+        onDelay = false;
+    }
 
-
+    private bool onDelay = false;
 
     private void UpdateIcons()
     {

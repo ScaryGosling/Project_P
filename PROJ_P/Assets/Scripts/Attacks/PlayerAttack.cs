@@ -124,6 +124,10 @@ public class PlayerAttack : Ability
             slowMultiplier.RunCountDown(slowTime, ResetSlow, Timer.TimerType.DELAY);
 
         }
+        else
+        {
+            Prompt.instance.RunMessage(name + " is on cooldown", MessageType.WARNING);
+        }
 
     }
 
