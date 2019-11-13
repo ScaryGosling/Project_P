@@ -16,4 +16,4 @@ MonoBehaviour:
   abilityDescription: 
   potionImage: {fileID: 21300000, guid: 38b45ea9f4642004bbe0e46040ff8048, type: 3}
   maxResourcePotion: 3
-  potionCost: 40
+  potionCost: 20
