@@ -32,6 +32,8 @@ public class EliasDemoEventTrigger : MonoBehaviour
         if (useSetLevelOnTrack)
         {
             eliasPlayer.QueueEvent(setLevelOnTrack.CreateSetLevelOnTrackEvent(eliasPlayer.Elias));
+            setLevel.level = 1;
+            setLevel.themeName = "";
         }
         if (usePlayStinger)
 		{

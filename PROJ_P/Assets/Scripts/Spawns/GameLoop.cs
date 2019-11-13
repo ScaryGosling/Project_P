@@ -57,6 +57,9 @@ public class GameLoop : MonoBehaviour
     [Header("Items")]
     [SerializeField] private int ItemAmount = 7;
     [SerializeField] private float chanceOfDrop = 0.4f;
+    [SerializeField] private EliasPlayer eliasPlayer;
+    [SerializeField] private EliasSetLevel setLevel;
+
     private bool waveCompleted;
     private GameObject objectSpawnerObject;
     private ObjectSpawner objectSpawner;
@@ -117,6 +120,7 @@ public class GameLoop : MonoBehaviour
             expected = (int)Mathf.Floor(Mathf.Pow(expected, expectedGrowth));
             expectedGrowth -= growthDeclinePer;
         }
+        ChangeEliasLevel(20);
         waveIndex++;
         bonusHealth += healthPerLevel;
         bonusDmg += damagePerLevel;
@@ -179,7 +183,7 @@ public class GameLoop : MonoBehaviour
                 player.originalStats.movementSpeed *= playerSpeedScale;
                 player.ResetSpeed();
                 Prompt.instance.RunMessage("Gained: " + playerSpeedScale + "x speed!", MessageType.BONUS);
-            }
+            }   
             SpawnShopKeeper();
             GenerateQuest();
 
@@ -256,12 +260,20 @@ public class GameLoop : MonoBehaviour
     {
         if (!shopOpen)
         {
+            ChangeEliasLevel(1);
             shopKeeper.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
             shopKeeper.gameObject.SetActive(true);
             shopOpen = true;
         }
     }
-
+    [SerializeField] private EliasSetLevelOnTrack setLevelOnTrack;
+    private void ChangeEliasLevel(int level)
+    {
+        eliasPlayer.QueueEvent(setLevelOnTrack.CreateSetLevelOnTrackEvent(eliasPlayer.Elias));
+        setLevel.level = level;
+        setLevel.themeName = "Objective";
+                       
+    }
     IEnumerator Spawner()
     {
         while (true)
