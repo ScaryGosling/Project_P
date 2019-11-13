@@ -9,9 +9,13 @@ using UnityEngine;
 public class FanaticChase : ChaseBase
 {
     private float dodgeResult;
+    [SerializeField] private float dodgeAwarenessDistance = 10f;
+    [SerializeField] private float dodgeChance = 1f;
     public override void EnterState()
     {
         base.EnterState();
+        Mathf.Clamp(dodgeChance, 0, 100);
+        dodgeChance = dodgeChance / 100f;
     }
 
     public override void ToDo()
@@ -21,9 +25,10 @@ public class FanaticChase : ChaseBase
         {
             Chase();
             CheckForDamage();
-           Debug.Log(CapsuleCast());
+            ConsiderDodge();
+            Debug.Log(CapsuleCast());
            
-            if (Input.GetKeyDown(KeyCode.Alpha8) || CapsuleCast())
+            if (Input.GetKeyDown(KeyCode.Alpha8))
             {
                 owner.ChangeState<FanaticDodge>();
             }
@@ -33,8 +38,8 @@ public class FanaticChase : ChaseBase
     protected void ConsiderDodge()
     {
         dodgeResult = Random.Range(0f, 1f);
-        //if (CapsuleCast() && dodgeResult <= 0.000000000000000000001)
-        //    owner.ChangeState<FanaticDodge>();
+        if (CapsuleCast() && dodgeResult <= 0.01 && Vector3.Distance(owner.transform.position, Player.instance.transform.position) <= dodgeAwarenessDistance)
+            owner.ChangeState<FanaticDodge>();
     }
 
     protected override void Die()
