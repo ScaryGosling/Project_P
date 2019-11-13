@@ -21,8 +21,8 @@ MonoBehaviour:
   cooldown: 3
   cooldownActive: 0
   upgradeCosts:
-  - upgradeCost: 50
-    newDamage: 0
+  - upgradeCost: 0
+    newDamage: 10
   lockedAbility: 1
   particles: {fileID: 360565347942094220, guid: 096983a47b555534e871c2bb30f5ade7,
     type: 3}
