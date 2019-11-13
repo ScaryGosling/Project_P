@@ -17,6 +17,24 @@ public class Prompt : MonoBehaviour
 
     public void RunMessage(string message, MessageType messageType) {
 
+        switch (messageType)
+        {
+            case MessageType.WARNING:
+                if (!Player.instance.GetKeybindSet().useWarnings)
+                    return;
+                break;
+
+            case MessageType.INFO:
+                if (!Player.instance.GetKeybindSet().useInfo)
+                    return;
+                break;
+
+            case MessageType.BONUS:
+                if (!Player.instance.GetKeybindSet().useBonus)
+                    return;
+                break;
+        }
+
         if(panel.childCount > 2)
         {
             for(int i = panel.childCount - 1; i >= 2; i--)

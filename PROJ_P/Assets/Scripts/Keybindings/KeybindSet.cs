@@ -8,6 +8,9 @@ public class KeybindSet : ScriptableObject
 {
     [SerializeField] private Keybind[] keybinds;
     public PlayerClass playerClass {get; set;}
+    public bool useWarnings { get; set; }
+    public bool useInfo { get; set; }
+    public bool useBonus { get; set; }
 
     public KeyCode GetBind(KeyFeature feature)
     {

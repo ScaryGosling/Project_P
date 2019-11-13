@@ -9,13 +9,28 @@ public class SceneHandler : MonoBehaviour
     public static SceneHandler sceneHandler;
     public KeybindSet keybindSet;
     [SerializeField] private GameObject shopWindow;
+    [SerializeField] private GameObject[] promptToggles;
 
     public static SceneHandler instance;
 
+    public void SetupPromptToggles()
+    {
+        promptToggles[0].SetActive(keybindSet.useWarnings);
+        promptToggles[1].SetActive(keybindSet.useInfo);
+        promptToggles[2].SetActive(keybindSet.useBonus);
+    }
 
     public void Awake()
     {
         instance = this;
+    }
+
+    public void Start()
+    {
+        if(promptToggles.Length > 0)
+        {
+            SetupPromptToggles();
+        }
     }
 
     public void Update()
@@ -31,6 +46,22 @@ public class SceneHandler : MonoBehaviour
         }
     }
 
+    public void Toggle(GameObject go) {
+
+        go.SetActive(!go.activeSelf);
+    }
+
+    public void ToggleWarnings() {
+        keybindSet.useWarnings = !keybindSet.useWarnings;
+    }
+    public void ToggleInfo()
+    {
+        keybindSet.useInfo = !keybindSet.useInfo;
+    }
+    public void ToggleBonus()
+    {
+        keybindSet.useBonus = !keybindSet.useBonus;
+    }
     public void GoToScene(string scene)
     {
         StartCoroutine(DelaySceneChange(scene));
