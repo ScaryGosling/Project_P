@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Ice Nova
   m_EditorClassIdentifier: 
   abilityName: Ice Nova
-  abilityDescription: (Drag and Drop, click once to buy) Unleash a freezing nova around
-    you!
+  abilityDescription: 'Unleash a freezing nova around you! Stop enemies dead in their
+    tracks. Cooldown: 15 sec. Manacost: 5.'
   castCost: 5
   castTime: 0
   magnitude: 0
   attackImage: {fileID: 21300000, guid: 81f7bd4bee3f54ec3b6f883eed7ba232, type: 3}
-  cooldown: 10
+  cooldown: 15
   cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 100

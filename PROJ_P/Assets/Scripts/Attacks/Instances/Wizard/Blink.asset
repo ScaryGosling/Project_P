@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: Blink
   m_EditorClassIdentifier: 
   abilityName: Blink
-  abilityDescription: (Drag and Drop, click once to buy) Teleport a small distance!
+  abilityDescription: 'Teleport a small distance, gaining a movement speed bost! Cooldown:
+    20 sec. Manacost: 5.'
   castCost: 5
+  castTime: 0
   magnitude: 0
   attackImage: {fileID: 21300000, guid: fdab0b38ecbc7a8449876ca3db5f059b, type: 3}
   cooldown: 20
+  cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 200
     newDamage: 5

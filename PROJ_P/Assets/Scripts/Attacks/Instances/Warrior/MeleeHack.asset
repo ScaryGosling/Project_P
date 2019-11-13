@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: MeleeHack
   m_EditorClassIdentifier: 
   abilityName: Basic Attack
-  abilityDescription: Swing your weapon! Click once to buy upgrade!
+  abilityDescription: Swing your weapon! Takes one durability every time you hit so
+    make sure to use repair kits! Click once to buy upgrade!
   castCost: 0
+  castTime: 0
   magnitude: 70
   attackImage: {fileID: 21300000, guid: 1dbc079c01a8549918885a6461d10dfd, type: 3}
   cooldown: 0.6
+  cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 0
     newDamage: 8

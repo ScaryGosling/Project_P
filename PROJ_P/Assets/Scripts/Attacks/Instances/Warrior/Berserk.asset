@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: Berserk
   m_EditorClassIdentifier: 
   abilityName: Berserk
-  abilityDescription: (Drag and Drop, click once to buy) Gain full rage and more damage!
+  abilityDescription: 'Fly into a frenzy, gaining full rage. defense and attackspeed
+    bonuses! Cooldown: 1 min. Ragecost: 0.'
   castCost: 0
+  castTime: 0
   magnitude: 0
   attackImage: {fileID: 21300000, guid: 04bd0c4c34d79df4987ae3c44481a6da, type: 3}
   cooldown: 60
+  cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 500
     newDamage: 5

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Life Leech
   m_EditorClassIdentifier: 
   abilityName: Life leech
-  abilityDescription: No description available
+  abilityDescription: 'Leech the life out of your enemies! Perform a basic attack
+    that heals you over time when hitting an enemy! Cooldown: 3 sec. Ragecost: 5.'
   castCost: 5
   castTime: 0
   magnitude: 0
@@ -21,14 +22,14 @@ MonoBehaviour:
   cooldown: 3
   cooldownActive: 0
   upgradeCosts:
-  - upgradeCost: 0
+  - upgradeCost: 50
     newDamage: 10
   lockedAbility: 1
   particles: {fileID: 360565347942094220, guid: 096983a47b555534e871c2bb30f5ade7,
     type: 3}
   sound: {fileID: 0}
   cooldownClip: {fileID: 0}
-  abilityCat: 0
+  abilityCat: 3
   slowTime: 0
   speedMultiplier: 0
   forwardSlash: {fileID: 7400000, guid: dde732b3854ff43e8a66dab8b5e55b3b, type: 2}
