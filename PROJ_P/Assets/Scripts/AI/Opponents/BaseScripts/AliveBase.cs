@@ -56,6 +56,7 @@ public class AliveBase : HostileBaseState
     protected virtual void CheckForDamage()
     {
         owner.agent.avoidancePriority = 99;
+        owner.transform.LookAt(owner.agent.transform.forward);
         //if (owner.agent.isActiveAndEnabled)
         //    owner.agent.isStopped = false;
         if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && alive && !attacking)
@@ -76,6 +77,11 @@ public class AliveBase : HostileBaseState
     {
         actualDamage = Random.Range(owner.Attack, owner.Attack * 3);
         owner.agent.avoidancePriority = 0;
+        TargetControl();
+    }
+
+    protected void TargetControl()
+    {
         if (owner.weapon) //if basic foe animate
         {
             owner.weapon.Attack();
@@ -96,7 +102,6 @@ public class AliveBase : HostileBaseState
                 Player.instance.HealthProp = -actualDamage;
             }
         }
-
     }
 
     /// <summary>
@@ -139,12 +144,23 @@ public class AliveBase : HostileBaseState
     }
     protected bool CapsuleCast()
     {
-        RaycastHit hit;
         //bool lineCast = Physics.Linecast(owner.agent.transform.position, owner.player.transform.position, owner.visionMask);
-        bool capsuleCast = Physics.CapsuleCast(owner.agent.transform.position, owner.target.transform.position, owner.capsuleCollider.radius, owner.gameObject.transform.forward, owner.visionMask);
+        bool capsuleCast = Physics.CapsuleCast(owner.agent.transform.position, owner.transform.forward, owner.capsuleCollider.radius, owner.gameObject.transform.forward, 20f, owner.visionMask);
         if (capsuleCast)
             return true;
         return false;
+    }
+
+    protected bool CombatAwareness()
+    {
+        //I'll optimize this later 
+
+        bool hit = Physics.CapsuleCast(owner.agent.transform.position, Player.instance.gameObject.transform.position, owner.capsuleCollider.radius, owner.gameObject.transform.forward,
+            100f, owner.visionMask);
+        if (hit)
+            return false;
+        
+            return true;
     }
 
     public override void TakeDamage(float damage, float magnitude)

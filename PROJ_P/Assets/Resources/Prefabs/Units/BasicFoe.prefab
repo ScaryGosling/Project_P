@@ -145,11 +145,14 @@ MonoBehaviour:
   agent: {fileID: 0}
   visionMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 4352
   animator: {fileID: 0}
   weapon: {fileID: 5600999944017349924}
   hurtAudioSource: {fileID: 4901963468119906052}
   damageAudioSource: {fileID: 4457543277079840383}
+  combatMask:
+    serializedVersion: 2
+    m_Bits: 512
   takeDamageClip: {fileID: 8300000, guid: 139470045c673af43b7a95595affdac0, type: 3}
   deathClip: {fileID: 8300000, guid: 66da05baf93d6f143ae98d0a6a1046eb, type: 3}
   attackSound: {fileID: 8300000, guid: 72f1f1c7310b04546a52047f8337640a, type: 3}
@@ -392,7 +395,7 @@ GameObject:
   - component: {fileID: 2161199850153972035}
   - component: {fileID: 2161199850153972032}
   - component: {fileID: 2161199850153972033}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shaft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +488,7 @@ GameObject:
   - component: {fileID: 2161199851372935575}
   - component: {fileID: 4929112199896376231}
   - component: {fileID: 5600999944017349924}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,11 +639,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 8913df1e93e425847aecf303e9bdc6bf,
-        type: 3}
-      propertyPath: m_Name
-      value: UwU-LP
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8913df1e93e425847aecf303e9bdc6bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -711,6 +709,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.791284
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8913df1e93e425847aecf303e9bdc6bf,
+        type: 3}
+      propertyPath: m_Name
+      value: UwU-LP
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8913df1e93e425847aecf303e9bdc6bf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8913df1e93e425847aecf303e9bdc6bf, type: 3}
 --- !u!4 &6799141557327492872 stripped
@@ -726,11 +734,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
-    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -836,6 +839,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 18320881556040783, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -845,6 +858,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 229645245181345481, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920305124391254216, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409204004401648445, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999069754915800051, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05a8b0d3bb2bb643a81a8c15ecca80f, type: 3}

@@ -8,6 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy/FanaticChase")]
 public class FanaticChase : ChaseBase
 {
+    private float dodgeResult;
     public override void EnterState()
     {
         base.EnterState();
@@ -20,9 +21,20 @@ public class FanaticChase : ChaseBase
         {
             Chase();
             CheckForDamage();
-            if (Input.GetKeyDown(KeyCode.Alpha8))
+           Debug.Log(CapsuleCast());
+           
+            if (Input.GetKeyDown(KeyCode.Alpha8) || CapsuleCast())
+            {
                 owner.ChangeState<FanaticDodge>();
+            }
         }
+    }
+
+    protected void ConsiderDodge()
+    {
+        dodgeResult = Random.Range(0f, 1f);
+        //if (CapsuleCast() && dodgeResult <= 0.000000000000000000001)
+        //    owner.ChangeState<FanaticDodge>();
     }
 
     protected override void Die()

@@ -1,6 +1,4 @@
-﻿//Main Author: Emil Dahl
-
-
+﻿//Author: Emil Dahl
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,13 +7,23 @@ using UnityEngine;
 public class FanaticDodge : ChaseBase
 {
     private Vector3 initialPosition;
-    private Vector3 targetPosition;
+    private Vector3 movement;
+    private Quaternion initialRotation;
+    [SerializeField] private float dodgeSpeed = 8f;
+    [SerializeField] private float dodgeMagnitude = 0.3f;
+    private float diceResult;
+    GameObject dodgeTimer;
+
     public override void EnterState()
     {
         base.EnterState();
 
-        initialPosition = owner.agent.transform.position;
-        targetPosition = initialPosition + new Vector3(10, 0, 0);
+        diceResult = Random.Range(0f, 1f);
+
+        if (diceResult <= 0.5)
+            initialPosition = owner.agent.transform.right;
+        else
+            initialPosition = owner.agent.transform.right * -1;
 
     }
 
@@ -23,11 +31,7 @@ public class FanaticDodge : ChaseBase
     {
         base.ToDo();
         if (owner.target != null && owner.agent.enabled)
-        {
-            CheckForDamage();
             Dodge();
-        }
-
     }
 
     protected override void Die()
@@ -50,9 +54,32 @@ public class FanaticDodge : ChaseBase
 
     protected void Dodge()
     {
-        owner.agent.SetDestination(targetPosition);
-        if(owner.agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathPartial || Vector3.Distance(owner.agent.transform.position, targetPosition) < 1f)
-            owner.ChangeState<FanaticChase>();
+        if (owner.agent.enabled)
+            owner.agent.ResetPath();
+
+        owner.transform.GetChild(2).transform.LookAt(Player.instance.gameObject.transform.position);
+
+        movement = initialPosition * dodgeSpeed * Time.deltaTime;
+        owner.agent.Move(movement);
+
+        dodgeTimer = new GameObject("Dodge Timer");
+        dodgeTimer.AddComponent<Timer>().RunCountDown(dodgeMagnitude, EndDodge, Timer.TimerType.DELAY);
+    }
+
+    protected void EndDodge()
+    {
+        ResetOrientation();
+        owner.ChangeState<FanaticChase>();
+    }
+
+    protected void ResetOrientation()
+    {
+        initialRotation = owner.agent.transform.rotation;
+
+        if (owner.agent.enabled)
+            owner.agent.ResetPath();
+
+        owner.transform.GetChild(2).transform.rotation = initialRotation;
     }
 }
 

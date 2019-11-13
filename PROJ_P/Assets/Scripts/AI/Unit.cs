@@ -24,6 +24,8 @@ public class Unit : StateMachine
     public EnemyWeapon weapon;
     [SerializeField] private AudioSource hurtAudioSource;
     [SerializeField] private AudioSource damageAudioSource;
+    [SerializeField] private LayerMask combatMask;
+    public LayerMask combatMaskProp { get { return combatMask; } }
     public AudioClip takeDamageClip;
     public AudioClip deathClip;
     public AudioClip attackSound;
