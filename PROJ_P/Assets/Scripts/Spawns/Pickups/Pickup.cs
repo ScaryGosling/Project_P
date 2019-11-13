@@ -43,6 +43,7 @@ public class Pickup : MonoBehaviour
             DoSomething();
 
             transform.GetChild(0).gameObject.SetActive(false);
+
             GetComponent<Collider>().enabled = false;
             Destroy(gameObject, source.clip.length);
         }
