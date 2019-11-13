@@ -39,13 +39,16 @@ public class Dialogue : MonoBehaviour
     private AudioClip[] voiceLines;
     private AudioClip music;
 
+    private Player player;
 
-
-
+    public void Start()
+    {
+        player = Player.instance;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && dialogueActive)
+        if (Input.GetKeyDown(player.GetKeybindSet().GetBind(KeyFeature.DIALOGUE)) && dialogueActive)
             Next();
 
         if (Input.GetKeyDown(KeyCode.P))
