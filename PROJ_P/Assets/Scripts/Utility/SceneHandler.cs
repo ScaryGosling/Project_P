@@ -12,14 +12,6 @@ public class SceneHandler : MonoBehaviour
 
     public static SceneHandler instance;
 
-    public void ActivateWarrior()
-    {
-        keybindSet.playerClass = PlayerClass.WARRIOR;
-    }
-    public void ActivateWizard()
-    {
-        keybindSet.playerClass = PlayerClass.WIZARD;
-    }
 
     public void Awake()
     {
