@@ -31,7 +31,7 @@ public class Dialogue : MonoBehaviour
     private float lifeTime = 0;
     [SerializeField] float timePerQuestion = 10f;
 
-     
+
 
 
     private Image[] images;
@@ -137,13 +137,13 @@ public class Dialogue : MonoBehaviour
 //    messages = tutorialSnippets[IndexProp].messages;
 
 #endregion
-    [System.Serializable]
-    public struct DialogueData
-    {
-        public Image[] imges;
-        public AudioClip[] voiceLines;
-        public AudioClip music;
-        public string[] messages;
-        public string characterName;
-        public string textPrompt;
-    }
+[System.Serializable]
+public struct DialogueData
+{
+    public Image[] imges;
+    public AudioClip[] voiceLines;
+    public AudioClip music;
+    [TextArea] public string[] messages;
+    public string characterName;
+    public string textPrompt;
+}
