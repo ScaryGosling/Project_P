@@ -40,6 +40,9 @@ public class PlayerAttack : Ability
     [Tooltip("Multiplies the player speed, 0-1 for slow effects")]
     [SerializeField] private float speedMultiplier;
 
+    public float GetSpeedMultiplier() { return speedMultiplier; }
+    public float GetSlowTime() { return slowTime; }
+
     public virtual void OnEnable()
     {
         AbilityCatProp = abilityCat;
@@ -114,9 +117,7 @@ public class PlayerAttack : Ability
         Player.instance.RunAttackCooldown(this);
         RunAttack();
 
-        Player.instance.activeStats.movementSpeed = speedMultiplier;
-        Timer slowMultiplier = new GameObject("Timer").AddComponent<Timer>();
-        slowMultiplier.RunCountDown(slowTime, ResetSlow, Timer.TimerType.DELAY);
+        
 
 
     }

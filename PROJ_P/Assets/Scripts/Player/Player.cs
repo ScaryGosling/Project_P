@@ -459,6 +459,9 @@ public class Player : MonoBehaviour
             yield break;
         }
 
+        activeStats.movementSpeed = attack.GetSpeedMultiplier();
+        Timer slowMultiplier = new GameObject("Timer").AddComponent<Timer>();
+        slowMultiplier.RunCountDown(attack.GetSlowTime(), attack.ResetSlow, Timer.TimerType.DELAY);
 
         if (attack.castTime > 0)
         {
