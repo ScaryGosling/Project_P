@@ -13,6 +13,5 @@ public class HealthDrop : Pickup
     protected override void DoSomething()
     {
         player.HealthProp = fillAmount;
-        GameObject.Destroy(gameObject);
     }
 }

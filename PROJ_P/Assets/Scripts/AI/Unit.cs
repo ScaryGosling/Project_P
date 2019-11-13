@@ -22,7 +22,8 @@ public class Unit : StateMachine
     [Header("Sound and animation")]
     [SerializeField] private Animator animator;
     public EnemyWeapon weapon;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource hurtAudioSource;
+    [SerializeField] private AudioSource damageAudioSource;
     public AudioClip takeDamageClip;
     public AudioClip deathClip;
     public AudioClip attackSound;
@@ -54,12 +55,26 @@ public class Unit : StateMachine
     public float distanceMultiplier { get; set; } = 2;
     #endregion
 
-    public void PlayAudio(AudioClip clip = null)
+    public void PlayDamageAudio(AudioClip clip = null)
     {
+        float pitch = Random.Range(0.5f, 1.5f);
+
         if (clip != null)
         {
-            audioSource.clip = clip;
-            audioSource.Play();
+            damageAudioSource.pitch = pitch;
+            damageAudioSource.clip = clip;
+            damageAudioSource.Play();
+        }
+    }
+
+    public void PlayHurtAudio(AudioClip clip = null)
+    {
+        float pitch = Random.Range(0.5f, 1.5f);
+        if (clip != null)
+        {
+            damageAudioSource.pitch = pitch;
+            hurtAudioSource.clip = clip;
+            hurtAudioSource.Play();
         }
     }
 

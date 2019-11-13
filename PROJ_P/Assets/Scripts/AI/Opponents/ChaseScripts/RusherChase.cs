@@ -62,7 +62,7 @@ public class RusherChase : ChaseBase
             if (owner.getGenericTimer.TimeTask)
             {
                 attacking = true;
-                owner.PlayAudio(owner.attackSound);
+                owner.PlayDamageAudio(owner.attackSound);
                 owner.getGenericTimer.SetTimer(owner.AttackSpeed);
                 attacking = !attacking;
                 owner.agent.obstacleAvoidanceType = UnityEngine.AI.ObstacleAvoidanceType.LowQualityObstacleAvoidance;

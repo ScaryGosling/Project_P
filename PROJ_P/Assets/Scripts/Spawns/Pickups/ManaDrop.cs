@@ -23,7 +23,6 @@ public class ManaDrop : Pickup
         {
             ((MeleeHack)(player.attackSet.list[0])).IncreaseDurability(fillAmount);
         }
-        GameObject.Destroy(gameObject);
     }
 
     private void SetMaterials()

@@ -12,6 +12,5 @@ public class Collectable : Pickup
         collected = new CollectionEvent();
         collected.pickUpValue = Mathf.FloorToInt(fillAmount);
         EventSystem.Current.FireEvent(collected);
-        GameObject.Destroy(gameObject);
     }
 }

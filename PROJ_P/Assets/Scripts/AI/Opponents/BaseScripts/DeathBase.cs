@@ -17,7 +17,7 @@ public class DeathBase : HostileBaseState
     public override void EnterState()
     {
         base.EnterState();
-        owner.PlayAudio(owner.deathClip);
+        owner.PlayHurtAudio(owner.deathClip);
         DisableUnit();
     }
 

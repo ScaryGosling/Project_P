@@ -17,11 +17,14 @@ public class Pickup : MonoBehaviour
     protected GiveResource giveResource;
     protected Player player;
 
+    [SerializeField] private AudioSource source;
+
     protected virtual void Start()
     {
         player = Player.instance;
         colliderB = gameObject.GetComponent<BoxCollider>();
         colliderB.isTrigger = true;
+        source.clip = pickupSound;
     }
 
 
@@ -31,13 +34,17 @@ public class Pickup : MonoBehaviour
         {
             if (other.GetComponent<Player>())
             {
-                other.GetComponent<Player>().PlayAudio(pickupSound);
+                source.Play();
 
                 if (particles != null)
                     Instantiate(particles, player.transform.position, Quaternion.identity, player.transform);
 
             }
             DoSomething();
+
+            transform.GetChild(0).gameObject.SetActive(false);
+            GetComponent<Renderer>().enabled = false;
+            Destroy(gameObject, source.clip.length);
         }
     }
     

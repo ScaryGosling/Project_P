@@ -75,13 +75,12 @@ public class Player : MonoBehaviour
 
     public void PlayAudio(AudioClip clip)
     {
+        float pitch = Random.Range(0.5f, 1.5f);
         if (clip != null && Audio != null)
         {
-
-
+            Audio.pitch = pitch;
             Audio.clip = clip;
             Audio.Play();
-
         }
     }
 
@@ -150,11 +149,6 @@ public class Player : MonoBehaviour
             gold = value;
         }
     }
-
-
-
-    public delegate void Attack();
-    public event Attack AttackEvent;
 
     public Transform GetSpawnPoint() { return spawnPoint; }
 
