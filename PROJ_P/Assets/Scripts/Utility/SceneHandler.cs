@@ -27,7 +27,7 @@ public class SceneHandler : MonoBehaviour
 
     public void Start()
     {
-        if(promptToggles != null)
+        if(promptToggles != null && promptToggles.Length > 0)
         {
             SetupPromptToggles();
         }
