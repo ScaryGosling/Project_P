@@ -31,7 +31,6 @@ public class HostileBaseState : State
     protected float actualDamage;
     protected float distanceToTarget;
     protected bool damaged = false;
-    protected bool alive = true;
     protected bool timerRunning = false;
     protected bool attacking = false;
 

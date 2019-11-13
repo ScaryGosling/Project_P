@@ -36,7 +36,7 @@ public class BoomerDeath : DeathBase
     {
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         owner.transform.localRotation = rotation;
-        alive = false;
+        owner.AliveProp = false;
         currentTimeAnimTime = animationTime;
         while (currentTimeAnimTime >= 0f)
         {

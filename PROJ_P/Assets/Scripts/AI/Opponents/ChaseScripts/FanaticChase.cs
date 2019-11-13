@@ -26,7 +26,6 @@ public class FanaticChase : ChaseBase
             Chase();
             CheckForDamage();
             ConsiderDodge();
-            Debug.Log(CapsuleCast());
            
             if (Input.GetKeyDown(KeyCode.Alpha8))
             {
@@ -65,7 +64,7 @@ public class FanaticChase : ChaseBase
         owner.agent.avoidancePriority = 99;
         //if (owner.agent.isActiveAndEnabled)
         //    owner.agent.isStopped = false;
-        if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && alive && !attacking)
+        if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && owner.AliveProp && !attacking)
         {
             if (owner.getGenericTimer.TimeTask)
             {

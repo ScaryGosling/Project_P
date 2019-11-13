@@ -72,7 +72,7 @@ public class BossChase : ChaseBase
     {
         if (owner.Health <= 0)
         {
-            if (alive)
+            if (owner.AliveProp)
             {
                 death = new UnitDeath();
                 death.eventDescription = "Unit Died";

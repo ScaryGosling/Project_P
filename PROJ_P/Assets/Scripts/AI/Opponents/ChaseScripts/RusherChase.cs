@@ -56,7 +56,7 @@ public class RusherChase : ChaseBase
         //if (owner.agent.isActiveAndEnabled)
         //    owner.agent.isStopped = false;
 
-        if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && alive && !attacking)
+        if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && owner.AliveProp && !attacking)
         {
             owner.agent.obstacleAvoidanceType = UnityEngine.AI.ObstacleAvoidanceType.NoObstacleAvoidance;
             if (owner.getGenericTimer.TimeTask)

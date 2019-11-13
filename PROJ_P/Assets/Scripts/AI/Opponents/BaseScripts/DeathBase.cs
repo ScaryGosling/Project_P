@@ -53,7 +53,7 @@ public class DeathBase : HostileBaseState
     {
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         owner.transform.localRotation = rotation;
-        alive = false;
+        owner.AliveProp = false;
     }
 }
 #region EnemyBaseLegacy

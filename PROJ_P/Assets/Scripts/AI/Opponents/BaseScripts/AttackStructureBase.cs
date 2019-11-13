@@ -39,7 +39,7 @@ public class AttackStructureBase : ChaseBase
 
     protected override void CheckForDamage()
     {
-        if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && alive && !attacking)
+        if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && owner.AliveProp && !attacking)
         {
             if (owner.getGenericTimer.TimeTask)
             {

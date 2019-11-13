@@ -41,15 +41,17 @@ public class AliveBase : HostileBaseState
     {
         if (owner.Health <= 0)
         {
-            if (alive)
+
+            if (owner.AliveProp)
             {
                 death = new UnitDeath();
                 death.eventDescription = "Unit Died";
                 death.enemyObject = owner.gameObject;
                 death.isBoss = false;
                 EventSystem.Current.FireEvent(death);
-            }
+
             Die();
+            }
         }
     }
 
@@ -59,7 +61,7 @@ public class AliveBase : HostileBaseState
         //owner.transform.LookAt(owner.agent.transform.forward);
         //if (owner.agent.isActiveAndEnabled)
         //    owner.agent.isStopped = false;
-        if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && alive && !attacking)
+        if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && owner.AliveProp && !attacking)
         {
             if (owner.getGenericTimer.TimeTask)
             {
@@ -107,7 +109,9 @@ public class AliveBase : HostileBaseState
     /// <summary>
     /// Used to call different death-states from different enemies 
     /// </summary>
-    protected virtual void Die() { }
+    protected virtual void Die() {
+        owner.AliveProp = false;
+    }
 
     protected virtual void Stagger(float magnitude)
     {

@@ -30,6 +30,7 @@ public class Unit : StateMachine
     public AudioClip deathClip;
     public AudioClip attackSound;
     public ProtectionQuest ProtectionQuestProp { get; private set; }
+    public bool AliveProp { get; set; }
 
     #region EnemyStats
     [SerializeField] private float baseHeath = 20f;
@@ -109,6 +110,7 @@ public class Unit : StateMachine
         agent.radius = capsuleCollider.radius * distanceMultiplier;
         agent.autoRepath = true;
         agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+        AliveProp = true;
     }
     // Methods
     protected override void Awake()
