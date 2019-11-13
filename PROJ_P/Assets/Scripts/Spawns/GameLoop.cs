@@ -119,14 +119,15 @@ public class GameLoop : MonoBehaviour
         unitsKilled = 0;
         if (expected < maximumCapacity && expectedGrowth >= 1f)
         {
-            expected = (int)Mathf.Floor(Mathf.Pow(expected, expectedGrowth));
+            expected = (int)Mathf.FloorToInt(expected * expectedGrowth);
             expectedGrowth -= growthDeclinePer;
+        Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
+
         }
         ChangeEliasLevel(20);
         waveIndex++;
         bonusHealth += healthPerLevel;
         bonusDmg += damagePerLevel;
-        Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
         waveTimer = StartCoroutine(WaveTimer());
         player.originalStats.movementSpeed /= playerSpeedScale;
         player.ResetSpeed();
