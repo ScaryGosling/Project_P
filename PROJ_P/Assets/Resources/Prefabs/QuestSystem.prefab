@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8392766935024620362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2434063784473223314}
+  - component: {fileID: 8469029814352242193}
+  - component: {fileID: 471303246071339227}
+  - component: {fileID: 6751507384838091456}
+  - component: {fileID: 5591941007244766593}
+  m_Layer: 0
+  m_Name: QuestSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2434063784473223314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392766935024620362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8469029814352242193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392766935024620362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1435bcde8e203404daba7a2e652815b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+  - {fileID: 471303246071339227}
+  - {fileID: 6751507384838091456}
+  - {fileID: 5591941007244766593}
+--- !u!114 &471303246071339227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392766935024620362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d0388c08eff044684d30aa8850e89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reward: 50
+  arrowColor:
+    serializedVersion: 2
+    rgba: 2351651072
+  buildings:
+  - {fileID: 0}
+  healthImage: {fileID: 0}
+  enemyDamagePercentage: 0.1
+  questData:
+  - imges: []
+    voiceLines: []
+    music: {fileID: 0}
+    messages:
+    - Protect the building pointed by the arrow!
+    characterName: 
+    textPrompt: 
+--- !u!114 &6751507384838091456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392766935024620362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c06fbe792a5c954f9dd29e430f84587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reward: 50
+  arrowColor:
+    serializedVersion: 2
+    rgba: 2348810329
+  boss: {fileID: 2161199849938165175, guid: 7bf8d8369fb4c7c4fbb95553c75492ea, type: 3}
+  bossSpawner: {fileID: 0}
+  lifetime: 60
+  index: 1
+  questData:
+  - imges: []
+    voiceLines: []
+    music: {fileID: 0}
+    messages:
+    - Kill the boss before the next wave ends.
+    - Can you?
+    characterName: 
+    textPrompt: 
+--- !u!114 &5591941007244766593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392766935024620362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31816149937244144ad41db4c39ce1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reward: 50
+  arrowColor:
+    serializedVersion: 2
+    rgba: 2362750464
+  panel: {fileID: 0}
+  objectSpawnerPrefab: {fileID: 3478120250332875128, guid: 6a2041f5adb60b046b2f9479bb52565b,
+    type: 3}
+  baseText: 'Amount gathered: '
+  toGather: 3
+  questData:
+  - imges: []
+    voiceLines: []
+    music: {fileID: 0}
+    messages:
+    - Gather
+    - after shopkeeper
+    characterName: 
+    textPrompt: 

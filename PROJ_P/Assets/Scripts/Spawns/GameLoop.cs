@@ -34,7 +34,7 @@ public class GameLoop : MonoBehaviour
 
     [SerializeField] private int showRemaining = 3;
     [SerializeField] private bool debugMode;
-    [SerializeField] private float playerSpeedScale;
+    [SerializeField] private float playerSpeedScale = 1.5f;
     [Header("Wave Scaling")]
     [SerializeField] private float healthPerLevel = 5f;
     [SerializeField] private float damagePerLevel = 0f;
@@ -58,13 +58,14 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private int ItemAmount = 7;
     [SerializeField] private float chanceOfDrop = 0.4f;
     private bool waveCompleted;
-    private GameObject ObjectSpawner;
+    private GameObject objectSpawnerObject;
+    private ObjectSpawner objectSpawner;
 
     private NewWaveEvent newWaveEvent = new NewWaveEvent();
     private UnitsRemaining unitsRemaining = new UnitsRemaining();
     //private GameObject newPotion;
     private GameObject absoluteUnit;
-    private QuestHandler questHandler;
+    [SerializeField] private QuestHandler questHandler;
     [SerializeField] [Range(0, 100)] private int questChance = 50;
 
     private Coroutine waveTimer;
@@ -83,7 +84,6 @@ public class GameLoop : MonoBehaviour
         {
             StartCoroutine(Spawner());
         }
-        questHandler = GetComponent<QuestHandler>();
 
     }
 
@@ -183,8 +183,10 @@ public class GameLoop : MonoBehaviour
             SpawnShopKeeper();
             GenerateQuest();
 
-            if (ObjectSpawner != null)
-                ObjectSpawner.GetComponent<ObjectSpawner>().TerminateSpawner();
+            if (objectSpawnerObject != null)
+            {
+                objectSpawner.TerminateSpawner();
+            }
             if (shopKeeper.activeInHierarchy)
             {
                 return 0;
@@ -268,10 +270,11 @@ public class GameLoop : MonoBehaviour
 
             if (spawned < expected)
             {
-                if (ObjectSpawner == null)
+                if (objectSpawnerObject == null)
                 {
-                    ObjectSpawner = Instantiate(ObjectSpawnerPrefab);
-                    ObjectSpawner.GetComponent<ObjectSpawner>().PopulateList(ItemAmount, global::ObjectSpawner.ObjectToSpawn.ManaPotion);
+                    objectSpawnerObject = Instantiate(ObjectSpawnerPrefab);
+                    objectSpawner = objectSpawnerObject.GetComponent<ObjectSpawner>();
+                    objectSpawner.PopulateList(ItemAmount, ObjectSpawner.ObjectToSpawn.ManaPotion);
                 }
                 time = spawnTime / spawns.Length;
                 shopOpen = false;
@@ -280,7 +283,6 @@ public class GameLoop : MonoBehaviour
                     if (QuestProp != null && !(QuestProp is ProtectionQuest))
                     {
                         QuestProp.StartQuest();
-                        
                     }
                     questGenerated = false;
                 }

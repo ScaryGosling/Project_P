@@ -13,9 +13,6 @@ GameObject:
   - component: {fileID: 5598189669312911737}
   - component: {fileID: 3596345851274281749}
   - component: {fileID: 5598189670470178932}
-  - component: {fileID: 5598189670470178934}
-  - component: {fileID: 5598189670470178935}
-  - component: {fileID: 5598189670470178936}
   m_Layer: 0
   m_Name: Listeners
   m_TagString: Listeners
@@ -63,10 +60,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showRemaining: 3
   debugMode: 0
+  playerSpeedScale: 1.5
   healthPerLevel: 5
   damagePerLevel: 0
   maximumCapacity: 200
   expectedGrowth: 1.5
+  growthDeclinePer: 5
   expected: 1
   timeAfterShopkeeperLeavesForEnemiesToSpawn: 5
   spawnTime: 1
@@ -91,6 +90,7 @@ MonoBehaviour:
   goldPerWave: 50
   ItemAmount: 7
   chanceOfDrop: 0.15
+  questHandler: {fileID: 3102150688294543649}
   questChance: 100
 --- !u!114 &3596345851274281749
 MonoBehaviour:
@@ -120,53 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowObject: {fileID: 0}
---- !u!114 &5598189670470178934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5598189669312911739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1435bcde8e203404daba7a2e652815b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quests:
-  - {fileID: 5598189670470178936}
---- !u!114 &5598189670470178935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5598189669312911739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c06fbe792a5c954f9dd29e430f84587, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reward: 50
-  boss: {fileID: 2161199849938165175, guid: 7bf8d8369fb4c7c4fbb95553c75492ea, type: 3}
-  bossSpawner: {fileID: 0}
-  lifetime: 60
---- !u!114 &5598189670470178936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5598189669312911739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79d0388c08eff044684d30aa8850e89f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reward: 50
-  buildings:
-  - {fileID: 0}
-  healthImage: {fileID: 0}
-  enemyDamagePercentage: 0.1
 --- !u!1 &5598189670313424376
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5598189669312911738}
+  - {fileID: 9170045989615347618}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -258,5 +212,92 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98c4488a3333a4840ba1b437dcf6c487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &6810854562978580272
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5598189670313424373}
+    m_Modifications:
+    - target: {fileID: 8392766935024620362, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_Name
+      value: QuestSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a34b94df374eab9428c51173dad80ad5, type: 3}
+--- !u!4 &9170045989615347618 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2434063784473223314, guid: a34b94df374eab9428c51173dad80ad5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6810854562978580272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3102150688294543649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8469029814352242193, guid: a34b94df374eab9428c51173dad80ad5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6810854562978580272}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1435bcde8e203404daba7a2e652815b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
