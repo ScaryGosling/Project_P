@@ -287,7 +287,7 @@ public class Player : MonoBehaviour
 
             if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.BASE_ATTACK)))
             {
-                if (activeAttacks.list[0] != null)
+                if (activeAttacks.list[0] != null && !casting)
                 {
                     attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[0]));
                 }
@@ -295,14 +295,14 @@ public class Player : MonoBehaviour
 
             if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_1)))
             {
-                if (activeAttacks.list[1] != null)
+                if (activeAttacks.list[1] != null && !casting)
                 {
                     attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[1]));
                 }
             }
             else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_2)))
             {
-                if (activeAttacks.list[2] != null)
+                if (activeAttacks.list[2] != null && !casting)
                 {
                     attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[2]));
                 }
@@ -310,7 +310,7 @@ public class Player : MonoBehaviour
             else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_3)))
             {
 
-                if (activeAttacks.list[3] != null)
+                if (activeAttacks.list[3] != null && !casting)
                 {
                     attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[3]));
                 }
@@ -441,6 +441,8 @@ public class Player : MonoBehaviour
         }
     }
 
+    private bool casting = false;
+
     public IEnumerator ExecuteAttack(PlayerAttack attack)
     {
        
@@ -464,7 +466,7 @@ public class Player : MonoBehaviour
             float cooldownTime = attack.castTime;
 
             castBar.transform.parent.gameObject.SetActive(true);
-
+            casting = true;
             while (animationTime < cooldownTime)
             {
                 animationTime += Time.deltaTime;
@@ -472,6 +474,7 @@ public class Player : MonoBehaviour
                 yield return null;
 
             }
+            casting = false;
 
             castBar.transform.parent.gameObject.SetActive(false);
 
