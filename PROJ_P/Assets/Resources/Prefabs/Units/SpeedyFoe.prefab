@@ -144,11 +144,14 @@ MonoBehaviour:
   agent: {fileID: 0}
   visionMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   animator: {fileID: 3647199650347311689}
   weapon: {fileID: 0}
   hurtAudioSource: {fileID: 4177991118388570210}
   damageAudioSource: {fileID: -8397444411171947832}
+  combatMask:
+    serializedVersion: 2
+    m_Bits: 0
   takeDamageClip: {fileID: 8300000, guid: 139470045c673af43b7a95595affdac0, type: 3}
   deathClip: {fileID: 8300000, guid: 66da05baf93d6f143ae98d0a6a1046eb, type: 3}
   attackSound: {fileID: 8300000, guid: 140035b9781eb03458fcc58d71c97c18, type: 3}

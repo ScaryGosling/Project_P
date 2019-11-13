@@ -56,7 +56,7 @@ public class AliveBase : HostileBaseState
     protected virtual void CheckForDamage()
     {
         owner.agent.avoidancePriority = 99;
-        owner.transform.LookAt(owner.agent.transform.forward);
+        //owner.transform.LookAt(owner.agent.transform.forward);
         //if (owner.agent.isActiveAndEnabled)
         //    owner.agent.isStopped = false;
         if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && alive && !attacking)
