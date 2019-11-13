@@ -21,8 +21,6 @@ public class Quest : MonoBehaviour
         questReminderPanel.SetActive(true);
         questReminder.text = reminderText;
         questReminder.color = new Color32(arrowColor.r, arrowColor.g, arrowColor.b, 255) ;
-        Debug.Log(questReminder.color);
-        Debug.Log(arrowColor);
     }
 
     public virtual void QuestDialogue()

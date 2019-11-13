@@ -130,7 +130,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             else
             {
 
-                currentAbilityLevelText.text = currentAbilityLevel + "";
+                currentAbilityLevelText.text = currentAbilityLevel + 1 + "";
                 tempColor.a = 255;
                 image.color = tempColor;
                 lockObject.SetActive(false);
