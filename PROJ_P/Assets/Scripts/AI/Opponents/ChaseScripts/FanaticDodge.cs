@@ -27,6 +27,8 @@ public class FanaticDodge : ChaseBase
 
     }
 
+    protected override void CheckLife(){ Debug.Log("Died in dodge! "); }
+
     public override void ToDo()
     {
         base.ToDo();
@@ -62,8 +64,11 @@ public class FanaticDodge : ChaseBase
         movement = initialPosition * dodgeSpeed * Time.deltaTime;
         owner.agent.Move(movement);
 
+        if(dodgeTimer == null)
+        {
         dodgeTimer = new GameObject("Dodge Timer");
         dodgeTimer.AddComponent<Timer>().RunCountDown(dodgeMagnitude, EndDodge, Timer.TimerType.DELAY);
+        }
     }
 
     protected void EndDodge()
