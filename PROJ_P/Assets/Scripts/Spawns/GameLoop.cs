@@ -87,6 +87,8 @@ public class GameLoop : MonoBehaviour
         {
             StartCoroutine(Spawner());
         }
+   
+        setLevel = eliasPlayer.customPreset;
 
     }
 
@@ -260,7 +262,7 @@ public class GameLoop : MonoBehaviour
     {
         if (!shopOpen)
         {
-            ChangeEliasLevel(1);
+            ChangeEliasLevel(10);
             shopKeeper.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
             shopKeeper.gameObject.SetActive(true);
             shopOpen = true;
@@ -269,10 +271,10 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private EliasSetLevelOnTrack setLevelOnTrack;
     private void ChangeEliasLevel(int level)
     {
-        eliasPlayer.QueueEvent(setLevelOnTrack.CreateSetLevelOnTrackEvent(eliasPlayer.Elias));
         setLevel.level = level;
         setLevel.themeName = "Objective";
-                       
+        eliasPlayer.QueueEvent(setLevel.CreateSetLevelEvent(eliasPlayer.Elias));
+
     }
     IEnumerator Spawner()
     {
