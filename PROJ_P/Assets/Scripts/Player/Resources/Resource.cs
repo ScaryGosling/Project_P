@@ -27,6 +27,13 @@ public class Resource : ScriptableObject
         UpdateFillAmount();
     }
 
+    public void DrainResourceRounded(float amount)
+    {
+        Value -= amount / 100;
+        CorrectValue();
+        UpdateFillAmount();
+    }
+
     public virtual void CacheComponents(Image resourceImage)
     {
         this.resourceImage = resourceImage;
