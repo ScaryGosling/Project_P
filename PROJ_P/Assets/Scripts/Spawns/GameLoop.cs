@@ -262,7 +262,7 @@ public class GameLoop : MonoBehaviour
     {
         if (!shopOpen)
         {
-            ChangeEliasLevel(10);
+            ChangeEliasLevel(11);
             shopKeeper.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
             shopKeeper.gameObject.SetActive(true);
             shopOpen = true;
