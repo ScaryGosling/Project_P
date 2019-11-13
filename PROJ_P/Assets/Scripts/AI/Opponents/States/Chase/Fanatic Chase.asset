@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlBehaviors: 0
   material: {fileID: 2100000, guid: 41a8b341ff5320d499cd2dcc490a87f9, type: 2}
-  moveSpeed: 10
+  moveSpeed: 7
   scale: {x: 1, y: 1, z: 1}
   staggerCD: 0.2
   bloodParticle: {fileID: 1482536979965753301, guid: b1100bf3ebcf8614bbd67c23699e7d77,

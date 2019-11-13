@@ -26,11 +26,12 @@ public class IncreaseWaveCounterListener : MonoBehaviour
 
     void UpdateRemaining(UnitsRemaining unitsRemaining)
     {
-        if (!unitUpdater.activeSelf)
-        {
-            unitUpdater.SetActive(true);
-            unitUpdater.GetComponent<UnitUpdater>().ActivateUI(unitsRemaining.remaining);
-        }
+        Prompt.instance.RunMessage("Units Remaining: " + unitsRemaining.remaining, MessageType.INFO);
+        //if (!unitUpdater.activeSelf)
+        //{
+        //    unitUpdater.SetActive(true);
+        //    unitUpdater.GetComponent<UnitUpdater>().ActivateUI(unitsRemaining.remaining);
+        //}
     }
 
     void StartDialogue(DialogueEvent dialogueEvent)

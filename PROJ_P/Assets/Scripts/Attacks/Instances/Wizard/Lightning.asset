@@ -15,23 +15,25 @@ MonoBehaviour:
   abilityName: Lightning
   abilityDescription: '(Drag and Drop, click once to buy) Shoot a lightning bolt that
     chains to enemies! '
-  castCost: 7
+  castCost: 5
+  castTime: 0
   magnitude: 60
   attackImage: {fileID: 21300000, guid: f71a6d253615e2541888194bd481124b, type: 3}
   cooldown: 2
+  cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 50
-    newDamage: 20
+    newDamage: 16
   - upgradeCost: 200
-    newDamage: 11
-  - upgradeCost: 400
-    newDamage: 14
-  - upgradeCost: 600
-    newDamage: 17
-  - upgradeCost: 800
     newDamage: 20
-  - upgradeCost: 1000
+  - upgradeCost: 400
     newDamage: 23
+  - upgradeCost: 600
+    newDamage: 26
+  - upgradeCost: 800
+    newDamage: 29
+  - upgradeCost: 1000
+    newDamage: 32
   lockedAbility: 1
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: 9a53c2bd5c299304bba3db4affe497b7, type: 3}
