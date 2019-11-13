@@ -16,12 +16,14 @@ public class GatheringQuest : Quest
     private DialogueEvent dialogueEvent = new DialogueEvent();
     [SerializeField] List<DialogueData> questData;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         EventSystem.Current.RegisterListener<CollectionEvent>(ManageCollected);
     }
     public override void StartQuest()
     {
+        base.StartQuest();
         if (collectionTextObject != null)
         {
             collectText = collectionTextObject.GetComponentInChildren<Text>();
@@ -45,6 +47,7 @@ public class GatheringQuest : Quest
     {
         if (objectSpawner)
         {
+            base.EndQuest();
             objectSpawner.TerminateSpawner();
             if (gathered >= toGather)
             {

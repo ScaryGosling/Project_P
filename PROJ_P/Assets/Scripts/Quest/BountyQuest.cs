@@ -15,6 +15,7 @@ public class BountyQuest : Quest
 
     public override void StartQuest()
     {
+        base.StartQuest();
         bossStats =  Instantiate(boss, bossSpawner.transform.position, Quaternion.identity).GetComponent<Unit>();
         timer = new GameObject("Timer").AddComponent<Timer>();
         timer.RunCountDown(lifetime, EndQuest, Timer.TimerType.DELAY);
@@ -37,6 +38,7 @@ public class BountyQuest : Quest
 
     public override void EndQuest()
     {
+        base.EndQuest();
         if (bossStats != null)
         {
             FireArrow(false, bossStats.gameObject);

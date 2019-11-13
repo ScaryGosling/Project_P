@@ -66,6 +66,8 @@ MonoBehaviour:
   arrowColor:
     serializedVersion: 2
     rgba: 2351651072
+  questReminder: {fileID: 0}
+  reminderText: Protect the building
   buildings:
   - {fileID: 0}
   healthImage: {fileID: 0}
@@ -94,6 +96,8 @@ MonoBehaviour:
   arrowColor:
     serializedVersion: 2
     rgba: 2348810329
+  questReminder: {fileID: 0}
+  reminderText: Kill the boss
   boss: {fileID: 2161199849938165175, guid: 7bf8d8369fb4c7c4fbb95553c75492ea, type: 3}
   bossSpawner: {fileID: 0}
   lifetime: 60
@@ -123,7 +127,9 @@ MonoBehaviour:
   arrowColor:
     serializedVersion: 2
     rgba: 2362750464
-  panel: {fileID: 0}
+  questReminder: {fileID: 0}
+  reminderText: Collect all the objects
+  collectionTextObject: {fileID: 0}
   objectSpawnerPrefab: {fileID: 3478120250332875128, guid: 6a2041f5adb60b046b2f9479bb52565b,
     type: 3}
   baseText: 'Amount gathered: '

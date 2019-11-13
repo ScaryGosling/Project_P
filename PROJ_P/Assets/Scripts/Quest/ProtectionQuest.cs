@@ -18,6 +18,7 @@ public class ProtectionQuest : Quest
 
     public override void StartQuest()
     {
+        base.StartQuest();
         buildingIndex = Random.Range(0, buildings.Length);
         buildingToDefend = buildings[buildingIndex];
         buildingHealth = 100;
@@ -56,6 +57,7 @@ public class ProtectionQuest : Quest
 
     public override void EndQuest()
     {
+        base.EndQuest();
         healthImage.transform.parent.gameObject.SetActive(false);
         FireArrow(false, buildingToDefend);
         if (buildingHealth > 0)
