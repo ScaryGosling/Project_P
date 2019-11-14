@@ -10,7 +10,7 @@ public class BossDeath : DeathBase
     public override void EnterState()
     {
         base.EnterState();
-        animator.SetTrigger("Death");
+                animator.SetTrigger("Death");
     }
 
     public override void ToDo()
