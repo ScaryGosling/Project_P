@@ -140,6 +140,6 @@ MonoBehaviour:
     messages:
     - Some emergency supplies will arrive next wave! But they are scattered around
       the map!
-    - Gather the supplies before the wave is over to receive a reward!
+    - Gather 15 supplies before the wave is over to receive a reward!
     characterName: 
     textPrompt: 
