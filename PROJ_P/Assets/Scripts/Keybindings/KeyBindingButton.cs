@@ -12,12 +12,14 @@ public class KeyBindingButton : MonoBehaviour
     [SerializeField] Text buttonText;
     [SerializeField] KeybindSet keybindSet;
 
+    private Image buttonImage;
 
     public Keybind GetKeybind() { return keyBind; }
     public void Start()
     {
         text.text = keyBind.GetFeatureName() + ":";
         buttonText.text = keybindSet.GetBindString(keyBind.GetFeature());
+        buttonImage = GetComponentInChildren<Button>().GetComponent<Image>();
     }
 
     public void ResetBind()
@@ -29,6 +31,12 @@ public class KeyBindingButton : MonoBehaviour
     public void ToggleKeyListener()
     {
         listenToKey = !listenToKey;
+
+        if(!listenToKey)
+            buttonImage.color = Color.white;
+        else
+            buttonImage.color = new Color32(0, 155, 255, 255);
+
     }
 
     public void Update()
@@ -48,4 +56,8 @@ public class KeyBindingButton : MonoBehaviour
             }
         }
     }
+
+
+
+
 }

@@ -51,6 +51,12 @@ public class SceneHandler : MonoBehaviour
         go.SetActive(!go.activeSelf);
     }
 
+    public void ToggleAllPrompts(bool toggle)
+    {
+        keybindSet.useWarnings = toggle;
+        keybindSet.useBonus = toggle;
+        keybindSet.useInfo = toggle;
+    }
     public void ToggleWarnings() {
         keybindSet.useWarnings = !keybindSet.useWarnings;
     }
