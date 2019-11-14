@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26278248, g: 0.18550709, b: 0.17090234, a: 1}
+  m_IndirectSpecularColor: {r: 0.2628059, g: 0.18549928, b: 0.17093183, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1075,6 +1075,49 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4738550532901967002}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &590241721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590241720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 849217767}
+          m_MethodName: SetHover
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 849217767}
+          m_MethodName: SetHover
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &616387329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3749,6 +3792,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManagement
       objectReference: {fileID: 0}
+    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
+        type: 3}
+      propertyPath: shopWindow
+      value: 
+      objectReference: {fileID: 1258135962}
+    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
+        type: 3}
+      propertyPath: mainMenuPrompt
+      value: 
+      objectReference: {fileID: 590241720}
     - target: {fileID: 1195681831549422378, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3804,16 +3857,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
-        type: 3}
-      propertyPath: shopWindow
-      value: 
-      objectReference: {fileID: 1258135962}
-    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
-        type: 3}
-      propertyPath: mainMenuPrompt
-      value: 
-      objectReference: {fileID: 590241720}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4161159a95b4446b6803050eca322b, type: 3}
 --- !u!1001 &1196159958970287117
