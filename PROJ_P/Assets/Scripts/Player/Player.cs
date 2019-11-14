@@ -288,12 +288,14 @@ public class Player : MonoBehaviour
         if (!hover)
         {
 
-            if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.BASE_ATTACK)))
+            if (Input.GetKey(keybindSet.GetBind(KeyFeature.BASE_ATTACK)))
             {
                 if (activeAttacks.list[0] != null && !casting)
                 {
                     attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[0]));
                 }
+            } else if (Input.GetKeyUp(keybindSet.GetBind(KeyFeature.BASE_ATTACK))) {
+                holding = false;
             }
 
             if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_1)))
@@ -445,6 +447,7 @@ public class Player : MonoBehaviour
     }
 
     private bool casting = false;
+    private bool holding = false;
 
     public IEnumerator ExecuteAttack(PlayerAttack attack)
     {
@@ -452,13 +455,15 @@ public class Player : MonoBehaviour
 
         if (attack.cooldownActive)
         {
-            Prompt.instance.RunMessage(attack.GetAbilityName() + " is on cooldown", MessageType.WARNING);
+            if(!holding)
+                Prompt.instance.RunMessage(attack.GetAbilityName() + " is on cooldown", MessageType.WARNING);
             yield break;
         }
 
         if (Resource.Value < attack.GetCastCost() / 100)
         {
-            Prompt.instance.RunMessage("Not enough " + Resource.name, MessageType.WARNING);
+            if(!holding)
+                Prompt.instance.RunMessage("Not enough " + Resource.name, MessageType.WARNING);
             yield break;
         }
 
@@ -485,6 +490,9 @@ public class Player : MonoBehaviour
             castBar.transform.parent.gameObject.SetActive(false);
 
         }
+
+        if (attack = activeAttacks.list[0])
+            holding = true;
 
         animator.SetTrigger("Melee");
         attack.OnEquip();
