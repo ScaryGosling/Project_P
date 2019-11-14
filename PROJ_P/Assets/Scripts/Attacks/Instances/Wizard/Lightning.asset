@@ -45,6 +45,7 @@ MonoBehaviour:
     type: 3}
   force: 1500
   chainRadius: 5
+  chainEffect: 20
   lineWidth: 0.2
   emissionColor: {r: 0.48627448, g: 0.766786, b: 1, a: 0}
   intensity: 10

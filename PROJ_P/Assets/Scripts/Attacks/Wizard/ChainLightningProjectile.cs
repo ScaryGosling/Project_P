@@ -11,6 +11,8 @@ public class ChainLightningProjectile : PlayerAttack
 
     [Header("Lightning Elements")]
     [SerializeField] private float chainRadius;
+    [Tooltip("Amount of damage caused to chained enemies in percent. 100% means full damage.")]
+    [SerializeField] [Range(0,100)] private float chainEffect = 20;
     [SerializeField] private float lineWidth;
     [SerializeField] private Color emissionColor;
     [SerializeField] private float intensity;
@@ -33,6 +35,7 @@ public class ChainLightningProjectile : PlayerAttack
         ch.KillTime = killTime;
         ch.Material = material;
         ch.EmissionColor = emissionColor;
+        ch.chainEffect = chainEffect;
 
         ball.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(Vector3.forward) * force);
         ball.GetComponent<ProjectileInstance>().SetPower(damage, magnitude);
