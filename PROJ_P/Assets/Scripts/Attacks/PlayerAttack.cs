@@ -129,7 +129,6 @@ public class PlayerAttack : Ability
 
     public void ResetCooldown()
     {
-        Debug.Log("Cooldown reset");
         cooldownActive = false;
     }
 
