@@ -47,7 +47,8 @@ public class CameraBehaviour : MonoBehaviour
             {
                 for (int i = 0; i < renderer.materials.Length; i++)
                 {
-                    renderer.materials[i].SetFloat(shaderAlpha, renderer.material.GetFloat(shaderAlpha) - fadeTime * Time.deltaTime);
+                    if(renderer.materials[i].HasProperty(shaderAlpha))
+                        renderer.materials[i].SetFloat(shaderAlpha, renderer.material.GetFloat(shaderAlpha) - fadeTime * Time.deltaTime);
                 }
                 yield return null;
             }
@@ -59,11 +60,13 @@ public class CameraBehaviour : MonoBehaviour
             isFaded = false;
             float fadeTime = this.fadeTime;
 
+
             while (renderer.material.GetFloat(shaderAlpha) < 1)
             {
                 for (int i = 0; i < renderer.materials.Length; i++)
                 {
-                    renderer.materials[i].SetFloat(shaderAlpha, renderer.material.GetFloat(shaderAlpha) + fadeTime * Time.deltaTime);
+                    if (renderer.materials[i].HasProperty(shaderAlpha))
+                        renderer.materials[i].SetFloat(shaderAlpha, renderer.material.GetFloat(shaderAlpha) + fadeTime * Time.deltaTime);
                 }
                 yield return null;
             }
