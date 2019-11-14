@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityName: Life leech
   abilityDescription: 'Leech the life out of your enemies! Perform a basic attack
     that heals you over time when hitting an enemy! Cooldown: 3 sec. Ragecost: 5.'
-  castCost: 5
+  castCost: 10
   castTime: 0
   magnitude: 0
   attackImage: {fileID: 21300000, guid: 00bb674f5d632f8488bf42c497de78ca, type: 3}
