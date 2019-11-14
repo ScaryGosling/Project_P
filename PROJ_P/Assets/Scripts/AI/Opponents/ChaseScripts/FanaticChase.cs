@@ -10,12 +10,10 @@ public class FanaticChase : ChaseBase
 {
     private float dodgeResult;
     [SerializeField] private float dodgeAwarenessDistance = 10f;
-    [SerializeField] private float dodgeChance = 1f;
+    private const float dodgeChance = 0.005f;
     public override void EnterState()
     {
         base.EnterState();
-        Mathf.Clamp(dodgeChance, 0, 100);
-        dodgeChance = dodgeChance / 100f;
     }
 
     public override void ToDo()
@@ -26,18 +24,13 @@ public class FanaticChase : ChaseBase
             Chase();
             CheckForDamage();
             ConsiderDodge();
-           
-            if (Input.GetKeyDown(KeyCode.Alpha8))
-            {
-                owner.ChangeState<FanaticDodge>();
-            }
         }
     }
 
     protected void ConsiderDodge()
     {
         dodgeResult = Random.Range(0f, 1f);
-        if (CapsuleCast() && dodgeResult <= 0.01 && Vector3.Distance(owner.transform.position, Player.instance.transform.position) <= dodgeAwarenessDistance)
+        if (CapsuleCast() && dodgeResult <= dodgeChance && Vector3.Distance(owner.transform.position, Player.instance.transform.position) <= dodgeAwarenessDistance)
             owner.ChangeState<FanaticDodge>();
     }
 

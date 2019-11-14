@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy/FanaticDodge")]
 public class FanaticDodge : ChaseBase
 {
-    private Vector3 initialPosition;
+    private Vector3 direction;
     private Vector3 movement;
     private Quaternion initialRotation;
     [SerializeField] private float dodgeSpeed = 8f;
@@ -21,13 +21,13 @@ public class FanaticDodge : ChaseBase
         diceResult = Random.Range(0f, 1f);
 
         if (diceResult <= 0.5)
-            initialPosition = owner.agent.transform.right;
+            direction = owner.agent.transform.right;
         else
-            initialPosition = owner.agent.transform.right * -1;
+            direction = owner.agent.transform.right * -1;
 
     }
 
-    protected override void CheckLife(){ Debug.Log("Died in dodge! "); }
+    protected override void CheckLife() {}
 
     public override void ToDo()
     {
@@ -49,9 +49,7 @@ public class FanaticDodge : ChaseBase
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-
         Stagger(magnitude);
-
     }
 
     protected void Dodge()
@@ -59,15 +57,19 @@ public class FanaticDodge : ChaseBase
         if (owner.agent.enabled)
             owner.agent.ResetPath();
 
+
         owner.transform.GetChild(2).transform.LookAt(Player.instance.gameObject.transform.position);
 
-        movement = initialPosition * dodgeSpeed * Time.deltaTime;
-        owner.agent.Move(movement);
-
-        if(dodgeTimer == null)
+        if (!owner.agent.isPathStale)
         {
-        dodgeTimer = new GameObject("Dodge Timer");
-        dodgeTimer.AddComponent<Timer>().RunCountDown(dodgeMagnitude, EndDodge, Timer.TimerType.DELAY);
+            movement = direction * dodgeSpeed * Time.deltaTime;
+            owner.agent.Move(movement);
+
+        }
+        if (dodgeTimer == null)
+        {
+            dodgeTimer = new GameObject("Dodge Timer");
+            dodgeTimer.AddComponent<Timer>().RunCountDown(dodgeMagnitude, EndDodge, Timer.TimerType.DELAY);
         }
     }
 

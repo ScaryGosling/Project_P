@@ -14,6 +14,11 @@ public class ChainLightning : ProjectileInstance
     public Color EmissionColor { get; set; }
     public float KillTime { get; set; }
     public Material Material { get; set; }
+    public float chainEffect
+    {
+        get { return chainEffect; }
+        set { chainEffect = value / 100; }
+    }
 
 
     private List<Collider> enemiesInRange = new List<Collider>();
@@ -55,7 +60,7 @@ public class ChainLightning : ProjectileInstance
                 collider.gameObject.AddComponent<LineRenderer>();
 
             if (collider.GetComponent<Unit>())
-                collider.GetComponent<Unit>().currentState.TakeDamage(damage / 5, maginitude);
+                collider.GetComponent<Unit>().currentState.TakeDamage(damage * chainEffect, maginitude);
 
         }
         active = true;

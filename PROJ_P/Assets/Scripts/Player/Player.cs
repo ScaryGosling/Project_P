@@ -133,6 +133,8 @@ public class Player : MonoBehaviour
 
             if (health.fillAmount < colorTransitionPoint)
                 health.color = Color.Lerp(emptyHealth, fullHealth, health.fillAmount / colorTransitionPoint);
+            else
+                health.color = fullHealth;
 
             if (value < 0 && hurtClip != null)
             {

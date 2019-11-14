@@ -181,7 +181,7 @@ public class AliveBase : HostileBaseState
 
     private void ForceBack()
     {
-        if (owner.agent.enabled)
+        if (owner.agent && owner.agent.enabled)
         {
             owner.agent.isStopped = true;
             owner.transform.LookAt(owner.target.transform.position);
