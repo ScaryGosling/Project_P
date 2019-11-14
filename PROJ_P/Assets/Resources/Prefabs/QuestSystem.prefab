@@ -50,6 +50,7 @@ MonoBehaviour:
   - {fileID: 471303246071339227}
   - {fileID: 6751507384838091456}
   - {fileID: 5591941007244766593}
+  questReminder: {fileID: 0}
 --- !u!114 &471303246071339227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +67,6 @@ MonoBehaviour:
   arrowColor:
     serializedVersion: 2
     rgba: 2351651072
-  questReminder: {fileID: 0}
   reminderText: Protect the building
   buildings:
   - {fileID: 0}
@@ -77,7 +77,8 @@ MonoBehaviour:
     voiceLines: []
     music: {fileID: 0}
     messages:
-    - Protect the building pointed by the arrow!
+    - The enemy is targeting one of our buildings! They will attack it next wave!
+    - Defend it from the enemy! Follow the green arrow to find it!
     characterName: 
     textPrompt: 
 --- !u!114 &6751507384838091456
@@ -96,7 +97,6 @@ MonoBehaviour:
   arrowColor:
     serializedVersion: 2
     rgba: 2348810329
-  questReminder: {fileID: 0}
   reminderText: Kill the boss
   boss: {fileID: 2161199849938165175, guid: 7bf8d8369fb4c7c4fbb95553c75492ea, type: 3}
   bossSpawner: {fileID: 0}
@@ -107,8 +107,8 @@ MonoBehaviour:
     voiceLines: []
     music: {fileID: 0}
     messages:
-    - Kill the boss before the next wave ends.
-    - Can you?
+    - A strong enemy is approaching! It will appear next wave!
+    - Kill it before it leaves the area! Follow the red arrow to find it!
     characterName: 
     textPrompt: 
 --- !u!114 &5591941007244766593
@@ -127,7 +127,6 @@ MonoBehaviour:
   arrowColor:
     serializedVersion: 2
     rgba: 2362750464
-  questReminder: {fileID: 0}
   reminderText: Collect all the objects
   collectionTextObject: {fileID: 0}
   objectSpawnerPrefab: {fileID: 3478120250332875128, guid: 6a2041f5adb60b046b2f9479bb52565b,
@@ -139,7 +138,8 @@ MonoBehaviour:
     voiceLines: []
     music: {fileID: 0}
     messages:
-    - Gather
-    - after shopkeeper
+    - Some emergency supplies will arrive next wave! But they are scattered around
+      the map!
+    - Gather the supplies before the wave is over to receive a reward!
     characterName: 
     textPrompt: 
