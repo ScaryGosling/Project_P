@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 9143337098200212278}
   - component: {fileID: 7683654341916414555}
   - component: {fileID: 3588104611668018592}
+  - component: {fileID: 8092298981169403037}
+  - component: {fileID: 8460841780316703695}
   m_Layer: 11
   m_Name: townhouse_tilted1
   m_TagString: Building
@@ -92,7 +94,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7412782776028354538}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0, y: 0.75696754, z: 0.23182999}
@@ -105,8 +107,34 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7412782776028354538}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.44571158, y: 0.75696754, z: 0}
   m_Center: {x: -0.026702184, y: 0, z: 0.010273607}
+--- !u!65 &8092298981169403037
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7412782776028354538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0, y: 0.75696754, z: 0.25499234}
+  m_Center: {x: 0.19868378, y: 0, z: 0.12246077}
+--- !u!65 &8460841780316703695
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7412782776028354538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.521113, y: 0.75696754, z: 0}
+  m_Center: {x: -0.019722298, y: 0, z: 0.2499565}
