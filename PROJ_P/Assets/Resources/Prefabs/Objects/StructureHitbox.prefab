@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5524388268362522080}
   - component: {fileID: 912905319216381911}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StructureHitbox
   m_TagString: TestHouse
   m_Icon: {fileID: 0}
