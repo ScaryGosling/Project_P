@@ -123,18 +123,22 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             if (currentAbilityLevel == -1)
             {
                 currentAbilityLevelText.text = "-";
-                tempColor.a = 68;
-                image.color = tempColor;
                 lockObject.SetActive(true);
             }
             else
             {
-
                 currentAbilityLevelText.text = currentAbilityLevel + 1 + "";
-                tempColor.a = 255;
-                image.color = tempColor;
                 lockObject.SetActive(false);
             }
+            if (Player.instance.GoldProp < ability.GetNextLevelCost(currentAbilityLevel) && ability.IsLocked()) 
+            {
+                tempColor.a = 68;
+            }
+            else
+            {
+                tempColor.a = 255;
+            }
+                image.color = tempColor;
             if (ability.GetNextLevelCost(currentAbilityLevel) != -2)
             {
                 nextUpgradeCost.text = ability.GetNextLevelCost(currentAbilityLevel) + "";
