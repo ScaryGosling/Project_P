@@ -35,7 +35,7 @@ public class ChainLightningProjectile : PlayerAttack
         ch.KillTime = killTime;
         ch.Material = material;
         ch.EmissionColor = emissionColor;
-        ch.chainEffect = chainEffect;
+        ch.chainEffect = chainEffect/100;
 
         ball.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(Vector3.forward) * force);
         ball.GetComponent<ProjectileInstance>().SetPower(damage, magnitude);

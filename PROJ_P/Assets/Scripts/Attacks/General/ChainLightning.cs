@@ -14,11 +14,8 @@ public class ChainLightning : ProjectileInstance
     public Color EmissionColor { get; set; }
     public float KillTime { get; set; }
     public Material Material { get; set; }
-    public float chainEffect
-    {
-        get { return chainEffect; }
-        set { chainEffect = value / 100; }
-    }
+    public float chainEffect { get; set; }
+    
 
 
     private List<Collider> enemiesInRange = new List<Collider>();
