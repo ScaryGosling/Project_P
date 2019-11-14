@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2a4a954b402804282bd51684759b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showRemaining: 3
+  showRemaining: 1
   debugMode: 0
   playerSpeedScale: 1.5
   healthPerLevel: 5
