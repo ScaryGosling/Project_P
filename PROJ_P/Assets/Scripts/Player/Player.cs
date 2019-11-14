@@ -188,6 +188,7 @@ public class Player : MonoBehaviour
                 Resource = ScriptableObject.CreateInstance<Mana>();
                 attackSet = attackSets.Get(PlayerClass.WIZARD);
                 PlayerCursor = mysticCursor;
+                weapon.SetActive(false);
                 break;
 
             case PlayerClass.WARRIOR:
