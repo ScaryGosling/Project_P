@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 671797654848453148}
   - component: {fileID: 8361410821638684714}
   - component: {fileID: 2825230020827053267}
-  m_Layer: 0
-  m_Name: townhouse2_combined
-  m_TagString: Untagged
+  - component: {fileID: 2708536402632218610}
+  m_Layer: 11
+  m_Name: townhouse2
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2708536402632218610
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542423041727547407}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.003966713, y: 0.67737263, z: 0.30298185}
+  m_Center: {x: 0.12972318, y: 0.33868632, z: -0.000002670288}
