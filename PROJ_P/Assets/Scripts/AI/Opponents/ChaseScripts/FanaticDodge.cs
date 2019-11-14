@@ -27,8 +27,6 @@ public class FanaticDodge : ChaseBase
 
     }
 
-    protected override void CheckLife() {}
-
     public override void ToDo()
     {
         base.ToDo();
