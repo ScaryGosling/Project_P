@@ -9,6 +9,7 @@ public class RusherDeath : DeathBase
     public override void EnterState()
     {
         base.EnterState();
+        animator.SetTrigger("Death");
     }
 
     public override void ToDo()
