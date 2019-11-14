@@ -44,14 +44,12 @@ public class DeathBase : HostileBaseState
         Destroy(owner.gameObject, corpseTimer);
     }
 
-    protected virtual void DeathAnimation()
-    {
-        Quaternion rotation = Quaternion.Euler(-90, 0, 0);
-        owner.transform.localRotation = rotation;
-        owner.AliveProp = false;
-    }
+    protected virtual void DeathAnimation(){ }
 }
 #region EnemyBaseLegacy
+        //Quaternion rotation = Quaternion.Euler(-90, 0, 0);
+        //owner.transform.localRotation = rotation;
+        //owner.AliveProp = false;
 // lightTreshold = owner.LightThreshold;
 //     spreadAngle = Quaternion.AngleAxis(lightField.spotAngle, owner.agent.velocity);
 //// protected float lightAngle;
