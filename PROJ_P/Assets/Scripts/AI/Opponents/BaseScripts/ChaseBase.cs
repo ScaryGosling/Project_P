@@ -21,10 +21,6 @@ public class ChaseBase : AliveBase
     }
 
 
-    public override void InitializeState(StateMachine owner)
-    {
-        this.owner = (Unit)owner;
-    }
 
     public override void ToDo()
     {

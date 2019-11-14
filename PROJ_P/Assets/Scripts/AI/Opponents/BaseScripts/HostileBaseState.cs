@@ -33,6 +33,7 @@ public class HostileBaseState : State
     protected bool damaged = false;
     protected bool timerRunning = false;
     protected bool attacking = false;
+    protected Animator animator;
 
     // Methods
     public override void EnterState()
@@ -47,6 +48,7 @@ public class HostileBaseState : State
     public override void InitializeState(StateMachine owner)
     {
         this.owner = (Unit)owner;
+        animator = this.owner.GetAnimator();
     }
 
     public override void ToDo() { }

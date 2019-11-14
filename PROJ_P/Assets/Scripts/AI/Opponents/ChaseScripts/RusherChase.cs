@@ -67,6 +67,7 @@ public class RusherChase : ChaseBase
                 attacking = !attacking;
                 owner.agent.obstacleAvoidanceType = UnityEngine.AI.ObstacleAvoidanceType.LowQualityObstacleAvoidance;
                 DamageTarget();
+                animator.SetTrigger("Melee");
             }
         }
     }

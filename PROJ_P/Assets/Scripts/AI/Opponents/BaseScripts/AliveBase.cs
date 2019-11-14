@@ -25,11 +25,6 @@ public class AliveBase : HostileBaseState
     }
 
 
-    public override void InitializeState(StateMachine owner)
-    {
-        this.owner = (Unit)owner;
-    }
-
     public override void ToDo()
     {
         base.ToDo();
@@ -70,6 +65,7 @@ public class AliveBase : HostileBaseState
                 owner.getGenericTimer.SetTimer(owner.AttackSpeed);
                 attacking = !attacking;
                 DamageTarget();
+                animator.SetTrigger("Melee");
             }
         }
     }
@@ -192,7 +188,6 @@ public class AliveBase : HostileBaseState
             owner.rigidbody.AddRelativeForce(new Vector3(0, 0, -1) * force, ForceMode.Impulse);
             BaseKnockBackDuration = knockStartValue;
             owner.agent.isStopped = false;
-            Debug.Log("MovesBack");
         }
     }
 

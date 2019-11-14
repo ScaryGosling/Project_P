@@ -73,6 +73,7 @@ public class FanaticChase : ChaseBase
                 owner.getGenericTimer.SetTimer(owner.AttackSpeed);
                 attacking = !attacking;
                 DamageTarget();
+                animator.SetTrigger("Melee");
             }
         }
     }

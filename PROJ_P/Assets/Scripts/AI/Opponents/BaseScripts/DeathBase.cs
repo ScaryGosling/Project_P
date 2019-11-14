@@ -22,11 +22,6 @@ public class DeathBase : HostileBaseState
     }
 
 
-    public override void InitializeState(StateMachine owner)
-    {
-        this.owner = (Unit)owner;
-    }
-
     public override void ToDo()
     {
         base.ToDo();

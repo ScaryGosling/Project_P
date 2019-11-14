@@ -156,7 +156,10 @@ public class Unit : StateMachine
 
     }
 
-  
+    public Animator GetAnimator()
+    {
+        return animator;
+    }
 }
 #region UnitLegacy
 //public float healthProperty { get { return health; } set { health = value; } }

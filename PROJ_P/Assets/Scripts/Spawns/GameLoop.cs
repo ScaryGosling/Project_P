@@ -100,7 +100,6 @@ public class GameLoop : MonoBehaviour
             HandleRemaining();
             player.GoldProp += goldPerKill;
             CheckForDrop(death.enemyObject.transform.position);
-            Debug.Log("Units Killed: " + unitsKilled + " Units expected: " + expected);
         }
     }
 
