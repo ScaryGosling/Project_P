@@ -106,6 +106,7 @@ public class AliveBase : HostileBaseState
     /// </summary>
     protected virtual void Die() {
         owner.AliveProp = false;
+        animator.SetTrigger("Death");
     }
 
     protected virtual void Stagger(float magnitude)
