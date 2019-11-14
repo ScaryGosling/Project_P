@@ -6,18 +6,20 @@ using UnityEngine;
 public class ManaDrop : Pickup
 {
     [SerializeField] private Material[] materials;
-    [SerializeField]
+    [SerializeField] private MeshRenderer meshRenderer;
+        Material[] tempMaterial;
+    
     protected override void Start()
     {
         base.Start();
         SetMaterials();
+
     }
     protected override void DoSomething()
     {
         if (player.GetComponent<Player>().playerClass == PlayerClass.WIZARD)
         {
             player.Resource.IncreaseResource(fillAmount);
-
         }
         else
         {
@@ -27,14 +29,18 @@ public class ManaDrop : Pickup
 
     private void SetMaterials()
     {
-        if (player.GetComponent<Player>().playerClass == PlayerClass.WIZARD)
+        tempMaterial = meshRenderer.materials;
+        if (player.playerClass == PlayerClass.WIZARD)
         {
-            gameObject.GetComponent<MeshRenderer>().material = materials[0];
+            tempMaterial[1] = materials[0];
+            meshRenderer.materials = tempMaterial;
         }
         else
         {
-            gameObject.GetComponent<MeshRenderer>().material = materials[1];
+            tempMaterial[1] = materials[1];
+            meshRenderer.materials = tempMaterial;
         }
-
     }
+
+    private void SetParticles(){ }
 }
