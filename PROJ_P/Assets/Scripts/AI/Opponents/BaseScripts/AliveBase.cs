@@ -29,7 +29,6 @@ public class AliveBase : HostileBaseState
     {
         base.ToDo();
         CheckLife();
-        CheckForDamage();
     }
 
     protected virtual void CheckLife()
@@ -58,6 +57,7 @@ public class AliveBase : HostileBaseState
         //    owner.agent.isStopped = false;
         if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && owner.AliveProp && !attacking)
         {
+            Debug.Log("Hits something!");
             if (owner.getGenericTimer.TimeTask)
             {
                 attacking = true;

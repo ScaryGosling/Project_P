@@ -13,7 +13,6 @@ public class ManaDrop : Pickup
     {
         base.Start();
         SetMaterials();
-
     }
     protected override void DoSomething()
     {
