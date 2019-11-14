@@ -27,7 +27,7 @@ public class FanaticDodge : ChaseBase
 
     }
 
-    protected override void CheckLife() { Debug.Log("Died in dodge! "); }
+    protected override void CheckLife() {}
 
     public override void ToDo()
     {
