@@ -222,7 +222,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.8807576, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4944,6 +4944,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6863321986751247272}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
+        type: 3}
+      propertyPath: m_Name
+      value: Pickup_Mesh
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5013,11 +5018,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 9.770743
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
-        type: 3}
-      propertyPath: m_Name
-      value: Pickup_Mesh
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
         type: 3}
