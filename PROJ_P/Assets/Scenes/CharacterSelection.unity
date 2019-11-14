@@ -346,7 +346,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 11.1
+  m_fontSize: 7.7
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 56.1
+  m_fontSize: 39.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -776,7 +776,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 31.45
+  m_fontSize: 19.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -920,6 +920,7 @@ MonoBehaviour:
   mainMenu: MainMenu
   keybindSet: {fileID: 11400000, guid: 9c37919dfa498b34290c55af5af987d5, type: 2}
   shopWindow: {fileID: 0}
+  mainMenuPrompt: {fileID: 0}
   promptToggles: []
 --- !u!1001 &858533296
 PrefabInstance:
@@ -928,16 +929,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 93e8ea4f87adbe9468aa876ddcf58757,
-        type: 3}
-      propertyPath: m_Name
-      value: OwO@Idle
-      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 93e8ea4f87adbe9468aa876ddcf58757,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d77527d66acfffc41bbfcf6f41f4bb19, type: 2}
+    - target: {fileID: -927199367670048503, guid: 93e8ea4f87adbe9468aa876ddcf58757,
+        type: 3}
+      propertyPath: m_Name
+      value: OwO@Idle
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93e8ea4f87adbe9468aa876ddcf58757,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1168,7 +1169,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 23.8
+  m_fontSize: 15.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1468,7 +1469,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 35.9
+  m_fontSize: 24.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1723,7 +1724,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1346953387}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68e61680148ffde4b8b668c5277e3132, type: 3}
+  m_Script: {fileID: 11500000, guid: 621c54c3b6bf161469d5114fc394254e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1354468797
@@ -2199,7 +2200,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24.3
+  m_fontSize: 15.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2435,7 +2436,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 16.85
+  m_fontSize: 11.75
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2695,7 +2696,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 75
+  m_fontSize: 53.65
   m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 1
