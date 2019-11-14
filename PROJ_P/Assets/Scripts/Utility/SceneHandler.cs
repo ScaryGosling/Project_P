@@ -9,6 +9,7 @@ public class SceneHandler : MonoBehaviour
     public static SceneHandler sceneHandler;
     public KeybindSet keybindSet;
     [SerializeField] private GameObject shopWindow;
+    [SerializeField] private GameObject mainMenuPrompt;
     [SerializeField] private GameObject[] promptToggles;
 
     public static SceneHandler instance;
@@ -41,9 +42,18 @@ public class SceneHandler : MonoBehaviour
             { 
                 shopWindow.SetActive(false);
             }
-            else
-                GoToScene(mainMenu);
+            else if(mainMenuPrompt != null)
+            {
+                Time.timeScale = 0;
+                mainMenuPrompt.SetActive(true);
+            }
+                
         }
+    }
+
+    public void RestoreTimeScale()
+    {
+        Time.timeScale = 1;
     }
 
     public void Toggle(GameObject go) {
