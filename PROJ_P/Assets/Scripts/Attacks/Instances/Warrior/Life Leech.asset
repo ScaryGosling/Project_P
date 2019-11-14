@@ -22,11 +22,11 @@ MonoBehaviour:
   cooldown: 3
   cooldownActive: 0
   upgradeCosts:
-  - upgradeCost: 50
+  - upgradeCost: 100
     newDamage: 9
   - upgradeCost: 200
     newDamage: 12
-  - upgradeCost: 400
+  - upgradeCost: 300
     newDamage: 18
   - upgradeCost: 600
     newDamage: 21
