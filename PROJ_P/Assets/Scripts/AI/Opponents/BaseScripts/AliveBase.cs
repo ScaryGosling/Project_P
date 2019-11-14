@@ -57,7 +57,6 @@ public class AliveBase : HostileBaseState
         //    owner.agent.isStopped = false;
         if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && owner.AliveProp && !attacking)
         {
-            Debug.Log("Hits something!");
             if (owner.getGenericTimer.TimeTask)
             {
                 attacking = true;
@@ -131,15 +130,15 @@ public class AliveBase : HostileBaseState
 
         if (weightDiff < 10)
         {
-            BaseKnockBackDuration = BaseKnockBackDuration * 1.2f;
+            BaseKnockBackDuration = BaseKnockBackDuration * 1.1f;
         }
         else if (weightDiff > 10 && weightDiff < 15)
         {
-            BaseKnockBackDuration = BaseKnockBackDuration * 1.3f;
+            BaseKnockBackDuration = BaseKnockBackDuration * 1.2f;
         }
         else
         {
-            BaseKnockBackDuration = BaseKnockBackDuration * 1.4f;
+            BaseKnockBackDuration = BaseKnockBackDuration * 1.3f;
         }
     }
     protected bool CapsuleCast()

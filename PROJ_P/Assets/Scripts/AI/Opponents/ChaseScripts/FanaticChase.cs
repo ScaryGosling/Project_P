@@ -59,7 +59,6 @@ public class FanaticChase : ChaseBase
         //    owner.agent.isStopped = false;
         if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && owner.AliveProp && !attacking)
         {
-            Debug.Log("Hits something in fc!");
             if (owner.getGenericTimer.TimeTask)
             {
                 attacking = true;
