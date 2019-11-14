@@ -23,6 +23,7 @@ public class BossChase : ChaseBase
         {
             Chase();
             CheckForDamage();
+            Debug.Log("Boss doing shit");
         }
     }
 

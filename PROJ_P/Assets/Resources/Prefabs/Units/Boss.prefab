@@ -57,7 +57,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2161199849938165175}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -144,12 +144,15 @@ MonoBehaviour:
   agent: {fileID: 0}
   visionMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 4352
   animator: {fileID: -6057140222963153312, guid: 93e8ea4f87adbe9468aa876ddcf58757,
     type: 3}
   weapon: {fileID: 5600999944017349924}
   hurtAudioSource: {fileID: 4901963468119906052}
   damageAudioSource: {fileID: 1410095563286134574}
+  combatMask:
+    serializedVersion: 2
+    m_Bits: 0
   takeDamageClip: {fileID: 8300000, guid: 139470045c673af43b7a95595affdac0, type: 3}
   deathClip: {fileID: 8300000, guid: 66da05baf93d6f143ae98d0a6a1046eb, type: 3}
   attackSound: {fileID: 8300000, guid: 72f1f1c7310b04546a52047f8337640a, type: 3}
@@ -636,11 +639,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
-    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -746,6 +744,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 18320881556040783, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -771,11 +774,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 8913df1e93e425847aecf303e9bdc6bf,
-        type: 3}
-      propertyPath: m_Name
-      value: UwU-LP
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8913df1e93e425847aecf303e9bdc6bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -845,6 +843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 4.56
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8913df1e93e425847aecf303e9bdc6bf,
+        type: 3}
+      propertyPath: m_Name
+      value: UwU-LP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8913df1e93e425847aecf303e9bdc6bf, type: 3}
