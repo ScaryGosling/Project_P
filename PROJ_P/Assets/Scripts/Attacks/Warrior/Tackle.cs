@@ -18,6 +18,11 @@ public class Tackle : PlayerAttack
         base.RunAttack();
 
         player = Player.instance.GetComponent<NavMeshAgent>();
+        Player playerComp = player.GetComponent<Player>();
+
+        playerComp.dealDamageOnCollision = true;
+        playerComp.damage = damage;
+        playerComp.magnitude = magnitude;
 
         startAcceleration = player.acceleration;
         startSpeed = player.speed;
@@ -51,13 +56,16 @@ public class Tackle : PlayerAttack
 
     public void ResetStats() {
 
+        Player playerComp = player.GetComponent<Player>();
+
         player.ResetPath();
         player.speed = startSpeed;
         player.acceleration = startAcceleration;
         player.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
         player.stoppingDistance = 0;
-        player.GetComponent<Player>().activeStats.resistanceMultiplier = 1;
+        playerComp.activeStats.resistanceMultiplier = 1;
         player.GetComponent<PlayerMovement>().enabled = true;
+        playerComp.dealDamageOnCollision = false;
 
     }
 }

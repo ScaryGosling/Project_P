@@ -294,7 +294,9 @@ public class Player : MonoBehaviour
                 {
                     attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[0]));
                 }
-            } else if (Input.GetKeyUp(keybindSet.GetBind(KeyFeature.BASE_ATTACK))) {
+            }
+            else if (Input.GetKeyUp(keybindSet.GetBind(KeyFeature.BASE_ATTACK)))
+            {
                 holding = false;
             }
 
@@ -491,8 +493,8 @@ public class Player : MonoBehaviour
 
         }
 
-        if (attack = activeAttacks.list[0])
-            holding = true;
+        if (attack == activeAttacks.list[0]) { holding = true; }
+            
 
         animator.SetTrigger("Melee");
         attack.OnEquip();
@@ -519,6 +521,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    public bool dealDamageOnCollision { get; set; }
+    public float damage { get; set; }
+    public float magnitude { get; set; }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (dealDamageOnCollision && collision.collider.CompareTag("Enemy"))
+        {
+            collision.collider.GetComponent<Unit>().currentState.TakeDamage(damage, magnitude);
+        }
+    }
 
 
 
