@@ -24,11 +24,6 @@ public class FanaticChase : ChaseBase
             Chase();
             CheckForDamage();
             ConsiderDodge();
-           
-            if (Input.GetKeyDown(KeyCode.Alpha8))
-            {
-                owner.ChangeState<FanaticDodge>();
-            }
         }
     }
 
