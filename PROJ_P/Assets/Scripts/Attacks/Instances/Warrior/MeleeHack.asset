@@ -23,17 +23,17 @@ MonoBehaviour:
   cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 0
-    newDamage: 8
+    newDamage: 9
   - upgradeCost: 200
-    newDamage: 11
+    newDamage: 12
   - upgradeCost: 500
-    newDamage: 17
+    newDamage: 18
   - upgradeCost: 700
-    newDamage: 23
+    newDamage: 21
   - upgradeCost: 800
-    newDamage: 30
+    newDamage: 27
   - upgradeCost: 1000
-    newDamage: 36
+    newDamage: 30
   lockedAbility: 0
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: b24232bb56d4d3d4c8dd15da446cad68, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Repair Kit To Carry
   m_EditorClassIdentifier: 
   abilityName: Repair Kit
-  abilityDescription: No description available
+  abilityDescription: A repair kit that restores 20 durability when consumed.
   potionImage: {fileID: 21300000, guid: 9e1b7429a29992141ae5b1c41e489006, type: 3}
   maxResourcePotion: 3
   potionCost: 10

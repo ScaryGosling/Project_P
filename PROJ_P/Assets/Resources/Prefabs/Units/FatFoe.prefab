@@ -160,7 +160,7 @@ MonoBehaviour:
   attackSound: {fileID: 0}
   baseHeath: 30
   baseAttack: 10
-  attackSpeed: 0.5
+  attackSpeed: 1
   goldPerHit: 3
   weight: 80
   attackRange: 2.3
@@ -763,16 +763,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: b3297aff4e85b5645a7b05a76833c0c5,
-        type: 3}
-      propertyPath: m_Name
-      value: Fat_UwU(LP)
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: b3297aff4e85b5645a7b05a76833c0c5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b3297aff4e85b5645a7b05a76833c0c5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -842,6 +832,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 3.4794
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b3297aff4e85b5645a7b05a76833c0c5,
+        type: 3}
+      propertyPath: m_Name
+      value: Fat_UwU(LP)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b3297aff4e85b5645a7b05a76833c0c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3297aff4e85b5645a7b05a76833c0c5, type: 3}
