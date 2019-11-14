@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7091359449051773900}
   - component: {fileID: 3554774640836265781}
   - component: {fileID: 7939987503407624682}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: townhouse1_withdoor
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
