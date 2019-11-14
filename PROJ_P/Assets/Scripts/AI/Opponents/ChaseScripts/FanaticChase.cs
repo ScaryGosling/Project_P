@@ -10,7 +10,7 @@ public class FanaticChase : ChaseBase
 {
     private float dodgeResult;
     [SerializeField] private float dodgeAwarenessDistance = 10f;
-    [SerializeField] private float dodgeChance = 0.01f;
+    private const float dodgeChance = 0.005f;
     public override void EnterState()
     {
         base.EnterState();
