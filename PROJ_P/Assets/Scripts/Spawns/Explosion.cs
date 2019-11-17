@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Rotating warning image, and damaging explosion.
+/// </summary>
 [RequireComponent(typeof(GenericTimer))]
 public class Explosion : MonoBehaviour
 {
@@ -10,7 +13,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float destroyAfter = 0.5f;
     [SerializeField] private float damage = 25f;
     [SerializeField] private float animSpeed = 1.5f;
-    [SerializeField] private int explosionRadius = 2;
+    [SerializeField] private float explosionRadius = 2;
     [SerializeField] private AudioSource source;
 
     #endregion
@@ -33,7 +36,7 @@ public class Explosion : MonoBehaviour
         baseScale = transform.localScale;
         targetScale = baseScale * explosionRadius;
         targetQuaternion = Quaternion.Euler(-90, 180, 0);
-        explosionRadius = Mathf.Clamp(explosionRadius, 2, 4);
+        explosionRadius = Mathf.Clamp(explosionRadius, 1f, 6f);
     }
 
     public void SetupSounds(AudioClip fuse, AudioClip explosion) {
@@ -42,7 +45,6 @@ public class Explosion : MonoBehaviour
         this.fuse = fuse;
         source.clip = fuse;
         source.Play();
-
     }
 
     private void Update()

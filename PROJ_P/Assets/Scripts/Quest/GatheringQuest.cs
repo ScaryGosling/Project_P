@@ -1,8 +1,12 @@
-﻿using System.Collections;
+﻿//Author: Emil Dahl
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This class takes care of the collection quest logic. 
+/// </summary>
 public class GatheringQuest : Quest
 {
     private int gathered;
@@ -21,6 +25,9 @@ public class GatheringQuest : Quest
         base.Start();
         EventSystem.Current.RegisterListener<CollectionEvent>(ManageCollected);
     }
+    /// <summary>
+    /// Populates the map with rewards, this with the help of the object spawner. 
+    /// </summary>
     public override void StartQuest()
     {
         base.StartQuest();
@@ -38,11 +45,16 @@ public class GatheringQuest : Quest
         objectSpawner = spawner.GetComponent<ObjectSpawner>();
         objectSpawner.PopulateList(toGather, ObjectSpawner.ObjectToSpawn.Reward);
     }
+
     public override void QuestDialogue()
     {
         dialogueEvent.data = questData[0];
         EventSystem.Current.FireEvent(dialogueEvent);
     }
+
+    /// <summary>
+    /// Checks if quest was completed and terminates quest items.
+    /// </summary>
     public override void EndQuest()
     {
         if (objectSpawner)
@@ -62,18 +74,24 @@ public class GatheringQuest : Quest
         }
 
     }
+
+    /// <summary>
+    /// Updates quest progress.
+    /// </summary>
+    /// <param name="collected"></param>
     void ManageCollected(CollectionEvent collected)
     {
         gathered += collected.pickUpValue;
         DrawToCanvas();
 
-        //Check success and failure
         if (gathered >= toGather)
         {
-
             EndQuest();
         }
     }
+    /// <summary>
+    /// Informs player about the current quest progress.
+    /// </summary>
     void DrawToCanvas()
     {
         collectText.text = baseText + gathered;

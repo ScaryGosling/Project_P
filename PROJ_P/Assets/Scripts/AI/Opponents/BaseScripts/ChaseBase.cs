@@ -7,6 +7,9 @@ using UnityEngine.AI;
 
 
 
+/// <summary>
+/// Every state that inherits from this one performs basic chase/attack behavior.
+/// </summary>
 [RequireComponent(typeof(CapsuleCollider))]
 public class ChaseBase : AliveBase
 {
@@ -25,9 +28,11 @@ public class ChaseBase : AliveBase
     public override void ToDo()
     {
         base.ToDo();
-        OperateHesitation();
     }
 
+    /// <summary>
+    /// Chases player character, or other targets. 
+    /// </summary>
     protected virtual void Chase()
     {
         owner.agent.avoidancePriority = 99;
@@ -49,10 +54,7 @@ public class ChaseBase : AliveBase
             owner.transform.LookAt(owner.target.transform.position + new Vector3(0, owner.capsuleCollider.radius, 0));
     }
 
-    protected virtual void OperateHesitation() { }
-
-  
-
+ 
     protected bool DiceRoll()
     {
         float diceRoll = Random.Range(0, 1);
@@ -63,6 +65,9 @@ public class ChaseBase : AliveBase
     }
 }
 #region EnemyBaseLegacy
+
+    //    //OperateHesitation();
+    //protected virtual void OperateHesitation() { }
 // lightTreshold = owner.LightThreshold;
 //     spreadAngle = Quaternion.AngleAxis(lightField.spotAngle, owner.agent.velocity);
 //// protected float lightAngle;

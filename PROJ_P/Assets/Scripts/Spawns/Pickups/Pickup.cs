@@ -7,8 +7,6 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
 
-    protected enum ResourceType { Mana, Rage, Repair, Health };
-    [SerializeField] protected ResourceType resType;
     [SerializeField] protected float fillAmount;
     [SerializeField] protected float despawnTime = 10f;
     [SerializeField] private AudioClip pickupSound;
@@ -27,7 +25,10 @@ public class Pickup : MonoBehaviour
         source.clip = pickupSound;
     }
 
-
+    /// <summary>
+    /// Logic for when some object is interacted with.
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -49,11 +50,20 @@ public class Pickup : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Some items must be terminated during the wave, but after some time. Such as health drops.
+    /// </summary>
     protected void DestroyThis()
     {
         Destroy(gameObject, despawnTime);
     }
 
-
+    /// <summary>
+    /// This method is run when something is picked up, or collected. Performs completely different tasks depending on situation. 
+    /// </summary>
     protected virtual void DoSomething() { }
 }
+#region region
+//protected enum ResourceType { Mana, Rage, Repair, Health };
+//[SerializeField] protected ResourceType resType;
+#endregion

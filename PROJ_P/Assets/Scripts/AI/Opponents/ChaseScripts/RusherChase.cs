@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/RusherChase")]
+[CreateAssetMenu(menuName = "Hostile/Rusher/RusherChase")]
 public class RusherChase : ChaseBase
 {
     public override void EnterState()
@@ -40,14 +40,6 @@ public class RusherChase : ChaseBase
 
     }
 
-    protected override void OperateHesitation()
-    {
-        base.OperateHesitation();
-        if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
-        {
-            owner.ChangeState<FanaticHesitate>();
-        }
-    }
 
     protected override void SetCrowdControl(float magnitude)
     {
@@ -70,9 +62,6 @@ public class RusherChase : ChaseBase
     protected override void CheckForDamage()
     {
         owner.agent.avoidancePriority = 99;
-
-        //if (owner.agent.isActiveAndEnabled)
-        //    owner.agent.isStopped = false;
 
         if (distanceToTarget < owner.GetAttackRange && CapsuleCast() && owner.AliveProp && !attacking)
         {
@@ -99,4 +88,12 @@ public class RusherChase : ChaseBase
 //chaseEvent.audioSpeaker = audioSpeaker;
 
 //EventSystem.Current.FireEvent(chaseEvent);
+    //protected override void OperateHesitation()
+    //{
+    //    base.OperateHesitation();
+    //    if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
+    //    {
+    //        owner.ChangeState<FanaticHesitate>();
+    //    }
+    //}
 #endregion

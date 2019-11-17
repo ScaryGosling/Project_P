@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/FanaticSuperKnockback")]
+[CreateAssetMenu(menuName = "Hostile/Fanatic/FanaticSuperKnockback")]
 public class FanaticSuperKnockback : CCBase
 {
     private Vector3 direction;

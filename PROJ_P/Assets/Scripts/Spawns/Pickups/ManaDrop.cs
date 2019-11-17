@@ -14,6 +14,9 @@ public class ManaDrop : Pickup
         base.Start();
         SetMaterials();
     }
+    /// <summary>
+    /// This method is run when something is picked up, or collected. Performs completely different tasks depending on situation. 
+    /// </summary>
     protected override void DoSomething()
     {
         if (player.GetComponent<Player>().playerClass == PlayerClass.WIZARD)
@@ -26,6 +29,9 @@ public class ManaDrop : Pickup
         }
     }
 
+    /// <summary>
+    /// Changes the appearance of specific item.
+    /// </summary>
     private void SetMaterials()
     {
         tempMaterial = meshRenderer.materials;

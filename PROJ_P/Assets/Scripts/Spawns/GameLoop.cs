@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// This class takes care of everything that has to do with wave behavior. 
+/// </summary>
 public class GameLoop : MonoBehaviour
 {
     #region smh
@@ -70,6 +73,7 @@ public class GameLoop : MonoBehaviour
     private GameObject absoluteUnit;
     [SerializeField] private QuestHandler questHandler;
     [SerializeField] [Range(0, 100)] private int questChance = 50;
+    [SerializeField] private EliasSetLevelOnTrack setLevelOnTrack;
 
     private Coroutine waveTimer;
     private float waveTime;
@@ -92,6 +96,10 @@ public class GameLoop : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Function that handles unit death events.
+    /// </summary>
+    /// <param name="death"></param>
     private void UnitDeath(UnitDeath death)
     {
         if (!death.isBoss)
@@ -103,15 +111,20 @@ public class GameLoop : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Drops health potions where different units die. 
+    /// </summary>
+    /// <param name="location"></param>
     private void CheckForDrop(Vector3 location)
     {
-
         float temp = Random.Range(0f, 1f);
-
         if (chanceOfDrop >= temp)
             Instantiate(pickUp[1], new Vector3(location.x, location.y, location.z), Quaternion.identity);
     }
 
+    /// <summary>
+    /// Resets everything, and progresses the game. Increasing the difficulty. 
+    /// </summary>
     private void ResetWave()
     {
         waveCompleted = false;
@@ -136,6 +149,9 @@ public class GameLoop : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Checks if a quest should be generated this wave. 
+    /// </summary>
     private void GenerateQuest()
     {
         if (!questGenerated)
@@ -172,6 +188,11 @@ public class GameLoop : MonoBehaviour
             waveTime++;
         }
     }
+
+    /// <summary>
+    /// Checks if wave is completed, and then runs relevant functions. 
+    /// </summary>
+    /// <returns></returns>
     private float CheckWaveCompletion()
     {
         if (unitsKilled >= expected)
@@ -194,10 +215,12 @@ public class GameLoop : MonoBehaviour
             {
                 objectSpawner.TerminateSpawner();
             }
+
             if (shopKeeper.activeInHierarchy)
             {
                 return 0;
             }
+
             ResetWave();
             UpdateWaveCounter();
 
@@ -205,12 +228,19 @@ public class GameLoop : MonoBehaviour
         }
         return spawnTime / 2;
     }
+
+    /// <summary>
+    /// Updates wave information.
+    /// </summary>
     private void UpdateWaveCounter()
     {
         newWaveEvent.waveIndex = waveIndex;
         EventSystem.Current.FireEvent(newWaveEvent);
     }
 
+    /// <summary>
+    /// Calculates how many enemies are left, this information is then used to inform the player. 
+    /// </summary>
     private void HandleRemaining()
     {
         int remaining = expected - unitsKilled;
@@ -223,26 +253,16 @@ public class GameLoop : MonoBehaviour
 
     }
 
+
     private void UnitController()
     {
         CheckUnitType();
-
-        switch (currentType)
-        {
-            case 0:
-                absoluteUnit = unitPrefabs[currentType].gameObject;
-                break;
-            case 1:
-                absoluteUnit = unitPrefabs[currentType].gameObject;
-                break;
-            case 2:
-                absoluteUnit = unitPrefabs[currentType].gameObject;
-                break;
-            default:
-                break;
-        }
+        absoluteUnit = unitPrefabs[currentType].gameObject;
     }
 
+    /// <summary>
+    /// During which waves, and when during those waves should each units spawn.
+    /// </summary>
     private void CheckUnitType()
     {
         if (waveIndex % 2 == 0 && spawned % 3 == 0)
@@ -269,7 +289,6 @@ public class GameLoop : MonoBehaviour
             shopOpen = true;
         }
     }
-    [SerializeField] private EliasSetLevelOnTrack setLevelOnTrack;
     private void ChangeEliasLevel(int level)
     {
         setLevel.level = level;
@@ -277,6 +296,10 @@ public class GameLoop : MonoBehaviour
         eliasPlayer.QueueEvent(setLevel.CreateSetLevelEvent(eliasPlayer.Elias));
 
     }
+    /// <summary>
+    /// This enumerator represents the recursive gameloop.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Spawner()
     {
         while (true)
@@ -322,3 +345,20 @@ public class GameLoop : MonoBehaviour
 
 }
 
+#region GameLoopLegacy
+        //switch (currentType)
+        //{
+        //    case 0:
+        //        absoluteUnit = unitPrefabs[currentType].gameObject;
+        //        break;
+        //    case 1:
+        //        absoluteUnit = unitPrefabs[currentType].gameObject;
+        //        break;
+        //    case 2:
+        //        absoluteUnit = unitPrefabs[currentType].gameObject;
+        //        break;
+        //    default:
+        //        break;
+        //}
+
+#endregion

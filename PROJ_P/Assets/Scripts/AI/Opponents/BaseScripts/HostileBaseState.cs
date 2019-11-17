@@ -6,19 +6,23 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-
+/// <summary>
+/// All other states inherit from this one. It keeps track of some basic things such as the rigidbody. Some of the code is quite outdated, or should be moved.
+/// </summary>
 [RequireComponent(typeof(CapsuleCollider))]
 public class HostileBaseState : State
 {
     // Attributes
 
-    protected enum Behaviors { STAGGER, KNOCKBACK }
-    [SerializeField] protected Behaviors controlBehaviors = Behaviors.STAGGER;
     [SerializeField] protected Material material;
+    //Will be moved to player, same as other unit stats. //Emil
     [SerializeField] protected float moveSpeed;
+    //This will be removed soon. Dumb decision based on the fact that I wanted all enemies to be states, using a singular prefab. Will be removed. //Emil
     [SerializeField] protected Vector3 scale;
     [SerializeField] protected float staggerCD = 0.5f;
+    //Does this have to be here? Move to unit if possible. No need to set in every state. //Emil 
     [SerializeField] protected GameObject bloodParticle;
+
     #region components
     protected CapsuleCollider capsuleCollider;
     protected Unit owner;
@@ -52,8 +56,6 @@ public class HostileBaseState : State
     }
 
     public override void ToDo() { }
-
-
 }
 #region EnemyBaseLegacy
 // lightTreshold = owner.LightThreshold;
@@ -61,4 +63,6 @@ public class HostileBaseState : State
 //// protected float lightAngle;
 // //private Quaternion spreadAngle;
 //private float dotProduct;
+    //protected enum Behaviors { STAGGER, KNOCKBACK }
+    //[SerializeField] protected Behaviors controlBehaviors = Behaviors.STAGGER;
 #endregion

@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/BoomerDeath")]
+[CreateAssetMenu(menuName = "Hostile/Boomer/BoomerDeath")]
 public class BoomerDeath : DeathBase
 {
     [SerializeField] private float scaleFactor = 1.00001f;

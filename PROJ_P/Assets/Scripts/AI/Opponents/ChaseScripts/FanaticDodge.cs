@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/FanaticDodge")]
+/// <summary>
+/// This class handles the dodge behavior unique to the fanatic enemy type.
+/// </summary>
+[CreateAssetMenu(menuName = "Hostile/Fanatic/FanaticDodge")]
 public class FanaticDodge : ChaseBase
 {
     private Vector3 direction;
@@ -81,6 +84,7 @@ public class FanaticDodge : ChaseBase
                 owner.ChangeState<FanaticKnockback>();
                 break;
             case 3:
+                owner.ChangeState<FanaticSuperKnockback>();
                 break;
             default:
                 break;
@@ -93,6 +97,9 @@ public class FanaticDodge : ChaseBase
         owner.ChangeState<FanaticChase>();
     }
 
+    /// <summary>
+    /// Makes sure the mesh watches the player when it leaves this state.
+    /// </summary>
     protected void ResetOrientation()
     {
         initialRotation = owner.agent.transform.rotation;

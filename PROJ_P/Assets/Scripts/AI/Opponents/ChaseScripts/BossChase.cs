@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/BossChase")]
+[CreateAssetMenu(menuName = "Hostile/Boss/BossChase")]
 public class BossChase : ChaseBase
 {
     [SerializeField] private float resistance;
@@ -43,15 +43,6 @@ public class BossChase : ChaseBase
 
         //Stagger(magnitude);
         
-    }
-
-    protected override void OperateHesitation()
-    {
-        base.OperateHesitation();
-        if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
-        {
-            owner.ChangeState<FanaticHesitate>();
-        }
     }
 
     protected override void Chase()
@@ -96,4 +87,13 @@ public class BossChase : ChaseBase
 //chaseEvent.audioSpeaker = audioSpeaker;
 
 //EventSystem.Current.FireEvent(chaseEvent);
+
+    //protected override void OperateHesitation()
+    //{
+    //    base.OperateHesitation();
+    //    if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
+    //    {
+    //        owner.ChangeState<FanaticHesitate>();
+    //    }
+    //}
 #endregion

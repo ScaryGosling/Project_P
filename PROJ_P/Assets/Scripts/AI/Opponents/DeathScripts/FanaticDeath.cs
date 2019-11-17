@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/FanaticDeath")]
+[CreateAssetMenu(menuName = "Hostile/Fanatic/FanaticDeath")]
 public class FanaticDeath : DeathBase
 {
     public override void EnterState()

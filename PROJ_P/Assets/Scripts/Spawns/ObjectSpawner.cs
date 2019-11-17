@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+/// <summary>
+/// This script takes care of object spawning around the map. This includes everything from potions to quest items. 
+/// </summary>
 [RequireComponent(typeof(GenericTimer))]
 public class ObjectSpawner : MonoBehaviour
 {
@@ -11,13 +14,18 @@ public class ObjectSpawner : MonoBehaviour
     LinkedList<GameObject> listOfObjects = new LinkedList<GameObject>();
     public GameObject[] locations { get; private set; }
 
-    private GameObject objectToSpawn;
+    private GameObject genericObject;
     [SerializeField] private GameObject[] objectTypes;
     private ObjectToSpawn item = ObjectToSpawn.ManaPotion;
     public bool hasAbsolutePosition { get; set; } = false;
     private int amount = 2;
     private Vector3 position;
 
+    /// <summary>
+    /// Creates said amount of items, then positions them around the world. 
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <param name="item"></param>
     public void PopulateList(int amount, ObjectToSpawn item)
     {
         this.amount = amount;
@@ -32,15 +40,15 @@ public class ObjectSpawner : MonoBehaviour
                 foreach (GameObject location in locations)
                 {
                     position = location.transform.position;
-                    if (objectToSpawn != null && position != null && listOfObjects.Count < amount)
-                        listOfObjects.AddFirst(Instantiate(objectToSpawn, position, Quaternion.identity));
+                    if (genericObject != null && position != null && listOfObjects.Count < amount)
+                        listOfObjects.AddFirst(Instantiate(genericObject, position, Quaternion.identity));
                 }
             }
         }
         else
         {
             position = locations[0].gameObject.transform.position;
-            Instantiate(objectToSpawn, position, Quaternion.identity);
+            Instantiate(genericObject, position, Quaternion.identity);
         }
     }
 
@@ -55,19 +63,22 @@ public class ObjectSpawner : MonoBehaviour
         switch (item)
         {
             case ObjectToSpawn.ManaPotion:
-                objectToSpawn = objectTypes[0];
+                genericObject = objectTypes[0];
                 break;
             case ObjectToSpawn.HealthPotion:
-                objectToSpawn = objectTypes[1];
+                genericObject = objectTypes[1];
                 break;
             case ObjectToSpawn.Reward:
-                objectToSpawn = objectTypes[2];
+                genericObject = objectTypes[2];
                 break;
             default:
                 break;
         }
     }
 
+    /// <summary>
+    /// Removes all items when they are no longer needed. 
+    /// </summary>
     public void TerminateSpawner()
     {
         foreach (GameObject i in listOfObjects)

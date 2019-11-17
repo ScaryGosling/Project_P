@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/BoomerKnockback")]
+/// <summary>
+/// Currently does nothing.
+/// </summary>
+[CreateAssetMenu(menuName = "Hostile/Boomer/BoomerKnockback")]
 public class BoomerKnockback : CCBase
 {
     private Vector3 direction;
@@ -24,8 +27,7 @@ public class BoomerKnockback : CCBase
     public override void ToDo()
     {
         base.ToDo();
-        if (owner.target != null && owner.agent.enabled)
-            Dodge();
+
     }
 
     protected override void Die()
@@ -41,26 +43,9 @@ public class BoomerKnockback : CCBase
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-        //Stagger(magnitude);
+
     }
 
-    protected void Dodge()
-    {
-        if (owner.agent.enabled)
-            owner.agent.ResetPath();
-
-
-        owner.transform.GetChild(2).transform.LookAt(Player.instance.gameObject.transform.position);
-
-        movement = direction * speed * Time.deltaTime;
-        owner.agent.Move(movement);
-
-        if (knockBackTimer == null)
-        {
-            knockBackTimer = new GameObject("Knockback Timer");
-            knockBackTimer.AddComponent<Timer>().RunCountDown(knockBackMagnitude, EndKnockBack, Timer.TimerType.DELAY);
-        }
-    }
 
     protected void EndKnockBack()
     {

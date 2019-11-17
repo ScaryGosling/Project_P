@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/RusherStagger")]
+[CreateAssetMenu(menuName = "Hostile/Rusher/RusherStagger")]
 public class RusherStagger : CCBase
 {
     private Vector3 direction;

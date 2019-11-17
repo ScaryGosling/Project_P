@@ -6,7 +6,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-
+/// <summary>
+/// This currently does nothing.
+/// </summary>
 [RequireComponent(typeof(CapsuleCollider))]
 public class AttackStructureBase : ChaseBase
 {
@@ -14,15 +16,12 @@ public class AttackStructureBase : ChaseBase
     public override void EnterState()
     {
         base.EnterState();
-        Mathf.Clamp(hesitationChance, 0, 1);
-       
     }
 
 
     public override void ToDo()
     {
         base.ToDo();
-        OperateHesitation();
     }
 
     protected override void Chase()

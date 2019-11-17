@@ -6,14 +6,14 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-
+/// <summary>
+/// States that inherit from this class shares some "death" behavior. They are no longer possible actors in the game world and can not be interacted with.
+/// </summary>
 [RequireComponent(typeof(CapsuleCollider))]
 public class DeathBase : HostileBaseState
 {
-    // Attributes
     [SerializeField] protected float corpseTimer = 2f;
 
-    // Methods
     public override void EnterState()
     {
         base.EnterState();
@@ -28,11 +28,11 @@ public class DeathBase : HostileBaseState
         DeathAnimation();
     }
 
+    /// <summary>
+    /// Disables the collider etc.
+    /// </summary>
     protected void DisableUnit()
     {
-        //owner.gameObject.transform.position = new Vector3(owner.gameObject.transform.position.x,
-        //    owner.gameObject.transform.position.y - owner.capsuleCollider.radius / 2, owner.transform.position.z);
-
         owner.rigidbody.isKinematic = true;
 
         if (owner.agent.enabled)

@@ -6,7 +6,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-
+/// <summary>
+/// Currently does nothing.
+/// </summary>
 [RequireComponent(typeof(CapsuleCollider))]
 public class HesitationBase : AliveBase
 {

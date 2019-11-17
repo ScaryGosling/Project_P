@@ -6,27 +6,27 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-
+/// <summary>
+/// States that inherit from this class can not attack player. They also share some form of crowd control behavior. 
+/// </summary>
 [RequireComponent(typeof(CapsuleCollider))]
 public class CCBase : AliveBase
 {
-
     public override void EnterState()
     {
         base.EnterState();
-        Debug.Log("CC activated");
     }
-
-
 
     public override void ToDo()
     {
         base.ToDo();
-   
     }
     
     protected override void CheckForDamage() { }
 
+    /// <summary>
+    /// Decides which type of CC should be used in given situation.
+    /// </summary>
     protected virtual void ApplyCC() { }
     }
 #region EnemyBaseLegacy

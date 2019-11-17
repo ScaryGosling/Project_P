@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/BoomerChase")]
+[CreateAssetMenu(menuName = "Hostile/Boomer/BoomerChase")]
 public class BoomerChase : ChaseBase
 {
     public override void EnterState()
@@ -36,20 +36,20 @@ public class BoomerChase : ChaseBase
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-        //Stagger(magnitude);
     }
 
-    protected override void OperateHesitation()
-    {
-        base.OperateHesitation();
-        if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
-        {
-            owner.ChangeState<FanaticHesitate>();
-        }
-    }
 }
 
 #region ChaseLegacy
+        //Stagger(magnitude);
+    //protected override void OperateHesitation()
+    //{
+    //    base.OperateHesitation();
+    //    if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
+    //    {
+    //        owner.ChangeState<FanaticHesitate>();
+    //    }
+    //}
 // lightAngle = lightField.spotAngle;
 //ChaseEvent chaseEvent = new ChaseEvent();
 //chaseEvent.gameObject = owner.gameObject;

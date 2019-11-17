@@ -10,6 +10,7 @@ using UnityEngine.UI;
 /// </summary>
 public class Dialogue : MonoBehaviour
 {
+    [SerializeField] float timePerQuestion = 10f;
     public enum DialogueType { EXPOSITION, TUTORIAL, QUEST }
     private DialogueType type = DialogueType.QUEST;
     public DialogueType DialogueProp { get { return type; } set { type = value; } }
@@ -23,17 +24,9 @@ public class Dialogue : MonoBehaviour
     public int IndexProp { get; set; }
     private Timer timerScript;
     string[] testMessages = { "HI", "BYE", "YOU STILL HERE?", "OK BOOMER" };
-    //[SerializeField] private DialogueData data;
-
-
 
 
     private float lifeTime = 0;
-    [SerializeField] float timePerQuestion = 10f;
-
-
-
-
     private Image[] images;
     private string[] messages;
     private AudioClip[] voiceLines;
@@ -50,13 +43,11 @@ public class Dialogue : MonoBehaviour
     {
         if (Input.GetKeyDown(player.GetKeybindSet().GetBind(KeyFeature.DIALOGUE)) && dialogueActive)
             Next();
-
-        if (Input.GetKeyDown(KeyCode.P))
-            DeveloperKey();
-
-
     }
 
+    /// <summary>
+    /// Updates dialogue UI based on current dialogue index.
+    /// </summary>
     private void TickUI()
     {
         dialogueField = messages[n];
@@ -64,6 +55,10 @@ public class Dialogue : MonoBehaviour
         DisableWithDelay();
     }
 
+    /// <summary>
+    /// Begins the dialogue by taking a dialogue-struct argument. 
+    /// </summary>
+    /// <param name="dialogue"></param>
     public void InitializeTextProtocol(DialogueData dialogue)
     {
         if (dialogue.messages != null)
@@ -81,7 +76,9 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Moves the dialogue index forward. 
+    /// </summary>
     public void Next()
     {
         if (n < messages.Length - 1)
@@ -95,6 +92,9 @@ public class Dialogue : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Makes sure dialogue doesn't stay on the screen forever if player forgets to remove it.
+    /// </summary>
     private void DisableWithDelay()
     {
         time = lifeTime;
@@ -105,6 +105,9 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Resets index, textfield and updates UI.
+    /// </summary>
     private void ResetDialogue()
     {
         n = 0;
@@ -113,19 +116,30 @@ public class Dialogue : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Removes dialogue form the screen.
+    /// </summary>
     private void TerminateDialogue()
     {
         ResetDialogue();
         gameObject.SetActive(false);
     }
 
-    private void DeveloperKey()
-    {
-        DialogueData textSystem = new DialogueData();
-        textSystem.messages = testMessages;
-        InitializeTextProtocol(new DialogueData());
-    }
 
+}
+
+/// <summary>
+/// This struct takes all relevant data for dialogue sequences.
+/// </summary>
+[System.Serializable]
+public struct DialogueData
+{
+    public Image[] imges;
+    public AudioClip[] voiceLines;
+    public AudioClip music;
+    [TextArea] public string[] messages;
+    public string characterName;
+    public string textPrompt;
 }
 
 #region dialogueLegacy
@@ -138,15 +152,10 @@ public class Dialogue : MonoBehaviour
 //    messages = expositionMessages[IndexProp].messages;
 //else
 //    messages = tutorialSnippets[IndexProp].messages;
-
+    //private void DeveloperKey()
+    //{
+    //    DialogueData textSystem = new DialogueData();
+    //    textSystem.messages = testMessages;
+    //    InitializeTextProtocol(new DialogueData());
+    //}
 #endregion
-[System.Serializable]
-public struct DialogueData
-{
-    public Image[] imges;
-    public AudioClip[] voiceLines;
-    public AudioClip music;
-    [TextArea] public string[] messages;
-    public string characterName;
-    public string textPrompt;
-}

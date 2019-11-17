@@ -4,18 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/BossDeath")]
+[CreateAssetMenu(menuName = "Hostile/Boss/BossDeath")]
 public class BossDeath : DeathBase
 {
     public override void EnterState()
     {
         base.EnterState();
-                animator.SetTrigger("Death");
+        animator.SetTrigger("Death");
     }
 
     public override void ToDo()
     {
-            base.ToDo();
+        base.ToDo();
     }
 
 

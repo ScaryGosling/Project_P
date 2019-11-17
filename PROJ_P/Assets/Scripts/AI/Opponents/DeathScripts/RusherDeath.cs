@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/RusherDeath")]
+[CreateAssetMenu(menuName = "Hostile/Rusher/RusherDeath")]
 public class RusherDeath : DeathBase
 {
     public override void EnterState()

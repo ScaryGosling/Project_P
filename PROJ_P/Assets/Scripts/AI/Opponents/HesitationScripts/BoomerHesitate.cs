@@ -5,7 +5,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/BoomerHesitate")]
+/// <summary>
+/// Currently does nothing.
+/// </summary>
+[CreateAssetMenu(menuName = "Hostile/Boomer/BoomerHesitate")]
 public class BoomerHesitate : HesitationBase
 {
     public override void EnterState()

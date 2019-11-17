@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/FanaticChase")]
+[CreateAssetMenu(menuName = "Hostile/Fanatic/FanaticChase")]
 public class FanaticChase : ChaseBase
 {
     private float dodgeResult;
@@ -93,17 +93,17 @@ public class FanaticChase : ChaseBase
 
 
 
-    protected override void OperateHesitation()
-    {
-        base.OperateHesitation();
-        if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
-        {
-            owner.ChangeState<FanaticHesitate>();
-        }
-    }
 }
 
 #region ChaseLegacy
+    //protected override void OperateHesitation()
+    //{
+    //    base.OperateHesitation();
+    //    if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
+    //    {
+    //        owner.ChangeState<FanaticHesitate>();
+    //    }
+    //}
 // lightAngle = lightField.spotAngle;
 //ChaseEvent chaseEvent = new ChaseEvent();
 //chaseEvent.gameObject = owner.gameObject;

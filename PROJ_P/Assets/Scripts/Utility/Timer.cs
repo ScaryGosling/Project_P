@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Author: Alexander Castman
+//Secondary author: Emil Dahl
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,6 +42,9 @@ public class Timer : MonoBehaviour
         InitialTime = Countdown;
     }
 
+    /// <summary>
+    /// Runs method for entered duration.
+    /// </summary>
     public void ExecuteWhile()
     {
         if (Countdown > 0)
