@@ -41,7 +41,7 @@ public class BossChase : ChaseBase
         owner.Health -= damage * resistance;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
-        Stagger(magnitude);
+        //Stagger(magnitude);
         
     }
 
@@ -85,7 +85,7 @@ public class BossChase : ChaseBase
         }
     }
 
-    protected override void Stagger(float magnitude){}
+    //protected override void Stagger(float magnitude){}
 }
 
 #region ChaseLegacy

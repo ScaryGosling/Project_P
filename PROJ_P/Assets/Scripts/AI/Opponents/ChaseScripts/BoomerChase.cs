@@ -36,7 +36,7 @@ public class BoomerChase : ChaseBase
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-        Stagger(magnitude);
+        //Stagger(magnitude);
     }
 
     protected override void OperateHesitation()

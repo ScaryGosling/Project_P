@@ -34,7 +34,7 @@ public class RusherHesitate : HesitationBase
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
-            Stagger(magnitude);
+            //Stagger(magnitude);
         
     }
 

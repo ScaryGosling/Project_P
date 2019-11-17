@@ -35,8 +35,8 @@ public class BoomerHesitate : HesitationBase
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
-        if(owner.target.GetComponent<Player>().playerClass == PlayerClass.WARRIOR)
-            Stagger(magnitude);
+        //if(owner.target.GetComponent<Player>().playerClass == PlayerClass.WARRIOR)
+        //    Stagger(magnitude);
 
     }
 

@@ -33,7 +33,7 @@ public class FanaticHesitate : HesitationBase
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-        Stagger(magnitude);
+        //Stagger(magnitude);
 
     }
     protected override void Stop()

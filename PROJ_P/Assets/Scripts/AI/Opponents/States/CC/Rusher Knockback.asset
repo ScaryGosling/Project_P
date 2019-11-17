@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a1b0a6cc807d443bb77ec6e635f8ac, type: 3}
+  m_Name: Rusher Knockback
+  m_EditorClassIdentifier: 
+  controlBehaviors: 0
+  material: {fileID: 0}
+  moveSpeed: 0
+  scale: {x: 1, y: 1, z: 1}
+  staggerCD: 0.5
+  bloodParticle: {fileID: 1482536979965753301, guid: b1100bf3ebcf8614bbd67c23699e7d77,
+    type: 3}
+  staggerDuration: 1
+  force: 4
+  BaseKnockBackDuration: 2
+  speed: 4
+  knockBackMagnitude: 0.5

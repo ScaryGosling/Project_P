@@ -10,7 +10,7 @@ public class FanaticChase : ChaseBase
 {
     private float dodgeResult;
     [SerializeField] private float dodgeAwarenessDistance = 10f;
-    private const float dodgeChance = 0.005f;
+    private const float dodgeChance = 0.001f;
     public override void EnterState()
     {
         base.EnterState();
@@ -48,9 +48,29 @@ public class FanaticChase : ChaseBase
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
-        Stagger(magnitude);
+        Debug.Log(magnitude);
+        SetCrowdControl(magnitude);
 
     }
+
+    protected override void SetCrowdControl(float magnitude)
+    {
+        switch (weight.Compare(magnitude))
+        {
+            case 1:
+                owner.ChangeState<FanaticStagger>();
+                break;
+            case 2:
+                owner.ChangeState<FanaticKnockback>();
+                break;
+            case 3:
+                owner.ChangeState<FanaticSuperKnockback>();
+                break;
+            default:
+                break;
+        }
+    }
+
 
     protected override void CheckForDamage()
     {
@@ -71,7 +91,7 @@ public class FanaticChase : ChaseBase
         }
     }
 
-  
+
 
     protected override void OperateHesitation()
     {

@@ -15,7 +15,10 @@ public class AliveBase : HostileBaseState
     [SerializeField] protected float BaseKnockBackDuration = 2f;
     private float knockStartValue;
     float weightDiff;
+  
+
     protected GameObject otherTimer;
+
     public override void EnterState()
     {
         base.EnterState();
@@ -109,21 +112,21 @@ public class AliveBase : HostileBaseState
 
     }
 
-    protected virtual void Stagger(float magnitude)
-    {
-        otherTimer = new GameObject();
+    //protected virtual void Stagger(float magnitude)
+    //{
+    //    otherTimer = new GameObject();
 
-        if (magnitude <= owner.GetWeight && magnitude != 0)
-        {
-            otherTimer.AddComponent<Timer>().RunCountDown(staggerDuration, StandStill, Timer.TimerType.WHILE);
-        }
-        else
-        {
-            ManageKnockBack(magnitude);
-            otherTimer.AddComponent<Timer>().RunCountDown(BaseKnockBackDuration, ForceBack, Timer.TimerType.WHILE);
-        }
+    //    if (magnitude <= owner.GetWeight && magnitude != 0)
+    //    {
+    //        otherTimer.AddComponent<Timer>().RunCountDown(staggerDuration, StandStill, Timer.TimerType.WHILE);
+    //    }
+    //    else
+    //    {
+    //        ManageKnockBack(magnitude);
+    //        otherTimer.AddComponent<Timer>().RunCountDown(BaseKnockBackDuration, ForceBack, Timer.TimerType.WHILE);
+    //    }
 
-    }
+    //}
 
     protected void ManageKnockBack(float magnitude)
     {
@@ -172,6 +175,7 @@ public class AliveBase : HostileBaseState
         if (owner.target.CompareTag("Player"))
             owner.target.GetComponent<Player>().GoldProp += owner.GetGold;
     }
+    protected virtual void SetCrowdControl(float magnitude) { }
 
     private void StandStill()
     {

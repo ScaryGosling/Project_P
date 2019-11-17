@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1998819497222693183}
   - component: {fileID: 4177991118388570210}
   - component: {fileID: -8397444411171947832}
+  - component: {fileID: 1311008190945662165}
   m_Layer: 0
   m_Name: SpeedyFoe
   m_TagString: Enemy
@@ -37,7 +38,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2161199851372935572}
-  - {fileID: 997030502152529857}
+  - {fileID: 819903640880233585}
   - {fileID: 6635903433707999027}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -139,6 +140,9 @@ MonoBehaviour:
   states:
   - {fileID: 11400000, guid: e32eb700693276e468225d48dfdcb267, type: 2}
   - {fileID: 11400000, guid: 137fdb17d239df94d80a6c903e3059e8, type: 2}
+  - {fileID: 11400000, guid: 37afb4ac3845daf468f843d9aef82e1c, type: 2}
+  - {fileID: 11400000, guid: 0c0a0e2bb8fc5804ab0ef762a7f7f7b3, type: 2}
+  - {fileID: 11400000, guid: 44ef6e6d009682842a5e0bf08b31093d, type: 2}
   currentState: {fileID: 0}
   renderer: {fileID: 0}
   agent: {fileID: 0}
@@ -155,7 +159,7 @@ MonoBehaviour:
   takeDamageClip: {fileID: 8300000, guid: 139470045c673af43b7a95595affdac0, type: 3}
   deathClip: {fileID: 8300000, guid: 66da05baf93d6f143ae98d0a6a1046eb, type: 3}
   attackSound: {fileID: 8300000, guid: 140035b9781eb03458fcc58d71c97c18, type: 3}
-  baseHeath: 3
+  baseHeath: 2
   baseAttack: 3
   attackSpeed: 1
   goldPerHit: 2
@@ -382,6 +386,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1311008190945662165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2161199849938165175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae13e56292fa3344a665a367cfc3315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 50
+  impactLevel1: 5
+  impactLevel2: 10
+  impactLevel3: 15
 --- !u!1 &2161199850153972063
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05a8b0d3bb2bb643a81a8c15ecca80f, type: 3}
---- !u!224 &997030502152529857 stripped
+--- !u!224 &819903640880233585 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
     type: 3}

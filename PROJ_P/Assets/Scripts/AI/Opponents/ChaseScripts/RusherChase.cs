@@ -36,7 +36,7 @@ public class RusherChase : ChaseBase
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
-        Stagger(magnitude);
+        SetCrowdControl(magnitude);
 
     }
 
@@ -46,6 +46,24 @@ public class RusherChase : ChaseBase
         if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
         {
             owner.ChangeState<FanaticHesitate>();
+        }
+    }
+
+    protected override void SetCrowdControl(float magnitude)
+    {
+        switch (weight.Compare(magnitude))
+        {
+            case 1:
+                owner.ChangeState<RusherStagger>();
+                break;
+            case 2:
+                owner.ChangeState<RusherKnockback>();
+                break;
+            case 3:
+                owner.ChangeState<RusherSuperKnockback>();
+                break;
+            default:
+                break;
         }
     }
 

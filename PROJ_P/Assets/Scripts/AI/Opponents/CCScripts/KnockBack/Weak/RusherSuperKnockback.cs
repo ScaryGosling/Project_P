@@ -3,34 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/FanaticDodge")]
-public class FanaticDodge : ChaseBase
+[CreateAssetMenu(menuName = "Enemy/RusherSuperKnockback")]
+public class RusherSuperKnockback : CCBase
 {
     private Vector3 direction;
     private Vector3 movement;
     private Quaternion initialRotation;
-    [SerializeField] private float dodgeSpeed = 8f;
-    [SerializeField] private float dodgeMagnitude = 0.3f;
-    private float diceResult;
-    GameObject dodgeTimer;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float knockBackMagnitude = 2.5f;
+
+    GameObject knockBackTimer;
 
     public override void EnterState()
     {
         base.EnterState();
 
-        diceResult = Random.Range(0f, 1f);
-
-        if (diceResult <= 0.5)
-            direction = owner.agent.transform.right;
-        else
-            direction = owner.agent.transform.right * -1;
+        direction = owner.agent.transform.forward * -1;
     }
 
     public override void ToDo()
     {
         base.ToDo();
         if (owner.target != null && owner.agent.enabled)
-            Dodge();
+            ApplyCC();
     }
 
     protected override void Die()
@@ -46,48 +41,26 @@ public class FanaticDodge : ChaseBase
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-
-        SetCrowdControl(magnitude);
     }
 
-    protected void Dodge()
+    protected override void ApplyCC()
     {
         if (owner.agent.enabled)
             owner.agent.ResetPath();
 
         owner.transform.GetChild(2).transform.LookAt(Player.instance.gameObject.transform.position);
 
-        if (!owner.agent.isPathStale)
-        {
-            movement = direction * dodgeSpeed * Time.deltaTime;
-            owner.agent.Move(movement);
+        movement = direction * speed * Time.deltaTime;
+        owner.agent.Move(movement);
 
-        }
-        if (dodgeTimer == null)
+        if (knockBackTimer == null)
         {
-            dodgeTimer = new GameObject("Dodge Timer");
-            dodgeTimer.AddComponent<Timer>().RunCountDown(dodgeMagnitude, EndDodge, Timer.TimerType.DELAY);
+            knockBackTimer = new GameObject("Knockback Timer");
+            knockBackTimer.AddComponent<Timer>().RunCountDown(knockBackMagnitude, EndKnockBack, Timer.TimerType.DELAY);
         }
     }
 
-    protected override void SetCrowdControl(float magnitude)
-    {
-        switch (weight.Compare(magnitude))
-        {
-            case 1:
-                owner.ChangeState<FanaticStagger>();
-                break;
-            case 2:
-                owner.ChangeState<FanaticKnockback>();
-                break;
-            case 3:
-                break;
-            default:
-                break;
-        }
-    }
-
-    protected void EndDodge()
+    protected void EndKnockBack()
     {
         ResetOrientation();
         owner.ChangeState<FanaticChase>();

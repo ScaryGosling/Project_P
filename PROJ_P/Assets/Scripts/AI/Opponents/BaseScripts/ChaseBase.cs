@@ -14,13 +14,13 @@ public class ChaseBase : AliveBase
     [SerializeField] protected float hesitationDistance;
     [SerializeField] protected float playerStoppingDistance = 1.5f;
     [SerializeField] protected float buildingStoppingDistance = 2.8f;
+    protected Weight weight;
     public override void EnterState()
     {
         base.EnterState();
         Mathf.Clamp(hesitationChance, 0, 1);
+        weight = owner.GetComponent<Weight>();
     }
-
-
 
     public override void ToDo()
     {
@@ -43,13 +43,15 @@ public class ChaseBase : AliveBase
 
         distanceToTarget = Vector3.Distance(owner.transform.position, owner.target.transform.position);
         owner.agent.SetDestination(owner.target.transform.position);
-        if(owner.target.transform.parent != null)
-        owner.transform.LookAt(owner.target.transform.parent.transform.position + new Vector3(0, owner.capsuleCollider.radius, 0));
+        if (owner.target.transform.parent != null)
+            owner.transform.LookAt(owner.target.transform.parent.transform.position + new Vector3(0, owner.capsuleCollider.radius, 0));
         else
             owner.transform.LookAt(owner.target.transform.position + new Vector3(0, owner.capsuleCollider.radius, 0));
     }
 
     protected virtual void OperateHesitation() { }
+
+  
 
     protected bool DiceRoll()
     {
