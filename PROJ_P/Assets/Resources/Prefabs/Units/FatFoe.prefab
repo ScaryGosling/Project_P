@@ -142,6 +142,7 @@ MonoBehaviour:
   states:
   - {fileID: 11400000, guid: e9deaa1ed8a12dd49b13e6a7bda6fc2e, type: 2}
   - {fileID: 11400000, guid: faa790db5feaddd44b4e89a67f2c3dbd, type: 2}
+  - {fileID: 11400000, guid: 73047b8731e53634d80421df0ef3a15c, type: 2}
   currentState: {fileID: 0}
   renderer: {fileID: 0}
   agent: {fileID: 0}
@@ -657,16 +658,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: f59df15340dfc6b4ea1f7f92207eebc2,
-        type: 3}
-      propertyPath: m_Name
-      value: Fat UwU Run
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: f59df15340dfc6b4ea1f7f92207eebc2,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 9d06b0cef54d0be4fb7084d30f1a57d1, type: 2}
     - target: {fileID: -4216859302048453862, guid: f59df15340dfc6b4ea1f7f92207eebc2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -736,6 +727,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 3.48
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: f59df15340dfc6b4ea1f7f92207eebc2,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9d06b0cef54d0be4fb7084d30f1a57d1, type: 2}
+    - target: {fileID: -927199367670048503, guid: f59df15340dfc6b4ea1f7f92207eebc2,
+        type: 3}
+      propertyPath: m_Name
+      value: Fat UwU Run
       objectReference: {fileID: 0}
     - target: {fileID: -1495711078873449619, guid: f59df15340dfc6b4ea1f7f92207eebc2,
         type: 3}

@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[CreateAssetMenu(menuName = "Hostile/Boomer/BoomerChase")]
+[CreateAssetMenu(menuName = "Hostile/Boomer/JumpImpact")]
 public class JumpImpact : AbilityBase
 {
     private GameObject jumpTimer, graphicalPrefab;
     private float jumpWindupTime = 3f;
     private float jumpSpeed = 5f, jumpHeight = 4f;
-    private Vector3 playerPositionalDelay;
+    private Transform playerPositionalDelay;
     private Vector3 direction;
     private Vector3 movement;
 
@@ -21,13 +21,14 @@ public class JumpImpact : AbilityBase
         base.EnterState();
         owner.agent.ResetPath();
         //Try changing to stopped
-        owner.agent.enabled = false;
 
-        Instantiate(graphicalPrefab, playerPositionalDelay, Quaternion.identity);
+        //Instantiate(graphicalPrefab, playerPositionalDelay, Quaternion.identity);
         //Don't forget to check so target is player 
-        playerPositionalDelay = owner.target.transform.position;
+        playerPositionalDelay = owner.target.transform;
         //Likely to land too far above the ground // This is wrong, says unit should jump from above where it is currently standing
-        direction = ((new Vector3(owner.transform.position.x, jumpHeight, owner.transform.position.z)) - owner.target.transform.position);
+        direction = playerPositionalDelay.forward * -1;
+
+        Debug.Log("Jumping");
     }
 
     public override void ToDo()
@@ -59,18 +60,19 @@ public class JumpImpact : AbilityBase
 
     private void Jump()
     {
-        movement = direction * jumpSpeed;
-        //owner.transform.position = movement * Time.deltaTime;
-        Vector3.Lerp(owner.transform.position, playerPositionalDelay, 2f);
+        owner.agent.transform.LookAt(playerPositionalDelay.position);
 
-        if (Vector3.Distance(owner.transform.position, playerPositionalDelay) <= 3f)
+        movement = direction * jumpSpeed * Time.deltaTime;
+        //owner.transform.position = movement * Time.deltaTime;
+        owner.agent.Move(movement);
+
+        if (Vector3.Distance(owner.transform.position, playerPositionalDelay.position) <= 3f)
             owner.ChangeState<BoomerChase>();
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        owner.agent.enabled = true;
     }
 
     IEnumerator windUp()

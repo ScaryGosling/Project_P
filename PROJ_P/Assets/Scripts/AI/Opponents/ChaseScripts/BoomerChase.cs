@@ -20,6 +20,7 @@ public class BoomerChase : ChaseBase
         {
             Chase();
             CheckForDamage();
+            JumpDistance();
         }
     }
 
@@ -36,6 +37,12 @@ public class BoomerChase : ChaseBase
         float oldHealth = owner.Health;
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
+    }
+
+    private void JumpDistance()
+    {
+        if(Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) > 10 && Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) < 20)
+            owner.ChangeState<JumpImpact>();
     }
 
 }
