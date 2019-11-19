@@ -17,7 +17,7 @@ public class MeleeHack : PlayerAttack
     [SerializeField] [Range(0, 1)] [Tooltip ("Percentage of damage to be applied when durability is 0")] 
     private float zeroDurabilityDamagePercentage = 0.2f;
     private Image durabilityImage;
-
+    private Collider swordCollider;
 
     public override void OnEnable()
     {
@@ -64,6 +64,7 @@ public class MeleeHack : PlayerAttack
         player = Player.instance;
         sword = player.weapon.GetComponent<Sword>();
         sword.CacheComponents(damage, magnitude, this);
+        swordCollider = sword.GetComponent<Collider>();
     }
     public void DecreaseDurability()
     {
@@ -79,7 +80,8 @@ public class MeleeHack : PlayerAttack
     }
     public void ResetSword()
     {
-        sword.GetComponent<Collider>().enabled = false; 
+        swordCollider.enabled = false;
+        sword.ResetDrained();
     }
 
     public void SetDurabilityTextObject(Text text)

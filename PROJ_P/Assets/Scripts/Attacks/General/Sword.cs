@@ -15,9 +15,9 @@ public class Sword : MonoBehaviour
     [SerializeField] private float comboTime;
     private Action methodToRun;
     private IEnumerator coroutineToRun;
-
     private int combo = -1;
     private Coroutine comboCoroutine;
+    private bool resourceDrained;
 
     public void CacheComponents(float damage,float magnitude, PlayerAttack hack, Action methodToRun = null, IEnumerator coroutineToRun = null)
     {
@@ -31,7 +31,10 @@ public class Sword : MonoBehaviour
             source.clip = impactSound;
     }
 
-
+    public void ResetDrained()
+    {
+        resourceDrained = false;
+    }
     public IEnumerator Combo()
     {
         combo++;
@@ -40,12 +43,15 @@ public class Sword : MonoBehaviour
         yield return new WaitForSeconds(comboTime);
         combo = -1;
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Enemy")
         {
+            if (!resourceDrained)
+            {
             Player.instance.Resource.DrainResource(hack);
+                resourceDrained = true;
+            }
             State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
             if (state)
             {
