@@ -155,7 +155,7 @@ MonoBehaviour:
   takeDamageClip: {fileID: 8300000, guid: 139470045c673af43b7a95595affdac0, type: 3}
   deathClip: {fileID: 8300000, guid: 66da05baf93d6f143ae98d0a6a1046eb, type: 3}
   attackSound: {fileID: 8300000, guid: 72f1f1c7310b04546a52047f8337640a, type: 3}
-  baseHeath: 50
+  baseHeath: 60
   baseAttack: 10
   attackSpeed: 0.5
   goldPerHit: 1
