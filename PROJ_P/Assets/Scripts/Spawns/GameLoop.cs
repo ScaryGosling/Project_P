@@ -58,7 +58,7 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private int goldPerKill = 10;
     [SerializeField] private int goldPerWave = 100;
     [Tooltip("The higher the base the steeper the curve of the logarithm. This means that of the base is higher, the amount of money gained will decrease slower.")]
-    [SerializeField] [Range(1,10)] private int logBase = 10;
+    [SerializeField] [Range(2,10)] private int logBase = 10;
     [Header("Items")]
     [SerializeField] private int ItemAmount = 7;
     [SerializeField] private float chanceOfDrop = 0.4f;
