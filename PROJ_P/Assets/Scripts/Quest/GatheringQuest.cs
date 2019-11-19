@@ -57,6 +57,7 @@ public class GatheringQuest : Quest
     /// </summary>
     public override void EndQuest()
     {
+        base.EndQuest();
         if (objectSpawner)
         {
             base.EndQuest();

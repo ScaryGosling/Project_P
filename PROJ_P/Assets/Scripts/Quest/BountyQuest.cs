@@ -30,9 +30,7 @@ public class BountyQuest : Quest
     {
         if (bossStats != null && bossStats.Health <= 0)
         {
-            FireArrow(false, bossStats.gameObject);
-            bossStats = null;
-            QuestSucceeded();
+            EndQuest();
         }
     }
 
@@ -42,8 +40,16 @@ public class BountyQuest : Quest
         if (bossStats != null)
         {
             FireArrow(false, bossStats.gameObject);
-            QuestFailed();
-            DestroyBoss();
+            if (bossStats.Health <= 0)
+            {
+                bossStats = null;
+                QuestSucceeded();
+            }
+            else
+            {
+                QuestFailed();
+                DestroyBoss();
+            }
         }
     }
 

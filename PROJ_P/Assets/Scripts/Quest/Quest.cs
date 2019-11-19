@@ -30,13 +30,13 @@ public class Quest : MonoBehaviour
 
     protected virtual void QuestFailed()
     {
-        Prompt.instance.RunMessage("You failed", MessageType.WARNING);
+        Prompt.instance.RunMessage("You failed the quest", MessageType.WARNING);
     }
 
     public virtual void QuestSucceeded()
     {
         Player.instance.GoldProp += reward;
-        Prompt.instance.RunMessage("You succeeded", MessageType.BONUS);
+        Prompt.instance.RunMessage("You succeeded the quest", MessageType.BONUS);
     }
 
     public virtual void EndQuest()

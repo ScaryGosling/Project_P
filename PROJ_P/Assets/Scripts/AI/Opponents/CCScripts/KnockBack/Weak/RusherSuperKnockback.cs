@@ -31,7 +31,7 @@ public class RusherSuperKnockback : CCBase
     protected override void Die()
     {
         base.Die();
-        owner.ChangeState<FanaticDeath>();
+        owner.ChangeState<RusherDeath>();
     }
 
     public override void TakeDamage(float damage, float magnitude)
@@ -63,7 +63,7 @@ public class RusherSuperKnockback : CCBase
     protected void EndKnockBack()
     {
         ResetOrientation();
-        owner.ChangeState<FanaticChase>();
+        owner.ChangeState<RusherChase>();
     }
 
     protected void ResetOrientation()
