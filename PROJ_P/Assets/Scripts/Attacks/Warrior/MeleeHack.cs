@@ -84,5 +84,9 @@ public class MeleeHack : PlayerAttack
         durabilityText = text;
         durabilityText.text = ((int)(durability.Value * 100)).ToString();
     }
+    public float GetDurability()
+    {
+        return durability.Value * 100;
+    }
 
 }

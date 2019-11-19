@@ -129,6 +129,10 @@ public class Player : MonoBehaviour
         set
         {
             tempHP += value * activeStats.resistanceMultiplier;
+            if (tempHP > 100)
+            {
+                tempHP = 100;
+            }
             health.fillAmount = tempHP * 0.01f;
 
             if (health.fillAmount < colorTransitionPoint)
@@ -364,7 +368,7 @@ public class Player : MonoBehaviour
 
     private void UseHealthPotion()
     {
-        if (HealthPotions > 0)
+        if (tempHP != 100 && HealthPotions > 0)
         {
             if(healthParticles != null)
                 Instantiate(healthParticles, transform.position, Quaternion.identity, transform);
@@ -376,15 +380,18 @@ public class Player : MonoBehaviour
     {
         if (ResourcePotionsProp > 0)
         {
-            ResourcePotionsProp--;
-            if (playerClass == PlayerClass.WIZARD)
+
+            if (playerClass == PlayerClass.WIZARD && Resource.Value < 1)
             {
+                ResourcePotionsProp--;
                 Resource.IncreaseResource(healthPotionIncrease / 100);
             }
-            else
+            else if (playerClass == PlayerClass.WARRIOR && ((MeleeHack)activeAttacks.list[0]).GetDurability() < 100)
             {
+                ResourcePotionsProp--;
                 ((MeleeHack)activeAttacks.list[0]).IncreaseDurability(repairKitIncrease / 100.0f);
             }
+
         }
 
     }
@@ -494,8 +501,10 @@ public class Player : MonoBehaviour
         }
 
         if (attack == activeAttacks.list[0]) { holding = true; }
-            
 
+
+        
+        
         animator.SetTrigger("Melee");
         attack.OnEquip();
         attack.Execute();

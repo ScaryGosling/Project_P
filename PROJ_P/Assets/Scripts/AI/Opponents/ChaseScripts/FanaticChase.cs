@@ -48,7 +48,6 @@ public class FanaticChase : ChaseBase
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
 
-        Debug.Log(magnitude);
         SetCrowdControl(magnitude);
 
     }
