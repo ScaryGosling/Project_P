@@ -78,6 +78,10 @@ public class SceneHandler : MonoBehaviour
     {
         keybindSet.useBonus = !keybindSet.useBonus;
     }
+    public void ToggleAutoRefill()
+    {
+        keybindSet.useAutoRefill = !keybindSet.useAutoRefill;
+    }
     public void GoToScene(string scene)
     {
         StartCoroutine(DelaySceneChange(scene));

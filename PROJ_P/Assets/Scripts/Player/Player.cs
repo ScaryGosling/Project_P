@@ -52,6 +52,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Text resourcePotionsText;
     [SerializeField] [Range(0, 3)] private int resourcePotionsStart = 3;
     [SerializeField] private GameObject healthParticles;
+    [SerializeField] [Range(0, 100)] private int autoRefillHealthUnder = 30;
+    [SerializeField] [Range(0, 100)] private int autoRefillResourceUnder = 30;
 
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
@@ -346,9 +348,28 @@ public class Player : MonoBehaviour
 
         UseAbilityCheck();
 
+        UseAutoRefill();
 
     }
 
+    private void UseAutoRefill()
+    {
+        if (keybindSet.useAutoRefill)
+        {
+            if (HealthProp < autoRefillHealthUnder)
+            {
+                UseHealthPotion();
+            }
+            if (playerClass == PlayerClass.WARRIOR && ((MeleeHack)activeAttacks.list[0]).GetDurability() < autoRefillResourceUnder)
+            {
+                UseResourcePotion();
+            }
+            else if (playerClass == PlayerClass.WIZARD && Resource.Value * 100 < autoRefillResourceUnder)
+            {
+                UseResourcePotion();
+            }
+        }
+    }
 
     public void UseAbilityCheck()
     {

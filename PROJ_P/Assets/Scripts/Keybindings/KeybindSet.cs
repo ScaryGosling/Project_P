@@ -11,6 +11,7 @@ public class KeybindSet : ScriptableObject
     public bool useWarnings { get; set; }
     public bool useInfo { get; set; }
     public bool useBonus { get; set; }
+    public bool useAutoRefill { get; set; }
 
     public KeyCode GetBind(KeyFeature feature)
     {
