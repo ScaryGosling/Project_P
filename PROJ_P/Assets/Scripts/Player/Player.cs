@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private Image health;
     [SerializeField] private Image resourceImage;
+    [SerializeField] private Image durabilityImage;
     [SerializeField] private int gold;
     [SerializeField] private Transform spawnPoint;
     private AttackSet activeAttacks;
@@ -195,6 +196,7 @@ public class Player : MonoBehaviour
                 attackSet = attackSets.Get(PlayerClass.WIZARD);
                 PlayerCursor = mysticCursor;
                 weapon.SetActive(false);
+                durabilityImage.transform.parent.gameObject.SetActive(false);
                 break;
 
             case PlayerClass.WARRIOR:
@@ -272,6 +274,7 @@ public class Player : MonoBehaviour
         if (playerClass == PlayerClass.WARRIOR)
         {
             ((MeleeHack)activeAttacks.list[0]).SetDurabilityTextObject(durabilityTextObject);
+            ((MeleeHack)activeAttacks.list[0]).SetDurabilityImage(durabilityImage);
         }
         else
         {

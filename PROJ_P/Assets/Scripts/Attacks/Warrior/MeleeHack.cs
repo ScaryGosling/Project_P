@@ -16,6 +16,7 @@ public class MeleeHack : PlayerAttack
     [SerializeField] private Text durabilityText;
     [SerializeField] [Range(0, 1)] [Tooltip ("Percentage of damage to be applied when durability is 0")] 
     private float zeroDurabilityDamagePercentage = 0.2f;
+    private Image durabilityImage;
 
 
     public override void OnEnable()
@@ -67,12 +68,14 @@ public class MeleeHack : PlayerAttack
     public void DecreaseDurability()
     {
         durability.DrainResourceRounded(durabilityDecrease);
-        durabilityText.text = ((durability.Value * 100)).ToString();
+        durabilityText.text = ((durability.Value * 100)) + "/100";
+        durabilityImage.fillAmount = durability.Value;
     }
     public void IncreaseDurability(float increase)
     {
         durability.IncreaseResource(increase);
-        durabilityText.text = ((int)(durability.Value * 100)).ToString();
+        durabilityText.text = ((int)(durability.Value * 100)) + "/100";
+        durabilityImage.fillAmount = durability.Value;
     }
     public void ResetSword()
     {
@@ -82,7 +85,12 @@ public class MeleeHack : PlayerAttack
     public void SetDurabilityTextObject(Text text)
     {
         durabilityText = text;
-        durabilityText.text = ((int)(durability.Value * 100)).ToString();
+        durabilityText.text = ((int)(durability.Value * 100)) + "/100";
+    }
+
+    public void SetDurabilityImage(Image image)
+    {
+        durabilityImage = image;
     }
     public float GetDurability()
     {
