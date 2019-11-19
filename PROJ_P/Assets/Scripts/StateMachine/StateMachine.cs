@@ -33,6 +33,9 @@ public class StateMachine : MonoBehaviour
     }
     protected virtual void Update()
     {
+        if (Time.timeScale == 0)
+            return;
+
         currentState.ToDo();
     }
 }
