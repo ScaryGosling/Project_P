@@ -334,10 +334,27 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.REFILL_HEALTH)))
         {
+
+            if (HealthPotions == 0)
+            {
+                Prompt.instance.RunMessage("No more Health potions" , MessageType.WARNING);
+            }
             UseHealthPotion();
         }
         if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.REFILL_RESOURCE)))
         {
+            if (resourcePotions == 0)
+            {
+                if (playerClass == PlayerClass.WARRIOR)
+                {
+                    Prompt.instance.RunMessage("No more Repair kits", MessageType.WARNING);
+
+                }
+                else
+                {
+                    Prompt.instance.RunMessage("No more Mana potions", MessageType.WARNING);
+                }
+            }
             UseResourcePotion();
         }
 
