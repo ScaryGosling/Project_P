@@ -59,9 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ed518c6d2646e48b9cae2b51de1966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resType: 3
   fillAmount: 10
-  despawnTime: 10
+  despawnTime: 15
   pickupSound: {fileID: 8300000, guid: 0936c2358eb648d4986465a467441b6d, type: 3}
   particles: {fileID: 360565347942094220, guid: 096983a47b555534e871c2bb30f5ade7,
     type: 3}
