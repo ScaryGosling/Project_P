@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   featureName: Ability 3
   feature: 7
-  inputKey: 51
-  defaultKey: 51
+  inputKey: 101
+  defaultKey: 101

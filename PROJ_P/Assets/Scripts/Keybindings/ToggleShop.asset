@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   featureName: Toggle shop
   feature: 11
-  inputKey: 101
-  defaultKey: 101
+  inputKey: 103
+  defaultKey: 103
