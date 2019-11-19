@@ -9,6 +9,7 @@ public class Prompt : MonoBehaviour
     [SerializeField] private Transform panel;
 
     public static Prompt instance;
+    private List<string> previousMessages = new List<string>();
 
     public void Awake()
     {
@@ -16,6 +17,9 @@ public class Prompt : MonoBehaviour
     }
 
     public void RunMessage(string message, MessageType messageType) {
+
+        if (previousMessages.Contains(message))
+            return;
 
         switch (messageType)
         {
@@ -45,6 +49,8 @@ public class Prompt : MonoBehaviour
 
         TextMeshProUGUI text = Instantiate(textPrefab, panel).GetComponent<TextMeshProUGUI>();
         text.text = message;
+        previousMessages.Add(message);
+        StartCoroutine(DeleteMessage(message));
 
         switch (messageType)
         {
@@ -73,7 +79,12 @@ public class Prompt : MonoBehaviour
 
         yield return new WaitForSeconds(text.GetComponent<Animation>().clip.length);
         Destroy(text);
+    }
 
+    public IEnumerator DeleteMessage(string message) {
+
+        yield return new WaitForSeconds(2);
+        previousMessages.Remove(message);
     }
 
 }
