@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
         hotkeyTexts[3].text = keybindSet.GetBindString(KeyFeature.ABILITY_3);
         hotkeyTexts[4].text = keybindSet.GetBindString(KeyFeature.REFILL_HEALTH);
         hotkeyTexts[5].text = keybindSet.GetBindString(KeyFeature.REFILL_RESOURCE);
+        hotkeyTexts[6].text = keybindSet.GetBindString(KeyFeature.DIALOGUE);
 
     }
 }
