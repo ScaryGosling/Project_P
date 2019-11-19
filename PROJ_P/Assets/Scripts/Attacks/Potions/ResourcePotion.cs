@@ -9,7 +9,7 @@ public class ResourcePotion : Potion
 
     public override void BuyPotion(int cost)
     {
-        if (Player.instance.ResourcePotionsProp < maxResourcePotion)
+        if (Player.instance.ResourcePotionsProp < Player.instance.MaxResourcePotionsProp)
         {
             Player.instance.ResourcePotionsProp += 1;
             Player.instance.GoldProp -= cost;

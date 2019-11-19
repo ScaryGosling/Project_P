@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26282582, g: 0.18556999, b: 0.17100137, a: 1}
+  m_IndirectSpecularColor: {r: 0.26280823, g: 0.18551189, b: 0.17091727, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1543,12 +1543,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 847146043}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &848661986 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2176230759288021865, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079045317085329782}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &849217765 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1079045316322619795, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
@@ -1937,6 +1931,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4397053039383061664}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1210901876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9189465994257751405, guid: 2bc5c9f3f422bf940987564bfe1d64a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4738550532901967002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1237271754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2092,6 +2098,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6105041604951433439, guid: c2e15b60cdfd8bf46a77a83f8b66efba,
     type: 3}
   m_PrefabInstance: {fileID: 1293730787}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1309967355 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3873994355327447010, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079045317085329782}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1351454456
 PrefabInstance:
@@ -3600,12 +3612,17 @@ PrefabInstance:
         type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 848661986}
+      objectReference: {fileID: 1309967355}
     - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
       propertyPath: castBar
       value: 
       objectReference: {fileID: 527585976}
+    - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
+        type: 3}
+      propertyPath: durabilityImage
+      value: 
+      objectReference: {fileID: 1210901876}
     - target: {fileID: 1881681635, guid: 74d1415f2c9a8e54eb93ce037bae2d6d, type: 3}
       propertyPath: m_IsActive
       value: 0

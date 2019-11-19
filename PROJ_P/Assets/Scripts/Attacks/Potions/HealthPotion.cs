@@ -11,7 +11,7 @@ public class HealthPotion : Potion
 
     public override void BuyPotion(int cost)
     {
-        if (Player.instance.HealthPotions < maxHealthPotions)
+        if (Player.instance.HealthPotions < Player.instance.MaxHealthPotionsProp)
         {
             Player.instance.HealthPotions += 1;
             Player.instance.GoldProp -= cost;

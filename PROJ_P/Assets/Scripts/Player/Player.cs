@@ -55,6 +55,10 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject healthParticles;
     [SerializeField] [Range(0, 100)] private int autoRefillHealthUnder = 30;
     [SerializeField] [Range(0, 100)] private int autoRefillResourceUnder = 30;
+    [SerializeField] private int maxHealthPotions = 3;
+    [SerializeField] private int maxResourcePotions = 3;
+    public int MaxHealthPotionsProp { get; private set; } 
+    public int MaxResourcePotionsProp { get; private set; } 
 
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
@@ -106,7 +110,7 @@ public class Player : MonoBehaviour
         set
         {
             healthPotions = value;
-            healthPotionsText.text = healthPotions.ToString();
+            healthPotionsText.text = healthPotions + "/" + MaxHealthPotionsProp;
         }
     }
 
@@ -121,7 +125,7 @@ public class Player : MonoBehaviour
             resourcePotions = value;
             if (resourcePotionsText != null)
             {
-                resourcePotionsText.text = resourcePotions.ToString();
+                resourcePotionsText.text = resourcePotions +"/" +MaxResourcePotionsProp;
             }
         }
     }
@@ -232,11 +236,12 @@ public class Player : MonoBehaviour
         return clone;
     }
 
-
+    private void Awake()
+    {
+        instance = this;
+    }
     public void CacheComponents()
     {
-
-        instance = this;
         SetupClass();
         attackSet = CloneAttackSet();
         activeAttacks = ScriptableObject.CreateInstance<AttackSet>();
@@ -281,6 +286,8 @@ public class Player : MonoBehaviour
             durabilityTextObject.gameObject.SetActive(false);
         }
         Audio = GetComponent<AudioSource>();
+        MaxHealthPotionsProp = maxHealthPotions;
+        MaxResourcePotionsProp = maxResourcePotions;
         HealthPotions = healthPotionsStart;
         ResourcePotionsProp = resourcePotionsStart;
         Cursor.SetCursor(PlayerCursor, Vector2.zero, CursorMode.Auto);
