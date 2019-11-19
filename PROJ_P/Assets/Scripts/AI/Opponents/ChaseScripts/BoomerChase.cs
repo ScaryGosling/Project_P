@@ -20,7 +20,7 @@ public class BoomerChase : ChaseBase
         {
             Chase();
             CheckForDamage();
-            JumpDistance();
+            //JumpDistance();
         }
     }
 
