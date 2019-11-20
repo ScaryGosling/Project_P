@@ -23,17 +23,25 @@ public class BoomerLanding : DangerousZone
     #region components
 
     #endregion
+    private float tempTime;
 
     protected override void Start()
     {
         base.Start();
+        
+        tempTime = destroyAfter;
         destroyAfter = Mathf.Infinity;
     }
 
     public override void DestroyZone()
     {
-        destroyAfter = Mathf.Infinity;
         base.DestroyZone();
+    }
+
+    public override void EngageArea()
+    {
+        destroyAfter = 0.1f;
+        base.EngageArea();
     }
 
     protected void FadeOut() { }

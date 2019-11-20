@@ -219,6 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
-  destroyAfter: 4
+  destroyAfter: 0.5
   animSpeed: 1.5
   explosionRadius: 2
