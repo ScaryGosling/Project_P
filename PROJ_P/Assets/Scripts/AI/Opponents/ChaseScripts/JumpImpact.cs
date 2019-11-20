@@ -21,6 +21,7 @@ public class JumpImpact : AbilityBase
     private float startDistance, jumpThreshhold, distance;
     private Transform mesh;
     private const float upwardsMomentum = 0.03f, downwardsMomentum = 0.1f;
+    private const float jumpSmoother = 1f, fallDownDistance = 3f;
 
     public override void EnterState()
     {
@@ -32,10 +33,7 @@ public class JumpImpact : AbilityBase
         //Don't forget to check so target is player 
         playerPositionalDelay = owner.target.transform.position;
         startDistance = Vector3.Distance(owner.agent.transform.position, playerPositionalDelay);
-        //Likely to land too far above the ground // This is wrong, says unit should jump from above where it is currently standing
-        //direction = playerPositionalDelay.forward * -1;
         mesh = owner.agent.transform.GetChild(4);
-        initialPosition = owner.agent.transform.position;
         Debug.Log(mesh);
     }
 
@@ -83,17 +81,15 @@ public class JumpImpact : AbilityBase
     {
 
         distance = Vector3.Distance(owner.agent.transform.position, playerPositionalDelay);
-        //Debug.Log("distance" + " " + distance);
+ 
         owner.agent.SetDestination(playerPositionalDelay);
 
-        //if(distance >= 10f)
-
-        mesh.transform.position = Vector3.Lerp(owner.agent.transform.position, new Vector3(owner.agent.transform.position.x, owner.agent.transform.position.y + 20, owner.agent.transform.position.z), Time.deltaTime * 2f);
+        mesh.transform.position = Vector3.Lerp(owner.agent.transform.position, new Vector3(owner.agent.transform.position.x, owner.agent.transform.position.y + 20, owner.agent.transform.position.z), Time.deltaTime * jumpSmoother);
 
 
         if (distance <= 3f)
         {
-            mesh.transform.position = Vector3.Lerp(mesh.transform.position, new Vector3(mesh.transform.position.x, owner.capsuleCollider.radius, mesh.transform.position.z), Time.deltaTime * 2f);
+            mesh.transform.position = Vector3.Lerp(mesh.transform.position, new Vector3(mesh.transform.position.x, owner.capsuleCollider.radius, mesh.transform.position.z), Time.deltaTime * jumpSmoother);
             owner.ChangeState<BoomerChase>();
         }
     }
