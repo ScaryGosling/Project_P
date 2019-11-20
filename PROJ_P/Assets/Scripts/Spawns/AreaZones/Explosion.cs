@@ -7,14 +7,11 @@ using UnityEngine;
 /// Rotating warning image, and damaging explosion.
 /// </summary>
 [RequireComponent(typeof(GenericTimer))]
-public class Explosion : MonoBehaviour
+public class Explosion : DangerousZone
 {
     #region designer vars
-    [SerializeField] private float destroyAfter = 0.5f;
-    [SerializeField] private float damage = 25f;
     [SerializeField] private float animSpeed = 1.5f;
     [SerializeField] private float explosionRadius = 2;
-    [SerializeField] private AudioSource source;
 
     #endregion
     #region geometry
@@ -24,51 +21,32 @@ public class Explosion : MonoBehaviour
 
     #endregion
     #region components
-    private GameObject player;
-    private CapsuleCollider capsuleCollider;
-    private AudioClip fuse, explosion;
-    #endregion
 
-    private void Start()
+    #endregion
+    private bool rotating;
+
+    protected override void Start()
     {
-        player = Player.instance.gameObject;
-        capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
+        base.Start();
         baseScale = transform.localScale;
         targetScale = baseScale * explosionRadius;
         targetQuaternion = Quaternion.Euler(-90, 180, 0);
         explosionRadius = Mathf.Clamp(explosionRadius, 1f, 6f);
-    }
-
-    public void SetupSounds(AudioClip fuse, AudioClip explosion) {
-
-        this.explosion = explosion;
-        this.fuse = fuse;
-        source.clip = fuse;
-        source.Play();
+        rotating = false;
+        EngageArea();
     }
 
     private void Update()
     {
-        Ignite();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            DealDamage();
-        }
-    }
-
-    private void DealDamage()
-    {
-        player.GetComponent<Player>().HealthProp = -damage;
+        Rotation();
     }
 
     /// <summary>
     /// Controls Animation, Damage delay and Lifetime of explosion
     /// </summary>
-    private void Ignite()
+    
+
+    private void Rotation()
     {
         if (transform.localScale != targetScale)
         {
@@ -77,13 +55,13 @@ public class Explosion : MonoBehaviour
         }
         else
         {
+            Debug.Log("FinishedRotation");
+            base.EngageArea();
             //Set Animation Here
-            capsuleCollider.enabled = true;
-            source.clip = explosion;
-            source.Play();
-            Destroy(gameObject, destroyAfter);
         }
     }
+
+
 
 
 }

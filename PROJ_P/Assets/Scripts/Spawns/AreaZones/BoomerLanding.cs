@@ -1,0 +1,47 @@
+﻿//Author: Emil Dahl
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+/// <summary>
+/// Rotating warning image, and damaging explosion.
+/// </summary>
+[RequireComponent(typeof(GenericTimer))]
+public class BoomerLanding : DangerousZone
+{
+    #region designer vars
+    [SerializeField] private float animSpeed = 1.5f;
+    [SerializeField] private float explosionRadius = 2;
+
+    #endregion
+    #region geometry
+    private Vector3 baseScale;
+    private Vector3 targetScale;
+    private Quaternion targetQuaternion;
+
+    #endregion
+    #region components
+
+    #endregion
+
+    protected override void Start()
+    {
+        base.Start();
+        destroyAfter = Mathf.Infinity;
+    }
+
+    public override void DestroyZone()
+    {
+        destroyAfter = Mathf.Infinity;
+        base.DestroyZone();
+    }
+
+    protected void FadeOut() { }
+
+    /// <summary>
+    /// Controls Animation, Damage delay and Lifetime of explosion
+    /// </summary>
+  
+
+
+}

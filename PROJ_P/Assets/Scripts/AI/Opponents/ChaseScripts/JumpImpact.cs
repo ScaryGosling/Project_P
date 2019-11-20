@@ -22,6 +22,8 @@ public class JumpImpact : AbilityBase
     private Transform mesh;
     private const float upwardsMomentum = 0.03f, downwardsMomentum = 0.1f;
     private const float jumpSmoother = 1f, fallDownDistance = 3f;
+    private GameObject warningArea;
+    [SerializeField] private GameObject warningAreaPrefab;
 
     public override void EnterState()
     {
@@ -65,10 +67,11 @@ public class JumpImpact : AbilityBase
     protected override void ExecuteAbility()
     {
         base.ExecuteAbility();
-        if (!jumpTimer)
+        if (!jumpTimer && !warningArea)
         {
-        jumpTimer = Instantiate(new GameObject("JumpTimer"));
-        jumpTimer.AddComponent<Timer>().RunCountDown(jumpWindupTime, ActivateJump, Timer.TimerType.DELAY);
+            jumpTimer = Instantiate(new GameObject("JumpTimer"));
+            jumpTimer.AddComponent<Timer>().RunCountDown(jumpWindupTime, ActivateJump, Timer.TimerType.DELAY);
+            warningArea = Instantiate(warningAreaPrefab, playerPositionalDelay, Quaternion.Euler(-90f, 0f, 0f));
         }
     }
 
@@ -81,14 +84,15 @@ public class JumpImpact : AbilityBase
     {
 
         distance = Vector3.Distance(owner.agent.transform.position, playerPositionalDelay);
- 
+
         owner.agent.SetDestination(playerPositionalDelay);
 
         mesh.transform.position = Vector3.Lerp(owner.agent.transform.position, new Vector3(owner.agent.transform.position.x, owner.agent.transform.position.y + 20, owner.agent.transform.position.z), Time.deltaTime * jumpSmoother);
 
-
         if (distance <= 3f)
         {
+            //warningArea.GetComponent<BoomerLanding>().DestroyZone();
+            warningArea.GetComponent<BoomerLanding>().EngageArea();
             mesh.transform.position = Vector3.Lerp(mesh.transform.position, new Vector3(mesh.transform.position.x, owner.capsuleCollider.radius, mesh.transform.position.z), Time.deltaTime * jumpSmoother);
             owner.ChangeState<BoomerChase>();
         }

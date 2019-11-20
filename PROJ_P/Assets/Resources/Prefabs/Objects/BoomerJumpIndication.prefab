@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 867149244047798426}
   - component: {fileID: 7621899899344703717}
   - component: {fileID: 3202878855460499649}
-  - component: {fileID: 3217084631559708132}
   - component: {fileID: 4995285211329156950}
+  - component: {fileID: -6347127982934862193}
   m_Layer: 0
-  m_Name: ExplosiveRadius
+  m_Name: BoomerJumpIndication
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867149244047798424}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 183.34, y: 30.25, z: 147}
-  m_LocalScale: {x: 0.4147, y: 0.41470048, z: 0.41470048}
+  m_LocalPosition: {x: 183.34, y: 30.603, z: 147}
+  m_LocalScale: {x: 0.75464123, y: 0.7546423, z: 0.7546423}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 90b2e3c6f18c3334ea8f573e8991222d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8da3cd3443a6bc847958b03bacf64830, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -110,22 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c4488a3333a4840ba1b437dcf6c487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3217084631559708132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867149244047798424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34519648071f58e48aeb78527d7ae9b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 25
-  destroyAfter: 2
-  animSpeed: 4
-  explosionRadius: 2
 --- !u!82 &4995285211329156950
 AudioSource:
   m_ObjectHideFlags: 0
@@ -222,3 +206,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6347127982934862193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867149244047798424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a505e4b526dca4f45b4ed27d36e07b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
+  destroyAfter: 4
+  animSpeed: 1.5
+  explosionRadius: 2
