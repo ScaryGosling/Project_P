@@ -22,7 +22,7 @@ public class Projectile : PlayerAttack
         Transform spawnPoint = Player.instance.GetSpawnPoint();
 
         GameObject ball = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation);
-        ball.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(Vector3.forward) * force);
+        ball.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(Vector3.forward) * force + Player.instance.GetComponent<Rigidbody>().velocity);
         ball.GetComponent<ProjectileInstance>().SetPower(damage, magnitude);
     }
 
