@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
     public AudioSource Audio { get; private set; }
     [SerializeField] private AudioClip[] hurtClip;
     [SerializeField] private AudioClip lackResourceClip;
+    [SerializeField] private AudioClip heartbeatClip;
+    [SerializeField] private AudioSource heartbeatSource;
 
     [Header("Resources")]
     private int healthPotions;
@@ -57,6 +59,11 @@ public class Player : MonoBehaviour
     [SerializeField] [Range(0, 100)] private int autoRefillResourceUnder = 30;
     [SerializeField] private int maxHealthPotions = 3;
     [SerializeField] private int maxResourcePotions = 3;
+
+    public EliasPlayer eliasPlayer;
+    public EliasSetLevel setLevel;
+    public EliasPlayStinger playStinger;
+
     public int MaxHealthPotionsProp { get; private set; } 
     public int MaxResourcePotionsProp { get; private set; } 
 
@@ -82,7 +89,7 @@ public class Player : MonoBehaviour
 
     public void PlayAudio(AudioClip clip)
     {
-        float pitch = Random.Range(0.5f, 1.5f);
+        float pitch = Random.Range(0.7f, 1.3f);
         if (clip != null && Audio != null)
         {
             Audio.pitch = pitch;
@@ -160,6 +167,20 @@ public class Player : MonoBehaviour
                 Audio.clip = hurtClip[Random.Range(0, hurtClip.Length)];
                 Audio.Play();
             }
+
+            if (tempHP < 25 && !GameLoop.instance.GetShopOpen())
+            {
+                heartbeatSource.clip = heartbeatClip;
+                heartbeatSource.Play();
+            }
+            else
+            {
+                heartbeatSource.Stop();
+            }
+
+    
+
+            
         }
     }
     public int GoldProp

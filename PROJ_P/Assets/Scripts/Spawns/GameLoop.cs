@@ -81,6 +81,9 @@ public class GameLoop : MonoBehaviour
     private Coroutine waveTimer;
     private float waveTime;
 
+
+    public bool GetShopOpen() { return shopOpen; }
+
     private void Start()
     {
         player = Player.instance;
