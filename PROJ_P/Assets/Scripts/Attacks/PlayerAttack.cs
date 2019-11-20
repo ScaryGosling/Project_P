@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerAttack : Ability
 {
     [Header("Info")]
+    [SerializeField] [TextArea] [Tooltip("This description is for class chooser only")] private string abilityDescriptionForClassChooser = "No description available";
     [SerializeField] private float castCost;
     public float castTime;
     protected float damage;
