@@ -17,7 +17,7 @@ public class AbilityUI : MonoBehaviour
 
     public void SetDescription()
     {
-        string description = attack.GetAbilityName() + "\n\n" + attack.GetAbilityDescription();
+        string description = attack.GetAbilityName() + "\n\n" + attack.GetAbilityDescriptionForClassChooser();
         cs.SetAbilityDescription(description);
     }
 
