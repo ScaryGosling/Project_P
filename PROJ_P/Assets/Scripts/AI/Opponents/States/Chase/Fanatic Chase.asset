@@ -12,17 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b7c1a28f52f0f4cb4662898ba068b7, type: 3}
   m_Name: Fanatic Chase
   m_EditorClassIdentifier: 
-  controlBehaviors: 0
   material: {fileID: 2100000, guid: 41a8b341ff5320d499cd2dcc490a87f9, type: 2}
   moveSpeed: 7
   scale: {x: 1, y: 1, z: 1}
   staggerCD: 0.2
   bloodParticle: {fileID: 1482536979965753301, guid: b1100bf3ebcf8614bbd67c23699e7d77,
     type: 3}
-  staggerDuration: 0.1
-  force: 2
-  BaseKnockBackDuration: 0.1
   hesitationChance: 1
   hesitationDistance: 0
   playerStoppingDistance: 1
   buildingStoppingDistance: 2.8
+  dodgeAwarenessDistance: 10
+  dodgeChance: 0.0075

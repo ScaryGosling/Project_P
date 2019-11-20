@@ -8,6 +8,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Hostile/Boomer/BoomerChase")]
 public class BoomerChase : ChaseBase
 {
+    private const float jumpCooldown = 30f, jumpMinDistance = 5f, jumpMaxDistance = 10f;
+    private GameObject jumpCOoldownTimer;
+    private bool canJump = true;
     public override void EnterState()
     {
         base.EnterState();
@@ -20,7 +23,7 @@ public class BoomerChase : ChaseBase
         {
             Chase();
             CheckForDamage();
-            //JumpDistance();
+            JumpDistance();
         }
     }
 
@@ -41,22 +44,36 @@ public class BoomerChase : ChaseBase
 
     private void JumpDistance()
     {
-        if(Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) > 10 && Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) < 20)
-            owner.ChangeState<JumpImpact>();
+        if (Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) > jumpMinDistance && Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) < jumpMaxDistance)
+        {
+            if (!jumpCOoldownTimer && canJump)
+            {
+                jumpCOoldownTimer = Instantiate(new GameObject("JumpTimer"));
+                jumpCOoldownTimer.AddComponent<Timer>().RunCountDown(jumpCooldown, EnableAbility, Timer.TimerType.DELAY);
+
+                canJump = false;
+                owner.ChangeState<JumpImpact>();
+            }
+        }
+    }
+
+    private void EnableAbility()
+    {
+        canJump = true;
     }
 
 }
 
 #region ChaseLegacy
-        //Stagger(magnitude);
-    //protected override void OperateHesitation()
-    //{
-    //    base.OperateHesitation();
-    //    if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
-    //    {
-    //        owner.ChangeState<FanaticHesitate>();
-    //    }
-    //}
+//Stagger(magnitude);
+//protected override void OperateHesitation()
+//{
+//    base.OperateHesitation();
+//    if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
+//    {
+//        owner.ChangeState<FanaticHesitate>();
+//    }
+//}
 // lightAngle = lightField.spotAngle;
 //ChaseEvent chaseEvent = new ChaseEvent();
 //chaseEvent.gameObject = owner.gameObject;
