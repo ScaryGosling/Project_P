@@ -50,6 +50,7 @@ public class CharacterSelection : MonoBehaviour
             AbilityUI ability = Instantiate(abilityPrefab, abilityPanel.transform).GetComponent<AbilityUI>();
             ability.icon.sprite = selectedClass.list[i].GetImage();
             ability.attack = selectedClass.list[i];
+            ability.nameText.text = selectedClass.list[i].GetAbilityName();
         }
     }
 
