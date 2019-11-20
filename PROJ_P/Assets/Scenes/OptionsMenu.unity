@@ -5637,6 +5637,9 @@ MonoBehaviour:
   - {fileID: 102815368}
   - {fileID: 67792619}
   - {fileID: 410234962}
+  adaptionToggles:
+  - {fileID: 1601975229}
+  - {fileID: 808844329}
 --- !u!4 &1095176447
 Transform:
   m_ObjectHideFlags: 0

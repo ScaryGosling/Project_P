@@ -11,6 +11,7 @@ public class SceneHandler : MonoBehaviour
     [SerializeField] private GameObject shopWindow;
     [SerializeField] private GameObject mainMenuPrompt;
     [SerializeField] private GameObject[] promptToggles;
+    [SerializeField] private GameObject[] adaptionToggles;
 
     public static SceneHandler instance;
 
@@ -19,6 +20,11 @@ public class SceneHandler : MonoBehaviour
         promptToggles[0].SetActive(settings.UseWarnings);
         promptToggles[1].SetActive(settings.UseInfo);
         promptToggles[2].SetActive(settings.UseBonus);
+    }
+    public void SetupAdaptions()
+    {
+        adaptionToggles[0].SetActive(settings.UseAutoRefill);
+        adaptionToggles[1].SetActive(settings.UseExtraShopTime);
     }
 
     public void Awake()
@@ -31,6 +37,11 @@ public class SceneHandler : MonoBehaviour
         if(promptToggles != null && promptToggles.Length > 0)
         {
             SetupPromptToggles();
+        }
+
+        if(adaptionToggles != null && adaptionToggles.Length > 0)
+        {
+            SetupAdaptions();
         }
     }
 
