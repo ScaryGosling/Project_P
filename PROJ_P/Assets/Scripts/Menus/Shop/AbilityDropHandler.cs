@@ -31,7 +31,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     }
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log(GameObject.Find("Canvas").GetComponent<Canvas>().sortingOrder );
+        //Debug.Log(GameObject.Find("Canvas").GetComponent<Canvas>().sortingOrder );
         if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, Input.mousePosition))
         {
             abilityUpgrade = eventData.pointerDrag.GetComponent<AbilityUpgrade>();
