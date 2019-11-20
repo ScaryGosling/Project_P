@@ -45,7 +45,7 @@ public class SceneHandler : MonoBehaviour
         }
     }
 
-    public void ToggleExtraShopTime(bool toggle) { settings.UseExtraShopTime = !settings.UseExtraShopTime; }
+    public void ToggleExtraShopTime() { settings.UseExtraShopTime = !settings.UseExtraShopTime; }
 
     public void Update()
     {
