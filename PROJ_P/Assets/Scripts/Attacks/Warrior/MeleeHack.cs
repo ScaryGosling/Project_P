@@ -42,16 +42,19 @@ public class MeleeHack : PlayerAttack
         sword.GetComponent<Collider>().enabled = true;
         animation = sword.GetComponent<Animation>();
 
-        if (animation.IsPlaying(forwardSlash.name))
-        {
-            animation.AddClip(backSlash, backSlash.name);
-            animation.Play(backSlash.name);
-        }
-        else
-        {
-            animation.AddClip(forwardSlash, forwardSlash.name);
-            animation.Play(forwardSlash.name);
-        }
+        animation.AddClip(forwardSlash, forwardSlash.name);
+        animation.Play(forwardSlash.name);
+
+        //if (animation.IsPlaying(forwardSlash.name))
+        //{
+        //animation.AddClip(backSlash, backSlash.name);
+        //animation.Play(backSlash.name);
+        //}
+        //else
+        //{
+        //animation.AddClip(forwardSlash, forwardSlash.name);
+        //animation.Play(forwardSlash.name);
+        //}
 
         Timer timer = new GameObject("Timer").AddComponent<Timer>();
         timer.RunCountDown(forwardSlash.length, ResetSword, Timer.TimerType.DELAY);
