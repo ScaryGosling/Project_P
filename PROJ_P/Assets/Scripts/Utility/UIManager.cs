@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Text[] hotkeyTexts;
-    [SerializeField] private KeybindSet keybindSet;
+    [SerializeField] private Settings keybindSet;
 
 
     public void Start()

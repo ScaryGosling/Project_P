@@ -7,7 +7,7 @@ public class SceneHandler : MonoBehaviour
 {
     public string mainMenu;
     public static SceneHandler sceneHandler;
-    public KeybindSet keybindSet;
+    public Settings settings;
     [SerializeField] private GameObject shopWindow;
     [SerializeField] private GameObject mainMenuPrompt;
     [SerializeField] private GameObject[] promptToggles;
@@ -16,9 +16,9 @@ public class SceneHandler : MonoBehaviour
 
     public void SetupPromptToggles()
     {
-        promptToggles[0].SetActive(keybindSet.useWarnings);
-        promptToggles[1].SetActive(keybindSet.useInfo);
-        promptToggles[2].SetActive(keybindSet.useBonus);
+        promptToggles[0].SetActive(settings.UseWarnings);
+        promptToggles[1].SetActive(settings.UseInfo);
+        promptToggles[2].SetActive(settings.UseBonus);
     }
 
     public void Awake()
@@ -33,6 +33,8 @@ public class SceneHandler : MonoBehaviour
             SetupPromptToggles();
         }
     }
+
+    public void ToggleExtraShopTime(bool toggle) { settings.UseExtraShopTime = !settings.UseExtraShopTime; }
 
     public void Update()
     {
@@ -63,24 +65,24 @@ public class SceneHandler : MonoBehaviour
 
     public void ToggleAllPrompts(bool toggle)
     {
-        keybindSet.useWarnings = toggle;
-        keybindSet.useBonus = toggle;
-        keybindSet.useInfo = toggle;
+        settings.UseWarnings = toggle;
+        settings.UseBonus = toggle;
+        settings.UseInfo = toggle;
     }
     public void ToggleWarnings() {
-        keybindSet.useWarnings = !keybindSet.useWarnings;
+        settings.UseWarnings = !settings.UseWarnings;
     }
     public void ToggleInfo()
     {
-        keybindSet.useInfo = !keybindSet.useInfo;
+        settings.UseInfo = !settings.UseInfo;
     }
     public void ToggleBonus()
     {
-        keybindSet.useBonus = !keybindSet.useBonus;
+        settings.UseBonus = !settings.UseBonus;
     }
     public void ToggleAutoRefill()
     {
-        keybindSet.useAutoRefill = !keybindSet.useAutoRefill;
+        settings.UseAutoRefill = !settings.UseAutoRefill;
     }
     public void GoToScene(string scene)
     {

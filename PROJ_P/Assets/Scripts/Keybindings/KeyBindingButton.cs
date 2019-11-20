@@ -10,7 +10,7 @@ public class KeyBindingButton : MonoBehaviour
     [SerializeField] Keybind keyBind;
     [SerializeField] Text text;
     [SerializeField] Text buttonText;
-    [SerializeField] KeybindSet keybindSet;
+    [SerializeField] Settings keybindSet;
 
     private Image buttonImage;
 

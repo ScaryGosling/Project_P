@@ -24,17 +24,17 @@ public class Prompt : MonoBehaviour
         switch (messageType)
         {
             case MessageType.WARNING:
-                if (!Player.instance.GetKeybindSet().useWarnings)
+                if (!Player.instance.GetSettings().UseWarnings)
                     return;
                 break;
 
             case MessageType.INFO:
-                if (!Player.instance.GetKeybindSet().useInfo)
+                if (!Player.instance.GetSettings().UseInfo)
                     return;
                 break;
 
             case MessageType.BONUS:
-                if (!Player.instance.GetKeybindSet().useBonus)
+                if (!Player.instance.GetSettings().UseBonus)
                     return;
                 break;
         }

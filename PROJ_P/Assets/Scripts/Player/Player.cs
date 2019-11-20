@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     private PlayerAttack activeAttack;
     private int selectedAttack;
     public GameObject weapon;
-    [SerializeField] private KeybindSet keybindSet;
+    [SerializeField] private Settings settings;
 
     [Header("UI elements")]
     [SerializeField] private Image[] attackUISpot;
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 
 
 
-    public KeybindSet GetKeybindSet() { return keybindSet; }
+    public Settings GetSettings() { return settings; }
 
     public void PlayAudio(AudioClip clip)
     {
@@ -183,7 +183,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        playerClass = keybindSet.playerClass;
+        playerClass = settings.playerClass;
         CacheComponents();
         EventSystem.Current.RegisterListener<GiveResource>(Refill);
 
@@ -304,33 +304,33 @@ public class Player : MonoBehaviour
         if (!hover)
         {
 
-            if (Input.GetKey(keybindSet.GetBind(KeyFeature.BASE_ATTACK)))
+            if (Input.GetKey(settings.GetBind(KeyFeature.BASE_ATTACK)))
             {
                 if (activeAttacks.list[0] != null && !casting)
                 {
                     attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[0]));
                 }
             }
-            else if (Input.GetKeyUp(keybindSet.GetBind(KeyFeature.BASE_ATTACK)))
+            else if (Input.GetKeyUp(settings.GetBind(KeyFeature.BASE_ATTACK)))
             {
                 holding = false;
             }
 
-            if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_1)))
+            if (Input.GetKeyDown(settings.GetBind(KeyFeature.ABILITY_1)))
             {
                 if (activeAttacks.list[1] != null && !casting)
                 {
                     attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[1]));
                 }
             }
-            else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_2)))
+            else if (Input.GetKeyDown(settings.GetBind(KeyFeature.ABILITY_2)))
             {
                 if (activeAttacks.list[2] != null && !casting)
                 {
                     attackCast = StartCoroutine(ExecuteAttack(activeAttacks.list[2]));
                 }
             }
-            else if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.ABILITY_3)))
+            else if (Input.GetKeyDown(settings.GetBind(KeyFeature.ABILITY_3)))
             {
 
                 if (activeAttacks.list[3] != null && !casting)
@@ -342,7 +342,7 @@ public class Player : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.REFILL_HEALTH)))
+        if (Input.GetKeyDown(settings.GetBind(KeyFeature.REFILL_HEALTH)))
         {
 
             if (HealthPotions == 0)
@@ -351,7 +351,7 @@ public class Player : MonoBehaviour
             }
             UseHealthPotion();
         }
-        if (Input.GetKeyDown(keybindSet.GetBind(KeyFeature.REFILL_RESOURCE)))
+        if (Input.GetKeyDown(settings.GetBind(KeyFeature.REFILL_RESOURCE)))
         {
             if (resourcePotions == 0)
             {
@@ -381,7 +381,7 @@ public class Player : MonoBehaviour
 
     private void UseAutoRefill()
     {
-        if (keybindSet.useAutoRefill)
+        if (settings.UseAutoRefill)
         {
             if (HealthProp < autoRefillHealthUnder)
             {

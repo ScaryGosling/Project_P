@@ -34,6 +34,10 @@ public class Shop : StateMachine
             activeShopTime = tutorialTime;
             infiniteTimeUsed = true;
         }
+        else if (Player.instance.GetSettings().UseExtraShopTime)
+        {
+            activeShopTime = shopTime * 2;
+        }
         else
         {
             activeShopTime = shopTime; 

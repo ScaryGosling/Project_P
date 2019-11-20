@@ -41,7 +41,7 @@ public class Dialogue : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(player.GetKeybindSet().GetBind(KeyFeature.DIALOGUE)) && dialogueActive)
+        if (Input.GetKeyDown(player.GetSettings().GetBind(KeyFeature.DIALOGUE)) && dialogueActive)
             Next();
     }
 

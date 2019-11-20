@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Camera mainCamera;
     private NavMeshAgent agent;
     private Rigidbody rigid;
-    private KeybindSet keybindSet;
+    private Settings keybindSet;
     private float xMovement, zMovement;
     [SerializeField]private Animator animator;
     [SerializeField] private LayerMask ignoreMask;
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         mainCamera = Camera.main;
         agent = GetComponent<NavMeshAgent>();
         rigid = GetComponent<Rigidbody>();
-        keybindSet = GetComponent<Player>().GetKeybindSet();
+        keybindSet = GetComponent<Player>().GetSettings();
         player = GetComponent<Player>();
     }
 

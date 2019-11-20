@@ -66,7 +66,7 @@ public class CharacterSelection : MonoBehaviour
         SetAbilityDescription("");
         LoadAttacks();
         summary.text = selectedClass.description;
-        sceneHandler.keybindSet.playerClass = attackSet.playerClass;
+        sceneHandler.settings.playerClass = attackSet.playerClass;
 
     }
 

@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(menuName = "Keybinding/Set")]
-public class KeybindSet : ScriptableObject
+[CreateAssetMenu(menuName = "Settings")]
+public class Settings : ScriptableObject
 {
     [SerializeField] private Keybind[] keybinds;
     public PlayerClass playerClass {get; set;}
-    public bool useWarnings { get; set; }
-    public bool useInfo { get; set; }
-    public bool useBonus { get; set; }
-    public bool useAutoRefill { get; set; }
+    public bool UseWarnings { get; set; }
+    public bool UseInfo { get; set; }
+    public bool UseBonus { get; set; }
+    public bool UseAutoRefill { get; set; }
+    public bool UseExtraShopTime { get; set; }
 
     public KeyCode GetBind(KeyFeature feature)
     {
