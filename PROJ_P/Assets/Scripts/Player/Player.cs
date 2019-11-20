@@ -135,7 +135,15 @@ public class Player : MonoBehaviour
         get { return tempHP; }
         set
         {
-            tempHP += value * activeStats.resistanceMultiplier;
+            if(value < 0)
+            {
+                tempHP += value * activeStats.resistanceMultiplier;
+            }
+            else
+            {
+                tempHP += value; //When heald resistance should not matter
+            }
+
             if (tempHP > 100)
             {
                 tempHP = 100;
