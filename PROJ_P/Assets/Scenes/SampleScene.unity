@@ -3623,12 +3623,6 @@ PrefabInstance:
       propertyPath: durabilityImage
       value: 
       objectReference: {fileID: 1210901876}
-    - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
-        type: 3}
-      propertyPath: settings
-      value: 
-      objectReference: {fileID: 11400000, guid: 9c37919dfa498b34290c55af5af987d5,
-        type: 2}
     - target: {fileID: 1881681635, guid: 74d1415f2c9a8e54eb93ce037bae2d6d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4701,6 +4695,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Elias
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147950296066997119, guid: cac3b176518420b4794292e03639b556,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
         type: 3}

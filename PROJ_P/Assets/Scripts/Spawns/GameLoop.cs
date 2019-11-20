@@ -33,6 +33,7 @@ public class GameLoop : MonoBehaviour
     private float bonusDmg = 0f;
     public float DamageManagenent { get { return bonusDmg; } }
     private bool questGenerated = false;
+    private int random;
     public Quest QuestProp { get; set; }
 
     [SerializeField] private int showRemaining = 3;
@@ -140,7 +141,8 @@ public class GameLoop : MonoBehaviour
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
 
         }
-        ChangeEliasLevel(20);
+        random = Random.Range(18, 21);
+        ChangeEliasLevel(random);
         waveIndex++;
         bonusHealth += healthPerLevel;
         bonusDmg += damagePerLevel;
@@ -286,7 +288,8 @@ public class GameLoop : MonoBehaviour
     {
         if (!shopOpen)
         {
-            ChangeEliasLevel(4);
+            random = Random.Range(4,15);
+            ChangeEliasLevel(random);
             shopKeeper.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
             shopKeeper.gameObject.SetActive(true);
             shopOpen = true;
