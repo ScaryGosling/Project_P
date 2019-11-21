@@ -65,8 +65,9 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         if (image.sprite != defaultSprite)
         {
             audioSource.clip = grabSound;
-            audioSource.Play();
             clone = Instantiate(gameObject, GameObject.Find("Canvas").transform);
+            if(Player.instance.GetSettings().UseSFX)
+                audioSource.Play();
         }
     }
 
@@ -76,7 +77,8 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         if (clone != null)
         {
             audioSource.clip = releaseSound;
-            audioSource.Play();
+            if (Player.instance.GetSettings().UseSFX)
+                audioSource.Play();
 
         Destroy(clone);
         }

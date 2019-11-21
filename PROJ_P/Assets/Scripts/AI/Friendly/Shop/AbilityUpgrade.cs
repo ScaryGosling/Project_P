@@ -190,7 +190,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
                     {
                         audioSource.clip = upgradeSound;
                     }
-                    audioSource.Play();
+                    if (Player.instance.GetSettings().UseSFX)
+                        audioSource.Play();
                     ability.UpgradeAttack();
                     OnPointerUp(eventData);
                     Player.instance.GoldProp -= nextLevelCost;
@@ -207,7 +208,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             if (Player.instance.GoldProp >= nextLevelCost)
             {
                 audioSource.clip = unlockSound;
-                audioSource.Play();
+                if (Player.instance.GetSettings().UseSFX)
+                    audioSource.Play();
                 potion.BuyPotion(nextLevelCost);
             }
         }
@@ -228,7 +230,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         if (clone != null)
         {
             audioSource.clip = releaseSound;
-            audioSource.Play();
+            if (Player.instance.GetSettings().UseSFX)
+                audioSource.Play();
             Destroy(clone);
         }
     }
@@ -238,7 +241,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         if (ability != null && !ability.IsLocked())
         {
             audioSource.clip = grabSound;
-            audioSource.Play();
+            if (Player.instance.GetSettings().UseSFX)
+                audioSource.Play();
             clone = Instantiate(dragAbility, GameObject.Find("Canvas").transform);
             clone.transform.GetChild(0).GetComponent<Image>().sprite = ability.GetImage();
         }
