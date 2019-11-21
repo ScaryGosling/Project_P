@@ -393,14 +393,29 @@ public class Player : MonoBehaviour
             }
 
         }
+        if (HealthProp > 0)
+        {
+            UsePotions();
+        }
+        else
+        {
+            PlayerDied();
+        }
 
+        UseAbilityCheck();
 
+        UseAutoRefill();
+
+    }
+
+    private void UsePotions()
+    {
         if (Input.GetKeyDown(settings.GetBind(KeyFeature.REFILL_HEALTH)))
         {
 
             if (HealthPotions == 0)
             {
-                Prompt.instance.RunMessage("No more Health potions" , MessageType.WARNING);
+                Prompt.instance.RunMessage("No more Health potions", MessageType.WARNING);
             }
             UseHealthPotion();
         }
@@ -420,16 +435,6 @@ public class Player : MonoBehaviour
             }
             UseResourcePotion();
         }
-
-        if (tempHP <= 0)
-        {
-            PlayerDied();
-        }
-
-        UseAbilityCheck();
-
-        UseAutoRefill();
-
     }
 
     private void UseAutoRefill()
