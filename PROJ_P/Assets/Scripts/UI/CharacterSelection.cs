@@ -21,6 +21,7 @@ public class CharacterSelection : MonoBehaviour
     [SerializeField] private GameObject abilityPrefab;
 
     private AttackSet selectedClass;
+    private List<Class> instantiated = new List<Class>();
 
 
     public void Start()
@@ -32,10 +33,10 @@ public class CharacterSelection : MonoBehaviour
             Class classInstance = Instantiate(classPrefab, classPanel.transform).GetComponent<Class>();
             classInstance.attackSet = attackSet;
             classInstance.icon.sprite = attackSet.classIcon;
+            instantiated.Add(classInstance);
         }
-
         SetClass(attackSets[0]);
-        
+        instantiated[0].Clicked();
     }
 
     public void LoadAttacks()
@@ -68,7 +69,10 @@ public class CharacterSelection : MonoBehaviour
         LoadAttacks();
         summary.text = selectedClass.description;
         sceneHandler.settings.playerClass = attackSet.playerClass;
-
+        foreach (Class set in instantiated)
+        {
+            set.Unclicked();
+        }
     }
 
 }
