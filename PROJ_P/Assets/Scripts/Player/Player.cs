@@ -84,8 +84,22 @@ public class Player : MonoBehaviour
     public Coroutine abilityDelay;
 
 
+    [Header("Flash")]
+    public Renderer playerRenderer;
+    [SerializeField] private Color flashColor;
+    private Color baseColor;
+    private Coroutine hitFlash;
+
 
     public Settings GetSettings() { return settings; }
+
+    public IEnumerator HitFlash()
+    {
+        playerRenderer.material.SetColor("_BaseColor", flashColor);
+        yield return new WaitForSeconds(0.1f);
+        playerRenderer.material.SetColor("_BaseColor", baseColor);
+        hitFlash = null;
+    }
 
     public void PlayAudio(AudioClip clip)
     {
@@ -145,6 +159,13 @@ public class Player : MonoBehaviour
             if(value < 0)
             {
                 tempHP += value * activeStats.resistanceMultiplier;
+
+                if (hitFlash != null)
+                {
+                    StopCoroutine(hitFlash);
+                }
+                playerRenderer.material.SetColor("_BaseColor", baseColor);
+                hitFlash = StartCoroutine(HitFlash());
             }
             else
             {
@@ -215,6 +236,7 @@ public class Player : MonoBehaviour
         playerClass = settings.playerClass;
         CacheComponents();
         EventSystem.Current.RegisterListener<GiveResource>(Refill);
+
 
     }
 
@@ -325,6 +347,8 @@ public class Player : MonoBehaviour
         {
             attackUISpotBG[i] = attackUISpot[i].transform.parent.GetComponent<Image>();
         }
+
+        baseColor = playerRenderer.material.GetColor("_BaseColor");
     }
 
     public void Update()
