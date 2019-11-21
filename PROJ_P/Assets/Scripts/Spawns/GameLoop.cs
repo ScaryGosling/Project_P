@@ -80,7 +80,10 @@ public class GameLoop : MonoBehaviour
 
     private Coroutine waveTimer;
     private float waveTime;
-
+    private List<GameObject> activeSpawns;
+    private GameObject absoluteSpawner;
+    private Vector3 spawnAtPosition;
+    private int index = 0;
 
     public bool GetShopOpen() { return shopOpen; }
 
@@ -310,10 +313,25 @@ public class GameLoop : MonoBehaviour
         {
             random = Random.Range(4,15);
             ChangeEliasLevel(random);
-            shopKeeper.transform.position = spawns[Random.Range(0, spawns.Length)].transform.position;
+            shopKeeper.transform.position = NearbyRandomPosition();
             shopKeeper.gameObject.SetActive(true);
             shopOpen = true;
         }
+    }
+
+    private Vector3 NearbyRandomPosition()
+    {
+        spawnAtPosition = Vector3.zero;
+        while (spawnAtPosition == Vector3.zero)
+        {
+            absoluteSpawner = spawns[Random.Range(0, spawns.Length)];
+
+            if (absoluteSpawner.GetComponent<SpawnArea>().isActive)
+                spawnAtPosition = absoluteSpawner.transform.position;
+        }
+        
+        Debug.Log(absoluteSpawner + " " + spawnAtPosition);
+        return spawnAtPosition;
     }
     private void ChangeEliasLevel(int level)
     {
