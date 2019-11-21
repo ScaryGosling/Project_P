@@ -124,7 +124,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &2161199849938165174
@@ -167,6 +167,10 @@ MonoBehaviour:
   weight: 80
   attackRange: 2.3
   attackRangeBuildings: 2.5
+  minSpeed: 0.9
+  maxSpeed: 1.1
+  minSize: 0.9
+  maxSize: 1.1
 --- !u!114 &-4164408291272996986
 MonoBehaviour:
   m_ObjectHideFlags: 0
