@@ -31,16 +31,13 @@ public class Pickup : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.gameObject.layer != 12) //12 is the layer id of "Weapon"
         {
-            if (other.GetComponent<Player>())
-            {
-                source.Play();
+            source.Play();
 
-                if (particles != null)
-                    Instantiate(particles, player.transform.position, Quaternion.identity, player.transform);
+            if (particles != null)
+                Instantiate(particles, player.transform.position, Quaternion.identity, player.transform);
 
-            }
             DoSomething();
 
             transform.GetChild(0).gameObject.SetActive(false);
@@ -49,7 +46,7 @@ public class Pickup : MonoBehaviour
             Destroy(gameObject, source.clip.length);
         }
     }
-    
+
     /// <summary>
     /// Some items must be terminated during the wave, but after some time. Such as health drops.
     /// </summary>

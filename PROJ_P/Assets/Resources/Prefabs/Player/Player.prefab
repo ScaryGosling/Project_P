@@ -1042,7 +1042,7 @@ GameObject:
   - component: {fileID: 4241314899845333205}
   - component: {fileID: 1079045316573741319}
   - component: {fileID: 1079045316573741318}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1157,7 +1157,7 @@ GameObject:
   - component: {fileID: 5737979360618768076}
   - component: {fileID: 4387195702756602753}
   - component: {fileID: 4482079540723279331}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Sword
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2290,11 +2290,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fighter_OwO@Idle
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 21ae72ba5527fe643b6e28d39f0b5d3c,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d77527d66acfffc41bbfcf6f41f4bb19, type: 2}
     - target: {fileID: -4216859302048453862, guid: 21ae72ba5527fe643b6e28d39f0b5d3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2365,6 +2360,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.58
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 21ae72ba5527fe643b6e28d39f0b5d3c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d77527d66acfffc41bbfcf6f41f4bb19, type: 2}
     - target: {fileID: -1615363454010585684, guid: 21ae72ba5527fe643b6e28d39f0b5d3c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2407,6 +2407,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sword_T1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5ec660bec3a2d174ea5f1e24397b262d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5ec660bec3a2d174ea5f1e24397b262d,
         type: 3}
