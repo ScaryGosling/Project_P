@@ -167,10 +167,10 @@ MonoBehaviour:
   weight: 80
   attackRange: 2.3
   attackRangeBuildings: 2.5
-  minSpeed: 0.9
-  maxSpeed: 1.1
-  minSize: 0.9
-  maxSize: 1.1
+  minSpeed: 1
+  maxSpeed: 1.2
+  minSize: 1
+  maxSize: 1.2
 --- !u!114 &-4164408291272996986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,11 +588,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
-    - target: {fileID: 8613437942299486537, guid: 161c898e64ac8d04591a1cea88079fbb,
-        type: 3}
-      propertyPath: m_Name
-      value: Warning
-      objectReference: {fileID: 0}
     - target: {fileID: 1806478404298951808, guid: 161c898e64ac8d04591a1cea88079fbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -648,6 +643,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8613437942299486537, guid: 161c898e64ac8d04591a1cea88079fbb,
+        type: 3}
+      propertyPath: m_Name
+      value: Warning
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 161c898e64ac8d04591a1cea88079fbb, type: 3}
 --- !u!4 &1584601892215176694 stripped
@@ -663,11 +663,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: f59df15340dfc6b4ea1f7f92207eebc2,
-        type: 3}
-      propertyPath: m_Name
-      value: Fat UwU Run
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f59df15340dfc6b4ea1f7f92207eebc2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -743,6 +738,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9d06b0cef54d0be4fb7084d30f1a57d1, type: 2}
+    - target: {fileID: -927199367670048503, guid: f59df15340dfc6b4ea1f7f92207eebc2,
+        type: 3}
+      propertyPath: m_Name
+      value: Fat UwU Run
+      objectReference: {fileID: 0}
     - target: {fileID: -1495711078873449619, guid: f59df15340dfc6b4ea1f7f92207eebc2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -769,16 +769,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: b3297aff4e85b5645a7b05a76833c0c5,
-        type: 3}
-      propertyPath: m_Name
-      value: Fat_UwU(LP)
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: b3297aff4e85b5645a7b05a76833c0c5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b3297aff4e85b5645a7b05a76833c0c5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -849,6 +839,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.4794
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b3297aff4e85b5645a7b05a76833c0c5,
+        type: 3}
+      propertyPath: m_Name
+      value: Fat_UwU(LP)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b3297aff4e85b5645a7b05a76833c0c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3297aff4e85b5645a7b05a76833c0c5, type: 3}
 --- !u!4 &1464907955485280380 stripped
@@ -864,11 +864,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
-    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -973,6 +968,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 18320881556040783, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
