@@ -572,7 +572,7 @@ public class Player : MonoBehaviour
 
         if (attack.cooldownActive)
         {
-            if(!holding)
+            if(!holding && attack.GetCooldown() > 1)
                 Prompt.instance.RunMessage(attack.GetAbilityName() + " is on cooldown", MessageType.WARNING);
             yield break;
         }
