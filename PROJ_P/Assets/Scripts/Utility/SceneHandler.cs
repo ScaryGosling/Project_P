@@ -28,7 +28,11 @@ public class SceneHandler : MonoBehaviour
         adaptionToggles[1].SetActive(settings.UseExtraShopTime);
         adaptionToggles[2].SetActive(settings.UseMusic);
         adaptionToggles[3].SetActive(settings.UseSFX);
+
+        if(eliasSource)
+            eliasSource.mute = !settings.UseMusic;
     }
+
 
     public void Awake()
     {
@@ -45,7 +49,9 @@ public class SceneHandler : MonoBehaviour
         if(adaptionToggles != null && adaptionToggles.Length > 0)
         {
             SetupAdaptions();
-            eliasSource.mute = !settings.UseMusic;
+
+            if(eliasSource)
+                eliasSource.mute = !settings.UseMusic;
         }
     }
 
@@ -78,11 +84,21 @@ public class SceneHandler : MonoBehaviour
         go.SetActive(!go.activeSelf);
     }
 
-    public void ToggleAllPrompts(bool toggle)
+    public void ResetAllSettings()
     {
-        settings.UseWarnings = toggle;
-        settings.UseBonus = toggle;
-        settings.UseInfo = toggle;
+        settings.UseWarnings = true;
+        settings.UseBonus = true;
+        settings.UseInfo = true;
+
+        settings.UseMusic = true;
+        settings.UseSFX = true;
+
+        settings.UseAutoRefill = false;
+        settings.UseExtraShopTime = false;
+
+        SetupPromptToggles();
+        SetupAdaptions();
+
     }
     public void ToggleWarnings() {
         settings.UseWarnings = !settings.UseWarnings;
