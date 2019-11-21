@@ -100,6 +100,22 @@ public class GameLoop : MonoBehaviour
         }
    
         setLevel = eliasPlayer.customPreset;
+        TestAlgorithm();
+    }
+    private void TestAlgorithm()
+    {
+        int expected = this.expected;
+        int maximumCapacity = this.maximumCapacity;
+        float expectedGrowth = this.expectedGrowth;
+        int wave = 0;
+        while (expected < maximumCapacity && expectedGrowth >= 1f)
+        {
+            wave++;
+            Debug.Log("Expexted: " + expected + " expectedGrowth: " + expectedGrowth + " wave: " + wave);
+            expected = (int)Mathf.FloorToInt(expected * expectedGrowth);
+            expectedGrowth -= growthDeclinePer;
+        }
+
 
     }
 
@@ -144,6 +160,8 @@ public class GameLoop : MonoBehaviour
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
 
         }
+
+        Debug.Log("Expexted: " + expected + " expectedGrowth: " + expectedGrowth);
         random = Random.Range(18, 21);
         ChangeEliasLevel(random);
         waveIndex++;
@@ -209,7 +227,6 @@ public class GameLoop : MonoBehaviour
             {
                 if (waveTimer != null)
                     StopCoroutine(waveTimer);
-                Debug.Log("Time to complete wave: " + waveTime);
                 player.GoldProp += (int)(goldPerWave / Mathf.Log(waveTime, logBase));
                 waveCompleted = true;
                 player.originalStats.movementSpeed *= playerSpeedScale;
