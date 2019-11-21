@@ -13,6 +13,8 @@ public class Settings : ScriptableObject
     public bool UseBonus { get; set; }
     public bool UseAutoRefill { get; set; }
     public bool UseExtraShopTime { get; set; }
+    public bool UseMusic { get; set; }
+    public bool UseSFX { get; set; }
 
     public KeyCode GetBind(KeyFeature feature)
     {

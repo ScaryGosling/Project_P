@@ -12,6 +12,7 @@ public class SceneHandler : MonoBehaviour
     [SerializeField] private GameObject mainMenuPrompt;
     [SerializeField] private GameObject[] promptToggles;
     [SerializeField] private GameObject[] adaptionToggles;
+    [SerializeField] private AudioSource eliasSource;
 
     public static SceneHandler instance;
 
@@ -25,6 +26,8 @@ public class SceneHandler : MonoBehaviour
     {
         adaptionToggles[0].SetActive(settings.UseAutoRefill);
         adaptionToggles[1].SetActive(settings.UseExtraShopTime);
+        adaptionToggles[2].SetActive(settings.UseMusic);
+        adaptionToggles[3].SetActive(settings.UseSFX);
     }
 
     public void Awake()
@@ -42,6 +45,7 @@ public class SceneHandler : MonoBehaviour
         if(adaptionToggles != null && adaptionToggles.Length > 0)
         {
             SetupAdaptions();
+            eliasSource.mute = !settings.UseMusic;
         }
     }
 
@@ -94,6 +98,17 @@ public class SceneHandler : MonoBehaviour
     public void ToggleAutoRefill()
     {
         settings.UseAutoRefill = !settings.UseAutoRefill;
+    }
+    public void ToggleMusic()
+    {
+        settings.UseMusic = !settings.UseMusic;
+
+        if(eliasSource)
+            eliasSource.mute = !settings.UseMusic;
+    }
+    public void ToggleSFX()
+    {
+        settings.UseSFX = !settings.UseSFX;
     }
     public void GoToScene(string scene)
     {
