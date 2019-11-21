@@ -16,9 +16,7 @@ public class HostileBaseState : State
 
     [SerializeField] protected Material material;
     //Will be moved to player, same as other unit stats. //Emil
-    [SerializeField] protected float moveSpeed;
     //This will be removed soon. Dumb decision based on the fact that I wanted all enemies to be states, using a singular prefab. Will be removed. //Emil
-    [SerializeField] protected Vector3 scale;
     [SerializeField] protected float staggerCD = 0.5f;
     //Does this have to be here? Move to unit if possible. No need to set in every state. //Emil 
     [SerializeField] protected GameObject bloodParticle;
@@ -44,8 +42,7 @@ public class HostileBaseState : State
     {
         base.EnterState();
         owner.renderer.material = material;
-        owner.agent.speed = moveSpeed;
-        owner.transform.localScale = scale;
+        owner.agent.speed = owner.SpeedProp;
     }
 
 

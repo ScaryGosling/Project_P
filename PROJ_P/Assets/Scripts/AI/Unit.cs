@@ -33,6 +33,8 @@ public class Unit : StateMachine
     public bool AliveProp { get; set; }
 
     #region EnemyStats
+    [SerializeField] private float moveSpeed;
+    public float SpeedProp { get { return moveSpeed; } set { moveSpeed = value; } }
     [SerializeField] private float baseHeath = 20f;
     public float Health { get { return baseHeath; } set { baseHeath = value; } }
 
@@ -56,6 +58,11 @@ public class Unit : StateMachine
     public float AttackRangeBuildings { get { return attackRangeBuildings; } set { attackRangeBuildings = value; } }
 
     public float distanceMultiplier { get; set; } = 2;
+
+    [Header("Unit variation")]
+    [SerializeField] private float minSpeed = 0.9f, maxSpeed = 1.1f, minSize = 0.9f, maxSize = 1.1f; 
+
+
     #endregion
 
     public void PlayDamageAudio(AudioClip clip = null)
@@ -93,7 +100,7 @@ public class Unit : StateMachine
         rigidbody = gameObject.GetComponent<Rigidbody>();
         capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
         ui = GetComponentInChildren<HostileUI>();
-        ImprovePower();
+        InitalizeUnit();
         InitialHealth = Health;
         target = Player.instance.gameObject;
         baseAttackRange = GetAttackRange;
@@ -153,12 +160,23 @@ public class Unit : StateMachine
             animator.SetFloat("direction", Vector3.Dot(transform.right, agent.velocity.normalized));
         }
         CheckTarget();
+    }
 
+    private void InitalizeUnit()
+    {
+        ImprovePower();
+        Randomize();
     }
 
     public Animator GetAnimator()
     {
         return animator;
+    }
+
+    public void Randomize()
+    {
+        gameObject.transform.localScale *= Random.Range(minSize, maxSize);
+        SpeedProp *= Random.Range(minSpeed, maxSpeed);
     }
 }
 #region UnitLegacy
