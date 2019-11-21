@@ -117,10 +117,11 @@ public class PlayerAttack : Ability
 
         Player.instance.RunAttackCooldown(this);
         RunAttack();
+    }
 
-        
-
-
+    public string GetAbilityDescriptionForClassChooser()
+    {
+        return abilityDescriptionForClassChooser;
     }
 
     public void ResetSlow()

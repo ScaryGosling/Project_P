@@ -16,8 +16,5 @@ public class Ability : ScriptableObject
     {
         return abilityDescription;
     }
-    public string GetAbilityDescriptionForClassChooser()
-    {
-        return abilityDescriptionForClassChooser;
-    }
+
 }
