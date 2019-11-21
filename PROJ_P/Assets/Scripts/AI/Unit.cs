@@ -69,7 +69,7 @@ public class Unit : StateMachine
     {
         float pitch = Random.Range(0.5f, 1.5f);
 
-        if (clip != null)
+        if (clip != null && Player.instance.GetSettings().UseSFX)
         {
             damageAudioSource.pitch = pitch;
             damageAudioSource.clip = clip;
@@ -80,7 +80,7 @@ public class Unit : StateMachine
     public void PlayHurtAudio(AudioClip clip = null)
     {
         float pitch = Random.Range(0.5f, 1.5f);
-        if (clip != null)
+        if (clip != null && Player.instance.GetSettings().UseSFX)
         {
             damageAudioSource.pitch = pitch;
             hurtAudioSource.clip = clip;

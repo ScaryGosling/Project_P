@@ -52,7 +52,7 @@ public class ProjectileInstance : MonoBehaviour
 
         State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
         state.TakeDamage(damage, maginitude);
-        if (impactSound != null)
+        if (impactSound != null && Player.instance.GetSettings().UseSFX)
         {
             source.clip = impactSound;
             source.Play();

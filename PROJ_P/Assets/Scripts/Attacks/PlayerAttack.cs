@@ -109,7 +109,7 @@ public class PlayerAttack : Ability
     public virtual void Execute()
     {
 
-        if (Player.instance.Audio != null && sound != null)
+        if (Player.instance.Audio != null && sound != null && Player.instance.GetSettings().UseSFX)
         {
             Player.instance.PlayAudio(sound);
 

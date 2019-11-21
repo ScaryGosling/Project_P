@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3457,7 +3457,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448678739}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bf7b0c5d8b67d7841b4dc7365b430ad6, type: 3}
@@ -3798,6 +3798,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1574753112 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6147950296066997117, guid: cac3b176518420b4794292e03639b556,
+    type: 3}
+  m_PrefabInstance: {fileID: 6147950296271797458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1577401650
 GameObject:
   m_ObjectHideFlags: 0
@@ -4950,7 +4956,7 @@ PrefabInstance:
     - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: adaptionToggles.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
@@ -4998,6 +5004,21 @@ PrefabInstance:
       propertyPath: adaptionToggles.Array.data[1]
       value: 
       objectReference: {fileID: 390156930}
+    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
+        type: 3}
+      propertyPath: adaptionToggles.Array.data[2]
+      value: 
+      objectReference: {fileID: 728508977}
+    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
+        type: 3}
+      propertyPath: adaptionToggles.Array.data[3]
+      value: 
+      objectReference: {fileID: 728508976}
+    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
+        type: 3}
+      propertyPath: eliasSource
+      value: 
+      objectReference: {fileID: 1574753112}
     - target: {fileID: 1195681831549422378, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -33,7 +33,8 @@ public class Pickup : MonoBehaviour
     {
         if (other.CompareTag("Player") && other.gameObject.layer != 12) //12 is the layer id of "Weapon"
         {
-            source.Play();
+            if(player.GetSettings().UseSFX)
+                source.Play();
 
             if (particles != null)
                 Instantiate(particles, player.transform.position, Quaternion.identity, player.transform);

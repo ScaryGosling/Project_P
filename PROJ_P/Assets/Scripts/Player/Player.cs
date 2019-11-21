@@ -103,6 +103,9 @@ public class Player : MonoBehaviour
 
     public void PlayAudio(AudioClip clip)
     {
+        if (!settings.UseSFX)
+            return;
+
         float pitch = Random.Range(0.7f, 1.3f);
         if (clip != null && Audio != null)
         {
@@ -185,8 +188,7 @@ public class Player : MonoBehaviour
 
             if (value < 0 && hurtClip != null)
             {
-                Audio.clip = hurtClip[Random.Range(0, hurtClip.Length)];
-                Audio.Play();
+                PlayAudio(hurtClip[Random.Range(0, hurtClip.Length)]);
             }
 
             if (tempHP < 25 && !GameLoop.instance.GetShopOpen())
