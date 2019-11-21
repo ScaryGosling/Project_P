@@ -8,9 +8,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Hostile/Fanatic/FanaticChase")]
 public class FanaticChase : ChaseBase
 {
-    private float dodgeResult;
     [SerializeField] private float dodgeAwarenessDistance = 10f;
     [SerializeField] private float dodgeChance = 0.01f;
+    [SerializeField] private float dodgeCooldown = 10f;
+    [SerializeField] private int dodges = 3;
+    private float dodgeResult;
+    private int commitedDodges = 0;
+    private GameObject dodgeCooldownTimer;
     public override void EnterState()
     {
         base.EnterState();
@@ -31,7 +35,24 @@ public class FanaticChase : ChaseBase
     {
         dodgeResult = Random.Range(0f, 1f);
         if (CapsuleCast() && dodgeResult <= dodgeChance && Vector3.Distance(owner.transform.position, Player.instance.transform.position) <= dodgeAwarenessDistance)
-            owner.ChangeState<FanaticDodge>();
+        {
+            if (commitedDodges < dodges)
+            {
+                commitedDodges++;
+                owner.ChangeState<FanaticDodge>();
+            }
+            else if (!dodgeCooldownTimer)
+            {
+                dodgeCooldownTimer = new GameObject("Dodge Timer");
+                dodgeCooldownTimer.AddComponent<Timer>().RunCountDown(dodgeCooldown, DodgeReactivated, Timer.TimerType.DELAY);
+            }
+
+        }
+    }
+
+    private void DodgeReactivated()
+    {
+        commitedDodges = 0;
     }
 
     protected override void Die()
@@ -95,14 +116,14 @@ public class FanaticChase : ChaseBase
 }
 
 #region ChaseLegacy
-    //protected override void OperateHesitation()
-    //{
-    //    base.OperateHesitation();
-    //    if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
-    //    {
-    //        owner.ChangeState<FanaticHesitate>();
-    //    }
-    //}
+//protected override void OperateHesitation()
+//{
+//    base.OperateHesitation();
+//    if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
+//    {
+//        owner.ChangeState<FanaticHesitate>();
+//    }
+//}
 // lightAngle = lightField.spotAngle;
 //ChaseEvent chaseEvent = new ChaseEvent();
 //chaseEvent.gameObject = owner.gameObject;
