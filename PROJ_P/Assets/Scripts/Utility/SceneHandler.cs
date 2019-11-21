@@ -8,7 +8,7 @@ public class SceneHandler : MonoBehaviour
     public string mainMenu;
     public static SceneHandler sceneHandler;
     public Settings settings;
-    [SerializeField] private GameObject shopWindow;
+    [SerializeField] private GameObject shopWindow, optionsWindow;
     [SerializeField] private GameObject mainMenuPrompt;
     [SerializeField] private GameObject[] promptToggles;
     [SerializeField] private GameObject[] adaptionToggles;
@@ -61,7 +61,11 @@ public class SceneHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (shopWindow && shopWindow.activeSelf)
+            if(optionsWindow && optionsWindow.activeSelf)
+            {
+                shopWindow.SetActive(false);
+            }
+            else if (shopWindow && shopWindow.activeSelf)
             { 
                 shopWindow.SetActive(false);
             }
