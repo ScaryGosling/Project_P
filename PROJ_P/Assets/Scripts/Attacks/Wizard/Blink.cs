@@ -8,11 +8,27 @@ public class Blink : PlayerAttack
     private Transform player;
 
     [Header("Ability Specific")]
-    [SerializeField] private float range;
-    [SerializeField] private float speedBoost;
+    private float range;
+    private float speedBoost;
     [SerializeField] private float speedBoostDuration;
     private float safeDistance = 1.5f;
+    [SerializeField] private List<BlinkUpgrades> blinkUpgrades = new List<BlinkUpgrades>();
 
+    [System.Serializable]
+    private struct BlinkUpgrades
+    {
+        public float range;
+        public float speedboost;
+        public float cooldown;
+    }
+
+    public override void UpgradeAttack()
+    {
+        base.UpgradeAttack();
+        range = blinkUpgrades[CurrentLevel].range;
+        speedBoost = blinkUpgrades[CurrentLevel].speedboost;
+        cooldown = blinkUpgrades[CurrentLevel].cooldown;
+    }
     public override void RunAttack()
     {
         base.RunAttack();

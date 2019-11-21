@@ -15,6 +15,7 @@ MonoBehaviour:
   abilityName: Juggernaut
   abilityDescription: 'Become impervious to damage for 5 seconds! Cooldown: 15 sec.
     Ragecost: 0.'
+  abilityDescriptionForClassChooser: Become impervious to damage for 5 seconds!
   castCost: 0
   castTime: 0
   magnitude: 0
@@ -33,4 +34,5 @@ MonoBehaviour:
   speedMultiplier: 0
   shieldPrefab: {fileID: 4629539250607325184, guid: eec9fa5a1f1b6d740ba7b1cccf72e337,
     type: 3}
-  duration: 5
+  durationPerLevel:
+  - 5

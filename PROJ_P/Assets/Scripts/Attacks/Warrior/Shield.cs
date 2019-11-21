@@ -6,8 +6,9 @@ using UnityEngine;
 public class Shield : PlayerAttack
 {
     [SerializeField] private GameObject shieldPrefab;
-    [SerializeField] private float duration;
+    private float duration;
     private GameObject shield;
+    [SerializeField] private List<float> durationPerLevel = new List<float>();
 
     public override void RunAttack()
     {
@@ -17,7 +18,11 @@ public class Shield : PlayerAttack
         Player.instance.activeStats.resistanceMultiplier = 0;
         shield.AddComponent<Timer>().RunCountDown(duration, RemoveShield, Timer.TimerType.DELAY);
     }
-
+    public override void UpgradeAttack()
+    {
+        base.UpgradeAttack();
+        duration = durationPerLevel[CurrentLevel];
+    }
 
     public void RemoveShield()
     {

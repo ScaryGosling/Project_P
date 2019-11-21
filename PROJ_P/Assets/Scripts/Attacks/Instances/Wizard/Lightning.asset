@@ -15,6 +15,7 @@ MonoBehaviour:
   abilityName: Lightning
   abilityDescription: 'Shoot a lightning bolt that chains to enemies! Cooldown: 5
     sec. Manacost: 5.'
+  abilityDescriptionForClassChooser: Shoot a lightning bolt that chains to enemies!
   castCost: 5
   castTime: 0
   magnitude: 60
@@ -44,10 +45,16 @@ MonoBehaviour:
   projectile: {fileID: 6750013541312212612, guid: 6072bc8c59af84b758be9f6c01ebf2a8,
     type: 3}
   force: 1500
-  chainRadius: 5
   chainEffect: 50
   lineWidth: 0.2
   emissionColor: {r: 0.48627448, g: 0.766786, b: 1, a: 0}
   intensity: 10
   killTime: 1
   material: {fileID: 2100000, guid: 120b0518cfff4404fbc534469deef34b, type: 2}
+  radiusPerLevel:
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10

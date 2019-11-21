@@ -7,10 +7,10 @@ using UnityEngine.AI;
 public class GroundStomp : PlayerAttack
 {
     [Header("Ability Specific")]
-    [SerializeField] private float attackRadius;
+    private float attackRadius;
     [SerializeField] private float stompForce;
     [SerializeField] private float dazeTime;
-
+    [SerializeField] private List<float> radiusPerLevel = new List<float>();
     private GameObject addedParticle;
 
     public override void RunAttack()
@@ -40,6 +40,11 @@ public class GroundStomp : PlayerAttack
         timer.RunCountDown(dazeTime, ResetEnemies, Timer.TimerType.DELAY);
     }
 
+    public override void UpgradeAttack()
+    {
+        base.UpgradeAttack();
+        attackRadius = radiusPerLevel[CurrentLevel];
+    }
 
     public void ResetEnemies()
     {

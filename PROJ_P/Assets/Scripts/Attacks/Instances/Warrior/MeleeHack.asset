@@ -15,6 +15,8 @@ MonoBehaviour:
   abilityName: Basic Attack
   abilityDescription: Swing your weapon! Takes one durability every time you hit so
     make sure to use repair kits! Click once to buy upgrade!
+  abilityDescriptionForClassChooser: Swing your weapon! Takes one durability every
+    time you hit so make sure to use repair kits!
   castCost: 0
   castTime: 0
   magnitude: 61

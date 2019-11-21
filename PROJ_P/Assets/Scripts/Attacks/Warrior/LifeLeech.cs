@@ -11,10 +11,10 @@ public class LifeLeech : PlayerAttack
     [SerializeField] private AnimationClip backSlash;
     [SerializeField] private int iterations = 20;
     [SerializeField] private float iterationTime = 0.3f;
-    [SerializeField] private float regenerationValue = 1;
+    private float regenerationValue = 1;
     private Animation animation;
     private Sword sword;
-
+    [SerializeField] private List<float> regenerationPerLevel = new List<float>();
 
     public override void OnEnable()
     {
@@ -23,6 +23,11 @@ public class LifeLeech : PlayerAttack
     public override void Execute()
     {
         base.Execute();
+    }
+    public override void UpgradeAttack()
+    {
+        base.UpgradeAttack();
+        regenerationValue = regenerationPerLevel[CurrentLevel];
     }
 
     public override void RunAttack()

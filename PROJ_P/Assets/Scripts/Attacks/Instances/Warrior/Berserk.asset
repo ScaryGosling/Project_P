@@ -15,6 +15,8 @@ MonoBehaviour:
   abilityName: Berserk
   abilityDescription: 'Fly into a frenzy, gaining full rage. defense and attackspeed
     bonuses! Cooldown: 1 min. Ragecost: 0.'
+  abilityDescriptionForClassChooser: Fly into a frenzy, gaining full rage. defense
+    and attackspeed bonuses!
   castCost: 0
   castTime: 0
   magnitude: 0
@@ -42,6 +44,17 @@ MonoBehaviour:
   slowTime: 0
   speedMultiplier: 0
   resistance: 0.1
-  attackSpeed: 1.5
   movementSpeed: 1.5
-  duration: 10
+  berserkUpgrades:
+  - duration: 10
+    attackSpeed: 1.5
+  - duration: 12
+    attackSpeed: 1.6
+  - duration: 14
+    attackSpeed: 1.7
+  - duration: 16
+    attackSpeed: 1.8
+  - duration: 18
+    attackSpeed: 1.9
+  - duration: 20
+    attackSpeed: 2

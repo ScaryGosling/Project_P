@@ -10,7 +10,7 @@ public class ChainLightningProjectile : PlayerAttack
     [SerializeField] private float force;
 
     [Header("Lightning Elements")]
-    [SerializeField] private float chainRadius;
+    private float chainRadius;
     [Tooltip("Amount of damage caused to chained enemies in percent. 100% means full damage.")]
     [SerializeField] [Range(0,100)] private float chainEffect = 20;
     [SerializeField] private float lineWidth;
@@ -18,6 +18,7 @@ public class ChainLightningProjectile : PlayerAttack
     [SerializeField] private float intensity;
     [SerializeField] private float killTime;
     [SerializeField] private Material material;
+    [SerializeField] private List<float> radiusPerLevel = new List<float>();
 
 
     public override void RunAttack()
@@ -39,6 +40,10 @@ public class ChainLightningProjectile : PlayerAttack
 
         ball.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(Vector3.forward) * force);
         ball.GetComponent<ProjectileInstance>().SetPower(damage, magnitude);
-
+    }
+    public override void UpgradeAttack()
+    {
+        base.UpgradeAttack();
+        chainRadius = radiusPerLevel[CurrentLevel];
     }
 }

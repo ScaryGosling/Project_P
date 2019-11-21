@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf53546405eb4cfbbc3aa53d48f45dc, type: 3}
   m_Name: GroundStomp
   m_EditorClassIdentifier: 
-  abilityName: Ground Stomp
+  abilityName: 10
   abilityDescription: 'Stomp the ground, dealing damage and stunning enemies around
     you! Cooldown: 5 sec. Ragecost: 10. '
+  abilityDescriptionForClassChooser: Stomp the ground, dealing damage and stunning
+    enemies around you!
   castCost: 30
   castTime: 0
   magnitude: 100
@@ -41,6 +43,12 @@ MonoBehaviour:
   abilityCat: 1
   slowTime: 0
   speedMultiplier: 0
-  attackRadius: 5
   stompForce: 1000
   dazeTime: 3
+  radiusPerLevel:
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10

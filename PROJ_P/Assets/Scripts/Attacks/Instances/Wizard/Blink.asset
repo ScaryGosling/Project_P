@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Blink
   m_EditorClassIdentifier: 
   abilityName: Blink
-  abilityDescription: 'Teleport a small distance, gaining a movement speed bost! Cooldown:
-    20 sec. Manacost: 5.'
+  abilityDescription: "14\t\t\t\t15"
+  abilityDescriptionForClassChooser: Teleport a small distance, gaining a movement
+    speed bost!
   castCost: 5
   castTime: 0
   magnitude: 0
@@ -41,6 +42,23 @@ MonoBehaviour:
   abilityCat: 3
   slowTime: 0
   speedMultiplier: 0
-  range: 15
-  speedBoost: 1.3
   speedBoostDuration: 5
+  blinkUpgrades:
+  - range: 10
+    speedboost: 1.2
+    cooldown: 20
+  - range: 11
+    speedboost: 1.4
+    cooldown: 19
+  - range: 12
+    speedboost: 1.6
+    cooldown: 18
+  - range: 13
+    speedboost: 1.8
+    cooldown: 17
+  - range: 14
+    speedboost: 2
+    cooldown: 16
+  - range: 15
+    speedboost: 2.2
+    cooldown: 15

@@ -44,6 +44,13 @@ public class PlayerAttack : Ability
     public float GetSpeedMultiplier() { return speedMultiplier; }
     public float GetSlowTime() { return slowTime; }
 
+    [System.Serializable]
+    protected struct UpgradeCost
+    {
+        public int upgradeCost;
+        public int newDamage;
+    }
+
     public virtual void OnEnable()
     {
         AbilityCatProp = abilityCat;
@@ -62,12 +69,6 @@ public class PlayerAttack : Ability
         catch (Exception e) { }
     }
 
-    [System.Serializable]
-    protected struct UpgradeCost
-    {
-        public int upgradeCost;
-        public int newDamage;
-    }
 
     public bool IsLocked()
     {
@@ -86,7 +87,7 @@ public class PlayerAttack : Ability
         return upgradeCosts[level + 1].upgradeCost;
     }
 
-    public void UpgradeAttack()
+    public virtual void UpgradeAttack()
     {
         CurrentLevel++;
         damage = upgradeCosts[CurrentLevel].newDamage;
@@ -94,7 +95,6 @@ public class PlayerAttack : Ability
         {
             lockedAbility = false;
         }
-
     }
     public void ResetLevel()
     {
@@ -115,8 +115,8 @@ public class PlayerAttack : Ability
 
         }
 
-        Player.instance.RunAttackCooldown(this);
         RunAttack();
+        Player.instance.RunAttackCooldown(this);
     }
 
     public string GetAbilityDescriptionForClassChooser()

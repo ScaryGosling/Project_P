@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Basic Attack
   abilityDescription: Shot an arcane bolt! Click once to buy upgrade!
+  abilityDescriptionForClassChooser: Shot an arcane bolt!
   castCost: 0
   castTime: 0
   magnitude: 10

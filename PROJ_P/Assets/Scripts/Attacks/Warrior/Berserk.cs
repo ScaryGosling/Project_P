@@ -10,9 +10,17 @@ public class Berserk : PlayerAttack
 
     [Header("Ability Specific")]
     [SerializeField] private float resistance;
-    [SerializeField] private float attackSpeed;
+    private float attackSpeed;
     [SerializeField] private float movementSpeed;
-    [SerializeField] private float duration;
+    private float duration;
+    [SerializeField] private List<BerserkUpgrades> berserkUpgrades = new List<BerserkUpgrades>();
+
+    [System.Serializable]
+    private struct BerserkUpgrades
+    {
+        public float duration;
+        public float attackSpeed;
+    }
 
     public override void OnEquip()
     {
@@ -24,7 +32,12 @@ public class Berserk : PlayerAttack
     {
         base.Execute();
     }
-
+    public override void UpgradeAttack()
+    {
+        base.UpgradeAttack();
+        duration = berserkUpgrades[CurrentLevel].duration;
+        attackSpeed = berserkUpgrades[CurrentLevel].attackSpeed;
+    }
     public override void RunAttack()
     {
         base.RunAttack();

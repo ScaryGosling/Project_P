@@ -15,6 +15,8 @@ MonoBehaviour:
   abilityName: Ice Nova
   abilityDescription: 'Unleash a freezing nova around you! Stop enemies dead in their
     tracks. Cooldown: 15 sec. Manacost: 5.'
+  abilityDescriptionForClassChooser: Unleash a freezing nova around you! Stop enemies
+    dead in their tracks.
   castCost: 5
   castTime: 0
   magnitude: 0
@@ -32,6 +34,8 @@ MonoBehaviour:
     newDamage: 8
   - upgradeCost: 800
     newDamage: 9
+  - upgradeCost: 800
+    newDamage: 9
   lockedAbility: 1
   particles: {fileID: 121928, guid: 313e5c5f850e5be429d4a6787a725f73, type: 3}
   sound: {fileID: 8300000, guid: bec29d40e937ab545af590f7e9755e67, type: 3}
@@ -41,5 +45,11 @@ MonoBehaviour:
   speedMultiplier: 0
   radius: 5
   height: 2
-  duration: 6
   material: {fileID: 2100000, guid: d7bc9e2d44d604d32afd94be043ef9be, type: 2}
+  durationPerLevel:
+  - 3
+  - 3.5
+  - 4
+  - 4.5
+  - 5
+  - 6

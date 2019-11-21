@@ -12,6 +12,7 @@ public class Tackle : PlayerAttack
     private float startSpeed;
     private float startAcceleration;
     private NavMeshAgent player;
+    [SerializeField] private List<float> cooldownPerTackleLevel = new List<float>();
 
     public override void RunAttack()
     {
@@ -37,11 +38,14 @@ public class Tackle : PlayerAttack
 
         GameObject timer = new GameObject("Timer");
         timer.AddComponent<Timer>().RunCountDown(1, ResetStats, Timer.TimerType.DELAY);
-        
-
+       
 
     }
-
+    public override void UpgradeAttack()
+    {
+        base.UpgradeAttack();
+        cooldown = cooldownPerTackleLevel[CurrentLevel];
+    }
 
     public void DazeEnemies(GameObject[] enemies) {
 

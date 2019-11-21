@@ -9,9 +9,16 @@ public class IceNova : PlayerAttack
     [Header("Ability Specific")]
     [SerializeField] private float radius;
     [SerializeField] private float height;
-    [SerializeField] private float duration;
+    private float duration;
     [SerializeField] private Material material;
+    [SerializeField] private List<float> durationPerLevel = new List<float>();
 
+
+    public override void UpgradeAttack()
+    {
+        base.UpgradeAttack();
+        duration = durationPerLevel[CurrentLevel];
+    }
     public override void RunAttack()
     {
         base.RunAttack();

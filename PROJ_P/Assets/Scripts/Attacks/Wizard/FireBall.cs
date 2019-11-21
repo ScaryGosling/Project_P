@@ -9,9 +9,9 @@ public class FireBall : PlayerAttack
     [Header("Ability Specific")]
     [SerializeField] private GameObject fireball;
     [SerializeField] private float spawnHeight;
-    [SerializeField] private float explosionRadius;
+    private float explosionRadius;
     private Transform spawnPoint;
-
+    [SerializeField] private List<float> radiusPerLevel = new List<float>();
 
     public override void RunAttack()
     {
@@ -32,7 +32,11 @@ public class FireBall : PlayerAttack
     
         
     }
-
+    public override void UpgradeAttack()
+    {
+        base.UpgradeAttack();
+        explosionRadius = radiusPerLevel[CurrentLevel];
+    }
     public override void OnEquip()
     {
     }
