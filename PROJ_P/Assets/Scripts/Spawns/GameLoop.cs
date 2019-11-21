@@ -319,6 +319,10 @@ public class GameLoop : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Positions shopkeeper at a random spawner in the vicinity of the player.
+    /// </summary>
+    /// <returns></returns>
     private Vector3 NearbyRandomPosition()
     {
         spawnAtPosition = Vector3.zero;
@@ -329,8 +333,6 @@ public class GameLoop : MonoBehaviour
             if (absoluteSpawner.GetComponent<SpawnArea>().isActive)
                 spawnAtPosition = absoluteSpawner.transform.position;
         }
-        
-        Debug.Log(absoluteSpawner + " " + spawnAtPosition);
         return spawnAtPosition;
     }
     private void ChangeEliasLevel(int level)
