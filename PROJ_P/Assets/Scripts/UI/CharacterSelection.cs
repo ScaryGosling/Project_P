@@ -26,6 +26,7 @@ public class CharacterSelection : MonoBehaviour
 
     public void Start()
     {
+        Cursor.visible = true;
         instance = this;
 
         foreach(AttackSet attackSet in attackSets)
