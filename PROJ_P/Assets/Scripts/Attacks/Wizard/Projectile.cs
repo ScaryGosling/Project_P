@@ -36,8 +36,6 @@ public class Projectile : PlayerAttack
 
         if (Physics.Raycast(ray, out hit, 100))
         {
-            Debug.Log(hit.point + hit.collider.name);
-
             if(Player.instance.GetSettings().UseAimAssist)
                 direction = GetDirection(Physics.OverlapSphere(hit.point, Player.instance.GetSettings().GetAimAssistRange()));
 
