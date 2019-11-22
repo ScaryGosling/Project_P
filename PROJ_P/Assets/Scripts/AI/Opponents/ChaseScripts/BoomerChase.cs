@@ -44,7 +44,7 @@ public class BoomerChase : ChaseBase
 
     private void JumpDistance()
     {
-        if (Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) > jumpMinDistance && Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) < jumpMaxDistance)
+        if (Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) > jumpMinDistance && Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) < jumpMaxDistance && owner.target.CompareTag("Player"))
         {
             if (!jumpCOoldownTimer && canJump)
             {

@@ -43,10 +43,8 @@ public class JumpImpact : AbilityBase
     {
         base.ToDo();
         if (jumping)
-        {
             Jump();
-            CheckForDamage();
-        }
+        
     }
 
     protected override void Die()
@@ -91,9 +89,9 @@ public class JumpImpact : AbilityBase
 
         if (distance <= 3f)
         {
+            mesh.transform.position = Vector3.Lerp(mesh.transform.position, new Vector3(mesh.transform.position.x, owner.capsuleCollider.radius, mesh.transform.position.z), Time.deltaTime * jumpSmoother * 2);
             //warningArea.GetComponent<BoomerLanding>().DestroyZone();
             warningArea.GetComponent<BoomerLanding>().EngageArea();
-            mesh.transform.position = Vector3.Lerp(mesh.transform.position, new Vector3(mesh.transform.position.x, owner.capsuleCollider.radius, mesh.transform.position.z), Time.deltaTime * jumpSmoother);
             owner.ChangeState<BoomerChase>();
         }
     }
