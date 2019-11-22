@@ -131,6 +131,9 @@ public class SceneHandler : MonoBehaviour
     public void ToggleSFX()
     {
         settings.UseSFX = !settings.UseSFX;
+
+        if (Player.instance != null)
+            Player.instance.PlayHeartBeat();
     }
 
     public void ToggleAimAssist()

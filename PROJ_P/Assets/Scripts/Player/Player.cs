@@ -191,7 +191,7 @@ public class Player : MonoBehaviour
                 PlayAudio(hurtClip[Random.Range(0, hurtClip.Length)]);
             }
 
-            if (tempHP < 25 && !GameLoop.instance.GetShopOpen())
+            if (tempHP < 25 && !GameLoop.instance.GetShopOpen() && settings.UseSFX)
             {
                 heartbeatSource.clip = heartbeatClip;
                 heartbeatSource.Play();
@@ -202,10 +202,23 @@ public class Player : MonoBehaviour
             }
 
     
-
-            
         }
     }
+
+    public void PlayHeartBeat()
+    {
+        if (settings.UseSFX)
+        {
+            heartbeatSource.clip = heartbeatClip;
+            heartbeatSource.Play();
+        }
+        else
+        {
+            heartbeatSource.Stop();
+        }
+
+    }
+
     public int GoldProp
     {
         get { return gold; }
