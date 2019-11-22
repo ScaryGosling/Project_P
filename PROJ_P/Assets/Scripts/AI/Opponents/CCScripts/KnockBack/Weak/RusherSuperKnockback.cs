@@ -62,8 +62,11 @@ public class RusherSuperKnockback : CCBase
 
     protected void EndKnockBack()
     {
-        ResetOrientation();
-        owner.ChangeState<RusherChase>();
+        if (owner.Health > 0)
+        {
+            ResetOrientation();
+            owner.ChangeState<RusherChase>();
+        }
     }
 
     protected void ResetOrientation()

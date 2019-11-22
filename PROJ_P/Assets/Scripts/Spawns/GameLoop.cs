@@ -105,7 +105,7 @@ public class GameLoop : MonoBehaviour
         setLevel = eliasPlayer.customPreset;
         if (debugMode)
         {
-            TestAlgorithm();
+           // TestAlgorithm();
         }
     }
     private void TestAlgorithm()
@@ -157,26 +157,33 @@ public class GameLoop : MonoBehaviour
         waveCompleted = false;
         spawned = 0;
         unitsKilled = 0;
-        if (expected < maximumCapacity && expectedGrowth >= 1f)
+        //if (expected < maximumCapacity && expectedGrowth >= 1f)
+        //{
+        //    expected = (int)Mathf.FloorToInt(expected * expectedGrowth);
+        //    expectedGrowth -= growthDeclinePer;
+        //Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
+
+        //}        
+        waveIndex++;
+        if (waveIndex <= 30)
         {
-            expected = (int)Mathf.FloorToInt(expected * expectedGrowth);
-            expectedGrowth -= growthDeclinePer;
-        Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
-
+           expected = Mathf.RoundToInt(5.396047527f * Mathf.Pow(10, -6) * Mathf.Pow(waveIndex, 6) - 4.521048495f * Mathf.Pow(10, -4) * Mathf.Pow(waveIndex, 5) + 1.467687904f* Mathf.Pow(10, -2) * Mathf.Pow(waveIndex, 4) - 2.311597764f * Mathf.Pow(10, -1) * Mathf.Pow(waveIndex, 3) + 1.848912098f * Mathf.Pow(waveIndex, 2) - 2.135095198f * waveIndex + 5.503108386f);
         }
-
-        Debug.Log("Expexted: " + expected + " expectedGrowth: " + expectedGrowth);
+        else
+        {
+            expected = maximumCapacity;
+        }
+        Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
+        //Debug.Log("Expexted: " + expected + " expectedGrowth: " + expectedGrowth);
         random = Random.Range(18, 21);
         ChangeEliasLevel(random);
-        waveIndex++;
+
         bonusHealth += healthPerLevel;
         bonusDmg += damagePerLevel;
         waveTimer = StartCoroutine(WaveTimer());
         player.originalStats.movementSpeed /= playerSpeedScale;
         player.ResetSpeed();
         Prompt.instance.RunMessage("Speed has been reset", MessageType.INFO);
-        Debug.Log("Units to Spawn: " + expected + " " + "Next wave growth" + expectedGrowth);
-
     }
 
     /// <summary>

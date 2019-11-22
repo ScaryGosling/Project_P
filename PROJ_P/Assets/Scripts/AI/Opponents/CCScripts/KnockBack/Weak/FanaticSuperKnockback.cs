@@ -63,8 +63,12 @@ public class FanaticSuperKnockback : CCBase
 
     protected void EndKnockBack()
     {
-        ResetOrientation();
-        owner.ChangeState<FanaticChase>();
+        if (owner.Health >0)
+        {
+            ResetOrientation();
+            owner.ChangeState<FanaticChase>();
+        }
+
     }
 
     protected void ResetOrientation()

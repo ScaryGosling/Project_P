@@ -38,7 +38,7 @@ public class DeathBase : HostileBaseState
         if (owner.agent.enabled)
         {
             owner.agent.isStopped = true;
-            owner.agent.enabled = false;
+            //owner.agent.enabled = false;
         }
         owner.capsuleCollider.enabled = false;
         Destroy(owner.gameObject, corpseTimer);
