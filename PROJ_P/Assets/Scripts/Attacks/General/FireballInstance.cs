@@ -31,7 +31,7 @@ public class FireballInstance : MonoBehaviour
         GetComponent<Collider>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
 
-        if(impactSound != null)
+        if(impactSound != null && Player.instance.GetSettings().UseSFX)
             source.Play();
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
