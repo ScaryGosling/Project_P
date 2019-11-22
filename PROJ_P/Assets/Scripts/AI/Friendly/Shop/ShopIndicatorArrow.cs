@@ -21,7 +21,7 @@ public class ShopIndicatorArrow : MonoBehaviour
     }
 
 
-    void Update()
+    void LateUpdate()
     {
 
         if (goal != null && goal.gameObject.activeInHierarchy)

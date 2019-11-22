@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthCanvas : MonoBehaviour
 {
-    void Update()
+    void LateUpdate()
     {
         gameObject.transform.eulerAngles = Vector3.zero;
     }

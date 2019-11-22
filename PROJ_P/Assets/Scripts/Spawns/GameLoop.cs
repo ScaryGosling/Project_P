@@ -103,7 +103,10 @@ public class GameLoop : MonoBehaviour
         }
    
         setLevel = eliasPlayer.customPreset;
-        TestAlgorithm();
+        if (debugMode)
+        {
+            TestAlgorithm();
+        }
     }
     private void TestAlgorithm()
     {
@@ -118,8 +121,6 @@ public class GameLoop : MonoBehaviour
             expected = (int)Mathf.FloorToInt(expected * expectedGrowth);
             expectedGrowth -= growthDeclinePer;
         }
-
-
     }
 
     /// <summary>
