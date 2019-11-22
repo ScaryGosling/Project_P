@@ -12,11 +12,10 @@ public class Freeze : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && Timer >0)
         {
             other.GetComponent<NavMeshAgent>().isStopped = true;
             stoppedAgents.Add(other.GetComponent<NavMeshAgent>());
-
         }
     }
 
@@ -28,7 +27,6 @@ public class Freeze : MonoBehaviour
 
             yield return null;
             Timer -= Time.deltaTime;
-
         }
 
 
