@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Settings : ScriptableObject
 {
     [SerializeField] private Keybind[] keybinds;
+    [SerializeField] private float aimAssistRange = 10;
     public PlayerClass playerClass {get; set;}
     public bool UseWarnings { get; set; }
     public bool UseInfo { get; set; }
@@ -15,6 +16,9 @@ public class Settings : ScriptableObject
     public bool UseExtraShopTime { get; set; }
     public bool UseMusic { get; set; }
     public bool UseSFX { get; set; }
+    public bool UseAimAssist { get; set; }
+
+    public float GetAimAssistRange() { return aimAssistRange; }
 
     public KeyCode GetBind(KeyFeature feature)
     {

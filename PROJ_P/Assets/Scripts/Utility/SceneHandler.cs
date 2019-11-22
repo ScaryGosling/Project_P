@@ -28,6 +28,7 @@ public class SceneHandler : MonoBehaviour
         adaptionToggles[1].SetActive(settings.UseExtraShopTime);
         adaptionToggles[2].SetActive(settings.UseMusic);
         adaptionToggles[3].SetActive(settings.UseSFX);
+        adaptionToggles[4].SetActive(settings.UseAimAssist);
 
         if(eliasSource)
             eliasSource.mute = !settings.UseMusic;
@@ -99,6 +100,7 @@ public class SceneHandler : MonoBehaviour
 
         settings.UseAutoRefill = false;
         settings.UseExtraShopTime = false;
+        settings.UseAimAssist = false;
 
         SetupPromptToggles();
         SetupAdaptions();
@@ -129,6 +131,11 @@ public class SceneHandler : MonoBehaviour
     public void ToggleSFX()
     {
         settings.UseSFX = !settings.UseSFX;
+    }
+
+    public void ToggleAimAssist()
+    {
+        settings.UseAimAssist = !settings.UseAimAssist;
     }
     public void GoToScene(string scene)
     {
