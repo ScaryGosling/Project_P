@@ -61,15 +61,22 @@ MonoBehaviour:
   showRemaining: 1
   debugMode: 0
   playerSpeedScale: 1.5
-  healthPerLevel: 5
+  healthPerLevel: 3
   damagePerLevel: 0
-  maximumCapacity: 100
-  expectedGrowth: 1.3
+  maximumCapacity: 200
+  expectedGrowth: 1.5
   growthDeclinePer: 2
-  expected: 1
+  expected: 5
   timeAfterShopkeeperLeavesForEnemiesToSpawn: 5
   spawnTime: 1
   spawns:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -88,6 +95,7 @@ MonoBehaviour:
     type: 3}
   goldPerKill: 5
   goldPerWave: 50
+  logBase: 10
   ItemAmount: 7
   chanceOfDrop: 0.15
   eliasPlayer: {fileID: 0}
@@ -98,7 +106,7 @@ MonoBehaviour:
     jumpToBar: 0
     suggestedMaxTimeMs: 0
     transitionPresetName: 
-    themeName: 
+    themeName: Objective
     trackGroupName: 
     stingerRequiredTheme: 
     stingerName: 
@@ -111,7 +119,7 @@ MonoBehaviour:
     jumpToBar: 0
     suggestedMaxTimeMs: 0
     transitionPresetName: 
-    themeName: 
+    themeName: Objective
     trackName: 
     stingerRequiredTheme: 
     stingerName: 
