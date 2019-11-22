@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26280823, g: 0.18551189, b: 0.17091727, a: 1}
+  m_IndirectSpecularColor: {r: 0.26282582, g: 0.18556999, b: 0.17100137, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3471,12 +3471,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1351454456}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1361226334 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4121793112645645445, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079045317085329782}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1377977097 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1404957986057145984, guid: 51182b86dec3ef145a4582f430c38f4d,
@@ -4076,7 +4070,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-87372
+  m_Name: pb_Mesh-191144
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4257,13 +4251,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1792617227 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8459499236878920518, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079045317085329782}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1817949527
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-94256
+  m_Name: pb_Mesh-196024
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4824,7 +4824,7 @@ PrefabInstance:
         type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 1361226334}
+      objectReference: {fileID: 1792617227}
     - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
       propertyPath: castBar
