@@ -33,7 +33,7 @@ public class Explosion : DangerousZone
         targetQuaternion = Quaternion.Euler(-90, 180, 0);
         explosionRadius = Mathf.Clamp(explosionRadius, 1f, 6f);
         rotating = false;
-        EngageArea();
+
     }
 
     private void Update()
@@ -55,7 +55,6 @@ public class Explosion : DangerousZone
         }
         else
         {
-            Debug.Log("FinishedRotation");
             base.EngageArea();
             //Set Animation Here
         }
