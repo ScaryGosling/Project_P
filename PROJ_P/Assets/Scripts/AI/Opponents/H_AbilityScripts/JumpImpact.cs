@@ -29,14 +29,11 @@ public class JumpImpact : AbilityBase
     {
         base.EnterState();
         owner.agent.ResetPath();
-        //Try changing to stopped
 
-        //Instantiate(graphicalPrefab, playerPositionalDelay, Quaternion.identity);
         //Don't forget to check so target is player 
         playerPositionalDelay = owner.target.transform.position;
         startDistance = Vector3.Distance(owner.agent.transform.position, playerPositionalDelay);
         mesh = owner.agent.transform.GetChild(4);
-        Debug.Log(mesh);
     }
 
     public override void ToDo()
@@ -61,6 +58,7 @@ public class JumpImpact : AbilityBase
         owner.Health -= damage;
         owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
     }
+
 
     protected override void ExecuteAbility()
     {

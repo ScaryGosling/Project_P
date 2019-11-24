@@ -22,8 +22,9 @@ public class AbilityBase: AliveBase
         base.ToDo();
         ExecuteAbility();
     }
-    
+
     protected override void CheckForDamage() { }
+
 
     /// <summary>
     /// Decides which type of ability should be used in given situation.

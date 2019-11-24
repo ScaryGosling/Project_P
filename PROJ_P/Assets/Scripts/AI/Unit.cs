@@ -32,6 +32,8 @@ public class Unit : StateMachine
     public ProtectionQuest ProtectionQuestProp { get; private set; }
     public bool AliveProp { get; set; }
 
+
+
     #region EnemyStats
     [SerializeField] private float moveSpeed;
     public float SpeedProp { get { return moveSpeed; } set { moveSpeed = value; } }

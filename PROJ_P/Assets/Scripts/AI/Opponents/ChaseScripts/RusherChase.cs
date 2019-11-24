@@ -8,6 +8,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Hostile/Rusher/RusherChase")]
 public class RusherChase : ChaseBase
 {
+
+    private GameObject rushCooldown;
+    private float cooldown = 10f, rushMinDistance = 5f, rushMaxDistance = 10f;
+    private bool canRush = true;
     public override void EnterState()
     {
         base.EnterState();
@@ -20,7 +24,30 @@ public class RusherChase : ChaseBase
         {
             Chase();
             CheckForDamage();
+            EngageRush();
+
         }
+    }
+
+    private void EngageRush()
+    {
+        if (Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) < rushMaxDistance && owner.target.CompareTag("Player"))
+        {
+            if (!rushCooldown && canRush)
+            {
+                rushCooldown = Instantiate(new GameObject("RushCDTimer"));
+                rushCooldown.AddComponent<Timer>().RunCountDown(cooldown, EnableAbility, Timer.TimerType.DELAY);
+
+                Debug.Log("In Rusher Chase!");
+                canRush = false;
+                owner.ChangeState<RusherRush>();
+            }
+        }
+    }
+
+    private void EnableAbility()
+    {
+        canRush = true;
     }
 
     protected override void Die()
@@ -88,12 +115,12 @@ public class RusherChase : ChaseBase
 //chaseEvent.audioSpeaker = audioSpeaker;
 
 //EventSystem.Current.FireEvent(chaseEvent);
-    //protected override void OperateHesitation()
-    //{
-    //    base.OperateHesitation();
-    //    if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
-    //    {
-    //        owner.ChangeState<FanaticHesitate>();
-    //    }
-    //}
+//protected override void OperateHesitation()
+//{
+//    base.OperateHesitation();
+//    if (Vector3.Distance(owner.gameObject.transform.position, owner.target.gameObject.transform.position) <= hesitationDistance)
+//    {
+//        owner.ChangeState<FanaticHesitate>();
+//    }
+//}
 #endregion

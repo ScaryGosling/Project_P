@@ -9,7 +9,7 @@ using UnityEngine;
 public class BoomerChase : ChaseBase
 {
     private const float jumpCooldown = 30f, jumpMinDistance = 5f, jumpMaxDistance = 10f;
-    private GameObject jumpCOoldownTimer;
+    private GameObject jumpCooldownTimer;
     private bool canJump = true;
     public override void EnterState()
     {
@@ -46,10 +46,10 @@ public class BoomerChase : ChaseBase
     {
         if (Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) > jumpMinDistance && Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) < jumpMaxDistance && owner.target.CompareTag("Player"))
         {
-            if (!jumpCOoldownTimer && canJump)
+            if (!jumpCooldownTimer && canJump)
             {
-                jumpCOoldownTimer = Instantiate(new GameObject("JumpTimer"));
-                jumpCOoldownTimer.AddComponent<Timer>().RunCountDown(jumpCooldown, EnableAbility, Timer.TimerType.DELAY);
+                jumpCooldownTimer = Instantiate(new GameObject("JumpTimer"));
+                jumpCooldownTimer.AddComponent<Timer>().RunCountDown(jumpCooldown, EnableAbility, Timer.TimerType.DELAY);
 
                 canJump = false;
                 owner.ChangeState<JumpImpact>();

@@ -52,7 +52,7 @@ public class HostileBaseState : State
         animator = this.owner.GetAnimator();
     }
 
-    public override void ToDo() { }
+    public override void ToDo() { distanceToTarget = Vector3.Distance(owner.target.transform.position, owner.agent.transform.position); }
 }
 #region EnemyBaseLegacy
 // lightTreshold = owner.LightThreshold;

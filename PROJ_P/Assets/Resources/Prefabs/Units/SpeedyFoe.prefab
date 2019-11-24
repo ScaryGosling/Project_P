@@ -143,6 +143,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 37afb4ac3845daf468f843d9aef82e1c, type: 2}
   - {fileID: 11400000, guid: 0c0a0e2bb8fc5804ab0ef762a7f7f7b3, type: 2}
   - {fileID: 11400000, guid: 44ef6e6d009682842a5e0bf08b31093d, type: 2}
+  - {fileID: 11400000, guid: 7ba970b61fd5b034eacb594443c4a8ee, type: 2}
   currentState: {fileID: 0}
   renderer: {fileID: 0}
   agent: {fileID: 0}
@@ -585,6 +586,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
+    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -690,11 +696,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 18320881556040783, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -725,11 +726,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ram_UwU_RIG@Idle
       objectReference: {fileID: 0}
-    - target: {fileID: -9221833652794149842, guid: c8678109d8eb7f34482f6348d6ec2e54,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7988fdff8be71e34eb3b5a843c0e36dc, type: 2}
     - target: {fileID: -6057140222963153312, guid: c8678109d8eb7f34482f6348d6ec2e54,
         type: 3}
       propertyPath: m_Controller
@@ -805,6 +801,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.56
       objectReference: {fileID: 0}
+    - target: {fileID: -9221833652794149842, guid: c8678109d8eb7f34482f6348d6ec2e54,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7988fdff8be71e34eb3b5a843c0e36dc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8678109d8eb7f34482f6348d6ec2e54, type: 3}
 --- !u!4 &6635903433707999027 stripped

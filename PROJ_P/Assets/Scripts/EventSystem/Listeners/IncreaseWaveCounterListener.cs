@@ -38,7 +38,6 @@ public class IncreaseWaveCounterListener : MonoBehaviour
     {
         dialogue.gameObject.SetActive(true);
         dialogue.DialogueProp = Dialogue.DialogueType.QUEST;
-        //dialogue.IndexProp = dialogueEvent.buildingIndex;
         dialogue.InitializeTextProtocol(dialogueEvent.data);
     }
 

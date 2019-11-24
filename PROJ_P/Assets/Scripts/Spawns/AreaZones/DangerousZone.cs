@@ -19,7 +19,7 @@ public class DangerousZone : MonoBehaviour
         capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
         source = gameObject.GetComponent<AudioSource>();
     }
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
