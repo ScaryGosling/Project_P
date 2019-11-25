@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 7089112606353149579}
   - component: {fileID: 7089112606353149578}
   - component: {fileID: 7089112606353149580}
+  - component: {fileID: 2509696971448868068}
   m_Layer: 5
   m_Name: ShopNumKey
   m_TagString: Untagged
@@ -169,3 +170,22 @@ MonoBehaviour:
   closedHand: {fileID: 2800000, guid: 90b064048e071ae42a66d4f874b54ee7, type: 3}
   shopHand: {fileID: 2800000, guid: 0f45821c9378469498c0044ff9068ea2, type: 3}
   iconImage: {fileID: 5951168164398977451}
+--- !u!95 &2509696971448868068
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089112606353149576}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 881b11b7337a46d4dafef104930f39f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

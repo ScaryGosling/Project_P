@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -31,7 +32,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     [SerializeField] private GameObject lockObject;
     [SerializeField] private GameObject unlockObject;
     [SerializeField] private GameObject dragAbility;
-
+    [SerializeField] private GameObject dragDots;
+ 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip grabSound;
@@ -39,6 +41,10 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     [SerializeField] private AudioClip upgradeSound;
     [SerializeField] private AudioClip unlockSound;
 
+    private Animator anim;
+
+    public static event Action<bool> VibrateOnDrag = delegate { };
+    public static event Action<bool> FadeOnDrag = delegate { };
 
     private void OnDisable()
     {
@@ -51,7 +57,11 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     {
         image = GetComponent<Image>();
         image.sprite = normalBackground;
-
+        if (ability!=null && !ability.IsLocked())
+        {
+            dragDots.SetActive(true);
+        }
+        anim = GetComponent<Animator>();
     }
 
     public void EmptyRow()
@@ -195,6 +205,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
                     ability.UpgradeAttack();
                     OnPointerUp(eventData);
                     Player.instance.GoldProp -= nextLevelCost;
+                    dragDots.SetActive(true);
                 }
             }
             if (ability.IsLocked() == false)
@@ -234,6 +245,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
                 audioSource.Play();
             Destroy(clone);
         }
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -245,6 +257,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
                 audioSource.Play();
             clone = Instantiate(dragAbility, GameObject.Find("Canvas").transform);
             clone.transform.GetChild(0).GetComponent<Image>().sprite = ability.GetImage();
+            StartDragging(true);
         }
         else
         {
@@ -268,6 +281,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             if (ability && !ability.IsLocked())
             {
                 Cursor.SetCursor(openHand, Vector2.zero, CursorMode.Auto);
+                anim.SetTrigger("Hover");
             }
             else
             {
@@ -309,9 +323,14 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             Cursor.SetCursor(closedHand, Vector2.zero, CursorMode.Auto);
         }
     }
-
+    private void StartDragging(bool toggle)
+    {
+        VibrateOnDrag(toggle);
+        FadeOnDrag(toggle);
+    }
     public void OnPointerUp(PointerEventData eventData)
     {
+        StartDragging(false);
         PointerEventData pointer = new PointerEventData(EventSystem.InternalCurrent);
         ExecuteEvents.Execute(eventData.pointerPress, pointer, ExecuteEvents.pointerExitHandler);
         GameObject test = eventData.pointerCurrentRaycast.gameObject;

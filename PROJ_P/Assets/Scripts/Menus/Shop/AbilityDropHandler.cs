@@ -23,11 +23,22 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     [SerializeField] private Texture2D closedHand;
     [SerializeField] private Texture2D shopHand;
     [SerializeField] private Image iconImage;
+    private Animator anim;
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         image = GetComponent<Image>();
         defaultSprite = image.sprite;
+        anim = GetComponent<Animator>();
+        AbilityUpgrade.VibrateOnDrag += ToggleVibrating;
+    }
+    private void ToggleVibrating(bool toggle)
+    {
+        if (anim != null)
+        {
+
+        anim.SetBool("Vibrate", toggle);
+        }
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -62,7 +73,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     public void OnBeginDrag(PointerEventData eventData)
     {
 
-        if (image.sprite != defaultSprite)
+        if (iconImage.sprite != null)
         {
             audioSource.clip = grabSound;
             clone = Instantiate(gameObject, GameObject.Find("Canvas").transform);
@@ -73,7 +84,6 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-
         if (clone != null)
         {
             audioSource.clip = releaseSound;
@@ -93,10 +103,11 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
+
+        //anim.SetBool("Vibrate", true);
         if (clone != null)
         {
             clone.transform.position = Input.mousePosition;
-
         }
     }
 
@@ -104,7 +115,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     {
         if (!eventData.dragging)
         {
-            if (image.sprite != defaultSprite)
+            if (iconImage.sprite != null)
             {
                 Cursor.SetCursor(openHand, Vector2.zero, CursorMode.Auto);
             }
@@ -150,7 +161,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (image.sprite != defaultSprite)
+        if (iconImage.sprite != null)
         {
             Cursor.SetCursor(closedHand, Vector2.zero, CursorMode.Auto);
         }
