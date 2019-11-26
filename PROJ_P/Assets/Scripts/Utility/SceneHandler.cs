@@ -151,6 +151,12 @@ public class SceneHandler : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
+    public IEnumerator DelaySceneChange(string scene, float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene(scene);
+    }
+
     public IEnumerator DelayQuit()
     {
         yield return new WaitForSeconds(0.5f);

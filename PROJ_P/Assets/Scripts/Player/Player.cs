@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Color fullHealth;
     [SerializeField] private Color emptyHealth;
     [SerializeField] [Range(0, 1)] float colorTransitionPoint = 0.5f;
+    [SerializeField] private GameObject deathPanel;
     private Coroutine[] cooldowns;
     private Image[] attackUISpotBG = new Image[4];
 
@@ -519,7 +520,11 @@ public class Player : MonoBehaviour
 
     private void PlayerDied()
     {
-        SceneHandler.instance.GoToScene(SceneManager.GetActiveScene().name);
+        GetComponent<PlayerMovement>().enabled = false;
+        Animation anim = deathPanel.GetComponent<Animation>();
+        SceneHandler handler = SceneHandler.instance;
+        handler.StartCoroutine(handler.DelaySceneChange("DeathScene", anim.clip.length));
+        anim.Play();
     }
 
     Image[] attack = new Image[4];
