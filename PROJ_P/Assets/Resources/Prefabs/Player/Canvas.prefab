@@ -1150,7 +1150,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 16.6
+  m_fontSize: 17
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3104,7 +3104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5308,7 +5308,7 @@ PrefabInstance:
     - target: {fileID: 3086651210904522627, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
       propertyPath: m_fontSize
-      value: 36.9
+      value: 37.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 666a13891d20bf14b84ddd32ee46f3ef, type: 3}
