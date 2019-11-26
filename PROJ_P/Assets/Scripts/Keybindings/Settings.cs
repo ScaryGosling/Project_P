@@ -45,7 +45,16 @@ public class Settings : ScriptableObject
                 {
                     int startIndex = keybinds[i].GetBind().ToString().IndexOf("a") + 1;
                     return keybinds[i].GetBind().ToString().Substring(startIndex);
-                }else
+                }
+                else if(keybinds[i].GetBind().ToString() == "Mouse0")
+                {
+                    return "LMB";
+                }
+                else if (keybinds[i].GetBind().ToString() == "Mouse1")
+                {
+                    return "RMB";
+                }
+                else
                     return keybinds[i].GetBind().ToString();
 
             }
