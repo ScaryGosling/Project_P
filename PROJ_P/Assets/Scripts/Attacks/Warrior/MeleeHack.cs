@@ -56,7 +56,7 @@ public class MeleeHack : PlayerAttack
         //animation.Play(forwardSlash.name);
         //}
 
-        Timer timer = new GameObject("Timer").AddComponent<Timer>();
+        Timer timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
         timer.RunCountDown(forwardSlash.length, ResetSword, Timer.TimerType.DELAY);
     }
 

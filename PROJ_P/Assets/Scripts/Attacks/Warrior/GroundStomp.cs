@@ -36,7 +36,7 @@ public class GroundStomp : PlayerAttack
             i++;
         }
 
-        Timer timer = new GameObject("Timer").AddComponent<Timer>();
+        Timer timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
         timer.RunCountDown(dazeTime, ResetEnemies, Timer.TimerType.DELAY);
     }
 

@@ -57,7 +57,7 @@ public class Blink : PlayerAttack
 
         player.GetComponent<Player>().activeStats.movementSpeed = speedBoost;
 
-        Timer timer = new GameObject("Timer").AddComponent<Timer>();
+        Timer timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
         timer.RunCountDown(speedBoostDuration, Player.instance.GetComponent<Player>().ResetStats, Timer.TimerType.DELAY);
     }
 

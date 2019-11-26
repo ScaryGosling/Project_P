@@ -17,7 +17,7 @@ public class BountyQuest : Quest
     {
         base.StartQuest();
         bossStats =  Instantiate(boss, bossSpawner.transform.position, Quaternion.identity).GetComponent<Unit>();
-        timer = new GameObject("Timer").AddComponent<Timer>();
+        timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
         timer.RunCountDown(lifetime, EndQuest, Timer.TimerType.DELAY);
         FireArrow(true, bossStats.gameObject);
     }
