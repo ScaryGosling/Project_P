@@ -61,6 +61,11 @@ public class BoomerChase : ChaseBase
     {
         canJump = true;
     }
+    public override void ExitState()
+    {
+        base.ExitState();
+        jumpCooldownTimer = null;
+    }
 
 }
 

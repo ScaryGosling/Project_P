@@ -131,7 +131,7 @@ public class Unit : StateMachine
 
     private void ImprovePower()
     {
-        baseHeath += spawnListener.HealthManagement;
+        //baseHeath += spawnListener.HealthManagement;
         baseAttack += spawnListener.DamageManagenent;
     }
 
@@ -158,7 +158,7 @@ public class Unit : StateMachine
         {
             AliveProp = true;
             capsuleCollider.enabled = true;
-            Health = InitialHealth;
+            Health = InitialHealth + spawnListener.HealthManagement; ;
         }
 
     }

@@ -67,15 +67,17 @@ public class JumpImpact : AbilityBase
         {
             jumpTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
             jumpTimer.GetComponent<Timer>().RunCountDown(jumpWindupTime, ActivateJump, Timer.TimerType.DELAY);
-            warningArea = Instantiate(warningAreaPrefab, playerPositionalDelay, Quaternion.Euler(-90f, 0f, 0f));
+            warningArea = BowoniaPool.instance.GetFromPool(PoolObject.BOOMER_WARNINGAREA);
+            warningArea.transform.position = playerPositionalDelay;
+            warningArea.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
         }
     }
 
     protected override void CancelState()
     {
-        owner.ChangeState<BoomerChase>();
         warningArea.GetComponent<BoomerLanding>().DestroyProp = 0.01f;
         warningArea.GetComponent<BoomerLanding>().DestroyZone();
+        owner.ChangeState<BoomerChase>();
 
         //while (mesh.transform.position.y != owner.capsuleCollider.center.y)
         //{
@@ -113,7 +115,8 @@ public class JumpImpact : AbilityBase
     {
         base.ExitState();
         jumping = false;
-
+        jumpTimer = null;
+        warningArea = null;
     }
 
     IEnumerator windUp()

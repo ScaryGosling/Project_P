@@ -48,7 +48,7 @@ public class DangerousZone : MonoBehaviour
 
     public virtual void DestroyZone()
     {
-        Destroy(gameObject, destroyAfter);
+        BowoniaPool.instance.AddToPool(PoolObject.BOOMER_WARNINGAREA, gameObject, destroyAfter);
     }
 
 

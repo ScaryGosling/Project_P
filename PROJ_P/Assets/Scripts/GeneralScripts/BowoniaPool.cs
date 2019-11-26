@@ -67,10 +67,19 @@ public class BowoniaPool : MonoBehaviour
         instanceToAdd.SetActive(false);
         poolDictionary[poolObject].Enqueue(instanceToAdd);
     }
+    public void AddToPool(PoolObject poolObject, GameObject instanceToAdd, float delay)
+    {
+        StartCoroutine(AddWithDelay(poolObject,instanceToAdd, delay));
+    }
+    IEnumerator AddWithDelay(PoolObject poolObject, GameObject instanceToAdd, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AddToPool(poolObject, instanceToAdd);
+    }
 }
 
 
 public enum PoolObject
 {
-    FANATIC, ZOOMER, BOOMER, TIMER, WAND, LIGHTNING, FIREBALL, ICE_NOVA
+    FANATIC, ZOOMER, BOOMER, TIMER, WAND, LIGHTNING, FIREBALL, ICE_NOVA, BOOMER_WARNINGAREA
 }
