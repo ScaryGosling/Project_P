@@ -5098,11 +5098,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1195681831549422372, guid: ac4161159a95b4446b6803050eca322b,
-        type: 3}
-      propertyPath: m_Name
-      value: SceneManagement
-      objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: adaptionToggles.Array.size
@@ -5174,6 +5169,11 @@ PrefabInstance:
       propertyPath: adaptionToggles.Array.data[4]
       value: 
       objectReference: {fileID: 734828424}
+    - target: {fileID: 1195681831549422372, guid: ac4161159a95b4446b6803050eca322b,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneManagement
+      objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422378, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip[] hurtClip;
     [SerializeField] private AudioClip lackResourceClip;
     [SerializeField] private AudioClip heartbeatClip;
+    [SerializeField] private AudioClip deathClip;
     [SerializeField] private AudioSource heartbeatSource;
 
     [Header("Resources")]
@@ -521,6 +522,8 @@ public class Player : MonoBehaviour
     private void PlayerDied()
     {
         GetComponent<PlayerMovement>().enabled = false;
+        PlayAudio(deathClip);
+        Audio = null;
         Animation anim = deathPanel.GetComponent<Animation>();
         SceneHandler handler = SceneHandler.instance;
         handler.StartCoroutine(handler.DelaySceneChange("DeathScene", anim.clip.length));
