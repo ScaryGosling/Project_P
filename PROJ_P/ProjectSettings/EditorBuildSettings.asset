@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ClassChooserScene.unity
     guid: 3fc31e2e2e2de814d8b5cf3513ea988f
+  - enabled: 1
+    path: Assets/Scenes/DeathScene.unity
+    guid: 0c0c04960e865d14fa49e8e061a2d549
   m_configObjects: {}
