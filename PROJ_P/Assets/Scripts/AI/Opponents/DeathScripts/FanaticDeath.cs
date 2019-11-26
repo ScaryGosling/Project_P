@@ -18,7 +18,10 @@ public class FanaticDeath : DeathBase
             base.ToDo();
     }
 
-
+    protected override void RemoveObject()
+    {
+        BowoniaPool.instance.AddToPool(PoolObject.FANATIC, owner.gameObject);
+    }
 }
 
 #region ChaseLegacy

@@ -44,7 +44,10 @@ public class BoomerDeath : DeathBase
             currentTimeAnimTime -= Time.deltaTime;
         }
     }
-
+    protected override void RemoveObject()
+    {
+        BowoniaPool.instance.AddToPool(PoolObject.FANATIC, owner.gameObject);
+    }
     protected void Explode()
     {
         explosion = Instantiate(explosionPrefab, owner.transform.position, Quaternion.Euler(-90f, 0f, 0f)).GetComponent<Explosion>();

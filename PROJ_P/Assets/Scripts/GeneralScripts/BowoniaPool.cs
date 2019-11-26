@@ -56,6 +56,10 @@ public class BowoniaPool : MonoBehaviour
         }
         tempPoolObject = poolDictionary[poolObject].Dequeue();
         tempPoolObject.SetActive(true);
+        if (poolObject is PoolObject.FANATIC || poolObject is PoolObject.BOOMER || poolObject is PoolObject.ZOOMER)
+        {
+            tempPoolObject.SetActive(false);
+        }
         return tempPoolObject;
     }
     public void AddToPool(PoolObject poolObject, GameObject instanceToAdd)

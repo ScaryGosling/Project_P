@@ -31,7 +31,7 @@ public class DeathBase : HostileBaseState
     /// <summary>
     /// Disables the collider etc.
     /// </summary>
-    protected void DisableUnit()
+    protected virtual void DisableUnit()
     {
         owner.rigidbody.isKinematic = true;
 
@@ -41,9 +41,9 @@ public class DeathBase : HostileBaseState
             //owner.agent.enabled = false;
         }
         owner.capsuleCollider.enabled = false;
-        Destroy(owner.gameObject, corpseTimer);
+        BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>().RunCountDown(corpseTimer, RemoveObject, Timer.TimerType.DELAY);
     }
-
+    protected virtual void RemoveObject() { }
     protected virtual void DeathAnimation(){ }
 }
 #region EnemyBaseLegacy

@@ -290,10 +290,20 @@ public class GameLoop : MonoBehaviour
     }
 
 
-    private void UnitController()
+    private GameObject UnitController()
     {
-        CheckUnitType();
-        absoluteUnit = unitPrefabs[currentType].gameObject;
+        if (waveIndex % 2 == 0 && spawned % 3 == 0)
+        {
+            return BowoniaPool.instance.GetFromPool(PoolObject.ZOOMER);
+        }
+        else if (waveIndex % 3 == 0 && spawned % 5 == 0)
+        {
+            return BowoniaPool.instance.GetFromPool(PoolObject.BOOMER);
+        }
+        else
+        {
+            return BowoniaPool.instance.GetFromPool(PoolObject.FANATIC);
+        }
     }
 
     /// <summary>
@@ -380,10 +390,13 @@ public class GameLoop : MonoBehaviour
                 }
                 foreach (GameObject spawnObject in spawns)
                 {
-                    UnitController();
+                    
                     if (spawned < expected && spawnObject.GetComponent<SpawnArea>().isActive)
                     {
-                        Instantiate(absoluteUnit, spawnObject.transform.position, Quaternion.identity);
+                        absoluteUnit = UnitController();
+                        absoluteUnit.transform.position = spawnObject.transform.GetChild(0).transform.position;
+                        absoluteUnit.transform.rotation = Quaternion.identity;
+                        absoluteUnit.gameObject.SetActive(true);
                         spawned++;
                     }
                     yield return new WaitForSeconds(time);
