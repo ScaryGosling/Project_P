@@ -18,14 +18,23 @@ public class Projectile : PlayerAttack
     public override void RunAttack()
     {
         base.RunAttack();
-        Transform spawnPoint = Player.instance.GetSpawnPoint();
 
-        GameObject ball = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation);
+
+        GameObject ball = GetProjectile();
         AimAssist();
+        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         ball.GetComponent<Rigidbody>().AddForce(AimAssist() * force + Player.instance.GetComponent<Rigidbody>().velocity);
         ball.GetComponent<ProjectileInstance>().SetPower(damage, magnitude);
     }
 
+    private GameObject GetProjectile()
+    {
+        Transform spawnPoint = Player.instance.GetSpawnPoint();
+        GameObject ball = BowoniaPool.instance.GetFromPool(PoolObject.WAND);
+        ball.transform.position = spawnPoint.position;
+        ball.transform.rotation = spawnPoint.rotation;
+        return ball;
+    }
 
     public Vector3 AimAssist()
     {

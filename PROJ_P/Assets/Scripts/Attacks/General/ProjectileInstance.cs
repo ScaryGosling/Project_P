@@ -27,7 +27,7 @@ public class ProjectileInstance : MonoBehaviour
     {
         if (!IsVisible())
         {
-            Destroy(gameObject);
+            BowoniaPool.instance.AddToPool(PoolObject.WAND, gameObject);
         }
     }
 
