@@ -36,6 +36,8 @@ public class IceNova : PlayerAttack
 
         Freeze freeze = box.AddComponent<Freeze>();
         freeze.Timer = duration;
+        freeze.Damage = damage;
+        freeze.Magnitude = magnitude;
         freeze.StartCoroutine(freeze.FreezeTime());
 
 

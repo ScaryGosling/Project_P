@@ -6,6 +6,9 @@ using UnityEngine.AI;
 public class Freeze : MonoBehaviour
 {
     public float Timer { get; set; }
+    public float Damage { get; set; }
+    public float Magnitude { get; set; }
+
     private List<NavMeshAgent> stoppedAgents = new List<NavMeshAgent>();
 
 
@@ -15,6 +18,7 @@ public class Freeze : MonoBehaviour
         if (other.CompareTag("Enemy") && Timer >0)
         {
             other.GetComponent<NavMeshAgent>().isStopped = true;
+            other.GetComponent<Unit>().currentState.TakeDamage(Damage, Magnitude);
             stoppedAgents.Add(other.GetComponent<NavMeshAgent>());
         }
     }
