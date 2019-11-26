@@ -72,15 +72,14 @@ public class RusherRush : AbilityBase
         lookAt = Quaternion.LookRotation(direction);
         owner.agent.transform.rotation = Quaternion.Slerp(owner.agent.transform.rotation, lookAt, Time.deltaTime * rushSpeed / 12f);
 
-        if (distanceToTarget <= 2f)
+        if (distanceToTarget <= (owner.GetAttackRange / 5) * 4)
         {
-            player.HealthProp -= impactDamage;
+            Player.instance.HealthProp = -impactDamage;
+
             Destroy(rusherEndTimer);
             EndRush();
         }
     }
-
-
 
     public override void ExitState()
     {

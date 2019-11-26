@@ -35,7 +35,6 @@ public class AbilityBase : AliveBase
 
         if (intersection && !(hit.collider.CompareTag("Player") || hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone")))
         {
-
             CancelState();
         }
 
