@@ -47,6 +47,8 @@ public class JumpImpact : AbilityBase
     protected override void Die()
     {
         base.Die();
+        warningArea.GetComponent<BoomerLanding>().DestroyProp = 0.01f;
+        warningArea.GetComponent<BoomerLanding>().DestroyZone();
         owner.ChangeState<BoomerDeath>();
     }
 
