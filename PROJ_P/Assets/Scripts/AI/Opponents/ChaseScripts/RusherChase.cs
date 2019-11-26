@@ -38,13 +38,16 @@ public class RusherChase : ChaseBase
                 rushCooldown = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
                 rushCooldown.GetComponent<Timer>().RunCountDown(cooldown, EnableAbility, Timer.TimerType.DELAY);
 
-                Debug.Log("In Rusher Chase!");
                 canRush = false;
                 owner.ChangeState<RusherRush>();
             }
         }
     }
-
+    public override void ExitState()
+    {
+        base.ExitState();
+        rushCooldown = null;
+    }
     private void EnableAbility()
     {
         canRush = true;

@@ -55,7 +55,11 @@ public class RusherStagger : CCBase
             staggerTimer.GetComponent<Timer>().RunCountDown(staggerMagnitude, EndStagger, Timer.TimerType.DELAY);
         }
     }
-
+    public override void ExitState()
+    {
+        base.ExitState();
+        staggerTimer = null;
+    }
     protected void EndStagger()
     {
         ResetOrientation();

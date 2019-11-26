@@ -83,6 +83,8 @@ public class RusherRush : AbilityBase
 
     public override void ExitState()
     {
+        rushTimer = null;
+        rusherEndTimer = null;
         owner.agent.angularSpeed = standardAngularSpeed;
         rushing = false;
         base.ExitState();

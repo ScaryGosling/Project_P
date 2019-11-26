@@ -59,6 +59,11 @@ public class RusherSuperKnockback : CCBase
             knockBackTimer.GetComponent<Timer>().RunCountDown(knockBackMagnitude, EndKnockBack, Timer.TimerType.DELAY);
         }
     }
+    public override void ExitState()
+    {
+        base.ExitState();
+        knockBackTimer = null;
+    }
 
     protected void EndKnockBack()
     {
