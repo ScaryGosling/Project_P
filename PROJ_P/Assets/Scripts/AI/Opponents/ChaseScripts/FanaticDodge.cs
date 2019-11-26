@@ -68,8 +68,8 @@ public class FanaticDodge : ChaseBase
         }
         if (dodgeTimer == null)
         {
-            dodgeTimer = new GameObject("Dodge Timer");
-            dodgeTimer.AddComponent<Timer>().RunCountDown(dodgeMagnitude, EndDodge, Timer.TimerType.DELAY);
+            dodgeTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+            dodgeTimer.GetComponent<Timer>().RunCountDown(dodgeMagnitude, EndDodge, Timer.TimerType.DELAY);
         }
     }
 
@@ -94,6 +94,7 @@ public class FanaticDodge : ChaseBase
     protected void EndDodge()
     {
         ResetOrientation();
+        dodgeTimer = null;
         owner.ChangeState<FanaticChase>();
     }
 

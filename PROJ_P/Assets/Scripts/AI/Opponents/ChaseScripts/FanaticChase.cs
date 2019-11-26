@@ -19,7 +19,10 @@ public class FanaticChase : ChaseBase
     {
         base.EnterState();
     }
-
+    public override void ExitState()
+    {
+        dodgeCooldownTimer = null;
+    }
     public override void ToDo()
     {
         base.ToDo();
@@ -43,8 +46,8 @@ public class FanaticChase : ChaseBase
             }
             else if (!dodgeCooldownTimer)
             {
-                dodgeCooldownTimer = new GameObject("Dodge Timer");
-                dodgeCooldownTimer.AddComponent<Timer>().RunCountDown(dodgeCooldown, DodgeReactivated, Timer.TimerType.DELAY);
+                dodgeCooldownTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER) ;
+                dodgeCooldownTimer.GetComponent<Timer>().RunCountDown(dodgeCooldown, DodgeReactivated, Timer.TimerType.DELAY);
             }
 
         }
