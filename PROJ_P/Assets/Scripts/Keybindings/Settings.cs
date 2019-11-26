@@ -17,6 +17,7 @@ public class Settings : ScriptableObject
     public bool UseMusic { get; set; }
     public bool UseSFX { get; set; }
     public bool UseAimAssist { get; set; }
+    public float enemyPace { get; set; }
 
     public float GetAimAssistRange() { return aimAssistRange; }
 

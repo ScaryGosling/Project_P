@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneHandler : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SceneHandler : MonoBehaviour
     [SerializeField] private GameObject mainMenuPrompt;
     [SerializeField] private GameObject[] promptToggles;
     [SerializeField] private GameObject[] adaptionToggles;
+    [SerializeField] private Slider paceSlider;
     [SerializeField] private AudioSource eliasSource;
 
     public static SceneHandler instance;
@@ -29,9 +31,15 @@ public class SceneHandler : MonoBehaviour
         adaptionToggles[2].SetActive(settings.UseMusic);
         adaptionToggles[3].SetActive(settings.UseSFX);
         adaptionToggles[4].SetActive(settings.UseAimAssist);
+        paceSlider.value = settings.enemyPace;
 
         if(eliasSource)
             eliasSource.mute = !settings.UseMusic;
+    }
+
+    public void SetPace()
+    {
+        settings.enemyPace = paceSlider.value;
     }
 
 
@@ -101,6 +109,8 @@ public class SceneHandler : MonoBehaviour
         settings.UseAutoRefill = false;
         settings.UseExtraShopTime = false;
         settings.UseAimAssist = false;
+
+        settings.enemyPace = 1;
 
         SetupPromptToggles();
         SetupAdaptions();
