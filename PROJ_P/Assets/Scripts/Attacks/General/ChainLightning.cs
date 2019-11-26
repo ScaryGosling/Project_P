@@ -30,7 +30,11 @@ public class ChainLightning : ProjectileInstance
 
         StartCoroutine(KillTimer());
     }
-
+    private void OnEnable()
+    {
+        GetComponent<Renderer>().enabled = true;
+        GetComponent<Collider>().enabled = true;
+    }
     public override void RunAttack(Collider other)
     {
         base.RunAttack(other);
@@ -164,7 +168,7 @@ public class ChainLightning : ProjectileInstance
         yield return new WaitForSeconds(KillTime);
         ClearColliders();
 
-        Destroy(gameObject);
+        BowoniaPool.instance.AddToPool(PoolObject.LIGHTNING, gameObject);
 
     }
 

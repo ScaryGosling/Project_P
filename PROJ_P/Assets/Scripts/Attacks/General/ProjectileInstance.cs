@@ -30,7 +30,11 @@ public class ProjectileInstance : MonoBehaviour
             BowoniaPool.instance.AddToPool(PoolObject.WAND, gameObject);
         }
     }
-
+    private void OnEnable()
+    {
+        GetComponent<Renderer>().enabled = true;
+        GetComponent<Collider>().enabled = true;
+    }
     private bool IsVisible()
     {
         viewportPoint = mainCamera.WorldToViewportPoint(transform.position);
@@ -75,7 +79,8 @@ public class ProjectileInstance : MonoBehaviour
     public IEnumerator KillTimer(float time)
     {
         yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+ 
+        BowoniaPool.instance.AddToPool(PoolObject.WAND, gameObject);
 
     }
 

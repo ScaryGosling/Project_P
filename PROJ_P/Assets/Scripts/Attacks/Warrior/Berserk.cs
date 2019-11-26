@@ -47,7 +47,7 @@ public class Berserk : PlayerAttack
         player.activeStats.movementSpeed = movementSpeed;
 
 
-        Timer timer = new GameObject("Timer").AddComponent<Timer>();
+        Timer timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
         timer.RunCountDown(duration, player.ResetStats, Timer.TimerType.DELAY);
     }
 

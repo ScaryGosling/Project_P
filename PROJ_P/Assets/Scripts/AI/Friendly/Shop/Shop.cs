@@ -42,8 +42,8 @@ public class Shop : StateMachine
         {
             activeShopTime = shopTime; 
         }
-        shopTimer = new GameObject("Timer");
-        shopTimer.AddComponent<Timer>().RunCountDown(activeShopTime, RemoveShop, Timer.TimerType.DELAY);
+        shopTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+        shopTimer.GetComponent<Timer>().RunCountDown(activeShopTime, RemoveShop, Timer.TimerType.DELAY);
         timerText.gameObject.SetActive(true);
         timerText.GetComponent<ShopTimer>().SetTimer(shopTimer.GetComponent<Timer>());
         toggleArrow.goal = gameObject;
@@ -71,7 +71,7 @@ public class Shop : StateMachine
             shopWindow.SetActive(false);
         }
         timerText.SetActive(false);
-        Destroy(shopTimer);
+        //Destroy(shopTimer);
         ChangeState<ShopTimeFinishedState>();
     }
 

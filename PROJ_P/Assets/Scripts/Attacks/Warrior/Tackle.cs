@@ -36,8 +36,8 @@ public class Tackle : PlayerAttack
 
         player.GetComponent<Player>().activeStats.resistanceMultiplier = 0;
 
-        GameObject timer = new GameObject("Timer");
-        timer.AddComponent<Timer>().RunCountDown(1, ResetStats, Timer.TimerType.DELAY);
+        GameObject timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+        timer.GetComponent<Timer>().RunCountDown(1, ResetStats, Timer.TimerType.DELAY);
        
 
     }

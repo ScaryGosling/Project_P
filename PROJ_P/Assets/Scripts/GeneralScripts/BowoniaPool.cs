@@ -39,10 +39,12 @@ public class BowoniaPool : MonoBehaviour
 
     private void GrowPool(PoolObject poolObject)
     {
-
-            tempPoolObject = Instantiate(poolObjectTranslation[poolObject]);
-            AddToPool(poolObject, tempPoolObject);
-
+        tempPoolObject = Instantiate(poolObjectTranslation[poolObject]);
+        if (poolObject is PoolObject.TIMER)
+        {
+            tempPoolObject.transform.SetParent(gameObject.transform);
+        }
+        AddToPool(poolObject, tempPoolObject);
     }
 
     public GameObject GetFromPool(PoolObject poolObject)
@@ -66,5 +68,5 @@ public class BowoniaPool : MonoBehaviour
 
 public enum PoolObject
 {
-    FANATIC, ZOOMER, BOOMER, TIMER, WAND, LIGHTNING
+    FANATIC, ZOOMER, BOOMER, TIMER, WAND, LIGHTNING, FIREBALL, ICE_NOVA
 }

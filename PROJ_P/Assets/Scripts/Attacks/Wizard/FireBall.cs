@@ -22,15 +22,21 @@ public class FireBall : PlayerAttack
 
         if (Terrain.activeTerrain.GetComponent<TerrainCollider>().Raycast(ray, out hit, 50))
         {
-            FireballInstance instance = Instantiate(fireball, hit.point + new Vector3(0, spawnHeight, 0), Quaternion.identity).GetComponent<FireballInstance>();
+            FireballInstance instance = GetFireball(hit).GetComponent<FireballInstance>();
             instance.ExplosionRadius = explosionRadius;
             instance.Damage = damage;
             instance.Magnitude = magnitude;
             instance.GetComponent<Rigidbody>().AddForce(Vector3.down * 1000);
             
         }
-    
-        
+    }
+
+    private GameObject GetFireball(RaycastHit hit)
+    {   
+        GameObject ball = BowoniaPool.instance.GetFromPool(PoolObject.FIREBALL);
+        ball.transform.position = hit.point + new Vector3(0, spawnHeight, 0);
+        ball.transform.rotation = Quaternion.identity;
+        return ball;
     }
     public override void UpgradeAttack()
     {

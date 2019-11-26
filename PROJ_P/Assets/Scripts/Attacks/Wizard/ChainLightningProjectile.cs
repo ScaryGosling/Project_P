@@ -24,10 +24,8 @@ public class ChainLightningProjectile : PlayerAttack
     public override void RunAttack()
     {
         base.RunAttack();
-        
         Transform spawnPoint = Player.instance.GetSpawnPoint();
-
-        GameObject ball = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation);
+        GameObject ball = GetProjectile();
 
         ChainLightning ch = ball.GetComponent<ChainLightning>();
         ch.ChainRadius = chainRadius;
@@ -37,7 +35,7 @@ public class ChainLightningProjectile : PlayerAttack
         ch.Material = material;
         ch.EmissionColor = emissionColor;
         ch.chainEffect = chainEffect/100;
-
+        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         ball.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(Vector3.forward) * force);
         ball.GetComponent<ProjectileInstance>().SetPower(damage, magnitude);
     }
@@ -45,5 +43,13 @@ public class ChainLightningProjectile : PlayerAttack
     {
         base.UpgradeAttack();
         chainRadius = radiusPerLevel[CurrentLevel];
+    }
+    private GameObject GetProjectile()
+    {
+        Transform spawnPoint = Player.instance.GetSpawnPoint();
+        GameObject ball = BowoniaPool.instance.GetFromPool(PoolObject.LIGHTNING);
+        ball.transform.position = spawnPoint.position;
+        ball.transform.rotation = spawnPoint.rotation;
+        return ball;
     }
 }

@@ -28,7 +28,7 @@ public class RainOfFire : PlayerAttack
 
             for (int i = 0; i < spawnAmount; i++) {
 
-                Timer timer = new GameObject("Timer").AddComponent<Timer>();
+                Timer timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
                 timer.RunCountDown(i * 0.1f, GenerateBall, Timer.TimerType.DELAY);
                 
 

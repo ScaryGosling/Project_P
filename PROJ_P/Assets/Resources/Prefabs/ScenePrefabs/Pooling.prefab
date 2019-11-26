@@ -45,14 +45,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - poolObject: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 2161199849938165175, guid: ce397d58d6d392340afeceef3d2f7264,
+      type: 3}
   - poolObject: 1
-    prefab: {fileID: 0}
+    prefab: {fileID: 2161199849938165175, guid: 3c684952cac416a409b96bcb2d0dbdf9,
+      type: 3}
   - poolObject: 2
-    prefab: {fileID: 0}
+    prefab: {fileID: 2161199849938165175, guid: adf702a3fd72d134d8530eac42be94ee,
+      type: 3}
   - poolObject: 3
     prefab: {fileID: 3024442786142668931, guid: 91cf77158a0339b4b90ff84f23294a88,
       type: 3}
   - poolObject: 4
+    prefab: {fileID: 6750013541312212612, guid: 496018193e878472eaa24ee9549d5bd7,
+      type: 3}
+  - poolObject: 5
+    prefab: {fileID: 6750013541312212612, guid: 6072bc8c59af84b758be9f6c01ebf2a8,
+      type: 3}
+  - poolObject: 6
+    prefab: {fileID: 5490361096305928263, guid: 29667473f9fea7a4fb3d85b14a46241a,
+      type: 3}
+  - poolObject: 7
     prefab: {fileID: 6750013541312212612, guid: 496018193e878472eaa24ee9549d5bd7,
       type: 3}

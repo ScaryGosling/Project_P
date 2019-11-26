@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
         {
             methodToRun();
             //MethodHasRun = true;
-            Destroy(gameObject);
+            BowoniaPool.instance.AddToPool(PoolObject.TIMER, gameObject);
         }
 
     }
@@ -53,7 +53,7 @@ public class Timer : MonoBehaviour
             methodToRun();
         }
         else
-            Destroy(gameObject);
+            BowoniaPool.instance.AddToPool(PoolObject.TIMER, gameObject);
     }
 
     public void ResetTimer()

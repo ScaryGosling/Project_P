@@ -603,7 +603,7 @@ public class Player : MonoBehaviour
         }
 
         activeStats.movementSpeed = attack.GetSpeedMultiplier();
-        Timer slowMultiplier = new GameObject("Timer").AddComponent<Timer>();
+        Timer slowMultiplier = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
         slowMultiplier.RunCountDown(attack.GetSlowTime(), attack.ResetSlow, Timer.TimerType.DELAY);
 
         if (attack.castTime > 0)

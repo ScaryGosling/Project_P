@@ -20,7 +20,12 @@ public class FireballInstance : MonoBehaviour
         if (impactSound != null)
             source.clip = impactSound;
     }
-
+    private void OnEnable()
+    {
+        transform.localScale = Vector3.one;
+        GetComponent<Collider>().enabled = true;
+        GetComponent<Rigidbody>().isKinematic = false;
+    }
     public void OnTriggerEnter(Collider other)
     {
         Explode(other);
@@ -61,7 +66,7 @@ public class FireballInstance : MonoBehaviour
     public IEnumerator KillTimer(float time)
     {
         yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+        BowoniaPool.instance.AddToPool(PoolObject.FIREBALL, gameObject);
 
     }
 
