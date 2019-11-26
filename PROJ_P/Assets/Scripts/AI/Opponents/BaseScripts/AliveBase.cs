@@ -133,8 +133,9 @@ public class AliveBase : HostileBaseState
     {
         base.TakeDamage(damage, magnitude);
         owner.PlayHurtAudio(owner.takeDamageClip);
-        GameObject splatter = Instantiate(bloodParticle, owner.transform.position, Quaternion.identity);
-        splatter.AddComponent<Timer>().RunCountDown(4, PlaceboMethod, Timer.TimerType.DELAY);
+        GameObject splatter = BowoniaPool.instance.GetFromPool(PoolObject.BLOOD_SPLATTER);
+        splatter.transform.position = owner.transform.position;
+        splatter.GetComponent<Timer>().RunCountDown(4, PlaceboMethod, Timer.TimerType.DELAY);
         if (owner.target.CompareTag("Player"))
             owner.target.GetComponent<Player>().GoldProp += owner.GetGold;
     }

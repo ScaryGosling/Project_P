@@ -70,3 +70,6 @@ MonoBehaviour:
       type: 3}
   - poolObject: 8
     prefab: {fileID: 867149244047798424, guid: 45d69f77d451e3541a161cdde0d08456, type: 3}
+  - poolObject: 9
+    prefab: {fileID: 1482536979965753301, guid: b1100bf3ebcf8614bbd67c23699e7d77,
+      type: 3}
