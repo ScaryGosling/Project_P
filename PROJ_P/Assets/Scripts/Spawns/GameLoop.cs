@@ -175,8 +175,8 @@ public class GameLoop : MonoBehaviour
         }
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
         //Debug.Log("Expexted: " + expected + " expectedGrowth: " + expectedGrowth);
-        random = Random.Range(18, 21);
-        ChangeEliasLevel(random);
+        //random = Random.Range(18, 21);
+        ChangeEliasLevel(3);
 
         bonusHealth += healthPerLevel;
         bonusDmg += damagePerLevel;
@@ -319,8 +319,8 @@ public class GameLoop : MonoBehaviour
     {
         if (!shopOpen)
         {
-            random = Random.Range(4,15);
-            ChangeEliasLevel(random);
+            //random = Random.Range(4,15);
+            ChangeEliasLevel(1);
             shopKeeper.transform.position = NearbyRandomPosition();
             shopKeeper.gameObject.SetActive(true);
             shopOpen = true;
@@ -346,7 +346,7 @@ public class GameLoop : MonoBehaviour
     private void ChangeEliasLevel(int level)
     {
         setLevel.level = level;
-        setLevel.themeName = "Objective";
+        setLevel.themeName = "Last Stand";
         eliasPlayer.QueueEvent(setLevel.CreateSetLevelEvent(eliasPlayer.Elias));
 
     }

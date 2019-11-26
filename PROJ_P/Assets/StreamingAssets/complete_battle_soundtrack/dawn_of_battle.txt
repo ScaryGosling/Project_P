@@ -1,0 +1,35 @@
+Dawn of Battle
+
+Composer: Kristofer Eng
+
+A staple theme in our library that takes the player on a journey; from the first tentative steps in pianissimo to a stirring finale 
+in fortissimo. This theme invokes a dark, mysterious atmosphere with threads of sadness and resolve.
+
+
+Tracks:
+
+Track 1 : Bass
+Track 2 : Strings
+Track 3 : Brass
+Track 4 : Percussion
+
+Stinger 1 and 2 are timpani stingers
+Stinger 3 is a timpani/percussion stinger
+Stinger 4 is a pickup stinger
+
+
+About the composer:
+
+Kristofer Eng is one of the founders and the initial architect for the Elias music engine. Working as the head of the musical 
+department at Elias Software he spends his time developing and improving the engine itself, as well as producing a steady stream
+of new original compositions for the Elias production music library. If you would like to hire Kristofer for your next production, 
+you can do this in one of two ways:
+
+1. Contact Elias Software and request a theme which will then be added to the music library. The theme will be composed based on 
+your requirements, but will then be made available for purchase on the website. You do not own the theme, but you can use it under 
+the same terms as the other themes in our library. Contact Elias Software for a custom quote.
+2. If you would like exclusive rights/a total buyout of the music, you may contact Kristofer privately. He would then act independently
+as the composer for your title, and you would own full and exclusive rights to all the material. This would be a more expensive option
+ than the one described above, but guarantees that the music in your game will be unique and entirely your own.
+
+Email: kristofer.eng@eliassoftware.com
