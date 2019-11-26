@@ -7,7 +7,7 @@ public class DangerousZone : MonoBehaviour
 {
     [SerializeField] protected float damage = 25f;
     [SerializeField] protected float destroyAfter = 0.5f;
-
+    public float DestroyProp { get { return destroyAfter; } set { destroyAfter = value; } }
     protected AudioSource source;
     protected GameObject player;
     protected CapsuleCollider capsuleCollider;
@@ -35,7 +35,6 @@ public class DangerousZone : MonoBehaviour
 
     public virtual void EngageArea()
     {
-        Debug.Log(capsuleCollider.enabled);
         capsuleCollider.enabled = true;
         source.clip = explosion;
         source.Play();

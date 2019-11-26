@@ -10,7 +10,7 @@ public class RusherChase : ChaseBase
 {
 
     private GameObject rushCooldown;
-    private float cooldown = 10f, rushMinDistance = 5f, rushMaxDistance = 10f;
+    private float cooldown = 2f, rushMinDistance = 5f, rushMaxDistance = 10f;
     private bool canRush = true;
     public override void EnterState()
     {

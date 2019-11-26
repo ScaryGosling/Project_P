@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6899678464734427954}
   m_Layer: 12
   m_Name: Wand
-  m_TagString: Dodgeball
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,8 +10,11 @@ using UnityEngine.AI;
 /// States that inherit from this class share some sort behavior in the form of a special ability.
 /// </summary>
 [RequireComponent(typeof(CapsuleCollider))]
-public class AbilityBase: AliveBase
+public class AbilityBase : AliveBase
 {
+    protected bool intersection, environmentIntersection;
+    protected RaycastHit hit;
+
     public override void EnterState()
     {
         base.EnterState();
@@ -21,18 +24,35 @@ public class AbilityBase: AliveBase
     {
         base.ToDo();
         ExecuteAbility();
+        CheckIntersection();
     }
 
     protected override void CheckForDamage() { }
 
+    private void CheckIntersection()
+    {
+        intersection = owner.rigidbody.SweepTest(owner.agent.transform.forward, out hit, owner.capsuleCollider.radius * 2, QueryTriggerInteraction.Collide);
+
+        if (intersection && !(hit.collider.CompareTag("Player") || hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone")))
+        {
+
+            CancelState();
+        }
+
+    }
+
+    protected virtual void CancelState() { }
 
     /// <summary>
     /// Decides which type of ability should be used in given situation.
     /// </summary>
     protected virtual void ExecuteAbility() { }
 
-    }
+}
 #region EnemyBaseLegacy
+            //Debug.Log("Ability Canceled");
+            //Debug.Log("GameObject hit: " + hit.collider.gameObject);
+            //Debug.Log("E-Intersection is: " + environmentIntersection);
 // lightTreshold = owner.LightThreshold;
 //     spreadAngle = Quaternion.AngleAxis(lightField.spotAngle, owner.agent.velocity);
 //// protected float lightAngle;

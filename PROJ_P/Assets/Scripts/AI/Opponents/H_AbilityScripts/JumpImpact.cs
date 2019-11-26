@@ -41,7 +41,7 @@ public class JumpImpact : AbilityBase
         base.ToDo();
         if (jumping)
             Jump();
-        
+
     }
 
     protected override void Die()
@@ -69,6 +69,19 @@ public class JumpImpact : AbilityBase
             jumpTimer.AddComponent<Timer>().RunCountDown(jumpWindupTime, ActivateJump, Timer.TimerType.DELAY);
             warningArea = Instantiate(warningAreaPrefab, playerPositionalDelay, Quaternion.Euler(-90f, 0f, 0f));
         }
+    }
+
+    protected override void CancelState()
+    {
+        owner.ChangeState<BoomerChase>();
+        warningArea.GetComponent<BoomerLanding>().DestroyProp = 0.01f;
+        warningArea.GetComponent<BoomerLanding>().DestroyZone();
+
+        //while (mesh.transform.position.y != owner.capsuleCollider.center.y)
+        //{
+        //    mesh.transform.position = Vector3.Lerp(mesh.transform.position, new Vector3(mesh.transform.position.x, owner.capsuleCollider.radius, mesh.transform.position.z), Time.deltaTime * jumpSmoother * 2);
+        //}
+
     }
 
     private void ActivateJump()

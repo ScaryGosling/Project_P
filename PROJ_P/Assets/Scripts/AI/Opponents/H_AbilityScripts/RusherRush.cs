@@ -31,7 +31,6 @@ public class RusherRush : AbilityBase
         base.ToDo();
         if (rushing)
             Rush();
-
     }
 
     protected override void ExecuteAbility()
@@ -55,10 +54,15 @@ public class RusherRush : AbilityBase
         }
     }
 
+    protected override void CancelState()
+    {
+        owner.ChangeState<RusherChase>();
+    }
+
     private void EndRush()
     {
         rushing = false;
-        owner.ChangeState<RusherChase>();
+        CancelState();
     }
 
     private void Rush()

@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 2377488010752536485}
   - component: {fileID: 1399905494806828805}
   - component: {fileID: 5602279737875488460}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LighntingBall
-  m_TagString: Dodgeball
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
