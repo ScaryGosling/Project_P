@@ -45,6 +45,8 @@ MonoBehaviour:
   speedMultiplier: 0
   radius: 5
   height: 2
+  icePrefab: {fileID: 8285795376816536506, guid: cc7060963b5acdc4d9fc909ebab0fe7e,
+    type: 3}
   material: {fileID: 2100000, guid: d7bc9e2d44d604d32afd94be043ef9be, type: 2}
   durationPerLevel:
   - 3

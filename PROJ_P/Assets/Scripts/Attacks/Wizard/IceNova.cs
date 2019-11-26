@@ -9,6 +9,7 @@ public class IceNova : PlayerAttack
     [Header("Ability Specific")]
     [SerializeField] private float radius;
     [SerializeField] private float height;
+    [SerializeField] private GameObject icePrefab;
     private float duration;
     [SerializeField] private Material material;
     [SerializeField] private List<float> durationPerLevel = new List<float>();
@@ -28,13 +29,13 @@ public class IceNova : PlayerAttack
 
     public void GenerateIceNova(Vector3 position) {
 
-        GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        GameObject box = Instantiate(icePrefab);
         box.transform.localScale = new Vector3(radius, 0.5f, radius);
         box.GetComponent<Collider>().isTrigger = true;
         box.GetComponent<Renderer>().material = material;
         box.transform.position = position;
 
-        Freeze freeze = box.AddComponent<Freeze>();
+        Freeze freeze = box.GetComponent<Freeze>();
         freeze.Timer = duration;
         freeze.Damage = damage;
         freeze.Magnitude = magnitude;
