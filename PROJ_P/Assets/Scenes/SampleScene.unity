@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4139,7 +4139,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-191144
+  m_Name: pb_Mesh-1178122
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4332,7 +4332,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-196024
+  m_Name: pb_Mesh-1183484
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5098,6 +5098,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1195681831549422372, guid: ac4161159a95b4446b6803050eca322b,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneManagement
+      objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: adaptionToggles.Array.size
@@ -5169,11 +5174,6 @@ PrefabInstance:
       propertyPath: adaptionToggles.Array.data[4]
       value: 
       objectReference: {fileID: 734828424}
-    - target: {fileID: 1195681831549422372, guid: ac4161159a95b4446b6803050eca322b,
-        type: 3}
-      propertyPath: m_Name
-      value: SceneManagement
-      objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422378, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6537,5 +6537,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1817949527}
+    - target: {fileID: 5256950867000177231, guid: 51182b86dec3ef145a4582f430c38f4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 72
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51182b86dec3ef145a4582f430c38f4d, type: 3}
