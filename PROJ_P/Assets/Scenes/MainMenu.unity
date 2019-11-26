@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 61.05
+  m_fontSize: 170.65
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -582,9 +582,11 @@ MonoBehaviour:
   mainMenu: MainMenu
   settings: {fileID: 0}
   shopWindow: {fileID: 0}
+  optionsWindow: {fileID: 0}
   mainMenuPrompt: {fileID: 0}
   promptToggles: []
   adaptionToggles: []
+  eliasSource: {fileID: 0}
 --- !u!4 &1454384157
 Transform:
   m_ObjectHideFlags: 0
@@ -699,7 +701,7 @@ MonoBehaviour:
           m_MethodName: PlayOneShot
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 0c366dfde6cafaf4b8b3c8a4aa96982f,
+            m_ObjectArgument: {fileID: 8300000, guid: 8b143bde6fe63d8479589360342e669f,
               type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
@@ -806,7 +808,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 95
+  m_fontSize: 200
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1157,7 +1159,7 @@ MonoBehaviour:
           m_MethodName: PlayOneShot
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 0c366dfde6cafaf4b8b3c8a4aa96982f,
+            m_ObjectArgument: {fileID: 8300000, guid: 8b143bde6fe63d8479589360342e669f,
               type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
@@ -1266,7 +1268,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 95
+  m_fontSize: 200
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2027,7 +2029,7 @@ MonoBehaviour:
           m_MethodName: PlayOneShot
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 0c366dfde6cafaf4b8b3c8a4aa96982f,
+            m_ObjectArgument: {fileID: 8300000, guid: 8b143bde6fe63d8479589360342e669f,
               type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
@@ -2107,7 +2109,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 95
+  m_fontSize: 200
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
