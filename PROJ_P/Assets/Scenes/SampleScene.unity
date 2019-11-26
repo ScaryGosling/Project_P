@@ -6385,16 +6385,31 @@ PrefabInstance:
       propertyPath: healthImage
       value: 
       objectReference: {fileID: 4738550532901967004}
+    - target: {fileID: 6345400272109297643, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: arrowColor.rgba
+      value: 4294557829
+      objectReference: {fileID: 0}
     - target: {fileID: 231697962275485168, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: bossSpawner
       value: 
       objectReference: {fileID: 513662888}
+    - target: {fileID: 231697962275485168, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: arrowColor.rgba
+      value: 4282022389
+      objectReference: {fileID: 0}
     - target: {fileID: 1377983375564630705, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: collectionTextObject
       value: 
       objectReference: {fileID: 382062497}
+    - target: {fileID: 1377983375564630705, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: arrowColor.rgba
+      value: 4288764585
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 583c38658738f4f40bc99772dd72b0de, type: 3}
 --- !u!1 &5598189670470178928 stripped
@@ -6418,6 +6433,26 @@ PrefabInstance:
     - target: {fileID: 6147950296066997119, guid: cac3b176518420b4794292e03639b556,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147950296066997116, guid: cac3b176518420b4794292e03639b556,
+        type: 3}
+      propertyPath: file
+      value: complete_battle_soundtrack/Complete_Battle_Soundtrack.mepro
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147950296066997116, guid: cac3b176518420b4794292e03639b556,
+        type: 3}
+      propertyPath: customPreset.level
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147950296066997116, guid: cac3b176518420b4794292e03639b556,
+        type: 3}
+      propertyPath: customPreset.themeName
+      value: Dawn of battle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147950296066997116, guid: cac3b176518420b4794292e03639b556,
+        type: 3}
+      propertyPath: playOnStart
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
