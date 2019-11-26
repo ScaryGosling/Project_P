@@ -17,8 +17,8 @@ public class UnitUpdater : MonoBehaviour
     {
         unitText = "Units Left: " + remaining;
         gameObject.GetComponent<Text>().text = unitText;
-        timer = new GameObject("UI_Timer");
-        timer.AddComponent<Timer>().RunCountDown(5f, SetInactive, Timer.TimerType.DELAY);
+        timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+        timer.GetComponent<Timer>().RunCountDown(5f, SetInactive, Timer.TimerType.DELAY);
     }
 
     public void SetInactive()

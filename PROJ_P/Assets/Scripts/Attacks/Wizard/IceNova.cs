@@ -29,7 +29,7 @@ public class IceNova : PlayerAttack
 
     public void GenerateIceNova(Vector3 position) {
 
-        GameObject box = Instantiate(icePrefab);
+        GameObject box = BowoniaPool.instance.GetFromPool(PoolObject.ICE_NOVA);
         box.transform.localScale = new Vector3(radius, 0.5f, radius);
         box.GetComponent<Collider>().isTrigger = true;
         box.GetComponent<Renderer>().material = material;

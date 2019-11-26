@@ -51,8 +51,8 @@ public class FanaticStagger : CCBase
 
         if (staggerTimer == null)
         {
-            staggerTimer = new GameObject("Knockback Timer");
-            staggerTimer.AddComponent<Timer>().RunCountDown(staggerMagnitude, EndStagger, Timer.TimerType.DELAY);
+            staggerTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+            staggerTimer.GetComponent<Timer>().RunCountDown(staggerMagnitude, EndStagger, Timer.TimerType.DELAY);
         }
     }
 

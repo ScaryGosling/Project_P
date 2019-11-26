@@ -38,8 +38,8 @@ public class RusherRush : AbilityBase
         base.ExecuteAbility();
         if (!rushTimer)
         {
-            rushTimer = new GameObject("RushTimer");
-            rushTimer.AddComponent<Timer>().RunCountDown(1f, StartRush, Timer.TimerType.DELAY);
+            rushTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+            rushTimer.GetComponent<Timer>().RunCountDown(1f, StartRush, Timer.TimerType.DELAY);
         }
     }
 
@@ -49,8 +49,8 @@ public class RusherRush : AbilityBase
         if (!rusherEndTimer)
         {
             targetPosition = player.transform.position;
-            rusherEndTimer = new GameObject("RushEndTimer");
-            rusherEndTimer.AddComponent<Timer>().RunCountDown(3, EndRush, Timer.TimerType.DELAY);
+            rusherEndTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+            rusherEndTimer.GetComponent<Timer>().RunCountDown(3, EndRush, Timer.TimerType.DELAY);
         }
     }
 

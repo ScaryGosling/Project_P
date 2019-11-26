@@ -48,8 +48,8 @@ public class BoomerChase : ChaseBase
         {
             if (!jumpCooldownTimer && canJump)
             {
-                jumpCooldownTimer = Instantiate(new GameObject("JumpTimer"));
-                jumpCooldownTimer.AddComponent<Timer>().RunCountDown(jumpCooldown, EnableAbility, Timer.TimerType.DELAY);
+                jumpCooldownTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+                jumpCooldownTimer.GetComponent<Timer>().RunCountDown(jumpCooldown, EnableAbility, Timer.TimerType.DELAY);
 
                 canJump = false;
                 owner.ChangeState<JumpImpact>();

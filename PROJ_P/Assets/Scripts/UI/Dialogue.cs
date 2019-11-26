@@ -100,8 +100,8 @@ public class Dialogue : MonoBehaviour
         time = lifeTime;
         if (timer == null)
         {
-            timer = new GameObject("DialogueTimer");
-            timer.AddComponent<Timer>().RunCountDown(time, TerminateDialogue, Timer.TimerType.DELAY);
+            timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+            timer.GetComponent<Timer>().RunCountDown(time, TerminateDialogue, Timer.TimerType.DELAY);
         }
     }
 

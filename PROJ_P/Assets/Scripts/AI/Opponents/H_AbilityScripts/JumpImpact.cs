@@ -65,8 +65,8 @@ public class JumpImpact : AbilityBase
         base.ExecuteAbility();
         if (!jumpTimer && !warningArea)
         {
-            jumpTimer = Instantiate(new GameObject("JumpTimer"));
-            jumpTimer.AddComponent<Timer>().RunCountDown(jumpWindupTime, ActivateJump, Timer.TimerType.DELAY);
+            jumpTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+            jumpTimer.GetComponent<Timer>().RunCountDown(jumpWindupTime, ActivateJump, Timer.TimerType.DELAY);
             warningArea = Instantiate(warningAreaPrefab, playerPositionalDelay, Quaternion.Euler(-90f, 0f, 0f));
         }
     }

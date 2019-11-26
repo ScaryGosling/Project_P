@@ -35,8 +35,8 @@ public class RusherChase : ChaseBase
         {
             if (!rushCooldown && canRush)
             {
-                rushCooldown = Instantiate(new GameObject("RushCDTimer"));
-                rushCooldown.AddComponent<Timer>().RunCountDown(cooldown, EnableAbility, Timer.TimerType.DELAY);
+                rushCooldown = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+                rushCooldown.GetComponent<Timer>().RunCountDown(cooldown, EnableAbility, Timer.TimerType.DELAY);
 
                 Debug.Log("In Rusher Chase!");
                 canRush = false;

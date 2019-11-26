@@ -56,8 +56,8 @@ public class RusherKnockback : CCBase
 
         if (knockBackTimer == null)
         {
-            knockBackTimer = new GameObject("Knockback Timer");
-            knockBackTimer.AddComponent<Timer>().RunCountDown(knockBackMagnitude, EndKnockBack, Timer.TimerType.DELAY);
+            knockBackTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+            knockBackTimer.GetComponent<Timer>().RunCountDown(knockBackMagnitude, EndKnockBack, Timer.TimerType.DELAY);
         }
     }
 

@@ -42,7 +42,7 @@ public class Freeze : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(0.1f);
-        Destroy(gameObject);
+        BowoniaPool.instance.AddToPool(PoolObject.ICE_NOVA, gameObject);
 
 
     }
