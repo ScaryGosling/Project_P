@@ -76,7 +76,7 @@ public class GameLoop : MonoBehaviour
     private GameObject absoluteUnit;
     [SerializeField] private QuestHandler questHandler;
     [SerializeField] [Range(0, 100)] private int questChance = 50;
-    [SerializeField] private EliasSetLevelOnTrack setLevelOnTrack;
+
 
     private Coroutine waveTimer;
     private float waveTime;
@@ -176,7 +176,7 @@ public class GameLoop : MonoBehaviour
         Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
         //Debug.Log("Expexted: " + expected + " expectedGrowth: " + expectedGrowth);
         //random = Random.Range(18, 21);
-        ChangeEliasLevel(3);
+        ChangeEliasLevel(19);
 
         bonusHealth += healthPerLevel;
         bonusDmg += damagePerLevel;
@@ -330,7 +330,7 @@ public class GameLoop : MonoBehaviour
         if (!shopOpen)
         {
             //random = Random.Range(4,15);
-            ChangeEliasLevel(1);
+            ChangeEliasLevel(10);
             shopKeeper.transform.position = NearbyRandomPosition();
             shopKeeper.gameObject.SetActive(true);
             shopOpen = true;
@@ -356,9 +356,9 @@ public class GameLoop : MonoBehaviour
     private void ChangeEliasLevel(int level)
     {
         setLevel.level = level;
-        setLevel.themeName = "Last Stand";
+        setLevel.themeName = "Dawn of battle";
         eliasPlayer.QueueEvent(setLevel.CreateSetLevelEvent(eliasPlayer.Elias));
-
+    
     }
     /// <summary>
     /// This enumerator represents the recursive gameloop.

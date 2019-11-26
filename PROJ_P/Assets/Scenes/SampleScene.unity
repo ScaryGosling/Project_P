@@ -3047,18 +3047,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4738550532901967002}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &937232302 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6147950296066997116, guid: cac3b176518420b4794292e03639b556,
-    type: 3}
-  m_PrefabInstance: {fileID: 6147950296271797458}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2fc1da056a9664cb3a63b662f66d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &992834960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3451,6 +3439,164 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1231461293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231461296}
+  - component: {fileID: 1231461295}
+  - component: {fileID: 1231461294}
+  m_Layer: 0
+  m_Name: Elias
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1231461294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231461293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2fc1da056a9664cb3a63b662f66d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  file: complete_battle_soundtrack/Complete_Battle_Soundtrack.mepro
+  actionPreset: -1
+  customPreset:
+    flags: 0
+    preWaitTimeMs: 0
+    level: 19
+    jumpToBar: 0
+    suggestedMaxTimeMs: 0
+    transitionPresetName: default
+    themeName: Dawn of battle
+    trackGroupName: None
+    stingerRequiredTheme: 
+    stingerName: None
+  eliasFramesPerBuffer: 4096
+  eliasCachePageCount: 128
+  eliasCachePageSize: 4096
+  playOnStart: 1
+  eliasChannelCount: 2
+--- !u!82 &1231461295
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231461293}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1231461296
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231461293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 153.15576, y: 90.06209, z: 35.563423}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1237271754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4148,12 +4294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &1574753112 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6147950296066997117, guid: cac3b176518420b4794292e03639b556,
-    type: 3}
-  m_PrefabInstance: {fileID: 6147950296271797458}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1577401650
 GameObject:
   m_ObjectHideFlags: 0
@@ -5125,7 +5265,7 @@ PrefabInstance:
         type: 3}
       propertyPath: eliasPlayer
       value: 
-      objectReference: {fileID: 937232302}
+      objectReference: {fileID: 0}
     - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
       propertyPath: heartbeatSource
@@ -5309,11 +5449,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1195681831549422372, guid: ac4161159a95b4446b6803050eca322b,
-        type: 3}
-      propertyPath: m_Name
-      value: SceneManagement
-      objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: adaptionToggles.Array.size
@@ -5379,7 +5514,7 @@ PrefabInstance:
         type: 3}
       propertyPath: eliasSource
       value: 
-      objectReference: {fileID: 1574753112}
+      objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: adaptionToggles.Array.data[4]
@@ -5390,6 +5525,11 @@ PrefabInstance:
       propertyPath: paceSlider
       value: 
       objectReference: {fileID: 1226441849}
+    - target: {fileID: 1195681831549422372, guid: ac4161159a95b4446b6803050eca322b,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneManagement
+      objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422378, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6258,7 +6398,7 @@ PrefabInstance:
     - target: {fileID: 5598189670313424373, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5598189670313424373, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
@@ -6349,7 +6489,17 @@ PrefabInstance:
         type: 3}
       propertyPath: eliasPlayer
       value: 
-      objectReference: {fileID: 937232302}
+      objectReference: {fileID: 1231461294}
+    - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: setLevel.themeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: setLevelOnTrack.themeName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3596345851274281749, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: waveCounter
@@ -6418,100 +6568,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5598189670470178927}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6147950296271797458
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6147950296066997119, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_Name
-      value: Elias
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997119, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997116, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: file
-      value: complete_battle_soundtrack/Complete_Battle_Soundtrack.mepro
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997116, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: customPreset.level
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997116, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: customPreset.themeName
-      value: Dawn of battle
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997116, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: playOnStart
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6147950296066997090, guid: cac3b176518420b4794292e03639b556,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cac3b176518420b4794292e03639b556, type: 3}
 --- !u!1001 &6761460728157619540
 PrefabInstance:
   m_ObjectHideFlags: 0
