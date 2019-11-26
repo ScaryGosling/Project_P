@@ -4817,7 +4817,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 1.5, z: 5}
+  m_Size: {x: 15, y: 1.5, z: 15}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &224635445474481609
 MonoBehaviour:
@@ -4831,7 +4831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbbe8d62838d7844eb397eeccee4e46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resType: 0
   fillAmount: 0.3
   despawnTime: 10
   pickupSound: {fileID: 8300000, guid: db110e427bc2b3d4398f464d577e162c, type: 3}
