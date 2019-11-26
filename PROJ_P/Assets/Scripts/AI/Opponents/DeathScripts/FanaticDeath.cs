@@ -20,6 +20,7 @@ public class FanaticDeath : DeathBase
 
     protected override void RemoveObject()
     {
+        owner.ChangeState<FanaticChase>();
         BowoniaPool.instance.AddToPool(PoolObject.FANATIC, owner.gameObject);
     }
 }

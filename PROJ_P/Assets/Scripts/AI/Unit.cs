@@ -152,6 +152,16 @@ public class Unit : StateMachine
         }
 
     }
+    private void OnEnable()
+    {
+        if (capsuleCollider )
+        {
+            AliveProp = true;
+            capsuleCollider.enabled = true;
+            Health = InitialHealth;
+        }
+
+    }
 
     protected override void Update()
     {
