@@ -70,9 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fillAmount: 1
   despawnTime: 10
-  pickupSound: {fileID: 8300000, guid: 84e1cf0e5dff35745b6881671cec1a7e, type: 3}
-  particles: {fileID: 1482536979965753301, guid: b1100bf3ebcf8614bbd67c23699e7d77,
-    type: 3}
+  pickupSound: {fileID: 8300000, guid: 0936c2358eb648d4986465a467441b6d, type: 3}
+  particles: {fileID: 0}
   type: 13
   source: {fileID: -4540989833999336424}
 --- !u!82 &-4540989833999336424
@@ -228,7 +227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 20c2cdb85ea6a0d4d9f4c619ef87526d, type: 2}
+  - {fileID: 2100000, guid: 1331917f943c58847ba6f6315e7fcc96, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
