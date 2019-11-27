@@ -38,7 +38,7 @@ public class Unit : StateMachine
     [SerializeField] private float moveSpeed;
     public float SpeedProp { get { return moveSpeed; } set { moveSpeed = value; } }
     [SerializeField] private float baseHeath = 20f;
-    public float Health { get { return baseHeath; } set { baseHeath = value; } }
+    public float Health { get { return currentHealth; } set { currentHealth = value; } }
 
     public float InitialHealth { get; private set; }
 
@@ -62,8 +62,9 @@ public class Unit : StateMachine
     public float distanceMultiplier { get; set; } = 2;
 
     [Header("Unit variation")]
-    [SerializeField] private float minSpeed = 0.9f, maxSpeed = 1.1f, minSize = 0.9f, maxSize = 1.1f; 
+    [SerializeField] private float minSpeed = 0.9f, maxSpeed = 1.1f, minSize = 0.9f, maxSize = 1.1f;
 
+    private float currentHealth ;
 
     #endregion
 
@@ -102,7 +103,6 @@ public class Unit : StateMachine
         rigidbody = gameObject.GetComponent<Rigidbody>();
         capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
         ui = GetComponentInChildren<HostileUI>();
-
         target = Player.instance.gameObject;
         baseAttackRange = GetAttackRange;
         if (spawnListener.QuestProp != null && spawnListener.QuestProp is ProtectionQuest)
@@ -119,18 +119,20 @@ public class Unit : StateMachine
         agent.autoRepath = true;
         agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
         AliveProp = true;
+        OnEnable();
     }
     // Methods
     protected override void Awake()
     {
         renderer = GetComponent<MeshRenderer>();
         agent = GetComponent<NavMeshAgent>();
+
         base.Awake();
     }
 
     private void ImprovePower()
     {
-            Health = InitialHealth + spawnListener.HealthManagement; 
+        currentHealth = baseHeath + spawnListener.HealthManagement;
         baseAttack += spawnListener.DamageManagenent;
     }
 
@@ -153,15 +155,16 @@ public class Unit : StateMachine
     }
     private void OnEnable()
     {
+
         if (capsuleCollider )
         {
             AliveProp = true;
             capsuleCollider.enabled = true;
-            Health = InitialHealth + spawnListener.HealthManagement;
             InitalizeUnit();
-            InitialHealth = Health;
+            InitialHealth = currentHealth;
         }
 
+        Debug.Log(gameObject + " " + InitialHealth);
     }
 
     protected override void Update()
