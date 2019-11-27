@@ -66,7 +66,14 @@ public class Pickup : MonoBehaviour
     /// </summary>
     protected void DestroyThis()
     {
-        Destroy(gameObject, despawnTime);
+        if (type != PoolObject.NULL)
+        {
+            BowoniaPool.instance.AddToPool(type, gameObject, despawnTime);
+        }
+        else
+        {
+            Destroy(gameObject, despawnTime);
+        }
     }
 
     /// <summary>
