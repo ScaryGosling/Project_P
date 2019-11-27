@@ -50,7 +50,14 @@ public class Pickup : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
 
             GetComponent<Collider>().enabled = false;
-            Destroy(gameObject, source.clip.length);
+            if (type != PoolObject.NULL)
+            {
+                BowoniaPool.instance.AddToPool(type, gameObject, source.clip.length);
+            }
+            else
+            {
+                Destroy(gameObject, source.clip.length);
+            }
         }
     }
 
