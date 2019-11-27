@@ -6238,6 +6238,11 @@ PrefabInstance:
       propertyPath: setLevelOnTrack.themeName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: expected
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3596345851274281749, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: waveCounter
