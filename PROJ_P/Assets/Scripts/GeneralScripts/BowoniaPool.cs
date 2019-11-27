@@ -49,6 +49,10 @@ public class BowoniaPool : MonoBehaviour
 
     public GameObject GetFromPool(PoolObject poolObject)
     {
+        if (poolObject is PoolObject.NULL)
+        {
+            return null;
+        }
 
         if (!poolDictionary.ContainsKey(poolObject) || poolDictionary[poolObject].Count == 0)
         {
@@ -81,5 +85,5 @@ public class BowoniaPool : MonoBehaviour
 
 public enum PoolObject
 {
-    FANATIC, ZOOMER, BOOMER, TIMER, WAND, LIGHTNING, FIREBALL, ICE_NOVA, BOOMER_WARNINGAREA, BLOOD_SPLATTER, HEALTH_PARTICLES, HEALTH_DROP, MANA_POTION
+    FANATIC, ZOOMER, BOOMER, TIMER, WAND, LIGHTNING, FIREBALL, ICE_NOVA, BOOMER_WARNINGAREA, BLOOD_SPLATTER, HEALTH_PARTICLES, HEALTH_DROP, MANA_POTION, NULL
 }

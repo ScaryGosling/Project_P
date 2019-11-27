@@ -64,6 +64,7 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: 0936c2358eb648d4986465a467441b6d, type: 3}
   particles: {fileID: 360565347942094220, guid: 096983a47b555534e871c2bb30f5ade7,
     type: 3}
+  type: 10
   source: {fileID: 2580386352268429928}
 --- !u!82 &2580386352268429928
 AudioSource:

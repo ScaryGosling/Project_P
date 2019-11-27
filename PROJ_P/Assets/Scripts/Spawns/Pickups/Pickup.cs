@@ -11,9 +11,11 @@ public class Pickup : MonoBehaviour
     [SerializeField] protected float despawnTime = 10f;
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private GameObject particles;
+    [SerializeField] private PoolObject type;
     protected BoxCollider colliderB;
     protected GiveResource giveResource;
     protected Player player;
+    private GameObject instantiated;
 
     [SerializeField] private AudioSource source;
 
@@ -33,11 +35,15 @@ public class Pickup : MonoBehaviour
     {
         if (other.CompareTag("Player") && other.gameObject.layer != 12) //12 is the layer id of "Weapon"
         {
-            if(player.GetSettings().UseSFX)
+            if (player.GetSettings().UseSFX)
                 source.Play();
 
-            if (particles != null)
-                Instantiate(particles, player.transform.position, Quaternion.identity, player.transform);
+            if (type != PoolObject.NULL)
+            {
+                instantiated = BowoniaPool.instance.GetFromPool(type);
+                instantiated.transform.SetParent(player.transform);
+                instantiated.transform.position = player.transform.position;
+            }
 
             DoSomething();
 
