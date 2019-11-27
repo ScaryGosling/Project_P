@@ -56,6 +56,8 @@ public class BountyQuest : Quest
     private void DestroyBoss()
     {
         Destroy(bossStats.gameObject);
+        timer.CancelMethod();
+        timer = null;
         bossStats = null;
     }
 }
