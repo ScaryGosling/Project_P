@@ -119,6 +119,7 @@ public class Unit : StateMachine
         agent.autoRepath = true;
         agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
         AliveProp = true;
+        Randomize();
         OnEnable();
     }
     // Methods
@@ -158,13 +159,12 @@ public class Unit : StateMachine
 
         if (capsuleCollider )
         {
-            AliveProp = true;
+               AliveProp = true;
             capsuleCollider.enabled = true;
-            InitalizeUnit();
+            ImprovePower();
             InitialHealth = currentHealth;
         }
 
-        Debug.Log(gameObject + " " + InitialHealth);
     }
 
     protected override void Update()
