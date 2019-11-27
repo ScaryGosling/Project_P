@@ -44,7 +44,7 @@ public class BoomerChase : ChaseBase
                 jumpCooldownTimer.GetComponent<Timer>().RunCountDown(jumpCooldown, EnableAbility, Timer.TimerType.DELAY);
 
                 canJump = false;
-                owner.ChangeState<JumpImpact>();
+                //owner.ChangeState<JumpImpact>();
             }
         }
     }
