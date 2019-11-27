@@ -34,15 +34,7 @@ public class FanaticSuperKnockback : CCBase
         owner.ChangeState<FanaticDeath>();
     }
 
-    public override void TakeDamage(float damage, float magnitude)
-    {
-        base.TakeDamage(damage, magnitude);
 
-        float oldHealth = owner.Health;
-        owner.Health -= damage;
-        owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-    
-    }
 
     protected override void ApplyCC()
     {

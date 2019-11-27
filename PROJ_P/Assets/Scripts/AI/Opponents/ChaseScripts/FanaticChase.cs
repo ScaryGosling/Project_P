@@ -68,10 +68,6 @@ public class FanaticChase : ChaseBase
     {
         base.TakeDamage(damage, magnitude);
 
-        float oldHealth = owner.Health;
-        owner.Health -= damage;
-        owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-
         SetCrowdControl(magnitude);
 
     }

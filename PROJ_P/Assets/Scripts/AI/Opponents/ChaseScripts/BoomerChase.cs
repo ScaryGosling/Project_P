@@ -33,14 +33,6 @@ public class BoomerChase : ChaseBase
         owner.ChangeState<BoomerDeath>();
     }
 
-    public override void TakeDamage(float damage, float magnitude)
-    {
-        base.TakeDamage(damage, magnitude);
-
-        float oldHealth = owner.Health;
-        owner.Health -= damage;
-        owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-    }
 
     private void JumpDistance()
     {

@@ -54,7 +54,7 @@ public class ChaseBase : AliveBase
             owner.transform.LookAt(owner.target.transform.position + new Vector3(0, owner.capsuleCollider.radius, 0));
     }
 
- 
+
     protected bool DiceRoll()
     {
         float diceRoll = Random.Range(0, 1);

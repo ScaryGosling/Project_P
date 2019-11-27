@@ -23,7 +23,7 @@ public class BossChase : ChaseBase
         {
             Chase();
             CheckForDamage();
-            Debug.Log("Boss doing shit");
+
         }
     }
 
@@ -33,17 +33,7 @@ public class BossChase : ChaseBase
         owner.ChangeState<BossDeath>();
     }
 
-    public override void TakeDamage(float damage, float magnitude)
-    {
-        base.TakeDamage(damage, magnitude);
 
-        float oldHealth = owner.Health;
-        owner.Health -= damage * resistance;
-        owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-
-        //Stagger(magnitude);
-        
-    }
 
     protected override void Chase()
     {

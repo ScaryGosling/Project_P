@@ -138,6 +138,8 @@ public class AliveBase : HostileBaseState
         //splatter.GetComponent<Timer>().RunCountDown(4, PlaceboMethod, Timer.TimerType.DELAY);
         if (owner.target.CompareTag("Player"))
             owner.target.GetComponent<Player>().GoldProp += owner.GetGold;
+        owner.Health -= damage;
+        owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
     }
     protected virtual void SetCrowdControl(float magnitude) { }
 

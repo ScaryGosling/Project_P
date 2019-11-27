@@ -36,15 +36,6 @@ public class BoomerKnockback : CCBase
         owner.ChangeState<BoomerDeath>();
     }
 
-    public override void TakeDamage(float damage, float magnitude)
-    {
-        base.TakeDamage(damage, magnitude);
-
-        float oldHealth = owner.Health;
-        owner.Health -= damage;
-        owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-
-    }
 
 
     protected void EndKnockBack()

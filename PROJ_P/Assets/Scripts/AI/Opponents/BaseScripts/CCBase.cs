@@ -21,7 +21,7 @@ public class CCBase : AliveBase
     {
         base.ToDo();
     }
-    
+
     protected override void CheckForDamage() { }
 
     /// <summary>

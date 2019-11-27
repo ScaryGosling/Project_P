@@ -34,15 +34,7 @@ public class RusherKnockback : CCBase
         owner.ChangeState<RusherDeath>();
     }
 
-    public override void TakeDamage(float damage, float magnitude)
-    {
-        base.TakeDamage(damage, magnitude);
 
-        float oldHealth = owner.Health;
-        owner.Health -= damage;
-        owner.ui.ChangeHealth(owner.InitialHealth, owner.Health);
-        //Stagger(magnitude);
-    }
 
     protected override void ApplyCC()
     {

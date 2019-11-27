@@ -31,6 +31,7 @@ public class RusherRush : AbilityBase
         base.ToDo();
         if (rushing)
             Rush();
+        CheckForDamage();
     }
 
     protected override void ExecuteAbility()
@@ -80,6 +81,12 @@ public class RusherRush : AbilityBase
             EndRush();
         }
     }
+    protected override void Die()
+    {
+        base.Die();
+        owner.ChangeState<RusherDeath>();
+    }
+
 
     public override void ExitState()
     {
