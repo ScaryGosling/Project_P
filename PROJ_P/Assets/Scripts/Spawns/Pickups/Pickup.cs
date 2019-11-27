@@ -52,7 +52,8 @@ public class Pickup : MonoBehaviour
             GetComponent<Collider>().enabled = false;
             if (type != PoolObject.NULL)
             {
-                BowoniaPool.instance.AddToPool(type, gameObject, source.clip.length);
+                StopCoroutine(test);
+                test = StartCoroutine(DestroyAfter(source.clip.length));
             }
             else
             {
@@ -60,6 +61,8 @@ public class Pickup : MonoBehaviour
             }
         }
     }
+    Coroutine test;
+
 
     /// <summary>
     /// Some items must be terminated during the wave, but after some time. Such as health drops.
@@ -68,12 +71,18 @@ public class Pickup : MonoBehaviour
     {
         if (type != PoolObject.NULL)
         {
-            BowoniaPool.instance.AddToPool(type, gameObject, despawnTime);
+            test = StartCoroutine(DestroyAfter(despawnTime));
         }
         else
         {
             Destroy(gameObject, despawnTime);
         }
+    }
+
+    IEnumerator DestroyAfter(float time)
+    {
+        yield return new WaitForSeconds(time);
+        BowoniaPool.instance.AddToPool(type, gameObject);
     }
 
     /// <summary>

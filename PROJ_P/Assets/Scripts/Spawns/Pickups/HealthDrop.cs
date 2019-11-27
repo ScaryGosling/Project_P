@@ -10,6 +10,10 @@ public class HealthDrop : Pickup
         base.Start();
         DestroyThis();
     }
+    private void OnEnable()
+    {
+        DestroyThis();
+    }
     protected override void DoSomething()
     {
         player.HealthProp = fillAmount;
