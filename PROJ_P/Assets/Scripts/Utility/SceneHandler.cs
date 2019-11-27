@@ -18,6 +18,8 @@ public class SceneHandler : MonoBehaviour
 
     public static SceneHandler instance;
 
+    private Coroutine pauseCoroutine;
+
     public void SetupPromptToggles()
     {
         promptToggles[0].SetActive(settings.UseWarnings);
@@ -36,6 +38,8 @@ public class SceneHandler : MonoBehaviour
         if(eliasSource)
             eliasSource.mute = !settings.UseMusic;
     }
+    
+
 
     public void SetPace()
     {
@@ -68,27 +72,58 @@ public class SceneHandler : MonoBehaviour
 
     public void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(optionsWindow && optionsWindow.activeSelf)
+            if (shopWindow && shopWindow.activeSelf)
             {
                 shopWindow.SetActive(false);
             }
-            else if (shopWindow && shopWindow.activeSelf)
-            { 
-                shopWindow.SetActive(false);
-            }
-            else if(mainMenuPrompt != null)
+            else if (mainMenuPrompt && !mainMenuPrompt.activeSelf)
             {
+                pauseCoroutine = StartCoroutine(CheckRestore());
                 Time.timeScale = 0;
                 mainMenuPrompt.SetActive(true);
+            } else if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("OptionsMenu") || SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ClassChooserScene"))
+            {
+                GoToScene("MainMenu");
             }
-                
+
+        }
+    }
+
+    public IEnumerator CheckRestore()
+    {
+
+        bool paused = true;
+
+        while (paused)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (optionsWindow && optionsWindow.activeSelf)
+                {
+                    Debug.Log("Options menu opeeeen");
+                    optionsWindow.SetActive(false);
+                }
+                else if (mainMenuPrompt && mainMenuPrompt.activeSelf)
+                {
+                    Debug.Log("Hello");
+                    mainMenuPrompt.SetActive(false);
+                    Player.instance.SetHover(false);
+                    paused = false;
+                    RestoreTimeScale();
+                }
+
+            }
+
+        yield return null;
         }
     }
 
     public void RestoreTimeScale()
     {
+        StopCoroutine(pauseCoroutine);
         Time.timeScale = 1;
     }
 

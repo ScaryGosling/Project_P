@@ -10266,7 +10266,7 @@ GameObject:
   - component: {fileID: 1077303088241738800}
   - component: {fileID: 4188862499709204133}
   m_Layer: 5
-  m_Name: Aim Assist (1)
+  m_Name: Pace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

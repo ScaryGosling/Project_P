@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5449,15 +5449,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
+    - target: {fileID: 1195681831549422372, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
-      propertyPath: adaptionToggles.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
-        type: 3}
-      propertyPath: promptToggles.Array.size
-      value: 3
+      propertyPath: m_Name
+      value: SceneManagement
       objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
@@ -5466,15 +5461,14 @@ PrefabInstance:
       objectReference: {fileID: 1258135962}
     - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
+      propertyPath: optionsWindow
+      value: 
+      objectReference: {fileID: 429591415}
+    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
+        type: 3}
       propertyPath: mainMenuPrompt
       value: 
       objectReference: {fileID: 590241720}
-    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
-        type: 3}
-      propertyPath: settings
-      value: 
-      objectReference: {fileID: 11400000, guid: 9c37919dfa498b34290c55af5af987d5,
-        type: 2}
     - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: promptToggles.Array.data[0]
@@ -5512,11 +5506,6 @@ PrefabInstance:
       objectReference: {fileID: 728508976}
     - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
-      propertyPath: eliasSource
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
-        type: 3}
       propertyPath: adaptionToggles.Array.data[4]
       value: 
       objectReference: {fileID: 734828424}
@@ -5525,11 +5514,6 @@ PrefabInstance:
       propertyPath: paceSlider
       value: 
       objectReference: {fileID: 1226441849}
-    - target: {fileID: 1195681831549422372, guid: ac4161159a95b4446b6803050eca322b,
-        type: 3}
-      propertyPath: m_Name
-      value: SceneManagement
-      objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422378, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: m_LocalPosition.x

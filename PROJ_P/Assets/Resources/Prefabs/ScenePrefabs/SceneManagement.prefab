@@ -44,6 +44,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: MainMenu
-  keybindSet: {fileID: 11400000, guid: 9c37919dfa498b34290c55af5af987d5, type: 2}
+  settings: {fileID: 11400000, guid: 9c37919dfa498b34290c55af5af987d5, type: 2}
   shopWindow: {fileID: 0}
-  promptToggles: []
+  optionsWindow: {fileID: 0}
+  mainMenuPrompt: {fileID: 0}
+  promptToggles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  adaptionToggles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  paceSlider: {fileID: 0}
+  eliasSource: {fileID: 0}
