@@ -73,7 +73,11 @@ public class Shop : StateMachine
         }
         timerText.SetActive(false);
         //Destroy(shopTimer);
+        if (shopTimer != null)
+        {
         ChangeState<ShopTimeFinishedState>();
+
+        }
     }
 
     public GameObject GetShopWindow()

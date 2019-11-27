@@ -102,8 +102,7 @@ public class Unit : StateMachine
         rigidbody = gameObject.GetComponent<Rigidbody>();
         capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
         ui = GetComponentInChildren<HostileUI>();
-        InitalizeUnit();
-        InitialHealth = Health;
+
         target = Player.instance.gameObject;
         baseAttackRange = GetAttackRange;
         if (spawnListener.QuestProp != null && spawnListener.QuestProp is ProtectionQuest)
@@ -131,7 +130,7 @@ public class Unit : StateMachine
 
     private void ImprovePower()
     {
-        //baseHeath += spawnListener.HealthManagement;
+            Health = InitialHealth + spawnListener.HealthManagement; 
         baseAttack += spawnListener.DamageManagenent;
     }
 
@@ -158,7 +157,9 @@ public class Unit : StateMachine
         {
             AliveProp = true;
             capsuleCollider.enabled = true;
-            Health = InitialHealth + spawnListener.HealthManagement; ;
+            Health = InitialHealth + spawnListener.HealthManagement;
+            InitalizeUnit();
+            InitialHealth = Health;
         }
 
     }

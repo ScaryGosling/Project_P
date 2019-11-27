@@ -56,7 +56,6 @@ public class Player : MonoBehaviour
     [SerializeField] private Text healthPotionsText;
     [SerializeField] private Text resourcePotionsText;
     [SerializeField] [Range(0, 3)] private int resourcePotionsStart = 3;
-    [SerializeField] private GameObject healthParticles;
     [SerializeField] [Range(0, 100)] private int autoRefillHealthUnder = 30;
     [SerializeField] [Range(0, 100)] private int autoRefillResourceUnder = 30;
     [SerializeField] private int maxHealthPotions = 3;
@@ -488,12 +487,14 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    private GameObject healthParticles;
     private void UseHealthPotion()
     {
         if (tempHP != 100 && HealthPotions > 0)
         {
-                BowoniaPool.instance.GetFromPool(PoolObject.HEALTH_PARTICLES).transform.position = transform.position;
+            healthParticles = BowoniaPool.instance.GetFromPool(PoolObject.HEALTH_PARTICLES);
+            healthParticles.transform.position = transform.position;
+            healthParticles.transform.SetParent(transform);
 
             HealthProp = healthPotionIncrease;
             HealthPotions--;
