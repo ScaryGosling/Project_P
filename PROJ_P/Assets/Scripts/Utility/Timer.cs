@@ -33,6 +33,12 @@ public class Timer : MonoBehaviour
 
     }
 
+    public void CancelMethod()
+    {
+        methodToRun = null;
+        Countdown = 0;
+    }
+
     public void RunCountDown(float time, Action action, TimerType type)
     {
 
