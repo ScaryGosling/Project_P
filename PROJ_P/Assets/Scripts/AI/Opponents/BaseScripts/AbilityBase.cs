@@ -33,7 +33,7 @@ public class AbilityBase : AliveBase
     {
         intersection = owner.rigidbody.SweepTest(owner.agent.transform.forward, out hit, owner.capsuleCollider.radius * 2, QueryTriggerInteraction.Collide);
 
-        if (intersection && !(hit.collider.CompareTag("Player") || hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone")))
+        if (intersection && !(hit.collider.CompareTag("Player") || hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone") || hit.collider.CompareTag("Enemy")))
         {
             CancelState();
         }
