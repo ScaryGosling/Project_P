@@ -493,8 +493,10 @@ public class Player : MonoBehaviour
     {
         if (tempHP != 100 && HealthPotions > 0)
         {
-            if(healthParticles != null)
-                Instantiate(healthParticles, transform.position, Quaternion.identity, transform);
+            if (healthParticles != null) 
+            {
+                BowoniaPool.instance.GetFromPool(PoolObject.HEALTH_PARTICLES).transform.position = transform.position;
+            }
             HealthProp = healthPotionIncrease;
             HealthPotions--;
         }

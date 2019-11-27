@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Particle : MonoBehaviour
 {
-    public float time;
+    public float disableTime;
+    [SerializeField] private PoolObject type;
     public IEnumerator KillTimer()
     {
-        yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(disableTime);
+        BowoniaPool.instance.AddToPool(type, gameObject);
     }
 
-    public void Start()
+    public void OnEnable()
     {
         StartCoroutine(KillTimer());
     }
