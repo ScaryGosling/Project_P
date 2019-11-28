@@ -5188,6 +5188,11 @@ PrefabInstance:
       propertyPath: paceSlider
       value: 
       objectReference: {fileID: 1226441849}
+    - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
+        type: 3}
+      propertyPath: eliasSource
+      value: 
+      objectReference: {fileID: 1231461295}
     - target: {fileID: 1195681831549422378, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: m_LocalPosition.x
