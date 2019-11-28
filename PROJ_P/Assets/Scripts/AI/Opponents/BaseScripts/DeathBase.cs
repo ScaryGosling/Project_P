@@ -13,12 +13,15 @@ using UnityEngine.AI;
 public class DeathBase : HostileBaseState
 {
     [SerializeField] protected float corpseTimer = 2f;
+    private float countDown = 0;
+
 
     public override void EnterState()
     {
         base.EnterState();
         owner.PlayHurtAudio(owner.deathClip);
         DisableUnit();
+        countDown = corpseTimer;
     }
 
 
@@ -26,6 +29,11 @@ public class DeathBase : HostileBaseState
     {
         base.ToDo();
         DeathAnimation();
+        if (countDown < 0)
+        {
+            RemoveObject();
+        }
+        countDown -= Time.deltaTime;
     }
 
     /// <summary>
@@ -41,7 +49,7 @@ public class DeathBase : HostileBaseState
             //owner.agent.enabled = false;
         }
         owner.capsuleCollider.enabled = false;
-        BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>().RunCountDown(corpseTimer, RemoveObject, Timer.TimerType.DELAY);
+        //BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>().RunCountDown(corpseTimer, RemoveObject, Timer.TimerType.DELAY);
     }
     protected virtual void RemoveObject() { }
     protected virtual void DeathAnimation(){ }

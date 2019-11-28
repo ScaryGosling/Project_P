@@ -46,11 +46,12 @@ public class RusherChase : ChaseBase
     public override void ExitState()
     {
         base.ExitState();
-        rushCooldown = null;
+
     }
     private void EnableAbility()
     {
         canRush = true;
+        rushCooldown = null;
     }
 
     protected override void Die()

@@ -37,6 +37,7 @@ public class Timer : MonoBehaviour
     {
         methodToRun = null;
         Countdown = 0;
+        BowoniaPool.instance.AddToPool(PoolObject.TIMER, gameObject);
     }
 
     public void RunCountDown(float time, Action action, TimerType type)

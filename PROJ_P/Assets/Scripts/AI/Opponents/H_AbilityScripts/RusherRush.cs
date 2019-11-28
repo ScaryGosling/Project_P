@@ -77,7 +77,6 @@ public class RusherRush : AbilityBase
         {
             Player.instance.HealthProp = -impactDamage;
 
-            Destroy(rusherEndTimer);
             EndRush();
         }
     }
@@ -90,6 +89,15 @@ public class RusherRush : AbilityBase
 
     public override void ExitState()
     {
+        if (rushTimer!=null)
+        {
+            rushTimer.GetComponent<Timer>().CancelMethod();
+        }
+        if (rusherEndTimer != null)
+        {
+
+        rusherEndTimer.GetComponent<Timer>().CancelMethod();
+        }
         rushTimer = null;
         rusherEndTimer = null;
         owner.agent.angularSpeed = standardAngularSpeed;

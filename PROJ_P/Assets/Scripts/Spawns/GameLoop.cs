@@ -395,9 +395,13 @@ public class GameLoop : MonoBehaviour
                     {
                         absoluteUnit = UnitController();
                         absoluteUnit.transform.position = spawnObject.transform.GetChild(0).transform.position;
+                        //absoluteUnit.GetComponent<NavMeshAgent>().Warp(spawnObject.transform.GetChild(0).transform.position);
                         absoluteUnit.transform.rotation = Quaternion.identity;
                         absoluteUnit.gameObject.SetActive(true);
                         spawned++;
+
+                        //loop -> levande fiender
+                        //absoluteUnit.GetComponent<NavMeshAgent>().pathStatus != NavMeshPathStatus.PathComplete -> do stuff
                     }
                     yield return new WaitForSeconds(time);
                 }
@@ -409,7 +413,6 @@ public class GameLoop : MonoBehaviour
             }
         }
     }
-
 }
 
 #region GameLoopLegacy
