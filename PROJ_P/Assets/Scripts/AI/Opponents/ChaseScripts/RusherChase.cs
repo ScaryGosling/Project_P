@@ -33,7 +33,7 @@ public class RusherChase : ChaseBase
     {
         if (Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) < rushMaxDistance && owner.target.CompareTag("Player"))
         {
-            if (!rushCooldown && canRush)
+            if (!rushCooldown && canRush && owner.AliveProp)
             {
                 rushCooldown = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
                 rushCooldown.GetComponent<Timer>().RunCountDown(cooldown, EnableAbility, Timer.TimerType.DELAY);

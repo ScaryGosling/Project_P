@@ -154,54 +154,57 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    [SerializeField] private bool invincible;
     public float HealthProp
     {
         get { return tempHP; }
         set
         {
-            if(value < 0)
+            if (!invincible)
             {
-                tempHP += value * activeStats.resistanceMultiplier;
-
-                if (hitFlash != null)
+                if (value < 0)
                 {
-                    StopCoroutine(hitFlash);
+                    tempHP += value * activeStats.resistanceMultiplier;
+
+                    if (hitFlash != null)
+                    {
+                        StopCoroutine(hitFlash);
+                    }
+                    playerRenderer.material.SetColor("_BaseColor", baseColor);
+                    hitFlash = StartCoroutine(HitFlash());
                 }
-                playerRenderer.material.SetColor("_BaseColor", baseColor);
-                hitFlash = StartCoroutine(HitFlash());
-            }
-            else
-            {
-                tempHP += value; //When heald resistance should not matter
-            }
+                else
+                {
+                    tempHP += value; //When heald resistance should not matter
+                }
 
-            if (tempHP > 100)
-            {
-                tempHP = 100;
-            }
-            health.fillAmount = tempHP * 0.01f;
+                if (tempHP > 100)
+                {
+                    tempHP = 100;
+                }
+                health.fillAmount = tempHP * 0.01f;
 
-            if (health.fillAmount < colorTransitionPoint)
-                health.color = Color.Lerp(emptyHealth, fullHealth, health.fillAmount / colorTransitionPoint);
-            else
-                health.color = fullHealth;
+                if (health.fillAmount < colorTransitionPoint)
+                    health.color = Color.Lerp(emptyHealth, fullHealth, health.fillAmount / colorTransitionPoint);
+                else
+                    health.color = fullHealth;
 
-            if (value < 0 && hurtClip != null)
-            {
-                PlayAudio(hurtClip[Random.Range(0, hurtClip.Length)]);
-            }
+                if (value < 0 && hurtClip != null)
+                {
+                    PlayAudio(hurtClip[Random.Range(0, hurtClip.Length)]);
+                }
 
-            if (tempHP < 25 && !GameLoop.instance.GetShopOpen() && settings.UseSFX)
-            {
-                heartbeatSource.clip = heartbeatClip;
-                heartbeatSource.Play();
-            }
-            else
-            {
-                heartbeatSource.Stop();
-            }
+                if (tempHP < 25 && !GameLoop.instance.GetShopOpen() && settings.UseSFX)
+                {
+                    heartbeatSource.clip = heartbeatClip;
+                    heartbeatSource.Play();
+                }
+                else
+                {
+                    heartbeatSource.Stop();
+                }
 
+            }
     
         }
     }

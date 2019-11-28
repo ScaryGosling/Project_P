@@ -12,6 +12,7 @@ public class RusherRush : AbilityBase
     private bool rushing = false;
     private Vector3 targetPosition;
     private Quaternion lookAt;
+    private float startRushTimer, endRushTimer;
 
     public override void EnterState()
     {
@@ -23,6 +24,10 @@ public class RusherRush : AbilityBase
 
         player = Player.instance;
         owner.agent.ResetPath();
+        //rushTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+        //rushTimer.GetComponent<Timer>().RunCountDown(1f, StartRush, Timer.TimerType.DELAY);
+        startRushTimer = 1;
+        endRushTimer = 3;
     }
 
 
@@ -32,6 +37,22 @@ public class RusherRush : AbilityBase
         if (rushing)
             Rush();
         CheckForDamage();
+        if (endRushTimer < 0 && rushing)
+        {
+            EndRush();
+        }
+        if (startRushTimer < 0 && !rushing)
+        {
+            rushing = true;
+            targetPosition = player.transform.position;
+        }
+        if (rushing)
+        {
+            endRushTimer -= Time.deltaTime;
+        }
+
+            startRushTimer -= Time.deltaTime;
+
     }
 
     protected override void ExecuteAbility()
@@ -39,14 +60,13 @@ public class RusherRush : AbilityBase
         base.ExecuteAbility();
         if (!rushTimer)
         {
-            rushTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-            rushTimer.GetComponent<Timer>().RunCountDown(1f, StartRush, Timer.TimerType.DELAY);
+
         }
     }
-
     private void StartRush()
     {
-        rushing = true;
+
+
         if (!rusherEndTimer)
         {
             targetPosition = player.transform.position;
@@ -77,6 +97,7 @@ public class RusherRush : AbilityBase
         {
             Player.instance.HealthProp = -impactDamage;
 
+            //rusherEndTimer.GetComponent<Timer>().CancelMethod();
             EndRush();
         }
     }
