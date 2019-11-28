@@ -103,12 +103,11 @@ public class SceneHandler : MonoBehaviour
             {
                 if (optionsWindow && optionsWindow.activeSelf)
                 {
-                    Debug.Log("Options menu opeeeen");
                     optionsWindow.SetActive(false);
                 }
                 else if (mainMenuPrompt && mainMenuPrompt.activeSelf)
                 {
-                    Debug.Log("Hello");
+
                     mainMenuPrompt.SetActive(false);
                     Player.instance.SetHover(false);
                     paused = false;

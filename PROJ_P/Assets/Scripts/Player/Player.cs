@@ -208,7 +208,7 @@ public class Player : MonoBehaviour
 
     public void PlayHeartBeat()
     {
-        if (settings.UseSFX)
+        if (settings.UseSFX && HealthProp < 25)
         {
             heartbeatSource.clip = heartbeatClip;
             heartbeatSource.Play();
