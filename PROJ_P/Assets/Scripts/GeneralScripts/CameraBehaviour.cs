@@ -38,6 +38,7 @@ public class CameraBehaviour : MonoBehaviour
         {
             isFaded = true;
             float fadeTime = this.fadeTime;
+            Debug.Log("Fade out");
 
             for (int i = 0; i < renderer.materials.Length; i++)
             {
@@ -124,8 +125,9 @@ public class CameraBehaviour : MonoBehaviour
                 }
 
                 //If entered house is same as faded hose, but it is not faded
-                if(hit.collider.gameObject == fadedHouse.go && !fadedHouse.renderer.material.HasProperty("_Alpha"))
+                if(hit.collider.gameObject == fadedHouse.go && fadedHouse.renderer.material.GetFloat("_Alpha") >= 1)
                 {
+                    Debug.Log("Entered same house again");
                     if(fadedHouse.fadeCoroutine != null)
                         StopCoroutine(fadedHouse.fadeCoroutine);
                     fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeOut());
