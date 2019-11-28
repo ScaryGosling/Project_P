@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3573878394304291488}
   - component: {fileID: 5531530617029417110}
   - component: {fileID: 2305694174520255599}
+  - component: {fileID: 8314797928529709097}
   m_Layer: 0
   m_Name: privatehouse
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 72
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8314797928529709097
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559482841296375987}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.35593376, y: 0.43681806, z: 0.61329705}
+  m_Center: {x: 0, y: 0, z: 0}
