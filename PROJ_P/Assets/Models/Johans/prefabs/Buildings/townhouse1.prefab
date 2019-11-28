@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 225449097923165303}
   - component: {fileID: 3441565925665589144}
   - component: {fileID: 2426220977976035949}
+  - component: {fileID: 6147647275308423562}
   m_Layer: 11
   m_Name: pCube30
   m_TagString: Building
@@ -123,7 +124,20 @@ BoxCollider:
   m_GameObject: {fileID: 8937504457331383642}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0, y: 0.75696754, z: 0.3005491}
   m_Center: {x: 0.15993042, y: 0.22848369, z: 0.00027456283}
+--- !u!65 &6147647275308423562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937504457331383642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3600495, y: 0.75696754, z: 0.3005491}
+  m_Center: {x: 0.030024715, y: 0.22848374, z: 0.00027456135}

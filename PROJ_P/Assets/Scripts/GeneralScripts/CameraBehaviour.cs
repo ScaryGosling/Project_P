@@ -13,6 +13,7 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField] private float fadeTime;
     private GameObject fadedObject;
     [SerializeField] private Shader transparentShader;
+    [SerializeField] private Shader opaqueShader;
     private Renderer hitRenderer;
     private FadedHouse fadedHouse;
 
@@ -24,7 +25,7 @@ public class CameraBehaviour : MonoBehaviour
         public bool isFaded;
         public Renderer renderer;
         public Material[] oldMaterials;
-        public Shader[] oldShader;
+        public Shader opaqueShader;
         public Shader transparentShader;
         private const string shaderAlpha = "_Alpha";
         public float fadeAmount;
@@ -81,7 +82,7 @@ public class CameraBehaviour : MonoBehaviour
             for (int i = 0; i < renderer.materials.Length; i++)
             {
                 renderer.materials[i] = oldMaterials[i];
-                renderer.materials[i].shader = oldShader[i];
+                renderer.materials[i].shader = opaqueShader;
             }
 
         }
@@ -168,14 +169,14 @@ public class CameraBehaviour : MonoBehaviour
 
         fadedHouse.renderer = renderer;
         fadedHouse.oldMaterials = new Material[renderer.materials.Length];
-        fadedHouse.oldShader = new Shader[renderer.materials.Length];
         fadedHouse.go = renderer.gameObject;
         fadedHouse.transparentShader = transparentShader;
         fadedHouse.fadeAmount = fadeAmount;
         fadedHouse.fadeTime = fadeTime;
 
         for (int i = 0; i < fadedHouse.oldMaterials.Length; i++){ fadedHouse.oldMaterials[i] = renderer.materials[i]; }
-        for (int i = 0; i < fadedHouse.oldShader.Length; i++){ fadedHouse.oldShader[i] = renderer.materials[i].shader; }
+        //for (int i = 0; i < fadedHouse.oldShader.Length; i++){ fadedHouse.oldShader[i] = opa; }
+        fadedHouse.opaqueShader = opaqueShader;
 
         return fadedHouse;
     }

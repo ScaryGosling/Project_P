@@ -5386,6 +5386,12 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 849217765}
+    - target: {fileID: 2590573925140275474, guid: 5e8330f25c2f02b4b8526317fc82873d,
+        type: 3}
+      propertyPath: opaqueShader
+      value: 
+      objectReference: {fileID: -6465566751694194690, guid: c27bec502a736134eaea1349d2dec7eb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e8330f25c2f02b4b8526317fc82873d, type: 3}
 --- !u!1001 &4397053039383061664
