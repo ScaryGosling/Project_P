@@ -34,25 +34,29 @@ public class RusherRush : AbilityBase
     public override void ToDo()
     {
         base.ToDo();
-        if (rushing)
-            Rush();
         CheckForDamage();
-        if (endRushTimer < 0 && rushing)
+        TimeTask();
+    }
+
+    private void TimeTask()
+    {
+        if (rushing)
         {
-            EndRush();
+            Rush();
+            endRushTimer -= Time.deltaTime;
+
+            if (endRushTimer < 0 && rushing)
+            {
+                EndRush();
+            }
         }
-        if (startRushTimer < 0 && !rushing)
+        else if (startRushTimer < 0 && !rushing)
         {
             rushing = true;
             targetPosition = player.transform.position;
         }
-        if (rushing)
-        {
-            endRushTimer -= Time.deltaTime;
-        }
 
-            startRushTimer -= Time.deltaTime;
-
+        startRushTimer -= Time.deltaTime;
     }
 
     protected override void ExecuteAbility()
@@ -110,14 +114,14 @@ public class RusherRush : AbilityBase
 
     public override void ExitState()
     {
-        if (rushTimer!=null)
+        if (rushTimer != null)
         {
             rushTimer.GetComponent<Timer>().CancelMethod();
         }
         if (rusherEndTimer != null)
         {
 
-        rusherEndTimer.GetComponent<Timer>().CancelMethod();
+            rusherEndTimer.GetComponent<Timer>().CancelMethod();
         }
         rushTimer = null;
         rusherEndTimer = null;
