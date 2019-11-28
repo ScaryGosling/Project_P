@@ -12,6 +12,7 @@ public class ProjectileInstance : MonoBehaviour
     protected float maginitude;
     [SerializeField] protected AudioClip impactSound;
     protected AudioSource source;
+    [SerializeField] private GameObject particles;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class ProjectileInstance : MonoBehaviour
     {
         GetComponent<Renderer>().enabled = true;
         GetComponent<Collider>().enabled = true;
+        particles.SetActive(true);
     }
     private bool IsVisible()
     {
@@ -71,6 +73,7 @@ public class ProjectileInstance : MonoBehaviour
             RunAttack(other);
             GetComponent<Renderer>().enabled = false;
             GetComponent<Collider>().enabled = false;
+            particles.SetActive(false) ;
             StartCoroutine(KillTimer(impactSound.length));
 
         }

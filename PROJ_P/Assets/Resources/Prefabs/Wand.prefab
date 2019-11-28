@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactSound: {fileID: 8300000, guid: c2a70a6ac3890264bbdb08086ccf97c9, type: 3}
+  particles: {fileID: 8405367429772515242}
 --- !u!1 &7355371260463935054
 GameObject:
   m_ObjectHideFlags: 0
