@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9044782207090165065}
   - component: {fileID: 9217709070011604012}
   - component: {fileID: 1938757820592822106}
+  - component: {fileID: 3286559810946991865}
   m_Layer: 11
   m_Name: pCube78
   m_TagString: Building
@@ -94,7 +95,7 @@ BoxCollider:
   m_GameObject: {fileID: 5688602395893220453}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0, y: 0.7607456, z: 0.32697472}
   m_Center: {x: 0.14721434, y: 0, z: -0.016537284}
@@ -107,10 +108,23 @@ BoxCollider:
   m_GameObject: {fileID: 5688602395893220453}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.33066475, y: 0.7607456, z: 0}
   m_Center: {x: -0.017768897, y: 0, z: 0.14575347}
+--- !u!65 &3286559810946991865
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5688602395893220453}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36617595, y: 0.7607456, z: 0.3661493}
+  m_Center: {x: -0.000013299286, y: 0, z: 0.0030499473}
 --- !u!1 &5804233901227536929
 GameObject:
   m_ObjectHideFlags: 0

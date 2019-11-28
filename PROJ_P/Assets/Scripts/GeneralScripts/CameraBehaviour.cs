@@ -26,7 +26,7 @@ public class CameraBehaviour : MonoBehaviour
         public Material[] oldMaterials;
         public Shader[] oldShader;
         public Shader transparentShader;
-        private const string shaderAlpha = "Vector1_817719AB";
+        private const string shaderAlpha = "_Alpha";
         public float fadeAmount;
 
         public Coroutine fadeCoroutine;
@@ -123,7 +123,7 @@ public class CameraBehaviour : MonoBehaviour
                 }
 
                 //If entered house is same as faded hose, but it is not faded
-                if(hit.collider.gameObject == fadedHouse.go && !fadedHouse.renderer.material.HasProperty("Vector1_817719AB"))
+                if(hit.collider.gameObject == fadedHouse.go && !fadedHouse.renderer.material.HasProperty("_Alpha"))
                 {
                     if(fadedHouse.fadeCoroutine != null)
                         StopCoroutine(fadedHouse.fadeCoroutine);
@@ -133,7 +133,7 @@ public class CameraBehaviour : MonoBehaviour
                 //If entering another faded house
                 if(hit.collider.gameObject != fadedHouse.go)
                 {
-                    if(fadedHouse.fadeCoroutine != null && fadedHouse.renderer.material.HasProperty("Vector1_817719AB"))
+                    if(fadedHouse.fadeCoroutine != null && fadedHouse.renderer.material.HasProperty("_Alpha"))
                     {
                         StopCoroutine(fadedHouse.fadeCoroutine);
                         fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeIn());
@@ -148,7 +148,7 @@ public class CameraBehaviour : MonoBehaviour
 
             if (hit.collider.CompareTag("Player"))
             {
-                if (fadedHouse.fadeCoroutine != null && fadedHouse.renderer.material.HasProperty("Vector1_817719AB"))
+                if (fadedHouse.fadeCoroutine != null && fadedHouse.renderer.material.HasProperty("_Alpha"))
                 {
                     StopCoroutine(fadedHouse.fadeCoroutine);
                     fadedHouse.fadeCoroutine = StartCoroutine(fadedHouse.FadeIn());
