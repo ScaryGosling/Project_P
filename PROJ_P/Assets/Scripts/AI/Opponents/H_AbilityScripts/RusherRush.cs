@@ -45,12 +45,12 @@ public class RusherRush : AbilityBase
             Rush();
             endRushTimer -= Time.deltaTime;
 
-            if (endRushTimer < 0 && rushing)
+            if (endRushTimer < 0)
             {
                 EndRush();
             }
         }
-        else if (startRushTimer < 0 && !rushing)
+        else if (startRushTimer < 0)
         {
             rushing = true;
             targetPosition = player.transform.position;
