@@ -12,6 +12,7 @@ public class FireballInstance : MonoBehaviour
     public float Magnitude { get; set; }
 
     private AudioSource source;
+    private GameObject impact;
     [SerializeField] private AudioClip impactSound;
 
     public void Start()
@@ -25,6 +26,9 @@ public class FireballInstance : MonoBehaviour
         transform.localScale = Vector3.one;
         GetComponent<Collider>().enabled = true;
         GetComponent<Rigidbody>().isKinematic = false;
+        transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+        transform.GetChild(1).gameObject.SetActive(true);
+        GetComponent<Collider>().enabled = true;
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -35,6 +39,10 @@ public class FireballInstance : MonoBehaviour
     {
         GetComponent<Collider>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
+
+        impact = BowoniaPool.instance.GetFromPool(PoolObject.FIREBALL_IMPACT);
+        impact.transform.position = transform.position;
+        BowoniaPool.instance.AddToPool(PoolObject.FIREBALL_IMPACT, impact, 5);
 
         if(impactSound != null && Player.instance.GetSettings().UseSFX)
             source.Play();
@@ -51,20 +59,11 @@ public class FireballInstance : MonoBehaviour
         StartCoroutine(KillTimer(impactSound.length));
     }
 
-    ////Remove this and add real animation instead
-    //public IEnumerator ExplosionAnimation() {
-
-    //    while (transform.lossyScale.x < ExplosionRadius) {
-
-    //        transform.localScale += new Vector3(1, 1, 1);
-    //        yield return null;
-    //    }
-    //    StartCoroutine(KillTimer(impactSound.length));
-
-    //}
-
     public IEnumerator KillTimer(float time)
     {
+        transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+        transform.GetChild(1).GetComponent<ParticleSystem>().Stop();
         yield return new WaitForSeconds(time);
         BowoniaPool.instance.AddToPool(PoolObject.FIREBALL, gameObject);
 

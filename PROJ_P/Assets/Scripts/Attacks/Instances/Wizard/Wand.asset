@@ -43,4 +43,6 @@ MonoBehaviour:
   speedMultiplier: 0.5
   projectile: {fileID: 6750013541312212612, guid: 496018193e878472eaa24ee9549d5bd7,
     type: 3}
+  projectileHit: {fileID: 7371726452362801046, guid: ed111fe499bd5774c96a1ec75ce9a4ac,
+    type: 3}
   force: 1500

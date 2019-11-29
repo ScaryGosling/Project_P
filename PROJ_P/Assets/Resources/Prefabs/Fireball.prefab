@@ -4806,7 +4806,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5490361096305928263}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5062,6 +5062,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 57623a3fee98bd54295c0bed9d638d53, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 9af680a894e1de5428db015f6a380b5c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af680a894e1de5428db015f6a380b5c, type: 3}
 --- !u!4 &5236333985272232462 stripped
