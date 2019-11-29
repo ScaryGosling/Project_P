@@ -1275,7 +1275,7 @@ PrefabInstance:
     - target: {fileID: 1533058456155431358, guid: 81b01d08001c1854ebdcdeadcf31860b,
         type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1533058456526581423, guid: 81b01d08001c1854ebdcdeadcf31860b,
         type: 3}
@@ -1571,7 +1571,7 @@ PrefabInstance:
     - target: {fileID: 1533058456155431358, guid: 81b01d08001c1854ebdcdeadcf31860b,
         type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1533058456526581423, guid: 81b01d08001c1854ebdcdeadcf31860b,
         type: 3}
@@ -1867,7 +1867,7 @@ PrefabInstance:
     - target: {fileID: 1533058456155431358, guid: 81b01d08001c1854ebdcdeadcf31860b,
         type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1533058456526581423, guid: 81b01d08001c1854ebdcdeadcf31860b,
         type: 3}
@@ -2088,7 +2088,7 @@ PrefabInstance:
     - target: {fileID: 7089112606353149577, guid: f550fb9f069741d499cf0f0eb71853c6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7089112606353149577, guid: f550fb9f069741d499cf0f0eb71853c6,
         type: 3}
@@ -2469,7 +2469,7 @@ PrefabInstance:
     - target: {fileID: 1533058456155431358, guid: 81b01d08001c1854ebdcdeadcf31860b,
         type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1533058456526581423, guid: 81b01d08001c1854ebdcdeadcf31860b,
         type: 3}
@@ -2690,7 +2690,7 @@ PrefabInstance:
     - target: {fileID: 7089112606353149577, guid: f550fb9f069741d499cf0f0eb71853c6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -60
+      value: -120
       objectReference: {fileID: 0}
     - target: {fileID: 7089112606353149577, guid: f550fb9f069741d499cf0f0eb71853c6,
         type: 3}

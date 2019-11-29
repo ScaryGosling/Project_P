@@ -78,6 +78,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         {
             audioSource.clip = grabSound;
             clone = Instantiate(gameObject, GameObject.Find("Canvas Variant").transform);
+            clone.transform.GetChild(1).gameObject.SetActive(false);
             if(Player.instance.GetSettings().UseSFX)
                 audioSource.Play();
         }

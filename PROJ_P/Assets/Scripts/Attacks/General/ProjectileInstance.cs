@@ -43,7 +43,7 @@ public class ProjectileInstance : MonoBehaviour
     private bool IsVisible()
     {
         viewportPoint = mainCamera.WorldToViewportPoint(transform.position);
-        if (viewportPoint.x < 0 || viewportPoint.x > 1 || viewportPoint.y < 0 || viewportPoint.y > 1 || transform.position.y < 0)
+        if (viewportPoint.x < -0.2f || viewportPoint.x > 1.2f || viewportPoint.y < -0.2f || viewportPoint.y > 1.2f || transform.position.y < 0)
         {
             return false;
         }
@@ -73,6 +73,7 @@ public class ProjectileInstance : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Enemy"))
         {
             RunAttack(other);
