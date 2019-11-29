@@ -9,6 +9,7 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField] private Vector3 offset;
     private Vector3 velocity = Vector3.zero;
     [SerializeField] private float smoothTime;
+    [SerializeField] private float movementSensitity;
     [SerializeField][Range(0,1)] private float fadeAmount;
     [SerializeField] private float fadeTime;
     private GameObject fadedObject;
@@ -16,6 +17,7 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField] private Shader opaqueShader;
     private Renderer hitRenderer;
     private FadedHouse fadedHouse;
+    private Vector3 mousePosition;
 
 
 
@@ -96,8 +98,12 @@ public class CameraBehaviour : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.SmoothDamp(transform.position, player.transform.position + offset, ref velocity, smoothTime);
+        
+        mousePosition = new Vector3(Input.mousePosition.x / Screen.width * 2 - 1, 0, Input.mousePosition.y / Screen.height * 2 - 1) * movementSensitity;
+        transform.position = Vector3.SmoothDamp(transform.position, player.transform.position + offset + mousePosition, ref velocity, smoothTime);
         CheckObstacles();
+
+        Debug.Log(mousePosition);
     }
 
 
