@@ -48,20 +48,20 @@ public class FireballInstance : MonoBehaviour
                 col.GetComponent<Unit>().currentState.TakeDamage(Damage, Magnitude);
             }
         }
-        StartCoroutine(ExplosionAnimation());
-    }
-
-    //Remove this and add real animation instead
-    public IEnumerator ExplosionAnimation() {
-
-        while (transform.lossyScale.x < ExplosionRadius) {
-
-            transform.localScale += new Vector3(1, 1, 1);
-            yield return null;
-        }
         StartCoroutine(KillTimer(impactSound.length));
-
     }
+
+    ////Remove this and add real animation instead
+    //public IEnumerator ExplosionAnimation() {
+
+    //    while (transform.lossyScale.x < ExplosionRadius) {
+
+    //        transform.localScale += new Vector3(1, 1, 1);
+    //        yield return null;
+    //    }
+    //    StartCoroutine(KillTimer(impactSound.length));
+
+    //}
 
     public IEnumerator KillTimer(float time)
     {

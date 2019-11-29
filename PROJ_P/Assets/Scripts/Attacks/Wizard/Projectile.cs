@@ -7,6 +7,7 @@ public class Projectile : PlayerAttack
 {
     [Header("Ability Specific")]
     [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject projectileHit;
     [SerializeField] private float force;
 
     public override void Execute()
@@ -25,6 +26,7 @@ public class Projectile : PlayerAttack
         ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         ball.GetComponent<Rigidbody>().AddForce(AimAssist() * force + Player.instance.GetComponent<Rigidbody>().velocity);
         ball.GetComponent<ProjectileInstance>().SetPower(damage, magnitude);
+        ball.GetComponent<ProjectileInstance>().impactParticles = projectileHit;
     }
 
     private GameObject GetProjectile()

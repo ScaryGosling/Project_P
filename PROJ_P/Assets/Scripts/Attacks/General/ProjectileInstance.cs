@@ -13,6 +13,9 @@ public class ProjectileInstance : MonoBehaviour
     [SerializeField] protected AudioClip impactSound;
     protected AudioSource source;
     [SerializeField] private GameObject particles;
+    public GameObject impactParticles { get; set; }
+
+    private GameObject impactParticleInstance;
 
     private void Start()
     {
@@ -58,6 +61,9 @@ public class ProjectileInstance : MonoBehaviour
 
         State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
         state.TakeDamage(damage, maginitude);
+        impactParticleInstance = BowoniaPool.instance.GetFromPool(PoolObject.WAND_IMPACT);
+        impactParticleInstance.transform.position = transform.position;
+
         if (impactSound != null && Player.instance.GetSettings().UseSFX)
         {
             source.clip = impactSound;
@@ -69,12 +75,13 @@ public class ProjectileInstance : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-           
             RunAttack(other);
             GetComponent<Renderer>().enabled = false;
             GetComponent<Collider>().enabled = false;
             particles.SetActive(false) ;
             StartCoroutine(KillTimer(impactSound.length));
+
+            BowoniaPool.instance.AddToPool(PoolObject.WAND_IMPACT, impactParticleInstance, impactParticleInstance.GetComponentInChildren<ParticleSystem>().main.duration);
 
         }
     }
@@ -83,6 +90,7 @@ public class ProjectileInstance : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
  
+        
         BowoniaPool.instance.AddToPool(PoolObject.WAND, gameObject);
 
     }
