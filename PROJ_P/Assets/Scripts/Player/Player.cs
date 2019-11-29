@@ -593,7 +593,6 @@ public class Player : MonoBehaviour
 
     public IEnumerator ExecuteAttack(PlayerAttack attack)
     {
-       
 
         if (attack.cooldownActive)
         {

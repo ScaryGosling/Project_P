@@ -62,8 +62,12 @@ public class Shop : StateMachine
 
         }
         catch (Exception e) { }
-        shopTimer.GetComponent<Timer>().CancelMethod();
-        shopTimer = null;
+        if (shopTimer != null)
+        {
+            shopTimer.GetComponent<Timer>().CancelMethod();
+            shopTimer = null;
+        }
+
 
     }
     public void RemoveShop()

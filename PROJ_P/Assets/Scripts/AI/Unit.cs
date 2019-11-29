@@ -105,15 +105,6 @@ public class Unit : StateMachine
         ui = GetComponentInChildren<HostileUI>();
         target = Player.instance.gameObject;
         baseAttackRange = GetAttackRange;
-        if (spawnListener.QuestProp != null && spawnListener.QuestProp is ProtectionQuest)
-        {
-            ProtectionQuestProp = ((ProtectionQuest)(spawnListener.QuestProp));
-            QuestTargetProp = ProtectionQuestProp.GetBuilding().GetComponent<ProtectionQuestBuildingHittingPoints>().GetRandomPoint();
-        }
-        else
-        {
-            QuestTargetProp = null;
-        }
 
         agent.radius = capsuleCollider.radius * distanceMultiplier;
         agent.autoRepath = true;
@@ -163,6 +154,16 @@ public class Unit : StateMachine
             capsuleCollider.enabled = true;
             ImprovePower();
             InitialHealth = currentHealth;
+            if (spawnListener.QuestProp != null && spawnListener.QuestProp is ProtectionQuest)
+            {
+                ProtectionQuestProp = ((ProtectionQuest)(spawnListener.QuestProp));
+                QuestTargetProp = ProtectionQuestProp.GetBuilding().GetComponent<ProtectionQuestBuildingHittingPoints>().GetRandomPoint();
+            }
+            else
+            {
+                QuestTargetProp = null;
+            }
+
         }
 
     }

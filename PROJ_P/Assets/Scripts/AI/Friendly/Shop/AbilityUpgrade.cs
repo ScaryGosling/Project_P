@@ -113,10 +113,10 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         abilityName.text = ability.GetAbilityName();
         abilityImage.sprite = ability.GetImage();
         abilityDescription = ability.GetAbilityDescription();
-        if (ability.IsLocked())
-        {
-            lockObject.SetActive(true);
-        }
+        //if (ability.IsLocked())
+        //{
+        //    lockObject.SetActive(true);
+        //}
         //ability.ResetLevel();
     }
     public AbilityCat GetAbilityCat()
@@ -143,20 +143,24 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             else
             {
                 currentAbilityLevelText.text = currentAbilityLevel + 1 + "";
-                lockObject.SetActive(false);
+                //lockObject.SetActive(false);
             }
-            if (ability.IsLocked() == false && (Player.instance.GoldProp < ability.GetNextLevelCost(currentAbilityLevel)|| ability.GetNextLevelCost(currentAbilityLevel) == -2))
+            if (ability.IsLocked() == false/* && (Player.instance.GoldProp < ability.GetNextLevelCost(currentAbilityLevel)|| ability.GetNextLevelCost(currentAbilityLevel) == -2)*/) //-2 is maxLevel
             {
                 tempColor.a = 255;         
             }
-            else if (Player.instance.GoldProp < ability.GetNextLevelCost(currentAbilityLevel)) 
+            else /*if (ability.IsLocked() == true)*/
             {
                 tempColor.a = 68;
             }
-            else
-            {
-                tempColor.a = 200;
-            }
+            //else if (Player.instance.GoldProp < ability.GetNextLevelCost(currentAbilityLevel)) 
+            //{
+            //    tempColor.a = 68;
+            //}
+            //else
+            //{
+            //    tempColor.a = 200;
+            //}
                 image.color = tempColor;
             if (ability.GetNextLevelCost(currentAbilityLevel) != -2)
             {
@@ -174,7 +178,8 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             tempColor.a = 255;
             image.color = tempColor;
             nextUpgradeCost.text = potion.GetPotionCost().ToString();
-            currentAbilityLevelText.transform.parent.gameObject.SetActive(false);
+            //currentAbilityLevelText.transform.parent.gameObject.SetActive(false);
+            currentAbilityLevelText.text = potion.GetResourceHandler().ToString();
         }
 
     }
@@ -287,11 +292,11 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             {
                 Cursor.SetCursor(shopHand, Vector2.zero, CursorMode.Auto);
             }
-            if (ability && ability.IsLocked() && Player.instance.GoldProp >= ability.GetNextLevelCost(currentAbilityLevel))
-            {
-                lockObject.SetActive(false);
-                unlockObject.SetActive(true);
-            }
+            //if (ability && ability.IsLocked() && Player.instance.GoldProp >= ability.GetNextLevelCost(currentAbilityLevel))
+            //{
+            //    lockObject.SetActive(false);
+            //    unlockObject.SetActive(true);
+            //}
         }
 
 
@@ -308,11 +313,11 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         if (!eventData.dragging)
         {
             Cursor.SetCursor(shopHand, Vector2.zero, CursorMode.Auto);
-            if (ability && ability.IsLocked())
-            {
-                lockObject.SetActive(true);
-                unlockObject.SetActive(false);
-            }
+            //if (ability && ability.IsLocked())
+            //{
+            //    lockObject.SetActive(true);
+            //    unlockObject.SetActive(false);
+            //}
         }
     }
 

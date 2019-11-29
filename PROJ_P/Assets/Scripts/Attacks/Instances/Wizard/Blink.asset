@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Blink
   m_EditorClassIdentifier: 
   abilityName: Blink
-  abilityDescription: "14\t\t\t\t15"
+  abilityDescription: Teleport a small distance, gaining a movement speed bost!
   abilityDescriptionForClassChooser: Teleport a small distance, gaining a movement
     speed bost!
   castCost: 5

@@ -19,9 +19,9 @@ public class RusherDeath : DeathBase
     }
     protected override void RemoveObject()
     {
-        owner.ChangeState<RusherChase>();
         BowoniaPool.instance.AddToPool(PoolObject.ZOOMER, owner.gameObject);
     }
+
 }
 
 #region ChaseLegacy

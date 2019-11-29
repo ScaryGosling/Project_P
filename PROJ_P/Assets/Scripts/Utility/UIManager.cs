@@ -8,10 +8,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text[] hotkeyTexts;
     [SerializeField] private Settings keybindSet;
 
+    public static UIManager instance;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     public void Start()
     {
+        UpdateHotkeyText();
 
+    }
+    public void UpdateHotkeyText()
+    {
         hotkeyTexts[0].text = keybindSet.GetBindString(KeyFeature.BASE_ATTACK);
         hotkeyTexts[1].text = keybindSet.GetBindString(KeyFeature.ABILITY_1);
         hotkeyTexts[2].text = keybindSet.GetBindString(KeyFeature.ABILITY_2);
@@ -19,6 +28,5 @@ public class UIManager : MonoBehaviour
         hotkeyTexts[4].text = keybindSet.GetBindString(KeyFeature.REFILL_HEALTH);
         hotkeyTexts[5].text = keybindSet.GetBindString(KeyFeature.REFILL_RESOURCE);
         hotkeyTexts[6].text = keybindSet.GetBindString(KeyFeature.DIALOGUE);
-
     }
 }

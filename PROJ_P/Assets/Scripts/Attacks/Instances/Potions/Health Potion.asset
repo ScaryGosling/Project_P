@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6369ae236ad1b5347b06512368b07c3c, type: 3}
   m_Name: Health Potion
   m_EditorClassIdentifier: 
-  abilityName: Buy Health Potion
+  abilityName: ' Health Potion'
   abilityDescription: A health potion that restores 30HP when consumed.
-  potionImage: {fileID: 21300000, guid: 38bd8a6dd96e99648b9bc1d43a90d6cb, type: 3}
+  potionImage: {fileID: 21300000, guid: 17f1d9e11d542244e87781c520f10a9f, type: 3}
   maxHealthPotions: 3
   potionCost: 20
