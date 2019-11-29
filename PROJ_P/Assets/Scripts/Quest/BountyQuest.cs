@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BountyQuest : Quest
 {
@@ -12,7 +13,16 @@ public class BountyQuest : Quest
     private DialogueEvent dialogueEvent = new DialogueEvent();
     [SerializeField] private int index = 1;
     [SerializeField] List<DialogueData> questData;
+    [SerializeField] private GameObject bossTimerObject;
+    private Text bossTimerText;
+    private string baseText = "Time left: ";
 
+
+    protected override void Start()
+    {
+        base.Start();
+        bossTimerText = bossTimerObject.GetComponent<Text>();
+    }
     public override void StartQuest()
     {
         base.StartQuest();
@@ -20,6 +30,10 @@ public class BountyQuest : Quest
         timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
         timer.RunCountDown(lifetime, EndQuest, Timer.TimerType.DELAY);
         FireArrow(true, bossStats.gameObject);
+        if (timer != null)
+        {
+            bossTimerObject.SetActive(true);
+        }
     }
     public override void QuestDialogue()
     {
@@ -28,16 +42,26 @@ public class BountyQuest : Quest
     }
     private void Update()
     {
-    if(bossStats != null)
-        if (bossStats != null && bossStats.Health <= 0)
+        if (timer != null)
         {
-            EndQuest();
+            DrawToCanvas();
         }
+        if (bossStats != null)
+            if (bossStats != null && bossStats.Health <= 0)
+            {
+                EndQuest();
+            }
+    }
+
+    private void DrawToCanvas()
+    {
+        bossTimerText.text = baseText + ((int)timer.Countdown).ToString("00") /*+ ":" + ((timer.Countdown % 1) * 100).ToString("00")*/;
     }
 
     public override void EndQuest()
     {
         base.EndQuest();
+        bossTimerObject.SetActive(false);
         if (bossStats != null)
         {
             FireArrow(false, bossStats.gameObject);
