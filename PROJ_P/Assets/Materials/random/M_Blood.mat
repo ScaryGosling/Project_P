@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blood
+  m_Name: M_Blood
   m_Shader: {fileID: -6465566751694194690, guid: 6501024e59f2ba744b66476c45aabc10,
     type: 3}
   m_ShaderKeywords: _ENVIRONMENTREFLECTIONS_OFF
