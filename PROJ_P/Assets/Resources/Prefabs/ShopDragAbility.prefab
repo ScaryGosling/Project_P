@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1399719770150188020}
   - component: {fileID: 4090551309177622760}
   - component: {fileID: 4827545215913202291}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 4448608370008578721}
   - component: {fileID: 7524082222465832908}
   - component: {fileID: 1910000675832830813}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ShopDragAbility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

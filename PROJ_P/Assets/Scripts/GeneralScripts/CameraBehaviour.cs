@@ -40,7 +40,6 @@ public class CameraBehaviour : MonoBehaviour
         {
             isFaded = true;
             float fadeTime = this.fadeTime;
-            Debug.Log("Fade out");
 
             for (int i = 0; i < renderer.materials.Length; i++)
             {
@@ -103,7 +102,7 @@ public class CameraBehaviour : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, player.transform.position + offset + mousePosition, ref velocity, smoothTime);
         CheckObstacles();
 
-        Debug.Log(mousePosition);
+
     }
 
 

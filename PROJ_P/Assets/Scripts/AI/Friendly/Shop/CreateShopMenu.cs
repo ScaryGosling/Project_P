@@ -16,6 +16,7 @@ public class CreateShopMenu : MonoBehaviour
     [SerializeField] private GameObject potionsContent;
     [SerializeField] private Text tooltipText;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private Text hotkey2, hotkey3, hotkey4;
 
     private void OnEnable()
     {
@@ -25,6 +26,9 @@ public class CreateShopMenu : MonoBehaviour
             CreateColumns();
             rowsCreated = true;
         }
+        hotkey2.text = Player.instance.GetSettings().GetBindString(KeyFeature.ABILITY_1);
+        hotkey3.text = Player.instance.GetSettings().GetBindString(KeyFeature.ABILITY_2);
+        hotkey4.text = Player.instance.GetSettings().GetBindString(KeyFeature.ABILITY_3);
         Player.instance.SetHover(true);
     }
 

@@ -260,7 +260,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
             audioSource.clip = grabSound;
             if (Player.instance.GetSettings().UseSFX)
                 audioSource.Play();
-            clone = Instantiate(dragAbility, GameObject.Find("Canvas").transform);
+            clone = Instantiate(dragAbility, GameObject.Find("Canvas Variant").transform);
             clone.transform.GetChild(0).GetComponent<Image>().sprite = ability.GetImage();
             StartDragging(true);
         }

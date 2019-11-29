@@ -82,7 +82,6 @@ public class HostileBaseState : State
         }
 
         timeTaskOn = true;
-        Debug.Log("EXE. " + ExecutableWhile + " " + " END. " + AtCancellation);
     }
 
     /// <summary>

@@ -42,12 +42,13 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     }
     public void OnDrop(PointerEventData eventData)
     {
-        //Debug.Log(GameObject.Find("Canvas").GetComponent<Canvas>().sortingOrder );
         if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, Input.mousePosition))
         {
             abilityUpgrade = eventData.pointerDrag.GetComponent<AbilityUpgrade>();
             if (abilityUpgrade != null && abilityUpgrade.GetClone() != null)
             {
+
+
                 ability = abilityUpgrade.GetAbility();
                 eventData.pointerDrag.GetComponent<AbilityUpgrade>().GetAbilityCat();
                 //image.sprite = ability.GetImage();
@@ -76,7 +77,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         if (iconImage.sprite != null)
         {
             audioSource.clip = grabSound;
-            clone = Instantiate(gameObject, GameObject.Find("Canvas").transform);
+            clone = Instantiate(gameObject, GameObject.Find("Canvas Variant").transform);
             if(Player.instance.GetSettings().UseSFX)
                 audioSource.Play();
         }
