@@ -14,32 +14,47 @@ public class AbilityBase : AliveBase
 {
     protected bool intersection, environmentIntersection;
     protected RaycastHit hit;
+    protected NavMeshHit cornerHit;
 
     public override void EnterState()
     {
         base.EnterState();
+        owner.agent.autoBraking = false;
     }
 
     public override void ToDo()
     {
         base.ToDo();
         ExecuteAbility();
-        //CheckIntersection();
+        CheckIntersection();
     }
 
     protected override void CheckForDamage() { }
 
+
     private void CheckIntersection()
     {
-        intersection = owner.rigidbody.SweepTest(owner.agent.transform.forward, out hit, owner.capsuleCollider.radius * 2, QueryTriggerInteraction.Collide);
+        intersection = owner.rigidbody.SweepTest(owner.capsuleCollider.transform.forward, out hit, owner.capsuleCollider.radius * 2, QueryTriggerInteraction.Collide);
 
-        if (intersection && !(hit.collider.CompareTag("Player") || hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone")))
+        //bool corner = NavMesh.FindClosestEdge(owner.agent.transform.position, out cornerHit, NavMesh.GetAreaFromName("Not Walkable"));
+        
+        if (intersection && !(hit.collider.CompareTag("Player") || hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone") && hit.collider.CompareTag("Enemy")))
         {
-            Debug.Log("Cancel due to environment!");
+            Debug.Log("Cancel due to intersection!");
             CancelState();
         }
 
     }
+
+    
+
+    //protected bool LineCast()
+    //{
+    //    //Debug.DrawLine(owner.transform.position, owner.capsuleCollider.transform.forward, Color.red, Mathf.Infinity);
+    //    if (Physics.Linecast(owner.agent.transform.position, owner.agent.pathEndPosition, out hit))
+    //        return true;
+    //    return false;
+    //}
 
     protected virtual void CancelState() { }
 
@@ -48,11 +63,18 @@ public class AbilityBase : AliveBase
     /// </summary>
     protected virtual void ExecuteAbility() { }
 
+    public override void ExitState()
+    {
+        base.ExitState();
+        owner.agent.autoBraking = true;
+    }
 }
+
+
 #region EnemyBaseLegacy
-            //Debug.Log("Ability Canceled");
-            //Debug.Log("GameObject hit: " + hit.collider.gameObject);
-            //Debug.Log("E-Intersection is: " + environmentIntersection);
+//Debug.Log("Ability Canceled");
+//Debug.Log("GameObject hit: " + hit.collider.gameObject);
+//Debug.Log("E-Intersection is: " + environmentIntersection);
 // lightTreshold = owner.LightThreshold;
 //     spreadAngle = Quaternion.AngleAxis(lightField.spotAngle, owner.agent.velocity);
 //// protected float lightAngle;

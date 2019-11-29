@@ -13,7 +13,6 @@ using UnityEngine.AI;
 public class AliveBase : HostileBaseState
 {
     protected GameObject otherTimer;
-    
 
     public override void EnterState()
     {
