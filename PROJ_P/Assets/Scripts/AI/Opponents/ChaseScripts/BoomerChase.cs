@@ -38,13 +38,12 @@ public class BoomerChase : ChaseBase
     {
         if (Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) > jumpMinDistance && Vector3.Distance(owner.agent.transform.position, owner.target.transform.position) < jumpMaxDistance && owner.target.CompareTag("Player"))
         {
-            if (!jumpCooldownTimer && canJump)
+            if (canJump)
             {
-                jumpCooldownTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-                jumpCooldownTimer.GetComponent<Timer>().RunCountDown(jumpCooldown, EnableAbility, Timer.TimerType.DELAY);
+                TimeTask(null, EnableAbility, jumpCooldown);
 
                 canJump = false;
-                //owner.ChangeState<JumpImpact>();
+                owner.ChangeState<JumpImpact>();
             }
         }
     }

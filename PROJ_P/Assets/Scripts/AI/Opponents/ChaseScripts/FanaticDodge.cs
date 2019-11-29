@@ -63,11 +63,8 @@ public class FanaticDodge : ChaseBase
             owner.agent.Move(movement);
 
         }
-        if (dodgeTimer == null)
-        {
-            dodgeTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-            dodgeTimer.GetComponent<Timer>().RunCountDown(dodgeMagnitude, EndDodge, Timer.TimerType.DELAY);
-        }
+
+        TimeTask(null, EndDodge, dodgeMagnitude);
     }
 
     protected override void SetCrowdControl(float magnitude)

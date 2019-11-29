@@ -45,11 +45,7 @@ public class RusherSuperKnockback : CCBase
         movement = direction * speed * Time.deltaTime;
         owner.agent.Move(movement);
 
-        if (knockBackTimer == null)
-        {
-            knockBackTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-            knockBackTimer.GetComponent<Timer>().RunCountDown(knockBackMagnitude, EndKnockBack, Timer.TimerType.DELAY);
-        }
+        TimeTask(null, EndKnockBack, knockBackMagnitude);
     }
     public override void ExitState()
     {

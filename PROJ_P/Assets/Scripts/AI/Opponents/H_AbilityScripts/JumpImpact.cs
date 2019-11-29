@@ -24,6 +24,7 @@ public class JumpImpact : AbilityBase
     private const float jumpSmoother = 1f, fallDownDistance = 3f;
     private GameObject warningArea;
     [SerializeField] private GameObject warningAreaPrefab;
+    private Vector3 centralPosition;
 
     public override void EnterState()
     {
@@ -59,8 +60,9 @@ public class JumpImpact : AbilityBase
         base.ExecuteAbility();
         if (!jumpTimer && !warningArea)
         {
-            jumpTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-            jumpTimer.GetComponent<Timer>().RunCountDown(jumpWindupTime, ActivateJump, Timer.TimerType.DELAY);
+
+            TimeTask(null, ActivateJump, jumpWindupTime);
+
             warningArea = BowoniaPool.instance.GetFromPool(PoolObject.BOOMER_WARNINGAREA);
             warningArea.transform.position = playerPositionalDelay;
             warningArea.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
@@ -72,12 +74,6 @@ public class JumpImpact : AbilityBase
         warningArea.GetComponent<BoomerLanding>().DestroyProp = 0.01f;
         warningArea.GetComponent<BoomerLanding>().DestroyZone();
         owner.ChangeState<BoomerChase>();
-
-        //while (mesh.transform.position.y != owner.capsuleCollider.center.y)
-        //{
-        //    mesh.transform.position = Vector3.Lerp(mesh.transform.position, new Vector3(mesh.transform.position.x, owner.capsuleCollider.radius, mesh.transform.position.z), Time.deltaTime * jumpSmoother * 2);
-        //}
-
     }
 
     private void ActivateJump()
@@ -87,8 +83,8 @@ public class JumpImpact : AbilityBase
 
     private void Jump()
     {
-
-        distance = Vector3.Distance(owner.agent.transform.position, playerPositionalDelay);
+        centralPosition = new Vector3(owner.capsuleCollider.center.x, owner.agent.transform.position.y, owner.capsuleCollider.center.z);
+        distance = Vector3.Distance(owner.transform.position, playerPositionalDelay);
 
         owner.agent.SetDestination(playerPositionalDelay);
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class RusherRush : AbilityBase
     private Quaternion lookAt;
     private float startRushTimer, endRushTimer;
 
+
     public override void EnterState()
     {
         base.EnterState();
@@ -26,8 +28,8 @@ public class RusherRush : AbilityBase
         owner.agent.ResetPath();
         //rushTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
         //rushTimer.GetComponent<Timer>().RunCountDown(1f, StartRush, Timer.TimerType.DELAY);
-        startRushTimer = 1;
-        endRushTimer = 3;
+        startRushTimer = 1.5f;
+        endRushTimer = 3f;
     }
 
 
@@ -35,34 +37,29 @@ public class RusherRush : AbilityBase
     {
         base.ToDo();
         CheckForDamage();
-        TimeTask();
-    }
 
-    private void TimeTask()
-    {
         if (rushing)
         {
-            Rush();
-            endRushTimer -= Time.deltaTime;
-
-            if (endRushTimer < 0)
-            {
-                EndRush();
-            }
+            TimeTask(Rush, EndRush, endRushTimer);
         }
-        else if (startRushTimer < 0)
+        else
         {
-            rushing = true;
-            targetPosition = player.transform.position;
+            TimeTask(ExecuteAferDelay, null, startRushTimer);
         }
-
-        startRushTimer -= Time.deltaTime;
     }
+
+    private void ExecuteAferDelay()
+    {
+        rushing = true;
+        targetPosition = player.transform.position;
+    }
+
+
 
     protected override void ExecuteAbility()
     {
         base.ExecuteAbility();
-        if (!rushTimer)
+        if (!rushing)
         {
 
         }
@@ -130,3 +127,25 @@ public class RusherRush : AbilityBase
         base.ExitState();
     }
 }
+#region legacy
+    //private void TimeTask()
+    //{
+    //    if (rushing)
+    //    {
+    //        Rush();
+    //        endRushTimer -= Time.deltaTime;
+
+    //        if (endRushTimer < 0)
+    //        {
+    //            EndRush();
+    //        }
+    //    }
+    //    else if (startRushTimer < 0)
+    //    {
+    //        rushing = true;
+    //        targetPosition = player.transform.position;
+    //    }
+
+    //    startRushTimer -= Time.deltaTime;
+    //}
+#endregion

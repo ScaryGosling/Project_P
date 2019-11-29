@@ -44,12 +44,8 @@ public class FanaticChase : ChaseBase
                 commitedDodges++;
                 owner.ChangeState<FanaticDodge>();
             }
-            else if (!dodgeCooldownTimer)
-            {
-                dodgeCooldownTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER) ;
-                dodgeCooldownTimer.GetComponent<Timer>().RunCountDown(dodgeCooldown, DodgeReactivated, Timer.TimerType.DELAY);
-            }
-
+            else
+                TimeTask(null, DodgeReactivated, dodgeCooldown);
         }
     }
 

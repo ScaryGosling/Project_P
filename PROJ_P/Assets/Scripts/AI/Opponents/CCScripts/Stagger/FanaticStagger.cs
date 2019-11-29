@@ -40,11 +40,7 @@ public class FanaticStagger : CCBase
 
         owner.agent.SetDestination(owner.agent.transform.position);
 
-        if (staggerTimer == null)
-        {
-            staggerTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-            staggerTimer.GetComponent<Timer>().RunCountDown(staggerMagnitude, EndStagger, Timer.TimerType.DELAY);
-        }
+        TimeTask(null, EndStagger, staggerMagnitude);
     }
 
     protected void EndStagger()

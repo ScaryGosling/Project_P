@@ -24,7 +24,7 @@ public class AbilityBase : AliveBase
     {
         base.ToDo();
         ExecuteAbility();
-        CheckIntersection();
+        //CheckIntersection();
     }
 
     protected override void CheckForDamage() { }
@@ -35,6 +35,7 @@ public class AbilityBase : AliveBase
 
         if (intersection && !(hit.collider.CompareTag("Player") || hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone")))
         {
+            Debug.Log("Cancel due to environment!");
             CancelState();
         }
 

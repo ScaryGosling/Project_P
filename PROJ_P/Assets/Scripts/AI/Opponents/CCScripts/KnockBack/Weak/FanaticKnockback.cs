@@ -12,7 +12,7 @@ public class FanaticKnockback : CCBase
     [SerializeField] private float speed = 4f;
     [SerializeField] private float knockBackMagnitude = 0.1f;
 
-    GameObject knockBackTimer;
+
 
     public override void EnterState()
     {
@@ -45,11 +45,7 @@ public class FanaticKnockback : CCBase
         movement = direction * speed * Time.deltaTime;
         owner.agent.Move(movement);
 
-        if (knockBackTimer == null)
-        {
-            knockBackTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-            knockBackTimer.GetComponent<Timer>().RunCountDown(knockBackMagnitude, EndKnockBack, Timer.TimerType.DELAY);
-        }
+        TimeTask(null, EndKnockBack, knockBackMagnitude);
     }
 
     protected void EndKnockBack()
