@@ -4018,6 +4018,16 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetHover
       objectReference: {fileID: 0}
+    - target: {fileID: 3593977687210065593, guid: 91abfae47a9360844aec4efdd8350135,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 556121653}
+    - target: {fileID: 3593977687210065593, guid: 91abfae47a9360844aec4efdd8350135,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RemoveShop
+      objectReference: {fileID: 0}
     - target: {fileID: 101574728028049488, guid: 91abfae47a9360844aec4efdd8350135,
         type: 3}
       propertyPath: m_textInfo.characterCount
