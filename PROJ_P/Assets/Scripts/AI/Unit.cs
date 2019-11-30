@@ -31,6 +31,8 @@ public class Unit : StateMachine
     public AudioClip attackSound;
     public ProtectionQuest ProtectionQuestProp { get; private set; }
     public bool AliveProp { get; set; }
+    public Threat threat { get; private set; }
+  
 
 
 
@@ -112,6 +114,7 @@ public class Unit : StateMachine
         AliveProp = true;
         Randomize();
         OnEnable();
+        threat = gameObject.GetComponent<Threat>();
     }
     // Methods
     protected override void Awake()
@@ -131,18 +134,32 @@ public class Unit : StateMachine
     //Gotta add code to add and destroy gameObject... alternatively disable it.
     public void CheckTarget()
     {
+
+        Debug.Log("Current threat = " + threat.threatProp);
         //this var is
         //just for development
-        if (QuestTargetProp != null && ProtectionQuestProp.GetHealth() > 0 && Vector3.Distance(gameObject.transform.position, Player.instance.transform.position) > Vector3.Distance(gameObject.transform.position, QuestTargetProp.transform.position))
-        {
-            GetAttackRange = AttackRangeBuildings;
-            target = QuestTargetProp.gameObject;
-        }
-        else
+
+        if(threat.threatProp >= threat.thresholdProp || !QuestTargetProp)
         {
             GetAttackRange = baseAttackRange;
             target = Player.instance.gameObject;
         }
+        else
+        {
+            GetAttackRange = AttackRangeBuildings;
+            target = QuestTargetProp.gameObject;
+        }
+
+        //if (threat.threatProp < 100f && QuestTargetProp != null && ProtectionQuestProp.GetHealth() > 0 && Vector3.Distance(gameObject.transform.position, Player.instance.transform.position) > Vector3.Distance(gameObject.transform.position, QuestTargetProp.transform.position))
+        //{
+        //    GetAttackRange = AttackRangeBuildings;
+        //    target = QuestTargetProp.gameObject;
+        //}
+        //else
+        //{
+        //    GetAttackRange = baseAttackRange;
+        //    target = Player.instance.gameObject;
+        //}
 
     }
     private void OnEnable()

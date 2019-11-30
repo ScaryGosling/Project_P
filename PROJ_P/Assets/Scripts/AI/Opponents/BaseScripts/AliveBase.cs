@@ -132,6 +132,9 @@ public class AliveBase : HostileBaseState
     public override void TakeDamage(float damage, float magnitude)
     {
         base.TakeDamage(damage, magnitude);
+
+        owner.threat.PeekThreat(magnitude);
+
         owner.PlayHurtAudio(owner.takeDamageClip);
         GameObject splatter = BowoniaPool.instance.GetFromPool(PoolObject.BLOOD_SPLATTER);
         splatter.transform.position = owner.transform.position;

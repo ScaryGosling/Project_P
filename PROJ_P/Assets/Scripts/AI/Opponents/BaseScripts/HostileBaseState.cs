@@ -85,7 +85,7 @@ public class HostileBaseState : State
     }
 
     /// <summary>
-    /// Ticks current timer through update. 
+    /// Ticks current time through update. 
     /// </summary>
     private void RunTimeTask()
     {
