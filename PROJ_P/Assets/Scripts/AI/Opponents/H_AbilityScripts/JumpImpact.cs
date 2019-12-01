@@ -25,6 +25,7 @@ public class JumpImpact : AbilityBase
     private GameObject warningArea;
     [SerializeField] private GameObject warningAreaPrefab;
     private Vector3 centralPosition;
+    private RaycastHit downHit;
 
     public override void EnterState()
     {
@@ -90,13 +91,22 @@ public class JumpImpact : AbilityBase
 
         mesh.transform.position = Vector3.Lerp(owner.agent.transform.position, new Vector3(owner.agent.transform.position.x, owner.agent.transform.position.y + 20, owner.agent.transform.position.z), Time.deltaTime * jumpSmoother);
 
+        //if(CastDown() && downHit.collider.CompareTag("Untagged"))
+        //{
+        //}
+
+        CastDown();
         if (distance <= 3f)
         {
-            mesh.transform.position = Vector3.Lerp(mesh.transform.position, new Vector3(mesh.transform.position.x, owner.capsuleCollider.radius, mesh.transform.position.z), Time.deltaTime * jumpSmoother * 2);
-            //warningArea.GetComponent<BoomerLanding>().DestroyZone();
+            mesh.transform.position = Vector3.Lerp(mesh.transform.position, new Vector3(owner.agent.transform.position.x, downHit.transform.position.y, owner.agent.transform.position.z), Time.deltaTime * jumpSmoother * 2);
             warningArea.GetComponent<BoomerLanding>().EngageArea();
             owner.ChangeState<BoomerChase>();
         }
+    }
+
+    private bool CastDown()
+    {
+        return Physics.Raycast(mesh.transform.position, mesh.transform.up * -1, out downHit, Mathf.Infinity, owner.visionMask * -1);
     }
 
 
