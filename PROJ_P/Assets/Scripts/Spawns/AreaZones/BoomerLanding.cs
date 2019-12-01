@@ -23,19 +23,20 @@ public class BoomerLanding : DangerousZone
     #region components
 
     #endregion
-    private float tempTime;
 
     protected override void Start()
     {
         base.Start();
-        
         tempTime = destroyAfter;
         destroyAfter = Mathf.Infinity;
     }
 
+
     public override void DestroyZone()
     {
         base.DestroyZone();
+        destroyAfter = tempTime;
+        BowoniaPool.instance.AddToPool(PoolObject.BOOMER_WARNINGAREA, gameObject, destroyAfter);
     }
 
     public override void EngageArea()

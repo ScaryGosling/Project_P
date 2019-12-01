@@ -8,7 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Hostile/Boomer/BoomerChase")]
 public class BoomerChase : ChaseBase
 {
-    private const float jumpCooldown = 30f, jumpMinDistance = 5f, jumpMaxDistance = 10f;
+    private const float jumpCooldown = 10f, jumpMinDistance = 5f, jumpMaxDistance = 10f;
     private GameObject jumpCooldownTimer;
     private bool canJump = true;
     public override void EnterState()

@@ -135,7 +135,7 @@ public class Unit : StateMachine
     public void CheckTarget()
     {
 
-        Debug.Log("Current threat = " + threat.threatProp);
+
         //this var is
         //just for development
 

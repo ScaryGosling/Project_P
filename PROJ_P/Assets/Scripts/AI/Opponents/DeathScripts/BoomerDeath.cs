@@ -12,7 +12,7 @@ public class BoomerDeath : DeathBase
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private AudioClip explosionClip;
     [SerializeField] private AudioClip fuseClip;
-    private Explosion explosion;
+    private GameObject explosion;
 
     private const float animationTime = 1f;
     [SerializeField] private float explosionDelay = 2f;
@@ -47,12 +47,16 @@ public class BoomerDeath : DeathBase
     protected override void RemoveObject()
     {
         owner.ChangeState<BoomerChase>();
-        BowoniaPool.instance.AddToPool(PoolObject.FANATIC, owner.gameObject);
+        BowoniaPool.instance.AddToPool(PoolObject.BOOMER, owner.gameObject);
     }
     protected void Explode()
     {
-        explosion = Instantiate(explosionPrefab, owner.transform.position, Quaternion.Euler(-90f, 0f, 0f)).GetComponent<Explosion>();
-        explosion.SetupSounds(fuseClip, explosionClip);
+        //explosion = Instantiate(explosionPrefab, owner.transform.position, Quaternion.Euler(-90f, 0f, 0f));
+        explosion = BowoniaPool.instance.GetFromPool(PoolObject.EXPLOSION);
+        explosion.GetComponent<Explosion>().rotationProp = true;
+        explosion.transform.position = owner.transform.position;
+        explosion.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+        explosion.GetComponent<Explosion>().SetupSounds(fuseClip, explosionClip);
     }
 }
 

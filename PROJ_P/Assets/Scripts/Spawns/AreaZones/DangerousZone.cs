@@ -12,6 +12,7 @@ public class DangerousZone : MonoBehaviour
     protected GameObject player;
     protected CapsuleCollider capsuleCollider;
     protected AudioClip fuse, explosion;
+    protected float tempTime;
 
     protected virtual void Start()
     {
@@ -26,6 +27,7 @@ public class DangerousZone : MonoBehaviour
             DealDamage();
         }
     }
+
 
 
     //protected void Update()
@@ -48,7 +50,7 @@ public class DangerousZone : MonoBehaviour
 
     public virtual void DestroyZone()
     {
-        BowoniaPool.instance.AddToPool(PoolObject.BOOMER_WARNINGAREA, gameObject, destroyAfter);
+        StartCoroutine(DeactivateAfter());
     }
 
 
@@ -61,5 +63,11 @@ public class DangerousZone : MonoBehaviour
             source.clip = tickSound;
             source.Play();
         }
+    }
+
+    public IEnumerator DeactivateAfter()
+    {
+        yield return new WaitForSeconds(destroyAfter);
+        capsuleCollider.enabled = false;
     }
 }

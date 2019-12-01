@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d2be5020baadc499d14e378b7347a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  threatThreshold: 30
 --- !u!1 &2161199850153972063
 GameObject:
   m_ObjectHideFlags: 0

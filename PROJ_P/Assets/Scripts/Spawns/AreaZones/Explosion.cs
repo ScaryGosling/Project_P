@@ -23,8 +23,10 @@ public class Explosion : DangerousZone
     #region components
 
     #endregion
+    private Quaternion originalTransformRotation;
+    private Vector3 originalTransformScale;
     private bool rotating;
-
+    public bool rotationProp { get { return rotating; } set { rotating = value; } }
     protected override void Start()
     {
         base.Start();
@@ -33,19 +35,20 @@ public class Explosion : DangerousZone
         targetQuaternion = Quaternion.Euler(-90, 180, 0);
         explosionRadius = Mathf.Clamp(explosionRadius, 1f, 6f);
         rotating = false;
-
+        originalTransformRotation = gameObject.transform.localRotation;
+        originalTransformScale = gameObject.transform.localScale;
     }
 
     private void Update()
     {
         Rotation();
+
+        //Debug.Log(rotating);
     }
 
     /// <summary>
     /// Controls Animation, Damage delay and Lifetime of explosion
     /// </summary>
-    
-
     private void Rotation()
     {
         if (transform.localScale != targetScale)
@@ -55,9 +58,25 @@ public class Explosion : DangerousZone
         }
         else
         {
-            base.EngageArea();
+            EngageArea();
+            rotationProp = false;
+            Debug.Log("Aids");
             //Set Animation Here
         }
+    }
+
+    public override void EngageArea()
+    {
+        base.EngageArea();
+        rotationProp = false;
+    }
+
+    public override void DestroyZone()
+    {
+        base.DestroyZone();
+        BowoniaPool.instance.AddToPool(PoolObject.EXPLOSION, gameObject, destroyAfter);
+        gameObject.transform.localScale = originalTransformScale;
+        gameObject.transform.localRotation = originalTransformRotation;
     }
 
 
