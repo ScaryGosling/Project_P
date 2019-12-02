@@ -32,7 +32,7 @@ public class FireballInstance : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        Explode(other);
+       Explode(other);
     }
 
     public void Explode(Collider other)
@@ -63,7 +63,12 @@ public class FireballInstance : MonoBehaviour
     {
         transform.GetChild(0).GetComponent<Renderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
-        transform.GetChild(1).GetComponent<ParticleSystem>().Stop();
+
+        for(int i = 1; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).GetComponent<ParticleSystem>().Stop();
+        }
+
         yield return new WaitForSeconds(time);
         BowoniaPool.instance.AddToPool(PoolObject.FIREBALL, gameObject);
 

@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip heartbeatClip;
     [SerializeField] private AudioClip deathClip;
     [SerializeField] private AudioSource heartbeatSource;
+    [SerializeField] private AudioSource chargeUpSource;
 
     [Header("Resources")]
     private int healthPotions;
@@ -113,6 +114,20 @@ public class Player : MonoBehaviour
             Audio.pitch = pitch;
             Audio.clip = clip;
             Audio.Play();
+        }
+    }
+
+    public void PlayChargeUpAudio(AudioClip clip)
+    {
+        if (!settings.UseSFX)
+            return;
+
+        float pitch = Random.Range(0.7f, 1.3f);
+        if (clip != null && Audio != null)
+        {
+            chargeUpSource.pitch = pitch;
+            chargeUpSource.clip = clip;
+            chargeUpSource.Play();
         }
     }
 
@@ -608,6 +623,7 @@ public class Player : MonoBehaviour
             yield break;
         }
 
+        PlayChargeUpAudio(attack.GetChargeUpSound());
         activeStats.movementSpeed = attack.GetSpeedMultiplier();
         Timer slowMultiplier = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
         slowMultiplier.RunCountDown(attack.GetSlowTime(), attack.ResetSlow, Timer.TimerType.DELAY);
@@ -641,6 +657,7 @@ public class Player : MonoBehaviour
         attack.OnEquip();
         attack.Execute();
         attack.cooldownActive = true;
+        chargeUpSource.Stop();
         yield return new WaitForSeconds(attack.GetCooldown());
         attack.cooldownActive = false;
     }
