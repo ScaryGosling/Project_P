@@ -220,6 +220,11 @@ public class Player : MonoBehaviour
                 }
 
             }
+            else
+            {
+
+                Debug.Log("You got damaged");
+            }
     
         }
     }

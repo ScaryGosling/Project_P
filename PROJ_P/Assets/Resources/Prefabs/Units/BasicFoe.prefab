@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 5860399668941510848}
   - component: {fileID: 4901963468119906052}
   - component: {fileID: 4457543277079840383}
-  - component: {fileID: 3491819930722864463}
   - component: {fileID: 4416141486621037509}
   - component: {fileID: 3567054889327091982}
   m_Layer: 10
@@ -386,25 +385,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &3491819930722864463
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2161199849938165175}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 733192b793dcb62479a5f231c84ffc92, type: 3}
-  m_Controller: {fileID: 9100000, guid: 6247eda7096295d4ea65a21f36fbf643, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &4416141486621037509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d2be5020baadc499d14e378b7347a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  threatThreshold: 20
 --- !u!1 &2161199850153972063
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +670,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 8913df1e93e425847aecf303e9bdc6bf,
+        type: 3}
+      propertyPath: m_Name
+      value: UwU-LP
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8913df1e93e425847aecf303e9bdc6bf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8913df1e93e425847aecf303e9bdc6bf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8913df1e93e425847aecf303e9bdc6bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -758,21 +754,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 4.791284
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 8913df1e93e425847aecf303e9bdc6bf,
-        type: 3}
-      propertyPath: m_Name
-      value: UwU-LP
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 8913df1e93e425847aecf303e9bdc6bf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 8913df1e93e425847aecf303e9bdc6bf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8913df1e93e425847aecf303e9bdc6bf, type: 3}
@@ -949,6 +930,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 733192b793dcb62479a5f231c84ffc92,
+        type: 3}
+      propertyPath: m_Name
+      value: UwU_Run
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 733192b793dcb62479a5f231c84ffc92,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 733192b793dcb62479a5f231c84ffc92,
         type: 3}
       propertyPath: m_Controller
@@ -1023,16 +1014,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 4.79
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 733192b793dcb62479a5f231c84ffc92,
-        type: 3}
-      propertyPath: m_Name
-      value: UwU_Run
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 733192b793dcb62479a5f231c84ffc92,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2067927622977202255, guid: 733192b793dcb62479a5f231c84ffc92,
         type: 3}
