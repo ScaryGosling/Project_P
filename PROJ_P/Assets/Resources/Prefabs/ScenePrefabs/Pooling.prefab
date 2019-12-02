@@ -81,3 +81,15 @@ MonoBehaviour:
   - poolObject: 15
     prefab: {fileID: 5631071160769916022, guid: 1e59d37759423e746b01422787af5f99,
       type: 3}
+  - poolObject: 11
+    prefab: {fileID: 6863321986751247268, guid: ae6af44c3fd068c40a71e7c54cc508c4,
+      type: 3}
+  - poolObject: 12
+    prefab: {fileID: 6863321986751247268, guid: a3e18c89ebff883499631c141faaa5bf,
+      type: 3}
+  - poolObject: 17
+    prefab: {fileID: 3012000908578061488, guid: 8f9dcdb21e256ae489278a062f6dd4be,
+      type: 3}
+  - poolObject: 18
+    prefab: {fileID: 3478120250332875128, guid: 6a2041f5adb60b046b2f9479bb52565b,
+      type: 3}

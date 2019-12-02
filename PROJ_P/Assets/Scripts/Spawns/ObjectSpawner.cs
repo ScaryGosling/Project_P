@@ -20,6 +20,7 @@ public class ObjectSpawner : MonoBehaviour
     public bool hasAbsolutePosition { get; set; } = false;
     private int amount = 2;
     private Vector3 position;
+    private PoolObject poolObject;
 
     /// <summary>
     /// Creates said amount of items, then positions them around the world. 
@@ -41,14 +42,24 @@ public class ObjectSpawner : MonoBehaviour
                 {
                     position = location.transform.position;
                     if (genericObject != null && position != null && listOfObjects.Count < amount)
-                        listOfObjects.AddFirst(Instantiate(genericObject, position, Quaternion.identity));
+                    {
+                        genericObject = BowoniaPool.instance.GetFromPool(poolObject);
+                        genericObject.transform.position = position;
+                        genericObject.transform.rotation = Quaternion.identity;
+                        //listOfObjects.AddFirst(Instantiate(genericObject, position, Quaternion.identity));
+                        listOfObjects.AddFirst(genericObject);
+                    }
+
                 }
             }
         }
         else
         {
             position = locations[0].gameObject.transform.position;
-            Instantiate(genericObject, position, Quaternion.identity);
+            genericObject = BowoniaPool.instance.GetFromPool(poolObject);
+            genericObject.transform.position = position;
+            genericObject.transform.rotation = Quaternion.identity;
+            //Instantiate(genericObject, position, Quaternion.identity);
         }
     }
 
@@ -63,12 +74,15 @@ public class ObjectSpawner : MonoBehaviour
         switch (item)
         {
             case ObjectToSpawn.ManaPotion:
+                poolObject = PoolObject.MANA_POTION;
                 genericObject = objectTypes[0];
                 break;
             case ObjectToSpawn.HealthPotion:
+                poolObject = PoolObject.HEALTH_DROP;
                 genericObject = objectTypes[1];
                 break;
             case ObjectToSpawn.Reward:
+                poolObject = PoolObject.QUEST_COLLECTABLE;
                 genericObject = objectTypes[2];
                 break;
             default:
@@ -82,7 +96,14 @@ public class ObjectSpawner : MonoBehaviour
     public void TerminateSpawner()
     {
         foreach (GameObject i in listOfObjects)
-            Destroy(i.gameObject);
-        Destroy(gameObject, 2f);
+        {
+            if (i.activeInHierarchy)
+            {
+            BowoniaPool.instance.AddToPool(poolObject, i);
+
+            }
+        }
+        listOfObjects.Clear();
+        BowoniaPool.instance.AddToPool(PoolObject.OBJECT_SPAWNER, gameObject, 2f);
     }
 }

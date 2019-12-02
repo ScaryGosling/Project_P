@@ -146,7 +146,7 @@ public class GameLoop : MonoBehaviour
     {
         float temp = Random.Range(0f, 1f);
         if (chanceOfDrop >= temp)
-            Instantiate(pickUp[1], new Vector3(location.x, location.y, location.z), Quaternion.identity);
+            BowoniaPool.instance.GetFromPool(PoolObject.HEALTH_DROP, location, Quaternion.identity);
     }
 
     /// <summary>
@@ -157,6 +157,7 @@ public class GameLoop : MonoBehaviour
         waveCompleted = false;
         spawned = 0;
         unitsKilled = 0;
+        objectSpawnerObject = null;
         //if (expected < maximumCapacity && expectedGrowth >= 1f)
         //{
         //    expected = (int)Mathf.FloorToInt(expected * expectedGrowth);
@@ -366,15 +367,14 @@ public class GameLoop : MonoBehaviour
     /// <returns></returns>
     IEnumerator Spawner()
     {
+        float time;
         while (true)
         {
-            float time;
-
             if (spawned < expected)
             {
                 if (objectSpawnerObject == null)
                 {
-                    objectSpawnerObject = Instantiate(ObjectSpawnerPrefab);
+                    objectSpawnerObject = BowoniaPool.instance.GetFromPool(PoolObject.OBJECT_SPAWNER);
                     objectSpawner = objectSpawnerObject.GetComponent<ObjectSpawner>();
                     objectSpawner.PopulateList(ItemAmount, ObjectSpawner.ObjectToSpawn.ManaPotion);
                 }

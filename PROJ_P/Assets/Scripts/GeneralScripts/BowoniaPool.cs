@@ -66,6 +66,22 @@ public class BowoniaPool : MonoBehaviour
         }
         return tempPoolObject;
     }
+
+    public GameObject GetFromPool(PoolObject poolObject, Vector3 position)
+    {
+        tempPoolObject = GetFromPool(poolObject);
+        tempPoolObject.transform.position = position;
+        return tempPoolObject;
+    }
+    public GameObject GetFromPool(PoolObject poolObject, Vector3 position, Quaternion rotation)
+    {
+        tempPoolObject = GetFromPool(poolObject);
+        tempPoolObject.transform.position = position;
+        tempPoolObject.transform.rotation = rotation;
+        return tempPoolObject;
+    }
+
+
     public void AddToPool(PoolObject poolObject, GameObject instanceToAdd)
     {
         instanceToAdd.SetActive(false);
@@ -85,5 +101,5 @@ public class BowoniaPool : MonoBehaviour
 
 public enum PoolObject
 {
-    FANATIC, ZOOMER, BOOMER, TIMER, WAND, LIGHTNING, FIREBALL, ICE_NOVA, BOOMER_WARNINGAREA, BLOOD_SPLATTER, HEALTH_PARTICLES, HEALTH_DROP, MANA_POTION, NULL, WAND_IMPACT, FIREBALL_IMPACT, EXPLOSION
+    FANATIC, ZOOMER, BOOMER, TIMER, WAND, LIGHTNING, FIREBALL, ICE_NOVA, BOOMER_WARNINGAREA, BLOOD_SPLATTER, HEALTH_PARTICLES, HEALTH_DROP, MANA_POTION, NULL, WAND_IMPACT, FIREBALL_IMPACT, EXPLOSION, QUEST_COLLECTABLE, OBJECT_SPAWNER
 }

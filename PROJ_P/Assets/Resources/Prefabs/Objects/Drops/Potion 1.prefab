@@ -4835,7 +4835,7 @@ MonoBehaviour:
   despawnTime: 10
   pickupSound: {fileID: 8300000, guid: db110e427bc2b3d4398f464d577e162c, type: 3}
   particles: {fileID: 0}
-  type: 13
+  type: 12
   source: {fileID: -7065774182131305378}
   materials:
   - {fileID: 2100000, guid: 7d38dcd1d7473ce4692e8323e26ba79c, type: 2}

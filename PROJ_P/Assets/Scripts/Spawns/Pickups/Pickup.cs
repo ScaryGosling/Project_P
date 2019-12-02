@@ -38,9 +38,9 @@ public class Pickup : MonoBehaviour
             if (player.GetSettings().UseSFX)
                 source.Play();
 
-            if (type != PoolObject.NULL)
+            if (type == PoolObject.HEALTH_DROP)
             {
-                instantiated = BowoniaPool.instance.GetFromPool(type);
+                instantiated = BowoniaPool.instance.GetFromPool(PoolObject.HEALTH_PARTICLES);
                 instantiated.transform.SetParent(player.transform);
                 instantiated.transform.position = player.transform.position;
             }
@@ -52,7 +52,11 @@ public class Pickup : MonoBehaviour
             GetComponent<Collider>().enabled = false;
             if (type != PoolObject.NULL)
             {
+                if (test != null)
+                {
+
                 StopCoroutine(test);
+                }
                 test = StartCoroutine(DestroyAfter(source.clip.length));
             }
             else
