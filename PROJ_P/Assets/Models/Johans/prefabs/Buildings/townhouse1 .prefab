@@ -12,11 +12,9 @@ GameObject:
   - component: {fileID: 3164688136895020398}
   - component: {fileID: 506982805050459777}
   - component: {fileID: 675650765116509044}
-  - component: {fileID: 6787225572366524935}
-  - component: {fileID: 5763399361466385251}
   - component: {fileID: 132824490164874460}
   m_Layer: 11
-  m_Name: townhouse1 1
+  m_Name: 'townhouse1 '
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,32 +97,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0, y: 0.75696754, z: 0.3005491}
   m_Center: {x: 0.15592739, y: 0.22848369, z: 0.0002745622}
---- !u!65 &6787225572366524935
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6107913699368131651}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.33546424, y: 0.75696754, z: 0}
-  m_Center: {x: 0.017731877, y: 0.22848369, z: -0.15000008}
---- !u!65 &5763399361466385251
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6107913699368131651}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.33000222, y: 0.75696754, z: 0}
-  m_Center: {x: 0.01500077, y: 0.22848369, z: 0.15054922}
 --- !u!65 &132824490164874460
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -133,8 +105,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6107913699368131651}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.36004958, y: 0.75696754, z: 0.30054915}
-  m_Center: {x: 0.030024722, y: 0.22848374, z: 0.0002745614}
+  m_Size: {x: 0.31640422, y: 0.75696754, z: 0.30054915}
+  m_Center: {x: 0.008201861, y: 0.22848369, z: 0.00027456216}
