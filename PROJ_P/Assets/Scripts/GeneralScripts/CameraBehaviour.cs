@@ -39,7 +39,6 @@ public class CameraBehaviour : MonoBehaviour
         public IEnumerator FadeOut()
         {
             isFaded = true;
-            float fadeTime = this.fadeTime;
 
             for (int i = 0; i < renderer.materials.Length; i++)
             {
@@ -61,8 +60,6 @@ public class CameraBehaviour : MonoBehaviour
         public IEnumerator FadeIn()
         {
             isFaded = false;
-            float fadeTime = this.fadeTime;
-
 
             while (renderer.material.GetFloat(shaderAlpha) < 1)
             {
