@@ -817,6 +817,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UwU_Boss@Idle
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 2ee00be6b953d5842a034bac82418831,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6c6974b05251e514487549fee369026c, type: 2}
     - target: {fileID: -4216859302048453862, guid: 2ee00be6b953d5842a034bac82418831,
         type: 3}
       propertyPath: m_LocalPosition.x
