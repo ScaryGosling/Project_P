@@ -24,9 +24,11 @@ public class PlayerAttack : Ability
     [SerializeField] protected GameObject particles;
     [SerializeField] protected AudioClip sound;
     [SerializeField] protected AudioClip cooldownClip;
+    [SerializeField] protected AudioClip chargeUpClip;
 
 
 
+    public AudioClip GetChargeUpSound() { return chargeUpClip; }
     public float GetCooldown() { return cooldown; }
     public bool GetCooldownActive() { return cooldownActive; }
     [SerializeField] private AbilityCat abilityCat;
