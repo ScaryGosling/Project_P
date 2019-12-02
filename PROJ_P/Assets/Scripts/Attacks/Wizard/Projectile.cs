@@ -10,6 +10,8 @@ public class Projectile : PlayerAttack
     [SerializeField] private GameObject projectileHit;
     [SerializeField] private float force;
 
+    private Vector3 direction;
+
     public override void Execute()
     {
         base.Execute();
@@ -21,10 +23,10 @@ public class Projectile : PlayerAttack
         base.RunAttack();
 
 
+        direction = AimAssist();
         GameObject ball = GetProjectile();
-        AimAssist();
         ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        ball.GetComponent<Rigidbody>().AddForce(AimAssist() * force + Player.instance.GetComponent<Rigidbody>().velocity);
+        ball.GetComponent<Rigidbody>().AddForce(direction * force + Player.instance.GetComponent<Rigidbody>().velocity);
         ball.GetComponent<ProjectileInstance>().SetPower(damage, magnitude);
         ball.GetComponent<ProjectileInstance>().impactParticles = projectileHit;
     }
@@ -34,7 +36,7 @@ public class Projectile : PlayerAttack
         Transform spawnPoint = Player.instance.GetSpawnPoint();
         GameObject ball = BowoniaPool.instance.GetFromPool(PoolObject.WAND);
         ball.transform.position = spawnPoint.position;
-        ball.transform.rotation = spawnPoint.rotation;
+        ball.transform.forward = direction;
         return ball;
     }
 
