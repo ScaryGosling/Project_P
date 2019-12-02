@@ -16,7 +16,7 @@ public class Shield : PlayerAttack
         shield = Instantiate(shieldPrefab, Player.instance.transform);
         shield.transform.position += new Vector3(0,0.5f,0);
         Player.instance.activeStats.resistanceMultiplier = 0;
-        shield.AddComponent<Timer>().RunCountDown(duration, RemoveShield, Timer.TimerType.DELAY);
+        BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>().RunCountDown(duration, RemoveShield, Timer.TimerType.DELAY);
     }
     public override void UpgradeAttack()
     {
@@ -27,6 +27,7 @@ public class Shield : PlayerAttack
     public void RemoveShield()
     {
         Player.instance.ResetStats();
+        Destroy(shield);
     }
 
 }
