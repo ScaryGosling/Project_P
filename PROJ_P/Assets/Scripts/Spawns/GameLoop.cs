@@ -398,6 +398,8 @@ public class GameLoop : MonoBehaviour
                         //absoluteUnit.GetComponent<NavMeshAgent>().Warp(spawnObject.transform.GetChild(0).transform.position);
                         absoluteUnit.transform.rotation = Quaternion.identity;
                         absoluteUnit.gameObject.SetActive(true);
+                        //Debug.LogError(absoluteUnit.GetInstanceID()) ;
+                        //Debug.Log(absoluteUnit.GetInstanceID());
                         spawned++;
 
                         //loop -> levande fiender

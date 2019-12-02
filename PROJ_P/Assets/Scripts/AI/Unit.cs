@@ -164,10 +164,9 @@ public class Unit : StateMachine
     }
     private void OnEnable()
     {
-
         if (capsuleCollider )
         {
-               AliveProp = true;
+            AliveProp = true;
             capsuleCollider.enabled = true;
             ImprovePower();
             InitialHealth = currentHealth;
