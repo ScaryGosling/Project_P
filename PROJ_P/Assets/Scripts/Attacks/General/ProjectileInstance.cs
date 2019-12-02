@@ -57,10 +57,16 @@ public class ProjectileInstance : MonoBehaviour
         this.maginitude = mag;
     }
 
-    public virtual void RunAttack(Collider other) {
+    public virtual void RunAttack(Collider other)
+    {
 
         State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
         state.TakeDamage(damage, maginitude);
+        CreateParticles();
+    }
+
+    private void CreateParticles()
+    {
         impactParticleInstance = BowoniaPool.instance.GetFromPool(PoolObject.WAND_IMPACT);
         impactParticleInstance.transform.position = transform.position;
 
@@ -84,6 +90,16 @@ public class ProjectileInstance : MonoBehaviour
 
             BowoniaPool.instance.AddToPool(PoolObject.WAND_IMPACT, impactParticleInstance, impactParticleInstance.GetComponentInChildren<ParticleSystem>().main.duration);
 
+        }
+        else if (other.gameObject.layer == 11 ) //11 is building layer
+        {
+            CreateParticles();
+            GetComponent<Renderer>().enabled = false;
+            GetComponent<Collider>().enabled = false;
+            particles.SetActive(false);
+            StartCoroutine(KillTimer(impactSound.length));
+
+            BowoniaPool.instance.AddToPool(PoolObject.WAND_IMPACT, impactParticleInstance, impactParticleInstance.GetComponentInChildren<ParticleSystem>().main.duration);
         }
     }
 
