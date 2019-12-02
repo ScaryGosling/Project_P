@@ -85,7 +85,8 @@ public class ProjectileInstance : MonoBehaviour
             RunAttack(other);
             GetComponent<Renderer>().enabled = false;
             GetComponent<Collider>().enabled = false;
-            particles.SetActive(false) ;
+            particles.SetActive(false);
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
             StartCoroutine(KillTimer(impactSound.length));
 
             BowoniaPool.instance.AddToPool(PoolObject.WAND_IMPACT, impactParticleInstance, impactParticleInstance.GetComponentInChildren<ParticleSystem>().main.duration);
