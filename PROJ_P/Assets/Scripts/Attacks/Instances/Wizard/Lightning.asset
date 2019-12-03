@@ -20,7 +20,7 @@ MonoBehaviour:
   castTime: 0
   magnitude: 60
   attackImage: {fileID: 21300000, guid: f71a6d253615e2541888194bd481124b, type: 3}
-  cooldown: 5
+  cooldown: 1
   cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 50
@@ -53,7 +53,7 @@ MonoBehaviour:
   killTime: 1
   material: {fileID: 2100000, guid: 120b0518cfff4404fbc534469deef34b, type: 2}
   radiusPerLevel:
-  - 5
+  - 10
   - 6
   - 7
   - 8

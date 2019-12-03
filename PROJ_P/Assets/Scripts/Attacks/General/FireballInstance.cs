@@ -14,6 +14,7 @@ public class FireballInstance : MonoBehaviour
     private AudioSource source;
     private GameObject impact;
     [SerializeField] private AudioClip impactSound;
+    private Collider[] hitColliders;
 
     public void Start()
     {
@@ -47,7 +48,7 @@ public class FireballInstance : MonoBehaviour
         if(impactSound != null && Player.instance.GetSettings().UseSFX)
             source.Play();
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
+        hitColliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
 
         foreach(Collider col in hitColliders)
         {

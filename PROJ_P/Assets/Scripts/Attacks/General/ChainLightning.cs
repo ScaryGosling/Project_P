@@ -8,6 +8,7 @@ public class ChainLightning : ProjectileInstance
     private Collider[] hitColliders;
     private Collider bindingCollider;
 
+    private ParticleSystem[] particlesystem;
     public float ChainRadius { get; set; }
     public float LineWidth { get; set; }
     public float Intensity { get; set; }
@@ -32,7 +33,11 @@ public class ChainLightning : ProjectileInstance
     }
     private void OnEnable()
     {
-        GetComponent<Renderer>().enabled = true;
+        particlesystem = GetComponentsInChildren<ParticleSystem>();
+        for(int i = 0; i < particlesystem.Length; i++)
+        {
+            particlesystem[i].Play();
+        }
         GetComponent<Collider>().enabled = true;
     }
     public override void RunAttack(Collider other)
@@ -42,8 +47,10 @@ public class ChainLightning : ProjectileInstance
         Material.SetColor("_EmissionColor", EmissionColor * Intensity);
 
         Player.instance.gameObject.AddComponent<LineRenderer>();
-
-        GetComponent<Renderer>().enabled = false;
+        for (int i = 0; i < particlesystem.Length; i++)
+        {
+            particlesystem[i].Stop();
+        }
         GetComponent<Collider>().enabled = false;
 
         bindingCollider = other;
@@ -68,19 +75,22 @@ public class ChainLightning : ProjectileInstance
     }
 
 
-    public void FindEnemies(Collider[] colliders)
+    public int FindEnemies(Collider[] colliders)
     {
-        enemiesInRange.Clear();
-        foreach(Collider collider in colliders)
+        int i = 0;
+        foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag("Enemy") && collider.enabled)
+            if (collider.CompareTag("Enemy"))
             {
                 enemiesInRange.Add(collider);
-
+                i++;
             }
 
         }
 
+            return i;
+
+        
     }
 
 
@@ -169,7 +179,7 @@ public class ChainLightning : ProjectileInstance
 
         yield return new WaitForSeconds(KillTime);
         ClearColliders();
-
+        enemiesInRange.Clear();
         BowoniaPool.instance.AddToPool(PoolObject.LIGHTNING, gameObject);
 
     }
