@@ -20,7 +20,7 @@ MonoBehaviour:
     or through pickups on the map.
   playerClass: 0
   list:
-  - {fileID: 11400000, guid: 0f5f9a0095059ff46af6707893c78512, type: 2}
+  - {fileID: 11400000, guid: ec813d1768218493d9de78fdfda09057, type: 2}
   - {fileID: 11400000, guid: b64b40edd40e4f645afb7ed03ab5fc9d, type: 2}
   - {fileID: 11400000, guid: 2d370265373c3454abb8d15c90dd2d3b, type: 2}
   - {fileID: 11400000, guid: 0f5f9a0095059ff46af6707893c78512, type: 2}
