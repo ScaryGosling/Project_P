@@ -4765,7 +4765,7 @@ GameObject:
   - component: {fileID: 1901529330280625735}
   - component: {fileID: 8943670481785751760}
   m_Layer: 0
-  m_Name: ParticleFloat (1)
+  m_Name: ParticleFloating
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14548,6 +14548,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5490361096305928249}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 9af680a894e1de5428db015f6a380b5c,
+        type: 3}
+      propertyPath: m_Name
+      value: meteor
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9af680a894e1de5428db015f6a380b5c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14617,11 +14622,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 9af680a894e1de5428db015f6a380b5c,
-        type: 3}
-      propertyPath: m_Name
-      value: meteor
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 9af680a894e1de5428db015f6a380b5c,
         type: 3}
