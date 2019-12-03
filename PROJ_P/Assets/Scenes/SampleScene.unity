@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2628258, g: 0.18556994, b: 0.17100132, a: 1}
+  m_IndirectSpecularColor: {r: 0.26282582, g: 0.18556999, b: 0.17100137, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7295,6 +7295,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940443950925033621, guid: 51182b86dec3ef145a4582f430c38f4d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.284
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940443950851126189, guid: 51182b86dec3ef145a4582f430c38f4d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940443950851126189, guid: 51182b86dec3ef145a4582f430c38f4d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3724824
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940443951460206636, guid: 51182b86dec3ef145a4582f430c38f4d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940443951460206636, guid: 51182b86dec3ef145a4582f430c38f4d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.2840035
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940443949583919316, guid: 51182b86dec3ef145a4582f430c38f4d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940443949583919316, guid: 51182b86dec3ef145a4582f430c38f4d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.2840035
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940443949530769735, guid: 51182b86dec3ef145a4582f430c38f4d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940443949530769735, guid: 51182b86dec3ef145a4582f430c38f4d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9687805
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8780008415302254151, guid: 51182b86dec3ef145a4582f430c38f4d, type: 3}
