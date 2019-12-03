@@ -60,7 +60,6 @@ public class Explosion : DangerousZone
         {
             EngageArea();
             rotationProp = false;
-            Debug.Log("Aids");
             //Set Animation Here
         }
     }
@@ -74,6 +73,7 @@ public class Explosion : DangerousZone
     public override void DestroyZone()
     {
         base.DestroyZone();
+        BowoniaPool.instance.GetFromPool(PoolObject.BOOMER_EXPLOSION_PARTICLE, transform.position);
         BowoniaPool.instance.AddToPool(PoolObject.EXPLOSION, gameObject, destroyAfter);
         gameObject.transform.localScale = originalTransformScale;
         gameObject.transform.localRotation = originalTransformRotation;
