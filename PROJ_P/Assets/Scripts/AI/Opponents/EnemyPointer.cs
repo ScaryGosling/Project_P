@@ -11,7 +11,10 @@ public class EnemyPointer : MonoBehaviour
 
     private List<GameObject> arrowPool = new List<GameObject>();
     private int arrowPoolCursor = 0;
-
+    [SerializeField] private GameObject parent;
+    [SerializeField]private Color32 arrowColor = new Color32(255, 00, 0, 100);
+    [SerializeField] [Range(0,1)]private float scale = 0.5f;
+    [SerializeField] [Range(0,1)]private float distance = 0.9f;
     private void Start()
     {
  
@@ -20,42 +23,41 @@ public class EnemyPointer : MonoBehaviour
     {
         PaintArrow();
     }
-
+    Unit[] enemies;
+    Vector3 screenpos, screenCenter, screenBounds;
+    float angle, cos, sin, m;
     private void PaintArrow()
     {
         ResetPool();
-        Unit[] enemies = GameObject.FindObjectsOfType(typeof (Unit)) as Unit[];
+        enemies = FindObjectsOfType(typeof (Unit)) as Unit[];
         foreach (Unit enemy in enemies)
         {
-            Vector3 screenpos = Camera.main.WorldToScreenPoint(enemy.transform.position);
-            if (screenpos.z > 0 &&
-                screenpos.x > 0 && screenpos.x < Screen.width &&
-                screenpos.y > 0 && screenpos.y < Screen.height)
+            screenpos = Camera.main.WorldToScreenPoint(enemy.transform.position);
+            if (IsOnScreen())
             {
                 //if enemy visible
             }
             else
             {
-                screenpos.x -= transform.position.x;
-                screenpos.y -= transform.position.y;
                 if (screenpos.z < 0)
                 {
                     screenpos *= -1;
                 }
-                Vector3 screenCenter = new Vector3(Screen.width - 2 * transform.position.x, Screen.height - 2 * transform.position.y, 0) / 2;
+                screenCenter = new Vector3(Screen.width, Screen.height, 0) / 2;
                 screenpos -= screenCenter;
 
-                float angle = Mathf.Atan2(screenpos.y, screenpos.x);
+
+                angle = Mathf.Atan2(screenpos.y, screenpos.x);
                 angle -= 90 * Mathf.Deg2Rad;
 
-                float cos = Mathf.Cos(angle);
-                float sin = -Mathf.Sin(angle);
-                Debug.Log(screenpos);
-                screenpos = screenCenter + new Vector3(sin*150, cos*150, 0);
+                cos = Mathf.Cos(angle);
+                sin = -Mathf.Sin(angle);
+                screenpos = screenCenter + new Vector3(sin * 150, cos * 150, 0);
 
-                float m = cos / sin;
+                m = cos / sin;
 
-                Vector3 screenBounds = screenCenter * 0.9f;
+                screenBounds = screenCenter * distance;
+
 
                 if (cos > 0)
                 {
@@ -63,28 +65,36 @@ public class EnemyPointer : MonoBehaviour
                 }
                 else
                 {
-                    screenpos = new Vector3(screenBounds.y / m, -screenBounds.y, 0);
+                    screenpos = new Vector3(-screenBounds.y / m, -screenBounds.y, 0);
                 }
 
                 if (screenpos.x > screenBounds.x)
                 {
-                    screenpos = new Vector3(screenBounds.x, screenBounds.x*m, 0);
+                    screenpos = new Vector3(screenBounds.x, screenBounds.x * m, 0);
                 }
-                else
+                else if (screenpos.x < -screenBounds.x)
                 {
-                    screenpos = new Vector3(screenBounds.x, -screenBounds.x*m, 0);
+                    screenpos = new Vector3(-screenBounds.x, -screenBounds.x * m, 0);
                 }
 
                 screenpos += screenCenter;
-
+                screenpos -= transform.position;
+                screenpos /= transform.localScale.x;
 
                 arrow = GetArrow();
-                arrow.GetComponent<Image>().color = new Color32(255,00,0, 100); ;
+                arrow.GetComponent<Image>().color = arrowColor; 
                 arrow.transform.localPosition = screenpos;
-                arrow.transform.localRotation = Quaternion.Euler(0,0, angle * Mathf.Rad2Deg);
+                arrow.transform.localRotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
             }
         }
         CleanPool();
+    }
+
+    private bool IsOnScreen()
+    {
+        return screenpos.z > 0 &&
+                        screenpos.x > 0 && screenpos.x < Screen.width &&
+                        screenpos.y > 0 && screenpos.y < Screen.height;
     }
 
     private void ResetPool()
@@ -92,16 +102,17 @@ public class EnemyPointer : MonoBehaviour
         arrowPoolCursor = 0;
     }
 
+        GameObject output;
     private GameObject GetArrow()
     {
-        GameObject output;
         if (arrowPoolCursor < arrowPool.Count)
         {
             output = arrowPool[arrowPoolCursor];
         }
         else
         {
-            output = Instantiate(enemyIndicatorPrefab, GameObject.Find("Canvas").transform);
+            output = Instantiate(enemyIndicatorPrefab, parent.transform);
+            output.transform.localScale  *= scale;
             arrowPool.Add(output);
         }
         arrowPoolCursor++;
