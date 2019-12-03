@@ -179,11 +179,13 @@ public class Unit : StateMachine
             {
                 QuestTargetProp = null;
             }
-
+            EnemyPointer.instance.AddToList(this);
         }
-
     }
-
+    private void OnDisable()
+    {
+        EnemyPointer.instance.RemoveFromList(this);
+    }
     protected override void Update()
     {
         base.Update();

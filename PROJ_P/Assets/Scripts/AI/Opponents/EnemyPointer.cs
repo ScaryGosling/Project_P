@@ -6,30 +6,53 @@ using UnityEngine.UI;
 
 public class EnemyPointer : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyIndicatorPrefab;
     GameObject arrow;
-
     private List<GameObject> arrowPool = new List<GameObject>();
     private int arrowPoolCursor = 0;
     [SerializeField] private GameObject parent;
     [SerializeField]private Color32 arrowColor = new Color32(255, 00, 0, 100);
-    [SerializeField] [Range(0,1)]private float scale = 0.5f;
+    [SerializeField] [Range(0,10)]private float scale = 5f;
     [SerializeField] [Range(0,1)]private float distance = 0.9f;
+    private List<Unit> enemies = new List<Unit>();
+    private Vector3 screenpos, screenCenter, screenBounds;
+    private float angle, cos, sin, m;
+    public static EnemyPointer instance;
+    [SerializeField] private float seconds = 30;
+    [SerializeField] private int enemiesToShow = 10;
+    private float countDown;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
- 
+        countDown = seconds;
     }
     void Update()
     {
-        PaintArrow();
+        if (enemies.Count <= enemiesToShow && enemies.Count != 0)
+        {
+            if (countDown <= 0)
+            {
+                PaintArrow();
+
+            }
+            else
+            {
+                countDown -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            countDown = seconds;
+        }
+
     }
-    Unit[] enemies;
-    Vector3 screenpos, screenCenter, screenBounds;
-    float angle, cos, sin, m;
+
     private void PaintArrow()
     {
         ResetPool();
-        enemies = FindObjectsOfType(typeof (Unit)) as Unit[];
         foreach (Unit enemy in enemies)
         {
             screenpos = Camera.main.WorldToScreenPoint(enemy.transform.position);
@@ -101,8 +124,15 @@ public class EnemyPointer : MonoBehaviour
     {
         arrowPoolCursor = 0;
     }
-
-        GameObject output;
+    public void AddToList (Unit unit)
+    {
+        enemies.Add(unit);
+    }
+    public void RemoveFromList(Unit unit)
+    {
+        enemies.Remove(unit);
+    }
+    GameObject output;
     private GameObject GetArrow()
     {
         if (arrowPoolCursor < arrowPool.Count)
@@ -111,21 +141,22 @@ public class EnemyPointer : MonoBehaviour
         }
         else
         {
-            output = Instantiate(enemyIndicatorPrefab, parent.transform);
-            output.transform.localScale  *= scale;
+            output = BowoniaPool.instance.GetFromPool(PoolObject.ENEMY_POINTER);
+            output.transform.SetParent(transform);
+            output.transform.localScale  = Vector3.one * scale;
             arrowPool.Add(output);
         }
         arrowPoolCursor++;
         return output;
     }
-
+    GameObject obj;
     private void CleanPool()
     {
         while (arrowPool.Count > arrowPoolCursor)
         {
-            GameObject obj = arrowPool[arrowPool.Count-1];
+            obj = arrowPool[arrowPool.Count-1];
             arrowPool.Remove(obj);
-            Destroy(obj);
+            BowoniaPool.instance.AddToPool(PoolObject.ENEMY_POINTER, obj);
         }
     }
 }
