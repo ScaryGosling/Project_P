@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4839040619699398}
   - component: {fileID: 33549995844562804}
   - component: {fileID: 23178893440365066}
-  m_Layer: 0
+  - component: {fileID: 791727717993008310}
+  m_Layer: 11
   m_Name: CarvedLampPost2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,6 +79,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &791727717993008310
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171281501270046}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17490667, y: 1.4423532, z: 0.16075702}
+  m_Center: {x: 0.0070748627, y: 0.67631614, z: -4.807132e-16}
 --- !u!1 &1204408703077684
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,9 +101,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4044910024888608}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CarvedPost2
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +136,7 @@ GameObject:
   - component: {fileID: 4109810516531414}
   - component: {fileID: 33032673986776716}
   - component: {fileID: 23008774179970314}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Candle2.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +214,7 @@ GameObject:
   - component: {fileID: 4931984453454290}
   - component: {fileID: 33921488382877618}
   - component: {fileID: 23114303790845548}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CarvedLampPost.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +294,7 @@ GameObject:
   - component: {fileID: 95783209719138018}
   - component: {fileID: 114267984888366808}
   - component: {fileID: 7143235360482699913}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: red_flame_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +467,7 @@ GameObject:
   - component: {fileID: 4406454388009290}
   - component: {fileID: 33774771268444080}
   - component: {fileID: 23446148900958192}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Latern2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +548,7 @@ GameObject:
   - component: {fileID: 4501098725676496}
   - component: {fileID: 33261327440304906}
   - component: {fileID: 23559649772534480}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Glass2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

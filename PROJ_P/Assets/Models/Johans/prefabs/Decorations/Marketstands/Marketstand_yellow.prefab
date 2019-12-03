@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 599677099118617443}
   - component: {fileID: 8433409885897087317}
   - component: {fileID: 2753376061568984492}
+  - component: {fileID: 7183466594474007564}
   m_Layer: 11
   m_Name: Marketstand_yellow
   m_TagString: Building
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7183466594474007564
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470142571262251376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2971479, y: 0.61406326, z: 0.8151333}
+  m_Center: {x: 0.029143503, y: -0.0011205216, z: 0.00000003500536}

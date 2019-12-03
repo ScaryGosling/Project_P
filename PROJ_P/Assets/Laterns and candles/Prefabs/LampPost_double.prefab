@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4099705087226302}
   - component: {fileID: 33856662768992098}
   - component: {fileID: 23084144258610668}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Latern4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 95737835408969102}
   - component: {fileID: 114869251064634074}
   - component: {fileID: 1577327175678961642}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: red_flame_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,9 +268,10 @@ GameObject:
   - component: {fileID: 4361623287756760}
   - component: {fileID: 33890834366625500}
   - component: {fileID: 23245079885859258}
-  m_Layer: 0
+  - component: {fileID: 2512633999780756257}
+  m_Layer: 11
   m_Name: LampPost_double
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,6 +338,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2512633999780756257
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269430370410058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.35079786, y: 1.4672732, z: 0.37556362}
+  m_Center: {x: 0, y: -0.08404958, z: 0.0012274086}
 --- !u!1 &1271217471005822
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +364,7 @@ GameObject:
   - component: {fileID: 95122859695078172}
   - component: {fileID: 114721450966744626}
   - component: {fileID: 569240639511294866}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: red_flame_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +537,7 @@ GameObject:
   - component: {fileID: 4943262655845802}
   - component: {fileID: 33442899379465716}
   - component: {fileID: 23179435434647782}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Latern4.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +615,7 @@ GameObject:
   - component: {fileID: 4828154360092568}
   - component: {fileID: 33573732861823854}
   - component: {fileID: 23864396541593772}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,7 +693,7 @@ GameObject:
   - component: {fileID: 4334593667792958}
   - component: {fileID: 33971877315926950}
   - component: {fileID: 23028904160536160}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Latern4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +775,7 @@ GameObject:
   - component: {fileID: 4342320881262598}
   - component: {fileID: 33870494747348240}
   - component: {fileID: 23662449296450938}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Candle3.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -839,7 +853,7 @@ GameObject:
   - component: {fileID: 4091421794675986}
   - component: {fileID: 33175423940786860}
   - component: {fileID: 23403242894941882}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Candle3.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -917,7 +931,7 @@ GameObject:
   - component: {fileID: 4499784949736260}
   - component: {fileID: 33696681818853604}
   - component: {fileID: 23464778270104014}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -995,7 +1009,7 @@ GameObject:
   - component: {fileID: 4390636749216116}
   - component: {fileID: 33136295928017920}
   - component: {fileID: 23154082408932510}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Latern4.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
