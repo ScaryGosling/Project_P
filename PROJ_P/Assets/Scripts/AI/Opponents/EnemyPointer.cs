@@ -9,7 +9,6 @@ public class EnemyPointer : MonoBehaviour
     GameObject arrow;
     private List<GameObject> arrowPool = new List<GameObject>();
     private int arrowPoolCursor = 0;
-    [SerializeField] private GameObject parent;
     [SerializeField]private Color32 arrowColor = new Color32(255, 00, 0, 100);
     [SerializeField] [Range(0,10)]private float scale = 5f;
     [SerializeField] [Range(0,1)]private float distance = 0.9f;

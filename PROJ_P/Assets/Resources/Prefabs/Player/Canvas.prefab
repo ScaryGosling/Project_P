@@ -1150,7 +1150,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
+  m_fontSize: 18.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3690,6 +3690,7 @@ GameObject:
   - component: {fileID: 4738550533923403040}
   - component: {fileID: 4738550533923403043}
   - component: {fileID: 760861356}
+  - component: {fileID: 5631260136996809081}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3816,6 +3817,26 @@ MonoBehaviour:
   - {fileID: 706073019}
   - {fileID: 7002693663827191901}
   keybindSet: {fileID: 11400000, guid: 9c37919dfa498b34290c55af5af987d5, type: 2}
+--- !u!114 &5631260136996809081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738550533923403042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525fa9d80af174d42bb993ced6bd75ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 4738550533923403042}
+  arrowColor:
+    serializedVersion: 2
+    rgba: 1677721855
+  scale: 5
+  distance: 0.9
+  seconds: 30
+  enemiesToShow: 10
 --- !u!1 &4738550533949332095
 GameObject:
   m_ObjectHideFlags: 0
@@ -5308,12 +5329,12 @@ PrefabInstance:
     - target: {fileID: 3086651210904522627, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
       propertyPath: m_fontSize
-      value: 49
+      value: 40.25
       objectReference: {fileID: 0}
     - target: {fileID: 6068471755039141717, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 666a13891d20bf14b84ddd32ee46f3ef, type: 3}
