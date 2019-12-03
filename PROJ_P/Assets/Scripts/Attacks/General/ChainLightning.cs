@@ -70,14 +70,16 @@ public class ChainLightning : ProjectileInstance
 
     public void FindEnemies(Collider[] colliders)
     {
-    
+        enemiesInRange.Clear();
         foreach(Collider collider in colliders)
         {
-            if (collider.CompareTag("Enemy"))
+            if (collider.CompareTag("Enemy") && collider.enabled)
+            {
                 enemiesInRange.Add(collider);
 
-        }
+            }
 
+        }
 
     }
 
