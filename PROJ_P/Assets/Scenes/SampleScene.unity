@@ -5303,6 +5303,10 @@ PrefabInstance:
       propertyPath: impactSound
       value: 
       objectReference: {fileID: 8300000, guid: 430029e961fe3594e8786ced50be2c19, type: 3}
+    - target: {fileID: 505616734, guid: 74d1415f2c9a8e54eb93ce037bae2d6d, type: 3}
+      propertyPath: particles
+      value: 
+      objectReference: {fileID: 1079045317085329783}
     - target: {fileID: 1079045316322619793, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
       propertyPath: mask.m_Bits
@@ -5318,8 +5322,19 @@ PrefabInstance:
       propertyPath: m_BaseOffset
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8692593187995943649, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74d1415f2c9a8e54eb93ce037bae2d6d, type: 3}
+--- !u!198 &1079045317085329783 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4781570034143909911, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079045317085329782}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1195681831505717955
 PrefabInstance:
   m_ObjectHideFlags: 0

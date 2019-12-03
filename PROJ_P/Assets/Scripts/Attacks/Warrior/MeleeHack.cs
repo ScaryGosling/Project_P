@@ -45,17 +45,6 @@ public class MeleeHack : PlayerAttack
         animation.AddClip(forwardSlash, forwardSlash.name);
         animation.Play(forwardSlash.name);
 
-        //if (animation.IsPlaying(forwardSlash.name))
-        //{
-        //animation.AddClip(backSlash, backSlash.name);
-        //animation.Play(backSlash.name);
-        //}
-        //else
-        //{
-        //animation.AddClip(forwardSlash, forwardSlash.name);
-        //animation.Play(forwardSlash.name);
-        //}
-
         Timer timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
         timer.RunCountDown(forwardSlash.length, ResetSword, Timer.TimerType.DELAY);
     }
@@ -67,6 +56,7 @@ public class MeleeHack : PlayerAttack
         player = Player.instance;
         sword = player.weapon.GetComponent<Sword>();
         sword.CacheComponents(damage, magnitude, this);
+        sword.ToggleParticles(true);
         swordCollider = sword.GetComponent<Collider>();
     }
     public void DecreaseDurability()
@@ -84,6 +74,7 @@ public class MeleeHack : PlayerAttack
     public void ResetSword()
     {
         swordCollider.enabled = false;
+        sword.ToggleParticles(false);
         sword.ResetDrained();
     }
 

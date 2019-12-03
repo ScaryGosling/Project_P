@@ -11,6 +11,7 @@ public class Sword : MonoBehaviour
     private PlayerAttack hack;
     private AudioSource source;
     [SerializeField] private AudioClip impactSound;
+    [SerializeField] private ParticleSystem particles;
     [SerializeField] private float comboMultiplier;
     [SerializeField] private float comboTime;
     private Action methodToRun;
@@ -29,6 +30,14 @@ public class Sword : MonoBehaviour
         source = GetComponent<AudioSource>();
         if (impactSound != null)
             source.clip = impactSound;
+    }
+
+    public void ToggleParticles(bool toggle)
+    {
+        if (toggle)
+            particles.Play();
+        else
+            particles.Stop();
     }
 
     public void ResetDrained()
