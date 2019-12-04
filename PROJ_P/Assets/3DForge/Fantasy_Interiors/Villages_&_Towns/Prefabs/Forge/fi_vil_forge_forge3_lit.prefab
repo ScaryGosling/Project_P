@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2300002}
   - component: {fileID: 4988229500473792898}
   - component: {fileID: 97668504850840078}
+  - component: {fileID: 6073275724724294078}
   m_Layer: 0
   m_Name: fi_vil_forge_forge3_lit
   m_TagString: Untagged
@@ -169,7 +170,7 @@ MeshCollider:
   m_GameObject: {fileID: 100002}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -183,11 +184,24 @@ MeshCollider:
   m_GameObject: {fileID: 100002}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 1f1ebc40320b24c4188eb1dc3aacd446, type: 3}
+--- !u!65 &6073275724724294078
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.000001, y: 0.589674, z: 2}
+  m_Center: {x: -0.00000023841858, y: 0.294837, z: -0.0000011920929}
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0
