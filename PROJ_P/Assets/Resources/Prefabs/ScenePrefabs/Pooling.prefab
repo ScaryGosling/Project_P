@@ -101,3 +101,6 @@ MonoBehaviour:
   - poolObject: 19
     prefab: {fileID: 3177845094064320047, guid: 8baa55fdb66509342a0886d89ca9a7a0,
       type: 3}
+  - poolObject: 21
+    prefab: {fileID: 2149720942933832275, guid: edd5958c276643e4691c14b1d08b9c9a,
+      type: 3}

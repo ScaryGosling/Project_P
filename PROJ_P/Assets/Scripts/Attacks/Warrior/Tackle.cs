@@ -13,12 +13,22 @@ public class Tackle : PlayerAttack
     private float startAcceleration;
     private NavMeshAgent agent;
     [SerializeField] private List<float> cooldownPerTackleLevel = new List<float>();
+    private GameObject dashParticleInstance;
 
     public override void RunAttack()
     {
         base.RunAttack();
 
         agent = player.GetComponent<NavMeshAgent>();
+
+        dashParticleInstance = BowoniaPool.instance.GetFromPool(PoolObject.TACKLE_PARTICLE);
+        dashParticleInstance.transform.SetParent(player.transform);
+        dashParticleInstance.transform.localPosition = Vector3.zero;
+        dashParticleInstance.transform.localEulerAngles = Vector3.zero;
+        foreach (ParticleSystem ps in dashParticleInstance.GetComponentsInChildren<ParticleSystem>())
+        {
+            ps.Play();
+        }
 
         player.dealDamageOnCollision = true;
         player.damage = damage;
@@ -58,6 +68,12 @@ public class Tackle : PlayerAttack
 
 
     public void ResetStats() {
+
+        foreach(ParticleSystem ps in dashParticleInstance.GetComponentsInChildren<ParticleSystem>())
+        {
+            ps.Stop();
+        }
+        BowoniaPool.instance.AddToPool(PoolObject.TACKLE_PARTICLE, dashParticleInstance, 1);
 
         agent.ResetPath();
         agent.speed = startSpeed;
