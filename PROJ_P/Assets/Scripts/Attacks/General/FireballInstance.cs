@@ -31,18 +31,29 @@ public class FireballInstance : MonoBehaviour
         transform.GetChild(1).gameObject.SetActive(true);
         GetComponent<Collider>().enabled = true;
     }
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision collision)
     {
-       Explode(other);
+
+        if (collision.collider.CompareTag("Environment"))
+        {
+
+            Explode(collision.collider, transform.position);
+        }
+        else
+        {
+            Explode(collision.collider, new Vector3(transform.position.x, 30.9f, transform.position.z));
+
+        }
+
     }
 
-    public void Explode(Collider other)
+    public void Explode(Collider other, Vector3 impactPosition)
     {
         GetComponent<Collider>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
 
         impact = BowoniaPool.instance.GetFromPool(PoolObject.FIREBALL_IMPACT);
-        impact.transform.position = transform.position;
+        impact.transform.position = impactPosition;
         BowoniaPool.instance.AddToPool(PoolObject.FIREBALL_IMPACT, impact, 5);
 
         if(impactSound != null && Player.instance.GetSettings().UseSFX)
