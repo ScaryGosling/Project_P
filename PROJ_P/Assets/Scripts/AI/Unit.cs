@@ -180,6 +180,7 @@ public class Unit : StateMachine
                 QuestTargetProp = null;
             }
             EnemyPointer.instance.AddToList(this);
+            ui.gameObject.SetActive(true);
         }
     }
     private void OnDisable()
