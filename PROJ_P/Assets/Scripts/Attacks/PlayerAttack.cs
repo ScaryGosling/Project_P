@@ -34,7 +34,7 @@ public class PlayerAttack : Ability
     [SerializeField] private AbilityCat abilityCat;
     public AbilityCat AbilityCatProp { get; private set; }
     private int startLevel = 0;
-    protected Player player;
+    protected Player player = Player.instance;
 
 
 
