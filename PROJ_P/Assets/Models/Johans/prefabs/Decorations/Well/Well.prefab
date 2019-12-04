@@ -11,12 +11,14 @@ GameObject:
   - component: {fileID: 4546370046718962335}
   - component: {fileID: 4777463541171474601}
   - component: {fileID: 1256641374718798928}
-  m_Layer: 0
+  - component: {fileID: 9065550189884928833}
+  - component: {fileID: 4829111790713372648}
+  m_Layer: 11
   m_Name: Well
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4546370046718962335
 Transform:
@@ -78,3 +80,30 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &9065550189884928833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670098051624212620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009415745, y: 0.022729257, z: 0.08513429}
+  m_Center: {x: 0.00043238286, y: -0.054207597, z: -0.0059991623}
+--- !u!136 &4829111790713372648
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670098051624212620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.025
+  m_Height: 0.07
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.06, z: -0.007}
