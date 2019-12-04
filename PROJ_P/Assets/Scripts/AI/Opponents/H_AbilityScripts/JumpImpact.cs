@@ -116,7 +116,7 @@ public class JumpImpact : AbilityBase
         base.ExitState();
         jumping = false;
         jumpTimer = null;
-        warningArea = null;
+        //warningArea = null;
     }
 
     IEnumerator windUp()
