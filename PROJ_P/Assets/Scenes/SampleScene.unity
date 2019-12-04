@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 8bec2870084402c479dd81f8247e7ded,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3109,16 +3109,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 657683517}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 3908993e2ee69b548b27f869c968dadf,
-        type: 3}
-      propertyPath: m_Name
-      value: Pickup_Tile_Mesh (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 3908993e2ee69b548b27f869c968dadf,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3908993e2ee69b548b27f869c968dadf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3173,6 +3163,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3908993e2ee69b548b27f869c968dadf,
+        type: 3}
+      propertyPath: m_Name
+      value: Pickup_Tile_Mesh (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3908993e2ee69b548b27f869c968dadf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3908993e2ee69b548b27f869c968dadf, type: 3}
@@ -4130,22 +4130,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5925029742528655774, guid: 2d7db8e365cf0324daffdaa924dd36a4,
-        type: 3}
-      propertyPath: pools.Array.size
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 5925029742528655774, guid: 2d7db8e365cf0324daffdaa924dd36a4,
-        type: 3}
-      propertyPath: pools.Array.data[18].poolObject
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 5925029742528655774, guid: 2d7db8e365cf0324daffdaa924dd36a4,
-        type: 3}
-      propertyPath: pools.Array.data[18].prefab
-      value: 
-      objectReference: {fileID: 3177845094064320047, guid: 8baa55fdb66509342a0886d89ca9a7a0,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d7db8e365cf0324daffdaa924dd36a4, type: 3}
 --- !u!1 &1448678739
@@ -5197,7 +5181,7 @@ PrefabInstance:
     - target: {fileID: 7251597986753513103, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 134
+      value: 145.1
       objectReference: {fileID: 0}
     - target: {fileID: 7251597986753513103, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
@@ -5207,7 +5191,7 @@ PrefabInstance:
     - target: {fileID: 7251597986753513103, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 210.75
+      value: 99.7
       objectReference: {fileID: 0}
     - target: {fileID: 7251597986753513103, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
@@ -5359,11 +5343,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1195681831549422372, guid: ac4161159a95b4446b6803050eca322b,
-        type: 3}
-      propertyPath: m_Name
-      value: SceneManagement
-      objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422379, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: shopWindow
@@ -5429,6 +5408,11 @@ PrefabInstance:
       propertyPath: eliasSource
       value: 
       objectReference: {fileID: 1231461295}
+    - target: {fileID: 1195681831549422372, guid: ac4161159a95b4446b6803050eca322b,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneManagement
+      objectReference: {fileID: 0}
     - target: {fileID: 1195681831549422378, guid: ac4161159a95b4446b6803050eca322b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5570,7 +5554,7 @@ PrefabInstance:
     - target: {fileID: 2590573925140275475, guid: 5e8330f25c2f02b4b8526317fc82873d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 134.04001
+      value: 145.14001
       objectReference: {fileID: 0}
     - target: {fileID: 2590573925140275475, guid: 5e8330f25c2f02b4b8526317fc82873d,
         type: 3}
@@ -5580,7 +5564,7 @@ PrefabInstance:
     - target: {fileID: 2590573925140275475, guid: 5e8330f25c2f02b4b8526317fc82873d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 205.07
+      value: 94.020004
       objectReference: {fileID: 0}
     - target: {fileID: 2590573925140275475, guid: 5e8330f25c2f02b4b8526317fc82873d,
         type: 3}
@@ -7377,6 +7361,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.9687805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944133696068363859, guid: 51182b86dec3ef145a4582f430c38f4d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8780008415302254151, guid: 51182b86dec3ef145a4582f430c38f4d, type: 3}

@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 1152440590527283113}
   - component: {fileID: 5359964592223783621}
   - component: {fileID: 6020212499975134940}
+  - component: {fileID: 6714893793645561561}
   m_Layer: 11
   m_Name: Sword_T3
   m_TagString: Building
@@ -459,6 +460,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &6714893793645561561
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599117040382832711}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.18
+  m_Height: 0.39
+  m_Direction: 1
+  m_Center: {x: -0.01, y: -0.45, z: -0.06}
 --- !u!1 &3647508091600490396
 GameObject:
   m_ObjectHideFlags: 0
