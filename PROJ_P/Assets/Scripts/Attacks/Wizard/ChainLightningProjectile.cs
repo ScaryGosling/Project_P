@@ -21,10 +21,11 @@ public class ChainLightningProjectile : PlayerAttack
     [SerializeField] private List<float> radiusPerLevel = new List<float>();
 
 
+
     public override void RunAttack()
     {
         base.RunAttack();
-        Transform spawnPoint = Player.instance.GetSpawnPoint();
+        Transform spawnPoint = player.GetSpawnPoint();
         GameObject ball = GetProjectile();
 
         ChainLightning ch = ball.GetComponent<ChainLightning>();
@@ -46,7 +47,7 @@ public class ChainLightningProjectile : PlayerAttack
     }
     private GameObject GetProjectile()
     {
-        Transform spawnPoint = Player.instance.GetSpawnPoint();
+        Transform spawnPoint = player.GetSpawnPoint();
         GameObject ball = BowoniaPool.instance.GetFromPool(PoolObject.LIGHTNING);
         ball.transform.position = spawnPoint.position;
         ball.transform.rotation = spawnPoint.rotation;

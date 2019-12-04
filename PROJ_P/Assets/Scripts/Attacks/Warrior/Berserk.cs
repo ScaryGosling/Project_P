@@ -6,8 +6,6 @@ using UnityEngine;
 public class Berserk : PlayerAttack
 {
 
-    private Player player;
-
     [Header("Ability Specific")]
     [SerializeField] private float resistance;
     private float attackSpeed;
@@ -25,7 +23,6 @@ public class Berserk : PlayerAttack
     public override void OnEquip()
     {
         base.OnEquip();
-        player = Player.instance;
     }
 
     public override void Execute()

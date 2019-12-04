@@ -11,30 +11,29 @@ public class Tackle : PlayerAttack
     [SerializeField] float tackleLength;
     private float startSpeed;
     private float startAcceleration;
-    private NavMeshAgent player;
+    private NavMeshAgent agent;
     [SerializeField] private List<float> cooldownPerTackleLevel = new List<float>();
 
     public override void RunAttack()
     {
         base.RunAttack();
 
-        player = Player.instance.GetComponent<NavMeshAgent>();
-        Player playerComp = player.GetComponent<Player>();
+        agent = player.GetComponent<NavMeshAgent>();
 
-        playerComp.dealDamageOnCollision = true;
-        playerComp.damage = damage;
-        playerComp.magnitude = magnitude;
+        player.dealDamageOnCollision = true;
+        player.damage = damage;
+        player.magnitude = magnitude;
 
-        startAcceleration = player.acceleration;
-        startSpeed = player.speed;
+        startAcceleration = agent.acceleration;
+        startSpeed = agent.speed;
 
-        player.GetComponent<PlayerMovement>().enabled = false;
-        player.speed = tackleForce;
-        player.acceleration = 100;
-        player.stoppingDistance = 0.1f;
-        player.SetDestination(player.transform.position + player.transform.TransformDirection(Vector3.forward) * tackleLength);
+        agent.GetComponent<PlayerMovement>().enabled = false;
+        agent.speed = tackleForce;
+        agent.acceleration = 100;
+        agent.stoppingDistance = 0.1f;
+        agent.SetDestination(agent.transform.position + agent.transform.TransformDirection(Vector3.forward) * tackleLength);
 
-        player.GetComponent<Player>().activeStats.resistanceMultiplier = 0;
+        agent.GetComponent<Player>().activeStats.resistanceMultiplier = 0;
 
         GameObject timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
         timer.GetComponent<Timer>().RunCountDown(1, ResetStats, Timer.TimerType.DELAY);
@@ -60,16 +59,14 @@ public class Tackle : PlayerAttack
 
     public void ResetStats() {
 
-        Player playerComp = player.GetComponent<Player>();
-
-        player.ResetPath();
-        player.speed = startSpeed;
-        player.acceleration = startAcceleration;
-        player.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
-        player.stoppingDistance = 0;
-        playerComp.activeStats.resistanceMultiplier = 1;
-        player.GetComponent<PlayerMovement>().enabled = true;
-        playerComp.dealDamageOnCollision = false;
+        agent.ResetPath();
+        agent.speed = startSpeed;
+        agent.acceleration = startAcceleration;
+        agent.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+        agent.stoppingDistance = 0;
+        player.activeStats.resistanceMultiplier = 1;
+        agent.GetComponent<PlayerMovement>().enabled = true;
+        player.dealDamageOnCollision = false;
 
     }
 }

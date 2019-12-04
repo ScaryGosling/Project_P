@@ -49,11 +49,9 @@ public class MeleeHack : PlayerAttack
         timer.RunCountDown(forwardSlash.length, ResetSword, Timer.TimerType.DELAY);
     }
 
-    Player player;
     public override void OnEquip()
     {
         base.OnEquip();
-        player = Player.instance;
         sword = player.weapon.GetComponent<Sword>();
         sword.CacheComponents(damage, magnitude, this);
         sword.ToggleParticles(true);

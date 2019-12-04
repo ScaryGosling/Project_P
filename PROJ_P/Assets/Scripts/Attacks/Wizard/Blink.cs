@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Attacks/Mystic/Blink")]
 public class Blink : PlayerAttack
 {
-    private Transform player;
+    private Transform playerTransform;
 
     [Header("Ability Specific")]
     private float range;
@@ -37,33 +37,32 @@ public class Blink : PlayerAttack
         //Raycast and look for obstacles
         RaycastHit hit;
 
-        if (Physics.Raycast(player.position, player.TransformDirection(Vector3.forward), out hit, range))
+        if (Physics.Raycast(playerTransform.position, playerTransform.TransformDirection(Vector3.forward), out hit, range))
         {
             if (hit.collider.CompareTag("Environment"))
             {
-                Debug.Log("Hit environment");
-                player.position = hit.point - player.TransformDirection(Vector3.forward) * safeDistance;
+                playerTransform.position = hit.point - playerTransform.TransformDirection(Vector3.forward) * safeDistance;
             }
             else
             {
-                player.position += player.TransformDirection(Vector3.forward) * range;
+                playerTransform.position += playerTransform.TransformDirection(Vector3.forward) * range;
             }
         }
         else
         {
-            player.position += player.TransformDirection(Vector3.forward) * range;
+            playerTransform.position += playerTransform.TransformDirection(Vector3.forward) * range;
         }
 
 
-        player.GetComponent<Player>().activeStats.movementSpeed = speedBoost;
+        player.activeStats.movementSpeed = speedBoost;
 
         Timer timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
-        timer.RunCountDown(speedBoostDuration, Player.instance.GetComponent<Player>().ResetStats, Timer.TimerType.DELAY);
+        timer.RunCountDown(speedBoostDuration, player.ResetStats, Timer.TimerType.DELAY);
     }
 
     public override void OnEquip()
     {
         base.OnEquip();
-        player = Player.instance.transform;
+        playerTransform = player.transform;
     }
 }

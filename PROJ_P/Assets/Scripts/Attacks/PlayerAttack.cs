@@ -34,6 +34,7 @@ public class PlayerAttack : Ability
     [SerializeField] private AbilityCat abilityCat;
     public AbilityCat AbilityCatProp { get; private set; }
     private int startLevel = 0;
+    protected Player player;
 
 
 
@@ -111,14 +112,14 @@ public class PlayerAttack : Ability
     public virtual void Execute()
     {
 
-        if (Player.instance.Audio != null && sound != null && Player.instance.GetSettings().UseSFX)
+        if (player.Audio != null && sound != null && player.GetSettings().UseSFX)
         {
-            Player.instance.PlayAudio(sound);
+            player.PlayAudio(sound);
 
         }
 
         RunAttack();
-        Player.instance.RunAttackCooldown(this);
+        player.RunAttackCooldown(this);
     }
 
     public string GetAbilityDescriptionForClassChooser()
@@ -128,7 +129,7 @@ public class PlayerAttack : Ability
 
     public void ResetSlow()
     {
-        Player.instance.ResetSpeed();
+        player.ResetSpeed();
     }
 
     public void ResetCooldown()
@@ -140,7 +141,7 @@ public class PlayerAttack : Ability
     {
 
 
-        Player.instance.Resource.DrainResource(this);
+        player.Resource.DrainResource(this);
 
 
     }
@@ -154,7 +155,7 @@ public class PlayerAttack : Ability
 
     public virtual void OnEquip()
     {
-
+        player = Player.instance;
 
     }
 

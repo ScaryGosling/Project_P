@@ -18,11 +18,11 @@ public class GroundStomp : PlayerAttack
         base.RunAttack();
 
         //Particle system
-        addedParticle = Instantiate(particles, Player.instance.transform.position - new Vector3(0, Player.instance.transform.lossyScale.y /2, 0), Quaternion.identity);
+        addedParticle = Instantiate(particles, player.transform.position - new Vector3(0, player.transform.lossyScale.y /2, 0), Quaternion.identity);
         addedParticle.transform.GetChild(0).localScale = new Vector3(attackRadius, 1, attackRadius);
 
         //Find enemies in circle around player
-        Collider[] hitColliders = Physics.OverlapSphere(Player.instance.transform.position, attackRadius);
+        Collider[] hitColliders = Physics.OverlapSphere(player.transform.position, attackRadius);
         int i = 0;
         while (i < hitColliders.Length)
         {

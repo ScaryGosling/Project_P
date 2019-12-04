@@ -26,14 +26,14 @@ public class Projectile : PlayerAttack
         direction = AimAssist();
         GameObject ball = GetProjectile();
         ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        ball.GetComponent<Rigidbody>().AddForce(direction * force + Player.instance.GetComponent<Rigidbody>().velocity);
+        ball.GetComponent<Rigidbody>().AddForce(direction * force + player.GetComponent<Rigidbody>().velocity);
         ball.GetComponent<ProjectileInstance>().SetPower(damage, magnitude);
         ball.GetComponent<ProjectileInstance>().impactParticles = projectileHit;
     }
 
     private GameObject GetProjectile()
     {
-        Transform spawnPoint = Player.instance.GetSpawnPoint();
+        Transform spawnPoint = player.GetSpawnPoint();
         GameObject ball = BowoniaPool.instance.GetFromPool(PoolObject.WAND);
         ball.transform.position = spawnPoint.position;
         ball.transform.forward = direction;
@@ -42,7 +42,7 @@ public class Projectile : PlayerAttack
 
     public Vector3 AimAssist()
     {
-        Vector3 direction = Player.instance.GetSpawnPoint().TransformDirection(Vector3.forward);
+        Vector3 direction = player.GetSpawnPoint().TransformDirection(Vector3.forward);
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -50,7 +50,7 @@ public class Projectile : PlayerAttack
         if (Physics.Raycast(ray, out hit, 100))
         {
             if(Player.instance.GetSettings().UseAimAssist)
-                direction = GetDirection(Physics.OverlapSphere(hit.point, Player.instance.GetSettings().GetAimAssistRange()));
+                direction = GetDirection(Physics.OverlapSphere(hit.point, player.GetSettings().GetAimAssistRange()));
 
         }
 
@@ -59,7 +59,7 @@ public class Projectile : PlayerAttack
 
     public Vector3 GetDirection(Collider[] inRange)
     {
-        Vector3 playerPos = Player.instance.transform.position;
+        Vector3 playerPos = player.transform.position;
         Collider closestEnemy = inRange[0];
 
         for(int i = 1; i < inRange.Length; i++)
@@ -74,7 +74,7 @@ public class Projectile : PlayerAttack
         if (closestEnemy.CompareTag("Enemy"))
             return closestEnemy.transform.position - playerPos;
         else
-            return Player.instance.GetSpawnPoint().TransformDirection(Vector3.forward);
+            return player.GetSpawnPoint().TransformDirection(Vector3.forward);
 
     }
 

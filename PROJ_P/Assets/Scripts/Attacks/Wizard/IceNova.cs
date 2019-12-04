@@ -23,7 +23,7 @@ public class IceNova : PlayerAttack
     public override void RunAttack()
     {
         base.RunAttack();
-        GenerateIceNova(Player.instance.transform.position);
+        GenerateIceNova(player.transform.position);
     }
 
 
