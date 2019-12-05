@@ -14,30 +14,36 @@ public class DangerousZone : MonoBehaviour
     protected AudioClip fuse, explosion;
     protected float tempTime;
 
+    private bool playerInRange = false;
+
     protected virtual void Start()
     {
         player = Player.instance.gameObject;
         capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
         source = gameObject.GetComponent<AudioSource>();
     }
-    protected virtual void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            DealDamage();
+            playerInRange = true;
+        }
+    }
+
+    protected void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
         }
     }
 
 
 
-    //protected void Update()
-    //{
-    //    EngageArea();
-    //}
-
     public virtual void EngageArea()
     {
         capsuleCollider.enabled = true;
+        DealDamage();
         source.clip = explosion;
         source.Play();
         DestroyZone();
@@ -68,6 +74,7 @@ public class DangerousZone : MonoBehaviour
     public IEnumerator DeactivateAfter()
     {
         yield return new WaitForSeconds(destroyAfter);
-        capsuleCollider.enabled = false;
+        playerInRange = false;
+        //capsuleCollider.enabled = false;
     }
 }
