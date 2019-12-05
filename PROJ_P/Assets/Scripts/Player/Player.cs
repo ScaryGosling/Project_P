@@ -290,7 +290,6 @@ public class Player : MonoBehaviour
                 attackSet = attackSets.Get(PlayerClass.WIZARD);
                 PlayerCursor = mysticCursor;
                 weapon.SetActive(false);
-                durabilityImage.transform.parent.gameObject.SetActive(false);
                 break;
 
             case PlayerClass.WARRIOR:
