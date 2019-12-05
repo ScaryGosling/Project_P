@@ -546,6 +546,7 @@ public class Player : MonoBehaviour
     private void PlayerDied()
     {
         GetComponent<PlayerMovement>().enabled = false;
+        PlayAudio(deathClip);
         Audio = null;
         Animation anim = deathPanel.GetComponent<Animation>();
         SceneHandler handler = SceneHandler.instance;
