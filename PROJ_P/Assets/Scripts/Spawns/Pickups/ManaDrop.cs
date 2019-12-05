@@ -23,10 +23,6 @@ public class ManaDrop : Pickup
         {
             player.Resource.IncreaseResource(fillAmount);
         }
-        else
-        {
-            ((MeleeHack)(player.attackSet.list[0])).IncreaseDurability(fillAmount);
-        }
     }
 
     /// <summary>

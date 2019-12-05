@@ -18,7 +18,6 @@ public class Rage : Resource
         if (activeAttack is MeleeHack)
         {
             IncreaseResource(rageGeneration);
-            ((MeleeHack)activeAttack).DecreaseDurability();
             if(player.RageTap != null)
                 player.StopCoroutine(player.RageTap);
             player.RageTap = player.StartCoroutine(TapRage());

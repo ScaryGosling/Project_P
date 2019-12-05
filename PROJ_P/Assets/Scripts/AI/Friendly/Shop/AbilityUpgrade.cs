@@ -96,10 +96,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
     {
         return potion;
     }
-    public void SetMeleeHack(MeleeHack melee)
-    {
-        ((RepairKit)potion).SetMeleeHack(melee);
-    }
+
     void InstantiatePotionRow()
     {
         abilityName.text = potion.GetAbilityName();

@@ -366,15 +366,6 @@ public class Player : MonoBehaviour
         ResetStats();
         health.color = fullHealth;
 
-        if (playerClass == PlayerClass.WARRIOR)
-        {
-            ((MeleeHack)activeAttacks.list[0]).SetDurabilityTextObject(durabilityTextObject);
-            ((MeleeHack)activeAttacks.list[0]).SetDurabilityImage(durabilityImage);
-        }
-        else
-        {
-            durabilityTextObject.gameObject.SetActive(false);
-        }
         Audio = GetComponent<AudioSource>();
         MaxHealthPotionsProp = maxHealthPotions;
         MaxResourcePotionsProp = maxResourcePotions;
@@ -484,11 +475,8 @@ public class Player : MonoBehaviour
             {
                 UseHealthPotion();
             }
-            if (playerClass == PlayerClass.WARRIOR && ((MeleeHack)activeAttacks.list[0]).GetDurability() < autoRefillResourceUnder)
-            {
-                UseResourcePotion();
-            }
-            else if (playerClass == PlayerClass.WIZARD && Resource.Value * 100 < autoRefillResourceUnder)
+
+            if (playerClass == PlayerClass.WIZARD && Resource.Value * 100 < autoRefillResourceUnder)
             {
                 UseResourcePotion();
             }
@@ -532,11 +520,6 @@ public class Player : MonoBehaviour
             {
                 ResourcePotionsProp--;
                 Resource.IncreaseResource(healthPotionIncrease / 100);
-            }
-            else if (playerClass == PlayerClass.WARRIOR && ((MeleeHack)activeAttacks.list[0]).GetDurability() < 100)
-            {
-                ResourcePotionsProp--;
-                ((MeleeHack)activeAttacks.list[0]).IncreaseDurability(repairKitIncrease / 100.0f);
             }
 
         }
