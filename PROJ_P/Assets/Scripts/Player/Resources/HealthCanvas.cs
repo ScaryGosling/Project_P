@@ -6,6 +6,6 @@ public class HealthCanvas : MonoBehaviour
 {
     void LateUpdate()
     {
-        gameObject.transform.eulerAngles = Vector3.zero;
+        gameObject.transform.eulerAngles = new Vector3(45,0,0);
     }
 }

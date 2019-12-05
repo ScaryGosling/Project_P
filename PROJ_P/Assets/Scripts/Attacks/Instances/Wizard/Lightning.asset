@@ -48,10 +48,10 @@ MonoBehaviour:
   force: 1500
   chainEffect: 50
   lineWidth: 0.2
-  emissionColor: {r: 0.48627448, g: 0.766786, b: 1, a: 0}
+  emissionColor: {r: 1, g: 0.92824566, b: 0.48627448, a: 0}
   intensity: 10
   killTime: 1
-  material: {fileID: 2100000, guid: 120b0518cfff4404fbc534469deef34b, type: 2}
+  material: {fileID: 2100000, guid: e3847ee22d2fa1f479e0f05980b354f5, type: 2}
   radiusPerLevel:
   - 10
   - 6
