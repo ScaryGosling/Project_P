@@ -31,6 +31,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1a4c1f6e3ccc630489555a1de566986c, type: 2}
   potionList:
   - {fileID: 11400000, guid: 77d9a5796e3b899469a10ae53d5a7084, type: 2}
+  - {fileID: 11400000, guid: 520b4304a79c1934da393919c1bc81c7, type: 2}
   originalStats:
     movementSpeed: 0.7
     resistanceMultiplier: 1

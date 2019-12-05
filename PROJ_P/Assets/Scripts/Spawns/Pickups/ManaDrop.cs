@@ -19,10 +19,7 @@ public class ManaDrop : Pickup
     /// </summary>
     protected override void DoSomething()
     {
-        if (player.GetComponent<Player>().playerClass == PlayerClass.WIZARD)
-        {
-            player.Resource.IncreaseResource(fillAmount);
-        }
+        player.Resource.IncreaseResource(fillAmount);
     }
 
     /// <summary>

@@ -455,7 +455,7 @@ public class Player : MonoBehaviour
             {
                 if (playerClass == PlayerClass.WARRIOR)
                 {
-                    Prompt.instance.RunMessage("No more Repair kits", MessageType.WARNING);
+                    Prompt.instance.RunMessage("No more Rage enhancers", MessageType.WARNING);
 
                 }
                 else
@@ -515,13 +515,8 @@ public class Player : MonoBehaviour
     {
         if (ResourcePotionsProp > 0)
         {
-
-            if (playerClass == PlayerClass.WIZARD && Resource.Value < 1)
-            {
-                ResourcePotionsProp--;
-                Resource.IncreaseResource(healthPotionIncrease / 100);
-            }
-
+            ResourcePotionsProp--;
+            Resource.IncreaseResource(healthPotionIncrease / 100);
         }
 
     }
