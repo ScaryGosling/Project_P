@@ -24,9 +24,15 @@ public class JumpImpact : AbilityBase
     private const float jumpSmoother = 1f, fallDownDistance = 3f;
     private GameObject warningArea;
     [SerializeField] private GameObject warningAreaPrefab;
-    private Vector3 centralPosition;
-    private RaycastHit downHit;
 
+    private RaycastHit downHit;
+    private JumpState jumpState;
+    private bool newCode = true;
+
+    private enum JumpState
+    {
+        JUMP, LAND, HOVER, NULL
+    }
     public override void EnterState()
     {
         base.EnterState();
@@ -35,16 +41,109 @@ public class JumpImpact : AbilityBase
         //Don't forget to check so target is player 
         playerPositionalDelay = owner.target.transform.position;
         startDistance = Vector3.Distance(owner.agent.transform.position, playerPositionalDelay);
-        mesh = owner.agent.transform.GetChild(4);
+        mesh = owner.transform.GetChild(4);
+        jumpState = JumpState.NULL;
+        warningArea = null;
     }
 
     public override void ToDo()
     {
         base.ToDo();
-        if (jumping)
-            Jump();
+
+        //Debug.Log(jumpState);
+        if (newCode)
+        {
+            switch (jumpState)
+            {
+                case JumpState.JUMP:
+                    StartJump();
+                    break;
+                case JumpState.HOVER:
+                    Hover();
+                    TestGoal();
+                    break;
+                case JumpState.LAND:
+                    EndJump();
+                    break;
+            }
+        }
+        else
+        {
+            if (jumping)
+                Jump();
+        }
+
 
     }
+
+
+    private void MoveUpwards()
+    {
+
+        distance = Vector3.Distance(owner.transform.position, playerPositionalDelay);
+
+        owner.agent.SetDestination(playerPositionalDelay);
+
+
+        if (mesh.transform.position.y < owner.transform.position.y + owner.agent.height/2)
+        {
+            mesh.transform.position = new Vector3(owner.transform.position.x, mesh.transform.position.y + Time.deltaTime*2, owner.transform.position.z);
+
+        }
+    }
+
+    public void StartJump()
+    {
+        MoveUpwards();
+
+
+        if (mesh.transform.position.y >= owner.transform.position.y + owner.agent.height/2)
+        {
+            jumpState = JumpState.HOVER;
+        }
+    }
+    private void Hover()
+    {
+        distance = Vector3.Distance(owner.transform.position, playerPositionalDelay);
+        owner.agent.SetDestination(playerPositionalDelay);
+    }
+    private void EndJump()
+    {
+        if (BoomerLanded())
+        {
+            owner.ChangeState<BoomerChase>();
+        }
+
+    }
+
+    private bool BoomerLanded()
+    {
+        if (mesh.transform.position.y > owner.agent.transform.position.y - owner.agent.height / 2)
+        {
+            mesh.transform.position = new Vector3(owner.transform.position.x, mesh.transform.position.y - Time.deltaTime * 5, owner.transform.position.z);
+            return false;
+        }
+        else
+        {
+            mesh.transform.position = new Vector3(owner.agent.transform.position.x, owner.agent.transform.position.y - owner.agent.height / 2, owner.agent.transform.position.z);
+            warningArea.GetComponent<BoomerLanding>().EngageArea();
+            jumpState = JumpState.NULL;
+            return true;
+        }
+
+    }
+
+    private void TestGoal()
+    {
+        CastDown();
+
+        if (distance <= 3f)
+        {
+            jumpState = JumpState.LAND;
+        }
+    }
+
+
 
     protected override void Die()
     {
@@ -59,6 +158,7 @@ public class JumpImpact : AbilityBase
     protected override void ExecuteAbility()
     {
         base.ExecuteAbility();
+
         if (!jumpTimer && !warningArea)
         {
 
@@ -69,6 +169,11 @@ public class JumpImpact : AbilityBase
             warningArea.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
         }
     }
+    private void ActivateJump()
+    {
+        jumping = true;
+        jumpState = JumpState.JUMP;
+    }
 
     protected override void CancelState()
     {
@@ -77,23 +182,11 @@ public class JumpImpact : AbilityBase
         owner.ChangeState<BoomerChase>();
     }
 
-    private void ActivateJump()
-    {
-        jumping = true;
-    }
+
 
     private void Jump()
     {
-        centralPosition = new Vector3(owner.capsuleCollider.center.x, owner.agent.transform.position.y, owner.capsuleCollider.center.z);
-        distance = Vector3.Distance(owner.transform.position, playerPositionalDelay);
-
-        owner.agent.SetDestination(playerPositionalDelay);
-
-        mesh.transform.position = Vector3.Lerp(owner.agent.transform.position, new Vector3(owner.agent.transform.position.x, owner.agent.transform.position.y + 20, owner.agent.transform.position.z), Time.deltaTime * jumpSmoother);
-
-        //if(CastDown() && downHit.collider.CompareTag("Untagged"))
-        //{
-        //}
+        MoveUpwards();
 
         CastDown();
         if (distance <= 3f)
@@ -114,8 +207,15 @@ public class JumpImpact : AbilityBase
     public override void ExitState()
     {
         base.ExitState();
+        while (!BoomerLanded())
+        {
+
+        }
+        mesh.transform.position = new Vector3(owner.agent.transform.position.x, owner.agent.transform.position.y - owner.agent.height / 2, owner.agent.transform.position.z);
+
+        jumpState = JumpState.NULL;
         jumping = false;
-        jumpTimer = null;
+        jumpTimer = null;;
         //warningArea = null;
     }
 

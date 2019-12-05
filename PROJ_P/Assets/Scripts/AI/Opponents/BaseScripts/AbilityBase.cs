@@ -38,10 +38,13 @@ public class AbilityBase : AliveBase
 
         //bool corner = NavMesh.FindClosestEdge(owner.agent.transform.position, out cornerHit, NavMesh.GetAreaFromName("Not Walkable"));
         
-        if (intersection && !(hit.collider.CompareTag("Player") || hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone") && hit.collider.CompareTag("Enemy")))
+        if (intersection && !(hit.collider.CompareTag("Player") && hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone") || hit.collider.CompareTag("Enemy")))
         {
-            Debug.Log("Cancel due to intersection!");
-            CancelState();
+                Debug.Log("Cancel due to intersection!");
+                Debug.Log(hit.collider.gameObject + " <color=blue>" + +hit.collider.gameObject.GetInstanceID() + "</color>");
+
+                Debug.Log("<color=purple>" + hit.collider.tag + "</color>");
+                CancelState(); 
         }
 
     }
