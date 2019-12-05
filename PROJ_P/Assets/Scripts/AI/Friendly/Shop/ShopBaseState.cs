@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using TMPro;
 
 [CreateAssetMenu(menuName = "Friendly/Shop Base State")]
 public class ShopBaseState : FriendlyBaseState
@@ -15,7 +16,8 @@ public class ShopBaseState : FriendlyBaseState
     protected GameObject shopWindow;
     protected Vector3 spawnPoint;
     protected NavMeshAgent navMeshAgent;
-    private Text pressETextObject;
+    private TextMeshProUGUI pressETextObject;
+    private Camera cam;
 
     public override void InitializeState(StateMachine owner)
     {
@@ -29,7 +31,8 @@ public class ShopBaseState : FriendlyBaseState
         pressEGameObject = shopKeeper.GetText();
         shopWindow = shopKeeper.GetShopWindow();
         navMeshAgent = shopKeeper.GetComponent<NavMeshAgent>();
-        pressETextObject = pressEGameObject.GetComponent<Text>();
+        pressETextObject = pressEGameObject.GetComponent<TextMeshProUGUI>();
+        cam = Camera.main;
     }
 
     public override void EnterState()
@@ -49,6 +52,8 @@ public class ShopBaseState : FriendlyBaseState
         {
             pressEGameObject.SetActive(true);
             pressETextObject.text = "Press " + Player.instance.GetSettings().GetBindString(KeyFeature.TOGGLE_SHOP);
+            pressEGameObject.transform.eulerAngles = new Vector3(45,0,0);
+
             if (Input.GetKeyDown(Player.instance.GetSettings().GetBind(KeyFeature.TOGGLE_SHOP)))
             {
                 ActivateShop();
