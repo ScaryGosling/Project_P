@@ -20,6 +20,7 @@ public class JumpImpact : AbilityBase
     private bool jumping;
     private float startDistance, jumpThreshhold, distance;
     private Transform mesh;
+    [SerializeField] private float upwardsSpeed = 2, downwardsSpeed = 5, onAirSpeed = 7;
     private const float upwardsMomentum = 0.03f, downwardsMomentum = 0.1f;
     private const float jumpSmoother = 1f, fallDownDistance = 3f;
     private GameObject warningArea;
@@ -28,7 +29,7 @@ public class JumpImpact : AbilityBase
     private RaycastHit downHit;
     private JumpState jumpState;
     private bool newCode = true;
-
+    private float stoppingDistance, agentSpeed;
     private enum JumpState
     {
         JUMP, LAND, HOVER, NULL
@@ -44,6 +45,10 @@ public class JumpImpact : AbilityBase
         mesh = owner.transform.GetChild(4);
         jumpState = JumpState.NULL;
         warningArea = null;
+        stoppingDistance = owner.agent.stoppingDistance;
+        agentSpeed = owner.agent.speed;
+        owner.agent.stoppingDistance = 0;
+        owner.agent.speed = onAirSpeed;
     }
 
     public override void ToDo()
@@ -87,7 +92,7 @@ public class JumpImpact : AbilityBase
 
         if (mesh.transform.position.y < owner.transform.position.y + owner.agent.height/2)
         {
-            mesh.transform.position = new Vector3(owner.transform.position.x, mesh.transform.position.y + Time.deltaTime*2, owner.transform.position.z);
+            mesh.transform.position = new Vector3(owner.transform.position.x, mesh.transform.position.y + Time.deltaTime*upwardsSpeed, owner.transform.position.z);
 
         }
     }
@@ -105,6 +110,8 @@ public class JumpImpact : AbilityBase
     private void Hover()
     {
         distance = Vector3.Distance(owner.transform.position, playerPositionalDelay);
+
+        distance = Vector3.Distance(new Vector3(owner.transform.position.x, 0, owner.transform.position.z), new Vector3(playerPositionalDelay.x, 0, playerPositionalDelay.z));
         owner.agent.SetDestination(playerPositionalDelay);
     }
     private void EndJump()
@@ -120,7 +127,7 @@ public class JumpImpact : AbilityBase
     {
         if (mesh.transform.position.y > owner.agent.transform.position.y - owner.agent.height / 2)
         {
-            mesh.transform.position = new Vector3(owner.transform.position.x, mesh.transform.position.y - Time.deltaTime * 5, owner.transform.position.z);
+            mesh.transform.position = new Vector3(owner.transform.position.x, mesh.transform.position.y - Time.deltaTime * downwardsSpeed, owner.transform.position.z);
             return false;
         }
         else
@@ -136,9 +143,10 @@ public class JumpImpact : AbilityBase
     private void TestGoal()
     {
         CastDown();
-
-        if (distance <= 3f)
+        Debug.Log(distance);
+        if (distance <= 2f)
         {
+            agentSpeed = owner.agent.speed;
             jumpState = JumpState.LAND;
         }
     }
@@ -215,7 +223,9 @@ public class JumpImpact : AbilityBase
 
         jumpState = JumpState.NULL;
         jumping = false;
-        jumpTimer = null;;
+        jumpTimer = null;
+        owner.agent.stoppingDistance = stoppingDistance;
+
         //warningArea = null;
     }
 
