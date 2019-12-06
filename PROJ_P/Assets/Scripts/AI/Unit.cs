@@ -139,16 +139,18 @@ public class Unit : StateMachine
         //this var is
         //just for development
 
-        if(threat.threatProp >= threat.thresholdProp || (!QuestTargetProp && ProtectionQuestProp.GetHealth() <= 0))
-        {
-            GetAttackRange = baseAttackRange;
-            target = Player.instance.gameObject;
-        }
-        else
+        if (threat.thresholdProp <threat.thresholdProp || (QuestTargetProp && ProtectionQuestProp.GetHealth() > 0))
         {
             GetAttackRange = AttackRangeBuildings;
             target = QuestTargetProp.gameObject;
         }
+        else
+        {
+            GetAttackRange = baseAttackRange;
+            target = Player.instance.gameObject;
+        }
+
+
 
         //if (threat.threatProp < 100f && QuestTargetProp != null && ProtectionQuestProp.GetHealth() > 0 && Vector3.Distance(gameObject.transform.position, Player.instance.transform.position) > Vector3.Distance(gameObject.transform.position, QuestTargetProp.transform.position))
         //{
