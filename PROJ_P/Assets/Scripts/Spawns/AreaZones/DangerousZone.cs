@@ -57,7 +57,8 @@ public class DangerousZone : MonoBehaviour
 
     public virtual void DestroyZone()
     {
-        StartCoroutine(DeactivateAfter());
+        playerInRange = false;
+        //StartCoroutine(DeactivateAfter());
     }
 
 
