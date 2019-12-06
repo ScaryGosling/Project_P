@@ -139,7 +139,7 @@ public class Unit : StateMachine
         //this var is
         //just for development
 
-        if(threat.threatProp >= threat.thresholdProp || !QuestTargetProp)
+        if(threat.threatProp >= threat.thresholdProp || (!QuestTargetProp && ProtectionQuestProp.GetHealth() <= 0))
         {
             GetAttackRange = baseAttackRange;
             target = Player.instance.gameObject;
