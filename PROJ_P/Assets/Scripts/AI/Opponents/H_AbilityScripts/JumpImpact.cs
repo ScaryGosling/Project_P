@@ -54,8 +54,8 @@ public class JumpImpact : AbilityBase
     public override void ToDo()
     {
         base.ToDo();
+        CheckIntersection(false);
 
-        //Debug.Log(jumpState);
         if (newCode)
         {
             switch (jumpState)

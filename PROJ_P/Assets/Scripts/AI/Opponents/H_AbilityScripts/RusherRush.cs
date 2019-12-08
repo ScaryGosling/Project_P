@@ -37,7 +37,7 @@ public class RusherRush : AbilityBase
     {
         base.ToDo();
         CheckForDamage();
-
+        CheckIntersection(true);
         if (rushing)
         {
             TimeTask(Rush, EndRush, endRushTimer);
@@ -66,8 +66,6 @@ public class RusherRush : AbilityBase
     }
     private void StartRush()
     {
-
-
         if (!rusherEndTimer)
         {
             targetPosition = player.transform.position;
@@ -97,8 +95,6 @@ public class RusherRush : AbilityBase
         if (distanceToTarget <= (owner.GetAttackRange / 5) * 4)
         {
             Player.instance.HealthProp = -impactDamage;
-
-            //rusherEndTimer.GetComponent<Timer>().CancelMethod();
             EndRush();
         }
     }

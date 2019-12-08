@@ -26,19 +26,20 @@ public class AbilityBase : AliveBase
     {
         base.ToDo();
         ExecuteAbility();
-        CheckIntersection();
+       
     }
 
     protected override void CheckForDamage() { }
 
 
-    private void CheckIntersection()
+    protected void CheckIntersection(bool selfIntersection)
     {
         intersection = owner.rigidbody.SweepTest(owner.capsuleCollider.transform.forward, out hit, owner.capsuleCollider.radius * 2, QueryTriggerInteraction.Collide);
 
         //bool corner = NavMesh.FindClosestEdge(owner.agent.transform.position, out cornerHit, NavMesh.GetAreaFromName("Not Walkable"));
         
-        if (intersection && !(hit.collider.CompareTag("Player") && hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone") || hit.collider.CompareTag("Enemy")))
+        if (intersection && !(hit.collider.CompareTag("Player") && hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone") ||
+            (hit.collider.CompareTag("Enemy") && !selfIntersection)))
         {
                 Debug.Log("Cancel due to intersection!");
                 Debug.Log(hit.collider.gameObject + " <color=blue>" + +hit.collider.gameObject.GetInstanceID() + "</color>");
