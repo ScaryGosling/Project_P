@@ -32,6 +32,8 @@ public class Unit : StateMachine
     public ProtectionQuest ProtectionQuestProp { get; private set; }
     public bool AliveProp { get; set; }
     public Threat threat { get; private set; }
+    [SerializeField] private bool selfCollision = false;
+    public bool getSelfCollision { get { return selfCollision; } }
   
 
 

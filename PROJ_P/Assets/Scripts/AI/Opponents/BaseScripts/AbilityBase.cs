@@ -26,7 +26,7 @@ public class AbilityBase : AliveBase
     {
         base.ToDo();
         ExecuteAbility();
-       
+        CheckIntersection(owner.getSelfCollision);
     }
 
     protected override void CheckForDamage() { }

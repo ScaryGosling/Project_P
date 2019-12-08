@@ -37,7 +37,7 @@ public class RusherRush : AbilityBase
     {
         base.ToDo();
         CheckForDamage();
-        CheckIntersection(true);
+  
         if (rushing)
         {
             TimeTask(Rush, EndRush, endRushTimer);

@@ -54,7 +54,6 @@ public class JumpImpact : AbilityBase
     public override void ToDo()
     {
         base.ToDo();
-        CheckIntersection(false);
 
         if (newCode)
         {
