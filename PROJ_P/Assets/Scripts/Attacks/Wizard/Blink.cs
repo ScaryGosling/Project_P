@@ -13,6 +13,7 @@ public class Blink : PlayerAttack
     [SerializeField] private float speedBoostDuration;
     private float safeDistance = 1.5f;
     [SerializeField] private List<BlinkUpgrades> blinkUpgrades = new List<BlinkUpgrades>();
+    private GameObject blinkParticle;
 
     [System.Serializable]
     private struct BlinkUpgrades
@@ -56,8 +57,18 @@ public class Blink : PlayerAttack
 
         player.activeStats.movementSpeed = speedBoost;
 
+        blinkParticle = BowoniaPool.instance.GetFromPool(PoolObject.BLINK_PARTICLE);
+        blinkParticle.transform.SetParent(player.transform);
+        blinkParticle.transform.localPosition = new Vector3(0,0,0);
+
         Timer timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
-        timer.RunCountDown(speedBoostDuration, player.ResetStats, Timer.TimerType.DELAY);
+        timer.RunCountDown(speedBoostDuration, Reset, Timer.TimerType.DELAY);
+    }
+
+    public void Reset()
+    {
+        player.ResetStats();
+        BowoniaPool.instance.AddToPool(PoolObject.BLINK_PARTICLE, blinkParticle);
     }
 
     public override void OnEquip()
