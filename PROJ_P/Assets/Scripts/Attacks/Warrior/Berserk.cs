@@ -12,6 +12,7 @@ public class Berserk : PlayerAttack
     [SerializeField] private float movementSpeed;
     private float duration;
     [SerializeField] private List<BerserkUpgrades> berserkUpgrades = new List<BerserkUpgrades>();
+    private GameObject particlesystem;
 
     [System.Serializable]
     private struct BerserkUpgrades
@@ -43,9 +44,18 @@ public class Berserk : PlayerAttack
         player.activeStats.attackSpeed = attackSpeed;
         player.activeStats.movementSpeed = movementSpeed;
 
+        particlesystem = BowoniaPool.instance.GetFromPool(PoolObject.BERSERK_PARTICLE);
+        particlesystem.transform.SetParent(player.transform);
+        particlesystem.transform.localPosition = new Vector3(0,0,0);
 
         Timer timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
-        timer.RunCountDown(duration, player.ResetStats, Timer.TimerType.DELAY);
+        timer.RunCountDown(duration, Reset, Timer.TimerType.DELAY);
+    }
+
+    public void Reset() {
+
+        player.ResetStats();
+        BowoniaPool.instance.AddToPool(PoolObject.BERSERK_PARTICLE, particlesystem);
     }
 
 }
