@@ -14,6 +14,8 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     [SerializeField] private int attackOnButton;
     private Sprite defaultSprite;
     private AbilityUpgrade abilityUpgrade;
+    private AbilityDropHandler abilityDrop;
+    [SerializeField] private GameObject dragAbility;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
@@ -37,7 +39,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         if (anim != null)
         {
 
-        anim.SetBool("Vibrate", toggle);
+            anim.SetBool("Vibrate", toggle);
         }
     }
     public void OnDrop(PointerEventData eventData)
@@ -45,6 +47,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, Input.mousePosition))
         {
             abilityUpgrade = eventData.pointerDrag.GetComponent<AbilityUpgrade>();
+            abilityDrop = eventData.pointerDrag.GetComponent<AbilityDropHandler>();
             if (abilityUpgrade != null && abilityUpgrade.GetClone() != null)
             {
 
@@ -58,9 +61,22 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
                 canvasIcon.sprite = iconImage.sprite;
                 OnPointerUp(eventData);
             }
+            else if (abilityDrop != null)
+            {
+                ability = abilityDrop.GetAbility();
+                Player.instance.SetAbility(attackOnButton - 1, ability);
+                iconImage.gameObject.SetActive(true);
+                iconImage.sprite = ability.GetImage();
+                canvasIcon.sprite = iconImage.sprite;
+                OnPointerUp(eventData);
+            }
 
         }
-        
+
+    }
+    public PlayerAttack GetAbility()
+    {
+        return ability;
     }
 
     private void OnDisable()
@@ -77,9 +93,12 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         if (iconImage.sprite != null)
         {
             audioSource.clip = grabSound;
-            clone = Instantiate(gameObject, GameObject.Find("Canvas Variant").transform);
-            clone.transform.GetChild(1).gameObject.SetActive(false);
-            if(Player.instance.GetSettings().UseSFX)
+
+            clone = Instantiate(dragAbility, GameObject.Find("Canvas Variant").transform);
+            clone.transform.GetChild(0).GetComponent<Image>().sprite = ability.GetImage();
+
+
+            if (Player.instance.GetSettings().UseSFX)
                 audioSource.Play();
         }
     }
@@ -92,12 +111,12 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
             if (Player.instance.GetSettings().UseSFX)
                 audioSource.Play();
 
-        Destroy(clone);
+            Destroy(clone);
         }
         if (!RectTransformUtility.RectangleContainsScreenPoint(rectTransform, Input.mousePosition))
         {
-                image.sprite = defaultSprite;
-                canvasIcon.sprite = null;
+            image.sprite = defaultSprite;
+            canvasIcon.sprite = null;
             iconImage.gameObject.SetActive(false);
             Player.instance.SetAbility(attackOnButton - 1, null);
         }

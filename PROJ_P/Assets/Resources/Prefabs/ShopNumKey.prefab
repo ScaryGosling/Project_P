@@ -241,6 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasIcon: {fileID: 0}
   attackOnButton: 0
+  dragAbility: {fileID: 2381791838835638817, guid: e66195e225d5c0e4e9917d3d1d6dd848,
+    type: 3}
   audioSource: {fileID: 0}
   grabSound: {fileID: 0}
   releaseSound: {fileID: 0}
