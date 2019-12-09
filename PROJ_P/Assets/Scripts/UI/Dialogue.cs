@@ -25,7 +25,7 @@ public class Dialogue : MonoBehaviour
     private Timer timerScript;
     string[] testMessages = { "HI", "BYE", "YOU STILL HERE?", "OK BOOMER" };
 
-
+    [SerializeField] private Text text;
     private float lifeTime = 0;
     private Image[] images;
     private string[] messages;
@@ -33,12 +33,17 @@ public class Dialogue : MonoBehaviour
     private AudioClip music;
 
     private Player player;
+    private DialogueEffect dialogueEffect;
 
     public void Start()
     {
         player = Player.instance;
     }
+    private void Awake()
+    {
 
+        dialogueEffect = GetComponent<DialogueEffect>();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(player.GetSettings().GetBind(KeyFeature.DIALOGUE)) && dialogueActive)
@@ -47,11 +52,11 @@ public class Dialogue : MonoBehaviour
 
     /// <summary>
     /// Updates dialogue UI based on current dialogue index.
-    /// </summary>
+    /// </summary>§
     private void TickUI()
     {
-        dialogueField = messages[n];
-        gameObject.GetComponentInChildren<Text>().text = dialogueField;
+        text.text = dialogueField;
+        PlayNextMessage();
         DisableWithDelay();
     }
 
@@ -71,7 +76,6 @@ public class Dialogue : MonoBehaviour
             foreach (string msg in messages)
                 lifeTime += timePerQuestion;
 
-            dialogueField = messages[n];
             TickUI();
         }
     }
@@ -84,12 +88,26 @@ public class Dialogue : MonoBehaviour
         if (n < messages.Length - 1)
         {
             n++;
-            dialogueField = messages[n];
+
             TickUI();
         }
         else
             TerminateDialogue();
 
+    }
+
+    private void PlayNextMessage()
+    {
+
+        if (dialogueEffect)
+        {
+            dialogueEffect.SetDialogue(text, messages[n]);
+        }
+        else
+        {
+
+            dialogueField = messages[n];
+        }
     }
 
     /// <summary>
@@ -112,7 +130,7 @@ public class Dialogue : MonoBehaviour
     {
         n = 0;
         dialogueField = "";
-        TickUI();
+        //TickUI();
 
     }
 
