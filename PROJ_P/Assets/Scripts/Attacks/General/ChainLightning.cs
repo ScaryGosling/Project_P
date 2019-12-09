@@ -59,7 +59,7 @@ public class ChainLightning : ProjectileInstance
     {
         State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
         state.TakeDamage(damage, maginitude);
-        CreateParticles()
+        CreateParticles();
         Material.SetColor("_EmissionColor", EmissionColor * Intensity);
 
         Player.instance.gameObject.AddComponent<LineRenderer>();
