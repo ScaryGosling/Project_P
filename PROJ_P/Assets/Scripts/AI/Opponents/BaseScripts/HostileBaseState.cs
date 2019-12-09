@@ -65,7 +65,7 @@ public class HostileBaseState : State
     }
 
     /// <summary>
-    /// Generic time task for methods. Perform action for given duration. Can use cancellation method. 
+    /// Generic timer for AI methods. Replaces old timer. Invoke action for given duration. Can use other method at cancellelation. 
     /// </summary>
     /// <param name="ExecutableWhile"></param>
     /// <param name="AtCancellation"></param>
@@ -85,7 +85,7 @@ public class HostileBaseState : State
     }
 
     /// <summary>
-    /// Ticks current time through update. 
+    /// Ticks current time through update. Runs action. 
     /// </summary>
     private void RunTimeTask()
     {

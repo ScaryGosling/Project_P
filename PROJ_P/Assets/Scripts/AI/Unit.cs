@@ -133,15 +133,12 @@ public class Unit : StateMachine
         baseAttack += spawnListener.DamageManagenent;
     }
 
-    //Gotta add code to add and destroy gameObject... alternatively disable it.
+    /// <summary>
+    /// Target selection control between player and buildings. 
+    /// </summary>
     public void CheckTarget()
     {
-
-
-        //this var is
-        //just for development
-
-        if (threat.thresholdProp <threat.thresholdProp || (QuestTargetProp && ProtectionQuestProp.GetHealth() > 0))
+        if (threat.thresholdProp > threat.threatProp && (QuestTargetProp && ProtectionQuestProp.GetHealth() > 0))
         {
             GetAttackRange = AttackRangeBuildings;
             target = QuestTargetProp.gameObject;
@@ -151,20 +148,6 @@ public class Unit : StateMachine
             GetAttackRange = baseAttackRange;
             target = Player.instance.gameObject;
         }
-
-
-
-        //if (threat.threatProp < 100f && QuestTargetProp != null && ProtectionQuestProp.GetHealth() > 0 && Vector3.Distance(gameObject.transform.position, Player.instance.transform.position) > Vector3.Distance(gameObject.transform.position, QuestTargetProp.transform.position))
-        //{
-        //    GetAttackRange = AttackRangeBuildings;
-        //    target = QuestTargetProp.gameObject;
-        //}
-        //else
-        //{
-        //    GetAttackRange = baseAttackRange;
-        //    target = Player.instance.gameObject;
-        //}
-
     }
     private void OnEnable()
     {
@@ -224,5 +207,16 @@ public class Unit : StateMachine
 //Debug.Log("Units health: " + baseHeath);
 //Debug.Log("Units attack: " + baseAttack);
 //EventSystem.Current.RegisterListener<NewWave>(ImprovePower);
+
+        //if (threat.threatProp < 100f && QuestTargetProp != null && ProtectionQuestProp.GetHealth() > 0 && Vector3.Distance(gameObject.transform.position, Player.instance.transform.position) > Vector3.Distance(gameObject.transform.position, QuestTargetProp.transform.position))
+        //{
+        //    GetAttackRange = AttackRangeBuildings;
+        //    target = QuestTargetProp.gameObject;
+        //}
+        //else
+        //{
+        //    GetAttackRange = baseAttackRange;
+        //    target = Player.instance.gameObject;
+        //}
 
 #endregion

@@ -32,11 +32,13 @@ public class AbilityBase : AliveBase
     protected override void CheckForDamage() { }
 
 
+    /// <summary>
+    /// Method for handling environmental collision during hostile unit abilities.
+    /// </summary>
+    /// <param name="selfIntersection"></param>
     protected void CheckIntersection(bool selfIntersection)
     {
         intersection = owner.rigidbody.SweepTest(owner.capsuleCollider.transform.forward, out hit, owner.capsuleCollider.radius * 2, QueryTriggerInteraction.Collide);
-
-        //bool corner = NavMesh.FindClosestEdge(owner.agent.transform.position, out cornerHit, NavMesh.GetAreaFromName("Not Walkable"));
         
         if (intersection && !(hit.collider.CompareTag("Player") && hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone") ||
             (hit.collider.CompareTag("Enemy") && !selfIntersection)))
