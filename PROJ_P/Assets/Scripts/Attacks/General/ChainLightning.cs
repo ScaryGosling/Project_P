@@ -21,6 +21,7 @@ public class ChainLightning : ProjectileInstance
 
     private List<Collider> enemiesInRange = new List<Collider>();
     private bool active;
+    private GameObject impactParticleInstance;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,10 +41,25 @@ public class ChainLightning : ProjectileInstance
         }
         GetComponent<Collider>().enabled = true;
     }
+
+    private void CreateParticles()
+    {
+        impactParticleInstance = BowoniaPool.instance.GetFromPool(PoolObject.LIGHTNING_IMPACT);
+        impactParticleInstance.transform.position = transform.position;
+
+        if (impactSound != null && Player.instance.GetSettings().UseSFX)
+        {
+            source.clip = impactSound;
+            source.Play();
+        }
+    }
+
+
     public override void RunAttack(Collider other)
     {
-        base.RunAttack(other);
-
+        State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
+        state.TakeDamage(damage, maginitude);
+        CreateParticles()
         Material.SetColor("_EmissionColor", EmissionColor * Intensity);
 
         Player.instance.gameObject.AddComponent<LineRenderer>();
@@ -180,6 +196,7 @@ public class ChainLightning : ProjectileInstance
         yield return new WaitForSeconds(KillTime);
         ClearColliders();
         enemiesInRange.Clear();
+        BowoniaPool.instance.AddToPool(PoolObject.LIGHTNING_IMPACT, impactParticleInstance);
         BowoniaPool.instance.AddToPool(PoolObject.LIGHTNING, gameObject);
 
     }

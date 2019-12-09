@@ -9743,7 +9743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactSound: {fileID: 8300000, guid: 3757f74099e88bb488e219e782800ee1, type: 3}
-  particles: {fileID: 0}
+  particles: {fileID: 100032, guid: ac466539ad40b134ea6b9f3182e2d293, type: 3}
 --- !u!82 &5602279737875488460
 AudioSource:
   m_ObjectHideFlags: 0
