@@ -17,6 +17,8 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     private AbilityDropHandler abilityDrop;
     [SerializeField] private GameObject dragAbility;
 
+    private bool swapped = false;
+
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip grabSound;
@@ -61,6 +63,18 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
                 canvasIcon.sprite = iconImage.sprite;
                 OnPointerUp(eventData);
             }
+            else if (abilityDrop != null && ability != null)
+            {
+                PlayerAttack temp = ability;
+                ability = abilityDrop.GetAbility();
+                Player.instance.SetAbility(attackOnButton - 1, ability);
+                iconImage.gameObject.SetActive(true);
+                iconImage.sprite = ability.GetImage();
+                canvasIcon.sprite = iconImage.sprite;
+                abilityDrop.SwapAbility(temp);
+     
+            }
+
             else if (abilityDrop != null)
             {
                 ability = abilityDrop.GetAbility();
@@ -74,6 +88,23 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
         }
 
     }
+
+
+    public void SwapAbility(PlayerAttack ability)
+    {
+        this.ability = ability;
+        Player.instance.SetAbility(attackOnButton - 1, ability);
+        iconImage.gameObject.SetActive(true);
+        iconImage.sprite = ability.GetImage();
+        canvasIcon.sprite = iconImage.sprite;
+        swapped = true;
+    }
+
+    public int GetAttackNumber()
+    {
+        return attackOnButton;
+    }
+
     public PlayerAttack GetAbility()
     {
         return ability;
@@ -89,7 +120,6 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     GameObject clone;
     public void OnBeginDrag(PointerEventData eventData)
     {
-
         if (iconImage.sprite != null)
         {
             audioSource.clip = grabSound;
@@ -97,6 +127,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
             clone = Instantiate(dragAbility, GameObject.Find("Canvas Variant").transform);
             clone.transform.GetChild(0).GetComponent<Image>().sprite = ability.GetImage();
 
+        swapped = false;
 
             if (Player.instance.GetSettings().UseSFX)
                 audioSource.Play();
@@ -113,10 +144,12 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
 
             Destroy(clone);
         }
-        if (!RectTransformUtility.RectangleContainsScreenPoint(rectTransform, Input.mousePosition))
+        if (!RectTransformUtility.RectangleContainsScreenPoint(rectTransform, Input.mousePosition) && !swapped)
         {
             image.sprite = defaultSprite;
             canvasIcon.sprite = null;
+            ability = null;
+            iconImage.sprite = null;
             iconImage.gameObject.SetActive(false);
             Player.instance.SetAbility(attackOnButton - 1, null);
         }
