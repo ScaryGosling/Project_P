@@ -65,10 +65,12 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private float chanceOfDrop = 0.4f;
     [SerializeField] private EliasPlayer eliasPlayer;
     [SerializeField] private EliasSetLevel setLevel;
+    [SerializeField] private GameObject unitManagerObject;
 
     private bool waveCompleted;
     private GameObject objectSpawnerObject;
     private ObjectSpawner objectSpawner;
+    private UnitManager unitManager;
 
     private NewWaveEvent newWaveEvent = new NewWaveEvent();
     private UnitsRemaining unitsRemaining = new UnitsRemaining();
@@ -89,6 +91,7 @@ public class GameLoop : MonoBehaviour
 
     private void Start()
     {
+        unitManager = unitManagerObject.GetComponent<UnitManager>();
         player = Player.instance;
         instance = this;
         pauseTime = shopKeeper.GetComponent<Shop>().GetShopTime();
@@ -158,13 +161,6 @@ public class GameLoop : MonoBehaviour
         spawned = 0;
         unitsKilled = 0;
         objectSpawnerObject = null;
-        //if (expected < maximumCapacity && expectedGrowth >= 1f)
-        //{
-        //    expected = (int)Mathf.FloorToInt(expected * expectedGrowth);
-        //    expectedGrowth -= growthDeclinePer;
-        //Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
-
-        //}        
         waveIndex++;
         if (waveIndex <= 30)
         {
@@ -291,41 +287,6 @@ public class GameLoop : MonoBehaviour
     }
 
 
-    private GameObject UnitController()
-    {
-        if (waveIndex % 2 == 0 && spawned % 3 == 0)
-        {
-            return BowoniaPool.instance.GetFromPool(PoolObject.ZOOMER);
-        }
-        else if (waveIndex % 3 == 0 && spawned % 5 == 0)
-        {
-            return BowoniaPool.instance.GetFromPool(PoolObject.BOOMER);
-        }
-        else
-        {
-            return BowoniaPool.instance.GetFromPool(PoolObject.FANATIC);
-        }
-    }
-
-    /// <summary>
-    /// During which waves, and when during those waves should each units spawn.
-    /// </summary>
-    private void CheckUnitType()
-    {
-        if (waveIndex % 2 == 0 && spawned % 3 == 0)
-        {
-            currentType = 1;
-        }
-        else if (waveIndex % 3 == 0 && spawned % 5 == 0)
-        {
-            currentType = 2;
-        }
-        else
-        {
-            currentType = 0;
-        }
-    }
-
     private void SpawnShopKeeper()
     {
         if (!shopOpen)
@@ -393,17 +354,12 @@ public class GameLoop : MonoBehaviour
                     
                     if (spawned < expected && spawnObject.GetComponent<SpawnArea>().isActive)
                     {
-                        absoluteUnit = UnitController();
+                        absoluteUnit = unitManager.ManageUnit(waveIndex, spawned);
                         absoluteUnit.transform.position = spawnObject.transform.GetChild(0).transform.position;
-                        //absoluteUnit.GetComponent<NavMeshAgent>().Warp(spawnObject.transform.GetChild(0).transform.position);
                         absoluteUnit.transform.rotation = Quaternion.identity;
                         absoluteUnit.gameObject.SetActive(true);
-                        //Debug.LogError(absoluteUnit.GetInstanceID()) ;
-                        //Debug.Log(absoluteUnit.GetInstanceID());
                         spawned++;
 
-                        //loop -> levande fiender
-                        //absoluteUnit.GetComponent<NavMeshAgent>().pathStatus != NavMeshPathStatus.PathComplete -> do stuff
                     }
                     yield return new WaitForSeconds(time);
                 }
@@ -418,6 +374,11 @@ public class GameLoop : MonoBehaviour
 }
 
 #region GameLoopLegacy
+                        //absoluteUnit.GetComponent<NavMeshAgent>().Warp(spawnObject.transform.GetChild(0).transform.position);
+                        //Debug.LogError(absoluteUnit.GetInstanceID()) ;
+                        //Debug.Log(absoluteUnit.GetInstanceID());
+                        //loop -> levande fiender
+                        //absoluteUnit.GetComponent<NavMeshAgent>().pathStatus != NavMeshPathStatus.PathComplete -> do stuff
         //switch (currentType)
         //{
         //    case 0:
@@ -433,4 +394,47 @@ public class GameLoop : MonoBehaviour
         //        break;
         //}
 
+        //if (expected < maximumCapacity && expectedGrowth >= 1f)
+        //{
+        //    expected = (int)Mathf.FloorToInt(expected * expectedGrowth);
+        //    expectedGrowth -= growthDeclinePer;
+        //Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
+
+        //}        
+
+    //private GameObject UnitController()
+    //{
+    //    if (waveIndex % 2 == 0 && spawned % 3 == 0)
+    //    {
+    //        return BowoniaPool.instance.GetFromPool(PoolObject.ZOOMER);
+    //    }
+    //    else if (waveIndex % 3 == 0 && spawned % 5 == 0)
+    //    {
+    //        return BowoniaPool.instance.GetFromPool(PoolObject.BOOMER);
+    //    }
+    //    else
+    //    {
+    //        return BowoniaPool.instance.GetFromPool(PoolObject.FANATIC);
+    //    }
+    //}
+
+    /// <summary>
+    /// During which waves, and when during those waves should each unit spawn.
+    /// </summary>
+    //private void CheckUnitType()
+    //{
+
+    //    if (waveIndex % 2 == 0 && spawned % 3 == 0)
+    //    {
+    //        currentType = 1;
+    //    }
+    //    else if (waveIndex % 3 == 0 && spawned % 5 == 0)
+    //    {
+    //        currentType = 2;
+    //    }
+    //    else
+    //    {
+    //        currentType = 0;
+    //    }
+    //}
 #endregion
