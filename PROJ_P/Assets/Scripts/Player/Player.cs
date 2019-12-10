@@ -635,7 +635,7 @@ public class Player : MonoBehaviour
 
         
         
-        animator.SetTrigger("Melee");
+        AnimationTrigger("Melee");
         attack.OnEquip();
         attack.Execute();
         attack.cooldownActive = true;
@@ -643,7 +643,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(attack.GetCooldown());
         attack.cooldownActive = false;
     }
-
+    public void AnimationTrigger(string trigger)
+    {
+        animator.SetTrigger(trigger);
+    }
 
     private void UpdateIcons()
     {
