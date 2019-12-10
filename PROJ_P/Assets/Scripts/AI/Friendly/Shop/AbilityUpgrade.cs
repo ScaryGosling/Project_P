@@ -208,6 +208,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
                     OnPointerUp(eventData);
                     Player.instance.GoldProp -= nextLevelCost;
                     dragDots.SetActive(true);
+                    AutoEquipAbility.instance.AutoEquip(ability);
                 }
             }
             if (ability.IsLocked() == false)

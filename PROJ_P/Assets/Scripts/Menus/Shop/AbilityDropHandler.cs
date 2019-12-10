@@ -57,7 +57,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
                 ability = abilityUpgrade.GetAbility();
                 eventData.pointerDrag.GetComponent<AbilityUpgrade>().GetAbilityCat();
                 //image.sprite = ability.GetImage();
-                Player.instance.SetAbility(attackOnButton - 1, ability);
+                Player.instance.SetAbility(attackOnButton, ability);
                 iconImage.gameObject.SetActive(true);
                 iconImage.sprite = ability.GetImage();
                 canvasIcon.sprite = iconImage.sprite;
@@ -67,18 +67,18 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
             {
                 PlayerAttack temp = ability;
                 ability = abilityDrop.GetAbility();
-                Player.instance.SetAbility(attackOnButton - 1, ability);
+                Player.instance.SetAbility(attackOnButton, ability);
                 iconImage.gameObject.SetActive(true);
                 iconImage.sprite = ability.GetImage();
                 canvasIcon.sprite = iconImage.sprite;
                 abilityDrop.SwapAbility(temp);
-     
+
             }
 
             else if (abilityDrop != null)
             {
                 ability = abilityDrop.GetAbility();
-                Player.instance.SetAbility(attackOnButton - 1, ability);
+                Player.instance.SetAbility(attackOnButton , ability);
                 iconImage.gameObject.SetActive(true);
                 iconImage.sprite = ability.GetImage();
                 canvasIcon.sprite = iconImage.sprite;
@@ -93,7 +93,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     public void SwapAbility(PlayerAttack ability)
     {
         this.ability = ability;
-        Player.instance.SetAbility(attackOnButton - 1, ability);
+        Player.instance.SetAbility(attackOnButton, ability);
         iconImage.gameObject.SetActive(true);
         iconImage.sprite = ability.GetImage();
         canvasIcon.sprite = iconImage.sprite;
@@ -127,7 +127,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
             clone = Instantiate(dragAbility, GameObject.Find("Canvas Variant").transform);
             clone.transform.GetChild(0).GetComponent<Image>().sprite = ability.GetImage();
 
-        swapped = false;
+            swapped = false;
 
             if (Player.instance.GetSettings().UseSFX)
                 audioSource.Play();
@@ -151,7 +151,7 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
             ability = null;
             iconImage.sprite = null;
             iconImage.gameObject.SetActive(false);
-            Player.instance.SetAbility(attackOnButton - 1, null);
+            Player.instance.SetAbility(attackOnButton, null);
         }
     }
 
