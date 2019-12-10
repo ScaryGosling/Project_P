@@ -4912,7 +4912,7 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 7d38dcd1d7473ce4692e8323e26ba79c, type: 2}
   - {fileID: 2100000, guid: 766f048765c538649959e77ed37caf52, type: 2}
-  meshRenderer: {fileID: 0}
+  meshRenderer: {fileID: 7207306506890552017}
 --- !u!82 &-7065774182131305378
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5035,11 +5035,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6863321986751247272}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
-        type: 3}
-      propertyPath: m_Name
-      value: Pickup_Mesh
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5115,6 +5110,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 7d38dcd1d7473ce4692e8323e26ba79c, type: 2}
+    - target: {fileID: -927199367670048503, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
+        type: 3}
+      propertyPath: m_Name
+      value: Pickup_Mesh
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a89a1bb42a9fcb14cbaf37b3b8453e84, type: 3}
 --- !u!1 &8951371662285116941 stripped
@@ -5126,6 +5126,12 @@ GameObject:
 --- !u!4 &5360111219729916958 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
+    type: 3}
+  m_PrefabInstance: {fileID: 1087694144866864900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7207306506890552017 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
     type: 3}
   m_PrefabInstance: {fileID: 1087694144866864900}
   m_PrefabAsset: {fileID: 0}
