@@ -52,16 +52,6 @@ public class AbilityBase : AliveBase
 
     }
 
-    
-
-    //protected bool LineCast()
-    //{
-    //    //Debug.DrawLine(owner.transform.position, owner.capsuleCollider.transform.forward, Color.red, Mathf.Infinity);
-    //    if (Physics.Linecast(owner.agent.transform.position, owner.agent.pathEndPosition, out hit))
-    //        return true;
-    //    return false;
-    //}
-
     protected virtual void CancelState() { }
 
     /// <summary>
@@ -91,4 +81,12 @@ public class AbilityBase : AliveBase
 //    dotProduct = Vector3.Dot(owner.agent.velocity.normalized, heading);
 //    return dotProduct;
 //}
+
+    //protected bool LineCast()
+    //{
+    //    //Debug.DrawLine(owner.transform.position, owner.capsuleCollider.transform.forward, Color.red, Mathf.Infinity);
+    //    if (Physics.Linecast(owner.agent.transform.position, owner.agent.pathEndPosition, out hit))
+    //        return true;
+    //    return false;
+    //}
 #endregion

@@ -28,6 +28,7 @@ public class JumpImpact : AbilityBase
 
     private RaycastHit downHit;
     private JumpState jumpState;
+    private ObstacleAvoidanceType avoidanceBehavior;
     private bool newCode = true;
     private float stoppingDistance, agentSpeed;
     private enum JumpState
@@ -60,6 +61,8 @@ public class JumpImpact : AbilityBase
             switch (jumpState)
             {
                 case JumpState.JUMP:
+                    avoidanceBehavior = owner.agent.obstacleAvoidanceType;
+                    owner.agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
                     StartJump();
                     break;
                 case JumpState.HOVER:
@@ -67,6 +70,7 @@ public class JumpImpact : AbilityBase
                     TestGoal();
                     break;
                 case JumpState.LAND:
+                    owner.agent.obstacleAvoidanceType = avoidanceBehavior;
                     EndJump();
                     break;
             }
@@ -180,6 +184,7 @@ public class JumpImpact : AbilityBase
     {
         jumping = true;
         jumpState = JumpState.JUMP;
+        //owner.capsuleCollider.enabled = false;
     }
 
     protected override void CancelState()
