@@ -109,7 +109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4167264138251327307
 Transform:
   m_ObjectHideFlags: 0
@@ -36513,16 +36513,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 7809932207334992847, guid: f6a57e0e2374e944dbe8c2769bac99ca,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.1774
-      objectReference: {fileID: 0}
-    - target: {fileID: 7809932207334992847, guid: f6a57e0e2374e944dbe8c2769bac99ca,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.31
-      objectReference: {fileID: 0}
     - target: {fileID: 2828862619816309276, guid: f6a57e0e2374e944dbe8c2769bac99ca,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -36532,6 +36522,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -4.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809932207334992847, guid: f6a57e0e2374e944dbe8c2769bac99ca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1774
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809932207334992847, guid: f6a57e0e2374e944dbe8c2769bac99ca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.31
       objectReference: {fileID: 0}
     - target: {fileID: 3651984984004198297, guid: f6a57e0e2374e944dbe8c2769bac99ca,
         type: 3}
@@ -36608,16 +36608,6 @@ PrefabInstance:
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].inWeight
       value: 0.15534106
       objectReference: {fileID: 0}
-    - target: {fileID: 4946232476490498720, guid: f6a57e0e2374e944dbe8c2769bac99ca,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4946232476490498720, guid: f6a57e0e2374e944dbe8c2769bac99ca,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6179129968055180641, guid: f6a57e0e2374e944dbe8c2769bac99ca,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -36647,6 +36637,16 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946232476490498720, guid: f6a57e0e2374e944dbe8c2769bac99ca,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946232476490498720, guid: f6a57e0e2374e944dbe8c2769bac99ca,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a57e0e2374e944dbe8c2769bac99ca, type: 3}
@@ -36752,7 +36752,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 808ea5138c1acc94ea86261692b7510e, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: ab95877b7d642d045af8184d93712dd4,
         type: 3}
       propertyPath: m_Controller
