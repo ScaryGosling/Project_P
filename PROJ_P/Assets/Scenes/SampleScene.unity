@@ -72224,7 +72224,7 @@ PrefabInstance:
     - target: {fileID: 4397053038075723211, guid: 8dd3761ff523e90419e317f951ecbc58,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.88
+      value: -2.49
       objectReference: {fileID: 0}
     - target: {fileID: 4397053038075723211, guid: 8dd3761ff523e90419e317f951ecbc58,
         type: 3}
@@ -73250,6 +73250,10 @@ PrefabInstance:
       propertyPath: hotkeyTexts.Array.data[5]
       value: 
       objectReference: {fileID: 147270494}
+    - target: {fileID: 1681477813, guid: 2bc5c9f3f422bf940987564bfe1d64a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bc5c9f3f422bf940987564bfe1d64a8, type: 3}
 --- !u!114 &4738550532901967004 stripped
