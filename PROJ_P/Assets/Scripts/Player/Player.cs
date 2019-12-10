@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     [Header("Attacks")]
     public ClassAttackList attackSets = new ClassAttackList();
+    [SerializeField] private GameObject[] classModels;
     public AttackSet attackSet { get; private set; }
     private PlayerAttack activeAttack;
     private int selectedAttack;
@@ -91,6 +92,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Color flashColor;
     private Color baseColor;
     private Coroutine hitFlash;
+    [SerializeField] private BloodVignette bloodVignette;
 
 
     public Settings GetSettings() { return settings; }
@@ -209,14 +211,23 @@ public class Player : MonoBehaviour
                     PlayAudio(hurtClip[Random.Range(0, hurtClip.Length)]);
                 }
 
-                if (tempHP < 25 && !GameLoop.instance.GetShopOpen() && settings.UseSFX)
+                if (tempHP < 25 && !GameLoop.instance.GetShopOpen())
                 {
-                    heartbeatSource.clip = heartbeatClip;
-                    heartbeatSource.Play();
+                    if (settings.UseSFX)
+                    {
+                        heartbeatSource.clip = heartbeatClip;
+                        heartbeatSource.Play();
+                    }
+                    else
+                    {
+                        heartbeatSource.Stop();
+                    }
+                    bloodVignette.RunFlash(1 - tempHP/50);
                 }
-                else
+
+                if(tempHP > 25)
                 {
-                    heartbeatSource.Stop();
+                    bloodVignette.StartCoroutine(bloodVignette.EndFlash());
                 }
 
             }
@@ -285,17 +296,23 @@ public class Player : MonoBehaviour
         switch (playerClass)
         {
 
+            case PlayerClass.WARRIOR:
+                Resource = ScriptableObject.CreateInstance<Rage>();
+                attackSet = attackSets.Get(PlayerClass.WARRIOR);
+                classModels[0].SetActive(true);
+                classModels[1].SetActive(false);
+                animator = classModels[0].GetComponent<Animator>();
+                PlayerCursor = fighterCursor;
+                break;
+
             case PlayerClass.WIZARD:
                 Resource = ScriptableObject.CreateInstance<Mana>();
                 attackSet = attackSets.Get(PlayerClass.WIZARD);
                 PlayerCursor = mysticCursor;
+                classModels[0].SetActive(false);
+                classModels[1].SetActive(true);
+                animator = classModels[1].GetComponent<Animator>();
                 weapon.SetActive(false);
-                break;
-
-            case PlayerClass.WARRIOR:
-                Resource = ScriptableObject.CreateInstance<Rage>();
-                attackSet = attackSets.Get(PlayerClass.WARRIOR);
-                PlayerCursor = fighterCursor;
                 break;
 
             default:

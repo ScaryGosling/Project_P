@@ -21,7 +21,7 @@ public class ChainLightning : ProjectileInstance
 
     private List<Collider> enemiesInRange = new List<Collider>();
     private bool active;
-    private GameObject impactParticleInstance;
+    private GameObject hitParticles;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,8 +44,8 @@ public class ChainLightning : ProjectileInstance
 
     private void CreateParticles()
     {
-        impactParticleInstance = BowoniaPool.instance.GetFromPool(PoolObject.LIGHTNING_IMPACT);
-        impactParticleInstance.transform.position = transform.position;
+        hitParticles = BowoniaPool.instance.GetFromPool(PoolObject.LIGHTNING_IMPACT);
+        hitParticles.transform.position = transform.position;
 
         if (impactSound != null && Player.instance.GetSettings().UseSFX)
         {
@@ -199,7 +199,7 @@ public class ChainLightning : ProjectileInstance
         yield return new WaitForSeconds(KillTime);
         ClearColliders();
         enemiesInRange.Clear();
-        BowoniaPool.instance.AddToPool(PoolObject.LIGHTNING_IMPACT, impactParticleInstance);
+        BowoniaPool.instance.AddToPool(PoolObject.LIGHTNING_IMPACT, hitParticles);
         BowoniaPool.instance.AddToPool(PoolObject.LIGHTNING, gameObject);
 
     }
