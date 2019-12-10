@@ -91,7 +91,6 @@ public class Player : MonoBehaviour
     [SerializeField] private Color flashColor;
     private Color baseColor;
     private Coroutine hitFlash;
-    [SerializeField] private BloodVignette bloodVignette;
 
 
     public Settings GetSettings() { return settings; }
@@ -116,11 +115,6 @@ public class Player : MonoBehaviour
             Audio.clip = clip;
             Audio.Play();
         }
-    }
-
-    public void AnimationTrigger(string trigger)
-    {
-        animator.SetTrigger(trigger);
     }
 
     public void PlayChargeUpAudio(AudioClip clip)
@@ -171,7 +165,7 @@ public class Player : MonoBehaviour
             resourcePotions = value;
             if (resourcePotionsText != null)
             {
-                resourcePotionsText.text = resourcePotions +"/" + MaxResourcePotionsProp;
+                resourcePotionsText.text = resourcePotions +"/" +MaxResourcePotionsProp;
             }
         }
     }
@@ -196,7 +190,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    tempHP += value; //When healed resistance should not matter
+                    tempHP += value; //When heald resistance should not matter
                 }
 
                 if (tempHP > 100)
@@ -206,16 +200,9 @@ public class Player : MonoBehaviour
                 health.fillAmount = tempHP * 0.01f;
 
                 if (health.fillAmount < colorTransitionPoint)
-                {
                     health.color = Color.Lerp(emptyHealth, fullHealth, health.fillAmount / colorTransitionPoint);
-                    bloodVignette.StartCoroutine(bloodVignette.Transition((tempHP / colorTransitionPoint * 100) - tempHP));
-                }
                 else
-                {
                     health.color = fullHealth;
-                    //bloodVignette.StartCoroutine("EndFlash");
-
-                }
 
                 if (value < 0 && hurtClip != null)
                 {
