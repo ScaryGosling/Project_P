@@ -27,7 +27,7 @@ public class FireBall : PlayerAttack
             instance.Damage = damage;
             instance.Magnitude = magnitude;
             instance.GetComponent<Rigidbody>().AddForce(Vector3.down * 1000);
-            
+            player.AnimationTrigger("Fireball");
         }
     }
 

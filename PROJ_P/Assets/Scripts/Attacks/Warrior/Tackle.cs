@@ -34,6 +34,8 @@ public class Tackle : PlayerAttack
         player.damage = damage;
         player.magnitude = magnitude;
 
+        player.AnimationTrigger("Tackle");
+
         startAcceleration = agent.acceleration;
         startSpeed = agent.speed;
 

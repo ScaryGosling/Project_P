@@ -23,6 +23,7 @@ public class IceNova : PlayerAttack
     public override void RunAttack()
     {
         base.RunAttack();
+        player.AnimationTrigger("IceField");
         GenerateIceNova(player.transform.position);
     }
 

@@ -21,6 +21,9 @@ public class GroundStomp : PlayerAttack
         addedParticle = Instantiate(particles, player.transform.position - new Vector3(0, player.transform.lossyScale.y /2, 0), Quaternion.identity);
         addedParticle.transform.GetChild(0).localScale = new Vector3(attackRadius, 1, attackRadius);
 
+        player.AnimationTrigger("Stomp");
+
+
         //Find enemies in circle around player
         Collider[] hitColliders = Physics.OverlapSphere(player.transform.position, attackRadius);
         int i = 0;

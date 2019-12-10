@@ -69,6 +69,9 @@ public class ChainLightning : ProjectileInstance
         }
         GetComponent<Collider>().enabled = false;
 
+
+        Player.instance.AnimationTrigger("Lightning");
+
         bindingCollider = other;
         bindingCollider.gameObject.AddComponent<LineRenderer>();
 

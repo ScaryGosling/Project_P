@@ -44,6 +44,8 @@ public class Berserk : PlayerAttack
         player.activeStats.attackSpeed = attackSpeed;
         player.activeStats.movementSpeed = movementSpeed;
 
+        player.AnimationTrigger("Berserk");
+
         particlesystem = BowoniaPool.instance.GetFromPool(PoolObject.BERSERK_PARTICLE);
         particlesystem.transform.SetParent(player.transform);
         particlesystem.transform.localPosition = new Vector3(0,0,0);
