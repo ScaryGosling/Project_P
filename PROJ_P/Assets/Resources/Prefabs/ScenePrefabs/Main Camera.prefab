@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2590573925140275478}
-  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 177.24002, y: 40.8, z: 136.12001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -99,10 +99,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   offset: {x: 0, y: 12, z: -6.05}
-  smoothTime: 0.1
+  smoothTime: 0.3
+  movementSensitity: 2
   fadeAmount: 0.1
   fadeTime: 3
   transparentShader: {fileID: -6465566751694194690, guid: 89e0718913c6a634db9f53b076e88ce5,
+    type: 3}
+  opaqueShader: {fileID: -6465566751694194690, guid: c27bec502a736134eaea1349d2dec7eb,
     type: 3}
 --- !u!114 &2590573925140275473
 MonoBehaviour:
