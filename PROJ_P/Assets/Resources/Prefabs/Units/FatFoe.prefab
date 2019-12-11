@@ -159,6 +159,7 @@ MonoBehaviour:
   takeDamageClip: {fileID: 8300000, guid: 23ff6d4d810633d4d89de1c52720291f, type: 3}
   deathClip: {fileID: 8300000, guid: 19e3b947989fd2a4cb8497586f51e4ba, type: 3}
   attackSound: {fileID: 0}
+  selfCollision: 0
   moveSpeed: 4
   baseHeath: 27
   baseAttack: 3
