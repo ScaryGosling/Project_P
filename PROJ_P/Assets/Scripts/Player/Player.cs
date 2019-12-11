@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int gold;
     [SerializeField] private Transform spawnPoint;
     private AttackSet activeAttacks;
+    private int highscore = 0;
     public AudioSource Audio { get; private set; }
     [SerializeField] private AudioClip[] hurtClip;
     [SerializeField] private AudioClip lackResourceClip;
@@ -259,7 +260,12 @@ public class Player : MonoBehaviour
         get { return gold; }
         set
         {
+            if (value - gold > 0)
+            {
+                highscore += (value - gold);
+            }
             gold = value;
+
         }
     }
 
@@ -597,7 +603,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            attackUISpot[position].color = new Color32(0, 0, 0, 100);
+            attackUISpot[position].color = Color.white;
             UpdateIcons();
         }
     }
@@ -672,7 +678,7 @@ public class Player : MonoBehaviour
         {
             if (activeAttacks.list[i] != null)
             {
-                attackUISpot[i].color = new Color32(0, 0, 0, 255);
+                attackUISpot[i].color = Color.white;
             }
             else
             {
