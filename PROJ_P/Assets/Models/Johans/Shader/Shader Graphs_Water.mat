@@ -21,12 +21,12 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_1DA359E3: 1.46
+    - Vector1_1DA359E3: 1.82
     - Vector1_1EBFA82E: 5
     - Vector1_74254711: 50.87
     - Vector1_773C94E0: 0.1
     - Vector1_D993AA23: 0.15
     - Vector1_F120B697: 1
     m_Colors:
-    - Color_8F6FFCE7: {r: 0.14764823, g: 0.41107967, b: 0.49684802, a: 0}
-    - Color_DD8A766: {r: 0.18262726, g: 0.59939694, b: 0.6792453, a: 0}
+    - Color_8F6FFCE7: {r: 0, g: 0.2769769, b: 0.3679245, a: 0}
+    - Color_DD8A766: {r: 0.2811499, g: 0.47319838, b: 0.509434, a: 0}

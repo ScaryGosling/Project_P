@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3810795410767134037}
   - component: {fileID: 5312466915253913443}
   - component: {fileID: 1910975295393004442}
-  - component: {fileID: 2656393717094316956}
+  - component: {fileID: 3765914867330166914}
   m_Layer: 11
   m_Name: fountain_dried
   m_TagString: Building
@@ -79,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2656393717094316956
+--- !u!136 &3765914867330166914
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,7 +89,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.42
-  m_Height: 0.45
+  m_Radius: 0.02
+  m_Height: 0.41761416
   m_Direction: 1
-  m_Center: {x: 0, y: -0.48, z: 0.000000014901161}
+  m_Center: {x: 0, y: 0.0022959039, z: 0.000000014901161}
