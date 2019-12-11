@@ -15,6 +15,7 @@ public class LifeLeech : PlayerAttack
     private Animation animation;
     private Sword sword;
     [SerializeField] private List<float> regenerationPerLevel = new List<float>();
+    private GameObject leechParticles;
 
     public override void OnEnable()
     {
@@ -46,6 +47,7 @@ public class LifeLeech : PlayerAttack
             animation.Play(forwardSlash.name);
         }
 
+        leechParticles = BowoniaPool.instance.GetFromPool(PoolObject.BLINK_PARTICLE);
         Timer timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
         timer.RunCountDown(forwardSlash.length, ResetSword, Timer.TimerType.DELAY);
     }
@@ -71,6 +73,7 @@ public class LifeLeech : PlayerAttack
 
     public void ResetSword()
     {
+        BowoniaPool.instance.AddToPool(PoolObject.LIFE_LEECH, leechParticles);
         sword.GetComponent<Collider>().enabled = false;
     }
 

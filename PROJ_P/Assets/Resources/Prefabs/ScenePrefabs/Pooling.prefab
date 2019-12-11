@@ -110,3 +110,8 @@ MonoBehaviour:
   - poolObject: 23
     prefab: {fileID: 2218699938152471409, guid: 1c745246d14c9c344b9eca271e40315e,
       type: 3}
+  - poolObject: 24
+    prefab: {fileID: 1950434769114304115, guid: ba51bc1d4d1b4db4e9c487feea3194be,
+      type: 3}
+  - poolObject: 25
+    prefab: {fileID: 360565347942094220, guid: 096983a47b555534e871c2bb30f5ade7, type: 3}
