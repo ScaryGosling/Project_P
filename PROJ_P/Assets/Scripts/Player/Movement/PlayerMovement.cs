@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rigid;
     private Settings keybindSet;
     private float xMovement, zMovement;
-    [SerializeField]private Animator animator;
+    private Animator animator;
     [SerializeField] private LayerMask ignoreMask;
     private float raycastDistance = 100;
     private Player player;
@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         keybindSet = GetComponent<Player>().GetSettings();
         player = GetComponent<Player>();
+        animator = player.GetAnimator();
     }
 
     RaycastHit hit;

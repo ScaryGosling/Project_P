@@ -335,7 +335,10 @@ public class Player : MonoBehaviour
         Resource.IncreaseResource(res.fillAmount);
     }
 
-
+    public Animator GetAnimator()
+    {
+        return animator;
+    }
     public AttackSet CloneAttackSet()
     {
         AttackSet clone = Instantiate(attackSet);
