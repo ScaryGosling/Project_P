@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7418c47275a1544679f79246d4242380, type: 3}
   m_Name: Tackle
   m_EditorClassIdentifier: 
-  abilityName: Tackle
+  abilityName: Charge
   abilityDescription: 'Give em the shoulder! Dash through enemies, dealing damage.
     Cooldown: 5 sec. Ragecost: 10.'
   abilityDescriptionForClassChooser: Give em the shoulder! Dash through enemies, dealing
@@ -20,7 +20,7 @@ MonoBehaviour:
   castCost: 25
   castTime: 0
   magnitude: 0
-  attackImage: {fileID: 21300000, guid: 3bd31b9140df30446ab8b0e684c32bdc, type: 3}
+  attackImage: {fileID: 21300000, guid: 1ea137e1c59e4b641aef9e7228184cd5, type: 3}
   cooldown: 5
   cooldownActive: 0
   upgradeCosts:

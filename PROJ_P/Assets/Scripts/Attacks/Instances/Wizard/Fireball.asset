@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ade089edb56c264a9c9e1d5d95a0483, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  abilityName: Fireball
+  abilityName: Meteor
   abilityDescription: 'Launch a devestating fireball, dealing damage in an area! Has
     a small cast time. Cooldown: 10 sec. Manacost: 10.'
   abilityDescriptionForClassChooser: Launch a devestating fireball, dealing damage
@@ -20,7 +20,7 @@ MonoBehaviour:
   castCost: 10
   castTime: 1
   magnitude: 70
-  attackImage: {fileID: 21300000, guid: 4325c1a126876674f87dfb389eb19581, type: 3}
+  attackImage: {fileID: 21300000, guid: d715ef8cc57d2854388b17be289820a1, type: 3}
   cooldown: 1
   cooldownActive: 0
   upgradeCosts:

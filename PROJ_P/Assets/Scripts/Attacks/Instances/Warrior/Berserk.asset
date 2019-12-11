@@ -20,7 +20,7 @@ MonoBehaviour:
   castCost: 0
   castTime: 0
   magnitude: 0
-  attackImage: {fileID: 21300000, guid: 04bd0c4c34d79df4987ae3c44481a6da, type: 3}
+  attackImage: {fileID: 21300000, guid: cd9d7166df4c7554182a38064d146322, type: 3}
   cooldown: 60
   cooldownActive: 0
   upgradeCosts:
@@ -40,6 +40,7 @@ MonoBehaviour:
   particles: {fileID: 1246638314895344, guid: fe91343b9a35bb14794086f1770004a3, type: 3}
   sound: {fileID: 8300000, guid: cdb094d4cfd35cb4fb263130e1a5383a, type: 3}
   cooldownClip: {fileID: 8300000, guid: eec99f64c3cf49640b9ccb32e2e46471, type: 3}
+  chargeUpClip: {fileID: 0}
   abilityCat: 3
   slowTime: 0
   speedMultiplier: 0
