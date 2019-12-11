@@ -87,9 +87,12 @@ public class FanaticDodge : ChaseBase
 
     protected void EndDodge()
     {
-        ResetOrientation();
-        dodgeTimer = null;
-        owner.ChangeState<FanaticChase>();
+        if (owner.currentState is FanaticDodge)
+        {
+            ResetOrientation();
+            dodgeTimer = null;
+            owner.ChangeState<FanaticChase>();
+        }
     }
 
     /// <summary>
