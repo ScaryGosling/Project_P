@@ -210,17 +210,17 @@ PrefabInstance:
     - target: {fileID: 4338109789019738944, guid: 539bec9bf9d56cf418babe8869468e62,
         type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 1.4449347
+      value: 2.006003
       objectReference: {fileID: 0}
     - target: {fileID: 4338109789019738944, guid: 539bec9bf9d56cf418babe8869468e62,
         type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 3.2083997e-17
+      value: 4.454221e-17
       objectReference: {fileID: 0}
     - target: {fileID: 4338109789019738944, guid: 539bec9bf9d56cf418babe8869468e62,
         type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 1.0114543
+      value: 1.404202
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 539bec9bf9d56cf418babe8869468e62, type: 3}
