@@ -473,6 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de660887d98b8fa47b92247b06cc4013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entryPositionText: {fileID: 1030324605715849368}
   entryNameText: {fileID: 3908230739357594566}
   entryScoreText: {fileID: 1160809813031982196}
 --- !u!1 &7069613717839594520

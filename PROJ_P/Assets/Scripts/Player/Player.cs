@@ -269,6 +269,7 @@ public class Player : MonoBehaviour
         }
     }
 
+
     public Transform GetSpawnPoint() { return spawnPoint; }
 
 
@@ -404,6 +405,7 @@ public class Player : MonoBehaviour
         }
 
         baseColor = playerRenderer.material.GetColor("_BaseColor");
+        PlayerPrefs.SetInt("Score", 0);
     }
 
     public void Update()
@@ -548,6 +550,7 @@ public class Player : MonoBehaviour
 
     private void PlayerDied()
     {
+        PlayerPrefs.SetInt("Score", highscore);
         GetComponent<PlayerMovement>().enabled = false;
         PlayAudio(deathClip);
         Audio = null;
