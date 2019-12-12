@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using TMPro;
+using UnityEngine.UI;
 
 public class Scoreboard : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Scoreboard : MonoBehaviour
     [SerializeField] private ScoreboardEntryUI firstPlace = null;
     [SerializeField] private TextMeshProUGUI entryName = null;
     [SerializeField]ScoreboardEntryData testEntryData = new ScoreboardEntryData();
-    
+
 
     private static string SavePath => $"{Application.persistentDataPath}/highscore.ss";
     [SerializeField] private bool showUI;
@@ -91,7 +92,22 @@ public class Scoreboard : MonoBehaviour
 
             Instantiate(scoreboardEntryObject, highscoresHolderTransform).GetComponent<ScoreboardEntryUI>().Initialize(savedScores.highscores[i], position);
         }
+        Debug.Log(PlayerPrefs.GetInt("PositionAdded", 0)-1);
+        StartCoroutine(GoToPosition());
+    }
 
+
+
+    [SerializeField]ScrollRect scrollRect;
+
+    IEnumerator GoToPosition()
+    {
+        yield return new WaitForSeconds(0.05f);
+        if (PlayerPrefs.GetInt("PositionAdded", 0) > 0)
+        {
+            UIExtensions.ScrollToCeneter(scrollRect, highscoresHolderTransform.gameObject.GetComponent<RectTransform>().GetChild(PlayerPrefs.GetInt("PositionAdded", 0) - 1).gameObject.GetComponent<RectTransform>());
+            PlayerPrefs.SetInt("PositionAdded", 0);
+        }
     }
 
     public void AddEntry(ScoreboardEntryData scoreboardEntryData)
@@ -103,6 +119,7 @@ public class Scoreboard : MonoBehaviour
             if (scoreboardEntryData.entryScore > savedScores.highscores[i].entryScore)
             {
                 savedScores.highscores.Insert(i, scoreboardEntryData);
+                PlayerPrefs.SetInt("PositionAdded", i);
                 scoreAdded = true;
                 break;
             }
@@ -110,6 +127,7 @@ public class Scoreboard : MonoBehaviour
         if (!scoreAdded && savedScores.highscores.Count < maxScoreboardEntries)
         {
             savedScores.highscores.Add(scoreboardEntryData);
+            PlayerPrefs.SetInt("PositionAdded", savedScores.highscores.Count - 1);
         }
         if (savedScores.highscores.Count > maxScoreboardEntries)
         {
