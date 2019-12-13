@@ -46,7 +46,6 @@ public class ChainLightning : ProjectileInstance
     {
         hitParticles = BowoniaPool.instance.GetFromPool(PoolObject.LIGHTNING_IMPACT);
         hitParticles.transform.position = transform.position;
-
         if (impactSound != null && Player.instance.GetSettings().UseSFX)
         {
             source.clip = impactSound;
@@ -59,9 +58,9 @@ public class ChainLightning : ProjectileInstance
     {
         State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
         state.TakeDamage(damage, maginitude);
-        CreateParticles();
         Material.SetColor("_EmissionColor", EmissionColor * Intensity);
-
+        CreateParticles();
+        Debug.Log("run?");
         Player.instance.gameObject.AddComponent<LineRenderer>();
         for (int i = 0; i < particlesystem.Length; i++)
         {
@@ -199,7 +198,12 @@ public class ChainLightning : ProjectileInstance
         yield return new WaitForSeconds(KillTime);
         ClearColliders();
         enemiesInRange.Clear();
+        if (hitParticles)
+        {
+
         BowoniaPool.instance.AddToPool(PoolObject.LIGHTNING_IMPACT, hitParticles);
+            hitParticles = null;
+        }
         BowoniaPool.instance.AddToPool(PoolObject.LIGHTNING, gameObject);
 
     }

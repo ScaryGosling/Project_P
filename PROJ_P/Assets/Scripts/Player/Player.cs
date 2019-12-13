@@ -33,6 +33,9 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject deathPanel;
     private Coroutine[] cooldowns;
     private Image[] attackUISpotBG = new Image[4];
+    private Color32 disabledAttackColor = new Color32(255, 255, 255, 68);
+    Image[] icons = new Image[4];
+
 
     [Header("Attributes")]
     [SerializeField] private Image health;
@@ -68,8 +71,8 @@ public class Player : MonoBehaviour
     public EliasSetLevel setLevel;
     public EliasPlayStinger playStinger;
 
-    public int MaxHealthPotionsProp { get; private set; } 
-    public int MaxResourcePotionsProp { get; private set; } 
+    public int MaxHealthPotionsProp { get; private set; }
+    public int MaxResourcePotionsProp { get; private set; }
 
     public Resource Resource { get; private set; }
     public PlayerClass playerClass;
@@ -169,7 +172,7 @@ public class Player : MonoBehaviour
             resourcePotions = value;
             if (resourcePotionsText != null)
             {
-                resourcePotionsText.text = resourcePotions +"/" +MaxResourcePotionsProp;
+                resourcePotionsText.text = resourcePotions + "/" + MaxResourcePotionsProp;
             }
         }
     }
@@ -224,10 +227,10 @@ public class Player : MonoBehaviour
                     {
                         heartbeatSource.Stop();
                     }
-                    bloodVignette.RunFlash(1 - tempHP/50);
+                    bloodVignette.RunFlash(1 - tempHP / 50);
                 }
 
-                if(tempHP > 25)
+                if (tempHP > 25)
                 {
                     bloodVignette.StartCoroutine(bloodVignette.EndFlash());
                 }
@@ -238,7 +241,7 @@ public class Player : MonoBehaviour
 
                 Debug.Log("You got damaged");
             }
-    
+
         }
     }
 
@@ -402,12 +405,17 @@ public class Player : MonoBehaviour
         ResourcePotionsProp = resourcePotionsStart;
         Cursor.SetCursor(PlayerCursor, Vector2.zero, CursorMode.Auto);
         UpdateIcons();
-        for(int i = 0; i < attackUISpot.Length; i++)
+        for (int i = 0; i < attackUISpot.Length; i++)
         {
             attackUISpotBG[i] = attackUISpot[i].transform.parent.GetComponent<Image>();
         }
 
         baseColor = playerRenderer.material.GetColor("_BaseColor");
+
+        for (int i = 0; i < icons.Length; i++)
+        {
+            icons[i] = attackUISpotBG[i].transform.GetChild(0).GetComponent<Image>();
+        }
         PlayerPrefs.SetInt("Score", 0);
     }
 
@@ -515,17 +523,28 @@ public class Player : MonoBehaviour
 
     public void UseAbilityCheck()
     {
+
         for (int i = 0; i < activeAttacks.list.Length; i++)
         {
 
             if (activeAttacks.list[i] != null && activeAttacks.list[i].GetCastCost() / 100 <= Resource.Value)
             {
                 attackUISpotBG[i].color = Color.white;
+                icons[i].color = Color.white;
             }
             else
             {
-                attackUISpotBG[i].color = new Color32(255, 255, 255, 68);
+                if (activeAttacks.list[i] == null)
+                {
+                    icons[i].color = new Color32(0, 0, 0, 0);
+                }
+                else
+                {
+                    icons[i].color = disabledAttackColor;
+                }
+                attackUISpotBG[i].color = disabledAttackColor;
             }
+
         }
     }
     private GameObject healthParticles;
@@ -566,6 +585,7 @@ public class Player : MonoBehaviour
     Image[] attack = new Image[4];
     private IEnumerator ShowCooldown(int position)
     {
+
         float animationTime;
         float cooldownTime;
         attack[position] = attackUISpot[position];
@@ -625,14 +645,14 @@ public class Player : MonoBehaviour
 
         if (attack.cooldownActive)
         {
-            if(!holding && attack.GetCooldown() > 1)
+            if (!holding && attack.GetCooldown() > 1)
                 Prompt.instance.RunMessage(attack.GetAbilityName() + " is on cooldown", MessageType.WARNING);
             yield break;
         }
 
         if (Resource.Value < attack.GetCastCost() / 100)
         {
-            if(!holding)
+            if (!holding)
                 Prompt.instance.RunMessage("Not enough " + Resource.name, MessageType.WARNING);
             yield break;
         }
@@ -665,8 +685,8 @@ public class Player : MonoBehaviour
         if (attack == activeAttacks.list[0]) { holding = true; }
 
 
-        
-        
+
+
         AnimationTrigger("Melee");
         attack.OnEquip();
         attack.Execute();
