@@ -160,6 +160,7 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: 19e3b947989fd2a4cb8497586f51e4ba, type: 3}
   attackSound: {fileID: 0}
   selfCollision: 0
+  enemyType: 2
   moveSpeed: 4
   baseHeath: 27
   baseAttack: 3

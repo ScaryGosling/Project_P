@@ -84,6 +84,7 @@ public class BowoniaPool : MonoBehaviour
 
     public void AddToPool(PoolObject poolObject, GameObject instanceToAdd)
     {
+        Debug.Log(instanceToAdd.GetInstanceID());
         instanceToAdd.SetActive(false);
         poolDictionary[poolObject].Enqueue(instanceToAdd);
     }

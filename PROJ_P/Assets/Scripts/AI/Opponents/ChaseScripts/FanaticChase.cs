@@ -18,6 +18,7 @@ public class FanaticChase : ChaseBase
     public override void EnterState()
     {
         base.EnterState();
+       
     }
     public override void ExitState()
     {

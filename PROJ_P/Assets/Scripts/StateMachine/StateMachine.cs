@@ -31,6 +31,14 @@ public class StateMachine : MonoBehaviour
         currentState = stateDictionary[typeof(T)];
         currentState.EnterState();
     }
+
+    public void ChangeState(int index)
+    {
+        currentState.ExitState();
+        currentState = states[index];
+        currentState.EnterState();
+    }
+
     protected virtual void Update()
     {
         if (Time.timeScale == 0)

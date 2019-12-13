@@ -35,6 +35,8 @@ public class Unit : StateMachine
     [SerializeField] private bool selfCollision = false;
     public bool getSelfCollision { get { return selfCollision; } }
   
+    private enum EnemyType { FANATIC, ZOOMER, BOOMER}
+    [SerializeField] private EnemyType enemyType;
 
 
 
@@ -151,8 +153,10 @@ public class Unit : StateMachine
     }
     private void OnEnable()
     {
+
         if (capsuleCollider )
         {
+            SetDefaultState();
             AliveProp = true;
             capsuleCollider.enabled = true;
             ImprovePower();
@@ -170,6 +174,31 @@ public class Unit : StateMachine
             ui.gameObject.SetActive(true);
         }
     }
+
+    public void SetDefaultState()
+    {
+        switch (enemyType)
+        {
+
+            case EnemyType.FANATIC:
+                ChangeState<FanaticChase>();
+                break;
+
+            case EnemyType.ZOOMER:
+                ChangeState<RusherChase>();
+                break;
+
+            case EnemyType.BOOMER:
+                ChangeState<BoomerChase>();
+                break;
+
+            default:
+                break;
+
+        }
+
+    }
+
     private void OnDisable()
     {
         EnemyPointer.instance.RemoveFromList(this);

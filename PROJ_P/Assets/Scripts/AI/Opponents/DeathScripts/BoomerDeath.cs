@@ -46,7 +46,7 @@ public class BoomerDeath : DeathBase
     }
     protected override void RemoveObject()
     {
-        owner.ChangeState<BoomerChase>();
+        //owner.ChangeState<BoomerChase>();
         BowoniaPool.instance.AddToPool(PoolObject.BOOMER, owner.gameObject);
     }
     protected void Explode()
