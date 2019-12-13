@@ -48,10 +48,7 @@ public class ChaseBase : AliveBase
 
         distanceToTarget = Vector3.Distance(owner.transform.position, owner.target.transform.position);
         owner.agent.SetDestination(owner.target.transform.position);
-        if (owner.target.transform.parent != null)
-            owner.transform.LookAt(owner.target.transform.parent.transform.position + new Vector3(0, owner.capsuleCollider.radius, 0));
-        else
-            owner.transform.LookAt(owner.target.transform.position + new Vector3(0, owner.capsuleCollider.radius, 0));
+        owner.transform.LookAt(owner.target.transform.position + new Vector3(0, owner.capsuleCollider.radius, 0));
     }
 
 
