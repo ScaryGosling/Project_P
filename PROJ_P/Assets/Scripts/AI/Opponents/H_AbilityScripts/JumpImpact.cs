@@ -146,7 +146,7 @@ public class JumpImpact : AbilityBase
     private void TestGoal()
     {
         CastDown();
-        Debug.Log(distance);
+
         if (distance <= 2f)
         {
             agentSpeed = owner.agent.speed;

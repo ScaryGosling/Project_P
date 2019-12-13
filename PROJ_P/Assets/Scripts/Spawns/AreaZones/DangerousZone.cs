@@ -43,8 +43,11 @@ public class DangerousZone : MonoBehaviour
     public virtual void EngageArea()
     {
         capsuleCollider.enabled = true;
+
         if(playerInRange)
+        {
             DealDamage();
+        }
         source.clip = explosion;
         source.Play();
         DestroyZone();

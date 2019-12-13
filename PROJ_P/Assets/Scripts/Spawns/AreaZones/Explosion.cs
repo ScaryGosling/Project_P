@@ -59,7 +59,6 @@ public class Explosion : DangerousZone
         else
         {
             EngageArea();
-            rotationProp = false;
             //Set Animation Here
         }
     }
