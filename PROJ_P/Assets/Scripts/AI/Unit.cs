@@ -35,7 +35,7 @@ public class Unit : StateMachine
     [SerializeField] private bool selfCollision = false;
     public bool getSelfCollision { get { return selfCollision; } }
   
-    private enum EnemyType { FANATIC, ZOOMER, BOOMER}
+    private enum EnemyType { FANATIC, ZOOMER, BOOMER, BOSS}
     [SerializeField] private EnemyType enemyType;
 
 
@@ -191,7 +191,9 @@ public class Unit : StateMachine
             case EnemyType.BOOMER:
                 ChangeState<BoomerChase>();
                 break;
-
+            case EnemyType.BOSS:
+                ChangeState<BossChase>();
+                break;
             default:
                 break;
 
