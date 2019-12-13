@@ -156,6 +156,7 @@ public class Unit : StateMachine
 
         if (capsuleCollider )
         {
+            agent.enabled = true;
             SetDefaultState();
             AliveProp = true;
             capsuleCollider.enabled = true;

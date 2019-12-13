@@ -32,12 +32,6 @@ public class StateMachine : MonoBehaviour
         currentState.EnterState();
     }
 
-    public void ChangeState(int index)
-    {
-        currentState.ExitState();
-        currentState = states[index];
-        currentState.EnterState();
-    }
 
     protected virtual void Update()
     {

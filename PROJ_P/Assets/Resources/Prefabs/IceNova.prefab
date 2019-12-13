@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 2795392864775147760}
   - component: {fileID: 7099357337578404067}
   - component: {fileID: 1157331799362878402}
-  - component: {fileID: 674997071068612842}
-  - component: {fileID: 7548804651741383844}
   m_Layer: 0
   m_Name: IceNova
   m_TagString: Untagged
@@ -31,7 +29,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 0.5, z: 5}
   m_Children:
-  - {fileID: 8949133092043984094}
+  - {fileID: 8949133092044329120}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -81,31 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &674997071068612842
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8285795376816536506}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7548804651741383844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8285795376816536506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0afe607f4110444a8a915c099f03696b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8949133092044324894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -183,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 313e5c5f850e5be429d4a6787a725f73, type: 3}
---- !u!4 &8949133092043984094 stripped
+--- !u!4 &8949133092044329120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 478400, guid: 313e5c5f850e5be429d4a6787a725f73,
     type: 3}

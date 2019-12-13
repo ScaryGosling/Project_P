@@ -90,14 +90,18 @@ public class JumpImpact : AbilityBase
 
         distance = Vector3.Distance(owner.transform.position, playerPositionalDelay);
 
-        owner.agent.SetDestination(playerPositionalDelay);
-
-
-        if (mesh.transform.position.y < owner.transform.position.y + owner.agent.height/2)
+        if (owner.agent != null && owner.agent.enabled)
         {
-            mesh.transform.position = new Vector3(owner.transform.position.x, mesh.transform.position.y + Time.deltaTime*upwardsSpeed, owner.transform.position.z);
+            owner.agent.SetDestination(playerPositionalDelay);
+            if (mesh.transform.position.y < owner.transform.position.y + owner.agent.height / 2)
+            {
+                mesh.transform.position = new Vector3(owner.transform.position.x, mesh.transform.position.y + Time.deltaTime * upwardsSpeed, owner.transform.position.z);
+
+            }
 
         }
+
+
     }
 
     public void StartJump()
@@ -115,7 +119,8 @@ public class JumpImpact : AbilityBase
         distance = Vector3.Distance(owner.transform.position, playerPositionalDelay);
 
         distance = Vector3.Distance(new Vector3(owner.transform.position.x, 0, owner.transform.position.z), new Vector3(playerPositionalDelay.x, 0, playerPositionalDelay.z));
-        owner.agent.SetDestination(playerPositionalDelay);
+        if(owner.agent != null && owner.agent.enabled)
+            owner.agent.SetDestination(playerPositionalDelay);
     }
     private void EndJump()
     {

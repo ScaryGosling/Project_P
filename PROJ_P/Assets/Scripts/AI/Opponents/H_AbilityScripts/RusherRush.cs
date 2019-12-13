@@ -88,7 +88,10 @@ public class RusherRush : AbilityBase
     private void Rush()
     {
         direction = player.transform.position - owner.transform.position;
-        owner.agent.Move(owner.agent.transform.forward * Time.deltaTime * rushSpeed);
+        if(owner.agent != null && owner.agent.enabled)
+        {
+            owner.agent.Move(owner.agent.transform.forward * Time.deltaTime * rushSpeed);
+        }
         lookAt = Quaternion.LookRotation(direction);
         owner.agent.transform.rotation = Quaternion.Slerp(owner.agent.transform.rotation, lookAt, Time.deltaTime * rushSpeed / 12f);
 
