@@ -26,7 +26,6 @@ public class BloodVignette : MonoBehaviour
 
         if (flash != null)
             StopCoroutine(flash);
-        Debug.Log("Flash stopped");
         while (image.color.a > 0)
         {
             image.color -= new Color(1, 0, 0, 0.1f);

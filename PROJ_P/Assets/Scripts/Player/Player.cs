@@ -89,7 +89,8 @@ public class Player : MonoBehaviour
 
 
     [Header("Flash")]
-    public Renderer playerRenderer;
+    [HideInInspector] public Renderer playerRenderer;
+    [SerializeField] private Renderer mysticRenderer, fighterRenderer;
     [SerializeField] private Color flashColor;
     private Color baseColor;
     private Coroutine hitFlash;
@@ -310,6 +311,7 @@ public class Player : MonoBehaviour
                 classModels[1].SetActive(false);
                 animator = classModels[0].GetComponent<Animator>();
                 PlayerCursor = fighterCursor;
+                playerRenderer = fighterRenderer;
                 break;
 
             case PlayerClass.WIZARD:
@@ -320,6 +322,7 @@ public class Player : MonoBehaviour
                 classModels[1].SetActive(true);
                 animator = classModels[1].GetComponent<Animator>();
                 weapon.SetActive(false);
+                playerRenderer = mysticRenderer;
                 break;
 
             default:

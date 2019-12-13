@@ -5,13 +5,18 @@ using UnityEngine;
 public class ShopWindowFade : MonoBehaviour
 {
     [SerializeField] private GameObject fade;
-    void Start()
+    void OnEnable()
     {
 
         AbilityUpgrade.FadeOnDrag += ToggleFade;
     }
+    private void OnDisable()
+    {
+        AbilityUpgrade.FadeOnDrag -= ToggleFade;
+    }
     private void ToggleFade(bool toggle)
     {
+
        fade.gameObject.SetActive(toggle);
     }
 }
