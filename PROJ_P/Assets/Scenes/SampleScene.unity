@@ -29881,8 +29881,8 @@ Transform:
   - {fileID: 73310749}
   - {fileID: 1337683937}
   - {fileID: 945835043}
-  - {fileID: 856375024}
   - {fileID: 117445557}
+  - {fileID: 856375024}
   m_Father: {fileID: 6405923672872734452}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51220,6 +51220,11 @@ PrefabInstance:
     - target: {fileID: 6824329322656696317, guid: 91abfae47a9360844aec4efdd8350135,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874606986926856212, guid: 91abfae47a9360844aec4efdd8350135,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -93272,6 +93277,11 @@ PrefabInstance:
       propertyPath: hotkeyTexts.Array.data[5]
       value: 
       objectReference: {fileID: 147270494}
+    - target: {fileID: 5631260136996809081, guid: 2bc5c9f3f422bf940987564bfe1d64a8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bc5c9f3f422bf940987564bfe1d64a8, type: 3}
 --- !u!114 &4738550532901967004 stripped

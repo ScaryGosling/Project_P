@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(AudioSource))]
 public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler, IEndDragHandler, IBeginDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private Image abilityImage;
     [SerializeField] private Text abilityName;
-    [SerializeField] private Text nextUpgradeCost;
+    [SerializeField] private TextMeshProUGUI nextUpgradeCost;
     private int currentAbilityLevel;
     [SerializeField] private Text currentAbilityLevelText;
     [SerializeField] private PlayerAttack ability;
