@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b909bf371013842c59995b41a7144be8, type: 3}
   m_Name: Mystic
   m_EditorClassIdentifier: 
-  classIcon: {fileID: 21300000, guid: 9185347437acf80418f9522c6ba90129, type: 3}
+  classIcon: {fileID: 21300000, guid: 10e5a5eaa55c8454cb89f481acb8fc91, type: 3}
   description: Mystics are artist of magic. They control the battlefield from afar
     with devestating ranged spells while also outmaneuvering their enemies with freezing
     blasts and teleports. The mystic use mana, a finite resource that fuel all of

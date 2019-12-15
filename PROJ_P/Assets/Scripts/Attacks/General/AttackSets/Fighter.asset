@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b909bf371013842c59995b41a7144be8, type: 3}
   m_Name: Fighter
   m_EditorClassIdentifier: 
-  classIcon: {fileID: 21300000, guid: 1dbc079c01a8549918885a6461d10dfd, type: 3}
-  description: Fighters are skilled warriors that excel in melee! They employ a variety
+  classIcon: {fileID: 21300000, guid: 72218322ea9e5ee4496dab3f4373be38, type: 3}
+  description: 'Fighters are skilled warriors that excel in melee! They employ a variety
     of offensive and defensive skills to trample over their enemies while absorbing
     damage through shields and healing strikes. They use rage to fuel their abilities,
-    which is gained by attacking the enemy. Rage will decay after a short time. They
-    also have durability on their weapons, each basic attack will drain durability.
-    Upon reaching zero durability, the weapon will break and the fighter will receive
-    a big damage penalty on all of their attacks. Repairkits in the shop and pickups
-    on the map restore durability.
+    which is gained by attacking the enemy. Rage will decay after a short time. Rage
+    may also be gained through consuming potions form the store or from pickups on
+    the map. '
   playerClass: 1
   list:
   - {fileID: 11400000, guid: df0fef06b66a446f8b8819c026cfab16, type: 2}
