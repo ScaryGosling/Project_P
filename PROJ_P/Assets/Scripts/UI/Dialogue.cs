@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// To use this class, please set panels gameObject to active and call the "InitText" function.
@@ -26,6 +27,7 @@ public class Dialogue : MonoBehaviour
     string[] testMessages = { "HI", "BYE", "YOU STILL HERE?", "OK BOOMER" };
 
     [SerializeField] private Text text;
+    [SerializeField] private Image image;
     private float lifeTime = 0;
     private Image[] images;
     private string[] messages;
@@ -37,7 +39,8 @@ public class Dialogue : MonoBehaviour
 
     public void Start()
     {
-        player = Player.instance;
+        if (DialogueProp != DialogueType.TUTORIAL)
+            player = Player.instance;
     }
     private void Awake()
     {
@@ -46,8 +49,14 @@ public class Dialogue : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(player.GetSettings().GetBind(KeyFeature.DIALOGUE)) && dialogueActive)
+        if (player)
+        {
+            if ((Input.GetKeyDown(player.GetSettings().GetBind(KeyFeature.DIALOGUE)) && dialogueActive && player))
+                Next();
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
             Next();
+
     }
 
     /// <summary>
@@ -57,6 +66,8 @@ public class Dialogue : MonoBehaviour
     {
         text.text = dialogueField;
         PlayNextMessage();
+        if (DialogueProp == DialogueType.TUTORIAL)
+            return;
         DisableWithDelay();
     }
 
@@ -68,8 +79,9 @@ public class Dialogue : MonoBehaviour
     {
         if (dialogue.messages != null)
         {
-            this.messages = dialogue.messages;
 
+            this.messages = dialogue.messages;
+            this.images = dialogue.imges;
             n = 0;
             dialogueActive = true;
 
@@ -96,9 +108,9 @@ public class Dialogue : MonoBehaviour
 
     }
 
+
     private void PlayNextMessage()
     {
-
         if (dialogueEffect)
         {
             dialogueEffect.SetDialogue(text, messages[n]);
@@ -115,6 +127,7 @@ public class Dialogue : MonoBehaviour
     /// </summary>
     private void DisableWithDelay()
     {
+
         time = lifeTime;
         if (timer == null)
         {
@@ -140,7 +153,10 @@ public class Dialogue : MonoBehaviour
     private void TerminateDialogue()
     {
         ResetDialogue();
-        gameObject.SetActive(false);
+        if (DialogueProp != DialogueType.TUTORIAL)
+            gameObject.SetActive(false);
+        else
+            SceneManager.LoadScene("SampleScene");
     }
 
 
@@ -170,10 +186,10 @@ public struct DialogueData
 //    messages = expositionMessages[IndexProp].messages;
 //else
 //    messages = tutorialSnippets[IndexProp].messages;
-    //private void DeveloperKey()
-    //{
-    //    DialogueData textSystem = new DialogueData();
-    //    textSystem.messages = testMessages;
-    //    InitializeTextProtocol(new DialogueData());
-    //}
+//private void DeveloperKey()
+//{
+//    DialogueData textSystem = new DialogueData();
+//    textSystem.messages = testMessages;
+//    InitializeTextProtocol(new DialogueData());
+//}
 #endregion

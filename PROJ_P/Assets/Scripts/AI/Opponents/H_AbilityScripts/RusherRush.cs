@@ -8,7 +8,7 @@ public class RusherRush : AbilityBase
 {
     private Vector3 direction;
     private Player player;
-    private float rushSpeed = 12f, standardAngularSpeed, impactDamage = 25f;
+    [SerializeField] private float rushSpeed = 12f, standardAngularSpeed, impactDamage = 25f;
     private GameObject rushTimer, rusherEndTimer;
     private bool rushing = false;
     private Vector3 targetPosition;
