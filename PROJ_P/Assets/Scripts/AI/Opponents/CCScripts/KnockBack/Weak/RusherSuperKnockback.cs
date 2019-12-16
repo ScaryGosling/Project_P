@@ -40,7 +40,7 @@ public class RusherSuperKnockback : CCBase
         if (owner.agent.enabled)
             owner.agent.ResetPath();
 
-        owner.transform.GetChild(2).transform.LookAt(Player.instance.gameObject.transform.position);
+        //owner.transform.GetChild(2).transform.LookAt(Player.instance.gameObject.transform.position);
 
         movement = direction * speed * Time.deltaTime;
         owner.agent.Move(movement);
