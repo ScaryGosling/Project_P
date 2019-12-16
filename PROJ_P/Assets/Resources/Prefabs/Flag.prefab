@@ -336,6 +336,11 @@ PrefabInstance:
       propertyPath: m_RandomAcceleration.z
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5530802212826048480, guid: da2c6f0487e3224439eb411f698ae1b3,
+        type: 3}
+      propertyPath: m_Name
+      value: Plane
+      objectReference: {fileID: 0}
     - target: {fileID: 5530802212826048495, guid: da2c6f0487e3224439eb411f698ae1b3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -395,11 +400,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5530802212826048480, guid: da2c6f0487e3224439eb411f698ae1b3,
-        type: 3}
-      propertyPath: m_Name
-      value: Plane
       objectReference: {fileID: 0}
     - target: {fileID: 5530802212826048482, guid: da2c6f0487e3224439eb411f698ae1b3,
         type: 3}
