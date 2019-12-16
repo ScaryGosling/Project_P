@@ -39,7 +39,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2161199851372935572}
-  - {fileID: 997030502152506502}
+  - {fileID: 819903640880233585}
   - {fileID: 6635903433707999027}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -163,6 +163,11 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 140035b9781eb03458fcc58d71c97c18, type: 3}
   selfCollision: 1
   enemyType: 1
+  skinColors:
+  - {fileID: 2100000, guid: 7988fdff8be71e34eb3b5a843c0e36dc, type: 2}
+  - {fileID: 2100000, guid: a081918df48064d4999b2cfa30fb72df, type: 2}
+  - {fileID: 2100000, guid: 4e03442932dbf6f458bf51d1a17a9523, type: 2}
+  meshRenderer: {fileID: 1830912173209702407}
   moveSpeed: 7
   baseHeath: 2
   baseAttack: 3
@@ -734,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05a8b0d3bb2bb643a81a8c15ecca80f, type: 3}
---- !u!224 &997030502152506502 stripped
+--- !u!224 &819903640880233585 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
     type: 3}
@@ -843,6 +848,12 @@ Transform:
 --- !u!95 &3647199650347311689 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: c8678109d8eb7f34482f6348d6ec2e54,
+    type: 3}
+  m_PrefabInstance: {fileID: 1832335909457781801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1830912173209702407 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -9221833652794149842, guid: c8678109d8eb7f34482f6348d6ec2e54,
     type: 3}
   m_PrefabInstance: {fileID: 1832335909457781801}
   m_PrefabAsset: {fileID: 0}

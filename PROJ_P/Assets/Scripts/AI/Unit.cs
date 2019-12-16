@@ -40,6 +40,9 @@ public class Unit : StateMachine
     [SerializeField] private EnemyType enemyType;
 
 
+    [SerializeField] private List<Material> skinColors = new List<Material>();
+    [SerializeField] private SkinnedMeshRenderer meshRenderer = null;
+
 
     #region EnemyStats
     [SerializeField] private float moveSpeed;
@@ -164,6 +167,7 @@ public class Unit : StateMachine
             ImprovePower();
             gameObject.transform.localScale = randomScale;
             InitialHealth = currentHealth;
+            RandomSkinColor();
             if (spawnListener.QuestProp != null && spawnListener.QuestProp is ProtectionQuest)
             {
                 ProtectionQuestProp = ((ProtectionQuest)(spawnListener.QuestProp));
@@ -176,6 +180,12 @@ public class Unit : StateMachine
             EnemyPointer.instance.AddToList(this);
             ui.gameObject.SetActive(true);
         }
+    }
+    int randomSkinIndex = 0;
+    private void RandomSkinColor()
+    {
+        randomSkinIndex = Random.Range(0, skinColors.Count);
+        meshRenderer.material = skinColors[randomSkinIndex];
     }
 
     public void SetDefaultState()

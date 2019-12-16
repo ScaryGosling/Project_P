@@ -153,6 +153,13 @@ MonoBehaviour:
   takeDamageClip: {fileID: 8300000, guid: 139470045c673af43b7a95595affdac0, type: 3}
   deathClip: {fileID: 8300000, guid: 66da05baf93d6f143ae98d0a6a1046eb, type: 3}
   attackSound: {fileID: 8300000, guid: 72f1f1c7310b04546a52047f8337640a, type: 3}
+  selfCollision: 0
+  enemyType: 0
+  skinColors:
+  - {fileID: 2100000, guid: 4e0066ca24b3f69478088b1091d114ef, type: 2}
+  - {fileID: 2100000, guid: 00b272a397b581644ab3160a40e00096, type: 2}
+  - {fileID: 2100000, guid: dcf1dd733e537f8489310fa420cdaca9, type: 2}
+  meshRenderer: {fileID: 3293178691545980509}
   moveSpeed: 5
   baseHeath: 3
   baseAttack: 3
@@ -770,6 +777,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
+    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -875,12 +892,7 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+    - target: {fileID: 229645245181345481, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_Layer
       value: 10
@@ -895,17 +907,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 229645245181345481, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+    - target: {fileID: 3409204004401648445, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2920305124391254216, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3409204004401648445, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_Layer
       value: 10
@@ -1061,6 +1068,12 @@ Transform:
 --- !u!95 &1941560144855887986 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 733192b793dcb62479a5f231c84ffc92,
+    type: 3}
+  m_PrefabInstance: {fileID: 3531237332810069522}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &3293178691545980509 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2067927622977202255, guid: 733192b793dcb62479a5f231c84ffc92,
     type: 3}
   m_PrefabInstance: {fileID: 3531237332810069522}
   m_PrefabAsset: {fileID: 0}
