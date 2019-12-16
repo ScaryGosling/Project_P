@@ -190,6 +190,8 @@ public class Unit : StateMachine
                 break;
 
             case EnemyType.BOOMER:
+                transform.localScale = new Vector3(1,1,1);
+                capsuleCollider.enabled = true;
                 ChangeState<BoomerChase>();
                 break;
             case EnemyType.BOSS:

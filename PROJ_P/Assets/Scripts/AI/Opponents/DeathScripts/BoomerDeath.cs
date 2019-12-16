@@ -22,7 +22,8 @@ public class BoomerDeath : DeathBase
     public override void EnterState()
     {
         base.EnterState();
-        animator.SetTrigger("Death");
+        //animator.SetTrigger("Death");
+        owner.capsuleCollider.enabled = false;
         current = explosionDelay;
         Explode();
         //WarningObject.SetActive(true);
@@ -31,6 +32,7 @@ public class BoomerDeath : DeathBase
     public override void ToDo()
     {
         base.ToDo();
+        DeathAnimation();
     }
 
     protected override void DeathAnimation()
@@ -39,11 +41,10 @@ public class BoomerDeath : DeathBase
         owner.transform.localRotation = rotation;
         owner.AliveProp = false;
         currentTimeAnimTime = animationTime;
-        while (currentTimeAnimTime >= 0f)
-        {
-            owner.transform.localScale *= scaleFactor;
-            currentTimeAnimTime -= Time.deltaTime;
-        }
+
+        //owner.transform.localScale = Vector3.Lerp(owner.transform.localScale, targetScale, speed * Time.deltaTime);
+        //owner.transform.localScale += new Vector3(Time.deltaTime, Time.deltaTime, Time.deltaTime);
+    
     }
     //protected override void RemoveObject()
     //{
