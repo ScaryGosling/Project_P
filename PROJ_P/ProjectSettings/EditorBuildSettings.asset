@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ScoreboardScene.unity
     guid: a17e4a660bd192242841629820cbffa2
+  - enabled: 1
+    path: Assets/Scenes/PrologueScene.unity
+    guid: e6cc13a9a1087e14b80c9688a99a8f51
   m_configObjects: {}
