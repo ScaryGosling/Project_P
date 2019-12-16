@@ -8,9 +8,9 @@ public class DangerousZone : MonoBehaviour
     [SerializeField] protected float damage = 25f;
     [SerializeField] protected float destroyAfter = 0.5f;
     public float DestroyProp { get { return destroyAfter; } set { destroyAfter = value; } }
-    protected AudioSource source;
+    [SerializeField]protected AudioSource source;
     protected GameObject player;
-    protected CapsuleCollider capsuleCollider;
+    [SerializeField]protected CapsuleCollider capsuleCollider;
     protected AudioClip fuse, explosion;
     protected float tempTime;
 
@@ -19,8 +19,8 @@ public class DangerousZone : MonoBehaviour
     protected virtual void Start()
     {
         player = Player.instance.gameObject;
-        capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
-        source = gameObject.GetComponent<AudioSource>();
+        //capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
+        //source = gameObject.GetComponent<AudioSource>();
     }
     protected void OnTriggerEnter(Collider other)
     {
@@ -42,6 +42,7 @@ public class DangerousZone : MonoBehaviour
 
     public virtual void EngageArea()
     {
+
         capsuleCollider.enabled = true;
 
         if(playerInRange)

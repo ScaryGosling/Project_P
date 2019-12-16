@@ -179,8 +179,8 @@ public class JumpImpact : AbilityBase
         {
 
             TimeTask(null, ActivateJump, jumpWindupTime);
-
-            warningArea = BowoniaPool.instance.GetFromPool(PoolObject.BOOMER_WARNINGAREA);
+            warningArea = Instantiate(warningAreaPrefab);
+            //warningArea = BowoniaPool.instance.GetFromPool(PoolObject.BOOMER_WARNINGAREA);
             warningArea.transform.position = playerPositionalDelay;
             warningArea.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
         }

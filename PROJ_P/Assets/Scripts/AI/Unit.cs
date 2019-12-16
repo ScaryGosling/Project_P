@@ -209,11 +209,7 @@ public class Unit : StateMachine
     protected override void Update()
     {
         base.Update();
-        if (animator != null)
-        {
-            animator.SetFloat("speed", Vector3.Dot(transform.forward, agent.velocity.normalized));
-            animator.SetFloat("direction", Vector3.Dot(transform.right, agent.velocity.normalized));
-        }
+
         CheckTarget();
     }
 

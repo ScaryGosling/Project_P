@@ -27,16 +27,16 @@ public class BoomerLanding : DangerousZone
     protected override void Start()
     {
         base.Start();
-        tempTime = destroyAfter;
-        destroyAfter = Mathf.Infinity;
+        //tempTime = destroyAfter;
+        //destroyAfter = Mathf.Infinity;
     }
 
 
     public override void DestroyZone()
     {
         base.DestroyZone();
-        destroyAfter = tempTime;
-        BowoniaPool.instance.AddToPool(PoolObject.BOOMER_WARNINGAREA, gameObject, destroyAfter);
+        Destroy(gameObject, destroyAfter) ;
+        //BowoniaPool.instance.AddToPool(PoolObject.BOOMER_WARNINGAREA, gameObject, destroyAfter);
     }
 
     public override void EngageArea()

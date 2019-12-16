@@ -220,5 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   destroyAfter: 0.5
+  source: {fileID: 4995285211329156950}
+  capsuleCollider: {fileID: 7621899899344703717}
   animSpeed: 1.5
   explosionRadius: 2
