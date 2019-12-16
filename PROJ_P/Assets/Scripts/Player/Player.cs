@@ -99,6 +99,10 @@ public class Player : MonoBehaviour
     private Coroutine hitFlash;
     [SerializeField] private BloodVignette bloodVignette;
 
+    [SerializeField] private TackleBox tackleCollider;
+
+
+    public TackleBox TackleCollider() { return tackleCollider; }
 
     public Settings GetSettings() { return settings; }
 
@@ -716,16 +720,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public bool dealDamageOnCollision { get; set; }
     public float damage { get; set; }
     public float magnitude { get; set; }
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (dealDamageOnCollision && collision.collider.CompareTag("Enemy"))
-        {
-            collision.collider.GetComponent<Unit>().currentState.TakeDamage(damage, magnitude);
-        }
-    }
+
 
 
 

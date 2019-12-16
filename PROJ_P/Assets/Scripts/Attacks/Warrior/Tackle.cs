@@ -30,7 +30,7 @@ public class Tackle : PlayerAttack
             ps.Play();
         }
 
-        player.dealDamageOnCollision = true;
+        player.TackleCollider().DealDamageOnCollision = true;
         player.damage = damage;
         player.magnitude = magnitude;
 
@@ -84,7 +84,7 @@ public class Tackle : PlayerAttack
         agent.stoppingDistance = 0;
         player.activeStats.resistanceMultiplier = 1;
         agent.GetComponent<PlayerMovement>().enabled = true;
-        player.dealDamageOnCollision = false;
+        player.TackleCollider().DealDamageOnCollision = false;
 
     }
 }
