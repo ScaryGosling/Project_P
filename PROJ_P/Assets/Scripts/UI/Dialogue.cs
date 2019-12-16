@@ -70,7 +70,7 @@ public class Dialogue : MonoBehaviour
     {
         text.text = dialogueField;
         PlayNextMessage();
-        if (sprites[n])
+        if (sprites != null && sprites.Length >0)
             image.sprite = sprites[n];
 
         if (DialogueProp == DialogueType.TUTORIAL)

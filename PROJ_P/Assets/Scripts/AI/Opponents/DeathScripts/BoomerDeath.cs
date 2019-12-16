@@ -42,9 +42,9 @@ public class BoomerDeath : DeathBase
         owner.AliveProp = false;
         currentTimeAnimTime = animationTime;
 
-        //owner.transform.localScale = Vector3.Lerp(owner.transform.localScale, targetScale, speed * Time.deltaTime);
+        owner.transform.localScale = Vector3.Lerp(owner.transform.localScale, Vector3.one * 2,  Time.deltaTime);
         //owner.transform.localScale += new Vector3(Time.deltaTime, Time.deltaTime, Time.deltaTime);
-    
+
     }
     //protected override void RemoveObject()
     //{

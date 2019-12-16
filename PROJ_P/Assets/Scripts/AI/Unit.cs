@@ -34,7 +34,8 @@ public class Unit : StateMachine
     public Threat threat { get; private set; }
     [SerializeField] private bool selfCollision = false;
     public bool getSelfCollision { get { return selfCollision; } }
-  
+
+    private Vector3 randomScale;
     private enum EnemyType { FANATIC, ZOOMER, BOOMER, BOSS}
     [SerializeField] private EnemyType enemyType;
 
@@ -161,6 +162,7 @@ public class Unit : StateMachine
             AliveProp = true;
             capsuleCollider.enabled = true;
             ImprovePower();
+            gameObject.transform.localScale = randomScale;
             InitialHealth = currentHealth;
             if (spawnListener.QuestProp != null && spawnListener.QuestProp is ProtectionQuest)
             {
@@ -190,7 +192,6 @@ public class Unit : StateMachine
                 break;
 
             case EnemyType.BOOMER:
-                transform.localScale = new Vector3(1,1,1);
                 capsuleCollider.enabled = true;
                 ChangeState<BoomerChase>();
                 break;
@@ -229,6 +230,7 @@ public class Unit : StateMachine
     public void Randomize()
     {
         gameObject.transform.localScale *= Random.Range(minSize, maxSize);
+        randomScale = gameObject.transform.localScale;
         SpeedProp *= Random.Range(minSpeed, maxSpeed);
     }
 }
