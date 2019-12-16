@@ -198,12 +198,12 @@ public class GameLoop : MonoBehaviour
             if (Random.Range(0, 99) < questChance)
             {
                 QuestProp = questHandler.GetRandomQuest();
-                QuestProp.QuestDialogue();
                 if (QuestProp is ProtectionQuest)
                 {
                     QuestProp.StartQuest();
 
                 }
+                QuestProp.QuestDialogue();
             }
             else
             {
