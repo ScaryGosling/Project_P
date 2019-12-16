@@ -84,7 +84,7 @@ public class SceneHandler : MonoBehaviour
                 pauseCoroutine = StartCoroutine(CheckRestore());
                 Time.timeScale = 0;
                 mainMenuPrompt.SetActive(true);
-            } else if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("OptionsMenu") || SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ClassChooserScene"))
+            } else if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("OptionsMenu") || SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ClassChooserScene") || SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ScoreboardScene"))
             {
                 GoToScene("MainMenu");
             }
