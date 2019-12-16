@@ -9,13 +9,14 @@ public class LifeLeech : PlayerAttack
     [Header("Ability Specific")]
     [SerializeField] private AnimationClip forwardSlash;
     [SerializeField] private AnimationClip backSlash;
-    [SerializeField] private int iterations = 20;
-    [SerializeField] private float iterationTime = 0.3f;
-    private float regenerationValue = 1;
+    [SerializeField] private int iterations = 5;
+    [SerializeField] private float regenerationValue = 1;
+    [SerializeField] private float duration = 1;
     private Animation animation;
     private Sword sword;
     [SerializeField] private List<float> regenerationPerLevel = new List<float>();
     private GameObject leechParticles;
+    private Timer timer;
 
     public override void OnEnable()
     {
@@ -34,47 +35,23 @@ public class LifeLeech : PlayerAttack
     public override void RunAttack()
     {
         sword.GetComponent<Collider>().enabled = true;
-        animation = sword.GetComponent<Animation>();
-
-        if (animation.IsPlaying(forwardSlash.name))
-        {
-            animation.AddClip(backSlash, backSlash.name);
-            animation.Play(backSlash.name);
-        }
-        else
-        {
-            animation.AddClip(forwardSlash, forwardSlash.name);
-            animation.Play(forwardSlash.name);
-        }
-
-        leechParticles = BowoniaPool.instance.GetFromPool(PoolObject.BLINK_PARTICLE);
-        Timer timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
-        timer.RunCountDown(forwardSlash.length, ResetSword, Timer.TimerType.DELAY);
+        
     }
 
     public override void OnEquip()
     {
         base.OnEquip();
         sword = player.weapon.GetComponent<Sword>();
-        sword.CacheComponents(damage, magnitude, this, null, StealLife());
+        sword.ActivateLifeLeech(iterations, regenerationValue);
+        timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>();
+        timer.RunCountDown(duration, ResetSword, Timer.TimerType.DELAY);
     }
 
-    public IEnumerator StealLife()
-    {
-        Particle instantiatedParticle = Instantiate(particles, player.transform.position, Quaternion.identity, player.transform).GetComponent<Particle>();
-        instantiatedParticle.disableTime = iterationTime * iterations;
-        
-        for (int i = 0; i < iterations; i++)
-        {
-            yield return new WaitForSeconds(iterationTime);
-            player.HealthProp = regenerationValue;
-        }
-    }
 
     public void ResetSword()
     {
-        BowoniaPool.instance.AddToPool(PoolObject.LIFE_LEECH, leechParticles);
-        sword.GetComponent<Collider>().enabled = false;
+        sword.DeactivateLifeleech();
+        BowoniaPool.instance.AddToPool(PoolObject.TIMER, timer.gameObject);
     }
 
 

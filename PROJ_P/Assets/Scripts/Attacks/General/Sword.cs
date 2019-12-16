@@ -11,7 +11,11 @@ public class Sword : MonoBehaviour
     private PlayerAttack hack;
     private AudioSource source;
     [SerializeField] private AudioClip impactSound;
-    [SerializeField] private ParticleSystem particles;
+
+    [SerializeField] private GameObject particles;
+    [SerializeField] private GameObject lifeLeechparticles;
+
+
     [SerializeField] private float comboMultiplier;
     [SerializeField] private float comboTime;
     private Action methodToRun;
@@ -19,6 +23,24 @@ public class Sword : MonoBehaviour
     private int combo = -1;
     private Coroutine comboCoroutine;
     private bool resourceDrained;
+    private GameObject particlesInUse;
+    private int lifeleechIterations;
+    private float lifeleechRegen;
+
+    public void Start()
+    {
+        particlesInUse = particles;
+    }
+
+    public void ActivateLifeLeech(int iterations, float regen)
+    {
+        particles.SetActive(false);
+        particlesInUse = lifeLeechparticles;
+        lifeleechIterations = iterations;
+        lifeleechRegen = regen;
+        particlesInUse.SetActive(true);
+    }
+
 
     public void CacheComponents(float damage,float magnitude, PlayerAttack hack, Action methodToRun = null, IEnumerator coroutineToRun = null)
     {
@@ -35,9 +57,9 @@ public class Sword : MonoBehaviour
     public void ToggleParticles(bool toggle)
     {
         if (toggle)
-            particles.Play();
+            particlesInUse.SetActive(true);
         else
-            particles.Stop();
+            particlesInUse.SetActive(false);
     }
 
     public void ResetDrained()
@@ -98,7 +120,25 @@ public class Sword : MonoBehaviour
                 coroutineToRun = null;
             }
 
+
+            if(lifeleechIterations > 0)
+            {
+                Player.instance.HealthProp = lifeleechRegen;
+                lifeleechIterations--;
+            }
+            else
+            {
+                DeactivateLifeleech();
+            }
+
         }
+    }
+
+    public void DeactivateLifeleech()
+    {
+        lifeleechIterations = 0;
+        lifeLeechparticles.SetActive(false);
+        particlesInUse = particles;
     }
 
 

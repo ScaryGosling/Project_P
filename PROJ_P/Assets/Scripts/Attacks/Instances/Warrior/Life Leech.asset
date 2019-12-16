@@ -47,12 +47,13 @@ MonoBehaviour:
   speedMultiplier: 0
   forwardSlash: {fileID: 7400000, guid: dde732b3854ff43e8a66dab8b5e55b3b, type: 2}
   backSlash: {fileID: 7400000, guid: 59e49ee34617b1b4dafb8b1b953e563a, type: 2}
-  iterations: 20
-  iterationTime: 0.3
+  iterations: 5
+  regenerationValue: 1
+  duration: 8
   regenerationPerLevel:
-  - 1
-  - 1.2
-  - 1.4
-  - 1.6
-  - 1.8
-  - 2
+  - 5
+  - 10
+  - 15
+  - 17.5
+  - 20
+  - 22
