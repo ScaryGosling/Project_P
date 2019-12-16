@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.3137255, g: 0, b: 0.02745098, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -192,7 +192,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 1.19
   m_Text: This is some hecking text. This is some hecking text. This is some hecking
     text. This is some hecking text. This is some hecking text. This is some hecking
     text. This is some hecking text. This is some hecking text. This is some hecking
@@ -229,7 +229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timePerQuestion: 10
   text: {fileID: 59129250}
-  image: {fileID: 0}
+  image: {fileID: 1420095516}
+  spaceToContinue: {fileID: 966549953}
 --- !u!114 &59129253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +244,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData:
-    imges: []
+    sprites:
+    - {fileID: 21300000, guid: 8cfb5727991c2644da49d9b8e642f2bc, type: 3}
+    - {fileID: 21300000, guid: 796dd7dae8dc33445af88d713e9fcb02, type: 3}
+    - {fileID: 21300000, guid: 9e00077a5eb8a874780f92a00848045b, type: 3}
+    - {fileID: 21300000, guid: 8cfb5727991c2644da49d9b8e642f2bc, type: 3}
+    - {fileID: 21300000, guid: fc7ad4d7872307440b7d6004ddb89062, type: 3}
+    - {fileID: 21300000, guid: 9e00077a5eb8a874780f92a00848045b, type: 3}
     voiceLines: []
     music: {fileID: 0}
     messages:
@@ -273,6 +280,34 @@ MonoBehaviour:
       only a few fighters left, it has been decided that the novice students from
       the \u201CBowonian Academy of Violence\u201D shall be mobilized and brought
       into battle. \r\n"
+    - "Amongst these was a young OwO, who had never seen battle before. In fact, he
+      had just recently joined the ranks of the academy and found himself utterly
+      unprepared. Just shortly after joining the battle, he lost his nerve and started
+      to cry. His commander yelled at him for being a coward and that he disgraced
+      Bowonia with his inaction. But he did not care what his commander thought of
+      him, for soon they would all be dead. He walked around, barely being able to
+      see because of the tears. He accidentally stepped on something. Something soft
+      and warm, and then he felt its pus on the bottom of his feet. He almost slipped.
+      The screams continued; the screeching sounds of the creatures around, and tortured
+      ones from the people that he had entered battle with. And so, he hid himself.\r\n"
+    - "When he later emerged from his hiding place, he found that everyone was gone.
+      The only thing remaining was their intestines and blood. He did not know if
+      anyone else had survived the night, but he knew that it was now up to him to
+      save the city. From the body of the commander he took a weapon of great power,
+      which now belonged to him. And he decided that there was only one way forward,
+      towards the gate. He thought that if he could only find a way to close it, all
+      would be well. When he arrived at the place however, his hope dissipated. For
+      there wasn\u2019t one, but numerous gates. Suddenly, something strange started
+      to happen to the portal, it changed in color and a hooded creature walked out
+      of it. The creature was slow, so slow. And walked with a crocked back, aided
+      by a staff. And just like the demons, its eyes were twisted.\r\n"
+    - "\u201COwO, I have come to aid you in your final stand. I know what you\u2019re
+      thinking, but these gates cannot be destroyed. And even if they could, they
+      would only reemerge later. The creatures that come at night, they are not demons,
+      they are your people. They come from another dimension, in which the Bowonians
+      grew hungry for power. Meddling in dark magic. It twisted them OwO, it twisted
+      me\u2026 it twisted you.  You cannot save this world, but you can delay its
+      demise\u2026\u201D \r\n"
     characterName: 
     textPrompt: 
 --- !u!114 &59129254
@@ -408,6 +443,7 @@ RectTransform:
   - {fileID: 741657668}
   - {fileID: 1420095515}
   - {fileID: 59129249}
+  - {fileID: 966549954}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -448,11 +484,11 @@ RectTransform:
   m_Father: {fileID: 557600062}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: -0.03}
-  m_AnchorMax: {x: 1.01, y: 1.04}
-  m_AnchoredPosition: {x: -9, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: -0.055, y: -0.113}
+  m_AnchorMax: {x: 1.042, y: 1.13}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &741657669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,6 +524,83 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741657667}
+  m_CullTransparentMesh: 0
+--- !u!1 &966549953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966549954}
+  - component: {fileID: 966549956}
+  - component: {fileID: 966549955}
+  m_Layer: 5
+  m_Name: Continue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &966549954
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966549953}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 557600062}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.79, y: 0.06}
+  m_AnchorMax: {x: 0.95, y: 0.1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &966549955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966549953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 6
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Press Space To Continue
+--- !u!222 &966549956
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966549953}
   m_CullTransparentMesh: 0
 --- !u!1 &1347140182
 GameObject:
@@ -597,7 +710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1420095515
 RectTransform:
   m_ObjectHideFlags: 0
@@ -607,15 +720,15 @@ RectTransform:
   m_GameObject: {fileID: 1420095514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.9129941, y: 3.402738, z: 2.653}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 557600062}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188, y: -8}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.06, y: 0.048220612}
+  m_AnchorMax: {x: 0.48828262, y: 0.94855887}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420095516
 MonoBehaviour:
@@ -630,14 +743,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.09500631, b: 0.044855822, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: be477131c3a179346bfd9f2395cca3f0, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

@@ -9,6 +9,7 @@ public class DialogueEffect : MonoBehaviour
     private string dialogueText;
     private Text text;
     [SerializeField] private float typeSpeed = 0.015f;
+    public float SpeedProp { get { return typeSpeed; } set { typeSpeed = value; } }
 
 
 
@@ -19,6 +20,11 @@ public class DialogueEffect : MonoBehaviour
         this.dialogueText = dialogueText;
         text.text = "";
         StartCoroutine("PlayText");
+    }
+
+    public void Stop()
+    {
+        StopCoroutine("PlayText");
     }
 
 

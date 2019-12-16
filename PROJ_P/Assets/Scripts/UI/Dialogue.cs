@@ -29,13 +29,15 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private Text text;
     [SerializeField] private Image image;
     private float lifeTime = 0;
-    private Image[] images;
+    private Sprite[] sprites;
     private string[] messages;
     private AudioClip[] voiceLines;
     private AudioClip music;
+    [SerializeField] private GameObject spaceToContinue;
 
     private Player player;
     private DialogueEffect dialogueEffect;
+    private bool printed;
 
     public void Start()
     {
@@ -55,7 +57,9 @@ public class Dialogue : MonoBehaviour
                 Next();
         }
         else if (Input.GetKeyDown(KeyCode.Space))
+        {
             Next();
+        }
 
     }
 
@@ -66,8 +70,13 @@ public class Dialogue : MonoBehaviour
     {
         text.text = dialogueField;
         PlayNextMessage();
+        if (sprites[n])
+            image.sprite = sprites[n];
+
         if (DialogueProp == DialogueType.TUTORIAL)
+        {
             return;
+        }
         DisableWithDelay();
     }
 
@@ -77,11 +86,11 @@ public class Dialogue : MonoBehaviour
     /// <param name="dialogue"></param>
     public void InitializeTextProtocol(DialogueData dialogue)
     {
+        if(dialogue.sprites != null)
+        this.sprites = dialogue.sprites;
         if (dialogue.messages != null)
         {
-
             this.messages = dialogue.messages;
-            this.images = dialogue.imges;
             n = 0;
             dialogueActive = true;
 
@@ -97,11 +106,27 @@ public class Dialogue : MonoBehaviour
     /// </summary>
     public void Next()
     {
+        if (!printed && Input.GetKeyDown(KeyCode.Space) && DialogueProp == DialogueType.TUTORIAL)
+        {
+            printed = true;
+            dialogueEffect.Stop();
+            text.text = "";
+            text.text = messages[n];
+            if (spaceToContinue)
+                spaceToContinue.SetActive(true);
+            Debug.Log("Printed");
+            return;
+        }
+
         if (n < messages.Length - 1)
         {
             n++;
-
             TickUI();
+            if (DialogueProp == DialogueType.TUTORIAL && spaceToContinue)
+            {
+                spaceToContinue.SetActive(false);
+                printed = false;
+            }
         }
         else
             TerminateDialogue();
@@ -156,7 +181,7 @@ public class Dialogue : MonoBehaviour
         if (DialogueProp != DialogueType.TUTORIAL)
             gameObject.SetActive(false);
         else
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("ClassChooserScene");
     }
 
 
@@ -168,7 +193,7 @@ public class Dialogue : MonoBehaviour
 [System.Serializable]
 public struct DialogueData
 {
-    public Image[] imges;
+    public Sprite[] sprites;
     public AudioClip[] voiceLines;
     public AudioClip music;
     [TextArea] public string[] messages;
