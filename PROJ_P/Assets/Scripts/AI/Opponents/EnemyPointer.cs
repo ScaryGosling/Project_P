@@ -109,6 +109,10 @@ public class EnemyPointer : MonoBehaviour
                 arrow.transform.localRotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
             }
         }
+    }
+
+    private void LateUpdate()
+    {
         CleanPool();
     }
 
@@ -153,7 +157,7 @@ public class EnemyPointer : MonoBehaviour
     {
         while (arrowPool.Count > arrowPoolCursor)
         {
-            obj = arrowPool[arrowPool.Count-1];
+            obj = arrowPool[arrowPool.Count - 1];
             arrowPool.Remove(obj);
             BowoniaPool.instance.AddToPool(PoolObject.ENEMY_POINTER, obj);
         }
