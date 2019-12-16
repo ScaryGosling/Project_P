@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: David ,Micke & Thomas for their guidance
+  m_text: David, Micke & Thomas for their guidance
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 11.9
+  m_fontSize: 13.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1997,7 +1997,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Johan Ekman
 
-    Worldbuilder & Assetartist'
+    Worldbuilder & Asset Artist'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2066,10 +2066,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: -0.26311982, z: 0, w: 10.355035}
   m_textInfo:
     textComponent: {fileID: 632987010}
-    characterCount: 38
+    characterCount: 39
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 4
+    spaceCount: 5
+    wordCount: 5
     linkCount: 0
     lineCount: 2
     pageCount: 1
