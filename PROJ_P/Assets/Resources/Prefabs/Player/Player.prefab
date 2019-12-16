@@ -269,7 +269,7 @@ Transform:
   - {fileID: 7048518184777927409}
   - {fileID: 2012034251722032700}
   - {fileID: 880084768701306375}
-  - {fileID: 4625556199261204694}
+  - {fileID: 8517717101023280061}
   - {fileID: 5441260055463948007}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1463,7 +1463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactSound: {fileID: 8300000, guid: 430029e961fe3594e8786ced50be2c19, type: 3}
-  particles: {fileID: 4781570034143909911}
+  particles: {fileID: 8692593187995943649}
+  lifeLeechparticles: {fileID: 300841110887367644}
   comboMultiplier: 0
   comboTime: 0
 --- !u!82 &1832506589
@@ -36741,12 +36742,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: -5178661895559278292, guid: 5ec660bec3a2d174ea5f1e24397b262d,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -4810386006723009238, guid: 4cea45133a80a1142b97e409e3b5894b,
-        type: 3}
     - target: {fileID: -4216859302048453862, guid: 5ec660bec3a2d174ea5f1e24397b262d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36817,6 +36812,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -5178661895559278292, guid: 5ec660bec3a2d174ea5f1e24397b262d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4810386006723009238, guid: 4cea45133a80a1142b97e409e3b5894b,
+        type: 3}
     - target: {fileID: -1504981713932161579, guid: 5ec660bec3a2d174ea5f1e24397b262d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -37029,7 +37030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a57e0e2374e944dbe8c2769bac99ca, type: 3}
---- !u!4 &4625556199261204694 stripped
+--- !u!4 &8517717101023280061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3892311054894684832, guid: f6a57e0e2374e944dbe8c2769bac99ca,
     type: 3}
@@ -37047,11 +37048,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fighter_OwO@Idle 2
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: ab95877b7d642d045af8184d93712dd4,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d77527d66acfffc41bbfcf6f41f4bb19, type: 2}
     - target: {fileID: -4216859302048453862, guid: ab95877b7d642d045af8184d93712dd4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37127,6 +37123,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8eaabaee486ace5418c5440cf26d2286, type: 2}
+    - target: {fileID: -6057140222963153312, guid: ab95877b7d642d045af8184d93712dd4,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d77527d66acfffc41bbfcf6f41f4bb19, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab95877b7d642d045af8184d93712dd4, type: 3}
 --- !u!4 &998034171967390047 stripped

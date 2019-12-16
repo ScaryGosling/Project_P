@@ -16,11 +16,11 @@ MonoBehaviour:
   abilityDescription: 'Shoot a lightning bolt that chains to enemies! Upgrade: +Damage
     and +AoE'
   abilityDescriptionForClassChooser: Shoot a lightning bolt that chains to enemies!
-  castCost: 5
+  castCost: 3
   castTime: 0
   magnitude: 60
   attackImage: {fileID: 21300000, guid: a977c3d95dcd72a4bb3cb3e1ba0bff11, type: 3}
-  cooldown: 1
+  cooldown: 5
   cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 50
@@ -53,7 +53,7 @@ MonoBehaviour:
   killTime: 1
   material: {fileID: 2100000, guid: e3847ee22d2fa1f479e0f05980b354f5, type: 2}
   radiusPerLevel:
-  - 10
+  - 5
   - 6
   - 7
   - 8
