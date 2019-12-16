@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Meteor
   abilityDescription: 'Launch a devestating fireball, dealing damage in an area! Has
-    a small cast time. Cooldown: 10 sec. Manacost: 10.'
-  abilityDescriptionForClassChooser: Launch a devestating fireball, dealing damage
+    a small cast time. Upgrade: +AoE and +Damage'
+  abilityDescriptionForClassChooser: Launch a devastating fireball, dealing damage
     in an area! Has a small cast time.
-  castCost: 10
+  castCost: 12
   castTime: 1
   magnitude: 70
   attackImage: {fileID: 21300000, guid: d715ef8cc57d2854388b17be289820a1, type: 3}
-  cooldown: 1
+  cooldown: 10
   cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 100

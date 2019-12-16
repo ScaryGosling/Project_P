@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   abilityName: Chain Lightning
-  abilityDescription: 'Shoot a lightning bolt that chains to enemies! Cooldown: 5
-    sec. Manacost: 5.'
+  abilityDescription: 'Shoot a lightning bolt that chains to enemies! Upgrade: +Damage
+    and +AoE'
   abilityDescriptionForClassChooser: Shoot a lightning bolt that chains to enemies!
   castCost: 5
   castTime: 0

@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Juggernaut
   m_EditorClassIdentifier: 
   abilityName: Juggernaut
-  abilityDescription: 'Become impervious to damage for 5 seconds! Cooldown: 15 sec.
-    Ragecost: 0.'
+  abilityDescription: 'Become impervious to damage for 5 seconds! Upgrades: +Duration'
   abilityDescriptionForClassChooser: Become impervious to damage for 5 seconds!
   castCost: 0
   castTime: 0
@@ -24,6 +23,14 @@ MonoBehaviour:
   cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 50
+    newDamage: 0
+  - upgradeCost: 200
+    newDamage: 0
+  - upgradeCost: 400
+    newDamage: 0
+  - upgradeCost: 600
+    newDamage: 0
+  - upgradeCost: 800
     newDamage: 0
   lockedAbility: 1
   particles: {fileID: 0}
@@ -37,3 +44,7 @@ MonoBehaviour:
     type: 3}
   durationPerLevel:
   - 5
+  - 5.5
+  - 6
+  - 6.5
+  - 7

@@ -11,8 +11,11 @@ public class IncreaseWaveCounterListener : MonoBehaviour
 
     void Start()
     {
-        EventSystem.Current.RegisterListener<NewWaveEvent>(IncreaseWave);
-        EventSystem.Current.RegisterListener<UnitsRemaining>(UpdateRemaining);
+        if (waveCounter && unitUpdater)
+        {
+            EventSystem.Current.RegisterListener<NewWaveEvent>(IncreaseWave);
+            EventSystem.Current.RegisterListener<UnitsRemaining>(UpdateRemaining);
+        }
         EventSystem.Current.RegisterListener<DialogueEvent>(StartDialogue);
     }
 
@@ -36,9 +39,12 @@ public class IncreaseWaveCounterListener : MonoBehaviour
 
     void StartDialogue(DialogueEvent dialogueEvent)
     {
-        dialogue.gameObject.SetActive(true);
-        dialogue.DialogueProp = Dialogue.DialogueType.QUEST;
-        dialogue.InitializeTextProtocol(dialogueEvent.data);
+        if (dialogue.DialogueProp != Dialogue.DialogueType.TUTORIAL)
+        {
+            dialogue.gameObject.SetActive(true);
+            dialogue.DialogueProp = Dialogue.DialogueType.QUEST;
+        }
+            dialogue.InitializeTextProtocol(dialogueEvent.data);
     }
 
 

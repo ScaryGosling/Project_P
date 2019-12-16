@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Life leech
   abilityDescription: 'Leech the life out of your enemies! Perform a basic attack
-    that heals you over time when hitting an enemy! Cooldown: 3 sec. Ragecost: 5.'
+    that heals you over time! Upgrade: +Damage and +Regen'
   abilityDescriptionForClassChooser: Leech the life out of your enemies! Perform a
     basic attack that heals you over time when hitting an enemy!
   castCost: 10
