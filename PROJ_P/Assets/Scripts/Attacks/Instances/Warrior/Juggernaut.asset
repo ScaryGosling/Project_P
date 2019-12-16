@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityName: Juggernaut
   abilityDescription: 'Become impervious to damage for 5 seconds! Upgrades: +Duration'
   abilityDescriptionForClassChooser: Become impervious to damage for 5 seconds!
-  castCost: 0
+  castCost: 10
   castTime: 0
   magnitude: 0
   attackImage: {fileID: 21300000, guid: 322f0ba148edc414fba39072b2ec8433, type: 3}

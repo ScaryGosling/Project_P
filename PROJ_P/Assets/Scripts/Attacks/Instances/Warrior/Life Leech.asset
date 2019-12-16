@@ -17,11 +17,11 @@ MonoBehaviour:
     that heals you over time! Upgrade: +Damage and +Regen'
   abilityDescriptionForClassChooser: Leech the life out of your enemies! Perform a
     basic attack that heals you over time when hitting an enemy!
-  castCost: 10
+  castCost: 15
   castTime: 0
   magnitude: 0
   attackImage: {fileID: 21300000, guid: 6a2bafbce3a5ac449b517c53eb7cbe69, type: 3}
-  cooldown: 10
+  cooldown: 15
   cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 100
