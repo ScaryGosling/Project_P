@@ -17,12 +17,17 @@ public class RusherDeath : DeathBase
     {
             base.ToDo();
     }
-    protected override void RemoveObject()
-    {
-        //owner.ChangeState<RusherChase>();
-        BowoniaPool.instance.AddToPool(PoolObject.ZOOMER, owner.gameObject);
-    }
+    //protected override void RemoveObject()
+    //{
+    //    //owner.ChangeState<RusherChase>();
+    //    BowoniaPool.instance.AddToPool(PoolObject.ZOOMER, owner.gameObject);
+    //}
 
+    protected override void DisableUnit()
+    {
+        base.DisableUnit();
+        BowoniaPool.instance.AddToPool(PoolObject.ZOOMER, owner.gameObject, 2);
+    }
 }
 
 #region ChaseLegacy

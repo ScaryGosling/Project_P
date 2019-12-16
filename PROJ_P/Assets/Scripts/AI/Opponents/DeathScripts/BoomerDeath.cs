@@ -22,6 +22,7 @@ public class BoomerDeath : DeathBase
     public override void EnterState()
     {
         base.EnterState();
+        animator.SetTrigger("Death");
         current = explosionDelay;
         Explode();
         //WarningObject.SetActive(true);
@@ -44,11 +45,11 @@ public class BoomerDeath : DeathBase
             currentTimeAnimTime -= Time.deltaTime;
         }
     }
-    protected override void RemoveObject()
-    {
-        //owner.ChangeState<BoomerChase>();
-        BowoniaPool.instance.AddToPool(PoolObject.BOOMER, owner.gameObject);
-    }
+    //protected override void RemoveObject()
+    //{
+    //    //owner.ChangeState<BoomerChase>();
+    //    BowoniaPool.instance.AddToPool(PoolObject.BOOMER, owner.gameObject);
+    //}
     protected void Explode()
     {
         //explosion = Instantiate(explosionPrefab, owner.transform.position, Quaternion.Euler(-90f, 0f, 0f));
@@ -57,6 +58,13 @@ public class BoomerDeath : DeathBase
         explosion.transform.position = owner.transform.position;
         explosion.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
         explosion.GetComponent<Explosion>().SetupSounds(fuseClip, explosionClip);
+    }
+
+    protected override void DisableUnit()
+    {
+        base.DisableUnit();
+        BowoniaPool.instance.AddToPool(PoolObject.BOOMER, owner.gameObject, 2.8f);
+
     }
 }
 

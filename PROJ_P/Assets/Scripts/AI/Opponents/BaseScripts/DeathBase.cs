@@ -28,12 +28,12 @@ public class DeathBase : HostileBaseState
     public override void ToDo()
     {
         base.ToDo();
-        DeathAnimation();
-        if (countDown < 0)
-        {
-            RemoveObject();
-        }
-        countDown -= Time.deltaTime;
+        //DeathAnimation();
+        //if (countDown <= 0)
+        //{
+        //    RemoveObject();
+        //}
+        //countDown -= Time.deltaTime;
     }
 
     /// <summary>
@@ -49,7 +49,7 @@ public class DeathBase : HostileBaseState
             //owner.agent.enabled = false;
         }
         owner.capsuleCollider.enabled = false;
-        //BowoniaPool.instance.GetFromPool(PoolObject.TIMER).GetComponent<Timer>().RunCountDown(corpseTimer, RemoveObject, Timer.TimerType.DELAY);
+
     }
     protected virtual void RemoveObject() { }
     protected virtual void DeathAnimation(){ }

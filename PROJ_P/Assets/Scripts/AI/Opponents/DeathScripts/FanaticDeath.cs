@@ -18,11 +18,16 @@ public class FanaticDeath : DeathBase
             base.ToDo();
     }
 
-    protected override void RemoveObject()
+    //protected override void RemoveObject()
+    //{
+    //    //owner.ChangeState<FanaticChase>();
+    //    BowoniaPool.instance.AddToPool(PoolObject.FANATIC, owner.gameObject);
+    //}
+
+    protected override void DisableUnit()
     {
-        Debug.Log(GetInstanceID());
-        //owner.ChangeState<FanaticChase>();
-        BowoniaPool.instance.AddToPool(PoolObject.FANATIC, owner.gameObject);
+        base.DisableUnit();
+        BowoniaPool.instance.AddToPool(PoolObject.FANATIC, owner.gameObject, 2);
     }
 }
 
