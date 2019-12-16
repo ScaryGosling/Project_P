@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Groundstomp
   abilityDescription: 'Stomp the ground, dealing damage and stunning enemies around
-    you! Cooldown: 5 sec. Ragecost: 10. '
+    you! Upgrade: +Damage and +AoE'
   abilityDescriptionForClassChooser: Stomp the ground, dealing damage and stunning
     enemies around you!
   castCost: 30

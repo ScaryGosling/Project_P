@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Berserk
   abilityDescription: 'Fly into a frenzy, gaining full rage. defense and attackspeed
-    bonuses! Cooldown: 1 min. Ragecost: 0.'
-  abilityDescriptionForClassChooser: Fly into a frenzy, gaining full rage. defense
-    and attackspeed bonuses!
+    bonuses! Upgrade: +Duration and +Attack speed'
+  abilityDescriptionForClassChooser: 'Fly into a frenzy, gaining full rage. defense
+    and attackspeed bonuses! '
   castCost: 0
   castTime: 0
   magnitude: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: cdb094d4cfd35cb4fb263130e1a5383a, type: 3}
   cooldownClip: {fileID: 8300000, guid: eec99f64c3cf49640b9ccb32e2e46471, type: 3}
   chargeUpClip: {fileID: 0}
-  abilityCat: 3
+  abilityCat: 2
   slowTime: 0
   speedMultiplier: 0
   resistance: 0.1

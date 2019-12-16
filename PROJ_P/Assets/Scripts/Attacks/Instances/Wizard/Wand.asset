@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wand
   m_EditorClassIdentifier: 
   abilityName: Basic Attack
-  abilityDescription: Shot an arcane bolt! Click once to buy upgrade!
-  abilityDescriptionForClassChooser: Shot an arcane bolt!
+  abilityDescription: 'Shoot an arcane bolt! Upgrade: +Damage '
+  abilityDescriptionForClassChooser: Shoot an arcane bolt towards an enemy!
   castCost: 0
   castTime: 0
   magnitude: 10
