@@ -35,6 +35,7 @@ public class GameLoop : MonoBehaviour
     private bool questGenerated = false;
     private int random;
     public Quest QuestProp { get; set; }
+    private Quest previousQuest = null;
 
     [SerializeField] private int showRemaining = 3;
     [SerializeField] private bool debugMode;
@@ -59,7 +60,7 @@ public class GameLoop : MonoBehaviour
     [SerializeField] private int goldPerKill = 10;
     [SerializeField] private int goldPerWave = 100;
     [Tooltip("The higher the base the steeper the curve of the logarithm. This means that of the base is higher, the amount of money gained will decrease slower.")]
-    [SerializeField] [Range(2,10)] private int logBase = 10;
+    [SerializeField] [Range(2, 10)] private int logBase = 10;
     [Header("Items")]
     [SerializeField] private int ItemAmount = 7;
     [SerializeField] private float chanceOfDrop = 0.4f;
@@ -104,11 +105,11 @@ public class GameLoop : MonoBehaviour
             StartCoroutine(Spawner());
             waveTimer = StartCoroutine(WaveTimer());
         }
-   
+
         setLevel = eliasPlayer.customPreset;
         if (debugMode)
         {
-           // TestAlgorithm();
+            // TestAlgorithm();
         }
     }
     private void TestAlgorithm()
@@ -164,7 +165,7 @@ public class GameLoop : MonoBehaviour
         waveIndex++;
         if (waveIndex <= 30)
         {
-           expected = Mathf.RoundToInt(5.396047527f * Mathf.Pow(10, -6) * Mathf.Pow(waveIndex, 6) - 4.521048495f * Mathf.Pow(10, -4) * Mathf.Pow(waveIndex, 5) + 1.467687904f* Mathf.Pow(10, -2) * Mathf.Pow(waveIndex, 4) - 2.311597764f * Mathf.Pow(10, -1) * Mathf.Pow(waveIndex, 3) + 1.848912098f * Mathf.Pow(waveIndex, 2) - 2.135095198f * waveIndex + 5.503108386f);
+            expected = Mathf.RoundToInt(5.396047527f * Mathf.Pow(10, -6) * Mathf.Pow(waveIndex, 6) - 4.521048495f * Mathf.Pow(10, -4) * Mathf.Pow(waveIndex, 5) + 1.467687904f * Mathf.Pow(10, -2) * Mathf.Pow(waveIndex, 4) - 2.311597764f * Mathf.Pow(10, -1) * Mathf.Pow(waveIndex, 3) + 1.848912098f * Mathf.Pow(waveIndex, 2) - 2.135095198f * waveIndex + 5.503108386f);
         }
         else
         {
@@ -197,7 +198,12 @@ public class GameLoop : MonoBehaviour
             }
             if (Random.Range(0, 99) < questChance)
             {
-                QuestProp = questHandler.GetRandomQuest();
+                do
+                {
+                    QuestProp = questHandler.GetRandomQuest();
+                } while (previousQuest == QuestProp);
+
+                previousQuest = QuestProp;
                 if (QuestProp is ProtectionQuest)
                 {
                     QuestProp.StartQuest();
@@ -240,7 +246,7 @@ public class GameLoop : MonoBehaviour
                 player.originalStats.movementSpeed *= playerSpeedScale;
                 player.ResetSpeed();
                 Prompt.instance.RunMessage("Gained: " + playerSpeedScale + "x speed!", MessageType.BONUS);
-            }   
+            }
             SpawnShopKeeper();
             GenerateQuest();
 
@@ -280,7 +286,7 @@ public class GameLoop : MonoBehaviour
         unitsRemaining.remaining = remaining;
         if (unitsKilled % showRemaining == 0 && remaining != 0 && unitsKilled != 0)
         {
-  
+
             EventSystem.Current.FireEvent(unitsRemaining);
         }
 
@@ -320,7 +326,7 @@ public class GameLoop : MonoBehaviour
         setLevel.level = level;
         setLevel.themeName = "Dawn of battle";
         eliasPlayer.QueueEvent(setLevel.CreateSetLevelEvent(eliasPlayer.Elias));
-    
+
     }
     /// <summary>
     /// This enumerator represents the recursive gameloop.
@@ -351,7 +357,7 @@ public class GameLoop : MonoBehaviour
                 }
                 foreach (GameObject spawnObject in spawns)
                 {
-                    
+
                     if (spawned < expected && spawnObject.GetComponent<SpawnArea>().isActive)
                     {
                         absoluteUnit = unitManager.ManageUnit(waveIndex, spawned);
@@ -374,67 +380,67 @@ public class GameLoop : MonoBehaviour
 }
 
 #region GameLoopLegacy
-                        //absoluteUnit.GetComponent<NavMeshAgent>().Warp(spawnObject.transform.GetChild(0).transform.position);
-                        //Debug.LogError(absoluteUnit.GetInstanceID()) ;
-                        //Debug.Log(absoluteUnit.GetInstanceID());
-                        //loop -> levande fiender
-                        //absoluteUnit.GetComponent<NavMeshAgent>().pathStatus != NavMeshPathStatus.PathComplete -> do stuff
-        //switch (currentType)
-        //{
-        //    case 0:
-        //        absoluteUnit = unitPrefabs[currentType].gameObject;
-        //        break;
-        //    case 1:
-        //        absoluteUnit = unitPrefabs[currentType].gameObject;
-        //        break;
-        //    case 2:
-        //        absoluteUnit = unitPrefabs[currentType].gameObject;
-        //        break;
-        //    default:
-        //        break;
-        //}
+//absoluteUnit.GetComponent<NavMeshAgent>().Warp(spawnObject.transform.GetChild(0).transform.position);
+//Debug.LogError(absoluteUnit.GetInstanceID()) ;
+//Debug.Log(absoluteUnit.GetInstanceID());
+//loop -> levande fiender
+//absoluteUnit.GetComponent<NavMeshAgent>().pathStatus != NavMeshPathStatus.PathComplete -> do stuff
+//switch (currentType)
+//{
+//    case 0:
+//        absoluteUnit = unitPrefabs[currentType].gameObject;
+//        break;
+//    case 1:
+//        absoluteUnit = unitPrefabs[currentType].gameObject;
+//        break;
+//    case 2:
+//        absoluteUnit = unitPrefabs[currentType].gameObject;
+//        break;
+//    default:
+//        break;
+//}
 
-        //if (expected < maximumCapacity && expectedGrowth >= 1f)
-        //{
-        //    expected = (int)Mathf.FloorToInt(expected * expectedGrowth);
-        //    expectedGrowth -= growthDeclinePer;
-        //Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
+//if (expected < maximumCapacity && expectedGrowth >= 1f)
+//{
+//    expected = (int)Mathf.FloorToInt(expected * expectedGrowth);
+//    expectedGrowth -= growthDeclinePer;
+//Debug.Log("Next Round! " + "\t" + "Total Amount of Enemies: " + expected + "\t" + " Wave: " + waveIndex);
 
-        //}        
+//}        
 
-    //private GameObject UnitController()
-    //{
-    //    if (waveIndex % 2 == 0 && spawned % 3 == 0)
-    //    {
-    //        return BowoniaPool.instance.GetFromPool(PoolObject.ZOOMER);
-    //    }
-    //    else if (waveIndex % 3 == 0 && spawned % 5 == 0)
-    //    {
-    //        return BowoniaPool.instance.GetFromPool(PoolObject.BOOMER);
-    //    }
-    //    else
-    //    {
-    //        return BowoniaPool.instance.GetFromPool(PoolObject.FANATIC);
-    //    }
-    //}
+//private GameObject UnitController()
+//{
+//    if (waveIndex % 2 == 0 && spawned % 3 == 0)
+//    {
+//        return BowoniaPool.instance.GetFromPool(PoolObject.ZOOMER);
+//    }
+//    else if (waveIndex % 3 == 0 && spawned % 5 == 0)
+//    {
+//        return BowoniaPool.instance.GetFromPool(PoolObject.BOOMER);
+//    }
+//    else
+//    {
+//        return BowoniaPool.instance.GetFromPool(PoolObject.FANATIC);
+//    }
+//}
 
-    /// <summary>
-    /// During which waves, and when during those waves should each unit spawn.
-    /// </summary>
-    //private void CheckUnitType()
-    //{
+/// <summary>
+/// During which waves, and when during those waves should each unit spawn.
+/// </summary>
+//private void CheckUnitType()
+//{
 
-    //    if (waveIndex % 2 == 0 && spawned % 3 == 0)
-    //    {
-    //        currentType = 1;
-    //    }
-    //    else if (waveIndex % 3 == 0 && spawned % 5 == 0)
-    //    {
-    //        currentType = 2;
-    //    }
-    //    else
-    //    {
-    //        currentType = 0;
-    //    }
-    //}
+//    if (waveIndex % 2 == 0 && spawned % 3 == 0)
+//    {
+//        currentType = 1;
+//    }
+//    else if (waveIndex % 3 == 0 && spawned % 5 == 0)
+//    {
+//        currentType = 2;
+//    }
+//    else
+//    {
+//        currentType = 0;
+//    }
+//}
 #endregion
