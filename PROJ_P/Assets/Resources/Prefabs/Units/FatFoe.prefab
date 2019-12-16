@@ -163,7 +163,6 @@ MonoBehaviour:
   enemyType: 2
   skinColors:
   - {fileID: 2100000, guid: 5154204d71a84234e86a8a56d484dc3b, type: 2}
-  - {fileID: 2100000, guid: 0ce7ebbdfa6451644b349e4bccb08dbf, type: 2}
   - {fileID: 2100000, guid: 35a29fa9e6b964542bbfbae61c0a5599, type: 2}
   meshRenderer: {fileID: 2602979348309675235}
   moveSpeed: 4

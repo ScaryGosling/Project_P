@@ -166,7 +166,6 @@ MonoBehaviour:
   skinColors:
   - {fileID: 2100000, guid: 7988fdff8be71e34eb3b5a843c0e36dc, type: 2}
   - {fileID: 2100000, guid: a081918df48064d4999b2cfa30fb72df, type: 2}
-  - {fileID: 2100000, guid: 4e03442932dbf6f458bf51d1a17a9523, type: 2}
   meshRenderer: {fileID: 1830912173209702407}
   moveSpeed: 7
   baseHeath: 2
