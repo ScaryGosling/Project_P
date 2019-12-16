@@ -36866,12 +36866,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: -5178661895559278292, guid: 5ec660bec3a2d174ea5f1e24397b262d,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -4810386006723009238, guid: 4cea45133a80a1142b97e409e3b5894b,
-        type: 3}
     - target: {fileID: -4216859302048453862, guid: 5ec660bec3a2d174ea5f1e24397b262d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36942,6 +36936,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -5178661895559278292, guid: 5ec660bec3a2d174ea5f1e24397b262d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4810386006723009238, guid: 4cea45133a80a1142b97e409e3b5894b,
+        type: 3}
     - target: {fileID: -1504981713932161579, guid: 5ec660bec3a2d174ea5f1e24397b262d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -37172,11 +37172,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fighter_OwO@Idle 2
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: ab95877b7d642d045af8184d93712dd4,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d77527d66acfffc41bbfcf6f41f4bb19, type: 2}
     - target: {fileID: -4216859302048453862, guid: ab95877b7d642d045af8184d93712dd4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37252,6 +37247,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8eaabaee486ace5418c5440cf26d2286, type: 2}
+    - target: {fileID: -6057140222963153312, guid: ab95877b7d642d045af8184d93712dd4,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d77527d66acfffc41bbfcf6f41f4bb19, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab95877b7d642d045af8184d93712dd4, type: 3}
 --- !u!4 &2012034251722032700 stripped

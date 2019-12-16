@@ -12,7 +12,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private GameObject particles;
     [SerializeField] private PoolObject type;
-    protected BoxCollider colliderB;
+    [SerializeField]protected BoxCollider colliderB;
     protected GiveResource giveResource;
     protected Player player;
     private GameObject instantiated;
@@ -22,9 +22,14 @@ public class Pickup : MonoBehaviour
     protected virtual void Start()
     {
         player = Player.instance;
-        colliderB = gameObject.GetComponent<BoxCollider>();
         colliderB.isTrigger = true;
         source.clip = pickupSound;
+    }
+
+    private void OnEnable()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+        colliderB.enabled = true;
     }
 
     /// <summary>

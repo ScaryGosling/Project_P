@@ -4837,6 +4837,7 @@ MonoBehaviour:
   particles: {fileID: 360565347942094220, guid: 096983a47b555534e871c2bb30f5ade7,
     type: 3}
   type: 11
+  colliderB: {fileID: 6863321986751247269}
   source: {fileID: 2580386352268429928}
 --- !u!82 &2580386352268429928
 AudioSource:
@@ -4941,6 +4942,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6863321986751247272}
     m_Modifications:
+    - target: {fileID: 7717451212649119222, guid: b7e772d282cc31348bc7cb61a8edccf8,
+        type: 3}
+      propertyPath: m_Name
+      value: chickenleg
+      objectReference: {fileID: 0}
     - target: {fileID: 6720141564272529381, guid: b7e772d282cc31348bc7cb61a8edccf8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5010,11 +5016,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 28.945684
-      objectReference: {fileID: 0}
-    - target: {fileID: 7717451212649119222, guid: b7e772d282cc31348bc7cb61a8edccf8,
-        type: 3}
-      propertyPath: m_Name
-      value: chickenleg
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7e772d282cc31348bc7cb61a8edccf8, type: 3}
