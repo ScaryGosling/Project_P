@@ -4908,6 +4908,7 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: db110e427bc2b3d4398f464d577e162c, type: 3}
   particles: {fileID: 0}
   type: 12
+  colliderB: {fileID: 6863321986751247269}
   source: {fileID: -7065774182131305378}
   materials:
   - {fileID: 2100000, guid: 7d38dcd1d7473ce4692e8323e26ba79c, type: 2}
@@ -5035,6 +5036,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6863321986751247272}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
+        type: 3}
+      propertyPath: m_Name
+      value: Pickup_Mesh
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5110,11 +5116,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 7d38dcd1d7473ce4692e8323e26ba79c, type: 2}
-    - target: {fileID: -927199367670048503, guid: a89a1bb42a9fcb14cbaf37b3b8453e84,
-        type: 3}
-      propertyPath: m_Name
-      value: Pickup_Mesh
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a89a1bb42a9fcb14cbaf37b3b8453e84, type: 3}
 --- !u!1 &8951371662285116941 stripped
