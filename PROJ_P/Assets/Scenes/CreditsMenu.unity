@@ -4183,16 +4183,8 @@ MonoBehaviour:
   shopWindow: {fileID: 0}
   optionsWindow: {fileID: 0}
   mainMenuPrompt: {fileID: 0}
-  promptToggles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  adaptionToggles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  promptToggles: []
+  adaptionToggles: []
   paceSlider: {fileID: 0}
   eliasSource: {fileID: 0}
 --- !u!4 &2092595482
