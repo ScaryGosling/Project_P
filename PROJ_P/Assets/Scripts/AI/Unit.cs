@@ -144,7 +144,7 @@ public class Unit : StateMachine
     /// </summary>
     public void CheckTarget()
     {
-        if (threat.thresholdProp > threat.threatProp && (QuestTargetProp && ProtectionQuestProp.GetHealth() > 0))
+        if (threat.thresholdProp > threat.threatProp && (QuestTargetProp && ProtectionQuestProp && ProtectionQuestProp.GetHealth() > 0))
         {
             GetAttackRange = AttackRangeBuildings;
             target = QuestTargetProp.gameObject;
