@@ -19,6 +19,7 @@ public class GatheringQuest : Quest
     [SerializeField] private int toGather = 3;
     private DialogueEvent dialogueEvent = new DialogueEvent();
     [SerializeField] List<DialogueData> questData;
+    private bool questEnded = false;
 
     protected override void Start()
     {
@@ -44,6 +45,7 @@ public class GatheringQuest : Quest
         }
         objectSpawner = spawner.GetComponent<ObjectSpawner>();
         objectSpawner.PopulateList(toGather, ObjectSpawner.ObjectToSpawn.Reward);
+        questEnded = false;
     }
 
     public override void QuestDialogue()
@@ -58,7 +60,7 @@ public class GatheringQuest : Quest
     public override void EndQuest()
     {
         base.EndQuest();
-        if (objectSpawner)
+        if (objectSpawner && !questEnded)
         {
             base.EndQuest();
             objectSpawner.TerminateSpawner();
@@ -71,9 +73,9 @@ public class GatheringQuest : Quest
                 QuestFailed();
             }
             gathered = 0;
+            questEnded = true;
             collectionTextObject.SetActive(false);
         }
-
     }
 
     /// <summary>
