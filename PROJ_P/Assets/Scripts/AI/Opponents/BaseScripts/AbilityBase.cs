@@ -40,7 +40,7 @@ public class AbilityBase : AliveBase
     {
         intersection = owner.rigidbody.SweepTest(owner.capsuleCollider.transform.forward, out hit, owner.capsuleCollider.radius * 2, QueryTriggerInteraction.Collide);
         
-        if (intersection && !(hit.collider.CompareTag("Player") && hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Zone") ||
+        if (intersection && !(hit.collider.CompareTag("Player") || hit.collider.CompareTag("Zone") ||
             (hit.collider.CompareTag("Enemy") && !selfIntersection)))
         {
                 Debug.Log("Cancel due to intersection!");

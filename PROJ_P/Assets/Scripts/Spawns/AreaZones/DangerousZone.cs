@@ -43,9 +43,7 @@ public class DangerousZone : MonoBehaviour
     public virtual void EngageArea()
     {
 
-        capsuleCollider.enabled = true;
-
-        if(playerInRange)
+        if (playerInRange)
         {
             DealDamage();
         }
