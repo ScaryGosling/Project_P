@@ -27481,6 +27481,11 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2668702568380353500, guid: 127669045666bf1428206eeddbbac90c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 700
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 127669045666bf1428206eeddbbac90c, type: 3}
 --- !u!1 &728508976 stripped
@@ -68839,6 +68844,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2008522675}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2013486076 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 231697962275485168, guid: 583c38658738f4f40bc99772dd72b0de,
+    type: 3}
+  m_PrefabInstance: {fileID: 5598189670470178927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c06fbe792a5c954f9dd29e430f84587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2016067427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96418,9 +96435,19 @@ PrefabInstance:
       objectReference: {fileID: 1109466763}
     - target: {fileID: 3102150688294543649, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
+      propertyPath: quests.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102150688294543649, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
       propertyPath: questReminder
       value: 
       objectReference: {fileID: 1776996949}
+    - target: {fileID: 3102150688294543649, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: quests.Array.data[0]
+      value: 
+      objectReference: {fileID: 2013486076}
     - target: {fileID: 6345400272109297643, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: questData.Array.data[0].messages.Array.size
