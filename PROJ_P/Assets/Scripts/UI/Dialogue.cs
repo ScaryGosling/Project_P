@@ -60,7 +60,10 @@ public class Dialogue : MonoBehaviour
         {
             Next();
         }
-
+        if (string.Equals(text.text, messages[n]))
+        {
+            spaceToContinue.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -106,7 +109,7 @@ public class Dialogue : MonoBehaviour
     /// </summary>
     public void Next()
     {
-        if (!printed && Input.GetKeyDown(KeyCode.Space) && DialogueProp == DialogueType.TUTORIAL)
+        if (!printed && Input.GetKeyDown(KeyCode.Space) && DialogueProp == DialogueType.TUTORIAL && !string.Equals(text.text, messages[n]))
         {
             printed = true;
             dialogueEffect.Stop();
@@ -117,7 +120,6 @@ public class Dialogue : MonoBehaviour
             Debug.Log("Printed");
             return;
         }
-
         if (n < messages.Length - 1)
         {
             n++;
