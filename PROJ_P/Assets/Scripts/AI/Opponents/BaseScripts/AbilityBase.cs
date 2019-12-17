@@ -43,10 +43,6 @@ public class AbilityBase : AliveBase
         if (intersection && !(hit.collider.CompareTag("Player") || hit.collider.CompareTag("Zone") ||
             (hit.collider.CompareTag("Enemy") && !selfIntersection)))
         {
-                Debug.Log("Cancel due to intersection!");
-                Debug.Log(hit.collider.gameObject + " <color=blue>" + +hit.collider.gameObject.GetInstanceID() + "</color>");
-
-                Debug.Log("<color=purple>" + hit.collider.tag + "</color>");
                 CancelState(); 
         }
 

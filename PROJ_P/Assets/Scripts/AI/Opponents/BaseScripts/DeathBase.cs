@@ -41,7 +41,11 @@ public class DeathBase : HostileBaseState
     /// </summary>
     protected virtual void DisableUnit()
     {
-        owner.rigidbody.isKinematic = true;
+        if (owner.rigidbody)
+        {
+            owner.rigidbody.isKinematic = true;
+
+        }
 
         if (owner.agent.enabled)
         {

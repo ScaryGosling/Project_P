@@ -30,7 +30,7 @@ public class ChainLightning : ProjectileInstance
             RunAttack(other);
             StopParticles();
         }
-        Debug.Log(other.name, other.gameObject);
+
         if(other.gameObject.layer == 11)
             StopParticles();
         
@@ -61,7 +61,7 @@ public class ChainLightning : ProjectileInstance
 
     public override void RunAttack(Collider other)
     {
-        Debug.Log("Attack run");
+
         State state = (HostileBaseState)other.gameObject.GetComponent<Unit>().currentState;
         state.TakeDamage(damage, maginitude);
 

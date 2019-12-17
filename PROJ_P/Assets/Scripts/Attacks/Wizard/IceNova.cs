@@ -47,11 +47,14 @@ public class IceNova : PlayerAttack
     {
         foreach (Collider collider in hitColliders)
         {
+
+
             if (collider.CompareTag("Enemy"))
             {
                 collider.GetComponent<Unit>().agent.enabled = true;
                 Destroy(collider.transform.GetChild(collider.transform.childCount-1).gameObject);
             }
+
         }
     }
 
