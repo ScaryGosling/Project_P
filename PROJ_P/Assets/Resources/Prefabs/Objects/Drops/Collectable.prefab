@@ -73,7 +73,7 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: 0936c2358eb648d4986465a467441b6d, type: 3}
   particles: {fileID: 0}
   type: 17
-  colliderB: {fileID: 0}
+  colliderB: {fileID: 3455481399602529804}
   source: {fileID: -4540989833999336424}
 --- !u!82 &-4540989833999336424
 AudioSource:
@@ -194,11 +194,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2701970587190071496}
     m_Modifications:
-    - target: {fileID: 212695070990354029, guid: 13986c85e1c7b5248aca7d1b1bb330db,
-        type: 3}
-      propertyPath: m_Name
-      value: Chest
-      objectReference: {fileID: 0}
     - target: {fileID: 3794560667756639358, guid: 13986c85e1c7b5248aca7d1b1bb330db,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -268,6 +263,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 212695070990354029, guid: 13986c85e1c7b5248aca7d1b1bb330db,
+        type: 3}
+      propertyPath: m_Name
+      value: Chest
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13986c85e1c7b5248aca7d1b1bb330db, type: 3}
