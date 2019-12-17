@@ -66,7 +66,7 @@ MonoBehaviour:
   maximumCapacity: 200
   expectedGrowth: 1.5
   growthDeclinePer: 2
-  expected: 1
+  expected: 5
   timeAfterShopkeeperLeavesForEnemiesToSpawn: 5
   spawnTime: 1
   spawns:
@@ -110,8 +110,9 @@ MonoBehaviour:
     trackGroupName: 
     stingerRequiredTheme: 
     stingerName: 
+  unitManagerObject: {fileID: 0}
   questHandler: {fileID: 3102150688294543649}
-  questChance: 100
+  questChance: 50
 --- !u!114 &3596345851274281749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,13 +309,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6751507384838091456, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751507384838091456, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
       propertyPath: questData.Array.data[1].messages.Array.size
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6751507384838091456, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
@@ -335,23 +331,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6751507384838091456, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[2]
-      value: "I never understood how they could experiment on their own people like
-        this\u2026 how far they have fallen\u2026"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751507384838091456, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[3]
-      value: If I had known then, what I know now. Maybe I can have done something.
-        Maybe things could have been different.
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751507384838091456, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[4]
-      value: "I hope you can forgive me. \r"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751507384838091456, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
       propertyPath: questData.Array.data[1].messages.Array.data[0]
       value: 'Will this madness never end? By the gods, a great foe is approaching
         yet again. '
@@ -365,25 +344,7 @@ PrefabInstance:
     - target: {fileID: 6751507384838091456, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
       propertyPath: questData.Array.data[1].messages.Array.data[2]
-      value: "Why continue to torment this city. Will you never be pleased?! \r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751507384838091456, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[1].messages.Array.data[3]
-      value: "This constant anger inside\u2026 you know how it is. The fury runs deep
-        in my veins, just like it does in you. But at least we were more than that."
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751507384838091456, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[1].messages.Array.data[4]
-      value: We only acted on it when necessary, on the field of battle, while protecting
-        our homes and families.
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751507384838091456, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[1].messages.Array.data[5]
-      value: "These creatures have no families, they feel no duty and have no honor\u2026
-        they deserve what\u2019s coming to them. \r\n"
+      value: "Why continue to torment this city. Will they never be pleased?! \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
@@ -393,12 +354,12 @@ PrefabInstance:
     - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
       propertyPath: questData.Array.data[0].messages.Array.size
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
       propertyPath: questData.Array.data[1].messages.Array.size
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
@@ -408,7 +369,7 @@ PrefabInstance:
     - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
       propertyPath: toGather
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
@@ -429,43 +390,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[3]
-      value: How this could happen, I do not know for sure. But it could mean that
-        some Bowonians tried to escape the city with their most valuable possessions.
-      objectReference: {fileID: 0}
-    - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[4]
-      value: 'This, egomaniacal behavior is unlike our people. But I guess a crisis
-        brings out the worst in people, even Bowonians. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[5]
-      value: "These cowards never made it far\u2026 They should have stood their ground
-        and fought by the side of their people."
-      objectReference: {fileID: 0}
-    - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[6]
-      value: "These cowards never made it far\u2026 They should have stood their ground
-        and fought by the side of their people."
-      objectReference: {fileID: 0}
-    - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[7]
-      value: 'This, this is what a true Bowonian would do. Maybe then our people could
-        have had a chance.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[8]
-      value: "No, you did what was right Powo\u2026 you did what was right\u2026 \r"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
       propertyPath: questData.Array.data[1].messages.Array.data[0]
       value: The army left some supply crates around the city, which you could surely
         make use of.
@@ -476,35 +400,10 @@ PrefabInstance:
       value: If you wish to prolong your inevitable demise, you should replenish and
         repair!
       objectReference: {fileID: 0}
-    - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
+    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
-      propertyPath: questData.Array.data[1].messages.Array.data[2]
-      value: "I\u2019m pretty sure they won\u2019t be needing this gear anyway. You
-        must retrieve these crates before the enemy does! \r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[1].messages.Array.data[3]
-      value: "It\u2019s funny, how you avoided putting on this armor for such a long
-        time. Now you seek it out on your accord. "
-      objectReference: {fileID: 0}
-    - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[1].messages.Array.data[4]
-      value: Maybe, just maybe, it will serve you better than the soldiers it was
-        meant for.
-      objectReference: {fileID: 0}
-    - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[1].messages.Array.data[5]
-      value: Maybe, just maybe, it will serve you better than the soldiers it was
-        meant for.
-      objectReference: {fileID: 0}
-    - target: {fileID: 5591941007244766593, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[1].messages.Array.data[6]
-      value: "You must become the iron fist of this vanquished army. You must become
-        its spirit of retribution! \r"
+      propertyPath: buildings.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
@@ -513,23 +412,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
       propertyPath: questData.Array.data[1].messages.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
       propertyPath: questData.Array.data[2].messages.Array.size
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
       propertyPath: questData.Array.data[3].messages.Array.size
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
@@ -540,36 +434,13 @@ PrefabInstance:
         type: 3}
       propertyPath: questData.Array.data[0].messages.Array.data[0]
       value: 'The ancestral fountain will be targeted next wave, you must protect
-        it at all costs! The citizens of Bowonia would want you to defend their legacy.
-        You must not fail them. '
+        it at all costs! '
       objectReference: {fileID: 0}
     - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
       propertyPath: questData.Array.data[0].messages.Array.data[1]
-      value: "Hah! Do you remember? Do you remember how the little owo\u2019s used
-        to play around It in the summers? Just like we did as children."
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[2]
-      value: "Blissfully ignorant of the hostile world out there. It wasn\u2019t meant
-        to be like this\u2026\r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[3]
-      value: 'The summer sun will never again shine over Bowonia. But it will rain! '
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[4]
-      value: 'Yes! It will rain in the blood of our enemy! And this fountain will
-        once again pour over the brims. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[0].messages.Array.data[5]
-      value: "Make them feel the absence of the sun, as we do! \r"
+      value: The citizens of Bowonia would want you to defend their legacy. You must
+        not fail
       objectReference: {fileID: 0}
     - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
@@ -584,18 +455,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
-      propertyPath: questData.Array.data[1].messages.Array.data[2]
-      value: However much our neighbors viewed it as a sign of our vanity, we ourselves
-        must remember that it is not so.
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[1].messages.Array.data[3]
-      value: 'The statue represents our ideals and traditions. It stands not for Bowonias
-        greatness alone, but for the very greatness of liberty itself.  '
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
       propertyPath: questData.Array.data[2].messages.Array.data[0]
       value: 'Why would the enemy target the old orphanage? '
       objectReference: {fileID: 0}
@@ -604,43 +463,6 @@ PrefabInstance:
       propertyPath: questData.Array.data[2].messages.Array.data[1]
       value: "My friend, I think there remains some whisk of life in this realm! If
         so, you must protect it with your dying breath. \r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[2].messages.Array.data[2]
-      value: However much our neighbors viewed it as a sign of our vanity, we ourselves
-        must remember that it is not so.
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[2].messages.Array.data[3]
-      value: "I know how much you want to surrender to the pain, trust me, I know.
-        \ \n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[2].messages.Array.data[4]
-      value: "But I ask you not to live for your own sake. But for the sake of these
-        children. \r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[2].messages.Array.data[5]
-      value: 'If they survive, Bowonia could one day be reborn from its ashes. The
-        cycle of life could continue. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[2].messages.Array.data[6]
-      value: 'If they survive, Bowonia could one day be reborn from its ashes. The
-        cycle of life could continue. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[2].messages.Array.data[7]
-      value: 'Send these brothers of mine back to the place from which they came!
-
-'
       objectReference: {fileID: 0}
     - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
         type: 3}
@@ -653,30 +475,6 @@ PrefabInstance:
       propertyPath: questData.Array.data[3].messages.Array.data[1]
       value: "You, you must become vessel of our gods, and show them the wrath which
         they bring down on the wicked and godless. \r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[3].messages.Array.data[2]
-      value: How dare they spit in the very face of divinity? It must mean that they
-        are after the very source of magic itself.
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[3].messages.Array.data[3]
-      value: "The source of our power. The dark crystals inside the building must
-        be protected! For without them, we will surely lose the favor of the gods!\r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[3].messages.Array.data[4]
-      value: "I know you better than anyone ever did, and I know that always skipped
-        church. You\u2019ve never been a servant of the gods\u2026 that much is sure."
-      objectReference: {fileID: 0}
-    - target: {fileID: 471303246071339227, guid: a34b94df374eab9428c51173dad80ad5,
-        type: 3}
-      propertyPath: questData.Array.data[3].messages.Array.data[5]
-      value: 'But now you must become their most holy saint and staunch protector.
-        You must send these creatures to oblivion. '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a34b94df374eab9428c51173dad80ad5, type: 3}
