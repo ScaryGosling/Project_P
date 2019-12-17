@@ -60,7 +60,7 @@ public class Dialogue : MonoBehaviour
         {
             Next();
         }
-        if (string.Equals(text.text, messages[n]))
+        if (spaceToContinue && string.Equals(text.text, messages[n]))
         {
             spaceToContinue.SetActive(true);
         }
