@@ -165,7 +165,7 @@ MonoBehaviour:
   moveSpeed: 5
   baseHeath: 60
   baseAttack: 10
-  attackSpeed: 0.5
+  attackSpeed: 1.4
   goldPerHit: 1
   weight: 100
   attackRange: 4
@@ -659,7 +659,7 @@ Transform:
   - {fileID: 2161199851372935572}
   m_Father: {fileID: 2161199849938165181}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0.31366706, y: -48.441307, z: -27.44297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!111 &1931209523304588579
 Animation:
   m_ObjectHideFlags: 0
@@ -758,6 +758,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 929f2f3939e76f549afc4e08a6812eca, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 4cea45133a80a1142b97e409e3b5894b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cea45133a80a1142b97e409e3b5894b, type: 3}
 --- !u!4 &5538089139845692283 stripped
