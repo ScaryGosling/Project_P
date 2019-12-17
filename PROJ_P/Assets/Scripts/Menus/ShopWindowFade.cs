@@ -9,6 +9,7 @@ public class ShopWindowFade : MonoBehaviour
     {
 
         AbilityUpgrade.FadeOnDrag += ToggleFade;
+        fade.gameObject.SetActive(false) ;
     }
     private void OnDisable()
     {

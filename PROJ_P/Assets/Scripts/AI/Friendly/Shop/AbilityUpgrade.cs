@@ -53,7 +53,9 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         {
             Destroy(clone);
         }
+        tooltip.SetActive(false);
     }
+
     private void Start()
     {
         image = GetComponent<Image>();
