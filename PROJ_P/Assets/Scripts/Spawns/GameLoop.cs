@@ -111,6 +111,12 @@ public class GameLoop : MonoBehaviour
         {
             // TestAlgorithm();
         }
+        PlayerPrefs.SetInt("Wave", 0);
+    }
+
+    public void SaveWave()
+    {
+        PlayerPrefs.SetInt("Wave", waveIndex);
     }
     private void TestAlgorithm()
     {

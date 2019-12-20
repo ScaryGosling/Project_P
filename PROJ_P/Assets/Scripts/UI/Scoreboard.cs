@@ -55,6 +55,8 @@ public class Scoreboard : MonoBehaviour
         {
             ScoreboardEntryData entryData = new ScoreboardEntryData();
             entryData.entryScore = PlayerPrefs.GetInt("Score", 0);
+            entryData.wave = PlayerPrefs.GetInt("Wave", 0);
+            entryData.playerClass = PlayerPrefs.GetInt("Class", 0); 
 
             if (entryName.text.Length <= 1)
             {

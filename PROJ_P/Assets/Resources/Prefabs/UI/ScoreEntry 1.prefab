@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 5306337526921456064}
   - component: {fileID: 6285973442582349432}
   m_Layer: 0
-  m_Name: Score (1)
+  m_Name: wave number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 639313049951452977}
   - component: {fileID: 7548069771589123407}
   m_Layer: 0
-  m_Name: Score
+  m_Name: wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -936,6 +936,11 @@ MonoBehaviour:
   entryPositionText: {fileID: 1030324605715849368}
   entryNameText: {fileID: 3908230739357594566}
   entryScoreText: {fileID: 1160809813031982196}
+  playerClass: {fileID: 9030849406574548892}
+  waveText: {fileID: 6285973442582349432}
+  classIcons:
+  - {fileID: 21300000, guid: 10e5a5eaa55c8454cb89f481acb8fc91, type: 3}
+  - {fileID: 21300000, guid: 72218322ea9e5ee4496dab3f4373be38, type: 3}
 --- !u!1 &7069613717839594520
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,6 @@ public class AttackSet : ScriptableObject
     public PlayerClass playerClass;
     public PlayerAttack[] list = new PlayerAttack[4];
     public Potion[] potionList = new Potion[0];
-
+    public int index = 0;
     public PlayerStats originalStats;
 }

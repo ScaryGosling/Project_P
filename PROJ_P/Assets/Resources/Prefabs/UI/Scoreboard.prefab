@@ -359,6 +359,8 @@ MonoBehaviour:
   testEntryData:
     entryName: 
     entryScore: 0
+    wave: 0
+    playerClass: 0
   showUI: 1
   scrollRect: {fileID: 3701218845863431398}
 --- !u!1 &2020274256575913623
@@ -531,7 +533,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -677,7 +679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6128107086255785870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -816,7 +818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &4466207657547687483
@@ -969,6 +971,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8812017835752183442}
     m_Modifications:
+    - target: {fileID: 6741718370167784033, guid: 218c1fff88b4d6745ac2ec8e28448c77,
+        type: 3}
+      propertyPath: m_Name
+      value: ScoreEntry
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741718370167784033, guid: 218c1fff88b4d6745ac2ec8e28448c77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3149310779064470034, guid: 218c1fff88b4d6745ac2ec8e28448c77,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1074,11 +1086,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6741718370167784033, guid: 218c1fff88b4d6745ac2ec8e28448c77,
-        type: 3}
-      propertyPath: m_Name
-      value: ScoreEntry
-      objectReference: {fileID: 0}
     - target: {fileID: 1030324605715849368, guid: 218c1fff88b4d6745ac2ec8e28448c77,
         type: 3}
       propertyPath: m_text
@@ -1097,7 +1104,7 @@ PrefabInstance:
     - target: {fileID: 3908230739357594566, guid: 218c1fff88b4d6745ac2ec8e28448c77,
         type: 3}
       propertyPath: m_fontSize
-      value: 44.35
+      value: 44.15
       objectReference: {fileID: 0}
     - target: {fileID: 3908230739357594566, guid: 218c1fff88b4d6745ac2ec8e28448c77,
         type: 3}

@@ -577,6 +577,8 @@ public class Player : MonoBehaviour
     private void PlayerDied()
     {
         PlayerPrefs.SetInt("Score", highscore);
+        GameLoop.instance.SaveWave();
+        PlayerPrefs.SetInt("Class", attackSet.index);
         GetComponent<PlayerMovement>().enabled = false;
         PlayAudio(deathClip);
         Audio = null;
