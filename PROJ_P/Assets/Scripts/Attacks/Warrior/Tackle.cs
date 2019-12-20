@@ -14,10 +14,12 @@ public class Tackle : PlayerAttack
     private NavMeshAgent agent;
     [SerializeField] private List<float> cooldownPerTackleLevel = new List<float>();
     private GameObject dashParticleInstance;
+    [SerializeField] private float duration;
 
     public override void RunAttack()
     {
         base.RunAttack();
+
 
         agent = player.GetComponent<NavMeshAgent>();
 
@@ -48,7 +50,7 @@ public class Tackle : PlayerAttack
         agent.GetComponent<Player>().activeStats.resistanceMultiplier = 0;
 
         GameObject timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-        timer.GetComponent<Timer>().RunCountDown(1, ResetStats, Timer.TimerType.DELAY);
+        timer.GetComponent<Timer>().RunCountDown(duration, ResetStats, Timer.TimerType.DELAY);
        
 
     }
@@ -71,6 +73,7 @@ public class Tackle : PlayerAttack
 
     public void ResetStats() {
 
+
         foreach(ParticleSystem ps in dashParticleInstance.GetComponentsInChildren<ParticleSystem>())
         {
             ps.Stop();
@@ -85,6 +88,7 @@ public class Tackle : PlayerAttack
         player.activeStats.resistanceMultiplier = 1;
         agent.GetComponent<PlayerMovement>().enabled = true;
         player.TackleCollider().DealDamageOnCollision = false;
+
 
     }
 }
