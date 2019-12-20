@@ -40,7 +40,7 @@ public class ObjectSpawner : MonoBehaviour
             {
                 foreach (GameObject location in locations)
                 {
-                    position = location.transform.position;
+                    RandomPositionSet();
                     if (genericObject != null && position != null && listOfObjects.Count < amount)
                     {
                         genericObject = BowoniaPool.instance.GetFromPool(poolObject);
@@ -61,6 +61,14 @@ public class ObjectSpawner : MonoBehaviour
             genericObject.transform.rotation = Quaternion.identity;
             //Instantiate(genericObject, position, Quaternion.identity);
         }
+    }
+
+    private void RandomPositionSet()
+    {
+        do
+        {
+            position = locations[Random.Range(0, locations.Length)].transform.position;
+        } while (position == null);
     }
 
     private void SelectType()
