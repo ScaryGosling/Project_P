@@ -105,7 +105,7 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
         abilityName.text = potion.GetAbilityName();
         abilityImage.sprite = potion.GetImage();
         abilityDescription = potion.GetAbilityDescription();
-
+        currentAbilityLevelText.transform.parent.gameObject.SetActive(false);
         //ability.ResetLevel();
     }
     void InstantiateRow()
