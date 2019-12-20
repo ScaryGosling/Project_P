@@ -28,7 +28,7 @@ public class EnemyPointer : MonoBehaviour
     {
         countDown = seconds;
     }
-    void Update()
+    void LateUpdate()
     {
         if (enemies.Count <= enemiesToShow && enemies.Count != 0)
         {
@@ -46,7 +46,7 @@ public class EnemyPointer : MonoBehaviour
         {
             countDown = seconds;
         }
-
+        CleanPool();
     }
 
     private void PaintArrow()
@@ -109,11 +109,6 @@ public class EnemyPointer : MonoBehaviour
                 arrow.transform.localRotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
             }
         }
-    }
-
-    private void LateUpdate()
-    {
-        CleanPool();
     }
 
     private bool IsOnScreen()
