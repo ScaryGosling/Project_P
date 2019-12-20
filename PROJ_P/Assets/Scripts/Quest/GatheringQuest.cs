@@ -63,13 +63,14 @@ public class GatheringQuest : Quest
         if (objectSpawner && !questEnded)
         {
             base.EndQuest();
-            objectSpawner.TerminateSpawner();
+
             if (gathered >= toGather)
             {
                 QuestSucceeded();
             }
             else
             {
+                objectSpawner.TerminateSpawner();
                 QuestFailed();
             }
             gathered = 0;
