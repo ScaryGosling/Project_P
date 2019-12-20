@@ -63,7 +63,6 @@ public class DialogueEvent : EventInfo
 {
     public DialogueData data;
 }
-
 public class QuestEvent : EventInfo
 {
     public string[] sentences;

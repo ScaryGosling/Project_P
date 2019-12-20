@@ -6,11 +6,12 @@ using TMPro;
 public class Quest : MonoBehaviour
 {
     [SerializeField] private int reward = 50;
-    [SerializeField] private Color32 arrowColor = new Color32(89,0,0,255);
+    [SerializeField] private Color32 arrowColor = new Color32(89, 0, 0, 255);
     private TMP_Text questReminder;
     [SerializeField] private string reminderText = "Finish the quest";
     private ToggleArrowEvent toggleArrow = new ToggleArrowEvent();
-     private GameObject questReminderPanel;
+    private GameObject questReminderPanel;
+    
     protected virtual void Start()
     {
         questReminder = QuestHandler.instance.GetQuestReminder();
@@ -20,13 +21,14 @@ public class Quest : MonoBehaviour
     {
         questReminderPanel.SetActive(true);
         questReminder.text = reminderText;
-        questReminder.color = new Color32(arrowColor.r, arrowColor.g, arrowColor.b, 255) ;
+        questReminder.color = new Color32(arrowColor.r, arrowColor.g, arrowColor.b, 255);
     }
 
     public virtual void QuestDialogue()
     {
-
+        
     }
+
 
     protected virtual void QuestFailed()
     {

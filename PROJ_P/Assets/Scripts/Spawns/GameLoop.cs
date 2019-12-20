@@ -87,11 +87,14 @@ public class GameLoop : MonoBehaviour
     private GameObject absoluteSpawner;
     private Vector3 spawnAtPosition;
     private int index = 0;
+    [SerializeField] private GameObject dialogueObject;
+    private Dialogue dialogue;
 
     public bool GetShopOpen() { return shopOpen; }
 
     private void Start()
     {
+        dialogue = dialogueObject.GetComponent<Dialogue>();
         unitManager = unitManagerObject.GetComponent<UnitManager>();
         player = Player.instance;
         instance = this;
@@ -246,8 +249,8 @@ public class GameLoop : MonoBehaviour
                 player.ResetSpeed();
                 Prompt.instance.RunMessage("Gained: " + playerSpeedScale + "x speed!", MessageType.BONUS);
             }
-            SpawnShopKeeper();
             GenerateQuest();
+            SpawnShopKeeper();
 
             if (objectSpawnerObject != null)
             {
@@ -351,6 +354,7 @@ public class GameLoop : MonoBehaviour
                     if (QuestProp != null)
                     {
                         QuestProp.StartQuest();
+                        dialogue.TerminateDialogue();
                     }
                     questGenerated = false;
                 }

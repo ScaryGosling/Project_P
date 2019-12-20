@@ -177,7 +177,7 @@ public class Dialogue : MonoBehaviour
     /// <summary>
     /// Removes dialogue form the screen.
     /// </summary>
-    private void TerminateDialogue()
+    public void TerminateDialogue()
     {
         ResetDialogue();
         if (DialogueProp != DialogueType.TUTORIAL)
