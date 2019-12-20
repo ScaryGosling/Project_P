@@ -51,7 +51,8 @@ public class KeyBindingButton : MonoBehaviour
                     keyBind.SetBind(keyCode);
                     buttonText.text = keybindSet.GetBindString(keyBind.GetFeature());
                     ToggleKeyListener();
-                    UIManager.instance.UpdateHotkeyText();
+                    if(UIManager.instance != null)
+                        UIManager.instance.UpdateHotkeyText();
 
                 }
             }

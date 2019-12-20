@@ -33,7 +33,8 @@ public class Dialogue : MonoBehaviour
     private string[] messages;
     private AudioClip[] voiceLines;
     private AudioClip music;
-    [SerializeField] private GameObject spaceToContinue;
+    [SerializeField] private GameObject continueText;
+    [SerializeField] private Settings settings;
 
     private Player player;
     private DialogueEffect dialogueEffect;
@@ -43,6 +44,8 @@ public class Dialogue : MonoBehaviour
     {
         if (DialogueProp != DialogueType.TUTORIAL)
             player = Player.instance;
+
+        continueText.GetComponent<Text>().text = "Press " + settings.GetBindString(KeyFeature.DIALOGUE) + " to continue";
     }
     private void Awake()
     {
@@ -53,16 +56,16 @@ public class Dialogue : MonoBehaviour
     {
         if (player)
         {
-            if ((Input.GetKeyDown(player.GetSettings().GetBind(KeyFeature.DIALOGUE)) && dialogueActive && player))
+            if ((Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE)) && dialogueActive && player))
                 Next();
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE)))
         {
             Next();
         }
-        if (spaceToContinue && string.Equals(text.text, messages[n]))
+        if (continueText && string.Equals(text.text, messages[n]))
         {
-            spaceToContinue.SetActive(true);
+            continueText.SetActive(true);
         }
     }
 
@@ -109,14 +112,14 @@ public class Dialogue : MonoBehaviour
     /// </summary>
     public void Next()
     {
-        if (!printed && Input.GetKeyDown(KeyCode.Space) && DialogueProp == DialogueType.TUTORIAL && !string.Equals(text.text, messages[n]))
+        if (!printed && Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE)) && DialogueProp == DialogueType.TUTORIAL && !string.Equals(text.text, messages[n]))
         {
             printed = true;
             dialogueEffect.Stop();
             text.text = "";
             text.text = messages[n];
-            if (spaceToContinue)
-                spaceToContinue.SetActive(true);
+            if (continueText)
+                continueText.SetActive(true);
             Debug.Log("Printed");
             return;
         }
@@ -124,9 +127,9 @@ public class Dialogue : MonoBehaviour
         {
             n++;
             TickUI();
-            if (DialogueProp == DialogueType.TUTORIAL && spaceToContinue)
+            if (DialogueProp == DialogueType.TUTORIAL && continueText)
             {
-                spaceToContinue.SetActive(false);
+                continueText.SetActive(false);
                 printed = false;
             }
         }

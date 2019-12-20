@@ -230,7 +230,8 @@ MonoBehaviour:
   timePerQuestion: 10
   text: {fileID: 59129250}
   image: {fileID: 1420095516}
-  spaceToContinue: {fileID: 966549953}
+  continueText: {fileID: 966549953}
+  settings: {fileID: 11400000, guid: 9c37919dfa498b34290c55af5af987d5, type: 2}
 --- !u!114 &59129253
 MonoBehaviour:
   m_ObjectHideFlags: 0
