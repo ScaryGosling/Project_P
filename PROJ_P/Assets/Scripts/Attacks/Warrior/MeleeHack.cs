@@ -18,6 +18,7 @@ public class MeleeHack : PlayerAttack
     private float zeroDurabilityDamagePercentage = 0.2f;
     private Image durabilityImage;
     private Collider swordCollider;
+    [SerializeField] private GameObject[] weaponUpgrades;
 
     public override void OnEnable()
     {
