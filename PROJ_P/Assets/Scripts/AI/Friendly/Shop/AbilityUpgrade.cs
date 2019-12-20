@@ -282,7 +282,15 @@ public class AbilityUpgrade : MonoBehaviour, IPointerClickHandler, IDragHandler,
                 tooltip.SetActive(true);
                 rowToCameraRatio = Screen.width / referenceWidth;
                 tooltip.transform.position = new Vector2(transform.position.x, transform.position.y - rowToCameraRatio * (tooltipHeight / 2 + hoverOffset));
-                tooltipText.text = abilityDescription;
+                if (ability)
+                {
+
+                tooltipText.text = abilityDescription + ability.GetUpgradeValues() ;
+                }
+                else
+                {
+                    tooltipText.text = abilityDescription;
+                }
             }
             if (ability && !ability.IsLocked())
             {

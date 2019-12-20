@@ -16,7 +16,11 @@ public class Projectile : PlayerAttack
     {
         base.Execute();
     }
-    
+    protected override void SetTooltipText()
+    {
+        tooltip = "Damage: " + upgradeCosts[CurrentLevel].newDamage + "->" +
+            upgradeCosts[CurrentLevel + 1].newDamage.ToString();
+    }
 
     public override void RunAttack()
     {

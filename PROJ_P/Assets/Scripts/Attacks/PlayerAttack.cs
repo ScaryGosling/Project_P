@@ -72,7 +72,24 @@ public class PlayerAttack : Ability
         catch (Exception e) { }
     }
 
+    protected string tooltipText = "", tooltip;
+    protected virtual void SetTooltipText()
+    {
 
+    }
+    public virtual string GetUpgradeValues()
+    {
+        if (upgradeCosts.Count != CurrentLevel + 1)
+        {
+            SetTooltipText();
+        tooltipText = "\n" + tooltip;
+        }
+        else
+        {
+            tooltipText = "";
+        }
+        return tooltipText;
+    }
     public bool IsLocked()
     {
         return lockedAbility;
