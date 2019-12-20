@@ -208,13 +208,6 @@ public class GameLoop : MonoBehaviour
                 {
                     QuestProp = questHandler.GetRandomQuest();
                 } while (previousQuest == QuestProp);
-
-                previousQuest = QuestProp;
-                if (QuestProp is ProtectionQuest)
-                {
-                    QuestProp.StartQuest();
-
-                }
                 QuestProp.QuestDialogue();
             }
             else
@@ -355,7 +348,7 @@ public class GameLoop : MonoBehaviour
                 shopOpen = false;
                 if (questGenerated)
                 {
-                    if (QuestProp != null && !(QuestProp is ProtectionQuest))
+                    if (QuestProp != null)
                     {
                         QuestProp.StartQuest();
                     }
@@ -449,4 +442,11 @@ public class GameLoop : MonoBehaviour
 //        currentType = 0;
 //    }
 //}
+
+                //previousQuest = QuestProp;
+                //if (QuestProp)
+                //{
+                //    QuestProp.StartQuest();
+
+                //}
 #endregion
