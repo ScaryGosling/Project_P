@@ -43,25 +43,23 @@ public class Dialogue : MonoBehaviour
     public void Start()
     {
         if (DialogueProp != DialogueType.TUTORIAL)
+        {
             player = Player.instance;
+        }
+        else
+            continueText.GetComponent<Text>().text = "Press " + settings.GetBindString(KeyFeature.DIALOGUE) + " to continue";
 
-        continueText.GetComponent<Text>().text = "Press " + settings.GetBindString(KeyFeature.DIALOGUE) + " to continue";
     }
     private void Awake()
     {
-
         dialogueEffect = GetComponent<DialogueEffect>();
     }
     private void Update()
     {
-        if (player)
+        if (DialogueProp != DialogueType.TUTORIAL)
         {
-            if ((Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE)) && dialogueActive && player))
+            if ((Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE)) && dialogueActive))
                 Next();
-        }
-        else if (Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE)))
-        {
-            Next();
         }
         if (continueText && string.Equals(text.text, messages[n]))
         {
@@ -76,7 +74,7 @@ public class Dialogue : MonoBehaviour
     {
         text.text = dialogueField;
         PlayNextMessage();
-        if (sprites != null && sprites.Length >0)
+        if (sprites != null && sprites.Length > 0)
             image.sprite = sprites[n];
 
         if (DialogueProp == DialogueType.TUTORIAL)
@@ -92,8 +90,8 @@ public class Dialogue : MonoBehaviour
     /// <param name="dialogue"></param>
     public void InitializeTextProtocol(DialogueData dialogue)
     {
-        if(dialogue.sprites != null)
-        this.sprites = dialogue.sprites;
+        if (dialogue.sprites != null)
+            this.sprites = dialogue.sprites;
         if (dialogue.messages != null)
         {
             this.messages = dialogue.messages;
@@ -114,13 +112,9 @@ public class Dialogue : MonoBehaviour
     {
         if (!printed && Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE)) && DialogueProp == DialogueType.TUTORIAL && !string.Equals(text.text, messages[n]))
         {
-            printed = true;
-            dialogueEffect.Stop();
-            text.text = "";
-            text.text = messages[n];
+            AutoComplete();
             if (continueText)
                 continueText.SetActive(true);
-            Debug.Log("Printed");
             return;
         }
         if (n < messages.Length - 1)
@@ -136,6 +130,14 @@ public class Dialogue : MonoBehaviour
         else
             TerminateDialogue();
 
+    }
+
+    private void AutoComplete()
+    {
+        printed = true;
+        dialogueEffect.Stop();
+        text.text = "";
+        text.text = messages[n];
     }
 
 
@@ -173,8 +175,6 @@ public class Dialogue : MonoBehaviour
     {
         n = 0;
         dialogueField = "";
-        //TickUI();
-
     }
 
     /// <summary>

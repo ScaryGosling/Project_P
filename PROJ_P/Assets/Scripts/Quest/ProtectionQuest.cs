@@ -19,7 +19,6 @@ public class ProtectionQuest : Quest
     public override void StartQuest()
     {
         base.StartQuest();
-        buildingIndex = Random.Range(0, buildings.Length);
         buildingToDefend = buildings[buildingIndex];
         buildingHealth = 100;
         healthImage.transform.parent.gameObject.SetActive(true);
@@ -29,6 +28,7 @@ public class ProtectionQuest : Quest
     }
     public override void QuestDialogue()
     {
+        buildingIndex = Random.Range(0, buildings.Length);
         dialogueEvent.data = questData[buildingIndex];
         EventSystem.Current.FireEvent(dialogueEvent);
     }

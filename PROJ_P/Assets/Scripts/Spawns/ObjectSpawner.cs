@@ -21,7 +21,9 @@ public class ObjectSpawner : MonoBehaviour
     private int amount = 2;
     private Vector3 position;
     private PoolObject poolObject;
-
+    private GameObject[] tempList;
+    private GameObject tempObject;
+    private int prevIndex;
     /// <summary>
     /// Creates said amount of items, then positions them around the world. 
     /// </summary>
@@ -33,6 +35,7 @@ public class ObjectSpawner : MonoBehaviour
         this.item = item;
 
         SelectType();
+        RandomSort();
 
         if (!hasAbsolutePosition)
         {
@@ -40,7 +43,7 @@ public class ObjectSpawner : MonoBehaviour
             {
                 foreach (GameObject location in locations)
                 {
-                    RandomPositionSet();
+                    position = location.transform.position;
                     if (genericObject != null && position != null && listOfObjects.Count < amount)
                     {
                         genericObject = BowoniaPool.instance.GetFromPool(poolObject);
@@ -63,12 +66,15 @@ public class ObjectSpawner : MonoBehaviour
         }
     }
 
-    private void RandomPositionSet()
+    private void RandomSort()
     {
-        do
+        for (int i = 0; i < locations.Length; i++)
         {
-            position = locations[Random.Range(0, locations.Length)].transform.position;
-        } while (position == null);
+            tempObject = locations[i];
+            prevIndex = Random.Range(i, locations.Length);
+            locations[i] = locations[prevIndex];
+            locations[prevIndex] = tempObject;
+        }
     }
 
     private void SelectType()
@@ -107,7 +113,7 @@ public class ObjectSpawner : MonoBehaviour
         {
             if (i.activeInHierarchy)
             {
-            BowoniaPool.instance.AddToPool(poolObject, i);
+                BowoniaPool.instance.AddToPool(poolObject, i);
 
             }
         }
@@ -115,3 +121,11 @@ public class ObjectSpawner : MonoBehaviour
         BowoniaPool.instance.AddToPool(PoolObject.OBJECT_SPAWNER, gameObject, 2f);
     }
 }
+
+#region
+//Vector3 tempPosition;
+//while (tempPosition == null){
+//    tempPosition = locations[Random.Range(0, locations.Length)].transform.position;
+//    position = tempPosition;
+//} 
+#endregion

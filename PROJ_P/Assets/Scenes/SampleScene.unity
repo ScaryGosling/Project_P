@@ -8653,6 +8653,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8722,11 +8727,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.39464045
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -9063,6 +9063,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1 (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9132,11 +9137,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.237127
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -10167,6 +10167,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1 (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10236,11 +10241,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.39500007
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -11909,6 +11909,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1 (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11978,11 +11983,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.36382
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1 (7)
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -20585,6 +20585,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1 (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20654,11 +20659,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.24817
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -22704,6 +22704,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22768,11 +22773,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c8da7241a49bca4c95975c5b893b585, type: 3}
@@ -24522,6 +24522,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24591,11 +24596,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.29675
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -25947,6 +25947,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 712868269}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &718065133 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1377983375564630705, guid: 583c38658738f4f40bc99772dd72b0de,
+    type: 3}
+  m_PrefabInstance: {fileID: 5598189670470178927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31816149937244144ad41db4c39ce1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &718909491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26424,6 +26436,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26478,11 +26495,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -27931,6 +27943,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de9cd9612ba850c45b81fbf506bfaaa1, type: 3}
+--- !u!1 &731890413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 135428391107120373, guid: 2bc5c9f3f422bf940987564bfe1d64a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4738550532901967002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &733787803 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8231188485038755345, guid: 8dd3761ff523e90419e317f951ecbc58,
@@ -32749,6 +32767,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1 (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32818,11 +32841,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.33882
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -36512,6 +36530,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36581,11 +36604,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.34675
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -36765,6 +36783,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36819,11 +36842,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -37464,6 +37482,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37533,11 +37556,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.29296
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -39719,6 +39737,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39788,11 +39811,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.4268
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -41355,6 +41373,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41409,11 +41432,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -43906,6 +43924,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43970,11 +43993,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -48947,6 +48965,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1 (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -49016,11 +49039,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.40793
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -61804,7 +61822,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4738550532901967002}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 731890413}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06b9478d6e7de37479601c9877e13e79, type: 3}
@@ -62271,6 +62289,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -62335,11 +62358,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.50000024
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -70115,6 +70133,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -70184,11 +70207,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.415
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -70890,6 +70908,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -70959,11 +70982,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -80285,6 +80303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -80354,11 +80377,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.44293
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -82350,6 +82368,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -82419,11 +82442,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.34346527
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -82893,6 +82911,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1 (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -82962,11 +82985,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -89035,6 +89053,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -89104,11 +89127,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.425
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -90305,6 +90323,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -90374,11 +90397,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (9)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -90877,6 +90895,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -90946,11 +90969,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.3427252
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -94817,6 +94835,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7659933132307490573, guid: 2bc5c9f3f422bf940987564bfe1d64a8,
+        type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c37919dfa498b34290c55af5af987d5,
+        type: 2}
     - target: {fileID: 4738550533923403046, guid: 2bc5c9f3f422bf940987564bfe1d64a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -95338,6 +95362,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -95407,11 +95436,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.44887453
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -96720,6 +96744,16 @@ PrefabInstance:
       propertyPath: unitManagerObject
       value: 
       objectReference: {fileID: 2053116816}
+    - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: dialogueObject
+      value: 
+      objectReference: {fileID: 731890413}
+    - target: {fileID: 5598189669312911737, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: expected
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3596345851274281749, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: waveCounter
@@ -96742,9 +96776,24 @@ PrefabInstance:
       objectReference: {fileID: 1109466763}
     - target: {fileID: 3102150688294543649, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
+      propertyPath: quests.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102150688294543649, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
       propertyPath: questReminder
       value: 
       objectReference: {fileID: 1776996949}
+    - target: {fileID: 3102150688294543649, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: quests.Array.data[0]
+      value: 
+      objectReference: {fileID: 718065133}
+    - target: {fileID: 3102150688294543649, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: quests.Array.data[1]
+      value: 
+      objectReference: {fileID: 718065133}
     - target: {fileID: 6345400272109297643, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: buildings.Array.data[0]
@@ -97486,6 +97535,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -97556,11 +97610,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.41
       objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_Enabled
@@ -97581,6 +97630,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -97635,11 +97689,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (8)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -97773,6 +97822,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -97842,11 +97896,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.39500007
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -98359,6 +98408,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -98428,11 +98482,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.49669883
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -100750,6 +100799,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -100819,11 +100873,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.31500018
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
@@ -101592,6 +101641,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood1 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 8486391567070913775, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -101647,11 +101701,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4930135559665129549, guid: 3777e4c06c714c14f8018a31f0a6444b,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood1 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 7834175094952049786, guid: 3777e4c06c714c14f8018a31f0a6444b,
         type: 3}
       propertyPath: m_Enabled
@@ -101672,6 +101721,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -101726,11 +101780,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (7)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
@@ -102637,6 +102686,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2779613532715670289}
     m_Modifications:
+    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
+        type: 3}
+      propertyPath: m_Name
+      value: blood3 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 4671256738352540903, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -102706,11 +102760,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.30731505
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029648422782683264, guid: 6c8da7241a49bca4c95975c5b893b585,
-        type: 3}
-      propertyPath: m_Name
-      value: blood3 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9190030036285861576, guid: 6c8da7241a49bca4c95975c5b893b585,
         type: 3}
