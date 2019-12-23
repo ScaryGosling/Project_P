@@ -20,6 +20,14 @@ public class IceNova : PlayerAttack
         base.UpgradeAttack();
         duration = durationPerLevel[CurrentLevel];
     }
+
+    protected override void SetTooltipText()
+    {
+        tooltip = "Cooldown: " + durationPerLevel[CurrentLevel].ToString() + "->" +
+            durationPerLevel[CurrentLevel + 1].ToString();
+    }
+
+
     public override void RunAttack()
     {
         base.RunAttack();

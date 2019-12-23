@@ -13,6 +13,15 @@ public class FireBall : PlayerAttack
     private Transform spawnPoint;
     [SerializeField] private List<float> radiusPerLevel = new List<float>();
 
+
+    protected override void SetTooltipText()
+    {
+        tooltip =            "Damage: " + upgradeCosts[CurrentLevel].newDamage + "->" +
+            upgradeCosts[CurrentLevel + 1].newDamage.ToString() + "\n" +
+            "Area of Effect: " + radiusPerLevel[CurrentLevel].ToString() + "->" +
+            radiusPerLevel[CurrentLevel + 1].ToString();
+    }
+
     public override void RunAttack()
     {
         base.RunAttack();

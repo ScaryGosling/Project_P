@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Blink
   m_EditorClassIdentifier: 
   abilityName: Blink
-  abilityDescription: 'Teleport a small distance, gaining a movement speed boost!
-    Upgrade: +Range, +Speed boost and -CD'
+  abilityDescription: Teleport a small distance, gaining a movement speed boost!
   abilityDescriptionForClassChooser: Teleport a small distance through space and time,
     gaining a movement speed bost!
   castCost: 5

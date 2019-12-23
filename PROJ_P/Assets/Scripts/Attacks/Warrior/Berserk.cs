@@ -21,6 +21,16 @@ public class Berserk : PlayerAttack
         public float attackSpeed;
     }
 
+    protected override void SetTooltipText()
+    {
+        tooltip = 
+            "Duration: " + berserkUpgrades[CurrentLevel].duration.ToString() + "->" +
+            berserkUpgrades[CurrentLevel + 1].duration.ToString() + "\n" +
+            "Attack Speed: " + berserkUpgrades[CurrentLevel].attackSpeed.ToString() + "->" +
+            berserkUpgrades[CurrentLevel + 1].attackSpeed.ToString();
+    }
+
+
     public override void OnEquip()
     {
         base.OnEquip();

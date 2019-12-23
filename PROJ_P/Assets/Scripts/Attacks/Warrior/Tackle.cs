@@ -16,6 +16,16 @@ public class Tackle : PlayerAttack
     private GameObject dashParticleInstance;
     [SerializeField] private float duration;
 
+
+    protected override void SetTooltipText()
+    {
+        tooltip = "Damage: " + upgradeCosts[CurrentLevel].newDamage + "->" +
+            upgradeCosts[CurrentLevel + 1].newDamage.ToString()+"\n" +
+           "Cooldown: " + cooldownPerTackleLevel[CurrentLevel].ToString() + "->" +
+            cooldownPerTackleLevel[CurrentLevel + 1].ToString();
+    }
+
+
     public override void RunAttack()
     {
         base.RunAttack();

@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   abilityName: Chain Lightning
-  abilityDescription: 'Shoot a lightning bolt that chains to enemies! Upgrade: +Damage
-    and +AoE'
+  abilityDescription: Shoot a lightning bolt that chains to enemies!
   abilityDescriptionForClassChooser: Shoot a lightning bolt that chains to enemies!
   castCost: 3
   castTime: 0

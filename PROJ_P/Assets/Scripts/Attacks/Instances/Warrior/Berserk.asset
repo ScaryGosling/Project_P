@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Berserk
   m_EditorClassIdentifier: 
   abilityName: Berserk
-  abilityDescription: 'Fly into a frenzy, gaining full rage, defense and attackspeed
-    bonuses! Upgrade: +Duration and +Attack speed'
+  abilityDescription: Fly into a frenzy, gaining full rage, defense and attackspeed
+    bonuses!
   abilityDescriptionForClassChooser: 'Fly into a frenzy, gaining full rage, defense
     and attackspeed bonuses! '
   castCost: 0

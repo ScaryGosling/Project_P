@@ -79,10 +79,10 @@ public class PlayerAttack : Ability
     }
     public virtual string GetUpgradeValues()
     {
-        if (upgradeCosts.Count != CurrentLevel + 1)
+        if (upgradeCosts.Count != CurrentLevel + 1 && !lockedAbility)
         {
             SetTooltipText();
-        tooltipText = "\n" + tooltip;
+        tooltipText = "\n" + "Ability Upgrade:" + "\n" + tooltip;
         }
         else
         {

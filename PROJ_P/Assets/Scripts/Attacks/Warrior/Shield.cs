@@ -10,6 +10,12 @@ public class Shield : PlayerAttack
     private GameObject shield;
     [SerializeField] private List<float> durationPerLevel = new List<float>();
 
+    protected override void SetTooltipText()
+    {
+        tooltip = "Duration: " + durationPerLevel[CurrentLevel] + "->" +
+            durationPerLevel[CurrentLevel + 1].ToString();
+    }
+
     public override void RunAttack()
     {
         base.RunAttack();

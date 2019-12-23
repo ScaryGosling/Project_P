@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ice Nova
   m_EditorClassIdentifier: 
   abilityName: Ice Nova
-  abilityDescription: 'Unleash a freezing nova around you! Stop enemies dead in their
-    tracks. Upgrade: +Duration'
+  abilityDescription: Unleash a freezing nova around you! Stop enemies dead in their
+    tracks.
   abilityDescriptionForClassChooser: Unleash a freezing nova around you! Stop enemies
     dead in their tracks.
   castCost: 5

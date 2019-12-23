@@ -23,6 +23,16 @@ public class Blink : PlayerAttack
         public float cooldown;
     }
 
+    protected override void SetTooltipText()
+    {
+        tooltip = "Range: " + blinkUpgrades[CurrentLevel].range + "->" +
+            blinkUpgrades[CurrentLevel + 1].range.ToString() +"\n" +
+           "Speed boost: " + blinkUpgrades[CurrentLevel].speedboost + "->" +
+            blinkUpgrades[CurrentLevel + 1].speedboost.ToString() + "\n" +
+           "Cooldown: " + blinkUpgrades[CurrentLevel].cooldown + "->" +
+            blinkUpgrades[CurrentLevel + 1].cooldown.ToString();
+    }
+
     public override void UpgradeAttack()
     {
         base.UpgradeAttack();

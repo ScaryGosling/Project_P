@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GroundStomp
   m_EditorClassIdentifier: 
   abilityName: Groundstomp
-  abilityDescription: 'Stomp the ground, dealing damage and stunning enemies around
-    you! Upgrade: +Damage and +AoE'
+  abilityDescription: Stomp the ground, dealing damage and stunning enemies around
+    you!
   abilityDescriptionForClassChooser: Stomp the ground, dealing damage and stunning
     enemies around you!
   castCost: 25
