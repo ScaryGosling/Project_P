@@ -34,8 +34,10 @@ public class Player : MonoBehaviour
     private Coroutine[] cooldowns;
     private Image[] attackUISpotBG = new Image[4];
     private Color32 disabledAttackColor = new Color32(255, 255, 255, 68);
+    private Color32 attackBGColor = new Color32(72, 72, 72, 203);
     Image[] icons = new Image[4];
-
+    Image basicBG = null;
+    [SerializeField] Sprite abilityBG = null;
 
     [Header("Attributes")]
     [SerializeField] private Image health;
@@ -386,6 +388,9 @@ public class Player : MonoBehaviour
             {
 
                 attackUISpot[i].sprite = activeAttacks.list[i].GetImage();
+                basicBG = attackUISpot[i].transform.parent.GetComponent<Image>();
+                basicBG.sprite = attackUISpot[i].sprite;
+                basicBG.color =  attackBGColor;
             }
         }
         Resource.CacheComponents(resourceImage);
@@ -533,7 +538,7 @@ public class Player : MonoBehaviour
 
             if (activeAttacks.list[i] != null && activeAttacks.list[i].GetCastCost() / 100 <= Resource.Value)
             {
-                attackUISpotBG[i].color = Color.white;
+                //attackUISpotBG[i].color = ;
                 icons[i].color = Color.white;
             }
             else
@@ -597,11 +602,11 @@ public class Player : MonoBehaviour
         attack[position] = attackUISpot[position];
         attack[position].fillAmount = 0;
         animationTime = 0;
-        cooldownTime = activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed;
-        while (animationTime < cooldownTime)
+        //cooldownTime = activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed;
+        while (animationTime < activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed)
         {
             animationTime += Time.deltaTime;
-            attack[position].fillAmount = animationTime / cooldownTime;
+            attack[position].fillAmount = animationTime / activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed;
             yield return null;
 
         }
@@ -635,10 +640,13 @@ public class Player : MonoBehaviour
         if (ability == null)
         {
             attackUISpot[position].color = new Color32(0, 0, 0, 0);
+            attackUISpotBG[position].sprite = abilityBG;
         }
         else
         {
-            attackUISpot[position].color = Color.white;
+            attackUISpot[position].color = attackBGColor;
+            attackUISpotBG[position].sprite = attackUISpot[position].sprite;
+
             UpdateIcons();
         }
     }

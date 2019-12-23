@@ -57,20 +57,20 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
                 ability = abilityUpgrade.GetAbility();
                 eventData.pointerDrag.GetComponent<AbilityUpgrade>().GetAbilityCat();
                 //image.sprite = ability.GetImage();
-                Player.instance.SetAbility(attackOnButton, ability);
                 iconImage.gameObject.SetActive(true);
                 iconImage.sprite = ability.GetImage();
                 canvasIcon.sprite = iconImage.sprite;
+                Player.instance.SetAbility(attackOnButton, ability);
                 OnPointerUp(eventData);
             }
             else if (abilityDrop != null && ability != null)
             {
                 PlayerAttack temp = ability;
                 ability = abilityDrop.GetAbility();
-                Player.instance.SetAbility(attackOnButton, ability);
                 iconImage.gameObject.SetActive(true);
                 iconImage.sprite = ability.GetImage();
                 canvasIcon.sprite = iconImage.sprite;
+                Player.instance.SetAbility(attackOnButton, ability);
                 abilityDrop.SwapAbility(temp);
 
             }
@@ -78,10 +78,10 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
             else if (abilityDrop != null)
             {
                 ability = abilityDrop.GetAbility();
-                Player.instance.SetAbility(attackOnButton , ability);
                 iconImage.gameObject.SetActive(true);
                 iconImage.sprite = ability.GetImage();
                 canvasIcon.sprite = iconImage.sprite;
+                Player.instance.SetAbility(attackOnButton , ability);
                 OnPointerUp(eventData);
             }
 
@@ -93,10 +93,10 @@ public class AbilityDropHandler : MonoBehaviour, IDropHandler, IDragHandler, IEn
     public void SwapAbility(PlayerAttack ability)
     {
         this.ability = ability;
-        Player.instance.SetAbility(attackOnButton, ability);
         iconImage.gameObject.SetActive(true);
         iconImage.sprite = ability.GetImage();
         canvasIcon.sprite = iconImage.sprite;
+        Player.instance.SetAbility(attackOnButton, ability);
         swapped = true;
     }
 
