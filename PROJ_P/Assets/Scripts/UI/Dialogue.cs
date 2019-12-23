@@ -34,6 +34,8 @@ public class Dialogue : MonoBehaviour
     private AudioClip[] voiceLines;
     private AudioClip music;
     [SerializeField] private GameObject continueText;
+    [SerializeField] private GameObject moveBackText;
+    [SerializeField] private GameObject pageText;
     [SerializeField] private Settings settings;
 
     private Player player;
@@ -86,7 +88,8 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            continueText.GetComponent<Text>().text = "Press " + settings.GetBindString(KeyFeature.DIALOGUE_FORWARD) + " to continue";
+            continueText.GetComponent<Text>().text = settings.GetBindString(KeyFeature.DIALOGUE_FORWARD);
+            moveBackText.GetComponent<Text>().text = settings.GetBindString(KeyFeature.DIALOGUE_BACK);
         }
         if (dialogue.sprites != null)
             this.sprites = dialogue.sprites;
@@ -101,6 +104,7 @@ public class Dialogue : MonoBehaviour
 
             TickUI();
         }
+        TurnPage();
     }
 
     /// <summary>
@@ -135,6 +139,13 @@ public class Dialogue : MonoBehaviour
         }
         else if (n > 0 && dialogueDir == DialogueDirection.BACKWARDS)
             Previous();
+        TurnPage();
+    }
+
+    private void TurnPage()
+    {
+        if(pageText)
+        pageText.GetComponent<Text>().text = "Page " + (n+1) + "/" +  messages.Length;
     }
 
     public void Previous()
