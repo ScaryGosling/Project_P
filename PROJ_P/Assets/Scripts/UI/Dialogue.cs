@@ -40,16 +40,6 @@ public class Dialogue : MonoBehaviour
     private DialogueEffect dialogueEffect;
     private bool printed;
 
-    public void Start()
-    {
-        if (DialogueProp != DialogueType.TUTORIAL)
-        {
-            player = Player.instance;
-        }
-        else
-            continueText.GetComponent<Text>().text = "Press " + settings.GetBindString(KeyFeature.DIALOGUE_FORWARD) + " to continue";
-
-    }
     private void Awake()
     {
         dialogueEffect = GetComponent<DialogueEffect>();
@@ -90,6 +80,14 @@ public class Dialogue : MonoBehaviour
     /// <param name="dialogue"></param>
     public void InitializeTextProtocol(DialogueData dialogue)
     {
+        if (DialogueProp != DialogueType.TUTORIAL)
+        {
+            player = Player.instance;
+        }
+        else
+        {
+            continueText.GetComponent<Text>().text = "Press " + settings.GetBindString(KeyFeature.DIALOGUE_FORWARD) + " to continue";
+        }
         if (dialogue.sprites != null)
             this.sprites = dialogue.sprites;
         if (dialogue.messages != null)
@@ -118,12 +116,14 @@ public class Dialogue : MonoBehaviour
                 continueText.SetActive(true);
             return;
         }
-        if (n == messages.Length - 1)
+        if (n == messages.Length - 1 && dialogueDir == DialogueDirection.FORWARD)
+        {
             TerminateDialogue();
+            return;
+        }
         
         if (DialogueProp == DialogueType.TUTORIAL && continueText)
         {
-
             continueText.SetActive(false);
             printed = false;
         }
@@ -185,7 +185,7 @@ public class Dialogue : MonoBehaviour
     private void ResetDialogue()
     {
         n = 0;
-        dialogueField = null;
+        dialogueField = "";
     }
 
     /// <summary>
