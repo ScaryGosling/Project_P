@@ -18,8 +18,8 @@ public class MeleeHack : PlayerAttack
     private float zeroDurabilityDamagePercentage = 0.2f;
     private Image durabilityImage;
     private Collider swordCollider;
+    [SerializeField] private List<int> weaponIndex = new List<int>();
 
-    
 
     public override void OnEnable()
     {
@@ -86,7 +86,11 @@ public class MeleeHack : PlayerAttack
                 upgrades[i].SetActive(false);
 
             }
-            upgrades[CurrentLevel].SetActive(true);
+            upgrades[weaponIndex[CurrentLevel]].SetActive(true);
+        }
+        else
+        {
+            upgrades[weaponIndex[weaponIndex.Count-1]].SetActive(true);
         }
 
         
