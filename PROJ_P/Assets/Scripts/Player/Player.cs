@@ -598,12 +598,11 @@ public class Player : MonoBehaviour
     {
 
         float animationTime;
-        float cooldownTime;
         attack[position] = attackUISpot[position];
         attack[position].fillAmount = 0;
         animationTime = 0;
         //cooldownTime = activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed;
-        while (animationTime < activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed)
+        while (activeAttacks.list[position] != null && animationTime < activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed)
         {
             animationTime += Time.deltaTime;
             attack[position].fillAmount = animationTime / activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed;
