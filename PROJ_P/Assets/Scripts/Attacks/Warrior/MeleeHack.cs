@@ -18,7 +18,8 @@ public class MeleeHack : PlayerAttack
     private float zeroDurabilityDamagePercentage = 0.2f;
     private Image durabilityImage;
     private Collider swordCollider;
-    [SerializeField] private GameObject[] weaponUpgrades;
+
+    
 
     public override void OnEnable()
     {
@@ -66,4 +67,22 @@ public class MeleeHack : PlayerAttack
         sword.ResetDrained();
     }
 
+
+    public override void UpgradeAttack()
+    {
+        base.UpgradeAttack();
+        GameObject[] upgrades = sword.GetWeaponUpgrades();
+
+        if(upgrades.Length > CurrentLevel)
+        {
+            for (int i = 0; i < upgrades.Length; i++)
+            {
+                upgrades[i].SetActive(false);
+
+            }
+            upgrades[CurrentLevel].SetActive(true);
+        }
+
+        
+    }
 }

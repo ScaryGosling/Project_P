@@ -56,11 +56,11 @@ public class Dialogue : MonoBehaviour
     }
     private void Update()
     {
-        if (DialogueProp != DialogueType.TUTORIAL)
-        {
+        //if (DialogueProp != DialogueType.TUTORIAL)
+        //{
             if ((Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE)) && dialogueActive))
                 Next();
-        }
+        //}
         if (continueText && string.Equals(text.text, messages[n]))
         {
             continueText.SetActive(true);

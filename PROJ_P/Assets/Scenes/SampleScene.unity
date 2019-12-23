@@ -21161,6 +21161,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 553868864}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &554119806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7894967250783643465, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079045317085329782}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &554908463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43233,6 +43239,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 657683517}
     m_Modifications:
+    - target: {fileID: 4920353032328963402, guid: cbf806d24c84ecf44b7f1ad224a3bbda,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemPosition (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 4920353032328963401, guid: cbf806d24c84ecf44b7f1ad224a3bbda,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43287,11 +43298,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4920353032328963402, guid: cbf806d24c84ecf44b7f1ad224a3bbda,
-        type: 3}
-      propertyPath: m_Name
-      value: ItemPosition (9)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbf806d24c84ecf44b7f1ad224a3bbda, type: 3}
@@ -65175,6 +65181,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1874575617}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1877213677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5438990794350465010, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079045317085329782}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1877567959 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8117128688163816540, guid: b7e92727d73be2448bddbcac1874b5bc,
@@ -80820,7 +80832,7 @@ PrefabInstance:
     - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
       propertyPath: gold
-      value: 0
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
@@ -80924,6 +80936,28 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 505616734, guid: 74d1415f2c9a8e54eb93ce037bae2d6d, type: 3}
+      propertyPath: weaponUpgrades.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 505616734, guid: 74d1415f2c9a8e54eb93ce037bae2d6d, type: 3}
+      propertyPath: weaponUpgrades.Array.data[0]
+      value: 
+      objectReference: {fileID: 554119806}
+    - target: {fileID: 505616734, guid: 74d1415f2c9a8e54eb93ce037bae2d6d, type: 3}
+      propertyPath: weaponUpgrades.Array.data[1]
+      value: 
+      objectReference: {fileID: 1877213677}
+    - target: {fileID: 5438990794350465010, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
+        type: 3}
+      propertyPath: m_Name
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894967250783643465, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
+        type: 3}
+      propertyPath: m_Name
+      value: Level0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74d1415f2c9a8e54eb93ce037bae2d6d, type: 3}
@@ -96599,6 +96633,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 1377983375564630705, guid: 583c38658738f4f40bc99772dd72b0de,
+        type: 3}
+      propertyPath: collectionTextObject
+      value: 
+      objectReference: {fileID: 382062497}
     - target: {fileID: 231697962275485168, guid: 583c38658738f4f40bc99772dd72b0de,
         type: 3}
       propertyPath: bossSpawner
@@ -96819,11 +96858,6 @@ PrefabInstance:
       propertyPath: healthImage
       value: 
       objectReference: {fileID: 4738550532901967004}
-    - target: {fileID: 1377983375564630705, guid: 583c38658738f4f40bc99772dd72b0de,
-        type: 3}
-      propertyPath: collectionTextObject
-      value: 
-      objectReference: {fileID: 382062497}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 583c38658738f4f40bc99772dd72b0de, type: 3}
 --- !u!1 &5598189670470178928 stripped

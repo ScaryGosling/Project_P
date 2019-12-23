@@ -15,6 +15,8 @@ public class Sword : MonoBehaviour
     [SerializeField] private GameObject particles;
     [SerializeField] private GameObject lifeLeechparticles;
 
+    [SerializeField] private GameObject[] weaponUpgrades;
+
 
     [SerializeField] private float comboMultiplier;
     [SerializeField] private float comboTime;
@@ -41,6 +43,8 @@ public class Sword : MonoBehaviour
         particlesInUse.SetActive(true);
     }
 
+
+    public GameObject[] GetWeaponUpgrades() { return weaponUpgrades; }
 
     public void CacheComponents(float damage,float magnitude, PlayerAttack hack, Action methodToRun = null, IEnumerator coroutineToRun = null)
     {
