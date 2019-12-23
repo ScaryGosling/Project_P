@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class EnemyPointer : MonoBehaviour
 {
     GameObject arrow;
-    private List<GameObject> arrowPool = new List<GameObject>();
+    private List<GameObject> arrowList = new List<GameObject>();
     private int arrowPoolCursor = 0;
     [SerializeField]private Color32 arrowColor = new Color32(255, 00, 0, 100);
     [SerializeField] [Range(0,10)]private float scale = 5f;
@@ -46,7 +46,7 @@ public class EnemyPointer : MonoBehaviour
         {
             countDown = seconds;
         }
-        CleanPool();
+        //CleanPool();
     }
 
     private void PaintArrow()
@@ -57,10 +57,11 @@ public class EnemyPointer : MonoBehaviour
             screenpos = Camera.main.WorldToScreenPoint(enemy.transform.position);
             if (IsOnScreen())
             {
-                //if enemy visible
+                arrowPerUnit[enemy].SetActive(false);
             }
             else
             {
+                arrowPerUnit[enemy].SetActive(true);
                 if (screenpos.z < 0)
                 {
                     screenpos *= -1;
@@ -103,7 +104,8 @@ public class EnemyPointer : MonoBehaviour
                 screenpos -= transform.position;
                 screenpos /= transform.localScale.x;
 
-                arrow = GetArrow();
+                //arrow = GetArrow();
+                arrow = arrowPerUnit[enemy];
                 arrow.GetComponent<Image>().color = arrowColor; 
                 arrow.transform.localPosition = screenpos;
                 arrow.transform.localRotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
@@ -122,27 +124,39 @@ public class EnemyPointer : MonoBehaviour
     {
         arrowPoolCursor = 0;
     }
+    Dictionary<Unit, GameObject> arrowPerUnit = new Dictionary<Unit, GameObject>();
     public void AddToList (Unit unit)
     {
         enemies.Add(unit);
+        output = BowoniaPool.instance.GetFromPool(PoolObject.ENEMY_POINTER);
+        output.transform.SetParent(transform);
+        output.transform.localScale = Vector3.one * scale;
+        arrowPerUnit.Add(unit, output);
+        output.SetActive(false);
     }
     public void RemoveFromList(Unit unit)
     {
+        if (arrowPerUnit.ContainsKey(unit) && arrowPerUnit[unit] )
+        {
+
+        BowoniaPool.instance.AddToPool(PoolObject.ENEMY_POINTER, arrowPerUnit[unit]);
+        }
+        arrowPerUnit.Remove(unit);
         enemies.Remove(unit);
     }
     GameObject output;
     private GameObject GetArrow()
     {
-        if (arrowPoolCursor < arrowPool.Count)
+        if (arrowPoolCursor < arrowList.Count)
         {
-            output = arrowPool[arrowPoolCursor];
+            output = arrowList[arrowPoolCursor];
         }
         else
         {
             output = BowoniaPool.instance.GetFromPool(PoolObject.ENEMY_POINTER);
             output.transform.SetParent(transform);
             output.transform.localScale  = Vector3.one * scale;
-            arrowPool.Add(output);
+            arrowList.Add(output);
         }
         arrowPoolCursor++;
         return output;
@@ -150,10 +164,10 @@ public class EnemyPointer : MonoBehaviour
     GameObject obj;
     private void CleanPool()
     {
-        while (arrowPool.Count > arrowPoolCursor)
+        while (arrowList.Count > arrowPoolCursor)
         {
-            obj = arrowPool[arrowPool.Count - 1];
-            arrowPool.Remove(obj);
+            obj = arrowList[arrowList.Count - 1];
+            arrowList.Remove(obj);
             BowoniaPool.instance.AddToPool(PoolObject.ENEMY_POINTER, obj);
         }
     }
