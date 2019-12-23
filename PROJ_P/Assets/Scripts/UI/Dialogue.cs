@@ -110,6 +110,7 @@ public class Dialogue : MonoBehaviour
     /// </summary>
     public void Next(DialogueDirection dialogueDir)
     {
+
         if (!printed && Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE_FORWARD)) && DialogueProp == DialogueType.TUTORIAL && !string.Equals(text.text, messages[n]))
         {
             AutoComplete();
@@ -117,8 +118,12 @@ public class Dialogue : MonoBehaviour
                 continueText.SetActive(true);
             return;
         }
+        if (n == messages.Length - 1)
+            TerminateDialogue();
+        
         if (DialogueProp == DialogueType.TUTORIAL && continueText)
         {
+
             continueText.SetActive(false);
             printed = false;
         }
@@ -130,75 +135,70 @@ public class Dialogue : MonoBehaviour
         }
         else if (n > 0 && dialogueDir == DialogueDirection.BACKWARDS)
             Previous();
-
-        if (n == messages.Length - 1){
-                TerminateDialogue();
-}
-}
+    }
 
     public void Previous()
-{
-    n--;
-    AutoComplete();
-    //TickUI();
-}
-
-private void AutoComplete()
-{
-    printed = true;
-    dialogueEffect.Stop();
-    text.text = "";
-    text.text = messages[n];
-}
-
-
-private void PlayNextMessage()
-{
-    if (dialogueEffect)
     {
-        dialogueEffect.SetDialogue(text, messages[n]);
+        n--;
+        AutoComplete();
+        //TickUI();
     }
-    else
+
+    private void AutoComplete()
+    {
+        printed = true;
+        dialogueEffect.Stop();
+        text.text = "";
+        text.text = messages[n];
+    }
+
+
+    private void PlayNextMessage()
+    {
+        if (dialogueEffect)
+        {
+            dialogueEffect.SetDialogue(text, messages[n]);
+        }
+        else
+        {
+            dialogueField = messages[n];
+        }
+    }
+
+    /// <summary>
+    /// Makes sure dialogue doesn't stay on the screen forever if player forgets to remove it.
+    /// </summary>
+    private void DisableWithDelay()
     {
 
-        dialogueField = messages[n];
+        time = lifeTime;
+        if (timer == null)
+        {
+            timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+            timer.GetComponent<Timer>().RunCountDown(time, TerminateDialogue, Timer.TimerType.DELAY);
+        }
     }
-}
 
-/// <summary>
-/// Makes sure dialogue doesn't stay on the screen forever if player forgets to remove it.
-/// </summary>
-private void DisableWithDelay()
-{
-
-    time = lifeTime;
-    if (timer == null)
+    /// <summary>
+    /// Resets index, textfield and updates UI.
+    /// </summary>
+    private void ResetDialogue()
     {
-        timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-        timer.GetComponent<Timer>().RunCountDown(time, TerminateDialogue, Timer.TimerType.DELAY);
+        n = 0;
+        dialogueField = null;
     }
-}
 
-/// <summary>
-/// Resets index, textfield and updates UI.
-/// </summary>
-private void ResetDialogue()
-{
-    n = 0;
-    dialogueField = "";
-}
-
-/// <summary>
-/// Removes dialogue form the screen.
-/// </summary>
-public void TerminateDialogue()
-{
-    ResetDialogue();
-    if (DialogueProp != DialogueType.TUTORIAL)
-        gameObject.SetActive(false);
-    else
-        SceneManager.LoadScene("ClassChooserScene");
-}
+    /// <summary>
+    /// Removes dialogue form the screen.
+    /// </summary>
+    public void TerminateDialogue()
+    {
+        ResetDialogue();
+        if (DialogueProp != DialogueType.TUTORIAL)
+            gameObject.SetActive(false);
+        else
+            SceneManager.LoadScene("ClassChooserScene");
+    }
 
 
 }

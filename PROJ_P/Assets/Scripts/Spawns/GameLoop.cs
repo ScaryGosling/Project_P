@@ -89,6 +89,7 @@ public class GameLoop : MonoBehaviour
     private int index = 0;
     [SerializeField] private GameObject dialogueObject;
     private Dialogue dialogue;
+    [SerializeField] private int questWaveThreshold = 3;
 
     public bool GetShopOpen() { return shopOpen; }
 
@@ -249,6 +250,8 @@ public class GameLoop : MonoBehaviour
                 player.ResetSpeed();
                 Prompt.instance.RunMessage("Gained: " + playerSpeedScale + "x speed!", MessageType.BONUS);
             }
+
+            if(waveIndex >= questWaveThreshold-1)
             GenerateQuest();
             SpawnShopKeeper();
 

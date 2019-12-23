@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 59129255}
   - component: {fileID: 59129256}
   m_Layer: 5
-  m_Name: Text
+  m_Name: PrologueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 741657670}
   - component: {fileID: 741657669}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
