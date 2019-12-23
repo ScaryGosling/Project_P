@@ -25,6 +25,12 @@ public class MeleeHack : PlayerAttack
         base.OnEnable();
         durability = CreateInstance<Resource>();
     }
+    protected override void SetTooltipText()
+    {
+        tooltip = "Damage: " + upgradeCosts[CurrentLevel].newDamage + "->" +
+            upgradeCosts[CurrentLevel + 1].newDamage.ToString();
+    }
+
     public override void Execute()
     {
         if (durability.Value == 0)

@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Tackle
   m_EditorClassIdentifier: 
   abilityName: Charge
-  abilityDescription: 'Give em the shoulder! Dash through enemies, dealing damage.
-    Upgrade: +Damage and -CD'
+  abilityDescription: Give em the shoulder! Dash through enemies, dealing damage.
   abilityDescriptionForClassChooser: Give em the shoulder! Dash through enemies, dealing
     damage.
   castCost: 20

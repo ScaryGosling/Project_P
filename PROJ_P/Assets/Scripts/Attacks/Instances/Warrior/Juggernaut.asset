@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Juggernaut
   m_EditorClassIdentifier: 
   abilityName: Juggernaut
-  abilityDescription: 'Become impervious to damage for 5 seconds! Upgrades: +Duration'
+  abilityDescription: Become impervious to damage for 5 seconds!
   abilityDescriptionForClassChooser: Become impervious to damage for 5 seconds!
   castCost: 10
   castTime: 0

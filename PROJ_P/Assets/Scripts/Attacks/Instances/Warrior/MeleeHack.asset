@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MeleeHack
   m_EditorClassIdentifier: 
   abilityName: Basic Attack
-  abilityDescription: 'Swing your weapon! Upgrade: +Damage'
+  abilityDescription: Swing your weapon!
   abilityDescriptionForClassChooser: 'Swing your weapon! '
   castCost: 0
   castTime: 0
@@ -47,3 +47,4 @@ MonoBehaviour:
   durabilityDecrease: 1
   durabilityText: {fileID: 0}
   zeroDurabilityDamagePercentage: 0.2
+  weaponUpgrades: []

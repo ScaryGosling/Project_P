@@ -17,6 +17,13 @@ public class LifeLeech : PlayerAttack
     [SerializeField] private List<float> regenerationPerLevel = new List<float>();
     private GameObject leechParticles;
     private Timer timer;
+    protected override void SetTooltipText()
+    {
+        tooltip = "Damage: " + upgradeCosts[CurrentLevel].newDamage + "->" +
+            upgradeCosts[CurrentLevel + 1].newDamage.ToString() +
+            "Regeneration: " + regenerationPerLevel[CurrentLevel].ToString() + "->" +
+            regenerationPerLevel[CurrentLevel + 1].ToString();
+    }
 
     public override void OnEnable()
     {

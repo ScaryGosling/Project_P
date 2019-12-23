@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   abilityName: Meteor
-  abilityDescription: 'Call down a devastating meteor, dealing damage in an area!
-    Has a small cast time. Upgrade: +AoE and +Damage'
+  abilityDescription: Call down a devastating meteor, dealing damage in an area! Has
+    a small cast time.
   abilityDescriptionForClassChooser: Call down a devastating meteor, dealing damage
     in an area! Has a small cast time.
   castCost: 12
