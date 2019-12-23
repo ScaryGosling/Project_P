@@ -26,6 +26,9 @@ public class Explosion : DangerousZone
     private Quaternion originalTransformRotation;
     private Vector3 originalTransformScale;
     private bool rotating;
+
+    private GameObject explosionParticles;
+
     public bool rotationProp { get { return rotating; } set { rotating = value; } }
     protected override void Start()
     {
@@ -72,8 +75,9 @@ public class Explosion : DangerousZone
     public override void DestroyZone()
     {
         base.DestroyZone();
-        BowoniaPool.instance.GetFromPool(PoolObject.BOOMER_EXPLOSION_PARTICLE, transform.position);
+        explosionParticles = BowoniaPool.instance.GetFromPool(PoolObject.BOOMER_EXPLOSION_PARTICLE, transform.position);
         BowoniaPool.instance.AddToPool(PoolObject.EXPLOSION, gameObject, destroyAfter);
+        BowoniaPool.instance.AddToPool(PoolObject.BOOMER_EXPLOSION_PARTICLE, explosionParticles, 5);
         gameObject.transform.localScale = originalTransformScale;
         gameObject.transform.localRotation = originalTransformRotation;
     }
