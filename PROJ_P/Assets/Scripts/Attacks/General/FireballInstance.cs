@@ -61,15 +61,27 @@ public class FireballInstance : MonoBehaviour
 
         hitColliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
 
-        foreach(Collider col in hitColliders)
-        {
-            if (col.CompareTag("Enemy"))
-            {
-                col.GetComponent<Unit>().currentState.TakeDamage(Damage, Magnitude);
-            }
-        }
-        StartCoroutine(KillTimer(impactSound.length));
+        StartCoroutine(DealDamageOverTime());
+       
     }
+
+    public IEnumerator DealDamageOverTime()
+    {
+        //int maxEnemiesPerFrame = 10;
+
+
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            if (hitColliders[i].CompareTag("Enemy"))
+            {
+                hitColliders[i].GetComponent<Unit>().currentState.TakeDamage(Damage, Magnitude);
+            }
+            yield return null;
+        }
+            StartCoroutine(KillTimer(impactSound.length));
+
+    }
+
 
     public IEnumerator KillTimer(float time)
     {
