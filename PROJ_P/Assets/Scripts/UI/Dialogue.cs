@@ -47,7 +47,7 @@ public class Dialogue : MonoBehaviour
             player = Player.instance;
         }
         else
-            continueText.GetComponent<Text>().text = "Press " + settings.GetBindString(KeyFeature.DIALOGUE) + " to continue";
+            continueText.GetComponent<Text>().text = "Press " + settings.GetBindString(KeyFeature.DIALOGUE_FORWARD) + " to continue";
 
     }
     private void Awake()
@@ -56,11 +56,11 @@ public class Dialogue : MonoBehaviour
     }
     private void Update()
     {
-        //if (DialogueProp != DialogueType.TUTORIAL)
-        //{
-            if ((Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE)) && dialogueActive))
-                Next();
-        //}
+        if ((Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE_FORWARD)) && dialogueActive))
+            Next(DialogueDirection.FORWARD);
+        else if (Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE_BACK)) && dialogueActive)
+            Next(DialogueDirection.BACKWARDS);
+
         if (continueText && string.Equals(text.text, messages[n]))
         {
             continueText.SetActive(true);
@@ -108,86 +108,97 @@ public class Dialogue : MonoBehaviour
     /// <summary>
     /// Moves the dialogue index forward. 
     /// </summary>
-    public void Next()
+    public void Next(DialogueDirection dialogueDir)
     {
-        if (!printed && Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE)) && DialogueProp == DialogueType.TUTORIAL && !string.Equals(text.text, messages[n]))
+        if (!printed && Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE_FORWARD)) && DialogueProp == DialogueType.TUTORIAL && !string.Equals(text.text, messages[n]))
         {
             AutoComplete();
             if (continueText)
                 continueText.SetActive(true);
             return;
         }
-        if (n < messages.Length - 1)
+        if (DialogueProp == DialogueType.TUTORIAL && continueText)
+        {
+            continueText.SetActive(false);
+            printed = false;
+        }
+
+        if (n < messages.Length - 1 && dialogueDir == DialogueDirection.FORWARD)
         {
             n++;
             TickUI();
-            if (DialogueProp == DialogueType.TUTORIAL && continueText)
-            {
-                continueText.SetActive(false);
-                printed = false;
-            }
         }
-        else
-            TerminateDialogue();
+        else if (n > 0 && dialogueDir == DialogueDirection.BACKWARDS)
+            Previous();
 
-    }
+        if (n == messages.Length - 1){
+                TerminateDialogue();
+}
+}
 
-    private void AutoComplete()
+    public void Previous()
+{
+    n--;
+    AutoComplete();
+    //TickUI();
+}
+
+private void AutoComplete()
+{
+    printed = true;
+    dialogueEffect.Stop();
+    text.text = "";
+    text.text = messages[n];
+}
+
+
+private void PlayNextMessage()
+{
+    if (dialogueEffect)
     {
-        printed = true;
-        dialogueEffect.Stop();
-        text.text = "";
-        text.text = messages[n];
+        dialogueEffect.SetDialogue(text, messages[n]);
     }
-
-
-    private void PlayNextMessage()
-    {
-        if (dialogueEffect)
-        {
-            dialogueEffect.SetDialogue(text, messages[n]);
-        }
-        else
-        {
-
-            dialogueField = messages[n];
-        }
-    }
-
-    /// <summary>
-    /// Makes sure dialogue doesn't stay on the screen forever if player forgets to remove it.
-    /// </summary>
-    private void DisableWithDelay()
+    else
     {
 
-        time = lifeTime;
-        if (timer == null)
-        {
-            timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-            timer.GetComponent<Timer>().RunCountDown(time, TerminateDialogue, Timer.TimerType.DELAY);
-        }
+        dialogueField = messages[n];
     }
+}
 
-    /// <summary>
-    /// Resets index, textfield and updates UI.
-    /// </summary>
-    private void ResetDialogue()
-    {
-        n = 0;
-        dialogueField = "";
-    }
+/// <summary>
+/// Makes sure dialogue doesn't stay on the screen forever if player forgets to remove it.
+/// </summary>
+private void DisableWithDelay()
+{
 
-    /// <summary>
-    /// Removes dialogue form the screen.
-    /// </summary>
-    public void TerminateDialogue()
+    time = lifeTime;
+    if (timer == null)
     {
-        ResetDialogue();
-        if (DialogueProp != DialogueType.TUTORIAL)
-            gameObject.SetActive(false);
-        else
-            SceneManager.LoadScene("ClassChooserScene");
+        timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+        timer.GetComponent<Timer>().RunCountDown(time, TerminateDialogue, Timer.TimerType.DELAY);
     }
+}
+
+/// <summary>
+/// Resets index, textfield and updates UI.
+/// </summary>
+private void ResetDialogue()
+{
+    n = 0;
+    dialogueField = "";
+}
+
+/// <summary>
+/// Removes dialogue form the screen.
+/// </summary>
+public void TerminateDialogue()
+{
+    ResetDialogue();
+    if (DialogueProp != DialogueType.TUTORIAL)
+        gameObject.SetActive(false);
+    else
+        SceneManager.LoadScene("ClassChooserScene");
+}
 
 
 }
@@ -205,6 +216,8 @@ public struct DialogueData
     public string characterName;
     public string textPrompt;
 }
+
+public enum DialogueDirection { FORWARD, BACKWARDS }
 
 #region dialogueLegacy
 //[SerializeField] private List<DialogueSystems> questList;

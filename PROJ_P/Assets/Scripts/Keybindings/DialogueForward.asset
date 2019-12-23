@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   featureName: Dialogue forward
   feature: 12
-  inputKey: 32
-  defaultKey: 32
+  inputKey: 275
+  defaultKey: 275
