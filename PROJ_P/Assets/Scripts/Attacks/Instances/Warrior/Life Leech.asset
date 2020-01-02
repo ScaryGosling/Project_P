@@ -18,14 +18,14 @@ MonoBehaviour:
   abilityDescriptionForClassChooser: Leech the life out of your enemies! imbue your
     wepon with power, making your nexy 5 basic attacks heal you over time when hitting
     an enemy!
-  castCost: 15
+  castCost: 25
   castTime: 0
   magnitude: 0
   attackImage: {fileID: 21300000, guid: 6a2bafbce3a5ac449b517c53eb7cbe69, type: 3}
-  cooldown: 15
+  cooldown: 10
   cooldownActive: 0
   upgradeCosts:
-  - upgradeCost: 10
+  - upgradeCost: 100
     newDamage: 9
   - upgradeCost: 200
     newDamage: 12
@@ -53,8 +53,8 @@ MonoBehaviour:
   duration: 8
   regenerationPerLevel:
   - 5
-  - 10
-  - 11
+  - 6
+  - 7
   - 8
   - 9
   - 10

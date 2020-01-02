@@ -44,18 +44,18 @@ MonoBehaviour:
   abilityCat: 2
   slowTime: 0
   speedMultiplier: 0
-  resistance: 0.1
-  movementSpeed: 1.5
+  resistance: 0.01
+  movementSpeed: 2
   berserkUpgrades:
-  - duration: 10
+  - duration: 15
     attackSpeed: 1.5
-  - duration: 12
+  - duration: 17.5
     attackSpeed: 1.6
-  - duration: 14
-    attackSpeed: 1.7
-  - duration: 16
-    attackSpeed: 1.8
-  - duration: 18
-    attackSpeed: 1.9
   - duration: 20
+    attackSpeed: 1.7
+  - duration: 22.5
+    attackSpeed: 1.8
+  - duration: 25
+    attackSpeed: 1.9
+  - duration: 30
     attackSpeed: 2
