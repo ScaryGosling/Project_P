@@ -4274,11 +4274,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4738550533923403046}
     m_Modifications:
-    - target: {fileID: 8629009361956579893, guid: 666a13891d20bf14b84ddd32ee46f3ef,
-        type: 3}
-      propertyPath: m_Name
-      value: WaveText
-      objectReference: {fileID: 0}
     - target: {fileID: 1242544440411945647, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4384,10 +4379,15 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8629009361956579893, guid: 666a13891d20bf14b84ddd32ee46f3ef,
+        type: 3}
+      propertyPath: m_Name
+      value: WaveText
+      objectReference: {fileID: 0}
     - target: {fileID: 3086651210904522627, guid: 666a13891d20bf14b84ddd32ee46f3ef,
         type: 3}
       propertyPath: m_fontSize
-      value: 26.4
+      value: 40.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 666a13891d20bf14b84ddd32ee46f3ef, type: 3}
@@ -4404,16 +4404,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4738550533923403046}
     m_Modifications:
-    - target: {fileID: 4348120610766505554, guid: ecc5381dadd0ec645ae108b92c477cc8,
-        type: 3}
-      propertyPath: m_Name
-      value: QuestTextPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348120610766505554, guid: ecc5381dadd0ec645ae108b92c477cc8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2992236275247505149, guid: ecc5381dadd0ec645ae108b92c477cc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4497,7 +4487,7 @@ PrefabInstance:
     - target: {fileID: 2992236275247505149, guid: ecc5381dadd0ec645ae108b92c477cc8,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.025558509
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2992236275247505149, guid: ecc5381dadd0ec645ae108b92c477cc8,
         type: 3}
@@ -4507,7 +4497,7 @@ PrefabInstance:
     - target: {fileID: 2992236275247505149, guid: ecc5381dadd0ec645ae108b92c477cc8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.155
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2992236275247505149, guid: ecc5381dadd0ec645ae108b92c477cc8,
         type: 3}
@@ -4518,6 +4508,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348120610766505554, guid: ecc5381dadd0ec645ae108b92c477cc8,
+        type: 3}
+      propertyPath: m_Name
+      value: QuestTextPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348120610766505554, guid: ecc5381dadd0ec645ae108b92c477cc8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4114791317665110860, guid: ecc5381dadd0ec645ae108b92c477cc8,
         type: 3}
@@ -4548,6 +4548,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.8039216
       objectReference: {fileID: 0}
+    - target: {fileID: 2118314927, guid: ecc5381dadd0ec645ae108b92c477cc8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecc5381dadd0ec645ae108b92c477cc8, type: 3}
 --- !u!224 &1454676728127542362 stripped
@@ -4575,16 +4579,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4738550533923403046}
     m_Modifications:
-    - target: {fileID: 8686316143099593440, guid: b5c3e58931b7a2040b71f64fae758e6b,
-        type: 3}
-      propertyPath: m_Name
-      value: CollectionText
-      objectReference: {fileID: 0}
-    - target: {fileID: 8686316143099593440, guid: b5c3e58931b7a2040b71f64fae758e6b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8139529624557716792, guid: b5c3e58931b7a2040b71f64fae758e6b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4688,6 +4682,16 @@ PrefabInstance:
     - target: {fileID: 8139529624557716792, guid: b5c3e58931b7a2040b71f64fae758e6b,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686316143099593440, guid: b5c3e58931b7a2040b71f64fae758e6b,
+        type: 3}
+      propertyPath: m_Name
+      value: CollectionText
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686316143099593440, guid: b5c3e58931b7a2040b71f64fae758e6b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

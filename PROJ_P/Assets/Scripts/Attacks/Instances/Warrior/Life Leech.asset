@@ -25,7 +25,7 @@ MonoBehaviour:
   cooldown: 15
   cooldownActive: 0
   upgradeCosts:
-  - upgradeCost: 100
+  - upgradeCost: 10
     newDamage: 9
   - upgradeCost: 200
     newDamage: 12
@@ -54,7 +54,7 @@ MonoBehaviour:
   regenerationPerLevel:
   - 5
   - 10
-  - 15
-  - 17.5
-  - 20
-  - 22
+  - 11
+  - 8
+  - 9
+  - 10
