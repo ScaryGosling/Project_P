@@ -21,6 +21,8 @@ public class Shop : StateMachine
     private bool infiniteTimeUsed;
     private float tutorialTime = 600;
     [SerializeField] private Texture2D shopHand;
+
+
     private void Start()
     {
         spawnPoint = transform.position;
@@ -42,10 +44,10 @@ public class Shop : StateMachine
         {
             activeShopTime = shopTime; 
         }
-        shopTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-        shopTimer.GetComponent<Timer>().RunCountDown(activeShopTime, RemoveShop, Timer.TimerType.DELAY);
+        //shopTimer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+        //shopTimer.RunCountDown(activeShopTime, RemoveShop, Timer.TimerType.DELAY);
         timerText.gameObject.SetActive(true);
-        timerText.GetComponent<ShopTimer>().SetTimer(shopTimer.GetComponent<Timer>());
+        timerText.GetComponent<ShopTimer>().SetTimer(RemoveShop, activeShopTime);
         toggleArrow.goal = gameObject;
         toggleArrow.toggle = true;
         toggleArrow.arrowColor = arrowColor;
@@ -64,7 +66,7 @@ public class Shop : StateMachine
         catch (Exception e) { }
         if (shopTimer != null)
         {
-            shopTimer.GetComponent<Timer>().CancelMethod();
+            timerText.GetComponent<ShopTimer>().SetTimer(RemoveShop, 0);
             shopTimer = null;
         }
 
@@ -78,9 +80,9 @@ public class Shop : StateMachine
         }
         timerText.SetActive(false);
         //Destroy(shopTimer);
+        ChangeState<ShopTimeFinishedState>();
         if (shopTimer != null)
         {
-        ChangeState<ShopTimeFinishedState>();
 
         }
     }

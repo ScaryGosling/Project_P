@@ -15,7 +15,10 @@ public class Timer : MonoBehaviour
     public enum TimerType { WHILE, DELAY }
     private TimerType type;
 
-
+    private void OnEnable()
+    {
+        MethodHasRun = false;
+    }
     public void CountDown()
     {
 
@@ -27,7 +30,7 @@ public class Timer : MonoBehaviour
         else if (!MethodHasRun)
         {
             methodToRun();
-            //MethodHasRun = true;
+            MethodHasRun = true;
             BowoniaPool.instance.AddToPool(PoolObject.TIMER, gameObject);
         }
 
