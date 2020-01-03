@@ -57,7 +57,7 @@ public class IceNova : PlayerAttack
         {
 
 
-            if (collider.CompareTag("Enemy"))
+            if (collider != null && collider.CompareTag("Enemy"))
             {
                 collider.GetComponent<Unit>().agent.enabled = true;
                 Destroy(collider.transform.GetChild(collider.transform.childCount-1).gameObject);
