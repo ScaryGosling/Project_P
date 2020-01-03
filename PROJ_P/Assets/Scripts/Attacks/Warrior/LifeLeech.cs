@@ -41,7 +41,7 @@ public class LifeLeech : PlayerAttack
 
     public override void RunAttack()
     {
-        sword.GetComponent<Collider>().enabled = true;
+        
         
     }
 
