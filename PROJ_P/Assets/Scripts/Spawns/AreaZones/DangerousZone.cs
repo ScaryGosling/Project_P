@@ -66,7 +66,7 @@ public class DangerousZone : MonoBehaviour
 
     public void SetupSounds(AudioClip tickSound, AudioClip climaxSound)
     {
-        if (source && tickSound && climaxSound)
+        if (source && tickSound && climaxSound && Player.instance.GetSettings().UseSFX)
         {
             this.explosion = climaxSound;
             this.fuse = tickSound;
