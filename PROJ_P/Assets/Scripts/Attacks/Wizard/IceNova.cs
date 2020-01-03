@@ -23,7 +23,7 @@ public class IceNova : PlayerAttack
 
     protected override void SetTooltipText()
     {
-        tooltip = "Cooldown: " + durationPerLevel[CurrentLevel].ToString() + "->" +
+        tooltip = "Duration: " + durationPerLevel[CurrentLevel].ToString() + "->" +
             durationPerLevel[CurrentLevel + 1].ToString();
     }
 
