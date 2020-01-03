@@ -31,6 +31,7 @@ public class JumpImpact : AbilityBase
     private ObstacleAvoidanceType avoidanceBehavior;
     private bool newCode = true;
     private float stoppingDistance, agentSpeed;
+    private float distanceFromTarget;
     private enum JumpState
     {
         JUMP, LAND, HOVER, NULL
@@ -87,7 +88,6 @@ public class JumpImpact : AbilityBase
 
     private void MoveUpwards()
     {
-
         distance = Vector3.Distance(owner.transform.position, playerPositionalDelay);
 
         if (owner.agent != null && owner.agent.enabled)
@@ -100,16 +100,47 @@ public class JumpImpact : AbilityBase
             }
 
         }
-
-
     }
+    private void MoveUpwards2()
+    {
+        distance = Vector3.Distance(owner.transform.position, playerPositionalDelay);
+        //float step = Mathf.Abs(Vector3.Distance(owner.transform.position, warningArea.transform.position)-distanceFromTarget) / distanceFromTarget/2 * Mathf.PI;
+        float step = Mathf.Abs(Vector3.Distance(owner.transform.position, warningArea.transform.position) - distanceFromTarget) / 2 * 2 * Mathf.PI;
+        if (owner.agent != null && owner.agent.enabled)
+        {
+            owner.agent.SetDestination(playerPositionalDelay);
+            if (mesh.transform.position.y < owner.transform.position.y + owner.agent.height / 2)
+            {
+                mesh.transform.position= new Vector3(owner.transform.position.x, mesh.transform.position.y + owner.agent.height / 2 * Mathf.Sin(0.5f * Time.deltaTime * step), owner.transform.position.z);
+            }
 
+        }
+    }
+    private void MoveDownwards()
+    {
+        distance = Vector3.Distance(owner.transform.position, playerPositionalDelay);
+        float step = Mathf.Abs(Vector3.Distance(owner.transform.position, warningArea.transform.position) - distanceFromTarget )/2 * 2 * Mathf.PI;
+        if (owner.agent != null && owner.agent.enabled)
+        {
+            owner.agent.SetDestination(playerPositionalDelay);
+            if (mesh.transform.position.y < owner.transform.position.y + owner.agent.height / 2)
+            {
+                mesh.transform.position = new Vector3(owner.transform.position.x, mesh.transform.position.y + owner.agent.height / 2 * Mathf.Sin(0.5f * Time.deltaTime * step + 0.5f*Mathf.PI), owner.transform.position.z);
+            }
+
+        }
+    }
     public void StartJump()
     {
+        //MoveUpwards2();
+
+        //if (Vector3.Distance(owner.transform.position, warningArea.transform.position) <= distanceFromTarget / 2)
+        //{
+        //    jumpState = JumpState.HOVER;
+        //}
+
         MoveUpwards();
-
-
-        if (mesh.transform.position.y >= owner.transform.position.y + owner.agent.height/2)
+        if (mesh.transform.position.y >= owner.transform.position.y + owner.agent.height / 2)
         {
             jumpState = JumpState.HOVER;
         }
@@ -183,6 +214,7 @@ public class JumpImpact : AbilityBase
             //warningArea = BowoniaPool.instance.GetFromPool(PoolObject.BOOMER_WARNINGAREA);
             warningArea.transform.position = playerPositionalDelay;
             warningArea.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+            distanceFromTarget = Vector3.Distance(owner.transform.position, warningArea.transform.position) ;
         }
     }
     private void ActivateJump()
@@ -234,7 +266,6 @@ public class JumpImpact : AbilityBase
         jumping = false;
         jumpTimer = null;
         owner.agent.stoppingDistance = stoppingDistance;
-
         //warningArea = null;
     }
 
