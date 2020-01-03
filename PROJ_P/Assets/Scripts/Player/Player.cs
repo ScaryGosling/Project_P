@@ -596,19 +596,30 @@ public class Player : MonoBehaviour
     Image[] attack = new Image[4];
     private IEnumerator ShowCooldown(int position)
     {
-        
+        PlayerAttack tempAttack = activeAttacks.list[position];
+
         float animationTime;
-        attack[position] = attackUISpot[position];
-        attack[position].fillAmount = 0;
+        //attack[position] = attackUISpot[position];
+        //attack[position].fillAmount = 0;
         animationTime = 0;
-        float cooldownTime = activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed;
-        while (activeAttacks.list[position] != null && animationTime < cooldownTime)
+        float cooldownTime = tempAttack.GetCooldown() / activeStats.attackSpeed;
+
+        while (animationTime < cooldownTime)
         {
             animationTime += Time.deltaTime;
-            attack[position].fillAmount = animationTime / cooldownTime;
-            yield return null;
+            for (int a = 0; a < activeAttacks.list.Length; a++)
+            {
+                if(activeAttacks.list[a] != null && activeAttacks.list[a] == tempAttack)
+                {
+                    attackUISpot[a].fillAmount = animationTime / cooldownTime;
+                }
+            }
+                    yield return null;
+
+            
 
         }
+
     }
 
     RaycastHit hit;
@@ -645,7 +656,7 @@ public class Player : MonoBehaviour
         {
             attackUISpot[position].color = attackBGColor;
             attackUISpotBG[position].sprite = attackUISpot[position].sprite;
-
+            attackUISpot[position].fillAmount = 1;
             UpdateIcons();
         }
     }

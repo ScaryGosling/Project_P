@@ -107,7 +107,7 @@ public class Sword : MonoBehaviour
 
                 
             }
-            if(impactSound != null)
+            if(impactSound != null && Player.instance.GetSettings().UseSFX)
             {
                 source.Play();
             }

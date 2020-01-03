@@ -80746,7 +80746,7 @@ PrefabInstance:
     - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
       propertyPath: gold
-      value: 100000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1079045316322619803, guid: 74d1415f2c9a8e54eb93ce037bae2d6d,
         type: 3}
