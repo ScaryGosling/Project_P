@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Mystic
   m_EditorClassIdentifier: 
   classIcon: {fileID: 21300000, guid: 10e5a5eaa55c8454cb89f481acb8fc91, type: 3}
-  description: Mystics are artist of magic. They control the battlefield from afar
+  description: Mystics are artists of magic. They control the battlefield from afar
     with devestating ranged spells while also outmaneuvering their enemies with freezing
     blasts and teleports. The mystic use mana, a finite resource that fuel all of
-    their spells. Mana starts out full. Mana can be regained by using manapotions
+    their spells. Mana starts out full. Mana can be regained by using mana potions
     or through pickups on the map.
   playerClass: 0
   list:

@@ -15,8 +15,8 @@ MonoBehaviour:
   abilityName: Life leech
   abilityDescription: Leech the life out of your enemies! Next 5 basic attacks heals
     you over time!
-  abilityDescriptionForClassChooser: Leech the life out of your enemies! imbue your
-    wepon with power, making your nexy 5 basic attacks heal you over time when hitting
+  abilityDescriptionForClassChooser: Leech the life out of your enemies! Imbue your
+    weapon with power, making your next 5 basic attacks heal you over time when hitting
     an enemy!
   castCost: 25
   castTime: 0
