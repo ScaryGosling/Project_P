@@ -74,7 +74,7 @@ public class FireballInstance : MonoBehaviour
 
         for (int i = 0; i < hitColliders.Length; i++)
         {
-            if (hitColliders[i].CompareTag("Enemy"))
+            if ( hitColliders[i] != null && hitColliders[i].CompareTag("Enemy"))
             {
                 hitColliders[i].GetComponent<Unit>().currentState.TakeDamage(Damage, Magnitude);
             }
