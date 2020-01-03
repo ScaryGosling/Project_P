@@ -596,16 +596,16 @@ public class Player : MonoBehaviour
     Image[] attack = new Image[4];
     private IEnumerator ShowCooldown(int position)
     {
-
+        
         float animationTime;
         attack[position] = attackUISpot[position];
         attack[position].fillAmount = 0;
         animationTime = 0;
-        //cooldownTime = activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed;
-        while (activeAttacks.list[position] != null && animationTime < activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed)
+        float cooldownTime = activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed;
+        while (activeAttacks.list[position] != null && animationTime < cooldownTime)
         {
             animationTime += Time.deltaTime;
-            attack[position].fillAmount = animationTime / activeAttacks.list[position].GetCooldown() / activeStats.attackSpeed;
+            attack[position].fillAmount = animationTime / cooldownTime;
             yield return null;
 
         }
@@ -705,7 +705,7 @@ public class Player : MonoBehaviour
         attack.Execute();
         attack.cooldownActive = true;
         chargeUpSource.Stop();
-        yield return new WaitForSeconds(attack.GetCooldown());
+        yield return new WaitForSeconds(attack.GetCooldown() / activeStats.attackSpeed);
         attack.cooldownActive = false;
     }
     public void AnimationTrigger(string trigger)
