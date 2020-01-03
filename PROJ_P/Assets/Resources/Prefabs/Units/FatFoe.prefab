@@ -164,6 +164,7 @@ MonoBehaviour:
   skinColors:
   - {fileID: 2100000, guid: 5154204d71a84234e86a8a56d484dc3b, type: 2}
   - {fileID: 2100000, guid: 35a29fa9e6b964542bbfbae61c0a5599, type: 2}
+  - {fileID: 2100000, guid: 0ce7ebbdfa6451644b349e4bccb08dbf, type: 2}
   meshRenderer: {fileID: 2602979348309675235}
   moveSpeed: 4
   baseHeath: 27
@@ -575,11 +576,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fat UwU Run
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: f59df15340dfc6b4ea1f7f92207eebc2,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 9d06b0cef54d0be4fb7084d30f1a57d1, type: 2}
     - target: {fileID: -4216859302048453862, guid: f59df15340dfc6b4ea1f7f92207eebc2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -655,6 +651,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5154204d71a84234e86a8a56d484dc3b, type: 2}
+    - target: {fileID: -6057140222963153312, guid: f59df15340dfc6b4ea1f7f92207eebc2,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9d06b0cef54d0be4fb7084d30f1a57d1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f59df15340dfc6b4ea1f7f92207eebc2, type: 3}
 --- !u!4 &746257857801165972 stripped
@@ -777,6 +778,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2161199849938165181}
     m_Modifications:
+    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 483798250226227492, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -881,11 +887,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2273105901793527596, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 18320881556040783, guid: d05a8b0d3bb2bb643a81a8c15ecca80f,
         type: 3}
