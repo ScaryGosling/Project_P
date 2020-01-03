@@ -30,6 +30,7 @@ public class FireballInstance : MonoBehaviour
         transform.GetChild(0).GetComponent<Renderer>().enabled = true;
         transform.GetChild(1).gameObject.SetActive(true);
         GetComponent<Collider>().enabled = true;
+        transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
     }
     public void OnCollisionEnter(Collision collision)
     {
@@ -51,6 +52,7 @@ public class FireballInstance : MonoBehaviour
     {
         GetComponent<Collider>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
+        transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
 
         impact = BowoniaPool.instance.GetFromPool(PoolObject.FIREBALL_IMPACT);
         impact.transform.position = impactPosition;
