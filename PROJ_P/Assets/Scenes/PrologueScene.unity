@@ -254,63 +254,34 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 8cfb5727991c2644da49d9b8e642f2bc, type: 3}
     - {fileID: 21300000, guid: fc7ad4d7872307440b7d6004ddb89062, type: 3}
     - {fileID: 21300000, guid: 9e00077a5eb8a874780f92a00848045b, type: 3}
+    - {fileID: 21300000, guid: 8cfb5727991c2644da49d9b8e642f2bc, type: 3}
     voiceLines: []
     music: {fileID: 0}
     messages:
-    - 'For millennia, the great city state of Bowonia stood tall above all others
-      of its kind, for it was twice the size of some of its neighbors. It was thought
-      by many that this great state could one day become a great empire. Conquering
-      and subduing all inhabitants on the continent of Memia. However, the inhabitants
-      of Bowonia had no such desires. They only wished to lead peaceful and simple
-      lives. Caring for each other, and nothing else. '
-    - "Still, these people would not so easily have that which they desired. For where
-      great power resides, great envy follows. And because of Bowonias stature and
-      fertile lands, other nations constantly sought to declare war on them. As a
-      result of many defensive wars, Bowonia quite paradoxically developed a culture
-      based on minimalism, kindness and prowess in battle. These lands had more masterful
-      warriors and mages than any state on the continent. Every single one of them
-      had proven themselves to be heroes of war, yet none of them desired the title.
-      Fortunately, these wars were usually short lived, and swiftly won by the Bowonians.
-      Through brute force and willpower, they were soon able to go home and tend to
-      their families yet again. \r\n"
-    - "But recently, something strange and terrifying has started to happen in Bowonia.
-      A new threat has emerged that terrifies even the mightiest of Bowonians. It
-      all started when a dark portal opened itself near the town square \u2013 from
-      it, dark beings with twisted eyes emerged. Their hearts blackened by their endless
-      hunger. They were OwOs yet they were not. Their bodies were malformed, and their
-      behavior was savage. The heroes of Bowonia managed to push back this seemingly
-      endless wave of demons for a long time, but always at great cost. Now, with
-      only a few fighters left, it has been decided that the novice students from
-      the \u201CBowonian Academy of Violence\u201D shall be mobilized and brought
-      into battle. \r\n"
-    - "Amongst these was a young OwO, who had never seen battle before. In fact, he
-      had just recently joined the ranks of the academy and found himself utterly
-      unprepared. Just shortly after joining the battle, he lost his nerve and started
-      to cry. His commander yelled at him for being a coward and that he disgraced
-      Bowonia with his inaction. But he did not care what his commander thought of
-      him, for soon they would all be dead. He walked around, barely being able to
-      see because of the tears. He accidentally stepped on something. Something soft
-      and warm, and then he felt its pus on the bottom of his feet. He almost slipped.
-      The screams continued; the screeching sounds of the creatures around, and tortured
-      ones from the people that he had entered battle with. And so, he hid himself.\r\n"
-    - "When he later emerged from his hiding place, he found that everyone was gone.
-      The only thing remaining was their intestines and blood. He did not know if
-      anyone else had survived the night, but he knew that it was now up to him to
-      save the city. From the body of the commander he took a weapon of great power,
-      which now belonged to him. And he decided that there was only one way forward,
-      towards the gate. He thought that if he could only find a way to close it, all
-      would be well. When he arrived at the place however, his hope dissipated. For
-      there wasn\u2019t one, but numerous gates. Suddenly, something strange started
-      to happen to the portal, it changed in color and a hooded creature walked out
-      of it. The creature was slow, so slow. And walked with a crocked back, aided
-      by a staff. And just like the demons, its eyes were twisted.\r\n"
-    - "\u201COwO, I have come to aid you in your final stand. I know what you\u2019re
-      thinking, but these gates cannot be destroyed. And even if they could, they
-      would only reemerge later. The creatures that come at night, they are not demons,
-      they are your people. They come from another dimension, in which the Bowonians
-      grew hungry for power. Meddling in dark magic. It twisted them OwO, it twisted
-      me\u2026 it twisted you.  You cannot save this world, but you can delay its
-      demise\u2026\u201D \r\n"
+    - "In the midst of night, \r\nwhen OwO opened his eyes, \r\nhe was struck by a
+      glaring light. \r\nPurple, liquid and fluid sky.\r\nHe looked up and thought
+      \u201CHave I died?\u201D. \r\n\r\n\u201COh brethren, oh brethren where have
+      you gone,\r\nWhy have you left me alone?\r\nDark, hollow and no delight,\r\nIf
+      I yet live, take my life!\u201D,\r\nCrying, as the world turned blurry from
+      his tears. \r\n\r\nBut in his deepest despair,\r\nA shadow in the dark!\r\nHe
+      yelled: \u201CWho comes there?!\u201D \r\nHis voice, the shadow could remark,\r\nBut
+      the shadow did not answer, for shadows never speak.\r\n"
+    - "Now a waycross torn in two, \r\nOf magic and might,\r\nChoose a class that
+      fits you,\r\nOne hero to fight the blight. \r\nRise as a mage- or a fighter
+      of Bowonian right. \r"
+    - "Then endless hordes of creatures will come, \r\nAnd you must slay them all,
+      \r\nFor ravage UwUs they have now become,\r\nLet their agony will be your call,\r\nRevel
+      in blood, madness and endless gore. \r\n\r\n"
+    - "First the millenial, of all monster most plentiful, \r\nIts strength shall
+      be that of the group,\r\nUsing agile dodges because they are careful.\r"
+    - "Then there is the zoomer, and they never ask why,\r\nAs they crash headfirst
+      into walls,\r\nTheir speed only bested by their willingness to die\r."
+    - "You say, okay\u2026 but one monster yet remain,\r\nThe boomer never laughs
+      they say,\r\nBut at least they know how to suffer the pain.\r"
+    - "And I am the enchanter, from the gates I come too,\r\nBringing draughts, steel
+      and great magic to you,\r\nInfused with dark crystals their power comes through,\r\nThe
+      more you find the stronger my sprue,\r\nYou\u2019ll find the crystals when your
+      enemies feel blue. \r\n\r\n"
     characterName: 
     textPrompt: 
 --- !u!114 &59129254
