@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: MeleeHack
   m_EditorClassIdentifier: 
   abilityName: Basic Attack
-  abilityDescription: Swing your weapon!
-  abilityDescriptionForClassChooser: 'Swing your weapon! '
+  abilityDescription: Wield the power of honed steal. Dissipate your foes with physical
+    force.
+  abilityDescriptionForClassChooser: Wield the power of honed steal. Dissipate your
+    foes with physical force.
   castCost: 0
   castTime: 0
   magnitude: 61
