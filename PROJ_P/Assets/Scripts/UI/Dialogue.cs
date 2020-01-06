@@ -167,6 +167,8 @@ public class Dialogue : MonoBehaviour
         dialogueEffect.Stop();
         text.text = "";
         text.text = messages[n];
+        if(sprites.Length > 0)
+        image.sprite = sprites[n];
     }
 
 

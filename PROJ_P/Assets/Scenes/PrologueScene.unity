@@ -251,10 +251,10 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 8cfb5727991c2644da49d9b8e642f2bc, type: 3}
     - {fileID: 21300000, guid: 796dd7dae8dc33445af88d713e9fcb02, type: 3}
     - {fileID: 21300000, guid: 9e00077a5eb8a874780f92a00848045b, type: 3}
-    - {fileID: 21300000, guid: 8cfb5727991c2644da49d9b8e642f2bc, type: 3}
-    - {fileID: 21300000, guid: fc7ad4d7872307440b7d6004ddb89062, type: 3}
-    - {fileID: 21300000, guid: 9e00077a5eb8a874780f92a00848045b, type: 3}
-    - {fileID: 21300000, guid: 8cfb5727991c2644da49d9b8e642f2bc, type: 3}
+    - {fileID: 21300000, guid: 43042c4ac8a5f6b45853ac3c52c0ba61, type: 3}
+    - {fileID: 21300000, guid: 16fcc68a5dc7e0149af3b89a73648d1e, type: 3}
+    - {fileID: 21300000, guid: a8761fb4d91ab4e46a90fdc3859e7c62, type: 3}
+    - {fileID: 21300000, guid: 094a1a9239a97cf43879abf7b8e9c558, type: 3}
     voiceLines: []
     music: {fileID: 0}
     messages:
