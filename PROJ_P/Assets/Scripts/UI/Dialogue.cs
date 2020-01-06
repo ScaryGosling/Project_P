@@ -48,7 +48,7 @@ public class Dialogue : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(settings.GetBind(KeyFeature.TOGGLE_SHOP)))
+        if (Input.GetKeyDown(KeyCode.Escape) && DialogueProp == DialogueType.TUTORIAL)
         {
             TerminateDialogue();
             return;
