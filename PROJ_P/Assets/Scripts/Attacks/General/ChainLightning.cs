@@ -121,7 +121,7 @@ public class ChainLightning : ProjectileInstance
         if (enemiesInRange == null || !active)
             return;
 
-            if (Player.instance.gameObject.GetComponent<LineRenderer>())
+            if (Player.instance.gameObject.GetComponent<LineRenderer>() && bindingCollider != null)
             {
                 LineRenderer initialLine = Player.instance.gameObject.GetComponent<LineRenderer>();
                 initialLine.material = Material;
@@ -135,7 +135,7 @@ public class ChainLightning : ProjectileInstance
 
             }
 
-            if (bindingCollider.GetComponent<LineRenderer>() && enemiesInRange.Count > 0)
+            if (bindingCollider != null && bindingCollider.GetComponent<LineRenderer>() && enemiesInRange.Count > 0)
             {
                 LineRenderer bind = bindingCollider.GetComponent<LineRenderer>();
                 bind.material = Material;
