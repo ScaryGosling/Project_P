@@ -43946,7 +43946,7 @@ PrefabInstance:
     - target: {fileID: 311801156456874169, guid: b166cba017ce62e4897241c2320b92c6,
         type: 3}
       propertyPath: boomerThreshold
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 311801156456874169, guid: b166cba017ce62e4897241c2320b92c6,
         type: 3}
