@@ -64,7 +64,7 @@ public class BoomerDeath : DeathBase
     protected override void DisableUnit()
     {
         base.DisableUnit();
-        BowoniaPool.instance.AddToPool(PoolObject.BOOMER, owner.gameObject, 2.8f);
+        BowoniaPool.instance.AddToPool(PoolObject.BOOMER, owner.gameObject, explosionDelay);
 
     }
 }
