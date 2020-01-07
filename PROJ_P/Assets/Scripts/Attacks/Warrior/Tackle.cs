@@ -9,6 +9,7 @@ public class Tackle : PlayerAttack
     [Header("Ability Specific")]
     [SerializeField] float tackleForce;
     [SerializeField] float tackleLength;
+    [SerializeField] GameObject tackleParticles;
     private float startSpeed;
     private float startAcceleration;
     private NavMeshAgent agent;
@@ -33,7 +34,8 @@ public class Tackle : PlayerAttack
 
         agent = player.GetComponent<NavMeshAgent>();
 
-        dashParticleInstance = BowoniaPool.instance.GetFromPool(PoolObject.TACKLE_PARTICLE);
+        dashParticleInstance = Instantiate(tackleParticles);
+        //dashParticleInstance = BowoniaPool.instance.GetFromPool(PoolObject.TACKLE_PARTICLE);
         dashParticleInstance.transform.SetParent(player.transform);
         dashParticleInstance.transform.localPosition = Vector3.zero;
         dashParticleInstance.transform.localEulerAngles = Vector3.zero;
@@ -59,8 +61,9 @@ public class Tackle : PlayerAttack
 
         agent.GetComponent<Player>().activeStats.resistanceMultiplier = 0;
 
-        GameObject timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
-        timer.GetComponent<Timer>().RunCountDown(duration, ResetStats, Timer.TimerType.DELAY);
+        dashParticleInstance.AddComponent<Timer>().RunCountDown(duration, ResetStats, Timer.TimerType.DELAY);
+        //GameObject timer = BowoniaPool.instance.GetFromPool(PoolObject.TIMER);
+        //timer.GetComponent<Timer>().RunCountDown(duration, ResetStats, Timer.TimerType.DELAY);
        
 
     }
@@ -77,7 +80,6 @@ public class Tackle : PlayerAttack
             enemy.GetComponent<Rigidbody>().AddForce(enemy.transform.TransformDirection(Vector3.back) * 20);
         }
 
-
     }
 
 
@@ -88,7 +90,7 @@ public class Tackle : PlayerAttack
         {
             ps.Stop();
         }
-        BowoniaPool.instance.AddToPool(PoolObject.TACKLE_PARTICLE, dashParticleInstance, 1);
+        //BowoniaPool.instance.AddToPool(PoolObject.TACKLE_PARTICLE, dashParticleInstance, 1);
 
         agent.ResetPath();
         agent.speed = startSpeed;
@@ -99,6 +101,7 @@ public class Tackle : PlayerAttack
         agent.GetComponent<PlayerMovement>().enabled = true;
         player.TackleCollider().DealDamageOnCollision = false;
 
+        Destroy(dashParticleInstance);
 
     }
 }

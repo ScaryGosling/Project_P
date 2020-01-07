@@ -46,6 +46,8 @@ MonoBehaviour:
   speedMultiplier: 0
   tackleForce: 20
   tackleLength: 15
+  tackleParticles: {fileID: 2149720942933832275, guid: edd5958c276643e4691c14b1d08b9c9a,
+    type: 3}
   cooldownPerTackleLevel:
   - 5
   - 4

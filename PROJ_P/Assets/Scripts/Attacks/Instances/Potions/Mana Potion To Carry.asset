@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Mana Potion
   abilityDescription: A mana potion that restores 20 mana when consumed.
-  potionImage: {fileID: 21300000, guid: 38b45ea9f4642004bbe0e46040ff8048, type: 3}
+  potionImage: {fileID: 21300000, guid: 34a4a3efa781e8a4da3bb99c6c2591c8, type: 3}
   maxResourcePotion: 3
   potionCost: 20
