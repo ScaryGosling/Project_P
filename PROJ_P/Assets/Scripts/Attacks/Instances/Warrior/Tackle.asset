@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Tackle
   m_EditorClassIdentifier: 
   abilityName: Charge
-  abilityDescription: Give em the shoulder! Dash through enemies, dealing damage.
-  abilityDescriptionForClassChooser: Give em the shoulder! Dash through enemies, dealing
-    damage.
+  abilityDescription: 'Launch yourself forward, dashing your way through enemy lines.
+    Dealing damage to everyone in your path. '
+  abilityDescriptionForClassChooser: 'Launch yourself forward, dashing your way through
+    enemy lines. Dealing damage to everyone in your path. '
   castCost: 20
   castTime: 0
   magnitude: 0

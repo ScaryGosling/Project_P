@@ -48,6 +48,12 @@ public class Dialogue : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && DialogueProp == DialogueType.TUTORIAL)
+        {
+            TerminateDialogue();
+            return;
+        }
+
         if ((Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE_FORWARD)) && dialogueActive))
             Next(DialogueDirection.FORWARD);
         else if (Input.GetKeyDown(settings.GetBind(KeyFeature.DIALOGUE_BACK)) && dialogueActive)
@@ -66,7 +72,7 @@ public class Dialogue : MonoBehaviour
     {
         text.text = dialogueField;
         PlayNextMessage();
-        if (sprites != null && sprites.Length > 0)
+        if (sprites != null && sprites.Length > 0 && sprites[n])
             image.sprite = sprites[n];
 
         if (DialogueProp == DialogueType.TUTORIAL)
@@ -161,6 +167,8 @@ public class Dialogue : MonoBehaviour
         dialogueEffect.Stop();
         text.text = "";
         text.text = messages[n];
+        if(sprites.Length > 0)
+        image.sprite = sprites[n];
     }
 
 
