@@ -20,21 +20,21 @@ MonoBehaviour:
   castTime: 0
   magnitude: 0
   attackImage: {fileID: 21300000, guid: 596559e10762b5a419a9cb95851716e6, type: 3}
-  cooldown: 0.2
+  cooldown: 1
   cooldownActive: 0
   upgradeCosts:
   - upgradeCost: 0
-    newDamage: 2
+    newDamage: 12
   - upgradeCost: 200
-    newDamage: 3
+    newDamage: 15
   - upgradeCost: 400
-    newDamage: 4
+    newDamage: 21
   - upgradeCost: 600
-    newDamage: 5
+    newDamage: 24
   - upgradeCost: 800
-    newDamage: 6
+    newDamage: 27
   - upgradeCost: 1000
-    newDamage: 7
+    newDamage: 30
   lockedAbility: 0
   particles: {fileID: 0}
   sound: {fileID: 8300000, guid: 94d36fc08a9f585429087b378e0d8ab6, type: 3}
