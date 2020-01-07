@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: Townhouse2
   m_Shader: {fileID: -6465566751694194690, guid: c27bec502a736134eaea1349d2dec7eb,
     type: 3}
   m_ShaderKeywords: 
@@ -61,7 +61,7 @@ Material:
     - Vector1_B6396263: 0
     - Vector1_E9BF1492: 0
     - Vector1_FCAF0761: 1
-    - _Alpha: 0
+    - _Alpha: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
